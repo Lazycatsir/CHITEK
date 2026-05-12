@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
+}
+
+const { title, description, ogTitle, ogDescription, ogImage, ogUrl } = Astro.props;
+const defaultOgImage = 'https://chitek.com/assets/images/logo.png';
+const defaultOgUrl = 'https://chitek.com';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={ogTitle || title} />
+  <meta property="og:description" content={ogDescription || description} />
+  <meta property="og:image" content={ogImage || defaultOgImage} />
+  <meta property="og:url" content={ogUrl || defaultOgUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CHITEK INNOPOWER" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitle || title} />
+  <meta name="twitter:description" content={ogDescription || description} />
+</head>
+<body class="font-barlow text-text-dark bg-white overflow-x-hidden">
+  <Nav />
+  <slot />
+  <Footer />
+  <Sidebar />
+
+  <!-- Shared scroll animation -->
+  <script>
+    (function() {
+      'use strict';
+      function initScrollAnimation() {
+        var observer = new IntersectionObserver(
+          function(entries) {
+            entries.forEach(function(e) {
+              if (e.isIntersecting) e.target.classList.add('visible');
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll('.fade-up').forEach(function(el) {
+          observer.observe(el);
+        });
+        setTimeout(function() {
+          document.querySelectorAll('.hero .fade-up').forEach(function(el) {
+            el.classList.add('visible');
+          });
+        }, 100);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimation);
+      } else {
+        initScrollAnimation();
+      }
+    })();
+  </script>
+</body>
+</html>
