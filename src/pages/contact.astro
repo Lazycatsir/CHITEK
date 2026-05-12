@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'Contact CHITEK – Sales & Technical Support | Power Quality',
+  description: 'Contact CHITEK for sales inquiries, technical support, and partnership opportunities. Global presence with local support in 15+ countries.',
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-nav">
+    <img
+      src="/assets/images/contact.png"
+      alt="Contact Us Background"
+      class="absolute inset-0 w-full h-full object-cover object-center z-0"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(7,16,30,0.55)] via-[rgba(7,16,30,0.35)] to-[rgba(7,16,30,0.15)] z-[1]"></div>
+    <div class="relative z-[2] text-center px-5 pt-20 md:pt-[100px] pb-[60px] max-w-[800px] mx-auto fade-up">
+      <h1 class="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-tight mb-6 font-barlow-condensed text-brand-orange">Contact Us</h1>
+      <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 max-w-[600px] mx-auto">
+        Here you can send us an inquiry concerning general questions about
+        CHITEK.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section class="px-8 md:px-12 lg:px-16 pb-10 lg:pb-14 -mt-[40px] sm:-mt-[50px] lg:-mt-[100px] relative z-[3]">
+    <div class="grid grid-cols-1 md:grid-cols-2 bg-white rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] overflow-hidden max-w-[1200px] mx-auto">
+      <!-- Left: Form Side -->
+      <div class="p-8 lg:p-12 bg-gray-50">
+        <h2 class="text-2xl font-bold text-text-dark mb-1.5 font-barlow-condensed">Get Your Custom Power Quality Solution</h2>
+        <p class="text-[13px] text-text-muted leading-relaxed mb-7">
+          Tell us about your project. Our application engineers will provide a
+          tailored proposal within 24 hours.
+        </p>
+
+        <form id="contactForm" action="#" method="POST">
+          <!-- Full Name + Country -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-4">
+            <div class="flex-1">
+              <label for="name" class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+                Full Name<span class="text-brand-orange">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+                class="border border-border-light rounded-md px-4 py-3 w-full text-[14px] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
+              />
+            </div>
+            <div class="flex-1">
+              <label for="country" class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+                Country<span class="text-brand-orange">*</span>
+              </label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                placeholder="Country"
+                required
+                class="border border-border-light rounded-md px-4 py-3 w-full text-[14px] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
+              />
+            </div>
+          </div>
+
+          <!-- Work Email + Tel/WhatsApp -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-4">
+            <div class="flex-1">
+              <label for="email" class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+                Work Email <span class="text-brand-orange">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                class="border border-border-light rounded-md px-4 py-3 w-full text-[14px] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
+              />
+            </div>
+            <div class="flex-1">
+              <label for="tel" class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+                Tel / WhatsApp
+              </label>
+              <input
+                type="tel"
+                id="tel"
+                name="tel"
+                placeholder="+86 1234567890"
+                class="border border-border-light rounded-md px-4 py-3 w-full text-[14px] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
+              />
+            </div>
+          </div>
+
+          <!-- Product Type Radio -->
+          <div class="mb-4">
+            <label class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+              Product Type <span class="text-brand-orange">*</span>
+            </label>
+            <div class="flex flex-col sm:flex-row gap-3 flex-wrap">
+              <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 [&:has(input:checked)]:border-brand-orange [&:has(input:checked)]:bg-brand-orange/8">
+                <input type="radio" name="product_type" value="AHF" required class="w-4 h-4 accent-[#ff6b1a] cursor-pointer m-0 peer" />
+                <span class="text-[13px] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">AHF</span>
+              </label>
+              <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 [&:has(input:checked)]:border-brand-orange [&:has(input:checked)]:bg-brand-orange/8">
+                <input type="radio" name="product_type" value="SVG" class="w-4 h-4 accent-[#ff6b1a] cursor-pointer m-0 peer" />
+                <span class="text-[13px] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">SVG</span>
+              </label>
+              <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 [&:has(input:checked)]:border-brand-orange [&:has(input:checked)]:bg-brand-orange/8">
+                <input type="radio" name="product_type" value="AVR" class="w-4 h-4 accent-[#ff6b1a] cursor-pointer m-0 peer" />
+                <span class="text-[13px] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">AVR</span>
+              </label>
+              <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 [&:has(input:checked)]:border-brand-orange [&:has(input:checked)]:bg-brand-orange/8">
+                <input type="radio" name="product_type" value="Integrated" class="w-4 h-4 accent-[#ff6b1a] cursor-pointer m-0 peer" />
+                <span class="text-[13px] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">NOT SURE</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="mb-4">
+            <label for="message" class="block text-[12px] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
+              Project Requirements <span class="text-brand-orange">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Enter product details (such as Frequency, Voltage Level, Capacity, etc.) and other specific requirements to receive an accurate quote."
+              required
+              class="border border-border-light rounded-md px-4 py-3 w-full text-[14px] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] resize-y min-h-[100px] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="group w-full py-3.5 px-7 bg-gradient-to-r from-[#e85a0d] via-[#ff6600] to-[#ffaa00] text-white border-none rounded-md text-[14px] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-all duration-200 mt-2 flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(232,90,13,0.4)]"
+          >
+            Send Message
+            <svg class="w-4 h-4 stroke-current transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Contact Info Side -->
+      <div class="p-8 lg:p-12 bg-white order-first md:order-none">
+        <h2 class="text-2xl font-bold text-text-dark mb-1.5 font-barlow-condensed">Get in Touch</h2>
+        <p class="text-[13px] text-text-muted mb-7">
+          Find the best way to get help and connect with CHITEK. Fill out a
+          short form or get tips to fix some of the most common issues right
+          from your computer.
+        </p>
+
+        <ul class="flex flex-col gap-5 mb-8 list-none p-0 m-0">
+          <!-- Phone -->
+          <li class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center shrink-0">
+              <svg class="w-[18px] h-[18px] stroke-white fill-none stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[12px] text-text-muted uppercase tracking-[0.06em] mb-0.5">Tel / WhatsApp</div>
+              <div class="text-[14px] text-text-dark font-medium">
+                <div>1244545634</div>
+                <div><a href="tel:+86184739435" class="text-text-dark no-underline transition-colors duration-200 hover:text-brand-orange">+86 184739435</a></div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Email -->
+          <li class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center shrink-0">
+              <svg class="w-[18px] h-[18px] stroke-white fill-none stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[12px] text-text-muted uppercase tracking-[0.06em] mb-0.5">Email</div>
+              <div class="text-[14px] text-text-dark font-medium">
+                <a href="mailto:123456546@gmail.com" class="text-text-dark no-underline transition-colors duration-200 hover:text-brand-orange">123456546@gmail.com</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Address -->
+          <li class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center shrink-0">
+              <svg class="w-[18px] h-[18px] stroke-white fill-none stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[12px] text-text-muted uppercase tracking-[0.06em] mb-0.5">Head Office</div>
+              <div class="text-[14px] text-text-dark font-medium">Shenzhen, Guangdong, China</div>
+            </div>
+          </li>
+        </ul>
+
+        <hr class="border-t border-border-light my-7" />
+
+        <!-- Social Networks -->
+        <div>
+          <h3 class="text-base font-bold text-text-dark uppercase tracking-[0.04em] mb-4">Social Networks</h3>
+          <div class="flex gap-2.5">
+            <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="LinkedIn">
+              <svg class="w-[18px] h-[18px] fill-white" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="YouTube">
+              <svg class="w-[18px] h-[18px] fill-white" viewBox="0 0 24 24">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="Facebook">
+              <svg class="w-[18px] h-[18px] fill-white" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="Twitter">
+              <svg class="w-[18px] h-[18px] fill-white" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="Instagram">
+              <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="2" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="white" stroke-width="2" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form submission handler -->
+  <script>
+    (function() {
+      'use strict';
+      document
+        .getElementById("contactForm")
+        ?.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          var formData = {
+            name: document.getElementById("name")?.value,
+            country: document.getElementById("country")?.value,
+            email: document.getElementById("email")?.value,
+            tel: document.getElementById("tel")?.value,
+            product_type: document.querySelector('input[name="product_type"]:checked')?.value,
+            message: document.getElementById("message")?.value,
+          };
+
+          // Log for debugging (replace with actual API call)
+          console.log("Form submitted:", formData);
+
+          // Show success feedback
+          alert("Thank you for your message! We will get back to you soon.");
+
+          // Reset form
+          this.reset();
+        });
+    })();
+  </script>
+
+  <!-- ==================== DECORATIVE DIVIDER ==================== -->
+  <div class="flex items-center justify-center gap-4 px-8 md:px-12 lg:px-16 py-8 md:py-10">
+    <span class="h-px flex-1 max-w-[200px] bg-gradient-to-r from-transparent to-brand-orange/30"></span>
+    <span class="w-2.5 h-2.5 rotate-45 border border-brand-orange/40"></span>
+    <span class="h-px flex-1 max-w-[200px] bg-gradient-to-r from-brand-orange/30 to-transparent"></span>
+  </div>
+
+  <!-- ==================== MAP SECTION ==================== -->
+  <section class="px-8 md:px-12 lg:px-16 pb-20 relative z-[3]">
+    <div class="max-w-[1200px] mx-auto bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+      <!-- Top: decorative gradient bar -->
+      <div class="px-8 md:px-12 py-5 md:py-6 bg-gradient-to-r from-[#ffaa00] via-[#ff6600] to-[#e85a0d] text-white text-center">
+        <h3 class="text-[22px] md:text-[22px] font-bold uppercase tracking-[0.04em]">Find Us</h3>
+        <p class="text-[13px] opacity-90">Visit our headquarters in Shenzhen, China</p>
+      </div>
+
+      <!-- Bottom: map area -->
+      <div class="relative w-full h-[300px] sm:h-[350px] md:h-[450px] bg-gray-200">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.1234567890123!2d114.12345678901234!3d22.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA3JzI0LjQiTiAxMTTCsDA3JzI0LjQiRQ!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full border-none block"
+        ></iframe>
+
+        <!-- Info card overlay -->
+        <div class="hidden sm:block absolute bottom-6 left-6 bg-white p-5 md:p-6 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.15)] max-w-[260px] md:max-w-[320px] z-10">
+          <h4 class="text-lg md:text-[18px] font-bold text-text-dark mb-2">CHitek Intelligent</h4>
+          <p class="text-[13px] text-text-muted leading-relaxed mb-1">Shenzhen, Guangdong, China</p>
+          <p class="text-[13px] text-text-muted leading-relaxed mb-1">High-tech Enterprise Park</p>
+          <div class="inline-flex items-center gap-1.5 text-brand-orange font-semibold text-[12px] mt-2">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>Head Office Location</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
