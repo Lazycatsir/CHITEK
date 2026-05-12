@@ -4,8 +4,10 @@
 
 纯静态 B2B 工业网站，目标：将访问者转化为询盘。
 
-- **无框架**：纯 HTML + CSS + 极简 JS（无 React/Vue/Next.js）
-- **无构建工具**：无需编译，可直接在浏览器中打开
+- **无框架**：纯 HTML + CSS + 极简 JS（即将迁移到 Astro）
+- **Tailwind CLI v4**：本地构建 CSS，不依赖 CDN
+- **字体**：Barlow + Barlow Condensed，自托管 WOFF2
+- **部署目标**：Netlify
 - **无多语言**：当前仅英文
 
 ## 目录结构
@@ -13,69 +15,112 @@
 ```
 CHITEK/
 ├── index.html                   # 首页
-├── pages/                       # 内页
-│   ├── page-solutions.html      # 解决方案页
-│   └── ......
+├── pages/                       # 内页（即将转为 Astro 路由）
+│   ├── about.html
+│   ├── contact.html
+│   ├── products.html
+│   ├── services.html
+│   └── solutions.html
 ├── assets/
 │   ├── css/
-│   │   ├── variables.css        # CSS 变量/设计令牌
-│   │   ├── reset.css            # 重置样式
-│   │   ├── layout.css           # 布局样式
-│   │   ├── components.css       # 组件样式
-│   │   └── pages/               # 页面私有样式
-│   │       └── page-solutions.css
+│   │   ├── input.css            # Tailwind v4 入口（@theme + @font-face + 自定义样式）
+│   │   └── tailwind.css         # CLI 构建产物（gitignored）
+│   ├── fonts/                   # 自托管字体（Barlow, Barlow Condensed）
+│   ├── images/                  # 图片资源
 │   └── js/
-│       ├── main.js              # 全局 JS（图标系统、滚动效果、移动端菜单）
-│       └── page-solutions.js    # 解决方案页 JS
-└── assets/images/solutions/     # 页面图片
+│       ├── include.js           # HTML 公共组件加载器
+│       ├── main.js              # 全局 JS（图标系统、滚动效果）
+│       └── nav.js               # 导航交互
+├── includes/                    # HTML 片段（nav, footer, sidebar）
+│   ├── _nav.html
+│   ├── _footer.html
+│   └── _sidebar.html
+├── docs/superpowers/            # 设计文档与计划
+│   ├── specs/
+│   └── plans/
+├── package.json
+├── serve.bat                    # 本地开发脚本
+└── .gitignore
 ```
 
 ## 编码规范
 
 - **HTML**：语义化标签（`section`, `h2`, `ul` 等）
-- **CSS 命名**：kebab-case
-- **CSS 组织**：variables → reset → layout → components → pages
+- **CSS 类名**：Tailwind utility 类为主，camelCase 自定义类
 - **JS**：极简，模块化 IIFE 模式，避免内联样式
 - **禁止**内联 `style` 属性
 
 ## CSS 规范
 
-以 **Tailwind 为主、原生 CSS 为辅**的方案。
+以 **Tailwind v4 CLI 本地构建**为核心方案。
 
 ### 原则
 
 | 场景 | 方案 | 理由 |
 | --- | --- | --- |
-| 常规样式（边距、颜色、布局、响应式） | Tailwind 工具类 | 开发快、一致性高 |
-| 复杂样式（伪元素、复杂动画、多值渐变等） | 原生 CSS | Tailwind 处理这些场景代码冗长 |
-| 页面独有的大型区块 | `pages/page-name.css` | 样式隔离 |
-| 全局基础样式（变量、重置、字体） | `variables.css` / `reset.css` | 全站共享 |
+| 常规样式 | Tailwind 工具类 | 开发快、一致性高 |
+| 复杂样式 | 原生 CSS（`input.css` 中） | Tailwind 处理复杂场景冗长 |
+| 全局基础样式 | `input.css` 的 `@theme` | 全站共享设计令牌 |
 
-### 示例
+### 自定义 CSS
 
-```html
-<!-- 常规样式用 Tailwind -->
-<div class="flex items-center gap-4 px-6 py-4 text-lg font-medium" />
+所有自定义样式写在 `assets/css/input.css` 中：
 
-<!-- 复杂样式用原生 CSS -->
-<div class="hero-grid" />
-```
+- `@import "tailwindcss"` — 框架入口
+- `@theme { ... }` — 设计令牌（颜色、字体、间距、z-index、动画）
+- `@keyframes` — 自定义动画
+- `.fade-up / .fade-up.visible` — 滚动出现动画
 
-### CSS Modules 类名
+### 设计令牌
 
-采用 camelCase：
-
-```css
-/* page-solutions.css */
-.heroGrid { ... }
-```
+| 令牌 | 值 | 用途 |
+|------|-----|------|
+| `brand-orange` | `#ff6b1a` | 品牌主色 |
+| `bg-dark` | `#07101e` | 深色背景 |
+| `text-dark` | `#1a1a1a` | 正文色 |
+| `font-family-barlow` | `"Barlow", sans-serif` | 正文字体 |
+| `font-family-barlow-condensed` | `"Barlow Condensed", sans-serif` | 标题字体 |
 
 ### 禁止事项
 
-- ❌ 刻意只用 Tailwind 追求"零 CSS"——该写原生时就写原生
-- ❌ 为了一点简单样式也开单独 CSS 文件
 - ❌ 不用内联 `style`（除非动态计算值）
 - ❌ 不用 `styled-components` 或 `sass`
+- ❌ 不用 CDN 加载 Tailwind 或 Google Fonts
+
+## 图片路径规则
+
+在 `bg-[url()]` 中使用**绝对路径**（以 `/` 开头）：
+
+```html
+<!-- ✅ 正确 -->
+<div class="bg-[url('/assets/images/hero.jpg')]" />
+
+<!-- ❌ 错误：相对路径在 CSS 中解析错误 -->
+<div class="bg-[url('assets/images/hero.jpg')]" />
+```
+
+## 写作风格
+
+- B2B 工业风：清晰、专业、建立信任
+- 避免夸张营销语言
+- 聚焦技术指标和实际效益（如 THD 18% → 4.1%）
+
+## 本地开发
+
+```bash
+npm run dev     # Tailwind watch 模式
+npm run build   # 生产构建（minify）
+serve.bat       # 构建 + HTTP 服务器
+```
+
+## 技术栈
+
+| 技术 | 用途 |
+| --- | --- |
+| Tailwind CSS v4 CLI | 原子化 CSS 构建 |
+| 原生 CSS（input.css） | @theme + @font-face + 自定义样式 |
+| 自托管 WOFF2 | Barlow + Barlow Condensed 字体 |
+| Netlify（即将） | 静态部署 + 表单处理 |
 
 ## 页面结构规范
 
@@ -84,25 +129,3 @@ CHITEK/
 - headline（标题）
 - supporting text（支持性文本）
 - 可选的 CTA（行动号召按钮）
-
-## 写作风格
-
-- B2B 工业风：清晰、专业、建立信任
-- 避免夸张营销语言
-- 聚焦技术指标和实际效益（如 THD 18% → 4.1%）
-
-## 组件架构（JS）
-
-所有页面级的 JS 采用 IIFE 自执行函数模式，通过 `window` 对象暴露公共 API：
-
-- `window.PowerQ` — 全局工具（escapeHtml, IconSystem, ScrollEffects, MobileMenu）
-- `window.SolutionsPage` — 解决方案页（setIndustry, sceneGo, toggleCase 等）
-
-## 技术栈
-
-| 技术 | 用途 |
-| --- | --- |
-| Tailwind CSS v4 | 原子化 CSS 框架 |
-| CSS Modules | 页面级样式隔离 |
-| 原生 CSS（variables/reset/layout） | 全局基础样式 |
-| PostCSS | CSS 编译（Tailwind） |
