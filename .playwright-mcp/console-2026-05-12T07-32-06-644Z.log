@@ -1,0 +1,6 @@
+[      46ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-about-bg.jpg:0
+[      46ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-products-bg.jpg:0
+[      46ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-product-ahf.png:0
+[      47ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-solution-hospital.png:0
+[      47ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-solution-datacenter.png:0
+[      47ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/assets/css/assets/images/index-solution-manufacturing.png:0

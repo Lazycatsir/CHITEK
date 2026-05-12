@@ -1,0 +1,528 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "CHITEK Logo" [ref=e3] [cursor=pointer]:
+      - /url: ../index.html
+      - img "CHITEK Logo" [ref=e4]
+    - generic [ref=e5]:
+      - link "Products" [ref=e7] [cursor=pointer]:
+        - /url: products.html
+        - text: Products
+      - link "Solutions" [ref=e9] [cursor=pointer]:
+        - /url: solutions.html
+        - text: Solutions
+      - link "Services" [ref=e11] [cursor=pointer]:
+        - /url: services.html
+        - text: Services
+      - link "About" [ref=e13] [cursor=pointer]:
+        - /url: about.html
+        - text: About
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+        - text: Contact
+    - generic [ref=e16] [cursor=pointer]:
+      - textbox "Search..." [ref=e17]
+      - img [ref=e18]
+    - generic [ref=e22] [cursor=pointer]:
+      - generic [ref=e23]: English
+      - img [ref=e24]
+      - generic [ref=e28]: ▾
+  - generic [ref=e29]:
+    - img "Industrial Power Equipment" [ref=e31]
+    - generic [ref=e33]:
+      - heading "Comprehensive Services" [level=1] [ref=e34]
+      - paragraph [ref=e35]: OEM/ODM, technical support, and global distribution — end-to-end power quality partnership.
+  - generic [ref=e43]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img [ref=e46]
+        - generic [ref=e50]: OEM / ODM
+      - heading "True Capability Boundaries" [level=2] [ref=e51]
+      - paragraph [ref=e52]: Three tiers. Honest classification.
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - img [ref=e57]
+          - generic [ref=e63]:
+            - heading "Appearance Customization" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Standard Service
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - generic [ref=e70]:
+              - generic [ref=e71]: Enclosure Color
+              - generic [ref=e72]: RAL color chart specified
+          - generic [ref=e73]:
+            - img [ref=e74]
+            - generic [ref=e76]:
+              - generic [ref=e77]: Brand Silk-Screening
+              - generic [ref=e78]: Logo placement customized
+          - generic [ref=e79]:
+            - img [ref=e80]
+            - generic [ref=e82]:
+              - generic [ref=e83]: Nameplate Information
+              - generic [ref=e84]: Client-specified content
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - img [ref=e87]
+            - generic [ref=e90]: "Lead Time:"
+          - generic [ref=e91]: 2 weeks (stock enclosure) or 4 weeks (new color)
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - img [ref=e97]
+          - generic [ref=e100]:
+            - heading "Feature Configuration" [level=3] [ref=e101]
+            - paragraph [ref=e102]: Selection Service
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - img [ref=e105]
+            - generic [ref=e107]:
+              - generic [ref=e108]: Capacity Range
+              - generic [ref=e109]: 50kvar — 600kvar
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - generic [ref=e113]:
+              - generic [ref=e114]: Communication Protocol
+              - generic [ref=e115]: Modbus / Profinet / Ethernet
+          - generic [ref=e116]:
+            - img [ref=e117]
+            - generic [ref=e119]:
+              - generic [ref=e120]: Harmonic Order
+              - generic [ref=e121]: 2nd — 13th
+          - generic [ref=e122]:
+            - img [ref=e123]
+            - generic [ref=e125]:
+              - generic [ref=e126]: Parallel Units
+              - generic [ref=e127]: 1 — 10 units
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - img [ref=e130]
+            - generic [ref=e133]: "Lead Time:"
+          - generic [ref=e134]: 4–6 weeks
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - img [ref=e140]
+          - generic [ref=e142]:
+            - heading "Deep Customization" [level=3] [ref=e143]
+            - paragraph [ref=e144]: Project-Based
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - img [ref=e147]
+            - generic [ref=e149]:
+              - generic [ref=e150]: Voltage Level Customization
+              - generic [ref=e151]: Requires assessment
+          - generic [ref=e152]:
+            - img [ref=e153]
+            - generic [ref=e155]:
+              - generic [ref=e156]: Cabinet Size Adjustment
+              - generic [ref=e157]: Subject to thermal limits
+          - generic [ref=e158]:
+            - img [ref=e159]
+            - generic [ref=e161]:
+              - generic [ref=e162]: Special Environment Protection
+              - generic [ref=e163]: High altitude / Coastal
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - img [ref=e166]
+            - generic [ref=e169]: "Lead Time:"
+          - generic [ref=e170]: 8–12 weeks, technical review required
+    - generic [ref=e173]:
+      - img [ref=e174]
+      - paragraph [ref=e176]: Core power modules are standardized platform components to ensure reliability and cost advantages. Customization scope is limited to the items listed above. Anything beyond requires specialized assessment.
+  - generic [ref=e178]:
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - img [ref=e181]
+        - generic [ref=e184]: Service Team
+      - heading "Supported by A Committed Team" [level=2] [ref=e185]
+      - paragraph [ref=e186]: Pre-sales & after-sales — full lifecycle support.
+    - generic [ref=e187]:
+      - generic [ref=e188]:
+        - img [ref=e190]
+        - generic [ref=e193]:
+          - heading "Pre-sales Service" [level=3] [ref=e194]
+          - paragraph [ref=e195]: Professional Consultation
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - img [ref=e199]
+          - generic [ref=e202]:
+            - heading "On-site Testing" [level=4] [ref=e203]
+            - paragraph [ref=e204]: Assisting customers with on-site testing, system design, and power quality assessment.
+          - generic [ref=e205]: "01"
+        - generic [ref=e208]:
+          - img [ref=e210]
+          - generic [ref=e213]:
+            - heading "Design Consulting" [level=4] [ref=e214]
+            - paragraph [ref=e215]: Providing blueprint design consultation and optimization advice for new infrastructure projects.
+          - generic [ref=e216]: "02"
+        - generic [ref=e219]:
+          - img [ref=e221]
+          - generic [ref=e223]:
+            - heading "Custom Solutions" [level=4] [ref=e224]
+            - paragraph [ref=e225]: Delivering optimal power quality compensation solutions tailored to specific client needs.
+          - generic [ref=e226]: "03"
+    - generic [ref=e229]:
+      - generic [ref=e230]:
+        - img [ref=e232]
+        - generic [ref=e234]:
+          - heading "After-sales Service" [level=3] [ref=e235]
+          - paragraph [ref=e236]: Lifetime Support
+      - generic [ref=e237]:
+        - generic [ref=e238]:
+          - img [ref=e240]
+          - generic [ref=e243]:
+            - heading "Tech Support" [level=4] [ref=e244]
+            - paragraph [ref=e245]: 24/7 remote technical consultation and troubleshooting assistance.
+          - generic [ref=e246]: "01"
+        - generic [ref=e249]:
+          - img [ref=e251]
+          - generic [ref=e255]:
+            - heading "Regular Inspection" [level=4] [ref=e256]
+            - paragraph [ref=e257]: Scheduled maintenance visits to ensure long-term system stability.
+          - generic [ref=e258]: "02"
+        - generic [ref=e261]:
+          - img [ref=e263]
+          - generic [ref=e266]:
+            - heading "Maintenance" [level=4] [ref=e267]
+            - paragraph [ref=e268]: Professional equipment repair and firmware upgrades.
+          - generic [ref=e269]: "03"
+        - generic [ref=e272]:
+          - img [ref=e274]
+          - generic [ref=e278]:
+            - heading "System Upgrade" [level=4] [ref=e279]
+            - paragraph [ref=e280]: Scalability analysis and capacity expansion services.
+          - generic [ref=e281]: "04"
+  - generic [ref=e285]:
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - img [ref=e288]
+        - generic [ref=e291]: R&D Process
+      - heading "R&D Quality Assurance Process" [level=2] [ref=e292]
+      - paragraph [ref=e294]: 10-stage gate process from research to mass production.
+    - generic [ref=e295]:
+      - generic [ref=e296]:
+        - generic [ref=e297]: "01"
+        - generic [ref=e298]: Pre-research
+        - generic [ref=e299]: Market Survey Reports, Customer Visit Records
+      - generic [ref=e300]:
+        - generic [ref=e301]: "02"
+        - generic [ref=e302]: Project Initiation
+        - generic [ref=e303]: Project Initiation Review Form
+      - generic [ref=e304]:
+        - generic [ref=e305]: "03"
+        - generic [ref=e306]: Team Assignment
+        - generic [ref=e307]: Project Team Assignment Chart
+      - generic [ref=e308]:
+        - generic [ref=e309]: "04"
+        - generic [ref=e310]: Schedule Planning
+        - generic [ref=e311]: Project Plan, Progress Tracking, Meeting Minutes
+      - generic [ref=e312]:
+        - generic [ref=e313]: "05"
+        - generic [ref=e314]: PCB Design
+        - generic [ref=e315]: Review Report, Schematics, Output Files
+      - generic [ref=e316]:
+        - generic [ref=e317]: "06"
+        - generic [ref=e318]: BOM Creation
+        - generic [ref=e319]: Review Report, New Code Review, Output Files
+      - generic [ref=e320]:
+        - generic [ref=e321]: "07"
+        - generic [ref=e322]: Prototype Build
+        - generic [ref=e323]: Test Report, Review Report, Output Files
+      - generic [ref=e324]:
+        - generic [ref=e325]: "08"
+        - generic [ref=e326]: Prototype Review
+        - generic [ref=e327]: Test Report, Review Report, DOE/DFMEA/CPK, Reliability/Life Test, Product Specs
+      - generic [ref=e328]:
+        - generic [ref=e329]: "09"
+        - generic [ref=e330]: Small Batch Trial
+        - generic [ref=e331]: Test Report, Trial Production Report, Inspection Equipment List, Certifications
+      - generic [ref=e332]:
+        - generic [ref=e333]: "10"
+        - generic [ref=e334]: Mass Production
+        - generic [ref=e335]:
+          - strong [ref=e336]: "Deliverables:"
+          - text: BOM, Drawings, Specs, SOP, Debugging Instructions, Equipment List, FCT & ATE Test Programs
+  - generic [ref=e338]:
+    - generic [ref=e339]:
+      - generic [ref=e340]:
+        - img [ref=e341]
+        - generic [ref=e343]: Manufacturing
+      - heading "Manufacturing Process" [level=2] [ref=e344]
+      - paragraph [ref=e346]: End-to-end production workflow with integrated quality control
+    - generic [ref=e348]:
+      - generic [ref=e349]:
+        - generic [ref=e350]:
+          - generic [ref=e351]: Order Entry
+          - generic [ref=e352]: / ERP
+        - img [ref=e354]
+        - generic [ref=e356]:
+          - generic [ref=e357]: Contract Review
+          - generic [ref=e358]: / E-Workflow
+        - img [ref=e360]
+        - generic [ref=e362]:
+          - generic [ref=e363]: PMC Scheduling
+          - generic [ref=e364]: / ERP
+        - img [ref=e366]
+        - generic [ref=e368]:
+          - generic [ref=e369]: Procurement
+          - generic [ref=e370]: / ERP
+      - img [ref=e373]
+      - generic [ref=e375]:
+        - generic [ref=e376]:
+          - generic [ref=e377]: IQC
+          - generic [ref=e378]: Quality Check
+        - img [ref=e380]
+        - generic [ref=e382]:
+          - generic [ref=e383]: SMT/DIP
+          - generic [ref=e384]: Assembly
+        - img [ref=e386]
+        - generic [ref=e388]:
+          - generic [ref=e389]: Board FCT
+          - generic [ref=e390]: Testing
+        - img [ref=e392]
+        - generic [ref=e394]:
+          - generic [ref=e395]: Production
+          - generic [ref=e396]: / SOP
+      - img [ref=e399]
+      - generic [ref=e401]:
+        - generic [ref=e402]:
+          - generic [ref=e403]: IPQC
+          - generic [ref=e404]: In-Process QC
+        - img [ref=e406]
+        - generic [ref=e408]:
+          - generic [ref=e409]: Safety Compliance
+          - generic [ref=e410]: Test
+        - img [ref=e412]
+        - generic [ref=e414]:
+          - generic [ref=e415]: ATE Fixture
+          - generic [ref=e416]: Testing
+        - img [ref=e418]
+        - generic [ref=e420]:
+          - generic [ref=e421]: Potting
+          - generic [ref=e422]: Process
+      - img [ref=e425]
+      - generic [ref=e427]:
+        - generic [ref=e428]:
+          - generic [ref=e429]: Aging
+          - generic [ref=e430]: Process
+        - img [ref=e432]
+        - generic [ref=e434]:
+          - generic [ref=e435]: Post-Aging FQC
+          - generic [ref=e436]: Test
+        - img [ref=e438]
+        - generic [ref=e440]:
+          - generic [ref=e441]: Packaging
+          - generic [ref=e442]: "& Shipping"
+  - generic [ref=e443]:
+    - img "Power Module" [ref=e445]
+    - generic [ref=e447]:
+      - generic [ref=e448]:
+        - generic [ref=e449]:
+          - img [ref=e450]
+          - generic [ref=e453]: Technical Support
+        - heading "Technical Support" [level=2] [ref=e454]
+        - paragraph [ref=e455]: Self-service first. Efficient troubleshooting.
+      - generic [ref=e456]:
+        - generic [ref=e457]:
+          - heading "AHF Selection Guide" [level=3] [ref=e458]:
+            - img [ref=e459]
+            - text: AHF Selection Guide
+          - img "AHF Products" [ref=e463]
+          - generic [ref=e464]:
+            - generic [ref=e465]:
+              - img [ref=e466]
+              - text: Quick capacity cross-reference table
+            - generic [ref=e469]:
+              - img [ref=e470]
+              - text: Installation dimension drawings
+          - button "Download PDF, 15MB" [ref=e473] [cursor=pointer]:
+            - img [ref=e474]
+            - text: Download PDF, 15MB
+        - generic [ref=e479]:
+          - heading "SVG Selection Guide" [level=3] [ref=e480]:
+            - img [ref=e481]
+            - text: SVG Selection Guide
+          - img "SVG Products" [ref=e485]
+          - generic [ref=e486]:
+            - generic [ref=e487]:
+              - img [ref=e488]
+              - text: Reactive power rating guide
+            - generic [ref=e491]:
+              - img [ref=e492]
+              - text: Multi-scenario application cases
+          - button "Download PDF, 15MB" [ref=e495] [cursor=pointer]:
+            - img [ref=e496]
+            - text: Download PDF, 15MB
+        - generic [ref=e501]:
+          - heading "AVR Selection Guide" [level=3] [ref=e502]:
+            - img [ref=e503]
+            - text: AVR Selection Guide
+          - img "AVR Products" [ref=e507]
+          - generic [ref=e508]:
+            - generic [ref=e509]:
+              - img [ref=e510]
+              - text: Voltage range selection table
+            - generic [ref=e513]:
+              - img [ref=e514]
+              - text: Wiring & installation diagrams
+          - button "Download PDF, 15MB" [ref=e517] [cursor=pointer]:
+            - img [ref=e518]
+            - text: Download PDF, 15MB
+      - generic [ref=e523]:
+        - generic [ref=e524]:
+          - generic [ref=e526] [cursor=pointer]:
+            - heading "Sales & Logistics" [level=3] [ref=e527]
+            - img [ref=e528]
+          - generic [ref=e533] [cursor=pointer]:
+            - heading "OEM & Customization" [level=3] [ref=e534]
+            - img [ref=e535]
+        - generic [ref=e540]:
+          - heading "After-Sales & Support" [level=3] [ref=e541]
+          - img [ref=e543] [cursor=pointer]
+      - generic [ref=e547]:
+        - generic [ref=e548]:
+          - img [ref=e549]
+          - generic [ref=e551]:
+            - generic [ref=e552]: Tech Hotline
+            - generic [ref=e553]: 400-XXX-XXXX (Mon–Fri 9:00–18:00)
+        - generic [ref=e554]:
+          - img [ref=e555]
+          - generic [ref=e557]:
+            - generic [ref=e558]: Emergency Fault
+            - generic [ref=e559]: 2-hour response (maintenance contract clients only)
+  - generic [ref=e561]:
+    - generic [ref=e562]:
+      - generic [ref=e563]:
+        - img [ref=e564]
+        - generic [ref=e567]: Distributor Program
+      - heading "Distributor Program" [level=2] [ref=e568]
+      - paragraph [ref=e569]: Focus on "low-risk start"
+    - generic [ref=e570]:
+      - generic [ref=e571]:
+        - heading "Cooperation Model" [level=3] [ref=e572]:
+          - img [ref=e573]
+          - text: Cooperation Model
+        - paragraph [ref=e575]: Samples first. No stocking requirements.
+      - generic [ref=e576]:
+        - heading "Training Support Free, online + offline hybrid" [level=3] [ref=e577]:
+          - img [ref=e578]
+          - text: Training Support
+          - generic [ref=e581]: Free, online + offline hybrid
+        - generic [ref=e582]:
+          - generic [ref=e583]:
+            - generic [ref=e585]: "01"
+            - generic [ref=e586]:
+              - generic [ref=e587]: Product Knowledge
+              - generic [ref=e588]: 2 sessions · Product architecture & selling points
+          - generic [ref=e589]:
+            - generic [ref=e591]: "02"
+            - generic [ref=e592]:
+              - generic [ref=e593]: Selection Practice
+              - generic [ref=e594]: 4 sessions · Cross-reference tables & scheme matching
+          - generic [ref=e595]:
+            - generic [ref=e597]: "03"
+            - generic [ref=e598]:
+              - generic [ref=e599]: Installation Guidance
+              - generic [ref=e600]: 2 sessions · Video library, watch anytime
+          - generic [ref=e601]:
+            - generic [ref=e603]: "04"
+            - generic [ref=e604]:
+              - generic [ref=e605]: Fault Pre-Diagnosis
+              - generic [ref=e606]: 2 sessions · Self-service troubleshooting system
+      - generic [ref=e607]:
+        - generic [ref=e608]:
+          - img [ref=e609]
+          - generic [ref=e612]:
+            - generic [ref=e613]: Territory Protection
+            - generic [ref=e614]: City-exclusive for signed partners. No sales quota in year one.
+        - generic [ref=e615]:
+          - img [ref=e616]
+          - generic [ref=e620]:
+            - generic [ref=e621]: Pricing Structure
+            - generic [ref=e622]: Unified ex-factory price. Tiered rebate fully transparent.
+    - generic [ref=e623]:
+      - button "Request Sample Evaluation" [ref=e624] [cursor=pointer]:
+        - img [ref=e625]
+        - text: Request Sample Evaluation
+      - paragraph [ref=e627]: Lower threshold than "becoming a distributor"
+  - generic [ref=e630]:
+    - generic [ref=e631]:
+      - img [ref=e632]
+      - generic [ref=e634]: Global Reach
+    - heading "Trusted Worldwide" [level=2] [ref=e635]
+  - generic [ref=e637]:
+    - link [ref=e638] [cursor=pointer]:
+      - /url: tel:1244545634
+      - img [ref=e640]
+    - link [ref=e642] [cursor=pointer]:
+      - /url: mailto:123456546@gmail.com
+      - img [ref=e644]
+    - link [ref=e647] [cursor=pointer]:
+      - /url: https://wa.me/86184739435
+      - img [ref=e649]
+  - contentinfo [ref=e651]:
+    - generic [ref=e652]:
+      - generic [ref=e653]:
+        - img "CHITEK Logo" [ref=e654]
+        - paragraph [ref=e655]: Subscribe to us to enjoy event prices, along with dedicated technical support.
+        - generic [ref=e656]:
+          - textbox "name@email.com" [ref=e657]
+          - button "Subscribe" [ref=e658] [cursor=pointer]
+        - generic [ref=e659]:
+          - img [ref=e661] [cursor=pointer]
+          - img [ref=e666] [cursor=pointer]
+          - img [ref=e670] [cursor=pointer]
+      - generic [ref=e672]:
+        - heading "Products" [level=4] [ref=e673]
+        - list [ref=e674]:
+          - listitem [ref=e675]:
+            - link "Active Harmonic Filter" [ref=e676] [cursor=pointer]:
+              - /url: products.html#ahf
+          - listitem [ref=e677]:
+            - link "Advanced Static Var Generator" [ref=e678] [cursor=pointer]:
+              - /url: products.html#svg
+          - listitem [ref=e679]:
+            - link "SiC-AHF/SVG (High Efficiency)" [ref=e680] [cursor=pointer]:
+              - /url: products.html#sic
+          - listitem [ref=e681]:
+            - link "High-Protection AHF/SVG" [ref=e682] [cursor=pointer]:
+              - /url: products.html#high-protection
+      - generic [ref=e683]:
+        - heading "Solutions" [level=4] [ref=e684]
+        - list [ref=e685]:
+          - listitem [ref=e686]:
+            - link "Industrial Manufacturing" [ref=e687] [cursor=pointer]:
+              - /url: solutions.html#industry
+          - listitem [ref=e688]:
+            - link "Commercial & Medical Buildings" [ref=e689] [cursor=pointer]:
+              - /url: solutions.html#commercial
+          - listitem [ref=e690]:
+            - link "Data Centers & Telecom" [ref=e691] [cursor=pointer]:
+              - /url: solutions.html#datacenter
+          - listitem [ref=e692]:
+            - link "Renewable Energy (PV/Wind)" [ref=e693] [cursor=pointer]:
+              - /url: solutions.html#renewable
+          - listitem [ref=e694]:
+            - link "Transportation (Rail/Charging)" [ref=e695] [cursor=pointer]:
+              - /url: solutions.html#rail
+          - listitem [ref=e696]:
+            - link "Power Grid & Utility" [ref=e697] [cursor=pointer]:
+              - /url: solutions.html#grid
+      - generic [ref=e698]:
+        - heading "Resources & Partnership" [level=4] [ref=e699]
+        - list [ref=e700]:
+          - listitem [ref=e701]:
+            - link "Technical Library" [ref=e702] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e703]:
+            - link "Global References" [ref=e704] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e705]:
+            - link "OEM & ODM Services" [ref=e706] [cursor=pointer]:
+              - /url: services.html#oem
+          - listitem [ref=e707]:
+            - link "Become a Distributor" [ref=e708] [cursor=pointer]:
+              - /url: services.html#distributor
+    - generic [ref=e709]:
+      - paragraph [ref=e710]: © 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.
+      - link "IPV6 Served" [ref=e712] [cursor=pointer]:
+        - /url: "#"

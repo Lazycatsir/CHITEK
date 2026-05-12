@@ -1,0 +1,359 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "CHITEK Logo" [ref=e3] [cursor=pointer]:
+      - /url: ../index.html
+      - img "CHITEK Logo" [ref=e4]
+    - generic [ref=e5]:
+      - link "Products" [ref=e7] [cursor=pointer]:
+        - /url: products.html
+        - text: Products
+      - link "Solutions" [ref=e9] [cursor=pointer]:
+        - /url: solutions.html
+        - text: Solutions
+      - link "Services" [ref=e11] [cursor=pointer]:
+        - /url: services.html
+        - text: Services
+      - link "About" [ref=e13] [cursor=pointer]:
+        - /url: about.html
+        - text: About
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+        - text: Contact
+    - generic [ref=e16] [cursor=pointer]:
+      - textbox "Search..." [ref=e17]
+      - img [ref=e18]
+    - generic [ref=e22] [cursor=pointer]:
+      - generic [ref=e23]: English
+      - img [ref=e24]
+      - generic [ref=e28]: ▾
+  - generic [ref=e33]:
+    - heading "Commercial & Medical" [level=1] [ref=e34]
+    - heading "Power Quality Solutions" [level=1] [ref=e35]
+    - paragraph [ref=e36]: From precision operating rooms to Grade-A offices — full-scenario power quality assurance
+  - generic:
+    - generic:
+      - generic:
+        - button "Industrial":
+          - img
+          - generic: Industrial
+        - button "Commercial & Medical":
+          - img
+          - generic: Commercial & Medical
+        - button "Data Center":
+          - img
+          - generic: Data Center
+        - button "Renewable Energy":
+          - img
+          - generic: Renewable Energy
+        - button "Rail Transit":
+          - img
+          - generic: Rail Transit
+        - button "Power Grid":
+          - img
+          - generic: Power Grid
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - heading "Scenario-Based Power Quality Solution" [level=2] [ref=e41]
+      - generic [ref=e42]:
+        - generic [ref=e43]: 1 / 3
+        - generic [ref=e44]:
+          - button [ref=e45]
+          - button [ref=e46]
+          - button [ref=e47]
+    - generic [ref=e49]:
+      - img [ref=e50]
+      - generic [ref=e54]: Medical Scenario — Hospital / Clinic / Rehabilitation
+    - generic [ref=e55]:
+      - heading "Pain Points" [level=3] [ref=e56]
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - heading "CT / MRI" [level=3] [ref=e62]
+          - paragraph [ref=e63]: Imaging Equipment
+          - generic [ref=e64]:
+            - generic [ref=e65]: 15%
+            - generic [ref=e66]: THD
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - paragraph [ref=e69]: Image Artifacts
+              - paragraph [ref=e70]: Misdiagnosis risk, requires repeat scans, doubling patient wait time
+            - generic [ref=e71]:
+              - paragraph [ref=e72]: Equipment Overheat
+              - paragraph [ref=e73]: Transformer derating, shortened component lifespan, unplanned maintenance
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img [ref=e76]
+            - heading "Operating Room" [level=3] [ref=e79]
+          - paragraph [ref=e80]: Surgical Equipment
+          - generic [ref=e81]:
+            - generic [ref=e82]: ms-level
+            - generic [ref=e83]: Voltage Sag
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - paragraph [ref=e86]: Surgery Interruption
+              - paragraph [ref=e87]: Momentary outage, equipment reboot cycle, procedure delays
+            - generic [ref=e88]:
+              - paragraph [ref=e89]: Life Safety Risk
+              - paragraph [ref=e90]: Critical support equipment malfunction, emergency backup transfer latency
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - img [ref=e93]
+            - heading "Laboratory" [level=3] [ref=e95]
+          - paragraph [ref=e96]: Sensitive Analyzers
+          - generic [ref=e97]:
+            - generic [ref=e98]: High
+            - generic [ref=e99]: Zero-seq. Current
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - paragraph [ref=e102]: Phase Imbalance
+              - paragraph [ref=e103]: Precision instrument drift, calibration invalidated, reagent waste
+            - generic [ref=e104]:
+              - paragraph [ref=e105]: Neutral Overload
+              - paragraph [ref=e106]: Overheated conductors, fire risk, N-line burnout potential
+    - generic [ref=e107]:
+      - heading "System Topology" [level=3] [ref=e108]
+      - generic [ref=e109]:
+        - img [ref=e110]:
+          - generic [ref=e112]: Utility
+          - generic [ref=e114]: Transformer
+          - generic [ref=e116]: AHF-200A
+          - generic [ref=e117]: Active Harmonic Filter
+          - generic [ref=e120]: OR Power Dist.
+          - generic [ref=e121]: Voltage Sag Protection
+          - generic [ref=e124]: Imaging Power
+          - generic [ref=e125]: CT / MRI Harmonics
+          - generic [ref=e128]: Lab Power Dist.
+          - generic [ref=e129]: Phase Imbalance
+          - generic [ref=e130]: LV Busbar
+        - paragraph [ref=e131]: Parallel-connected to LV busbar, mitigates harmonics for OR / imaging / lab power distribution
+        - generic [ref=e132]:
+          - button "Download PDF" [ref=e133]:
+            - img [ref=e134]
+            - text: Download PDF
+          - button "Tech Inquiry" [ref=e137]:
+            - img [ref=e138]
+            - text: Tech Inquiry
+    - generic [ref=e140]:
+      - button "Medical" [ref=e141]:
+        - generic [ref=e143]: Medical
+      - button "Commercial Office" [ref=e144]:
+        - generic [ref=e146]: Commercial Office
+      - button "Lab / Cleanroom" [ref=e147]:
+        - generic [ref=e149]: Lab / Cleanroom
+  - generic [ref=e151]:
+    - heading "Commercial & Medical Building Case Studies" [level=2] [ref=e152]
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - generic [ref=e155] [cursor=pointer]:
+          - img "Harmonic Mitigation at Beijing Union Hospital Outpatient Building" [ref=e157]
+          - generic [ref=e158]:
+            - generic [ref=e159]: Medical Building
+            - heading "Harmonic Mitigation at Beijing Union Hospital Outpatient Building" [level=3] [ref=e160]
+            - paragraph [ref=e161]: THD 18.3% → 4.1%, annual power savings 670K CNY
+            - generic [ref=e162]:
+              - text: View Details
+              - img [ref=e163]
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - heading "Project Overview" [level=4] [ref=e167]
+            - paragraph [ref=e168]: 2,000-bed tertiary hospital, 10kV/0.4kV distribution, 4×1600kVA transformers. After imaging center expansion, THD at main busbar exceeded 18%, causing recurring CT/MRI image artifacts and one operating-room power quality incident.
+          - generic [ref=e169]:
+            - heading "Before / After" [level=4] [ref=e170]
+            - paragraph [ref=e171]: "THD trend: 18.3% → 12.5% → 8.2% → 4.1%"
+          - generic [ref=e177]:
+            - heading "Solution Deployed" [level=4] [ref=e178]
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - generic [ref=e181]: AHF-200A
+                - generic [ref=e182]: × 2 units
+                - generic [ref=e183]: OR & imaging dept.
+              - generic [ref=e184]:
+                - generic [ref=e185]: SVG-100A
+                - generic [ref=e186]: × 1 units
+                - generic [ref=e187]: HVAC reactive compensation
+          - generic [ref=e188]:
+            - heading "Key Results" [level=4] [ref=e189]
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - img [ref=e192]
+                - generic [ref=e195]: THD < 5% (IEEE 519 compliant)
+              - generic [ref=e196]:
+                - img [ref=e197]
+                - generic [ref=e200]: Transformer temperature ↓ 15°C
+              - generic [ref=e201]:
+                - img [ref=e202]
+                - generic [ref=e205]: Annual maintenance cost ↓ 45%
+          - link "Read Full Report" [ref=e206] [cursor=pointer]:
+            - /url: /about/cases/pumc-hospital
+            - text: Read Full Report
+            - img [ref=e207]
+      - generic [ref=e209]:
+        - generic [ref=e210] [cursor=pointer]:
+          - img "Power Quality Retrofit at Lujiazui Grade-A Office Tower, Shanghai" [ref=e212]
+          - generic [ref=e213]:
+            - generic [ref=e214]: Commercial Office
+            - heading "Power Quality Retrofit at Lujiazui Grade-A Office Tower, Shanghai" [level=3] [ref=e215]
+            - paragraph [ref=e216]: PF 0.72 → 0.95, penalty elimination 450K CNY/year
+            - generic [ref=e217]:
+              - text: View Details
+              - img [ref=e218]
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - heading "Project Overview" [level=4] [ref=e222]
+            - paragraph [ref=e223]: 45-story Grade-A office tower, 20kV/0.4kV, 6×2000kVA transformers. Extensive LED retrofit and VFD elevator modernization introduced severe harmonics and poor power factor, triggering monthly utility penalties.
+          - generic [ref=e224]:
+            - heading "Before / After" [level=4] [ref=e225]
+            - paragraph [ref=e226]: "PF trend: 0.72 → 0.82 → 0.91 → 0.95"
+          - generic [ref=e232]:
+            - heading "Solution Deployed" [level=4] [ref=e233]
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]: SVG-300A
+                - generic [ref=e237]: × 2 units
+                - generic [ref=e238]: Main LV busbar PF correction
+              - generic [ref=e239]:
+                - generic [ref=e240]: AHF-100A
+                - generic [ref=e241]: × 3 units
+                - generic [ref=e242]: Floor lighting harmonic filters
+          - generic [ref=e243]:
+            - heading "Key Results" [level=4] [ref=e244]
+            - generic [ref=e245]:
+              - generic [ref=e246]:
+                - img [ref=e247]
+                - generic [ref=e250]: PF > 0.95, zero utility penalties
+              - generic [ref=e251]:
+                - img [ref=e252]
+                - generic [ref=e255]: Transformer loss ↓ 22%
+              - generic [ref=e256]:
+                - img [ref=e257]
+                - generic [ref=e260]: Annual savings 450K CNY
+          - link "Read Full Report" [ref=e261] [cursor=pointer]:
+            - /url: /about/cases/lujiazui-office
+            - text: Read Full Report
+            - img [ref=e262]
+      - generic [ref=e264]:
+        - generic [ref=e265] [cursor=pointer]:
+          - img "Voltage Flicker Mitigation at Suzhou Semiconductor Cleanroom Lab" [ref=e267]
+          - generic [ref=e268]:
+            - generic [ref=e269]: Lab / Cleanroom
+            - heading "Voltage Flicker Mitigation at Suzhou Semiconductor Cleanroom Lab" [level=3] [ref=e270]
+            - paragraph [ref=e271]: Flicker Pst < 0.3, zero equipment downtime
+            - generic [ref=e272]:
+              - text: View Details
+              - img [ref=e273]
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - heading "Project Overview" [level=4] [ref=e277]
+            - paragraph [ref=e278]: 12,000m² Class-100 cleanroom, dual 10kV feeders, 8×2500kVA transformers. Process cooling pump inrush and UPS harmonic feedback caused Pst flicker exceeding 1.2, leading to photolithography yield loss and quarterly equipment shutdown events.
+          - generic [ref=e279]:
+            - heading "Before / After" [level=4] [ref=e280]
+            - paragraph [ref=e281]: "Pst trend: 1.2 → 0.7 → 0.4 → 0.3"
+          - generic [ref=e287]:
+            - heading "Solution Deployed" [level=4] [ref=e288]
+            - generic [ref=e289]:
+              - generic [ref=e290]:
+                - generic [ref=e291]: AHF-150A
+                - generic [ref=e292]: × 2 units
+                - generic [ref=e293]: UPS front-end harmonic suppression
+              - generic [ref=e294]:
+                - generic [ref=e295]: SVG-100A
+                - generic [ref=e296]: × 2 units
+                - generic [ref=e297]: Process cooling pump surge compensation
+              - generic [ref=e298]:
+                - generic [ref=e299]: Smart Monitor
+                - generic [ref=e300]: × 1 units
+                - generic [ref=e301]: Plant-wide PQ monitoring platform
+          - generic [ref=e302]:
+            - heading "Key Results" [level=4] [ref=e303]
+            - generic [ref=e304]:
+              - generic [ref=e305]:
+                - img [ref=e306]
+                - generic [ref=e309]: Flicker Pst < 0.3 (IEC 61000-3-3 compliant)
+              - generic [ref=e310]:
+                - img [ref=e311]
+                - generic [ref=e314]: Zero unplanned equipment downtime since deployment
+              - generic [ref=e315]:
+                - img [ref=e316]
+                - generic [ref=e319]: Yield rate recovered to pre-flicker baseline
+          - link "Read Full Report" [ref=e320] [cursor=pointer]:
+            - /url: /about/cases/suzhou-lab
+            - text: Read Full Report
+            - img [ref=e321]
+  - generic [ref=e323]:
+    - link [ref=e324] [cursor=pointer]:
+      - /url: tel:1244545634
+      - img [ref=e326]
+    - link [ref=e328] [cursor=pointer]:
+      - /url: mailto:123456546@gmail.com
+      - img [ref=e330]
+    - link [ref=e333] [cursor=pointer]:
+      - /url: https://wa.me/86184739435
+      - img [ref=e335]
+  - contentinfo [ref=e337]:
+    - generic [ref=e338]:
+      - generic [ref=e339]:
+        - img "CHITEK Logo" [ref=e340]
+        - paragraph [ref=e341]: Subscribe to us to enjoy event prices, along with dedicated technical support.
+        - generic [ref=e342]:
+          - textbox "name@email.com" [ref=e343]
+          - button "Subscribe" [ref=e344] [cursor=pointer]
+        - generic [ref=e345]:
+          - img [ref=e347] [cursor=pointer]
+          - img [ref=e352] [cursor=pointer]
+          - img [ref=e356] [cursor=pointer]
+      - generic [ref=e358]:
+        - heading "Products" [level=4] [ref=e359]
+        - list [ref=e360]:
+          - listitem [ref=e361]:
+            - link "Active Harmonic Filter" [ref=e362] [cursor=pointer]:
+              - /url: products.html#ahf
+          - listitem [ref=e363]:
+            - link "Advanced Static Var Generator" [ref=e364] [cursor=pointer]:
+              - /url: products.html#svg
+          - listitem [ref=e365]:
+            - link "SiC-AHF/SVG (High Efficiency)" [ref=e366] [cursor=pointer]:
+              - /url: products.html#sic
+          - listitem [ref=e367]:
+            - link "High-Protection AHF/SVG" [ref=e368] [cursor=pointer]:
+              - /url: products.html#high-protection
+      - generic [ref=e369]:
+        - heading "Solutions" [level=4] [ref=e370]
+        - list [ref=e371]:
+          - listitem [ref=e372]:
+            - link "Industrial Manufacturing" [ref=e373] [cursor=pointer]:
+              - /url: "#industry"
+          - listitem [ref=e374]:
+            - link "Commercial & Medical Buildings" [ref=e375] [cursor=pointer]:
+              - /url: "#commercial"
+          - listitem [ref=e376]:
+            - link "Data Centers & Telecom" [ref=e377] [cursor=pointer]:
+              - /url: "#datacenter"
+          - listitem [ref=e378]:
+            - link "Renewable Energy (PV/Wind)" [ref=e379] [cursor=pointer]:
+              - /url: "#renewable"
+          - listitem [ref=e380]:
+            - link "Transportation (Rail/Charging)" [ref=e381] [cursor=pointer]:
+              - /url: "#rail"
+          - listitem [ref=e382]:
+            - link "Power Grid & Utility" [ref=e383] [cursor=pointer]:
+              - /url: "#grid"
+      - generic [ref=e384]:
+        - heading "Resources & Partnership" [level=4] [ref=e385]
+        - list [ref=e386]:
+          - listitem [ref=e387]:
+            - link "Technical Library" [ref=e388] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e389]:
+            - link "Global References" [ref=e390] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e391]:
+            - link "OEM & ODM Services" [ref=e392] [cursor=pointer]:
+              - /url: services.html#oem
+          - listitem [ref=e393]:
+            - link "Become a Distributor" [ref=e394] [cursor=pointer]:
+              - /url: services.html#distributor
+    - generic [ref=e395]:
+      - paragraph [ref=e396]: © 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.
+      - link "IPV6 Served" [ref=e398] [cursor=pointer]:
+        - /url: "#"

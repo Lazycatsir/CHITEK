@@ -1,0 +1,738 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "CHITEK Logo" [ref=e3] [cursor=pointer]:
+      - /url: ../index.html
+      - img "CHITEK Logo" [ref=e4]
+    - generic [ref=e5]:
+      - link "Products" [ref=e7] [cursor=pointer]:
+        - /url: products.html
+        - text: Products
+      - link "Solutions" [ref=e9] [cursor=pointer]:
+        - /url: solutions.html
+        - text: Solutions
+      - link "Services" [ref=e11] [cursor=pointer]:
+        - /url: services.html
+        - text: Services
+      - link "About" [ref=e13] [cursor=pointer]:
+        - /url: about.html
+        - text: About
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: contact.html
+        - text: Contact
+    - generic [ref=e16] [cursor=pointer]:
+      - textbox "Search..." [ref=e17]
+      - img [ref=e18]
+    - generic [ref=e22] [cursor=pointer]:
+      - generic [ref=e23]: English
+      - img [ref=e24]
+      - generic [ref=e28]: ▾
+  - generic:
+    - generic:
+      - generic:
+        - button "Active Harmonic Filter"
+        - button "Static Var Generator"
+        - button "Automatic Voltage Regulator"
+  - generic [ref=e31]:
+    - heading "Excellent Products" [level=1] [ref=e32]
+    - paragraph [ref=e33]: Advanced power quality solutions for industrial and commercial applications.
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - paragraph [ref=e42]: Value Proposition
+      - heading "Pain Points & Solutions" [level=2] [ref=e43]
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img [ref=e47]
+        - heading "Voltage Fluctuation" [level=3] [ref=e49]
+        - paragraph [ref=e50]: Unexpected equipment downtime, data loss, and production line interruptions caused by unstable grid voltage.
+      - generic [ref=e51]:
+        - img [ref=e53]
+        - heading "Harmonic Distortion" [level=3] [ref=e55]
+        - paragraph [ref=e56]: Transformer overheating, additional cable losses, and precision equipment malfunction from harmonic pollution.
+      - generic [ref=e57]:
+        - img [ref=e59]
+        - heading "Power Factor Penalties" [level=3] [ref=e62]
+        - paragraph [ref=e63]: Hidden costs climbing on electricity bills, with utility companies charging extra for poor power factor.
+    - generic [ref=e64]:
+      - paragraph [ref=e65]: Technical Process Flow
+      - generic [ref=e66]:
+        - generic [ref=e68]:
+          - img [ref=e69]
+          - paragraph [ref=e72]: Closed-loop control, <50μs response
+        - generic [ref=e73]:
+          - generic [ref=e75]: "01"
+          - paragraph [ref=e77]: Grid Sampling
+        - generic [ref=e78]:
+          - generic [ref=e80]: "02"
+          - paragraph [ref=e82]: FFT Analysis
+        - generic [ref=e83]:
+          - generic [ref=e85]: "03"
+          - paragraph [ref=e87]: SiC/IGBT Inversion
+        - generic [ref=e88]:
+          - generic [ref=e90]: "04"
+          - paragraph [ref=e92]: Harmonic Injection
+  - generic [ref=e95]:
+    - generic [ref=e96]:
+      - paragraph [ref=e97]: Key Features
+      - heading "Core Technology Advantages" [level=2] [ref=e98]
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - img [ref=e102]
+        - heading "SiC Technology" [level=3] [ref=e105]
+        - img [ref=e106]:
+          - generic [ref=e115]: SiC vs IGBT
+        - paragraph [ref=e116]: Switching frequency >20kHz, loss reduction 30%
+      - generic [ref=e117]:
+        - img [ref=e119]
+        - heading "Anti-Resonance" [level=3] [ref=e121]
+        - img [ref=e122]:
+          - generic [ref=e127]: 5th/7th DAMPED
+        - paragraph [ref=e128]: Adaptive damping, prevents 5th/7th resonance amplification
+      - generic [ref=e129]:
+        - img [ref=e131]
+        - heading "Ultra-Compact" [level=3] [ref=e133]
+        - img [ref=e134]:
+          - generic [ref=e136]: 100mm+
+          - generic [ref=e138]: U-Series 45mm
+          - generic [ref=e139]: 55% SPACE SAVED
+        - paragraph [ref=e140]: Space saving vs traditional 100mm+ cabinet models
+      - generic [ref=e141]:
+        - img [ref=e143]
+        - heading "99% Efficiency" [level=3] [ref=e146]
+        - img [ref=e147]:
+          - generic [ref=e152]: 99%
+          - generic [ref=e153]: EFFICIENCY
+          - generic [ref=e154]: ULTRA HIGH EFFICIENCY
+        - paragraph [ref=e155]: Ultra high efficiency, maximizing energy utilization and reducing system losses
+  - generic [ref=e158]:
+    - generic [ref=e159]:
+      - heading "Four Product Series, Full-Scenario Coverage" [level=2] [ref=e160]
+      - paragraph [ref=e161]: From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation — find your configuration
+    - generic [ref=e162]:
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: Classic Choice
+            - heading "Standard" [level=3] [ref=e167]
+          - generic [ref=e168]:
+            - generic [ref=e169]:
+              - generic [ref=e170]: APF Current
+              - generic [ref=e171]: 50A ~ 200A
+            - generic [ref=e172]:
+              - generic [ref=e173]: SVG Capacity
+              - generic [ref=e174]: 35 ~ 133kVar
+            - generic [ref=e175]:
+              - generic [ref=e176]: Dimensions
+              - generic [ref=e177]: 480 x 570 x 175 mm
+              - generic [ref=e178]: Versatile mainstream solution
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - img [ref=e182]
+              - generic [ref=e184]: Unified Design
+            - generic [ref=e185]:
+              - img [ref=e187]
+              - generic [ref=e189]: Mainstream Coverage
+            - generic [ref=e190]:
+              - img [ref=e192]
+              - generic [ref=e195]: Quick Swap
+        - generic [ref=e197]: APF Flagship · Harmonic Compensation 2nd-50th
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - generic [ref=e201]: Space Optimized
+            - heading "SiC" [level=3] [ref=e202]
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - generic [ref=e205]: APF Current
+              - generic [ref=e206]: 50A ~ 100A
+            - generic [ref=e207]:
+              - generic [ref=e208]: SVG Capacity
+              - generic [ref=e209]: 35 ~ 70kVar
+            - generic [ref=e210]:
+              - generic [ref=e211]: Dimensions
+              - generic [ref=e212]: 480 x 570 x 130.5 mm
+              - generic [ref=e213]: Industry-leading 3U height
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - img [ref=e217]
+              - generic [ref=e219]: 3U Ultra-Slim
+            - generic [ref=e220]:
+              - img [ref=e222]
+              - generic [ref=e225]: Cabinet-Friendly
+            - generic [ref=e226]:
+              - img [ref=e228]
+              - generic [ref=e230]: Widely Compatible
+        - generic [ref=e232]: APF Compact · Best for space-constrained installs
+      - generic [ref=e233]:
+        - generic [ref=e234]:
+          - generic [ref=e235]:
+            - generic [ref=e236]: Flexible Deployment
+            - heading "Distributed" [level=3] [ref=e237]
+          - generic [ref=e238]:
+            - generic [ref=e239]:
+              - generic [ref=e240]: APF Current
+              - generic [ref=e241]: 15A ~ 50A
+            - generic [ref=e242]:
+              - generic [ref=e243]: SVG Capacity
+              - generic [ref=e244]: 10 ~ 30kVar
+            - generic [ref=e245]:
+              - generic [ref=e246]: Dimensions
+              - generic [ref=e247]: 380 x 400 x 88 mm
+              - generic [ref=e248]: Ultra-compact · Drawer compatible
+          - generic [ref=e249]:
+            - generic [ref=e250]:
+              - img [ref=e252]
+              - generic [ref=e254]: Incredibly Compact
+            - generic [ref=e255]:
+              - img [ref=e257]
+              - generic [ref=e259]: Side-by-Side Mount
+            - generic [ref=e260]:
+              - img [ref=e262]
+              - generic [ref=e265]: Full Touchscreen
+        - generic [ref=e267]: APF Distributed · Drawer cabinet retrofit
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - generic [ref=e271]: Harsh Environments
+            - heading "Anti-Pollution" [level=3] [ref=e272]
+          - generic [ref=e273]:
+            - generic [ref=e274]:
+              - generic [ref=e275]: APF Current
+              - generic [ref=e276]: 75A ~ 150A
+            - generic [ref=e277]:
+              - generic [ref=e278]: SVG Capacity
+              - generic [ref=e279]: 50 ~ 100kVar
+            - generic [ref=e280]:
+              - generic [ref=e281]: Dimensions
+              - generic [ref=e282]: 480 x 570 x 175 mm
+              - generic [ref=e283]: Heavy-industry protection design
+          - generic [ref=e284]:
+            - generic [ref=e285]:
+              - img [ref=e287]
+              - generic [ref=e289]: Anti-Dust
+            - generic [ref=e290]:
+              - img [ref=e292]
+              - generic [ref=e294]: Anti-Pollution
+            - generic [ref=e295]:
+              - img [ref=e297]
+              - generic [ref=e299]: Ultra-Reliable
+        - generic [ref=e301]: APF Heavy Industry · Mining, metallurgy & chemical
+  - generic [ref=e303]:
+    - generic [ref=e304]:
+      - paragraph [ref=e305]: Product Configurator
+      - heading "AHF Product Selection Matrix" [level=2] [ref=e306]
+      - paragraph [ref=e307]: Select voltage class, then choose series and capacity from the matrix
+    - generic [ref=e308]:
+      - button "400V Standard" [ref=e309]:
+        - generic [ref=e311]: 400V
+        - generic [ref=e312]: Standard
+      - button "208V Low Voltage" [ref=e313]:
+        - generic [ref=e315]: 208V
+        - generic [ref=e316]: Low Voltage
+      - button "480V High Voltage" [ref=e317]:
+        - generic [ref=e319]: 480V
+        - generic [ref=e320]: High Voltage
+      - button "690V/800V Industrial" [ref=e321]:
+        - generic [ref=e323]: 690V/800V
+        - generic [ref=e324]: Industrial
+    - table [ref=e326]:
+      - rowgroup [ref=e327]:
+        - row "Capacity \\ Model Ultra-Slim U-Series Distributed D-Series Anti-Pollution A-Series SiC C-Series Standard L-Series" [ref=e328]:
+          - columnheader "Capacity \\ Model" [ref=e329]
+          - columnheader "Ultra-Slim U-Series" [ref=e330]:
+            - generic [ref=e331]:
+              - generic [ref=e332]: Ultra-Slim
+              - generic [ref=e333]: U-Series
+          - columnheader "Distributed D-Series" [ref=e334]:
+            - generic [ref=e335]:
+              - generic [ref=e336]: Distributed
+              - generic [ref=e337]: D-Series
+          - columnheader "Anti-Pollution A-Series" [ref=e338]:
+            - generic [ref=e339]:
+              - generic [ref=e340]: Anti-Pollution
+              - generic [ref=e341]: A-Series
+          - columnheader "SiC C-Series" [ref=e342]:
+            - generic [ref=e343]:
+              - generic [ref=e344]: SiC
+              - generic [ref=e345]: C-Series
+          - columnheader "Standard L-Series" [ref=e346]:
+            - generic [ref=e347]:
+              - generic [ref=e348]: Standard
+              - generic [ref=e349]: L-Series
+      - rowgroup [ref=e350]:
+        - row "15A" [ref=e351]:
+          - cell "15A" [ref=e352]
+          - cell [ref=e353]:
+            - button [ref=e354]
+          - cell [ref=e356]:
+            - button [disabled]
+          - cell [ref=e357]:
+            - button [disabled]
+          - cell [ref=e358]:
+            - button [disabled]
+          - cell [ref=e359]:
+            - button [disabled]
+        - row "30A" [ref=e360]:
+          - cell "30A" [ref=e361]
+          - cell [ref=e362]:
+            - button [disabled]
+          - cell [ref=e363]:
+            - button [ref=e364]
+          - cell [ref=e366]:
+            - button [disabled]
+          - cell [ref=e367]:
+            - button [disabled]
+          - cell [ref=e368]:
+            - button [disabled]
+        - row "50A" [ref=e369]:
+          - cell "50A" [ref=e370]
+          - cell [ref=e371]:
+            - button [disabled]
+          - cell [ref=e372]:
+            - button [ref=e373]
+          - cell [ref=e375]:
+            - button [ref=e376]
+          - cell [ref=e378]:
+            - button [ref=e379]
+          - cell [ref=e381]:
+            - button [ref=e382]
+        - row "75A" [ref=e384]:
+          - cell "75A" [ref=e385]
+          - cell [ref=e386]:
+            - button [disabled]
+          - cell [ref=e387]:
+            - button [disabled]
+          - cell [ref=e388]:
+            - button [ref=e389]
+          - cell [ref=e391]:
+            - button [ref=e392]
+          - cell [ref=e394]:
+            - button [ref=e395]
+        - row "85A" [ref=e397]:
+          - cell "85A" [ref=e398]
+          - cell [ref=e399]:
+            - button [disabled]
+          - cell [ref=e400]:
+            - button [disabled]
+          - cell [ref=e401]:
+            - button [disabled]
+          - cell [ref=e402]:
+            - button [disabled]
+          - cell [ref=e403]:
+            - button [disabled]
+        - row "100A" [ref=e404]:
+          - cell "100A" [ref=e405]
+          - cell [ref=e406]:
+            - button [disabled]
+          - cell [ref=e407]:
+            - button [disabled]
+          - cell [ref=e408]:
+            - button [ref=e409]
+          - cell [ref=e411]:
+            - button [ref=e412]
+          - cell [ref=e414]:
+            - button [ref=e415]
+        - row "150A" [ref=e417]:
+          - cell "150A" [ref=e418]
+          - cell [ref=e419]:
+            - button [disabled]
+          - cell [ref=e420]:
+            - button [disabled]
+          - cell [ref=e421]:
+            - button [ref=e422]
+          - cell [ref=e424]:
+            - button [ref=e425]
+          - cell [ref=e427]:
+            - button [ref=e428]
+        - row "200A" [ref=e430]:
+          - cell "200A" [ref=e431]
+          - cell [ref=e432]:
+            - button [disabled]
+          - cell [ref=e433]:
+            - button [disabled]
+          - cell [ref=e434]:
+            - button [ref=e435]
+          - cell [ref=e437]:
+            - button [disabled]
+          - cell [ref=e438]:
+            - button [ref=e439]
+  - generic [ref=e443]:
+    - img "HMI Monitoring Interface" [ref=e445]
+    - generic [ref=e446]:
+      - paragraph [ref=e447]: HMI Interface
+      - heading "Intelligent Human-Machine Interface" [level=2] [ref=e448]
+      - paragraph [ref=e449]: Equipped with a 7-inch high-resolution capacitive touchscreen providing an intuitive power quality monitoring experience. Real-time waveform display, historical data logging, remote communication, and control of up to 16 modules in one.
+      - generic [ref=e450]:
+        - generic [ref=e451]:
+          - img [ref=e453]
+          - generic [ref=e455]:
+            - paragraph [ref=e456]: 7-inch Touchscreen
+            - paragraph [ref=e457]: Touch LCD & system setting
+        - generic [ref=e458]:
+          - img [ref=e460]
+          - generic [ref=e462]:
+            - paragraph [ref=e463]: Real-time Measurement
+            - paragraph [ref=e464]: Parameters / waveforms / spectra
+        - generic [ref=e465]:
+          - img [ref=e467]
+          - generic [ref=e469]:
+            - paragraph [ref=e470]: Modbus / Ethernet
+            - paragraph [ref=e471]: Remote monitoring & data logging
+        - generic [ref=e472]:
+          - img [ref=e474]
+          - generic [ref=e477]:
+            - paragraph [ref=e478]: Multi-Language
+            - paragraph [ref=e479]: EN/ZH/ES/DE/FR and 8 more
+      - generic [ref=e480]:
+        - img [ref=e481]
+        - paragraph [ref=e483]: "Note: Capacitor bank controller, which controls up to 32 sets of capacitor banks, is available. (7\" monitor built-in or stand-alone type)"
+  - generic [ref=e484]:
+    - generic [ref=e487]:
+      - paragraph [ref=e488]: Case Studies
+      - heading "Success Stories" [level=2] [ref=e489]
+    - generic [ref=e492]:
+      - generic [ref=e493]:
+        - generic [ref=e498]:
+          - generic [ref=e499]:
+            - generic [ref=e500]: Data Center
+            - img [ref=e501]
+          - heading "Major Data Center Operator" [level=3] [ref=e503]
+          - generic [ref=e504]:
+            - generic [ref=e505]:
+              - paragraph [ref=e506]: Challenge
+              - paragraph [ref=e507]: UPS systems generated massive 5th, 7th harmonics causing transformer overheating and repeated protection trips.
+            - generic [ref=e508]:
+              - paragraph [ref=e509]: Solution
+              - paragraph [ref=e510]: AHF-C-100-400 x 8 units
+          - generic [ref=e511]:
+            - generic [ref=e512]:
+              - paragraph [ref=e513]: THDi
+              - generic [ref=e514]:
+                - generic [ref=e515]: 25%
+                - generic [ref=e516]: 4.2%
+            - generic [ref=e517]:
+              - paragraph [ref=e518]: Annual Savings
+              - paragraph [ref=e519]: $120K
+            - generic [ref=e520]:
+              - paragraph [ref=e521]: Life Extended
+              - paragraph [ref=e522]: 3x
+        - generic [ref=e527]:
+          - generic [ref=e528]:
+            - generic [ref=e529]: Automotive
+            - img [ref=e530]
+          - heading "Automotive Manufacturer" [level=3] [ref=e532]
+          - generic [ref=e533]:
+            - generic [ref=e534]:
+              - paragraph [ref=e535]: Challenge
+              - paragraph [ref=e536]: Welding robot VFDs produced harmonic interference causing PLC misoperation and frequent line interruptions.
+            - generic [ref=e537]:
+              - paragraph [ref=e538]: Solution
+              - paragraph [ref=e539]: AHF-A-150-400 x 4 units
+          - generic [ref=e540]:
+            - generic [ref=e541]:
+              - paragraph [ref=e542]: THDi
+              - generic [ref=e543]:
+                - generic [ref=e544]: 32%
+                - generic [ref=e545]: 3.8%
+            - generic [ref=e546]:
+              - paragraph [ref=e547]: Power Factor
+              - generic [ref=e548]:
+                - generic [ref=e549]: "0.82"
+                - generic [ref=e550]: "0.99"
+            - generic [ref=e551]:
+              - paragraph [ref=e552]: Downtime
+              - paragraph [ref=e553]: "-95%"
+        - generic [ref=e558]:
+          - generic [ref=e559]:
+            - generic [ref=e560]: Port & Marine
+            - img [ref=e561]
+          - heading "Container Terminal" [level=3] [ref=e563]
+          - generic [ref=e564]:
+            - generic [ref=e565]:
+              - paragraph [ref=e566]: Challenge
+              - paragraph [ref=e567]: Shore power systems and crane VFDs created severe 11th/13th harmonics affecting vessel grid synchronization.
+            - generic [ref=e568]:
+              - paragraph [ref=e569]: Solution
+              - paragraph [ref=e570]: AHF-L-200-690 x 6 units
+          - generic [ref=e571]:
+            - generic [ref=e572]:
+              - paragraph [ref=e573]: THDi
+              - generic [ref=e574]:
+                - generic [ref=e575]: 28%
+                - generic [ref=e576]: 4.5%
+            - generic [ref=e577]:
+              - paragraph [ref=e578]: Annual Savings
+              - paragraph [ref=e579]: $85K
+            - generic [ref=e580]:
+              - paragraph [ref=e581]: Grid Sync
+              - paragraph [ref=e582]: 100%
+        - generic [ref=e587]:
+          - generic [ref=e588]:
+            - generic [ref=e589]: Semiconductor
+            - img [ref=e590]
+          - heading "Wafer Fab Facility" [level=3] [ref=e592]
+          - generic [ref=e593]:
+            - generic [ref=e594]:
+              - paragraph [ref=e595]: Challenge
+              - paragraph [ref=e596]: EUV lithography tools required <3% THDi, but existing grid delivered 18% with significant even harmonics.
+            - generic [ref=e597]:
+              - paragraph [ref=e598]: Solution
+              - paragraph [ref=e599]: AHF-C-050-400 x 12 units
+          - generic [ref=e600]:
+            - generic [ref=e601]:
+              - paragraph [ref=e602]: THDi
+              - generic [ref=e603]:
+                - generic [ref=e604]: 18%
+                - generic [ref=e605]: 2.1%
+            - generic [ref=e606]:
+              - paragraph [ref=e607]: Yield Improve
+              - paragraph [ref=e608]: +8.5%
+            - generic [ref=e609]:
+              - paragraph [ref=e610]: ROI
+              - paragraph [ref=e611]: 14 mo
+      - generic [ref=e612]:
+        - button [ref=e613]:
+          - img [ref=e614]
+        - button [ref=e621]:
+          - img [ref=e622]
+  - generic [ref=e625]:
+    - heading "Document Library" [level=2] [ref=e627]
+    - generic [ref=e628]:
+      - button "All" [ref=e629]
+      - button "Specs & Certs" [ref=e630]
+      - button "Videos" [ref=e631]
+    - generic [ref=e632]:
+      - generic [ref=e633]:
+        - generic [ref=e634]:
+          - img [ref=e636]
+          - heading "AHF Product Specification v4.2" [level=3] [ref=e639]
+        - generic [ref=e640]:
+          - img [ref=e641]
+          - generic [ref=e644]: 2.4 MB · 2025-03
+        - button "Download" [ref=e646]:
+          - img [ref=e647]
+          - generic [ref=e649]: Download
+      - generic [ref=e652]:
+        - generic [ref=e653]:
+          - img [ref=e655]
+          - heading "AHF Installation Manual" [level=3] [ref=e658]
+        - generic [ref=e659]:
+          - img [ref=e660]
+          - generic [ref=e663]: 5.1 MB · 2025-02
+        - button "Download" [ref=e665]:
+          - img [ref=e666]
+          - generic [ref=e668]: Download
+      - generic [ref=e671]:
+        - generic [ref=e672]:
+          - img [ref=e674]
+          - heading "CE Certification" [level=3] [ref=e677]
+        - generic [ref=e678]:
+          - img [ref=e679]
+          - generic [ref=e682]: 1.2 MB · 2025-01
+        - button "Download" [ref=e684]:
+          - img [ref=e685]
+          - generic [ref=e687]: Download
+      - generic [ref=e690]:
+        - generic [ref=e691]:
+          - img [ref=e693]
+          - heading "UL Certification" [level=3] [ref=e696]
+        - generic [ref=e697]:
+          - img [ref=e698]
+          - generic [ref=e701]: 1.8 MB · 2024-12
+        - button "Download" [ref=e703]:
+          - img [ref=e704]
+          - generic [ref=e706]: Download
+      - generic [ref=e709]:
+        - generic [ref=e710]:
+          - img [ref=e712]
+          - heading "AHF Series CAD Drawings" [level=3] [ref=e715]
+        - generic [ref=e716]:
+          - img [ref=e717]
+          - generic [ref=e720]: 12.6 MB · 2025-03
+        - button "Download" [ref=e722]:
+          - img [ref=e723]
+          - generic [ref=e725]: Download
+      - generic [ref=e728]:
+        - generic [ref=e729]:
+          - img [ref=e731]
+          - heading "BIM Model Library" [level=3] [ref=e734]
+        - generic [ref=e735]:
+          - img [ref=e736]
+          - generic [ref=e739]: 28.3 MB · 2025-01
+        - button "Download" [ref=e741]:
+          - img [ref=e742]
+          - generic [ref=e744]: Download
+      - generic [ref=e747]:
+        - generic [ref=e748]:
+          - img [ref=e750]
+          - heading "Installation Tutorial Video" [level=3] [ref=e752]
+        - generic [ref=e753]:
+          - img [ref=e754]
+          - generic [ref=e757]: 156 MB · 2025-02
+        - button "Play" [ref=e759]:
+          - img [ref=e760]
+          - generic [ref=e762]: Play
+      - generic [ref=e765]:
+        - generic [ref=e766]:
+          - img [ref=e768]
+          - heading "Data Center Case Video" [level=3] [ref=e770]
+        - generic [ref=e771]:
+          - img [ref=e772]
+          - generic [ref=e775]: 243 MB · 2024-11
+        - button "Play" [ref=e777]:
+          - img [ref=e778]
+          - generic [ref=e780]: Play
+  - generic [ref=e784]:
+    - heading "Industry Applications" [level=2] [ref=e786]
+    - generic [ref=e787]:
+      - link "Data Center UPS harmonic mitigation & PF correction View Solution" [ref=e788] [cursor=pointer]:
+        - /url: /solutions/datacenter
+        - generic [ref=e791]:
+          - heading "Data Center" [level=3] [ref=e792]
+          - paragraph [ref=e793]: UPS harmonic mitigation & PF correction
+          - generic [ref=e794]:
+            - generic [ref=e795]: View Solution
+            - img [ref=e796]
+      - link "Healthcare Precision medical equipment power quality View Solution" [ref=e798] [cursor=pointer]:
+        - /url: /solutions/healthcare
+        - generic [ref=e801]:
+          - heading "Healthcare" [level=3] [ref=e802]
+          - paragraph [ref=e803]: Precision medical equipment power quality
+          - generic [ref=e804]:
+            - generic [ref=e805]: View Solution
+            - img [ref=e806]
+      - link "Semiconductor Wafer fab ultra-precision power purification View Solution" [ref=e808] [cursor=pointer]:
+        - /url: /solutions/semiconductor
+        - generic [ref=e811]:
+          - heading "Semiconductor" [level=3] [ref=e812]
+          - paragraph [ref=e813]: Wafer fab ultra-precision power purification
+          - generic [ref=e814]:
+            - generic [ref=e815]: View Solution
+            - img [ref=e816]
+      - link "Port & Logistics Large crane VFD harmonic suppression View Solution" [ref=e818] [cursor=pointer]:
+        - /url: /solutions/port
+        - generic [ref=e821]:
+          - heading "Port & Logistics" [level=3] [ref=e822]
+          - paragraph [ref=e823]: Large crane VFD harmonic suppression
+          - generic [ref=e824]:
+            - generic [ref=e825]: View Solution
+            - img [ref=e826]
+  - generic [ref=e832]:
+    - generic [ref=e833]:
+      - heading "Frequently Asked Questions" [level=2] [ref=e835]
+      - generic [ref=e836]:
+        - generic [ref=e837] [cursor=pointer]: Impact of Harmonic Distortion
+        - generic [ref=e838] [cursor=pointer]: AHF Application Scenarios by Industry
+        - generic [ref=e839] [cursor=pointer]: What is the response time of CHITEK AHF?
+        - generic [ref=e840] [cursor=pointer]: Can multiple AHF units operate in parallel?
+        - generic [ref=e841] [cursor=pointer]: What communication protocols are supported?
+        - generic [ref=e842] [cursor=pointer]: What is the lifespan and maintenance schedule?
+        - generic [ref=e843] [cursor=pointer]: Does the AHF require a dedicated transformer?
+        - generic [ref=e844] [cursor=pointer]: Can the AHF operate in harsh environments?
+        - generic [ref=e845] [cursor=pointer]: What certifications does the AHF hold?
+        - generic [ref=e846] [cursor=pointer]: How is the AHF commissioned and configured?
+    - generic [ref=e847]:
+      - generic [ref=e849]: Impact of Harmonic Distortion
+      - table [ref=e854]:
+        - rowgroup [ref=e855]:
+          - row "Pain Point Scenario Description Consequence" [ref=e856]:
+            - columnheader "Pain Point" [ref=e857]
+            - columnheader "Scenario Description" [ref=e858]
+            - columnheader "Consequence" [ref=e859]
+        - rowgroup [ref=e860]:
+          - row "Harmonic Distortion Nonlinear loads such as VFDs, UPSs, LED drivers, and welding machines generate 3rd/5th/7th/11th harmonics Transformer overheating, additional cable losses, sensitive equipment malfunction, nuisance tripping" [ref=e861]:
+            - cell "Harmonic Distortion" [ref=e862]
+            - cell "Nonlinear loads such as VFDs, UPSs, LED drivers, and welding machines generate 3rd/5th/7th/11th harmonics" [ref=e863]
+            - cell "Transformer overheating, additional cable losses, sensitive equipment malfunction, nuisance tripping" [ref=e864]
+          - row "Resonance Risk Traditional passive filters form series/parallel resonance with system impedance Harmonic current amplification, equipment damage, capacitor bank explosion" [ref=e865]:
+            - cell "Resonance Risk" [ref=e866]
+            - cell "Traditional passive filters form series/parallel resonance with system impedance" [ref=e867]
+            - cell "Harmonic current amplification, equipment damage, capacitor bank explosion" [ref=e868]
+          - row "THDi Exceeds Limits Total harmonic current distortion > 8% (IEEE 519) or > 5% (G5/4) Utility fines, power supply restrictions, commissioning failure" [ref=e869]:
+            - cell "THDi Exceeds Limits" [ref=e870]
+            - cell "Total harmonic current distortion > 8% (IEEE 519) or > 5% (G5/4)" [ref=e871]
+            - cell "Utility fines, power supply restrictions, commissioning failure" [ref=e872]
+          - row "Neutral Overload 3rd harmonics accumulate in phase in 3-phase 4-wire systems Neutral current reaches 1.7× phase current, cable insulation aging, fire hazard" [ref=e873]:
+            - cell "Neutral Overload" [ref=e874]
+            - cell "3rd harmonics accumulate in phase in 3-phase 4-wire systems" [ref=e875]
+            - cell "Neutral current reaches 1.7× phase current, cable insulation aging, fire hazard" [ref=e876]
+          - row "False PF Reading Harmonics distort traditional power factor meter measurements Capacitor bank over/under compensation, ongoing penalty charges" [ref=e877]:
+            - cell "False PF Reading" [ref=e878]
+            - cell "Harmonics distort traditional power factor meter measurements" [ref=e879]
+            - cell "Capacitor bank over/under compensation, ongoing penalty charges" [ref=e880]
+  - generic [ref=e881]:
+    - link [ref=e882] [cursor=pointer]:
+      - /url: tel:1244545634
+      - img [ref=e884]
+    - link [ref=e886] [cursor=pointer]:
+      - /url: mailto:123456546@gmail.com
+      - img [ref=e888]
+    - link [ref=e891] [cursor=pointer]:
+      - /url: https://wa.me/86184739435
+      - img [ref=e893]
+  - contentinfo [ref=e895]:
+    - generic [ref=e896]:
+      - generic [ref=e897]:
+        - img "CHITEK Logo" [ref=e898]
+        - paragraph [ref=e899]: Subscribe to us to enjoy event prices, along with dedicated technical support.
+        - generic [ref=e900]:
+          - textbox "name@email.com" [ref=e901]
+          - button "Subscribe" [ref=e902] [cursor=pointer]
+        - generic [ref=e903]:
+          - img [ref=e905] [cursor=pointer]
+          - img [ref=e910] [cursor=pointer]
+          - img [ref=e914] [cursor=pointer]
+      - generic [ref=e916]:
+        - heading "Products" [level=4] [ref=e917]
+        - list [ref=e918]:
+          - listitem [ref=e919]:
+            - link "Active Harmonic Filter" [ref=e920] [cursor=pointer]:
+              - /url: products.html#ahf
+          - listitem [ref=e921]:
+            - link "Advanced Static Var Generator" [ref=e922] [cursor=pointer]:
+              - /url: products.html#svg
+          - listitem [ref=e923]:
+            - link "SiC-AHF/SVG (High Efficiency)" [ref=e924] [cursor=pointer]:
+              - /url: products.html#sic
+          - listitem [ref=e925]:
+            - link "High-Protection AHF/SVG" [ref=e926] [cursor=pointer]:
+              - /url: products.html#high-protection
+      - generic [ref=e927]:
+        - heading "Solutions" [level=4] [ref=e928]
+        - list [ref=e929]:
+          - listitem [ref=e930]:
+            - link "Industrial Manufacturing" [ref=e931] [cursor=pointer]:
+              - /url: solutions.html#industry
+          - listitem [ref=e932]:
+            - link "Commercial & Medical Buildings" [ref=e933] [cursor=pointer]:
+              - /url: solutions.html#commercial
+          - listitem [ref=e934]:
+            - link "Data Centers & Telecom" [ref=e935] [cursor=pointer]:
+              - /url: solutions.html#datacenter
+          - listitem [ref=e936]:
+            - link "Renewable Energy (PV/Wind)" [ref=e937] [cursor=pointer]:
+              - /url: solutions.html#renewable
+          - listitem [ref=e938]:
+            - link "Transportation (Rail/Charging)" [ref=e939] [cursor=pointer]:
+              - /url: solutions.html#rail
+          - listitem [ref=e940]:
+            - link "Power Grid & Utility" [ref=e941] [cursor=pointer]:
+              - /url: solutions.html#grid
+      - generic [ref=e942]:
+        - heading "Resources & Partnership" [level=4] [ref=e943]
+        - list [ref=e944]:
+          - listitem [ref=e945]:
+            - link "Technical Library" [ref=e946] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e947]:
+            - link "Global References" [ref=e948] [cursor=pointer]:
+              - /url: services.html#tech-support
+          - listitem [ref=e949]:
+            - link "OEM & ODM Services" [ref=e950] [cursor=pointer]:
+              - /url: services.html#oem
+          - listitem [ref=e951]:
+            - link "Become a Distributor" [ref=e952] [cursor=pointer]:
+              - /url: services.html#distributor
+    - generic [ref=e953]:
+      - paragraph [ref=e954]: © 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.
+      - link "IPV6 Served" [ref=e956] [cursor=pointer]:
+        - /url: "#"

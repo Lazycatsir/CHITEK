@@ -220,7 +220,7 @@
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
     <div class="absolute inset-0 animate-fade-in">
-      <img id="hero-image" src="solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
+      <img id="hero-image" src="../assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
     </div>
     <div class="relative z-10 max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
@@ -240,7 +240,7 @@
   </div>
 
   <!-- ============ SOLUTIONS CAROUSEL ============ -->
-  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 [&.revealed]:opacity-100 [&.revealed]:translate-y-0 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('solutions-scenario.png')">
+  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 [&.revealed]:opacity-100 [&.revealed]:translate-y-0 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('../assets/images/solutions-scenario.png')">
     <div class="max-w-[1280px] mx-auto">
       <div class="flex items-end justify-between mb-6">
         <div>
@@ -465,7 +465,7 @@
       {
         title: 'Harmonic Mitigation at Beijing Union Hospital Outpatient Building',
         highlight: 'THD 18.3% → 4.1%, annual power savings 670K CNY',
-        image: 'solutions-commercial-medical-case-hospital.jpg',
+        image: '../assets/images/solutions-commercial-medical-case-hospital.jpg',
         industry: 'Medical Building',
         colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
         link: '/about/cases/pumc-hospital',
@@ -484,7 +484,7 @@
       {
         title: 'Power Quality Retrofit at Lujiazui Grade-A Office Tower, Shanghai',
         highlight: 'PF 0.72 → 0.95, penalty elimination 450K CNY/year',
-        image: 'solutions-commercial-medical-case-office.jpg',
+        image: '../assets/images/solutions-commercial-medical-case-office.jpg',
         industry: 'Commercial Office',
         colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
         link: '/about/cases/lujiazui-office',
@@ -503,7 +503,7 @@
       {
         title: 'Voltage Flicker Mitigation at Suzhou Semiconductor Cleanroom Lab',
         highlight: 'Flicker Pst < 0.3, zero equipment downtime',
-        image: 'solutions-commercial-medical-case-lab.jpg',
+        image: '../assets/images/solutions-commercial-medical-case-lab.jpg',
         industry: 'Lab / Cleanroom',
         colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
         link: '/about/cases/suzhou-lab',
@@ -586,21 +586,21 @@
     ];
     const gridCases = [
       {
-        title: 'Integrated PQ Management at Provincial 220kV Substation', highlight: 'THD 11% → 3.5%, transformer loss down 12%, annual savings 3.2M kWh', image: 'solutions-grid-case-substation.jpg', industry: 'Power Grid', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Integrated PQ Management at Provincial 220kV Substation', highlight: 'THD 11% → 3.5%, transformer loss down 12%, annual savings 3.2M kWh', image: '../assets/images/solutions-grid-case-substation.jpg', industry: 'Power Grid', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '220kV/35kV/10kV provincial substation serving mixed industrial and residential load. Harmonic injection from nearby steel mill and increasing DG penetration caused THD exceeding 11% at 35kV bus, triggering capacitor bank breaker trips and transformer overheating alarms.',
         trend: 'THD trend: 11.0% → 7.8% → 5.2% → 3.5%',
         solution: [{ product: 'SVG-800V', qty: 2, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 3, use: 'Critical feeder harmonic filtering' }],
         results: ['THD < 4% (GB/T 14549 compliant)', 'Transformer loss reduced 12% (3.2M kWh/year saved)', 'Line loss improved 0.8 percentage points'],
       },
       {
-        title: 'Urban Core Distribution Network Upgrade Project', highlight: 'EV station imbalance < 3%, voltage qualification 99.97%', image: 'solutions-grid-case-urban.jpg', industry: 'Urban Distribution', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Urban Core Distribution Network Upgrade Project', highlight: 'EV station imbalance < 3%, voltage qualification 99.97%', image: '../assets/images/solutions-grid-case-urban.jpg', industry: 'Urban Distribution', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'City center 10kV distribution network with 12 EV fast-charging stations and mixed commercial/residential load. Evening peak concurrent charging caused severe phase imbalance and voltage sag, while underground cable network produced leading PF at light load.',
         trend: 'Unbalance trend: 12% → 8% → 5% → 2.8%',
         solution: [{ product: 'SPC-150A', qty: 4, use: 'EV station 3-phase balancing' }, { product: 'SVG-10kV', qty: 2, use: 'Feeder reactive compensation' }],
         results: ['Phase unbalance < 3% at all EV stations', 'Voltage qualification rate 99.97%', 'Zero cable over-compensation incidents'],
       },
       {
-        title: 'Island PV-Wind-Storage Integrated Microgrid Project', highlight: 'Island/grid switch sag < 5%, reliability 99.9%, diesel reduction 60%', image: 'solutions-grid-case-microgrid.jpg', industry: 'Microgrid', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Island PV-Wind-Storage Integrated Microgrid Project', highlight: 'Island/grid switch sag < 5%, reliability 99.9%, diesel reduction 60%', image: '../assets/images/solutions-grid-case-microgrid.jpg', industry: 'Microgrid', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Remote island microgrid with 2MW PV, 1.5MW wind, 4MWh BESS, and 1MW diesel backup. Multi-source harmonic stacking at PCC and voltage sag during grid/island transitions caused frequent load shedding and diesel premature start.',
         trend: 'Sag trend: 25% → 12% → 7% → <5%',
         solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC power quality conditioning' }, { product: 'SPC-100A', qty: 1, use: 'Load balance across phases' }],
@@ -672,21 +672,21 @@
     ];
     const dcCases = [
       {
-        title: 'Harmonic Mitigation at Major Cloud Provider North China DC', highlight: 'THD 14% → 2.8%, UPS parallel circulation down 80%, annual savings 2.6M CNY', image: 'solutions-datacenter-case-cloud.jpg', industry: 'Cloud Computing', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Harmonic Mitigation at Major Cloud Provider North China DC', highlight: 'THD 14% → 2.8%, UPS parallel circulation down 80%, annual savings 2.6M CNY', image: '../assets/images/solutions-datacenter-case-cloud.jpg', industry: 'Cloud Computing', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '40MW hyperscale data center with 3×2.4MW UPS parallel configuration. UPS input harmonic circulating current caused load imbalance, battery thermal stress, and false PDU alarms. Annual PUE penalty from reactive losses exceeded 1.5M CNY.',
         trend: 'THD trend: 14.0% → 8.5% → 4.2% → 2.8%',
         solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS input harmonic suppression' }, { product: 'SVG-150kvar', qty: 3, use: 'LV bus reactive compensation' }],
         results: ['THD < 3% at UPS input (IEEE 519 compliant)', 'UPS parallel circulation current reduced 80%', 'Annual energy savings 2.6M CNY'],
       },
       {
-        title: 'Power Quality Retrofit at State-owned Bank DR Center', highlight: 'Voltage sag < 3ms, high-frequency trading zero interruption, PUE 1.65 → 1.48', image: 'solutions-datacenter-case-finance.jpg', industry: 'Financial DC', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Power Quality Retrofit at State-owned Bank DR Center', highlight: 'Voltage sag < 3ms, high-frequency trading zero interruption, PUE 1.65 → 1.48', image: '../assets/images/solutions-datacenter-case-finance.jpg', industry: 'Financial DC', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'Tier-IV DR center for state-owned bank, hosting real-time trading and settlement. ATS monthly test caused 10-15ms transfer sag that triggered trading server PSU dropout. Precision HVAC VFD harmonics degraded PUE from 1.48 to 1.65 over 18 months.',
         trend: 'PUE trend: 1.65 → 1.58 → 1.52 → 1.48',
         solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS rectifier front-end filtering' }, { product: 'SVG-100A', qty: 2, use: 'Trading floor dynamic reactive' }],
         results: ['Voltage sag < 3ms, zero trading interruption', 'PUE recovered from 1.65 to 1.48', 'Annual OpEx savings 1.2M CNY'],
       },
       {
-        title: 'Batch Deployment at Operator 5G Edge Computing Nodes', highlight: '1U rack-mount, remote ops, 42K CNY/node/year saved, ROI < 18 months', image: 'solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Batch Deployment at Operator 5G Edge Computing Nodes', highlight: '1U rack-mount, remote ops, 42K CNY/node/year saved, ROI < 18 months', image: '../assets/images/solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Telecom operator deploying 200+ 5G MEC edge nodes in rural/suburban sites. Unstable grid voltage with >20% sag, single-cabinet UPS overload, and high truck-roll O&M cost created an unsustainable operational model at scale.',
         trend: 'Node uptime: 97.2% → 98.8% → 99.5% → 99.9%',
         solution: [{ product: 'AHF-15A', qty: 200, use: '1U rack-mount per node cabinet' }, { product: 'Cloud Monitor', qty: 1, use: 'Centralized remote monitoring platform' }],
@@ -758,21 +758,21 @@
     ];
     const indCases = [
       {
-        title: 'Harmonic Mitigation at Auto Body Welding Workshop', highlight: 'THD 28% → 4.2%, transformer temp. drop 15°C, annual savings 1.2M CNY', image: 'solutions-industrial-case-welding.jpg', industry: 'Welding & Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Harmonic Mitigation at Auto Body Welding Workshop', highlight: 'THD 28% → 4.2%, transformer temp. drop 15°C, annual savings 1.2M CNY', image: '../assets/images/solutions-industrial-case-welding.jpg', industry: 'Welding & Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: 'Large automotive body shop with 48 arc welding robots and 6 medium-frequency spot welders. Batch welding cycles created severe harmonic surges (THD 28%) and voltage flicker, causing monthly transformer overheat alarms and two unplanned production stoppages.',
         trend: 'THD trend: 28% → 18% → 9% → 4.2%',
         solution: [{ product: 'AHF-150A', qty: 3, use: 'Welder bus harmonic mitigation' }, { product: 'SVG-100A', qty: 2, use: 'Furnace reactive compensation' }],
         results: ['THD < 5% (IEEE 519 compliant)', 'Transformer temp. reduced 15°C', 'Annual energy savings 1.2M CNY'],
       },
       {
-        title: 'Power Quality Retrofit at Petrochemical Base VFD Bank', highlight: 'PF 0.65 → 0.95, penalty elimination 3.8M CNY/year, DCS zero downtime', image: 'solutions-industrial-case-petrochemical.jpg', industry: 'Chemical & Oil', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Power Quality Retrofit at Petrochemical Base VFD Bank', highlight: 'PF 0.65 → 0.95, penalty elimination 3.8M CNY/year, DCS zero downtime', image: '../assets/images/solutions-industrial-case-petrochemical.jpg', industry: 'Chemical & Oil', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'Large petrochemical complex with 200+ VFD-driven pumps and compressors. Multi-VFD harmonic stacking caused THD exceeding 18% at 35kV PCC, triggering utility warnings and 3.8M CNY annual reactive penalties. DCS system experienced recurring brownout alarms during large pump starts.',
         trend: 'PF trend: 0.65 → 0.78 → 0.88 → 0.95',
         solution: [{ product: 'SVG-800V', qty: 4, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'VFD feeder harmonic filtering' }],
         results: ['PF > 0.95, zero reactive penalties', 'DCS zero downtime since deployment', 'Annual penalty savings 3.8M CNY'],
       },
       {
-        title: 'Voltage Sag Protection at 12-inch Wafer Fab', highlight: 'Sag duration < 5ms, wafer yield improvement 3%', image: 'solutions-industrial-case-semiconductor.jpg', industry: 'Semiconductor', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Voltage Sag Protection at 12-inch Wafer Fab', highlight: 'Sag duration < 5ms, wafer yield improvement 3%', image: '../assets/images/solutions-industrial-case-semiconductor.jpg', industry: 'Semiconductor', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '12-inch wafer fab with immersion lithography scanners requiring < 5ms sag tolerance. Utility-side faults 30km away caused recurring scanner stage loss, each incident scrapping 25 wafers at $5K each. Monthly average 3 incidents.',
         trend: 'Yield trend (scrap rate): 4.2% → 2.8% → 1.5% → 1.2%',
         solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS front-end dual-feed protection' }, { product: 'SPC-100A', qty: 2, use: 'Test floor phase balancing' }],
@@ -844,21 +844,21 @@
     ];
     const railCases = [
       {
-        title: 'Traction Power Retrofit at Metro Line 8, Major City', highlight: 'THD 16% → 4.5%, regenerative braking recovery up 35%, annual savings 8.5M kWh', image: 'solutions-rail-case-metro.jpg', industry: 'Metro & LRT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Traction Power Retrofit at Metro Line 8, Major City', highlight: 'THD 16% → 4.5%, regenerative braking recovery up 35%, annual savings 8.5M kWh', image: '../assets/images/solutions-rail-case-metro.jpg', industry: 'Metro & LRT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: 'Metro line with 22 stations and 35kV ring distribution. 24-pulse traction rectifiers generated characteristic harmonics causing monthly utility penalty. Regenerative braking energy was dissipated in resistors due to voltage rise during feedback, wasting 12M kWh annually.',
         trend: 'THD trend: 16% → 10% → 6.5% → 4.5%',
         solution: [{ product: 'SVG-300A', qty: 3, use: '35kV ring reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'Traction substation harmonic filtering' }],
         results: ['THD < 5%, penalty elimination', 'Regenerative braking recovery +35%', 'Annual savings 8.5M kWh electricity'],
       },
       {
-        title: 'Negative Sequence Mitigation at HSR Traction Substation', highlight: 'Negative sequence < 2%, contact wire fluctuation < 5%, EMU current stability improved', image: 'solutions-rail-case-hsr.jpg', industry: 'High-speed Rail', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Negative Sequence Mitigation at HSR Traction Substation', highlight: 'Negative sequence < 2%, contact wire fluctuation < 5%, EMU current stability improved', image: '../assets/images/solutions-rail-case-hsr.jpg', industry: 'High-speed Rail', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'High-speed rail traction substation with V/V connection transformer feeding single-phase 27.5kV catenary. Negative sequence > 8% at 220kV PCC triggered utility interconnection violation. Contact wire voltage fluctuation at section boundary caused EMU current limitation and schedule delays.',
         trend: 'Negative sequence: 8.5% → 5% → 3% → 1.8%',
         solution: [{ product: 'SVG-27.5kV', qty: 2, use: 'Traction bus reactive + balance' }, { product: 'AHF-200A', qty: 2, use: '10kV feeder harmonic filtering' }],
         results: ['Negative sequence < 2% (GB/T 15543 compliant)', 'Contact wire voltage fluctuation < 5%', 'EMU current stability fully restored'],
       },
       {
-        title: 'Power Quality Retrofit at Highway Service 120-pile Fast Charging Station', highlight: '3-phase imbalance < 3%, transformer load 95% → 78%, pile THD < 5%', image: 'solutions-rail-case-charging.jpg', industry: 'EV Charging', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Power Quality Retrofit at Highway Service 120-pile Fast Charging Station', highlight: '3-phase imbalance < 3%, transformer load 95% → 78%, pile THD < 5%', image: '../assets/images/solutions-rail-case-charging.jpg', industry: 'EV Charging', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Highway service area with 120 DC fast charging piles (60kW-180kW). Holiday peak concurrent charging caused severe phase imbalance and transformer overload at 95%. 12-pulse charger harmonics accumulated to THD > 15% at 10kV PCC during peak hours.',
         trend: 'Unbalance trend: 15% → 9% → 5% → 2.5%',
         solution: [{ product: 'SPC-150A', qty: 4, use: 'Charging bay 3-phase balancing' }, { product: 'AHF-150A', qty: 6, use: 'Fast charger harmonic filtering' }],
@@ -930,21 +930,21 @@
     ];
     const reCases = [
       {
-        title: '500MW PV Farm Harmonic Mitigation Project in Northwest China', highlight: 'THD 9.5% → 3.2%, passed grid acceptance, penalty avoidance + extra revenue 1.8M CNY', image: 'solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '500MW PV Farm Harmonic Mitigation Project in Northwest China', highlight: 'THD 9.5% → 3.2%, passed grid acceptance, penalty avoidance + extra revenue 1.8M CNY', image: '../assets/images/solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '500MW utility-scale PV farm with 2,500 string inverters across 35kV collection system. Multi-inverter harmonic resonance at 35kV bus caused THD exceeding 9.5% at PCC, failing grid acceptance test twice. Cloud-edge effect caused ±10% voltage swings triggering AVC penalties.',
         trend: 'THD trend: 9.5% → 6.5% → 4.5% → 3.2%',
         solution: [{ product: 'SVG-800V', qty: 8, use: '35kV step-up bus reactive compensation' }, { product: 'AHF-200A', qty: 12, use: 'Inverter AC feeder harmonic filtering' }],
         results: ['THD < 3.5% (GB/T 14549 compliant)', 'Grid acceptance test passed first attempt', 'Annual penalty avoidance + revenue 1.8M CNY'],
       },
       {
-        title: '200MW Offshore Wind Farm Power Quality Retrofit', highlight: 'PF 0.88 → 0.98, reactive penalty compliance, box transformer imbalance < 2%', image: 'solutions-renewable-case-wind.jpg', industry: 'Wind Farm', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '200MW Offshore Wind Farm Power Quality Retrofit', highlight: 'PF 0.88 → 0.98, reactive penalty compliance, box transformer imbalance < 2%', image: '../assets/images/solutions-renewable-case-wind.jpg', industry: 'Wind Farm', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '200MW offshore wind farm with 50 × 4MW full-power converter turbines. Low-order harmonics (5th/7th) dominated at 35kV collector bus. Wind gust-driven reactive swings caused monthly PF below 0.88. Single-phase auxiliary loads at box transformers created 5%+ imbalance at collector level.',
         trend: 'PF trend: 0.88 → 0.92 → 0.95 → 0.98',
         solution: [{ product: 'SVG-690V', qty: 50, use: 'Per-turbine reactive compensation' }, { product: 'AHF-100A', qty: 25, use: 'Collector feeder harmonic filtering' }],
         results: ['PF > 0.98, zero reactive penalties', 'Box transformer imbalance < 2%', 'Collector system resonance eliminated'],
       },
       {
-        title: '100MW/200MWh Grid-side Battery Storage Station', highlight: 'PCS THD < 4%, grid point flicker Pst < 0.5, interconnect agreement compliant', image: 'solutions-renewable-case-storage.jpg', industry: 'Energy Storage', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '100MW/200MWh Grid-side Battery Storage Station', highlight: 'PCS THD < 4%, grid point flicker Pst < 0.5, interconnect agreement compliant', image: '../assets/images/solutions-renewable-case-storage.jpg', industry: 'Energy Storage', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '100MW/200MWh grid-side battery storage station with 40 × 2.5MW PCS units. Multi-PCS harmonic interleaving caused THD > 6% at 35kV PCC. Mode transition (charge→discharge) flicker Pst exceeded 0.8, failing grid interconnect compliance test.',
         trend: 'Flicker Pst trend: 0.85 → 0.65 → 0.50 → 0.35',
         solution: [{ product: 'SVG+AHF Combo', qty: 8, use: 'PCS AC bus power quality conditioning' }, { product: 'PQ-Gateway', qty: 1, use: 'Grid compliance monitoring platform' }],
@@ -1014,12 +1014,12 @@
       rail: 'Rail Transit Case Studies',
     };
     const heroImages = {
-      commercial: 'solutions-commercial-medical-hero-bg.jpg',
-      grid: 'solutions-grid-hero-bg.jpg',
-      datacenter: 'solutions-datacenter-hero-bg.jpg',
-      industry: 'solutions-industrial-hero-bg.jpg',
-      renewable: 'solutions-renewable-hero-bg.jpg',
-      rail: 'solutions-rail-hero-bg.jpg',
+      commercial: '../assets/images/solutions-commercial-medical-hero-bg.jpg',
+      grid: '../assets/images/solutions-grid-hero-bg.jpg',
+      datacenter: '../assets/images/solutions-datacenter-hero-bg.jpg',
+      industry: '../assets/images/solutions-industrial-hero-bg.jpg',
+      renewable: '../assets/images/solutions-renewable-hero-bg.jpg',
+      rail: '../assets/images/solutions-rail-hero-bg.jpg',
     };
 
     function setIndustry(id) {
