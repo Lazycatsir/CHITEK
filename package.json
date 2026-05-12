@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "tailwindcss -i assets/css/input.css -o assets/css/tailwind.css --watch",
-    "build": "tailwindcss -i assets/css/input.css -o assets/css/tailwind.css --minify"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.1",
     "tailwindcss": "^4.3.0"
   }
 }
