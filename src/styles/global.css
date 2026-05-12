@@ -148,8 +148,8 @@
   --color-bg-alt-3: #fce8d5;
 
   /* Font families */
-  --font-family-barlow: "Barlow", sans-serif;
-  --font-family-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
 
   /* Spacing */
   --spacing-nav: 72px;
