@@ -1,10 +1,27 @@
 <!-- NAV: 桌面导航 + 移动菜单 (共用组件) -->
+<style>
+  #hamburgerBtn.open > span:nth-child(1) {
+    translate: 0 4px;
+    rotate: 45deg;
+  }
+  #hamburgerBtn.open > span:nth-child(2) {
+    opacity: 0;
+    scale: 0;
+  }
+  #hamburgerBtn.open > span:nth-child(3) {
+    translate: 0 -4px;
+    rotate: -45deg;
+  }
+  .mobile-submenu.open {
+    display: flex;
+  }
+</style>
 <nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light flex items-center px-5 md:px-12 gap-10 shadow-sm">
   <a href="/" class="flex items-center no-underline mr-auto">
     <img src="/assets/images/logo.png" alt="CHITEK Logo" class="w-[140px] h-auto object-contain" />
   </a>
 
-  <button class="flex lg:hidden flex-col justify-center items-center w-10 h-10 cursor-pointer bg-transparent border-none p-0 gap-1.5 shrink-0 [&amp;.open>span:nth-child(1)]:translate-y-2 [&amp;.open>span:nth-child(1)]:rotate-45 [&amp;.open>span:nth-child(2)]:opacity-0 [&amp;.open>span:nth-child(2)]:scale-x-0 [&amp;.open>span:nth-child(3)]:-translate-y-2 [&amp;.open>span:nth-child(3)]:-rotate-45" id="hamburgerBtn" aria-label="Toggle menu">
+  <button class="flex lg:hidden flex-col justify-center items-center w-10 h-10 cursor-pointer bg-transparent border-none p-0 gap-1.5 shrink-0" id="hamburgerBtn" aria-label="Toggle menu">
     <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
     <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
     <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
@@ -137,7 +154,7 @@
       Products
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-products">
+    <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-products">
       <a href="/products" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Active Harmonic Filter</a>
       <a href="/products" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Static Var Generator</a>
       <a href="/products" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">SiC AHF/SVG</a>
@@ -149,7 +166,7 @@
       Solutions
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
+    <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
       <a href="/solutions" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Industrial Manufacturing</a>
       <a href="/solutions" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Commercial &amp; Medical Buildings</a>
       <a href="/solutions" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Data Centers &amp; Telecom</a>
@@ -163,7 +180,7 @@
       Services
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-services">
+    <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-services">
       <a href="/services#oem" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">OEM/ODM</a>
       <a href="/services#tech-support" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Technical Support</a>
       <a href="/services#distributor" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Distributor Program</a>
@@ -174,7 +191,7 @@
       About
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-about">
+    <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-about">
       <a href="/about#about" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Company Profile</a>
       <a href="/about#industry" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Case Studies</a>
       <a href="/about#certifications" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Certifications</a>
