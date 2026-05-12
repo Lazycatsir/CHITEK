@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* ─── Self-hosted fonts ─── */
+
+/* Barlow - Latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Barlow-300.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Barlow-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Barlow-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Barlow-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Barlow - Latin Extended */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Barlow-300-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Barlow-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Barlow-500-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Barlow-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Barlow Condensed - Latin */
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/BarlowCondensed-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/BarlowCondensed-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/BarlowCondensed-700.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Barlow Condensed - Latin Extended */
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/BarlowCondensed-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/BarlowCondensed-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/BarlowCondensed-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ─── Design tokens ─── */
+
+@theme {
+  /* Brand colors */
+  --color-brand-orange: #ff6b1a;
+  --color-brand-orange-dark: #d9550f;
+  --color-brand-orange-light: #ff8c4a;
+
+  /* Dark backgrounds */
+  --color-bg-dark: #07101e;
+  --color-bg-mid: #0c1a2e;
+  --color-footer-bg: #0f1923;
+
+  /* Text colors */
+  --color-text-dark: #1a1a1a;
+  --color-text-mid: #444444;
+  --color-text-muted: #6b7280;
+
+  /* Borders */
+  --color-border-light: #e5e7eb;
+
+  /* Solutions page colors */
+  --color-brand-navy: #264653;
+  --color-brand-gray: #6d6875;
+  --color-bg-page: #fff9f5;
+  --color-bg-alt: #fef3e8;
+  --color-bg-card: #ffffff;
+  --color-bg-footer: #0f1923;
+  --color-text-primary: #264653;
+  --color-text-secondary: #6d6875;
+  --color-border-subtle: #e8d5c8;
+  --color-border-card: #fef3e8;
+  --color-electric-orange: #ff6b1a;
+  --color-electric-orange-hover: #d9550f;
+  --color-commercial-green: #e9c46a;
+  --color-bg-alt-1: #fef3e8;
+  --color-bg-alt-2: #fdf0e5;
+  --color-bg-alt-3: #fce8d5;
+
+  /* Font families */
+  --font-family-barlow: "Barlow", sans-serif;
+  --font-family-barlow-condensed: "Barlow Condensed", sans-serif;
+
+  /* Spacing */
+  --spacing-nav: 72px;
+
+  /* Max width */
+  --max-width-page: 1280px;
+
+  /* Z-index */
+  --z-index-nav: 1000;
+  --z-index-dropdown: 1001;
+  --z-index-sidebar: 9999;
+  --z-index-overlay: 999;
+
+  /* Animations */
+  --animate-slide-up-300: slideUp 0.5s ease-out 0.3s both;
+  --animate-slide-up-450: slideUp 0.5s ease-out 0.45s both;
+  --animate-slide-up-600: slideUp 0.5s ease-out 0.6s both;
+  --animate-fade-in: fadeIn 0.7s ease-out 0.1s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Shared custom styles ─── */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
