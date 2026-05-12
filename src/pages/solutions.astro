@@ -1,226 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Power Quality Solutions – Industrial &amp; Utility Applications | CHITEK</title>
-  <meta name="description" content="CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide." />
-  <meta name="keywords" content="CHITEK, power quality, AHF, SVG, active harmonic filter, static var generator, voltage regulator, harmonic filtering, power factor correction" />
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Power Quality Solutions – Industrial &amp; Utility Applications | CHITEK" />
-  <meta property="og:description" content="CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide." />
-  <meta property="og:image" content="https://chitek.com/assets/images/logo.png" />
-  <meta property="og:url" content="https://chitek.com/solutions" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="CHITEK INNOPOWER" />
+const meta = {
+  title: 'Power Quality Solutions – Industrial & Utility Applications | CHITEK',
+  description: 'CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide.',
+};
+---
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Power Quality Solutions – Industrial &amp; Utility Applications | CHITEK" />
-  <meta name="twitter:description" content="CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide." />
-
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <link href="../assets/css/tailwind.css" rel="stylesheet">
-</head>
-<body class="font-barlow bg-bg-page text-text-primary antialiased overflow-x-hidden">
-<!-- NAV: 桌面导航 + 移动菜单 (共用组件) -->
-<nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light flex items-center px-5 md:px-12 gap-10 shadow-sm">
-  <a href="../index.html" class="flex items-center no-underline mr-auto">
-    <img src="../assets/images/logo.png" alt="CHITEK Logo" class="w-[140px] h-auto object-contain" />
-  </a>
-
-  <button class="flex lg:hidden flex-col justify-center items-center w-10 h-10 cursor-pointer bg-transparent border-none p-0 gap-1.5 shrink-0 [&amp;.open>span:nth-child(1)]:translate-y-2 [&amp;.open>span:nth-child(1)]:rotate-45 [&amp;.open>span:nth-child(2)]:opacity-0 [&amp;.open>span:nth-child(2)]:scale-x-0 [&amp;.open>span:nth-child(3)]:-translate-y-2 [&amp;.open>span:nth-child(3)]:-rotate-45" id="hamburgerBtn" aria-label="Toggle menu">
-    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
-    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
-    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
-  </button>
-
-  <div class="hidden lg:flex gap-1 items-center">
-    <!-- Products Dropdown -->
-    <div class="group relative flex items-center">
-      <a href="products.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
-        Products
-        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
-      </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href="products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Active Harmonic Filter</a>
-        <a href="products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Static Var Generator</a>
-        <a href="products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">SiC AHF/SVG</a>
-        <a href="products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Automatic Voltage Regulator</a>
-      </div>
-    </div>
-
-    <!-- Solutions Dropdown -->
-    <div class="group relative flex items-center">
-      <a href="solutions.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
-        Solutions
-        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
-      </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Industrial Manufacturing</a>
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Commercial &amp; Medical Buildings</a>
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Data Centers &amp; Telecom</a>
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Renewable Energy (PV/Wind)</a>
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Transportation (Rail/Charging)</a>
-        <a href="solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Power Grid &amp; Utility</a>
-      </div>
-    </div>
-
-    <!-- Services Dropdown -->
-    <div class="group relative flex items-center">
-      <a href="services.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
-        Services
-        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
-      </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href="services.html#oem" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">OEM/ODM</a>
-        <a href="services.html#tech-support" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Technical Support</a>
-        <a href="services.html#distributor" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Distributor Program</a>
-      </div>
-    </div>
-
-    <!-- About Dropdown -->
-    <div class="group relative flex items-center">
-      <a href="about.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
-        About
-        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
-      </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href="about.html#about" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Company Profile</a>
-        <a href="about.html#industry" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Case Studies</a>
-        <a href="about.html#certifications" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Certifications</a>
-      </div>
-    </div>
-
-    <!-- Contact (no dropdown) -->
-    <div class="group relative flex items-center">
-      <a href="contact.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
-        Contact
-        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="hidden lg:flex items-center gap-2.5 border border-border-light rounded-full py-1.5 px-3.5 text-[13px] text-text-muted bg-[#f9f9f9] cursor-pointer">
-    <input type="text" placeholder="Search..." class="border-none bg-transparent outline-none text-[13px] text-text-dark w-[120px]" />
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-text-muted">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  </div>
-
-  <div class="lang-group relative">
-    <div class="flex items-center gap-1.5 px-3 py-1.5 border border-border-light rounded text-[12px] font-semibold tracking-[0.06em] text-text-mid cursor-pointer transition-all duration-200 bg-white hover:border-brand-orange hover:text-brand-orange">
-      <span>English</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
-        <rect x="2" y="2" width="20" height="12" fill="#fff" stroke="#012169" stroke-width="2" />
-        <path d="M2,2 L22,14 M22,2 L2,14" stroke="#fff" stroke-width="3" />
-        <path d="M2,2 L22,14 M22,2 L2,14" stroke="#C8102E" stroke-width="2" />
-        <line x1="12" y1="2" x2="12" y2="14" stroke="#fff" stroke-width="4" />
-        <line x1="12" y1="2" x2="12" y2="14" stroke="#C8102E" stroke-width="2" />
-        <line x1="2" y1="8" x2="22" y2="8" stroke="#fff" stroke-width="4" />
-        <line x1="2" y1="8" x2="22" y2="8" stroke="#C8102E" stroke-width="2" />
-      </svg>
-      <span class="lang-arrow text-[10px] transition-transform duration-300">▾</span>
-    </div>
-
-    <div class="lang-dropdown absolute top-full right-0 bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:right-5 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-      <div class="lang-item active flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 bg-[rgba(255,107,26,0.08)] border-l-brand-orange">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">English</span>
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">fran&ccedil;ais</span>
-        <img src="https://flagcdn.com/w40/fr.png" alt="France" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">Deutsch</span>
-        <img src="https://flagcdn.com/w40/de.png" alt="Germany" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">espa&ntilde;ol</span>
-        <img src="https://flagcdn.com/w40/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">العربية</span>
-        <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
-        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">Portugu&ecirc;s</span>
-        <img src="https://flagcdn.com/w40/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-[999] flex-col px-5 py-4 pb-8 overflow-y-auto border-t border-border-light" id="mobileMenu">
-  <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-products">
-      Products
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
-    </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-products">
-      <a href="products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Active Harmonic Filter</a>
-      <a href="products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Static Var Generator</a>
-      <a href="products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">SiC AHF/SVG</a>
-      <a href="products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Automatic Voltage Regulator</a>
-    </div>
-  </div>
-  <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-solutions">
-      Solutions
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
-    </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Industrial Manufacturing</a>
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Commercial &amp; Medical Buildings</a>
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Data Centers &amp; Telecom</a>
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Renewable Energy (PV/Wind)</a>
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Transportation (Rail/Charging)</a>
-      <a href="solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Power Grid &amp; Utility</a>
-    </div>
-  </div>
-  <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-services">
-      Services
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
-    </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-services">
-      <a href="services.html#oem" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">OEM/ODM</a>
-      <a href="services.html#tech-support" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Technical Support</a>
-      <a href="services.html#distributor" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Distributor Program</a>
-    </div>
-  </div>
-  <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-about">
-      About
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
-    </div>
-    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-about">
-      <a href="about.html#about" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Company Profile</a>
-      <a href="about.html#industry" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Case Studies</a>
-      <a href="about.html#certifications" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Certifications</a>
-    </div>
-  </div>
-  <div class="border-b-0">
-    <a href="contact.html" class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em] border-b-0">Contact</a>
-  </div>
-  <div class="mt-4 flex items-center gap-2.5 border border-border-light rounded-full px-4 py-2.5 bg-[#f9f9f9]">
-    <input type="text" placeholder="Search..." class="border-none bg-transparent outline-none text-[14px] text-text-dark flex-1" />
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 shrink-0">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  </div>
-</div>
-
-
+<BaseLayout title={meta.title} description={meta.description}>
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
     <div class="absolute inset-0 animate-fade-in">
-      <img id="hero-image" src="../assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
+      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
     </div>
     <div class="relative z-10 max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
@@ -240,7 +31,7 @@
   </div>
 
   <!-- ============ SOLUTIONS CAROUSEL ============ -->
-  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 [&.revealed]:opacity-100 [&.revealed]:translate-y-0 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('../assets/images/solutions-scenario.png')">
+  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.png')">
     <div class="max-w-[1280px] mx-auto">
       <div class="flex items-end justify-between mb-6">
         <div>
@@ -267,122 +58,31 @@
   </section>
 
   <!-- ============ CASES ============ -->
-  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 [&.revealed]:opacity-100 [&.revealed]:translate-y-0 transition-all duration-700 ease-out bg-bg-page px-6 md:px-10 lg:px-20 py-20 lg:py-[120px]">
+  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-bg-page px-6 md:px-10 lg:px-20 py-20 lg:py-[120px]">
     <div class="max-w-[1280px] mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight mb-10 font-barlow-condensed" id="cases-title">Commercial & Medical Building Case Studies</h2>
       <div class="space-y-6" id="cases-list"></div>
     </div>
   </section>
 
-<!-- RIGHT: 右侧联系栏 (共用组件) -->
-<div class="fixed right-0 top-[75%] -translate-y-1/2 z-[9999] flex flex-col bg-brand-orange rounded-l-lg shadow-lg overflow-hidden w-[50px] hover:w-[250px] transition-all duration-300 group">
-  <a href="tel:1244545634" class="contact-item relative flex items-center justify-start w-full h-[50px] cursor-pointer border-b border-white/20 no-underline text-white overflow-hidden whitespace-nowrap hover:bg-[#e85a0d] transition-colors duration-300">
-    <div class="w-[50px] h-[50px] flex items-center justify-center shrink-0">
-      <svg class="w-[22px] h-[22px] stroke-white stroke-2 fill-none [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-    </div>
-    <span class="contact-info flex items-center h-[50px] text-[13px] font-medium text-white pr-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap shrink-0 transition-all duration-300">1244545634</span>
-  </a>
+</BaseLayout>
 
-  <a href="mailto:123456546@gmail.com" class="contact-item relative flex items-center justify-start w-full h-[50px] cursor-pointer border-b border-white/20 no-underline text-white overflow-hidden whitespace-nowrap hover:bg-[#e85a0d] transition-colors duration-300">
-    <div class="w-[50px] h-[50px] flex items-center justify-center shrink-0">
-      <svg class="w-[22px] h-[22px] stroke-white stroke-2 fill-none [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-    </div>
-    <span class="contact-info flex items-center h-[50px] text-[13px] font-medium text-white pr-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap shrink-0 transition-all duration-300">123456546@gmail.com</span>
-  </a>
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    translate: 0 0;
+  }
+</style>
 
-  <a href="https://wa.me/86184739435" target="_blank" class="contact-item relative flex items-center justify-start w-full h-[50px] cursor-pointer no-underline text-white overflow-hidden whitespace-nowrap hover:bg-[#e85a0d] transition-colors duration-300">
-    <div class="w-[50px] h-[50px] flex items-center justify-center shrink-0">
-      <svg class="w-[22px] h-[22px] stroke-white stroke-2 fill-none [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        <path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="contact-info flex items-center h-[50px] text-[13px] font-medium text-white pr-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap shrink-0 transition-all duration-300">+86 184739435</span>
-  </a>
-</div>
+<!-- Lucide icons library -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+</script>
 
-
-<!-- FOOTER: 页尾 (共用组件) -->
-<footer class="bg-footer-bg text-white" id="footer">
-  <div class="px-16 max-md:px-6 pt-16 pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
-    <div class="flex flex-col">
-      <img src="../assets/images/logo.png" alt="CHITEK Logo" class="w-[140px] h-auto object-contain mb-4" />
-      <p class="text-[13px] text-white/70 leading-[1.8] max-w-[260px] mb-6">
-        Subscribe to us to enjoy event prices, along with dedicated technical support.
-      </p>
-      <div class="flex">
-        <input type="email" placeholder="name@email.com" class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[13px] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
-        <button class="bg-brand-orange text-white border-none cursor-pointer text-[12px] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">Subscribe</button>
-      </div>
-      <div class="flex gap-2.5 mt-6">
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
-          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-        </div>
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
-          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70">
-            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-          </svg>
-        </div>
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
-          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70">
-            <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m4 4V7" />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Products</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href="products.html#ahf" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Active Harmonic Filter</a></li>
-        <li><a href="products.html#svg" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Advanced Static Var Generator</a></li>
-        <li><a href="products.html#sic" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">SiC-AHF/SVG (High Efficiency)</a></li>
-        <li><a href="products.html#high-protection" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">High-Protection AHF/SVG</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Solutions</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href="#industry" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Industrial Manufacturing</a></li>
-        <li><a href="#commercial" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Commercial &amp; Medical Buildings</a></li>
-        <li><a href="#datacenter" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Data Centers &amp; Telecom</a></li>
-        <li><a href="#renewable" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Renewable Energy (PV/Wind)</a></li>
-        <li><a href="#rail" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Transportation (Rail/Charging)</a></li>
-        <li><a href="#grid" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Power Grid &amp; Utility</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Resources &amp; Partnership</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href="services.html#tech-support" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Technical Library</a></li>
-        <li><a href="services.html#tech-support" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Global References</a></li>
-        <li><a href="services.html#oem" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">OEM &amp; ODM Services</a></li>
-        <li><a href="services.html#distributor" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Become a Distributor</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="px-16 max-md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[12px] text-white/60 tracking-[0.04em]">
-      &copy; 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.
-    </p>
-    <div class="flex gap-6">
-      <a href="#" class="text-[12px] text-white/60 no-underline hover:text-white transition-colors duration-200">IPV6 Served</a>
-    </div>
-  </div>
-</footer>
-
-
-  <!-- ============ JAVASCRIPT ============ -->
-  <script>
+<script>
     // Initialize Lucide icons
     lucide.createIcons();
 
@@ -465,7 +165,7 @@
       {
         title: 'Harmonic Mitigation at Beijing Union Hospital Outpatient Building',
         highlight: 'THD 18.3% → 4.1%, annual power savings 670K CNY',
-        image: '../assets/images/solutions-commercial-medical-case-hospital.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-hospital.jpg',
         industry: 'Medical Building',
         colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
         link: '/about/cases/pumc-hospital',
@@ -484,7 +184,7 @@
       {
         title: 'Power Quality Retrofit at Lujiazui Grade-A Office Tower, Shanghai',
         highlight: 'PF 0.72 → 0.95, penalty elimination 450K CNY/year',
-        image: '../assets/images/solutions-commercial-medical-case-office.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-office.jpg',
         industry: 'Commercial Office',
         colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
         link: '/about/cases/lujiazui-office',
@@ -503,7 +203,7 @@
       {
         title: 'Voltage Flicker Mitigation at Suzhou Semiconductor Cleanroom Lab',
         highlight: 'Flicker Pst < 0.3, zero equipment downtime',
-        image: '../assets/images/solutions-commercial-medical-case-lab.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-lab.jpg',
         industry: 'Lab / Cleanroom',
         colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
         link: '/about/cases/suzhou-lab',
@@ -586,21 +286,21 @@
     ];
     const gridCases = [
       {
-        title: 'Integrated PQ Management at Provincial 220kV Substation', highlight: 'THD 11% → 3.5%, transformer loss down 12%, annual savings 3.2M kWh', image: '../assets/images/solutions-grid-case-substation.jpg', industry: 'Power Grid', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Integrated PQ Management at Provincial 220kV Substation', highlight: 'THD 11% → 3.5%, transformer loss down 12%, annual savings 3.2M kWh', image: '/assets/images/solutions-grid-case-substation.jpg', industry: 'Power Grid', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '220kV/35kV/10kV provincial substation serving mixed industrial and residential load. Harmonic injection from nearby steel mill and increasing DG penetration caused THD exceeding 11% at 35kV bus, triggering capacitor bank breaker trips and transformer overheating alarms.',
         trend: 'THD trend: 11.0% → 7.8% → 5.2% → 3.5%',
         solution: [{ product: 'SVG-800V', qty: 2, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 3, use: 'Critical feeder harmonic filtering' }],
         results: ['THD < 4% (GB/T 14549 compliant)', 'Transformer loss reduced 12% (3.2M kWh/year saved)', 'Line loss improved 0.8 percentage points'],
       },
       {
-        title: 'Urban Core Distribution Network Upgrade Project', highlight: 'EV station imbalance < 3%, voltage qualification 99.97%', image: '../assets/images/solutions-grid-case-urban.jpg', industry: 'Urban Distribution', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Urban Core Distribution Network Upgrade Project', highlight: 'EV station imbalance < 3%, voltage qualification 99.97%', image: '/assets/images/solutions-grid-case-urban.jpg', industry: 'Urban Distribution', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'City center 10kV distribution network with 12 EV fast-charging stations and mixed commercial/residential load. Evening peak concurrent charging caused severe phase imbalance and voltage sag, while underground cable network produced leading PF at light load.',
         trend: 'Unbalance trend: 12% → 8% → 5% → 2.8%',
         solution: [{ product: 'SPC-150A', qty: 4, use: 'EV station 3-phase balancing' }, { product: 'SVG-10kV', qty: 2, use: 'Feeder reactive compensation' }],
         results: ['Phase unbalance < 3% at all EV stations', 'Voltage qualification rate 99.97%', 'Zero cable over-compensation incidents'],
       },
       {
-        title: 'Island PV-Wind-Storage Integrated Microgrid Project', highlight: 'Island/grid switch sag < 5%, reliability 99.9%, diesel reduction 60%', image: '../assets/images/solutions-grid-case-microgrid.jpg', industry: 'Microgrid', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Island PV-Wind-Storage Integrated Microgrid Project', highlight: 'Island/grid switch sag < 5%, reliability 99.9%, diesel reduction 60%', image: '/assets/images/solutions-grid-case-microgrid.jpg', industry: 'Microgrid', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Remote island microgrid with 2MW PV, 1.5MW wind, 4MWh BESS, and 1MW diesel backup. Multi-source harmonic stacking at PCC and voltage sag during grid/island transitions caused frequent load shedding and diesel premature start.',
         trend: 'Sag trend: 25% → 12% → 7% → <5%',
         solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC power quality conditioning' }, { product: 'SPC-100A', qty: 1, use: 'Load balance across phases' }],
@@ -672,21 +372,21 @@
     ];
     const dcCases = [
       {
-        title: 'Harmonic Mitigation at Major Cloud Provider North China DC', highlight: 'THD 14% → 2.8%, UPS parallel circulation down 80%, annual savings 2.6M CNY', image: '../assets/images/solutions-datacenter-case-cloud.jpg', industry: 'Cloud Computing', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Harmonic Mitigation at Major Cloud Provider North China DC', highlight: 'THD 14% → 2.8%, UPS parallel circulation down 80%, annual savings 2.6M CNY', image: '/assets/images/solutions-datacenter-case-cloud.jpg', industry: 'Cloud Computing', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '40MW hyperscale data center with 3×2.4MW UPS parallel configuration. UPS input harmonic circulating current caused load imbalance, battery thermal stress, and false PDU alarms. Annual PUE penalty from reactive losses exceeded 1.5M CNY.',
         trend: 'THD trend: 14.0% → 8.5% → 4.2% → 2.8%',
         solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS input harmonic suppression' }, { product: 'SVG-150kvar', qty: 3, use: 'LV bus reactive compensation' }],
         results: ['THD < 3% at UPS input (IEEE 519 compliant)', 'UPS parallel circulation current reduced 80%', 'Annual energy savings 2.6M CNY'],
       },
       {
-        title: 'Power Quality Retrofit at State-owned Bank DR Center', highlight: 'Voltage sag < 3ms, high-frequency trading zero interruption, PUE 1.65 → 1.48', image: '../assets/images/solutions-datacenter-case-finance.jpg', industry: 'Financial DC', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Power Quality Retrofit at State-owned Bank DR Center', highlight: 'Voltage sag < 3ms, high-frequency trading zero interruption, PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.jpg', industry: 'Financial DC', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'Tier-IV DR center for state-owned bank, hosting real-time trading and settlement. ATS monthly test caused 10-15ms transfer sag that triggered trading server PSU dropout. Precision HVAC VFD harmonics degraded PUE from 1.48 to 1.65 over 18 months.',
         trend: 'PUE trend: 1.65 → 1.58 → 1.52 → 1.48',
         solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS rectifier front-end filtering' }, { product: 'SVG-100A', qty: 2, use: 'Trading floor dynamic reactive' }],
         results: ['Voltage sag < 3ms, zero trading interruption', 'PUE recovered from 1.65 to 1.48', 'Annual OpEx savings 1.2M CNY'],
       },
       {
-        title: 'Batch Deployment at Operator 5G Edge Computing Nodes', highlight: '1U rack-mount, remote ops, 42K CNY/node/year saved, ROI < 18 months', image: '../assets/images/solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Batch Deployment at Operator 5G Edge Computing Nodes', highlight: '1U rack-mount, remote ops, 42K CNY/node/year saved, ROI < 18 months', image: '/assets/images/solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Telecom operator deploying 200+ 5G MEC edge nodes in rural/suburban sites. Unstable grid voltage with >20% sag, single-cabinet UPS overload, and high truck-roll O&M cost created an unsustainable operational model at scale.',
         trend: 'Node uptime: 97.2% → 98.8% → 99.5% → 99.9%',
         solution: [{ product: 'AHF-15A', qty: 200, use: '1U rack-mount per node cabinet' }, { product: 'Cloud Monitor', qty: 1, use: 'Centralized remote monitoring platform' }],
@@ -758,21 +458,21 @@
     ];
     const indCases = [
       {
-        title: 'Harmonic Mitigation at Auto Body Welding Workshop', highlight: 'THD 28% → 4.2%, transformer temp. drop 15°C, annual savings 1.2M CNY', image: '../assets/images/solutions-industrial-case-welding.jpg', industry: 'Welding & Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Harmonic Mitigation at Auto Body Welding Workshop', highlight: 'THD 28% → 4.2%, transformer temp. drop 15°C, annual savings 1.2M CNY', image: '/assets/images/solutions-industrial-case-welding.jpg', industry: 'Welding & Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: 'Large automotive body shop with 48 arc welding robots and 6 medium-frequency spot welders. Batch welding cycles created severe harmonic surges (THD 28%) and voltage flicker, causing monthly transformer overheat alarms and two unplanned production stoppages.',
         trend: 'THD trend: 28% → 18% → 9% → 4.2%',
         solution: [{ product: 'AHF-150A', qty: 3, use: 'Welder bus harmonic mitigation' }, { product: 'SVG-100A', qty: 2, use: 'Furnace reactive compensation' }],
         results: ['THD < 5% (IEEE 519 compliant)', 'Transformer temp. reduced 15°C', 'Annual energy savings 1.2M CNY'],
       },
       {
-        title: 'Power Quality Retrofit at Petrochemical Base VFD Bank', highlight: 'PF 0.65 → 0.95, penalty elimination 3.8M CNY/year, DCS zero downtime', image: '../assets/images/solutions-industrial-case-petrochemical.jpg', industry: 'Chemical & Oil', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Power Quality Retrofit at Petrochemical Base VFD Bank', highlight: 'PF 0.65 → 0.95, penalty elimination 3.8M CNY/year, DCS zero downtime', image: '/assets/images/solutions-industrial-case-petrochemical.jpg', industry: 'Chemical & Oil', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'Large petrochemical complex with 200+ VFD-driven pumps and compressors. Multi-VFD harmonic stacking caused THD exceeding 18% at 35kV PCC, triggering utility warnings and 3.8M CNY annual reactive penalties. DCS system experienced recurring brownout alarms during large pump starts.',
         trend: 'PF trend: 0.65 → 0.78 → 0.88 → 0.95',
         solution: [{ product: 'SVG-800V', qty: 4, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'VFD feeder harmonic filtering' }],
         results: ['PF > 0.95, zero reactive penalties', 'DCS zero downtime since deployment', 'Annual penalty savings 3.8M CNY'],
       },
       {
-        title: 'Voltage Sag Protection at 12-inch Wafer Fab', highlight: 'Sag duration < 5ms, wafer yield improvement 3%', image: '../assets/images/solutions-industrial-case-semiconductor.jpg', industry: 'Semiconductor', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Voltage Sag Protection at 12-inch Wafer Fab', highlight: 'Sag duration < 5ms, wafer yield improvement 3%', image: '/assets/images/solutions-industrial-case-semiconductor.jpg', industry: 'Semiconductor', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '12-inch wafer fab with immersion lithography scanners requiring < 5ms sag tolerance. Utility-side faults 30km away caused recurring scanner stage loss, each incident scrapping 25 wafers at $5K each. Monthly average 3 incidents.',
         trend: 'Yield trend (scrap rate): 4.2% → 2.8% → 1.5% → 1.2%',
         solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS front-end dual-feed protection' }, { product: 'SPC-100A', qty: 2, use: 'Test floor phase balancing' }],
@@ -844,21 +544,21 @@
     ];
     const railCases = [
       {
-        title: 'Traction Power Retrofit at Metro Line 8, Major City', highlight: 'THD 16% → 4.5%, regenerative braking recovery up 35%, annual savings 8.5M kWh', image: '../assets/images/solutions-rail-case-metro.jpg', industry: 'Metro & LRT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: 'Traction Power Retrofit at Metro Line 8, Major City', highlight: 'THD 16% → 4.5%, regenerative braking recovery up 35%, annual savings 8.5M kWh', image: '/assets/images/solutions-rail-case-metro.jpg', industry: 'Metro & LRT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: 'Metro line with 22 stations and 35kV ring distribution. 24-pulse traction rectifiers generated characteristic harmonics causing monthly utility penalty. Regenerative braking energy was dissipated in resistors due to voltage rise during feedback, wasting 12M kWh annually.',
         trend: 'THD trend: 16% → 10% → 6.5% → 4.5%',
         solution: [{ product: 'SVG-300A', qty: 3, use: '35kV ring reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'Traction substation harmonic filtering' }],
         results: ['THD < 5%, penalty elimination', 'Regenerative braking recovery +35%', 'Annual savings 8.5M kWh electricity'],
       },
       {
-        title: 'Negative Sequence Mitigation at HSR Traction Substation', highlight: 'Negative sequence < 2%, contact wire fluctuation < 5%, EMU current stability improved', image: '../assets/images/solutions-rail-case-hsr.jpg', industry: 'High-speed Rail', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: 'Negative Sequence Mitigation at HSR Traction Substation', highlight: 'Negative sequence < 2%, contact wire fluctuation < 5%, EMU current stability improved', image: '/assets/images/solutions-rail-case-hsr.jpg', industry: 'High-speed Rail', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: 'High-speed rail traction substation with V/V connection transformer feeding single-phase 27.5kV catenary. Negative sequence > 8% at 220kV PCC triggered utility interconnection violation. Contact wire voltage fluctuation at section boundary caused EMU current limitation and schedule delays.',
         trend: 'Negative sequence: 8.5% → 5% → 3% → 1.8%',
         solution: [{ product: 'SVG-27.5kV', qty: 2, use: 'Traction bus reactive + balance' }, { product: 'AHF-200A', qty: 2, use: '10kV feeder harmonic filtering' }],
         results: ['Negative sequence < 2% (GB/T 15543 compliant)', 'Contact wire voltage fluctuation < 5%', 'EMU current stability fully restored'],
       },
       {
-        title: 'Power Quality Retrofit at Highway Service 120-pile Fast Charging Station', highlight: '3-phase imbalance < 3%, transformer load 95% → 78%, pile THD < 5%', image: '../assets/images/solutions-rail-case-charging.jpg', industry: 'EV Charging', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: 'Power Quality Retrofit at Highway Service 120-pile Fast Charging Station', highlight: '3-phase imbalance < 3%, transformer load 95% → 78%, pile THD < 5%', image: '/assets/images/solutions-rail-case-charging.jpg', industry: 'EV Charging', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: 'Highway service area with 120 DC fast charging piles (60kW-180kW). Holiday peak concurrent charging caused severe phase imbalance and transformer overload at 95%. 12-pulse charger harmonics accumulated to THD > 15% at 10kV PCC during peak hours.',
         trend: 'Unbalance trend: 15% → 9% → 5% → 2.5%',
         solution: [{ product: 'SPC-150A', qty: 4, use: 'Charging bay 3-phase balancing' }, { product: 'AHF-150A', qty: 6, use: 'Fast charger harmonic filtering' }],
@@ -930,21 +630,21 @@
     ];
     const reCases = [
       {
-        title: '500MW PV Farm Harmonic Mitigation Project in Northwest China', highlight: 'THD 9.5% → 3.2%, passed grid acceptance, penalty avoidance + extra revenue 1.8M CNY', image: '../assets/images/solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '500MW PV Farm Harmonic Mitigation Project in Northwest China', highlight: 'THD 9.5% → 3.2%, passed grid acceptance, penalty avoidance + extra revenue 1.8M CNY', image: '/assets/images/solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '500MW utility-scale PV farm with 2,500 string inverters across 35kV collection system. Multi-inverter harmonic resonance at 35kV bus caused THD exceeding 9.5% at PCC, failing grid acceptance test twice. Cloud-edge effect caused ±10% voltage swings triggering AVC penalties.',
         trend: 'THD trend: 9.5% → 6.5% → 4.5% → 3.2%',
         solution: [{ product: 'SVG-800V', qty: 8, use: '35kV step-up bus reactive compensation' }, { product: 'AHF-200A', qty: 12, use: 'Inverter AC feeder harmonic filtering' }],
         results: ['THD < 3.5% (GB/T 14549 compliant)', 'Grid acceptance test passed first attempt', 'Annual penalty avoidance + revenue 1.8M CNY'],
       },
       {
-        title: '200MW Offshore Wind Farm Power Quality Retrofit', highlight: 'PF 0.88 → 0.98, reactive penalty compliance, box transformer imbalance < 2%', image: '../assets/images/solutions-renewable-case-wind.jpg', industry: 'Wind Farm', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '200MW Offshore Wind Farm Power Quality Retrofit', highlight: 'PF 0.88 → 0.98, reactive penalty compliance, box transformer imbalance < 2%', image: '/assets/images/solutions-renewable-case-wind.jpg', industry: 'Wind Farm', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '200MW offshore wind farm with 50 × 4MW full-power converter turbines. Low-order harmonics (5th/7th) dominated at 35kV collector bus. Wind gust-driven reactive swings caused monthly PF below 0.88. Single-phase auxiliary loads at box transformers created 5%+ imbalance at collector level.',
         trend: 'PF trend: 0.88 → 0.92 → 0.95 → 0.98',
         solution: [{ product: 'SVG-690V', qty: 50, use: 'Per-turbine reactive compensation' }, { product: 'AHF-100A', qty: 25, use: 'Collector feeder harmonic filtering' }],
         results: ['PF > 0.98, zero reactive penalties', 'Box transformer imbalance < 2%', 'Collector system resonance eliminated'],
       },
       {
-        title: '100MW/200MWh Grid-side Battery Storage Station', highlight: 'PCS THD < 4%, grid point flicker Pst < 0.5, interconnect agreement compliant', image: '../assets/images/solutions-renewable-case-storage.jpg', industry: 'Energy Storage', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '100MW/200MWh Grid-side Battery Storage Station', highlight: 'PCS THD < 4%, grid point flicker Pst < 0.5, interconnect agreement compliant', image: '/assets/images/solutions-renewable-case-storage.jpg', industry: 'Energy Storage', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '100MW/200MWh grid-side battery storage station with 40 × 2.5MW PCS units. Multi-PCS harmonic interleaving caused THD > 6% at 35kV PCC. Mode transition (charge→discharge) flicker Pst exceeded 0.8, failing grid interconnect compliance test.',
         trend: 'Flicker Pst trend: 0.85 → 0.65 → 0.50 → 0.35',
         solution: [{ product: 'SVG+AHF Combo', qty: 8, use: 'PCS AC bus power quality conditioning' }, { product: 'PQ-Gateway', qty: 1, use: 'Grid compliance monitoring platform' }],
@@ -1014,12 +714,12 @@
       rail: 'Rail Transit Case Studies',
     };
     const heroImages = {
-      commercial: '../assets/images/solutions-commercial-medical-hero-bg.jpg',
-      grid: '../assets/images/solutions-grid-hero-bg.jpg',
-      datacenter: '../assets/images/solutions-datacenter-hero-bg.jpg',
-      industry: '../assets/images/solutions-industrial-hero-bg.jpg',
-      renewable: '../assets/images/solutions-renewable-hero-bg.jpg',
-      rail: '../assets/images/solutions-rail-hero-bg.jpg',
+      commercial: '/assets/images/solutions-commercial-medical-hero-bg.jpg',
+      grid: '/assets/images/solutions-grid-hero-bg.jpg',
+      datacenter: '/assets/images/solutions-datacenter-hero-bg.jpg',
+      industry: '/assets/images/solutions-industrial-hero-bg.jpg',
+      renewable: '/assets/images/solutions-renewable-hero-bg.jpg',
+      rail: '/assets/images/solutions-rail-hero-bg.jpg',
     };
 
     function setIndustry(id) {
@@ -1349,7 +1049,4 @@
       window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll(); // Initial check
     });
-  </script>
-<script src="../assets/js/nav.js"></script>
-</body>
-</html>
+</script>
