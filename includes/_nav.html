@@ -1,0 +1,191 @@
+<!-- NAV: 桌面导航 + 移动菜单 (共用组件) -->
+<nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light flex items-center px-5 md:px-12 gap-10 shadow-sm">
+  <a href="%ASSETS%index.html" class="flex items-center no-underline mr-auto">
+    <img src="%ASSETS%assets/images/logo.png" alt="CHITEK Logo" class="w-[140px] h-auto object-contain" />
+  </a>
+
+  <button class="flex lg:hidden flex-col justify-center items-center w-10 h-10 cursor-pointer bg-transparent border-none p-0 gap-1.5 shrink-0 [&amp;.open>span:nth-child(1)]:translate-y-2 [&amp;.open>span:nth-child(1)]:rotate-45 [&amp;.open>span:nth-child(2)]:opacity-0 [&amp;.open>span:nth-child(2)]:scale-x-0 [&amp;.open>span:nth-child(3)]:-translate-y-2 [&amp;.open>span:nth-child(3)]:-rotate-45" id="hamburgerBtn" aria-label="Toggle menu">
+    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
+    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
+    <span class="block w-[22px] h-0.5 bg-text-dark rounded transition-all duration-300 origin-center"></span>
+  </button>
+
+  <div class="hidden lg:flex gap-1 items-center">
+    <!-- Products Dropdown -->
+    <div class="group relative flex items-center">
+      <a href="%PAGES%products.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        Products
+        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+      </a>
+      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+        <a href="%PAGES%products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Active Harmonic Filter</a>
+        <a href="%PAGES%products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Static Var Generator</a>
+        <a href="%PAGES%products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">SiC AHF/SVG</a>
+        <a href="%PAGES%products.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Automatic Voltage Regulator</a>
+      </div>
+    </div>
+
+    <!-- Solutions Dropdown -->
+    <div class="group relative flex items-center">
+      <a href="%PAGES%solutions.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        Solutions
+        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+      </a>
+      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Industrial Manufacturing</a>
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Commercial &amp; Medical Buildings</a>
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Data Centers &amp; Telecom</a>
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Renewable Energy (PV/Wind)</a>
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Transportation (Rail/Charging)</a>
+        <a href="%PAGES%solutions.html" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Power Grid &amp; Utility</a>
+      </div>
+    </div>
+
+    <!-- Services Dropdown -->
+    <div class="group relative flex items-center">
+      <a href="%PAGES%services.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        Services
+        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+      </a>
+      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+        <a href="%PAGES%services.html#oem" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">OEM/ODM</a>
+        <a href="%PAGES%services.html#tech-support" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Technical Support</a>
+        <a href="%PAGES%services.html#distributor" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Distributor Program</a>
+      </div>
+    </div>
+
+    <!-- About Dropdown -->
+    <div class="group relative flex items-center">
+      <a href="%PAGES%about.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        About
+        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+      </a>
+      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+        <a href="%PAGES%about.html#about" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Company Profile</a>
+        <a href="%PAGES%about.html#industry" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Case Studies</a>
+        <a href="%PAGES%about.html#certifications" class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">Certifications</a>
+      </div>
+    </div>
+
+    <!-- Contact (no dropdown) -->
+    <div class="group relative flex items-center">
+      <a href="%PAGES%contact.html" class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        Contact
+        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hidden lg:flex items-center gap-2.5 border border-border-light rounded-full py-1.5 px-3.5 text-[13px] text-text-muted bg-[#f9f9f9] cursor-pointer">
+    <input type="text" placeholder="Search..." class="border-none bg-transparent outline-none text-[13px] text-text-dark w-[120px]" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-text-muted">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  </div>
+
+  <div class="lang-group relative">
+    <div class="flex items-center gap-1.5 px-3 py-1.5 border border-border-light rounded text-[12px] font-semibold tracking-[0.06em] text-text-mid cursor-pointer transition-all duration-200 bg-white hover:border-brand-orange hover:text-brand-orange">
+      <span>English</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+        <rect x="2" y="2" width="20" height="12" fill="#fff" stroke="#012169" stroke-width="2" />
+        <path d="M2,2 L22,14 M22,2 L2,14" stroke="#fff" stroke-width="3" />
+        <path d="M2,2 L22,14 M22,2 L2,14" stroke="#C8102E" stroke-width="2" />
+        <line x1="12" y1="2" x2="12" y2="14" stroke="#fff" stroke-width="4" />
+        <line x1="12" y1="2" x2="12" y2="14" stroke="#C8102E" stroke-width="2" />
+        <line x1="2" y1="8" x2="22" y2="8" stroke="#fff" stroke-width="4" />
+        <line x1="2" y1="8" x2="22" y2="8" stroke="#C8102E" stroke-width="2" />
+      </svg>
+      <span class="lang-arrow text-[10px] transition-transform duration-300">▾</span>
+    </div>
+
+    <div class="lang-dropdown absolute top-full right-0 bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:right-5 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+      <div class="lang-item active flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 bg-[rgba(255,107,26,0.08)] border-l-brand-orange">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">English</span>
+        <img src="https://flagcdn.com/w40/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">fran&ccedil;ais</span>
+        <img src="https://flagcdn.com/w40/fr.png" alt="France" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">Deutsch</span>
+        <img src="https://flagcdn.com/w40/de.png" alt="Germany" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">espa&ntilde;ol</span>
+        <img src="https://flagcdn.com/w40/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">العربية</span>
+        <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+      <div class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6">
+        <span class="text-[13px] text-text-mid font-medium hover:text-brand-orange">Portugu&ecirc;s</span>
+        <img src="https://flagcdn.com/w40/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-[999] flex-col px-5 py-4 pb-8 overflow-y-auto border-t border-border-light" id="mobileMenu">
+  <div class="border-b border-border-light">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-products">
+      Products
+      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+    </div>
+    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-products">
+      <a href="%PAGES%products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Active Harmonic Filter</a>
+      <a href="%PAGES%products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Static Var Generator</a>
+      <a href="%PAGES%products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">SiC AHF/SVG</a>
+      <a href="%PAGES%products.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Automatic Voltage Regulator</a>
+    </div>
+  </div>
+  <div class="border-b border-border-light">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-solutions">
+      Solutions
+      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+    </div>
+    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Industrial Manufacturing</a>
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Commercial &amp; Medical Buildings</a>
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Data Centers &amp; Telecom</a>
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Renewable Energy (PV/Wind)</a>
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Transportation (Rail/Charging)</a>
+      <a href="%PAGES%solutions.html" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Power Grid &amp; Utility</a>
+    </div>
+  </div>
+  <div class="border-b border-border-light">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-services">
+      Services
+      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+    </div>
+    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-services">
+      <a href="%PAGES%services.html#oem" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">OEM/ODM</a>
+      <a href="%PAGES%services.html#tech-support" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Technical Support</a>
+      <a href="%PAGES%services.html#distributor" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Distributor Program</a>
+    </div>
+  </div>
+  <div class="border-b border-border-light">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-about">
+      About
+      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+    </div>
+    <div class="mobile-submenu hidden [&amp;.open]:flex flex-col gap-1 pl-4 pb-4" id="mobile-about">
+      <a href="%PAGES%about.html#about" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Company Profile</a>
+      <a href="%PAGES%about.html#industry" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Case Studies</a>
+      <a href="%PAGES%about.html#certifications" class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">Certifications</a>
+    </div>
+  </div>
+  <div class="border-b-0">
+    <a href="%PAGES%contact.html" class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em] border-b-0">Contact</a>
+  </div>
+  <div class="mt-4 flex items-center gap-2.5 border border-border-light rounded-full px-4 py-2.5 bg-[#f9f9f9]">
+    <input type="text" placeholder="Search..." class="border-none bg-transparent outline-none text-[14px] text-text-dark flex-1" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 shrink-0">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  </div>
+</div>
