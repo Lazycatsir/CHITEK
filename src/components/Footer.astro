@@ -1,37 +1,37 @@
 ---
 export interface Props {
-  lang?: 'en' | 'pt';
+  lang?: 'en' | 'pt' | 'es';
 }
 const { lang = 'en' } = Astro.props;
 
-const t: Record<string, { en: string; pt: string }> = {
-  subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.' },
-  emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com' },
-  subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se' },
-  products: { en: 'Products', pt: 'Produtos' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo' },
-  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado' },
-  sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)' },
-  highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção' },
-  solutions: { en: 'Solutions', pt: 'Soluções' },
-  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial' },
-  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos' },
-  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom' },
-  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)' },
-  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)' },
-  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades' },
-  resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias' },
-  technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica' },
-  globalReferences: { en: 'Global References', pt: 'Referências Globais' },
-  oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM' },
-  becomeDistributor: { en: 'Become a Distributor', pt: 'Torne-se um Distribuidor' },
-  copyright: { en: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.', pt: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos os Direitos Reservados.' },
-  ipv6Served: { en: 'IPV6 Served', pt: 'IPV6 Atendido' },
+const t: Record<string, { en: string; pt: string; es: string }> = {
+  subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.', es: 'Suscríbase para disfrutar de precios especiales y soporte técnico dedicado.' },
+  emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com', es: 'nombre@email.com' },
+  subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse' },
+  products: { en: 'Products', pt: 'Produtos', es: 'Productos' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo' },
+  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado' },
+  sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)', es: 'SiC-AHF/SVG (Alta Eficiencia)' },
+  highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção', es: 'AHF/SVG de Alta Protección' },
+  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos' },
+  resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias', es: 'Recursos y Asociaciones' },
+  technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica', es: 'Biblioteca Técnica' },
+  globalReferences: { en: 'Global References', pt: 'Referências Globais', es: 'Referencias Globales' },
+  oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM', es: 'Servicios OEM y ODM' },
+  becomeDistributor: { en: 'Become a Distributor', pt: 'Torne-se um Distribuidor', es: 'Conviértase en Distribuidor' },
+  copyright: { en: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.', pt: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos os Direitos Reservados.', es: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos los Derechos Reservados.' },
+  ipv6Served: { en: 'IPV6 Served', pt: 'IPV6 Atendido', es: 'IPV6 Atendido' },
 };
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const prefix = lang === 'pt' ? '/pt' : '';
+const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';

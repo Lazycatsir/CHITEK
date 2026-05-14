@@ -7,7 +7,7 @@ import Sidebar from '../components/Sidebar.astro';
 export interface Props {
   title: string;
   description: string;
-  lang?: 'en' | 'pt';
+  lang?: 'en' | 'pt' | 'es';
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
@@ -28,7 +28,7 @@ const defaultOgUrl = 'https://chitek.com';
   <meta name="description" content={description} />
 
   <!-- Open Graph -->
-  <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : 'en_US'} />
+  <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : lang === 'es' ? 'es_ES' : 'en_US'} />
   <meta property="og:title" content={ogTitle || title} />
   <meta property="og:description" content={ogDescription || description} />
   <meta property="og:image" content={ogImage || defaultOgImage} />

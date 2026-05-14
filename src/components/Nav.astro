@@ -1,53 +1,59 @@
 ---
 export interface Props {
-  lang?: 'en' | 'pt';
+  lang?: 'en' | 'pt' | 'es';
 }
 const { lang = 'en' } = Astro.props;
 
-const t: Record<string, { en: string; pt: string }> = {
-  products: { en: 'Products', pt: 'Produtos' },
-  solutions: { en: 'Solutions', pt: 'Soluções' },
-  services: { en: 'Services', pt: 'Serviços' },
-  about: { en: 'About', pt: 'Sobre' },
-  contact: { en: 'Contact', pt: 'Contato' },
-  search: { en: 'Search...', pt: 'Pesquisar...' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo' },
-  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var' },
-  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG' },
-  automaticVoltageRegulator: { en: 'Automatic Voltage Regulator', pt: 'Regulador Automático de Tensão' },
-  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial' },
-  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos' },
-  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom' },
-  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)' },
-  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)' },
-  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades' },
-  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM' },
-  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico' },
-  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores' },
-  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa' },
-  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso' },
-  certifications: { en: 'Certifications', pt: 'Certificações' },
+const t: Record<string, { en: string; pt: string; es: string }> = {
+  products: { en: 'Products', pt: 'Produtos', es: 'Productos' },
+  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones' },
+  services: { en: 'Services', pt: 'Serviços', es: 'Servicios' },
+  about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros' },
+  contact: { en: 'Contact', pt: 'Contato', es: 'Contacto' },
+  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo' },
+  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var' },
+  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG' },
+  automaticVoltageRegulator: { en: 'Automatic Voltage Regulator', pt: 'Regulador Automático de Tensão', es: 'Regulador Automático de Tensión' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos' },
+  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM', es: 'OEM/ODM' },
+  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico', es: 'Soporte Técnico' },
+  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores', es: 'Programa de Distribuidores' },
+  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa', es: 'Perfil de la Empresa' },
+  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso', es: 'Casos de Estudio' },
+  certifications: { en: 'Certifications', pt: 'Certificações', es: 'Certificaciones' },
 };
 
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const langLabel: Record<string, string> = { en: 'English', pt: 'Português' };
-const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt' };
+const langLabel: Record<string, string> = { en: 'English', pt: 'Português', es: 'Español' };
+const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es' };
 
 /** Build href for a target language from current pathname */
 function langHref(targetLang: string): string {
   const { pathname } = Astro.url;
-  if (targetLang === 'en') return pathname.replace(/^\/pt/, '') || '/';
-  if (targetLang === 'pt') return '/pt' + (pathname === '/' ? '' : pathname);
+  // Strip existing language prefix
+  let base = pathname;
+  if (base.startsWith('/pt')) base = base.replace(/^\/pt/, '') || '/';
+  else if (base.startsWith('/es')) base = base.replace(/^\/es/, '') || '/';
+  // Add target prefix
+  if (targetLang === 'en') return base;
+  if (targetLang === 'pt') return '/pt' + (base === '/' ? '' : base);
+  if (targetLang === 'es') return '/es' + (base === '/' ? '' : base);
   return '#';
 }
 const activeLangLabel = langLabel[lang] || 'English';
 const activeLangFlag = langFlagCode[lang] || 'gb';
-const altLang = lang === 'en' ? 'pt' : 'en';
-const ptHref = langHref('pt');
 const enHref = langHref('en');
-const prefix = lang === 'pt' ? '/pt' : '';
+const ptHref = langHref('pt');
+const esHref = langHref('es');
+const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
@@ -176,6 +182,10 @@ const homeHref = prefix || '/';
       <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Portugu&ecirc;s</span>
         <img src="https://flagcdn.com/w40/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </a>
+      <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-text-mid font-medium">Espa&ntilde;ol</span>
+        <img src="https://flagcdn.com/w40/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
   </div>
