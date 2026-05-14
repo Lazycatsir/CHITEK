@@ -170,22 +170,22 @@ const homeHref = prefix || '/';
   <div class="lang-group relative">
     <div class="flex items-center gap-1.5 px-3 py-1.5 border border-border-light rounded text-[12px] font-semibold tracking-[0.06em] text-text-mid cursor-pointer transition-all duration-200 bg-white hover:border-brand-orange hover:text-brand-orange">
       <span>{activeLangLabel}</span>
-      <img src={"https://flagcdn.com/w40/" + activeLangFlag + ".png"} alt={activeLangLabel} class="w-5 h-3.5 object-cover rounded-sm shadow-sm" />
+      <img src={"/assets/images/flags/" + activeLangFlag + ".png"} alt={activeLangLabel} class="w-5 h-3.5 object-cover rounded-sm shadow-sm" />
       <span class="lang-arrow text-[10px] transition-transform duration-300">▾</span>
     </div>
 
     <div class="lang-dropdown absolute top-full right-0 bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:right-5 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
       <a href={enHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'en' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">English</span>
-        <img src="https://flagcdn.com/w40/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Portugu&ecirc;s</span>
-        <img src="https://flagcdn.com/w40/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Espa&ntilde;ol</span>
-        <img src="https://flagcdn.com/w40/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
   </div>

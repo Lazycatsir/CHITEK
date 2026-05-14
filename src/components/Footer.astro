@@ -37,16 +37,16 @@ const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
 ---
 <footer class="bg-footer-bg text-white" id="footer">
-  <div class="max-w-page mx-auto px-16 max-md:px-6">
-    <div class="pt-16 pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
+  <div class="px-[clamp(24px,8vw,160px)]">
+    <div class="pt-[clamp(32px,6vw,80px)] pb-[clamp(24px,4vw,56px)] border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[clamp(16px,3vw,48px)]">
     <div class="flex flex-col">
-      <img src="/assets/images/logo.webp" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[140px] h-auto object-contain mb-4" />
-      <p class="text-[13px] text-white/70 leading-[1.8] max-w-[260px] mb-6">{_('subscribeText')}</p>
+      <img src="/assets/images/logo.webp" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[clamp(100px,10vw,160px)] h-auto object-contain mb-[clamp(8px,1.5vw,20px)]" />
+      <p class="text-[clamp(11px,0.9vw,14px)] text-white/70 leading-[1.8] max-w-[260px] mb-[clamp(12px,2vw,32px)]">{_('subscribeText')}</p>
       <div class="flex">
-        <input type="email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[13px] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
-        <button class="bg-brand-orange text-white border-none cursor-pointer text-[12px] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>
+        <input type="email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(11px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
+        <button class="bg-brand-orange text-white border-none cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>
       </div>
-      <div class="flex gap-2.5 mt-6">
+      <div class="flex gap-[clamp(6px,1vw,12px)] mt-6">
         <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </div>
@@ -59,37 +59,37 @@ const servicesHref = prefix + '/services';
       </div>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('products')}</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href={productsHref + '#ahf'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
-        <li><a href={productsHref + '#svg'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
-        <li><a href={productsHref + '#sic'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
-        <li><a href={productsHref + '#high-protection'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
+      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('products')}</h4>
+      <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
+        <li><a href={productsHref + '#ahf'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
+        <li><a href={productsHref + '#svg'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
+        <li><a href={productsHref + '#sic'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
+        <li><a href={productsHref + '#high-protection'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('solutions')}</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href={solutionsHref + '#industry'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
-        <li><a href={solutionsHref + '#commercial'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
-        <li><a href={solutionsHref + '#datacenter'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
-        <li><a href={solutionsHref + '#renewable'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
-        <li><a href={solutionsHref + '#rail'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
-        <li><a href={solutionsHref + '#grid'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
+      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('solutions')}</h4>
+      <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
+        <li><a href={solutionsHref + '#industry'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
+        <li><a href={solutionsHref + '#commercial'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
+        <li><a href={solutionsHref + '#datacenter'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
+        <li><a href={solutionsHref + '#renewable'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
+        <li><a href={solutionsHref + '#rail'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
+        <li><a href={solutionsHref + '#grid'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('resourcesPartnership')}</h4>
-      <ul class="list-none flex flex-col gap-3">
-        <li><a href={servicesHref + '#tech-support'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('technicalLibrary')}</a></li>
-        <li><a href={servicesHref + '#tech-support'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
-        <li><a href={servicesHref + '#oem'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
-        <li><a href={servicesHref + '#distributor'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
+      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('resourcesPartnership')}</h4>
+      <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
+        <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('technicalLibrary')}</a></li>
+        <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
+        <li><a href={servicesHref + '#oem'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
+        <li><a href={servicesHref + '#distributor'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
       </ul>
     </div>
   </div>
-  <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[12px] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
+  <div class="py-[clamp(12px,2vw,32px)] flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,2vw,28px)]">
+    <p class="text-[clamp(10px,0.8vw,13px)] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
     <div class="flex gap-6">
       <a href="#" class="text-[12px] text-white/60 no-underline hover:text-white transition-colors duration-200">{_('ipv6Served')}</a>
     </div>
