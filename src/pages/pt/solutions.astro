@@ -1,0 +1,1056 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'Soluções de Qualidade de Energia – Aplicações Industriais e de Utilidade | CHITEK',
+  description: 'A CHITEK fornece soluções de qualidade de energia para Manufatura Industrial, Edifícios Comerciais, Data Centers, Energia Renovável, Transporte e Redes Elétricas em todo o mundo.',
+};
+---
+
+<BaseLayout lang="pt" title={meta.title} description={meta.description}>
+  <!-- ============ HERO ============ -->
+  <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
+    <div class="absolute inset-0 animate-fade-in">
+      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
+    </div>
+    <div class="relative z-10 max-w-page mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-300">Comercial e Médico</h1>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-450">Soluções de Qualidade de Energia</h1>
+        <p class="mt-6 text-lg md:text-xl text-white/80 max-w-xl leading-relaxed animate-slide-up-600">De salas de cirurgia de precisão a escritórios Classe A — garantia de qualidade de energia em todos os cenários</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STICKY INDUSTRY TABS ============ -->
+  <div id="sticky-tabs" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-subtle shadow-[0_2px_16px_rgba(38,70,83,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
+    <div class="max-w-page mx-auto px-6 md:px-10 lg:px-20">
+      <div class="flex items-center gap-0 md:gap-4 overflow-x-auto" id="sticky-industry-tabs"></div>
+    </div>
+  </div>
+
+  <!-- ============ SOLUTIONS CAROUSEL ============ -->
+  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.png')">
+    <div class="max-w-page mx-auto">
+      <div class="flex items-end justify-between mb-6">
+        <div>
+          <h2 class="text-[28px] md:text-[36px] font-bold text-brand-navy leading-tight font-barlow-condensed">Solução de Qualidade de Energia Baseada em Cenários</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-sm text-text-secondary font-medium" id="sc-counter">1 / 3</span>
+          <div class="flex gap-2" id="sc-dots"></div>
+        </div>
+      </div>
+      <div class="mb-10">
+        <div class="flex items-center gap-2" id="sc-scene-label"></div>
+      </div>
+      <div class="mb-12">
+        <h3 class="text-[20px] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">Pontos Problemáticos</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-painpoints"></div>
+      </div>
+      <div class="mb-12">
+        <h3 class="text-[20px] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">Topologia do Sistema</h3>
+        <div class="bg-bg-card border border-border-card rounded-xl p-6 lg:p-10 transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-topology"></div>
+      </div>
+      <div class="flex items-center justify-center gap-6 mt-12" id="sc-indicators"></div>
+    </div>
+  </section>
+
+  <!-- ============ CASES ============ -->
+  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-bg-page px-6 md:px-10 lg:px-20 py-20 lg:py-[120px]">
+    <div class="max-w-page mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight mb-10 font-barlow-condensed" id="cases-title">Estudos de Caso — Edifícios Comerciais e Médicos</h2>
+      <div class="space-y-6" id="cases-list"></div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    translate: 0 0;
+  }
+</style>
+
+<!-- Lucide icons library -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+</script>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // ===================== DATA =====================
+    const industries = [
+      { id: 'industry', label: 'Industrial', icon: 'factory' },
+      { id: 'commercial', label: 'Comercial e Médico', icon: 'building-2' },
+      { id: 'datacenter', label: 'Data Center', icon: 'server' },
+      { id: 'renewable', label: 'Energia Renovável', icon: 'zap' },
+      { id: 'rail', label: 'Transporte Ferroviário', icon: 'train-front' },
+      { id: 'grid', label: 'Rede Elétrica', icon: 'globe' },
+    ];
+
+    let activeIndustry = 'commercial';
+
+    const painPointScenes = [
+      {
+        id: 'medical', label: 'Médico', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Cenário Médico', sceneSubtitle: 'Hospital / Clínica / Reabilitação',
+        cards: [
+          { icon: 'activity', title: 'TC / RM', desc: 'Equipamentos de Imagem', metric: '15%', metricLabel: 'THD', consequences: [{ title: 'Artefatos na Imagem', sub: 'Risco de erro diagnóstico, necessidade de repetição de exames, duplicando o tempo de espera do paciente' }, { title: 'Superaquecimento', sub: 'Redução da capacidade do transformador, vida útil reduzida, manutenção não programada' }] },
+          { icon: 'heart-pulse', title: 'Sala Cirúrgica', desc: 'Equipamentos Cirúrgicos', metric: 'ms-level', metricLabel: 'Afundamento de Tensão', consequences: [{ title: 'Interrupção Cirúrgica', sub: 'Corte momentâneo, ciclo de reinicialização de equipamentos, atrasos no procedimento' }, { title: 'Risco à Vida', sub: 'Mau funcionamento de equipamentos críticos de suporte, latência na transferência para backup de emergência' }] },
+          { icon: 'flask-conical', title: 'Laboratório', desc: 'Analisadores Sensíveis', metric: 'Alta', metricLabel: 'Corrente de Sequência Zero', consequences: [{ title: 'Desequilíbrio de Fase', sub: 'Deriva de instrumentos de precisão, calibração invalidada, desperdício de reagentes' }, { title: 'Sobrecarga do Neutro', sub: 'Condutores superaquecidos, risco de incêndio, potencial queima do condutor neutro' }] },
+        ],
+      },
+      {
+        id: 'office', label: 'Escritório Comercial', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Cenário de Escritório Comercial', sceneSubtitle: 'Escritório / Shopping / Hotel',
+        cards: [
+          { icon: 'lightbulb', title: 'Iluminação', desc: 'Harmônicos de Driver LED', metric: '23%', metricLabel: 'THD', consequences: [{ title: 'Cintilação Severa', sub: 'Fadiga visual, produtividade reduzida, reclamações de desconforto dos ocupantes' }, { title: 'Superaquecimento do Neutro', sub: 'Acúmulo de harmônicos triplen, queima do neutro, risco de incêndio' }] },
+          { icon: 'arrow-up-down', title: 'Elevador', desc: 'Sobretensão de Partida do VFD', metric: '7x', metricLabel: 'Corrente de Partida', consequences: [{ title: 'Afundamento de Tensão', sub: 'Disparo de equipamentos, reinicialização do sistema de controle, risco de aprisionamento de passageiros' }, { title: 'Desgaste Mecânico', sub: 'Manutenção frequente, substituição de pastilhas de freio, fadiga de cabos' }] },
+          { icon: 'thermometer-snowflake', title: 'HVAC', desc: 'Reativo do Compressor', metric: '0.65', metricLabel: 'Fator de Potência', consequences: [{ title: 'Multa por Penalidade', sub: 'Sobretaxa de fator de potência da concessionária, aumento de 30%+ na conta mensal' }, { title: 'Sobrecarga do Transformador', sub: 'Excesso de corrente reativa, superaquecimento, vida útil reduzida' }] },
+        ],
+      },
+      {
+        id: 'lab', label: 'Lab / Sala Limpa', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Laboratório e Sala Limpa', sceneSubtitle: 'Semicondutores / Biotecnologia / Manufatura de Precisão',
+        cards: [
+          { icon: 'wind', title: 'Sala Limpa', desc: 'VFD do Ventilador FFU', metric: '> 1.0', metricLabel: 'Cintilação Pst', consequences: [{ title: 'Perda de Rendimento', sub: 'Aumento na densidade de defeitos em wafers, rejeição de lotes, impacto na receita' }, { title: 'Flutuação de Luz', sub: 'Desalinhamento na fotolitografia, falsos rejeitos na inspeção' }] },
+          { icon: 'cpu', title: 'Equipamentos de Lab', desc: 'Instrumentos Sensíveis', metric: '30%', metricLabel: 'Afundamento de Tensão', consequences: [{ title: 'Perda de Dados', sub: 'Dados de medição não salvos, interrupção de experimentos, desperdício de reagentes' }, { title: 'Deriva de Calibração', sub: 'Recalibração necessária pós-afundamento, 4-8 horas de inatividade do instrumento' }] },
+          { icon: 'toy-brick', title: 'Bombas de Resfriamento', desc: 'Partida de Motor', metric: '5~8x', metricLabel: 'Corrente de Partida', consequences: [{ title: 'Queda de Tensão no Barramento', sub: 'Risco de disparo em cascata, subtensão em equipamentos vizinhos, parada de lote' }, { title: 'Disparo do Disjuntor', sub: 'Falso disparo por sobrecorrente, parada não planejada, procedimento de reinicialização' }] },
+        ],
+      },
+    ];
+
+    const topologyScenes = [
+      {
+        id: 'medical', sceneName: 'Topologia Médica', sceneSubtitle: 'Hospital / Clínica / Reabilitação',
+        deviceLabel: 'AHF-200A', deviceType: 'Filtro Harmônico Ativo',
+        deviceDesc: 'Conectado em paralelo ao barramento LV, mitiga harmônicos para distribuição de energia do CC / imagem / laboratório',
+        branches: [
+          { label: 'Dist. CC', sub: 'Proteção contra Afundamento' },
+          { label: 'Imagem', sub: 'Harmônicos TC/RM' },
+          { label: 'Dist. Lab.', sub: 'Desequilíbrio de Fase' },
+        ],
+      },
+      {
+        id: 'office', sceneName: 'Topologia de Escritório Comercial', sceneSubtitle: 'Escritório / Shopping / Hotel',
+        deviceLabel: 'SVG-300A', deviceType: 'Gerador Estático de Var',
+        deviceDesc: 'SVG no barramento LV, compensa potência reativa para circuitos de elevador / iluminação / HVAC',
+        branches: [
+          { label: 'Iluminação', sub: 'Fonte Harmônica' },
+          { label: 'Elevador', sub: 'Sobretensão VFD' },
+          { label: 'HVAC', sub: 'Carga Reativa' },
+        ],
+      },
+      {
+        id: 'lab', sceneName: 'Topologia de Lab e Sala Limpa', sceneSubtitle: 'Semicondutores / Biotecnologia / Manufatura de Precisão',
+        deviceLabel: 'AHF-150A', deviceType: 'Filtro Harmônico Ativo',
+        deviceDesc: 'Conectado em série no front-end do UPS para supressão de harmônicos de resfriamento de processo / equipamentos de laboratório',
+        branches: [
+          { label: 'Front-end UPS', sub: 'Energia de Precisão' },
+          { label: 'Resfriamento', sub: 'Partida de Bombas' },
+          { label: 'Equip. Lab.', sub: 'Carga Sensível' },
+        ],
+      },
+    ];
+
+    const cases = [
+      {
+        title: 'Mitigação Harmônica no Prédio Ambulatorial do Hospital Union de Pequim',
+        highlight: 'THD 18,3% → 4,1%, economia anual de energia de 670K CNY',
+        image: '/assets/images/solutions-commercial-medical-case-hospital.jpg',
+        industry: 'Edifício Médico',
+        colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
+        link: '/pt/about/cases/pumc-hospital',
+        overview: 'Hospital terciário de 2.000 leitos, distribuição 10kV/0,4kV, 4 transformadores de 1600kVA. Após expansão do centro de imagem, o THD no barramento principal excedeu 18%, causando artefatos recorrentes nas imagens de TC/RM e um incidente de qualidade de energia na sala cirúrgica.',
+        trend: 'Tendência THD: 18,3% → 12,5% → 8,2% → 4,1%',
+        solution: [
+          { product: 'AHF-200A', qty: 2, use: 'CC e departamento de imagem' },
+          { product: 'SVG-100A', qty: 1, use: 'Compensação reativa HVAC' },
+        ],
+        results: [
+          'THD < 5% (conforme IEEE 519)',
+          'Temperatura do transformador ↓ 15°C',
+          'Custo anual de manutenção ↓ 45%',
+        ],
+      },
+      {
+        title: 'Retrofit de Qualidade de Energia na Torre de Escritórios Classe A de Lujiazui, Xangai',
+        highlight: 'FP 0,72 → 0,95, eliminação de multas de 450K CNY/ano',
+        image: '/assets/images/solutions-commercial-medical-case-office.jpg',
+        industry: 'Escritório Comercial',
+        colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
+        link: '/pt/about/cases/lujiazui-office',
+        overview: 'Torre de escritórios Classe A de 45 andares, 20kV/0,4kV, 6 transformadores de 2000kVA. A modernização extensiva de LED e a modernização de elevadores VFD introduziram harmônicos severos e baixo fator de potência, gerando multas mensais da concessionária.',
+        trend: 'Tendência FP: 0,72 → 0,82 → 0,91 → 0,95',
+        solution: [
+          { product: 'SVG-300A', qty: 2, use: 'Correção de FP no barramento LV principal' },
+          { product: 'AHF-100A', qty: 3, use: 'Filtros harmônicos de iluminação por andar' },
+        ],
+        results: [
+          'FP > 0,95, zero multas da concessionária',
+          'Perda no transformador ↓ 22%',
+          'Economia anual de 450K CNY',
+        ],
+      },
+      {
+        title: 'Mitigação de Cintilação de Tensão no Laboratório de Sala Limpa de Semicondutores em Suzhou',
+        highlight: 'Cintilação Pst < 0,3, zero paradas de equipamentos',
+        image: '/assets/images/solutions-commercial-medical-case-lab.jpg',
+        industry: 'Lab / Sala Limpa',
+        colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
+        link: '/pt/about/cases/suzhou-lab',
+        overview: 'Sala limpa Classe 100 de 12.000m², alimentadores duplos de 10kV, 8 transformadores de 2500kVA. A corrente de partida das bombas de resfriamento e o feedback harmônico do UPS causaram cintilação Pst superior a 1,2, levando a perdas de rendimento na fotolitografia e eventos trimestrais de parada de equipamentos.',
+        trend: 'Tendência Pst: 1,2 → 0,7 → 0,4 → 0,3',
+        solution: [
+          { product: 'AHF-150A', qty: 2, use: 'Supressão harmônica no front-end do UPS' },
+          { product: 'SVG-100A', qty: 2, use: 'Compensação de surto de bombas de resfriamento' },
+          { product: 'Smart Monitor', qty: 1, use: 'Plataforma de monitoramento de QE em toda a planta' },
+        ],
+        results: [
+          'Cintilação Pst < 0,3 (conforme IEC 61000-3-3)',
+          'Zero paradas não programadas desde a implantação',
+          'Taxa de rendimento recuperada ao nível anterior à cintilação',
+        ],
+      },
+    ];
+
+    // ===================== GRID DATA =====================
+    const gridPainPoints = [
+      {
+        id: 'transmission', label: 'Transmissão', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Transmissão e Distribuição', sceneSubtitle: 'Subestação / Distribuição / Modernização Rural',
+        cards: [
+          { icon: 'network', title: 'Carga Não Linear', desc: 'Injeção Harmônica de cargas industriais e de tração', metric: '>10%', metricLabel: 'THD', consequences: [{ title: 'Superaquecimento do Transformador', sub: 'Perda harmônica excessiva, envelhecimento do isolamento, redução forçada de até 30% da capacidade' }, { title: 'Mau Funcionamento da Proteção', sub: 'Falso disparo do relé, operação indevida do disjuntor, degradação da confiabilidade da rede' }] },
+          { icon: 'zap', title: 'Geração Distribuída', desc: 'Distúrbio na Rede pela interconexão de GD', metric: '±10%', metricLabel: 'Flutuação de Tensão', consequences: [{ title: 'Fluxo de Potência Reversa', sub: 'Retorno da GD causa elevação de tensão, oscilação do comutador, falha na coordenação da proteção' }, { title: 'Risco de Ilhamento', sub: 'Formação não intencional de ilha, religação fora de sincronismo, danos a equipamentos' }] },
+          { icon: 'git-branch', title: 'Reativo de Linha', desc: 'Perda reativa em transmissão de longa distância', metric: '< 0,9', metricLabel: 'Tensão Final (pu)', consequences: [{ title: 'Aumento de Perda na Linha', sub: 'Aumento exponencial da perda I²R, colapso de tensão no final do alimentador rural, corte de carga' }, { title: 'Risco de Colapso de Tensão', sub: 'Cascata de déficit reativo, potencial de apagão em ampla área, falha de contingência N-1' }] },
+        ],
+      },
+      {
+        id: 'urban', label: 'Distribuição Urbana', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Rede de Distribuição Urbana', sceneSubtitle: 'Centro da Cidade / Zona de Desenvolvimento / Residencial Antigo',
+        cards: [
+          { icon: 'plug-zap', title: 'Carregamento VE', desc: 'Surto de impacto de clusters de carregamento rápido', metric: '120kW+', metricLabel: 'Degrau de Carga', consequences: [{ title: 'Afundamento da Rede', sub: 'Pico de carregamento simultâneo causa afundamento de 15%+, disparo por sobrecarga do transformador de distribuição' }, { title: 'Injeção Harmônica', sub: 'Harmônicos de retificador VE de 6 pulsos, THD excedendo 8% no PCC, poluição da rede' }] },
+          { icon: 'building-2', title: 'Carga Comercial', desc: 'Desequilíbrio de fase de cargas monofásicas', metric: '>8%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Sobrecarga do Neutro', sub: 'Acúmulo de corrente de sequência zero, queima do neutro, risco de incêndio em áreas residenciais antigas' }, { title: 'Redução de Motores', sub: 'Aquecimento de sequência negativa em motores trifásicos, vida útil reduzida, parada não programada' }] },
+          { icon: 'cable', title: 'Rede de Cabos', desc: 'Reativo capacitivo de cabos subterrâneos', metric: 'Adiantado', metricLabel: 'FP > 0,95', consequences: [{ title: 'Sobrecompensação', sub: 'Capacitância do cabo causa FP adiantado em carga leve, elevação de tensão, estresse no isolamento' }, { title: 'Risco de Ressonância', sub: 'Ressonância paralela capacitância do cabo + indutância do transformador, amplificação harmônica' }] },
+        ],
+      },
+      {
+        id: 'microgrid', label: 'Microrrede', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Microrrede e CCHP', sceneSubtitle: 'Campus / Ilha / Área Remota',
+        cards: [
+          { icon: 'sun', title: 'Rede Multifontes', desc: 'Empilhamento harmônico de PV + eólica + armazenamento', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'Violação do PCC', sub: 'Superposição harmônica de múltiplos inversores, limite IEEE 519 do PCC excedido, multa do operador da rede' }, { title: 'Instabilidade de Ressonância', sub: 'Interação do filtro LCL, oscilação de banda larga, disparo em cascata do inversor' }] },
+          { icon: 'battery-charging', title: 'Ciclagem de Armazenamento', desc: 'Flutuação reativa de carga/descarga', metric: 'Oscilação FP', metricLabel: '0,7~1,0', consequences: [{ title: 'Cobrança de Penalidade', sub: 'Oscilação bidirecional de FP aciona faturamento de energia reativa, aumento mensal de custos' }, { title: 'Perda de Vida Útil', sub: 'Excesso de corrente reativa aquece o PCS da bateria, envelhecimento acelerado do IGBT, risco de perda de garantia' }] },
+          { icon: 'shuffle', title: 'Comutação de Rede', desc: 'Afundamento de tensão durante transição ilha/rede', metric: '>20%', metricLabel: 'Profundidade do Afundamento', consequences: [{ title: 'Disparo de Carga', sub: 'Transferência STS > 4ms causa queda do contator, carga crítica transfere para bateria do UPS' }, { title: 'Falha de Partida do Diesel', sub: 'Afundamento durante sequência de partida do gerador, colapso da excitação AVR, falha de partida a frio' }] },
+        ],
+      },
+    ];
+    const gridTopology = [
+      {
+        id: 'transmission', sceneName: 'Topologia de Transmissão', sceneSubtitle: 'Subestação / Distribuição / Modernização Rural',
+        deviceLabel: 'SVG + AHF', deviceType: 'Sistema Combinado',
+        deviceDesc: 'SVG no barramento de 35kV/10kV para reativo + AHF no alimentador de carga crítica para harmônicos, ponto de interconexão GD marcado',
+        branches: [
+          { label: 'Carga Crítica', sub: 'Equipamentos Sensíveis' },
+          { label: 'Ponto GD', sub: 'Fluxo Reverso' },
+          { label: 'Alim. Rural', sub: 'Queda de Longa Linha' },
+        ],
+      },
+      {
+        id: 'urban', sceneName: 'Topologia de Distribuição Urbana', sceneSubtitle: 'Centro / Zona de Desenvolvimento / Residencial Antigo',
+        deviceLabel: 'SPC + SVG-10kV', deviceType: 'Sistema de Distribuição',
+        deviceDesc: 'SPC no alimentador de 10kV para balanceamento + SVG no barramento para reativo, estação VE/comercial/residencial marcados',
+        branches: [
+          { label: 'Estação VE', sub: 'Carga de Impacto' },
+          { label: 'Carga Comercial', sub: 'Desequilíbrio de Fase' },
+          { label: 'Residencial', sub: 'Carga Monofásica' },
+        ],
+      },
+      {
+        id: 'microgrid', sceneName: 'Topologia de Microrrede', sceneSubtitle: 'Campus / Ilha / Área Remota',
+        deviceLabel: 'SVG+AHF + SPC', deviceType: 'Sistema de Microrrede',
+        deviceDesc: 'SVG+AHF no PCC para qualidade de energia + SPC para balanceamento de carga, ramo PV/armazenamento/diesel marcado',
+        branches: [
+          { label: 'Arranjo PV', sub: 'Fonte Intermitente' },
+          { label: 'PCS Bateria', sub: 'Fluxo Bidirecional' },
+          { label: 'Gerador Diesel', sub: 'Suprimento de Backup' },
+        ],
+      },
+    ];
+    const gridCases = [
+      {
+        title: 'Gerenciamento Integrado de QE em Subestação Provincial de 220kV', highlight: 'THD 11% → 3,5%, perda do transformador reduzida 12%, economia anual de 3,2M kWh', image: '/assets/images/solutions-grid-case-substation.jpg', industry: 'Rede Elétrica', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: 'Subestação provincial de 220kV/35kV/10kV atendendo carga industrial e residencial mista. A injeção harmônica de uma siderúrgica próxima e a crescente penetração de GD causaram THD superior a 11% no barramento de 35kV, disparando alarmes de sobreaquecimento do transformador e disparos do banco de capacitores.',
+        trend: 'Tendência THD: 11,0% → 7,8% → 5,2% → 3,5%',
+        solution: [{ product: 'SVG-800V', qty: 2, use: 'Compensação reativa do barramento de 35kV' }, { product: 'AHF-200A', qty: 3, use: 'Filtragem harmônica de alimentador crítico' }],
+        results: ['THD < 4% (conforme GB/T 14549)', 'Perda do transformador reduzida 12% (3,2M kWh/ano economizados)', 'Perda de linha melhorada em 0,8 pontos percentuais'],
+      },
+      {
+        title: 'Projeto de Modernização da Rede de Distribuição Urbana Central', highlight: 'Desequilíbrio da estação VE < 3%, qualificação de tensão 99,97%', image: '/assets/images/solutions-grid-case-urban.jpg', industry: 'Distribuição Urbana', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: 'Rede de distribuição urbana de 10kV com 12 estações de carregamento rápido VE e carga comercial/residencial mista. O pico noturno de carregamento simultâneo causou desequilíbrio severo de fase e afundamento de tensão, enquanto a rede de cabos subterrâneos produziu FP adiantado em carga leve.',
+        trend: 'Tendência de Desequilíbrio: 12% → 8% → 5% → 2,8%',
+        solution: [{ product: 'SPC-150A', qty: 4, use: 'Balanceamento trifásico da estação VE' }, { product: 'SVG-10kV', qty: 2, use: 'Compensação reativa do alimentador' }],
+        results: ['Desequilíbrio de fase < 3% em todas as estações VE', 'Taxa de qualificação de tensão 99,97%', 'Zero incidentes de sobrecompensação de cabos'],
+      },
+      {
+        title: 'Projeto de Microrrede Integrada PV-Eólica-Armazenamento em Ilha', highlight: 'Afundamento de comutação ilha/rede < 5%, confiabilidade 99,9%, redução de diesel 60%', image: '/assets/images/solutions-grid-case-microgrid.jpg', industry: 'Microrrede', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: 'Microrrede em ilha remota com 2MW PV, 1,5MW eólico, 4MWh BESS e 1MW diesel de backup. O empilhamento harmônico multifontes no PCC e o afundamento de tensão durante transições rede/ilha causaram cortes de carga frequentes e partida prematura do diesel.',
+        trend: 'Tendência de Afundamento: 25% → 12% → 7% → <5%',
+        solution: [{ product: 'SVG+AHF', qty: 2, use: 'Condicionamento de qualidade de energia no PCC' }, { product: 'SPC-100A', qty: 1, use: 'Balanceamento de carga entre fases' }],
+        results: ['Afundamento de comutação ilha/rede < 5%', 'Confiabilidade do sistema 99,9%', 'Horas de operação a diesel reduzidas em 60% ao ano'],
+      },
+    ];
+
+    // ===================== DATACENTER DATA =====================
+    const dcPainPoints = [
+      {
+        id: 'cloud', label: 'Computação em Nuvem', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Grande Centro de Computação em Nuvem', sceneSubtitle: 'HPC / Provedor de Nuvem / Colocação',
+        cards: [
+          { icon: 'cloud', title: 'Harmônicos do UPS', desc: 'Poluição refletiva de retificadores de UPS', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'Circulação Paralela', sub: 'Corrente harmônica do UPS circula entre unidades paralelas, desequilíbrio de compartilhamento de carga, risco de fuga térmica' }, { title: 'Vida Útil da Bateria ↓', sub: 'Ripple harmônico acelera a corrosão da bateria VRLA, vida de 3 anos reduzida para 18 meses' }] },
+          { icon: 'server', title: 'Servidores', desc: 'Desequilíbrio de fase de carga de TI monofásica', metric: '>15%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Superaquecimento do Neutro', sub: 'Triplen + desequilíbrio de fase combinados, sequência zero > corrente de fase, risco de incêndio' }, { title: 'Disparo do PDU', sub: 'Sobrecarga por fase apesar da média abaixo da nominal, disparo indevido do disjuntor do PDU do rack, falha de fileira' }] },
+          { icon: 'fan', title: 'Sistema de Resfriamento', desc: 'Impacto reativo de chillers/CRAC com VFD', metric: 'PUE', metricLabel: 'Deterioração', consequences: [{ title: 'Sobrecarga do Transformador', sub: 'Reativo excessivo consome capacidade do transformador, atualização forçada de resfriamento, desperdício de CapEx' }, { title: 'Penalidade de Energia', sub: 'PUE 1,6→1,8 devido a perdas reativas, OpEx anual +800K CNY em instalação de 10MW' }] },
+        ],
+      },
+      {
+        id: 'finance', label: 'DC Financeiro', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Data Center Financeiro', sceneSubtitle: 'Banco / Corretora / Seguradora',
+        cards: [
+          { icon: 'landmark', title: 'Negociação de Alta Frequência', desc: 'Infraestrutura de negociação sensível a afundamento', metric: '< 3ms', metricLabel: 'Tolerância a Afundamento', consequences: [{ title: 'Interrupção de Negociação', sub: 'Violação da curva CBEMA/ITIC, queda da PSU do servidor, afundamento de ms = perda de milhões' }, { title: 'Multa Regulatória', sub: 'Mandato de continuidade de negociação da CVM, parada >5min aciona relatório obrigatório, penalidade de conformidade' }] },
+          { icon: 'power', title: 'Comutação Diesel', desc: 'Choque de transferência durante teste/falha do gerador', metric: '±15%', metricLabel: 'Degrau de Tensão', consequences: [{ title: 'Sobrecarga do UPS', sub: 'Corrente de partida da transferência ATS, UPS comuta para bateria, sobrecarga de partida do retificador, falha do sistema' }, { title: 'Oscilação do Gerador', sub: 'Degrau de carga causa oscilação do governador, desvio de frequência >2%, desligamento da PSU' }] },
+          { icon: 'thermometer', title: 'HVAC de Precisão', desc: 'Fonte harmônica de compressores VFD', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'Aumento do PUE', sub: 'Redução harmônica de transformadores de resfriamento, capacidade de resfriamento reduzida, ponto quente em racks' }, { title: 'Falha de Controle', sub: 'Ruído harmônico na PSU do controlador HVAC, deriva do sensor, oscilação de temperatura' }] },
+        ],
+      },
+      {
+        id: 'edge', label: 'Edge Computing', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Nó de Edge Computing', sceneSubtitle: 'Base 5G / IoT / Sala Distribuída',
+        cards: [
+          { icon: 'router', title: 'Qualidade da Rede', desc: 'Fornecimento instável em locais remotos', metric: '>20%', metricLabel: 'Profundidade de Afundamento', consequences: [{ title: 'Nó Offline', sub: 'Afundamento frequente aciona descarga da bateria do mini-UPS, vida útil do ciclo esgotada em 6 meses' }, { title: 'Custo de Visita Técnica', sub: 'Cada visita ao local custa 800 CNY, 200+ nós = 160K CNY/mês de custos operacionais' }] },
+          { icon: 'hard-drive', title: 'Pequeno UPS', desc: 'Risco de sobrecarga em locais de armário único', metric: '>80%', metricLabel: 'Taxa de Carga', consequences: [{ title: 'Sem Redundância', sub: 'Configuração N, falha única do UPS = parada completa do nó, SLA 99,9% violado' }, { title: 'Superaquecimento da Bateria', sub: 'Alta taxa de carga em armário compacto, fuga térmica, risco de incêndio em locais não supervisionados' }] },
+          { icon: 'radio', title: 'Carga Distribuída', desc: 'Desequilíbrio de fase de 5G/IoT monofásico', metric: '>10%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Perda de Eficiência', sub: 'Falha de coordenação DER, corrente de sequência negativa, redução de PCS em 15%, corte' }, { title: 'Disparo Monofásico', sub: 'Sobrecorrente por fase, disparo em cascata de equipamentos colocalizados no mesmo alimentador' }] },
+        ],
+      },
+    ];
+    const dcTopology = [
+      {
+        id: 'cloud', sceneName: 'Topologia de Computação em Nuvem', sceneSubtitle: 'HPC / Provedor de Nuvem / Colocação',
+        deviceLabel: 'AHF+SVG', deviceType: 'Sistema de Qualidade de Energia',
+        deviceDesc: 'AHF na entrada do UPS para harmônicos + SVG no barramento LV para reativo, ramo do sistema de resfriamento marcado',
+        branches: [
+          { label: 'Entrada UPS', sub: 'Fonte Harmônica' },
+          { label: 'Rack Servidor', sub: 'Carga Desbalanceada' },
+          { label: 'CRAC/HVAC', sub: 'Carga Reativa VFD' },
+        ],
+      },
+      {
+        id: 'finance', sceneName: 'Topologia de DC Financeiro', sceneSubtitle: 'Banco / Corretora / Seguradora',
+        deviceLabel: 'AHF-100A + SVG-150A', deviceType: 'Sistema de Precisão',
+        deviceDesc: 'AHF série no front-end do UPS + SVG no barramento LV, comutação ATS / mesa de negociação / HVAC marcados',
+        branches: [
+          { label: 'Sistema UPS', sub: 'Fonte Harmônica' },
+          { label: 'Mesa de Neg.', sub: 'Sensível a Afundamento' },
+          { label: 'HVAC Precisão', sub: 'Harmônicos VFD' },
+        ],
+      },
+      {
+        id: 'edge', sceneName: 'Topologia de Nó Edge', sceneSubtitle: 'Base 5G / IoT / Sala Distribuída',
+        deviceLabel: 'AHF-Slim 15A', deviceType: 'Unidade Montável em Rack',
+        deviceDesc: 'AHF-Slim montável em rack no armário de distribuição, rede direta / loop mini-UPS marcados',
+        branches: [
+          { label: 'Rede Direta', sub: 'Fornecimento Rural' },
+          { label: 'Mini UPS', sub: 'Risco de Sobrecarga' },
+          { label: 'Carga 5G/IoT', sub: 'Energia Distribuída' },
+        ],
+      },
+    ];
+    const dcCases = [
+      {
+        title: 'Mitigação Harmônica em Datacenter de Grande Provedor de Nuvem no Norte da China', highlight: 'THD 14% → 2,8%, circulação paralela do UPS reduzida 80%, economia anual de 2,6M CNY', image: '/assets/images/solutions-datacenter-case-cloud.jpg', industry: 'Computação em Nuvem', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: 'Datacenter hiperescala de 40MW com configuração paralela de 3 UPS de 2,4MW. A corrente harmônica de entrada do UPS causou desequilíbrio de carga, estresse térmico na bateria e falsos alarmes de PDU. A penalidade anual de PUE devido a perdas reativas excedeu 1,5M CNY.',
+        trend: 'Tendência THD: 14,0% → 8,5% → 4,2% → 2,8%',
+        solution: [{ product: 'AHF-200A', qty: 6, use: 'Supressão harmônica de entrada do UPS' }, { product: 'SVG-150kvar', qty: 3, use: 'Compensação reativa do barramento LV' }],
+        results: ['THD < 3% na entrada do UPS (conforme IEEE 519)', 'Corrente de circulação paralela do UPS reduzida 80%', 'Economia anual de energia de 2,6M CNY'],
+      },
+      {
+        title: 'Retrofit de Qualidade de Energia no Centro de DR de Banco Estatal', highlight: 'Afundamento de tensão < 3ms, negociação de alta frequência sem interrupção, PUE 1,65 → 1,48', image: '/assets/images/solutions-datacenter-case-finance.jpg', industry: 'DC Financeiro', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: 'Centro de DR Tier-IV de banco estatal, hospedando negociação e liquidação em tempo real. O teste mensal de ATS causou afundamento de transferência de 10-15ms que acionou queda da PSU do servidor de negociação. Os harmônicos VFD do HVAC de precisão degradaram o PUE de 1,48 para 1,65 em 18 meses.',
+        trend: 'Tendência PUE: 1,65 → 1,58 → 1,52 → 1,48',
+        solution: [{ product: 'AHF-100A', qty: 4, use: 'Filtragem front-end do retificador do UPS' }, { product: 'SVG-100A', qty: 2, use: 'Reativo dinâmico da sala de negociação' }],
+        results: ['Afundamento de tensão < 3ms, zero interrupção de negociação', 'PUE recuperado de 1,65 para 1,48', 'Economia anual de OpEx de 1,2M CNY'],
+      },
+      {
+        title: 'Implantação em Lote em Nós de Edge Computing 5G de Operadora', highlight: 'Montagem em rack 1U, operação remota, economia de 42K CNY/nó/ano, ROI < 18 meses', image: '/assets/images/solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: 'Operadora de telecom implantando 200+ nós MEC 5G em locais rurais/suburbanos. Tensão de rede instável com afundamento >20%, sobrecarga do UPS de armário único e alto custo operacional de visitas técnicas criaram um modelo operacional insustentável em escala.',
+        trend: 'Uptime do nó: 97,2% → 98,8% → 99,5% → 99,9%',
+        solution: [{ product: 'AHF-15A', qty: 200, use: 'Montagem em rack 1U por armário de nó' }, { product: 'Cloud Monitor', qty: 1, use: 'Plataforma centralizada de monitoramento remoto' }],
+        results: ['Uptime do nó melhorou de 97,2% para 99,9%', 'Custo operacional de visitas reduzido em 42K CNY/nó/ano', 'ROI < 18 meses'],
+      },
+    ];
+
+    // ===================== INDUSTRIAL DATA =====================
+    const indPainPoints = [
+      {
+        id: 'welding', label: 'Soldagem e Metal', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Soldagem e Processamento de Metal', sceneSubtitle: 'Automotivo / Construção Naval / Estrutura Metálica',
+        cards: [
+          { icon: 'flame', title: 'Banco de Soldadores', desc: 'Surto harmônico de soldagem em lote', metric: '>25%', metricLabel: 'THD', consequences: [{ title: 'Superaquecimento do Transformador', sub: 'Corrente harmônica intermitente, envelhecimento do isolamento acelerado 3x, redução forçada' }, { title: 'Disparo da Proteção', sub: 'Pico harmônico aciona falso disparo do disjuntor, parada da linha de produção, custo de retrabalho' }] },
+          { icon: 'factory', title: 'Forno de Média Frequência', desc: 'Cintilação de forno de indução', metric: 'Reativo', metricLabel: 'Flutuação', consequences: [{ title: 'Afundamento da Rede', sub: 'Ciclo do forno causa Pst > 1,5, mau funcionamento de equipamentos vizinhos, rejeição de lote' }, { title: 'Multa por Penalidade', sub: 'Violação de cintilação pela concessionária, sobretaxa mensal de energia reativa, não conformidade contratual' }] },
+          { icon: 'cpu', title: 'Centro de Usinagem CNC', desc: 'Desequilíbrio de fase de servomotores', metric: 'Alta', metricLabel: 'Sequência Zero', consequences: [{ title: 'Mau Funcionamento do Servo', sub: 'Desequilíbrio de fase causa erro de posição, desvio dimensional da peça, aumento da taxa de sucata' }, { title: 'Perda de Rendimento', sub: 'Quebra frequente de ferramentas, degradação do acabamento superficial, aumento da taxa de devolução' }] },
+        ],
+      },
+      {
+        id: 'petrochemical', label: 'Química e Petróleo', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Química e Petroquímica', sceneSubtitle: 'Refino / Química Fina / Óleo e Gás',
+        cards: [
+          { icon: 'droplets', title: 'Banco de VFDs', desc: 'Empilhamento harmônico de instalação multi-VFD', metric: '>18%', metricLabel: 'THD', consequences: [{ title: 'Violação da Rede', sub: 'Sobreposição harmônica multi-VFD, limite IEEE 519 do PCC excedido, aviso da concessionária' }, { title: 'Disparo do Capacitor', sub: 'Amplificação harmônica em capacitores PFC, queima de fusível, escalada de penalidade reativa' }] },
+          { icon: 'waves', title: 'Bomba de Alta Potência', desc: 'Surto de partida de motores grandes', metric: '6~10x', metricLabel: 'Corrente de Partida', consequences: [{ title: 'Afundamento do Barramento', sub: 'Partida DOL causa afundamento de 20%+ no barramento, subtensão do módulo I/O do DCS, instabilidade do loop de controle' }, { title: 'Alerta DCS', sub: 'Afundamento repetido aciona inundação de alarmes DCS, sobrecarga cognitiva do operador, atraso na resposta' }] },
+          { icon: 'shield-alert', title: 'Sistema DCS', desc: 'Infraestrutura de controle sensível a afundamento', metric: '>15%', metricLabel: 'Profundidade do Afundamento', consequences: [{ title: 'Congelamento do Controle', sub: 'Afundamento causa reinicialização do processador DCS, perda de posição da válvula, risco de reação exotérmica' }, { title: 'Parada de Processo', sub: 'Sistema instrumentado de segurança aciona ESD, perda de lote, procedimento de reinicialização de 48h' }] },
+        ],
+      },
+      {
+        id: 'semiconductor', label: 'Semicondutores', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Semicondutores e Eletrônicos', sceneSubtitle: 'Fabrica de Wafers / Montagem / PCB',
+        cards: [
+          { icon: 'cpu', title: 'Fabrica de Wafer', desc: 'Afundamento de tensão em scanners de litografia', metric: '< 5ms', metricLabel: 'Tolerância a Afundamento', consequences: [{ title: 'Parada do Scanner', sub: 'Afundamento de subciclo causa perda de posição do estágio do scanner, recalibração de 4h, sucata de wafer' }, { title: 'Sucata de Wafer', sub: 'Evento único de afundamento = 25 wafers descartados × $5K/wafer = $125K de perda por incidente' }] },
+          { icon: 'wind', title: 'Sala Limpa', desc: 'Poluição harmônica de FFU/VFD', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'Aumento da Carga do Filtro', sub: 'Corrente harmônica aumenta temperatura do motor FFU, taxa de falha de rolamento 3x, aumento de partículas' }, { title: 'Risco de Partículas', sub: 'Flutuação de velocidade FFU causa perda de pressão positiva, violação da sala limpa Classe 100' }] },
+          { icon: 'microscope', title: 'Equipamento de Teste', desc: 'Desequilíbrio de fase no ATE/piso de teste', metric: '>5%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Erro de Dados', sub: 'Rejeição de ripple da PSU do ATE degradada, falsa rejeição de DUT, erro no relatório de rendimento' }, { title: 'Superaquecimento do Neutro', sub: 'Alta corrente de sequência zero no PDU do piso de teste, temperatura do neutro > 90°C, risco de incêndio' }] },
+        ],
+      },
+    ];
+    const indTopology = [
+      {
+        id: 'welding', sceneName: 'Topologia de Soldagem e Metal', sceneSubtitle: 'Automotivo / Construção Naval / Estrutura Metálica',
+        deviceLabel: 'AHF-150A', deviceType: 'Filtro Harmônico',
+        deviceDesc: 'Paralelo ao barramento LV da oficina, visa alimentadores de soldadores/forno para supressão harmônica',
+        branches: [
+          { label: 'Dist. Solda', sub: 'Surto Harmônico' },
+          { label: 'Dist. Forno', sub: 'Fonte de Cintilação' },
+          { label: 'Dist. CNC', sub: 'Desequilíbrio de Fase' },
+        ],
+      },
+      {
+        id: 'petrochemical', sceneName: 'Topologia Química e Petróleo', sceneSubtitle: 'Refino / Química Fina / Óleo e Gás',
+        deviceLabel: 'SVG-800V', deviceType: 'Gerador Estático de Var',
+        deviceDesc: 'SVG-800V/690V no barramento HV + AHF para harmônicos VFD, alimentador de carga sensível DCS marcado',
+        branches: [
+          { label: 'Dist. Craqueamento', sub: 'Banco VFD' },
+          { label: 'Destilação', sub: 'Carga de Aquecedor' },
+          { label: 'Água de Circ.', sub: 'Grande Bomba' },
+        ],
+      },
+      {
+        id: 'semiconductor', sceneName: 'Topologia de Semicondutores', sceneSubtitle: 'Fabrica de Wafers / Montagem / PCB',
+        deviceLabel: 'AHF+SVG', deviceType: 'Sistema Combinado',
+        deviceDesc: 'Combo AHF+SVG no front-end do UPS, marca alimentadores de fabrica de wafer / sala limpa de dupla alimentação',
+        branches: [
+          { label: 'Front-end UPS', sub: 'Energia de Precisão' },
+          { label: 'Resf. Processo', sub: 'Partida de Bombas' },
+          { label: 'Equip. Teste', sub: 'Carga Sensível' },
+        ],
+      },
+    ];
+    const indCases = [
+      {
+        title: 'Mitigação Harmônica em Oficina de Soldagem de Carroceria Automotiva', highlight: 'THD 28% → 4,2%, temp. do transformador caiu 15°C, economia anual de 1,2M CNY', image: '/assets/images/solutions-industrial-case-welding.jpg', industry: 'Soldagem e Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: 'Grande oficina de carroceria automotiva com 48 robôs de soldagem a arco e 6 soldadores a ponto de média frequência. Os ciclos de soldagem em lote criaram surtos harmônicos severos (THD 28%) e cintilação de tensão, causando alarmes mensais de superaquecimento do transformador e duas paradas de produção não programadas.',
+        trend: 'Tendência THD: 28% → 18% → 9% → 4,2%',
+        solution: [{ product: 'AHF-150A', qty: 3, use: 'Mitigação harmônica do barramento do soldador' }, { product: 'SVG-100A', qty: 2, use: 'Compensação reativa do forno' }],
+        results: ['THD < 5% (conforme IEEE 519)', 'Temperatura do transformador reduzida 15°C', 'Economia anual de energia de 1,2M CNY'],
+      },
+      {
+        title: 'Retrofit de Qualidade de Energia em Banco VFD de Base Petroquímica', highlight: 'FP 0,65 → 0,95, eliminação de multas de 3,8M CNY/ano, DCS com zero paradas', image: '/assets/images/solutions-industrial-case-petrochemical.jpg', industry: 'Química e Petróleo', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: 'Complexo petroquímico com mais de 200 bombas e compressores acionados por VFD. O empilhamento harmônico multi-VFD causou THD superior a 18% no PCC de 35kV, gerando alertas da concessionária e 3,8M CNY em penalidades reativas anuais. O sistema DCS sofreu alarmes recorrentes de subtensão durante partidas de bombas grandes.',
+        trend: 'Tendência FP: 0,65 → 0,78 → 0,88 → 0,95',
+        solution: [{ product: 'SVG-800V', qty: 4, use: 'Compensação reativa do barramento de 35kV' }, { product: 'AHF-200A', qty: 6, use: 'Filtragem harmônica do alimentador VFD' }],
+        results: ['FP > 0,95, zero penalidades reativas', 'DCS com zero paradas desde a implantação', 'Economia anual de multas de 3,8M CNY'],
+      },
+      {
+        title: 'Proteção contra Afundamento de Tensão em Fabrica de Wafer de 12 Polegadas', highlight: 'Duração do afundamento < 5ms, melhoria de 3% no rendimento de wafer', image: '/assets/images/solutions-industrial-case-semiconductor.jpg', industry: 'Semicondutores', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: 'Fabrica de wafer de 12 polegadas com scanners de litografia de imersão exigindo tolerância de afundamento < 5ms. Faltas no lado da utilidade a 30km de distância causaram perda recorrente de posição do scanner, cada incidente descartando 25 wafers a $5K cada. Média mensal de 3 incidentes.',
+        trend: 'Tendência de rendimento (taxa de sucata): 4,2% → 2,8% → 1,5% → 1,2%',
+        solution: [{ product: 'AHF+SVG', qty: 4, use: 'Proteção de dupla alimentação no front-end do UPS' }, { product: 'SPC-100A', qty: 2, use: 'Balanceamento de fase do piso de teste' }],
+        results: ['Proteção contra afundamento < 5ms, zero paradas do scanner', 'Rendimento de wafer melhorado em 3 pontos percentuais', 'ROI < 8 meses apenas com a redução de sucata'],
+      },
+    ];
+
+    // ===================== RAIL DATA =====================
+    const railPainPoints = [
+      {
+        id: 'metro', label: 'Metrô e VLT', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Metrô e Veículo Leve sobre Trilhos', sceneSubtitle: 'Tração / Estação / Pátio',
+        cards: [
+          { icon: 'train-front', title: 'Retificador de Tração', desc: 'Injeção harmônica de retificador de 24 pulsos', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'Penalidade de Rede', sub: 'Harmônicos característicos de 24 pulsos (23ª/25ª), violação IEEE 519 no PCC, sobretaxa da concessionária' }, { title: 'Falha do Capacitor', sub: 'Amplificação harmônica no banco PFC, ruptura do capacitor, risco de incêndio em subestação subterrânea' }] },
+          { icon: 'building', title: 'M&E da Estação', desc: 'Desequilíbrio do banco de equipamentos', metric: '>10%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Superaquecimento do Neutro', sub: 'Mistura de carga monofásica de elevador + HVAC, corrente do neutro excede fase, risco de fusão do isolamento' }, { title: 'Disparo do Disjuntor', sub: 'Sobrecarga por fase apesar da média < nominal, apagão da iluminação da estação, risco à segurança dos passageiros' }] },
+          { icon: 'battery-charging', title: 'Frenagem Regenerativa', desc: 'Elevação de tensão por feedback de energia', metric: 'Tensão', metricLabel: 'Elevação', consequences: [{ title: 'OV do Inversor', sub: 'Retorno de energia regenerativa, sobretensão do link DC, desligamento de proteção do IGBT do inversor' }, { title: 'Disparo da Proteção', sub: 'Disparo em cascata da proteção OV, atraso do trem > 5min, penalidade de SLA de serviço' }] },
+        ],
+      },
+      {
+        id: 'hsr', label: 'Ferrovia de Alta Velocidade', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Ferrovia de Alta Velocidade', sceneSubtitle: 'Subestação de Tração / AT / Seção',
+        cards: [
+          { icon: 'gauge', title: 'Monofásico 27,5kV', desc: 'Sequência negativa de conexão V/V', metric: '>8%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Violação da Rede', sub: 'Carga de tração monofásica causa sequência negativa no PCC de 220kV, ordem de corte da concessionária' }, { title: 'Aquecimento do Gerador', sub: 'Corrente de sequência negativa em geradores de usina térmica próxima, alarme de temperatura do rotor' }] },
+          { icon: 'zap', title: 'Conversor EMU', desc: 'Harmônico de banda larga do conversor 4Q', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'Aquecimento do Fio de Contato', sub: 'Corrente harmônica de alta frequência aumenta perda I²R do fio de contato, recozimento acelerado, aumento da flecha' }, { title: 'Interferência na Sinalização', sub: 'EMI harmônica acopla ao circuito de via, distorção do sinal da cabine, degradação da disponibilidade ETCS' }] },
+          { icon: 'cable', title: 'Linha Alimentadora', desc: 'Perda de tensão ao longo da alimentação AT', metric: '>10%', metricLabel: 'Queda', consequences: [{ title: 'Limite de Velocidade', sub: 'Tensão final abaixo de 22,5kV limita a potência do trem, restrição de velocidade imposta, atraso de horário' }, { title: 'Saturação AT', sub: 'Sobretensão no lado emissor causa saturação do núcleo do autotransformador, geração de harmônicos' }] },
+        ],
+      },
+      {
+        id: 'ev', label: 'Carregamento VE', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Infraestrutura de Carregamento VE', sceneSubtitle: 'Rodovia / Urbano Rápido / Terminal de Ônibus',
+        cards: [
+          { icon: 'plug-zap', title: 'Carregador Rápido', desc: 'Impacto de potência de carregamento CC rápido', metric: '120kW+', metricLabel: 'Degrau de Carga', consequences: [{ title: 'Afundamento da Rede', sub: 'Partida simultânea de múltiplos carregadores, afundamento de 15%+, disparo da proteção do transformador de distribuição' }, { title: 'Cobrança de Demanda', sub: 'Pico de demanda aciona catraca de demanda da concessionária, cobrança mensal de capacidade 3x a linha de base' }] },
+          { icon: 'radio', title: 'Harmônicos do Carregador', desc: 'Empilhamento harmônico de carregadores de 12 pulsos', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'Penalidade FP', sub: 'Harmônico + reativo combinados, FP < 0,85 no PCC, penalidade mensal + sobretaxa de carbono' }, { title: 'Problema EMI', sub: 'EMI conduzido para a rede LV, interferência em TV/rádio residencial próximo, aumento no volume de reclamações' }] },
+          { icon: 'wrench', title: 'Transformador de Distribuição', desc: 'Sobrecarga e desequilíbrio na estação de carregamento', metric: '>90%', metricLabel: 'Carga', consequences: [{ title: 'Vida Útil Reduzida', sub: 'Estresse térmico cíclico de carga de pico, envelhecimento do isolamento 5x mais rápido, vida esperada < 3 anos' }, { title: 'Desequilíbrio Trifásico', sub: 'Carregadores CA monofásicos dominam, corrente de sequência zero > 40%, substituição do neutro a cada 2 anos' }] },
+        ],
+      },
+    ];
+    const railTopology = [
+      {
+        id: 'metro', sceneName: 'Topologia de Metrô', sceneSubtitle: 'Tração / Estação / Pátio',
+        deviceLabel: 'SVG + AHF', deviceType: 'Sistema Combinado',
+        deviceDesc: 'SVG no anel de 35kV + AHF no retificador de tração de 750V/1500V, estação/pátio marcados',
+        branches: [
+          { label: 'Sub. Tração', sub: 'Carga Retificadora' },
+          { label: 'Dist. Estação', sub: 'Carga M&E' },
+          { label: 'Pátio', sub: 'Carga Auxiliar' },
+        ],
+      },
+      {
+        id: 'hsr', sceneName: 'Topologia de FAV', sceneSubtitle: 'Subestação de Tração / AT / Seção',
+        deviceLabel: 'SVG-27,5kV + AHF-200A', deviceType: 'Sistema de Tração',
+        deviceDesc: 'SVG-27,5kV no barramento de tração + AHF no alimentador de 10kV, seção AT / fio de contato marcados',
+        branches: [
+          { label: 'Fio de Contato', sub: 'Carga Monofásica' },
+          { label: 'Linha Aliment.', sub: 'Fonte Harmônica' },
+          { label: 'Estação', sub: 'Carga Composta' },
+        ],
+      },
+      {
+        id: 'ev', sceneName: 'Topologia de Carregamento VE', sceneSubtitle: 'Rodovia / Urbano Rápido / Terminal de Ônibus',
+        deviceLabel: 'SVG + AHF-150A', deviceType: 'Sistema de Carregamento',
+        deviceDesc: 'SVG na estação de carregamento 10kV + AHF no lado CA do carregador rápido CC, transformador/banco de carregadores marcados',
+        branches: [
+          { label: 'Dist. 10kV', sub: 'Alim. Estação' },
+          { label: 'Carga. Rápido', sub: 'Carga de Surto' },
+          { label: 'Carga. Ônibus', sub: 'Carga em Lote' },
+        ],
+      },
+    ];
+    const railCases = [
+      {
+        title: 'Retrofit de Energia de Tração na Linha 8 do Metrô de Grande Cidade', highlight: 'THD 16% → 4,5%, recuperação de frenagem regenerativa +35%, economia anual de 8,5M kWh', image: '/assets/images/solutions-rail-case-metro.jpg', industry: 'Metrô e VLT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: 'Linha de metrô com 22 estações e distribuição em anel de 35kV. Retificadores de tração de 24 pulsos geraram harmônicos característicos causando multa mensal da concessionária. A energia de frenagem regenerativa era dissipada em resistores devido à elevação de tensão durante o feedback, desperdiçando 12M kWh anualmente.',
+        trend: 'Tendência THD: 16% → 10% → 6,5% → 4,5%',
+        solution: [{ product: 'SVG-300A', qty: 3, use: 'Compensação reativa do anel de 35kV' }, { product: 'AHF-200A', qty: 6, use: 'Filtragem harmônica da subestação de tração' }],
+        results: ['THD < 5%, eliminação de multas', 'Recuperação de frenagem regenerativa +35%', 'Economia anual de 8,5M kWh de eletricidade'],
+      },
+      {
+        title: 'Mitigação de Sequência Negativa em Subestação de Tração FAV', highlight: 'Sequência negativa < 2%, flutuação do fio de contato < 5%, estabilidade de corrente EMU melhorada', image: '/assets/images/solutions-rail-case-hsr.jpg', industry: 'Ferrovia de Alta Velocidade', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: 'Subestação de tração ferroviária de alta velocidade com transformador de conexão V/V alimentando catenária monofásica de 27,5kV. Sequência negativa > 8% no PCC de 220kV acionou violação de interconexão da concessionária. A flutuação de tensão do fio de contato no limite da seção causou limitação de corrente EMU e atrasos de horário.',
+        trend: 'Sequência negativa: 8,5% → 5% → 3% → 1,8%',
+        solution: [{ product: 'SVG-27,5kV', qty: 2, use: 'Reativo + balanceamento do barramento de tração' }, { product: 'AHF-200A', qty: 2, use: 'Filtragem harmônica do alimentador de 10kV' }],
+        results: ['Sequência negativa < 2% (conforme GB/T 15543)', 'Flutuação de tensão do fio de contato < 5%', 'Estabilidade de corrente EMU totalmente restaurada'],
+      },
+      {
+        title: 'Retrofit de Qualidade de Energia em Estação de Carregamento Rápido de 120 Pontos em Rodovia', highlight: 'Desequilíbrio trifásico < 3%, carga do transformador 95% → 78%, THD dos carregadores < 5%', image: '/assets/images/solutions-rail-case-charging.jpg', industry: 'Carregamento VE', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: 'Área de serviço rodoviário com 120 carregadores rápidos CC (60kW-180kW). O carregamento simultâneo no pico de feriados causou desequilíbrio severo de fase e sobrecarga do transformador a 95%. Os harmônicos de carregadores de 12 pulsos acumularam THD > 15% no PCC de 10kV durante horários de pico.',
+        trend: 'Tendência de Desequilíbrio: 15% → 9% → 5% → 2,5%',
+        solution: [{ product: 'SPC-150A', qty: 4, use: 'Balanceamento trifásico da baia de carregamento' }, { product: 'AHF-150A', qty: 6, use: 'Filtragem harmônica de carregador rápido' }],
+        results: ['Desequilíbrio trifásico < 3%', 'Carga do transformador reduzida de 95% para 78%', 'THD dos carregadores < 5%, zero reclamações'],
+      },
+    ];
+
+    // ===================== RENEWABLE DATA =====================
+    const rePainPoints = [
+      {
+        id: 'solar', label: 'Solar PV', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: 'Usina Solar Fotovoltaica', sceneSubtitle: 'Escala de Utilidade / Distribuída / Agri-PV',
+        cards: [
+          { icon: 'sun', title: 'Harmônicos do Inversor', desc: 'Oscilação de banda larga de multi-inversor', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'Risco de Ressonância', sub: 'Ressonância filtro LCL + impedância da rede, oscilação de banda larga, disparo em cascata do inversor' }, { title: 'Violação da Rede', sub: 'Emissão harmônica excede GB/T 14549 no PCC, ordem de corte da companhia de rede' }] },
+          { icon: 'activity', title: 'Tensão da Rede', desc: 'Flutuação por variação de irradiância', metric: 'FP Baixo', metricLabel: 'Diferença Reativa', consequences: [{ title: 'Penalidade de Despacho', sub: 'Desvio de potência reativa do setpoint de despacho, falha na avaliação AVC, dedução de receita' }, { title: 'Limite de Tensão', sub: 'Efeito borda de nuvem, oscilação de ±10% em < 1min, disparo da proteção de potência reversa' }] },
+          { icon: 'battery-charging', title: 'Ripple CC', desc: 'Reflexão do lado CA do ripple CC', metric: 'Bias CC', metricLabel: 'Superaquecimento do Transformador', consequences: [{ title: 'Saturação do Núcleo', sub: 'Componente CC causa saturação de meio ciclo do núcleo do transformador, surto de corrente de magnetização, zumbido' }, { title: 'Perda de Eficiência', sub: 'Perda excessiva no núcleo + perda por cobre harmônica, PR (índice de desempenho) cai 2-3 pontos percentuais' }] },
+        ],
+      },
+      {
+        id: 'wind', label: 'Parque Eólico', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: 'Parque de Energia Eólica', sceneSubtitle: 'Onshore / Offshore / Distribuído',
+        cards: [
+          { icon: 'wind', title: 'Harmônicos do Conversor', desc: 'Distorção de baixa ordem do conversor de potência total', metric: '>10%', metricLabel: 'THD', consequences: [{ title: 'Rejeição da Rede', sub: 'Harmônicos de 5ª/7ª dominantes, falha no teste de interconexão, custo de atraso de energização' }, { title: 'Ressonância do Coletor', sub: 'Capacitância do cabo de 35kV + indutância do transformador, ressonância paralela próxima ao 7º harmônico' }] },
+          { icon: 'trending-up', title: 'Flutuação do Vento', desc: 'Surto reativo de rajada/turbulência', metric: 'Reativo', metricLabel: 'Oscilação', consequences: [{ title: 'Penalidade FP', sub: 'Oscilação reativa rápida de rajadas de vento, FP mensal < 0,85, cobrança reativa 2x da concessionária' }, { title: 'Oscilação AVC', sub: 'Oscilação do sistema AVC perseguindo variação do vento, desgaste excessivo do comutador, 5x manutenção' }] },
+          { icon: 'component', title: 'Transformador de Caixa', desc: 'Desequilíbrio de fase de carga auxiliar', metric: '>5%', metricLabel: 'Desequilíbrio', consequences: [{ title: 'Violação de Limite', sub: 'Desequilíbrio de alimentação auxiliar monofásica, sequência negativa excede limite do código de rede' }, { title: 'Disparo por Superaquecimento', sub: 'Desequilíbrio + harmônico combinados, alarme de temperatura de ponto quente do enrolamento, corte forçado' }] },
+        ],
+      },
+      {
+        id: 'storage', label: 'Armazenamento de Energia', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: 'Sistema de Armazenamento de Energia', sceneSubtitle: 'Lado da Rede / Lado do Usuário / Lado da Fonte',
+        cards: [
+          { icon: 'battery-charging', title: 'Carga/Descarga', desc: 'Empilhamento harmônico de multi-PCS', metric: '>6%', metricLabel: 'THD', consequences: [{ title: 'Poluição da Rede', sub: 'Harmônicos de intercalamento multi-PCS, THD no PCC excede GB/T 34120, aviso do operador da rede' }, { title: 'Ripple da Bateria', sub: 'Corrente de ripple CA no barramento CC, aceleração da placa de lítio, vida útil do ciclo reduzida 20%' }] },
+          { icon: 'arrow-left-right', title: 'Reativo do PCS', desc: 'Regulação atrasada em carga baixa', metric: '< 0,9', metricLabel: 'FP', consequences: [{ title: 'Multa por Penalidade', sub: 'Consumo reativo em modo de espera aciona penalidade, cobrança mensal + catraca de demanda' }, { title: 'Falha de Regulação', sub: 'Setpoint de despacho conjunto AGC/AVC não atendido, qualificação de serviço ancilar revogada' }] },
+          { icon: 'globe', title: 'Ponto de Conexão', desc: 'Cintilação de tensão na interconexão', metric: '> 0,8', metricLabel: 'Pst', consequences: [{ title: 'Falha de Interconexão', sub: 'Cintilação Pst > 0,8 durante transição de modo, não conformidade com acordo de interconexão' }, { title: 'Risco de Ilhamento', sub: 'Detecção de distúrbio da rede confundida por cintilação, ilhamento não intencional, risco de segurança' }] },
+        ],
+      },
+    ];
+    const reTopology = [
+      {
+        id: 'solar', sceneName: 'Topologia Solar PV', sceneSubtitle: 'Escala de Utilidade / Distribuída / Agri-PV',
+        deviceLabel: 'SVG+AHF', deviceType: 'Sistema de Qualidade PV',
+        deviceDesc: 'SVG no barramento elevador de 35kV + AHF no lado CA do inversor, caixa combinadora marcada',
+        branches: [
+          { label: 'Caixa Combin.', sub: 'Coleta CC' },
+          { label: 'Inversor CA', sub: 'Fonte Harmônica' },
+          { label: 'Elev. 35kV', sub: 'Interconexão' },
+        ],
+      },
+      {
+        id: 'wind', sceneName: 'Topologia de Parque Eólico', sceneSubtitle: 'Onshore / Offshore / Distribuído',
+        deviceLabel: 'SVG-690V + AHF-100A', deviceType: 'Sistema de Qualidade Eólica',
+        deviceDesc: 'SVG-690V no lado da turbina + AHF no LV do transformador de caixa, linha coletora de 35kV marcada',
+        branches: [
+          { label: 'Conv. Turbina', sub: 'Fonte Harmônica' },
+          { label: 'Transf. Caixa', sub: 'Carga Desbalanceada' },
+          { label: 'Coleta 35kV', sub: 'Conexão à Rede' },
+        ],
+      },
+      {
+        id: 'storage', sceneName: 'Topologia de Armazenamento', sceneSubtitle: 'Lado da Rede / Lado do Usuário / Lado da Fonte',
+        deviceLabel: 'Combo AHF+SVG', deviceType: 'Sistema de Qualidade de Armazenamento',
+        deviceDesc: 'Combo SVG+AHF no lado CA do PCS, cluster de bateria / PCS / transformador / ponto de rede marcados',
+        branches: [
+          { label: 'Cluster Bateria', sub: 'Fonte CC' },
+          { label: 'Lado CA PCS', sub: 'Bidirecional' },
+          { label: 'Ponto de Rede', sub: 'Interconexão' },
+        ],
+      },
+    ];
+    const reCases = [
+      {
+        title: 'Projeto de Mitigação Harmônica em Parque Solar de 500MW no Noroeste da China', highlight: 'THD 9,5% → 3,2%, aceitação da rede aprovada, prevenção de penalidades + receita extra de 1,8M CNY', image: '/assets/images/solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: 'Parque solar de 500MW em escala de utilidade com 2.500 inversores string em sistema de coleta de 35kV. A ressonância harmônica multi-inversor no barramento de 35kV causou THD superior a 9,5% no PCC, falhando no teste de aceitação da rede duas vezes. O efeito borda de nuvem causou oscilações de tensão de ±10% acionando penalidades AVC.',
+        trend: 'Tendência THD: 9,5% → 6,5% → 4,5% → 3,2%',
+        solution: [{ product: 'SVG-800V', qty: 8, use: 'Compensação reativa do barramento elevador de 35kV' }, { product: 'AHF-200A', qty: 12, use: 'Filtragem harmônica do alimentador CA do inversor' }],
+        results: ['THD < 3,5% (conforme GB/T 14549)', 'Teste de aceitação da rede aprovado na primeira tentativa', 'Prevenção anual de penalidades + receita de 1,8M CNY'],
+      },
+      {
+        title: 'Retrofit de Qualidade de Energia em Parque Eólico Offshore de 200MW', highlight: 'FP 0,88 → 0,98, conformidade de penalidade reativa, desequilíbrio do transformador de caixa < 2%', image: '/assets/images/solutions-renewable-case-wind.jpg', industry: 'Parque Eólico', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: 'Parque eólico offshore de 200MW com 50 turbinas de conversor de potência total de 4MW. Harmônicos de baixa ordem (5ª/7ª) dominaram no barramento coletor de 35kV. Oscilações reativas impulsionadas por rajadas de vento causaram FP mensal abaixo de 0,88. Cargas auxiliares monofásicas nos transformadores de caixa criaram desequilíbrio de 5%+ no nível do coletor.',
+        trend: 'Tendência FP: 0,88 → 0,92 → 0,95 → 0,98',
+        solution: [{ product: 'SVG-690V', qty: 50, use: 'Compensação reativa por turbina' }, { product: 'AHF-100A', qty: 25, use: 'Filtragem harmônica do alimentador coletor' }],
+        results: ['FP > 0,98, zero penalidades reativas', 'Desequilíbrio do transformador de caixa < 2%', 'Ressonância do sistema coletor eliminada'],
+      },
+      {
+        title: 'Estação de Armazenamento de Bateria de 100MW/200MWh no Lado da Rede', highlight: 'THD do PCS < 4%, cintilação do ponto de rede Pst < 0,5, acordo de interconexão conforme', image: '/assets/images/solutions-renewable-case-storage.jpg', industry: 'Armazenamento de Energia', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: 'Estação de armazenamento de bateria de 100MW/200MWh no lado da rede com 40 unidades PCS de 2,5MW. O intercalamento harmônico multi-PCS causou THD > 6% no PCC de 35kV. A cintilação Pst de transição de modo (carga→descarga) excedeu 0,8, falhando no teste de conformidade de interconexão.',
+        trend: 'Tendência de Cintilação Pst: 0,85 → 0,65 → 0,50 → 0,35',
+        solution: [{ product: 'Combo SVG+AHF', qty: 8, use: 'Condicionamento de qualidade de energia do barramento CA do PCS' }, { product: 'PQ-Gateway', qty: 1, use: 'Plataforma de monitoramento de conformidade da rede' }],
+        results: ['THD do PCS < 4% (conforme IEEE 519)', 'Cintilação do ponto de rede Pst < 0,5', 'Acordo de interconexão totalmente conforme'],
+      },
+    ];
+
+    // ===================== DATA MAP =====================
+    const dataMap = {
+      commercial: { painPoints: painPointScenes, topology: topologyScenes, cases: cases },
+      grid:       { painPoints: gridPainPoints, topology: gridTopology, cases: gridCases },
+      datacenter: { painPoints: dcPainPoints, topology: dcTopology, cases: dcCases },
+      industry:   { painPoints: indPainPoints, topology: indTopology, cases: indCases },
+      rail:       { painPoints: railPainPoints, topology: railTopology, cases: railCases },
+      renewable:  { painPoints: rePainPoints, topology: reTopology, cases: reCases },
+    };
+
+    // ===================== STATE =====================
+    let sceneIndex = 0;
+    let sceneTimer;
+
+    // ===================== UTILITIES =====================
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function animatingSwap(element, callback) {
+      const prevHeight = element.getBoundingClientRect().height;
+      element.style.height = prevHeight + 'px';
+      element.classList.add('animating');
+      setTimeout(() => {
+        callback();
+        const newHeight = element.scrollHeight;
+        element.style.height = newHeight + 'px';
+        element.classList.remove('animating');
+        lucide.createIcons();
+        setTimeout(() => {
+          element.style.height = '';
+        }, 350);
+      }, 300);
+    }
+
+    // ===================== INDUSTRY TABS =====================
+    function renderIndustryTabs(containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = industries.map(ind => {
+        const isActive = activeIndustry === ind.id;
+        return `<button onclick="setIndustry('${ind.id}')" class="flex items-center gap-2.5 text-sm font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative ${
+          isActive
+            ? 'text-white bg-electric-orange shadow-sm'
+            : 'text-[#374151] hover:text-electric-orange hover:bg-orange-50'
+        }">
+          <i data-lucide="${ind.icon}" class="w-4 h-4"></i>
+          <span>${escapeHtml(ind.label)}</span>
+        </button>`;
+      }).join('');
+    }
+
+    const industryTitles = {
+      commercial: 'Estudos de Caso — Edifícios Comerciais e Médicos',
+      grid: 'Estudos de Caso — Rede Elétrica',
+      datacenter: 'Estudos de Caso — Data Centers',
+      industry: 'Estudos de Caso — Manufatura Industrial',
+      renewable: 'Estudos de Caso — Energia Renovável',
+      rail: 'Estudos de Caso — Transporte Ferroviário',
+    };
+    const heroImages = {
+      commercial: '/assets/images/solutions-commercial-medical-hero-bg.jpg',
+      grid: '/assets/images/solutions-grid-hero-bg.jpg',
+      datacenter: '/assets/images/solutions-datacenter-hero-bg.jpg',
+      industry: '/assets/images/solutions-industrial-hero-bg.jpg',
+      renewable: '/assets/images/solutions-renewable-hero-bg.jpg',
+      rail: '/assets/images/solutions-rail-hero-bg.jpg',
+    };
+
+    window.setIndustry = function(id) {
+      if (!dataMap[id]) return;
+      activeIndustry = id;
+      sceneIndex = 0;
+      expandedCaseIndex = null;
+      document.getElementById('hero-image').src = heroImages[id] || heroImages['commercial'];
+      document.getElementById('cases-title').textContent = industryTitles[id] || 'Estudos de Caso';
+      renderIndustryTabs('sticky-industry-tabs');
+      renderScene();
+      renderCases();
+      resetSceneTimer();
+      lucide.createIcons();
+    }
+
+    // ===================== UNIFIED SCENE RENDER =====================
+    function renderTopologySVGHorizontal(scene) {
+      const branches = scene.branches;
+      const svgW = 860, svgH = 200, centerY = 65;
+
+      const gridW = 80, trafoW = 100, devW = 170;
+      const gridX = 20, trafoX = 145, devX = 290;
+
+      const arrowColor = '#a8a6a1';
+      const accentColor = '#f4a261';
+
+      const branchStartX = 510;
+      const branchGap = 42;
+      const branchW = 210;
+
+      return `<svg viewBox="0 0 ${svgW} ${svgH}" class="w-full max-w-[860px] h-auto mx-auto" style="overflow:visible">
+        <defs>
+          <marker id="ah-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="${arrowColor}"/></marker>
+          <marker id="ah-o-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="${accentColor}"/></marker>
+        </defs>
+
+        <!-- Utility Grid -->
+        <rect x="${gridX}" y="${centerY - 22}" width="${gridW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
+        <text x="${gridX + gridW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="14" font-weight="600">Rede</text>
+
+        <!-- Grid → Transformer -->
+        <line x1="${gridX + gridW}" y1="${centerY}" x2="${trafoX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
+
+        <!-- Transformer -->
+        <rect x="${trafoX}" y="${centerY - 22}" width="${trafoW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
+        <text x="${trafoX + trafoW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="13" font-weight="600">Transformador</text>
+
+        <!-- Transformer → Device -->
+        <line x1="${trafoX + trafoW}" y1="${centerY}" x2="${devX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
+
+        <!-- Device (highlighted) -->
+        <rect x="${devX}" y="${centerY - 28}" width="${devW}" height="56" rx="10" fill="rgba(244,162,97,0.06)" stroke="${accentColor}" stroke-width="2"/>
+        <text x="${devX + devW/2}" y="${centerY - 6}" text-anchor="middle" fill="${accentColor}" font-size="15" font-weight="700">${escapeHtml(scene.deviceLabel)}</text>
+        <text x="${devX + devW/2}" y="${centerY + 14}" text-anchor="middle" fill="${accentColor}" font-size="12" font-weight="500">${escapeHtml(scene.deviceType)}</text>
+
+        <!-- Device → Branches (horizontal distribution) -->
+        ${branches.map((b, i) => {
+          const by = 30 + i * branchGap;
+          const bx = branchStartX;
+          return `
+            <line x1="${devX + devW}" y1="${centerY}" x2="${bx}" y2="${by + 20}" stroke="${accentColor}" stroke-width="1.5" marker-end="url(#ah-o-t)"/>
+            <rect x="${bx}" y="${by}" width="${branchW}" height="40" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1"/>
+            <text x="${bx + 14}" y="${by + 24}" text-anchor="start" fill="#4B5058" font-size="13" font-weight="500">${escapeHtml(b.label)}</text>
+            <text x="${bx + branchW - 14}" y="${by + 24}" text-anchor="end" fill="#8B919A" font-size="11">${escapeHtml(b.sub)}</text>
+          `;
+        }).join('')}
+
+        <!-- LV Busbar label -->
+        <text x="${devX + devW/2}" y="${svgH - 8}" text-anchor="middle" fill="#8B919A" font-size="11">Barramento LV</text>
+      </svg>`;
+    }
+
+    function renderScene() {
+      const pts = dataMap[activeIndustry].painPoints;
+      const tps = dataMap[activeIndustry].topology;
+      const ppScene = pts[sceneIndex];
+      const tpScene = tps[sceneIndex];
+
+      document.getElementById('sc-counter').textContent = `${sceneIndex + 1} / ${pts.length}`;
+
+      // Dots
+      document.getElementById('sc-dots').innerHTML = pts.map((_, i) =>
+        `<button onclick="sceneGo(${i})" class="w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === sceneIndex ? 'bg-brand-orange' : 'bg-gray-300'}"></button>`
+      ).join('');
+
+      // Scene label
+      document.getElementById('sc-scene-label').innerHTML =
+        `<i data-lucide="building-2" class="w-5 h-5 text-brand-orange"></i>` +
+        `<span class="text-[18px] font-semibold text-brand-navy">${escapeHtml(ppScene.sceneName)} — ${escapeHtml(ppScene.sceneSubtitle)}</span>`;
+
+      // Pain Points
+      document.getElementById('sc-painpoints').innerHTML = ppScene.cards.map(card => `
+        <div class="bg-bg-card border border-border-card rounded-xl p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric-orange hover:shadow-[0_8px_30px_rgba(230,111,81,0.15)]">
+          <div class="flex items-center gap-2.5 mb-4">
+            <i data-lucide="${card.icon}" class="w-6 h-6 text-electric-orange"></i>
+            <h3 class="text-[20px] font-bold text-brand-navy font-barlow-condensed">${escapeHtml(card.title)}</h3>
+          </div>
+          <p class="text-[14px] text-brand-gray mb-5 leading-relaxed">${escapeHtml(card.desc)}</p>
+          <div class="border-t border-border-card pt-4 mb-4 flex items-baseline gap-2">
+            <span class="text-[40px] font-bold text-brand-orange leading-none">${escapeHtml(card.metric)}</span>
+            <span class="text-[22px] font-bold text-brand-orange">${escapeHtml(card.metricLabel)}</span>
+          </div>
+          <div class="border-t border-border-card pt-4 space-y-3">
+            ${card.consequences.map(c => `
+              <div>
+                <p class="text-[14px] font-semibold text-brand-navy">${escapeHtml(c.title)}</p>
+                <p class="text-[13px] text-brand-gray leading-relaxed mt-0.5">${escapeHtml(c.sub)}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      // Topology
+      document.getElementById('sc-topology').innerHTML =
+        renderTopologySVGHorizontal(tpScene) +
+        `<p class="text-sm text-brand-orange text-center font-semibold bg-orange-50 px-4 py-2 rounded-lg mx-auto mt-6 inline-block">${escapeHtml(tpScene.deviceDesc)}</p>
+        <div class="flex items-center justify-center gap-4 mt-6">
+          <button class="flex items-center gap-2 px-6 py-3 border border-border-card rounded-lg text-sm font-medium text-text-secondary hover:border-brand-orange hover:text-brand-orange transition-all duration-200">
+            <i data-lucide="download" class="w-4 h-4"></i>Baixar PDF
+          </button>
+          <button class="flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-lg text-sm font-semibold hover:brightness-110 transition-all duration-200">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>Consulta Técnica
+          </button>
+        </div>`;
+
+      // Bottom indicators
+      document.getElementById('sc-indicators').innerHTML = pts.map((s, i) =>
+        `<button onclick="sceneGo(${i})" class="flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${i === sceneIndex ? 'text-brand-orange' : 'text-text-muted hover:text-text-secondary'}">
+          <span class="w-2.5 h-2.5 rounded-full ${i === sceneIndex ? 'bg-brand-orange' : 'bg-gray-300'}"></span>
+          <span>${escapeHtml(s.label)}</span>
+        </button>`
+      ).join('');
+
+      lucide.createIcons();
+    }
+
+    window.sceneGo = function(index) {
+      if (index === sceneIndex) return;
+      const els = [
+        document.getElementById('sc-painpoints'),
+        document.getElementById('sc-topology')
+      ];
+      els.forEach(el => {
+        el.style.height = el.getBoundingClientRect().height + 'px';
+        el.classList.add('animating');
+      });
+      setTimeout(() => {
+        sceneIndex = index;
+        renderScene();
+        els.forEach(el => {
+          const nh = el.scrollHeight;
+          el.style.height = nh + 'px';
+          el.classList.remove('animating');
+        });
+        lucide.createIcons();
+        setTimeout(() => {
+          els.forEach(el => { el.style.height = ''; });
+        }, 350);
+      }, 300);
+      resetSceneTimer();
+    }
+    window.sceneNext = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex + 1) % len); }
+    window.scenePrev = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex - 1 + len) % len); }
+    function resetSceneTimer() { clearInterval(sceneTimer); sceneTimer = setInterval(window.sceneNext, 8000); }
+
+    // ===================== CASES (ACCORDION) =====================
+    let expandedCaseIndex = null;
+
+    window.toggleCase = function(index) {
+      if (expandedCaseIndex === index) {
+        expandedCaseIndex = null;
+      } else {
+        expandedCaseIndex = index;
+      }
+      renderCases();
+    }
+
+    function renderCases() {
+      const cs = dataMap[activeIndustry].cases;
+      document.getElementById('cases-list').innerHTML = cs.map((c, i) => {
+        const isExpanded = expandedCaseIndex === i;
+        return `
+        <div class="bg-bg-card border border-border-card rounded-xl overflow-hidden transition-all duration-300 ease-out hover:bg-[#F9FAFB] hover:border-[#D0D5DD] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+          <!-- Header (always visible) -->
+          <div onclick="toggleCase(${i})" class="flex flex-col ${i === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 p-6 lg:p-8 cursor-pointer">
+            <div class="w-full md:w-[400px] h-[280px] rounded-lg overflow-hidden flex-shrink-0">
+              <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" class="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-105" loading="lazy">
+            </div>
+            <div class="flex-1 flex flex-col justify-center">
+              <span class="inline-flex self-start px-3 py-1 rounded text-sm font-semibold ${c.colorClass} ${c.bgClass} mb-4">${escapeHtml(c.industry)}</span>
+              <h3 class="text-xl font-semibold text-text-primary mb-3 font-barlow-condensed">${escapeHtml(c.title)}</h3>
+              <p class="text-lg text-text-secondary mb-4 leading-relaxed">${escapeHtml(c.highlight)}</p>
+              ${c.solution && c.solution.length > 0 ? `
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-text-muted">
+                ${c.solution.map(s => `<span class="font-medium text-text-secondary">${escapeHtml(s.product)} <span class="text-electric-orange">×</span> ${s.qty} units</span>`).join('')}
+              </div>` : ''}
+              <span class="inline-flex items-center gap-1.5 text-electric-orange font-medium text-sm">
+                ${isExpanded ? 'Recolher' : 'Ver Detalhes'}
+                <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Expanded Content -->
+          <div class="transition-all duration-300" style="${isExpanded ? '' : 'height:0;overflow:hidden;'}">
+            <div class="px-6 lg:px-8 pb-8 border-t border-border-card">
+              <!-- Project Overview -->
+              <div class="pt-6 pb-4">
+                <h4 class="text-base font-bold text-brand-navy mb-3 font-barlow-condensed">Visão Geral do Projeto</h4>
+                <p class="text-sm text-text-secondary leading-relaxed">${escapeHtml(c.overview)}</p>
+              </div>
+
+              <!-- Trend -->
+              <div class="bg-bg-alt-1 rounded-xl p-6 mb-6">
+                <h4 class="text-sm font-semibold text-brand-navy mb-3">Antes / Depois</h4>
+                <p class="text-[28px] font-bold text-brand-orange leading-tight mb-1">${escapeHtml(c.trend)}</p>
+                <div class="flex items-center gap-3 mt-3">
+                  <span class="h-2 flex-1 rounded-full bg-electric-orange/20"></span>
+                  <span class="h-2 flex-1 rounded-full bg-brand-orange/30"></span>
+                  <span class="h-2 flex-1 rounded-full bg-brand-orange/50"></span>
+                  <span class="h-2 w-16 rounded-full bg-brand-orange"></span>
+                </div>
+              </div>
+
+              <!-- Solution Deployed -->
+              <div class="mb-6">
+                <h4 class="text-base font-bold text-brand-navy mb-3 font-barlow-condensed">Solução Implantada</h4>
+                <div class="space-y-3">
+                  ${c.solution.map(s => `
+                    <div class="flex items-center gap-4 bg-bg-alt-1 rounded-lg px-5 py-3">
+                      <span class="text-sm font-bold text-electric-orange w-[90px]">${escapeHtml(s.product)}</span>
+                      <span class="text-sm text-text-secondary">× ${s.qty} unidades</span>
+                      <span class="text-xs text-text-muted">${escapeHtml(s.use)}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Key Results -->
+              <div class="mb-6">
+                <h4 class="text-base font-bold text-brand-navy mb-3 font-barlow-condensed">Principais Resultados</h4>
+                <div class="space-y-2">
+                  ${c.results.map(r => `
+                    <div class="flex items-start gap-2.5">
+                      <i data-lucide="check-circle" class="w-5 h-5 text-commercial-green flex-shrink-0 mt-0.5"></i>
+                      <span class="text-sm text-text-secondary">${escapeHtml(r)}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Read Full Report -->
+              <a href="${escapeHtml(c.link)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-electric-orange hover:gap-3 transition-all duration-200">
+                Ler Relatório Completo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    // ===================== SCROLL EFFECTS =====================
+    function handleScroll() {
+      // Sticky tabs: hidden on hero, revealed after scrolling past
+      const stickyTabs = document.getElementById('sticky-tabs');
+      if (stickyTabs) {
+        const heroBottom = window.innerHeight * 0.55;
+        if (window.scrollY > heroBottom) {
+          stickyTabs.style.opacity = '1';
+          stickyTabs.style.transform = 'translateY(0)';
+          stickyTabs.style.pointerEvents = 'auto';
+          stickyTabs.style.height = 'auto';
+          stickyTabs.style.overflow = 'visible';
+        } else {
+          stickyTabs.style.opacity = '0';
+          stickyTabs.style.transform = 'translateY(-8px)';
+          stickyTabs.style.pointerEvents = 'none';
+          stickyTabs.style.height = '0';
+          stickyTabs.style.overflow = 'hidden';
+        }
+      }
+
+      // Scroll reveal
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('revealed');
+        }
+      });
+    }
+
+    // ===================== HASH-BASED NAVIGATION =====================
+    const industryHashMap = {
+      'industry': 'industry',
+      'commercial': 'commercial',
+      'datacenter': 'datacenter',
+      'renewable': 'renewable',
+      'rail': 'rail',
+      'grid': 'grid',
+    };
+
+    function navigateToIndustryFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && industryHashMap[hash]) {
+        window.setIndustry(hash);
+        setTimeout(() => {
+          document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+
+    window.addEventListener('hashchange', navigateToIndustryFromHash);
+
+    // ===================== INIT =====================
+    document.addEventListener('DOMContentLoaded', function() {
+      renderIndustryTabs('sticky-industry-tabs');
+      renderScene();
+      renderCases();
+      lucide.createIcons();
+
+      // Check initial hash
+      navigateToIndustryFromHash();
+
+      // Start timer
+      sceneTimer = setInterval(window.sceneNext, 8000);
+
+      // Scroll listener
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); // Initial check
+    });
+</script>

@@ -1,11 +1,50 @@
+---
+export interface Props {
+  lang?: 'en' | 'pt';
+}
+const { lang = 'en' } = Astro.props;
+
+const t: Record<string, { en: string; pt: string }> = {
+  subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.' },
+  emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com' },
+  subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se' },
+  products: { en: 'Products', pt: 'Produtos' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo' },
+  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado' },
+  sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)' },
+  highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção' },
+  solutions: { en: 'Solutions', pt: 'Soluções' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades' },
+  resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias' },
+  technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica' },
+  globalReferences: { en: 'Global References', pt: 'Referências Globais' },
+  oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM' },
+  becomeDistributor: { en: 'Become a Distributor', pt: 'Torne-se um Distribuidor' },
+  copyright: { en: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.', pt: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos os Direitos Reservados.' },
+  ipv6Served: { en: 'IPV6 Served', pt: 'IPV6 Atendido' },
+};
+function _(key: string): string {
+  return t[key]?.[lang] || t[key]?.en || key;
+}
+const prefix = lang === 'pt' ? '/pt' : '';
+const productsHref = prefix + '/products';
+const solutionsHref = prefix + '/solutions';
+const servicesHref = prefix + '/services';
+---
 <footer class="bg-footer-bg text-white" id="footer">
-  <div class="px-16 max-md:px-6 pt-16 pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
+  <div class="max-w-page mx-auto px-16 max-md:px-6">
+    <div class="pt-16 pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
     <div class="flex flex-col">
-      <img src="/assets/images/logo.png" alt="CHITEK Logo" class="w-[140px] h-auto object-contain mb-4" />
-      <p class="text-[13px] text-white/70 leading-[1.8] max-w-[260px] mb-6">Subscribe to us to enjoy event prices, along with dedicated technical support.</p>
+      <img src="/assets/images/logo.webp" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[140px] h-auto object-contain mb-4" />
+      <p class="text-[13px] text-white/70 leading-[1.8] max-w-[260px] mb-6">{_('subscribeText')}</p>
       <div class="flex">
-        <input type="email" placeholder="name@email.com" class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[13px] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
-        <button class="bg-brand-orange text-white border-none cursor-pointer text-[12px] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">Subscribe</button>
+        <input type="email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[13px] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
+        <button class="bg-brand-orange text-white border-none cursor-pointer text-[12px] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>
       </div>
       <div class="flex gap-2.5 mt-6">
         <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
@@ -20,39 +59,40 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Products</h4>
+      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('products')}</h4>
       <ul class="list-none flex flex-col gap-3">
-        <li><a href="/products#ahf" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Active Harmonic Filter</a></li>
-        <li><a href="/products#svg" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Advanced Static Var Generator</a></li>
-        <li><a href="/products#sic" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">SiC-AHF/SVG (High Efficiency)</a></li>
-        <li><a href="/products#high-protection" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">High-Protection AHF/SVG</a></li>
+        <li><a href={productsHref + '#ahf'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
+        <li><a href={productsHref + '#svg'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
+        <li><a href={productsHref + '#sic'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
+        <li><a href={productsHref + '#high-protection'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Solutions</h4>
+      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('solutions')}</h4>
       <ul class="list-none flex flex-col gap-3">
-        <li><a href="/solutions#industry" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Industrial Manufacturing</a></li>
-        <li><a href="/solutions#commercial" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Commercial &amp; Medical Buildings</a></li>
-        <li><a href="/solutions#datacenter" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Data Centers &amp; Telecom</a></li>
-        <li><a href="/solutions#renewable" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Renewable Energy (PV/Wind)</a></li>
-        <li><a href="/solutions#rail" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Transportation (Rail/Charging)</a></li>
-        <li><a href="/solutions#grid" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Power Grid &amp; Utility</a></li>
+        <li><a href={solutionsHref + '#industry'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
+        <li><a href={solutionsHref + '#commercial'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
+        <li><a href={solutionsHref + '#datacenter'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
+        <li><a href={solutionsHref + '#renewable'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
+        <li><a href={solutionsHref + '#rail'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
+        <li><a href={solutionsHref + '#grid'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">Resources &amp; Partnership</h4>
+      <h4 class="text-[14px] font-bold tracking-[0.08em] uppercase text-white mb-6">{_('resourcesPartnership')}</h4>
       <ul class="list-none flex flex-col gap-3">
-        <li><a href="/services#tech-support" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Technical Library</a></li>
-        <li><a href="/services#tech-support" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Global References</a></li>
-        <li><a href="/services#oem" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">OEM &amp; ODM Services</a></li>
-        <li><a href="/services#distributor" class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">Become a Distributor</a></li>
+        <li><a href={servicesHref + '#tech-support'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('technicalLibrary')}</a></li>
+        <li><a href={servicesHref + '#tech-support'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
+        <li><a href={servicesHref + '#oem'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
+        <li><a href={servicesHref + '#distributor'} class="text-[13px] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
       </ul>
     </div>
   </div>
-  <div class="px-16 max-md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[12px] text-white/60 tracking-[0.04em]">&copy; 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.</p>
+  <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-[12px] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
     <div class="flex gap-6">
-      <a href="#" class="text-[12px] text-white/60 no-underline hover:text-white transition-colors duration-200">IPV6 Served</a>
+      <a href="#" class="text-[12px] text-white/60 no-underline hover:text-white transition-colors duration-200">{_('ipv6Served')}</a>
     </div>
   </div>
+</div>
 </footer>

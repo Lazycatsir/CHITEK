@@ -125,6 +125,7 @@
   --color-text-dark: #1a1a1a;
   --color-text-mid: #444444;
   --color-text-muted: #6b7280;
+  --color-text-dim: #94a3b8;
 
   /* Borders */
   --color-border-light: #e5e7eb;
@@ -142,6 +143,7 @@
   --color-border-card: #fef3e8;
   --color-electric-orange: #ff6b1a;
   --color-electric-orange-hover: #d9550f;
+  --color-electric-orange-light: #ff8c4a;
   --color-commercial-green: #e9c46a;
   --color-bg-alt-1: #fef3e8;
   --color-bg-alt-2: #fdf0e5;
@@ -155,7 +157,8 @@
   --spacing-nav: 72px;
 
   /* Max width */
-  --max-width-page: 1280px;
+  --max-width-page: 1440px;
+  --padding-page: clamp(1rem, 3vw, 4rem);
 
   /* Z-index */
   --z-index-nav: 1000;

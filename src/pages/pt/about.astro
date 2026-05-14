@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'About CHITEK – Power Quality Company Profile & Certifications',
-  description: 'CHITEK is a high-tech enterprise founded in 2019, specializing in power electronics R&D, manufacturing, and service. ISO 9001 certified with 20+ patents.',
+  title: 'Sobre a CHITEK – Perfil da Empresa de Qualidade de Energia e Certificações',
+  description: 'A CHITEK é uma empresa de alta tecnologia fundada em 2019, especializada em pesquisa, desenvolvimento, fabricação e serviço de eletrônica de potência. Certificada ISO 9001 com mais de 20 patentes.',
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout lang="pt" title={meta.title} description={meta.description}>
   <!-- ABOUT -->
   <section class="about relative overflow-hidden bg-[#0c1628] text-white mt-[72px] min-h-[calc(100vh-72px)] flex flex-col justify-center scroll-mt-[72px]" id="about">
     <div class="absolute inset-0 bg-[url('/assets/images/about-bg.jpg')] bg-cover bg-center opacity-30 z-0"></div>
@@ -15,27 +15,27 @@ const meta = {
 
     <!-- 顶部标题区域 -->
     <div class="relative z-10 text-center px-5 pt-6 pb-4 max-w-[900px] mx-auto fade-up">
-      <h2 class="font-barlow-condensed text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide mb-4 text-white leading-tight">COMPANY INTRO</h2>
+      <h2 class="font-barlow-condensed text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide mb-4 text-white leading-tight">APRESENTAÇÃO DA EMPRESA</h2>
     </div>
 
     <!-- 主体大框 (包含左右内容) -->
     <div class="relative z-10 flex flex-col lg:flex-row max-w-page mx-auto mb-6 bg-[rgba(255,255,255,0.03)] border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.3)] mx-5 lg:mx-auto fade-up">
       <!-- 左侧 About CHITEK 区域 -->
       <div class="lg:flex-1 p-10 lg:p-[60px_50px] flex flex-col justify-center lg:border-r border-white/10">
-        <h3 class="font-barlow-condensed text-3xl font-bold leading-tight mb-6 uppercase tracking-wide text-white">ABOUT <span class="text-brand-orange">CHITEK</span></h3>
+        <h3 class="font-barlow-condensed text-3xl font-bold leading-tight mb-6 uppercase tracking-wide text-white">SOBRE A <span class="text-brand-orange">CHITEK</span></h3>
         <div class="w-10 h-[3px] bg-brand-orange mb-6"></div>
         <p class="text-sm leading-relaxed text-white/75 mb-8">
-          Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and
-          headquartered in Shenzhen, is a high-tech enterprise specializing in
-          the research, development, manufacturing, and service of power
-          electronic products. Committed to building an energy-efficient and
-          green future.
+          A Shenzhen CHITEK New Energy Technology Co., Ltd., fundada em 2019 e
+          sediada em Shenzhen, é uma empresa de alta tecnologia especializada em
+          pesquisa, desenvolvimento, fabricação e serviço de produtos eletrônicos
+          de potência. Comprometida em construir um futuro energeticamente
+          eficiente e verde.
         </p>
         <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-xs font-bold tracking-wide uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
-          Play Video
+          Assistir Vídeo
         </a>
       </div>
 
@@ -44,8 +44,8 @@ const meta = {
         <!-- 优势 1 -->
         <div class="about-feature px-7.5 py-[50px] flex flex-col items-center justify-center text-center border-b border-white/10 sm:border-r hover:bg-[rgba(255,107,26,0.05)]">
           <div class="text-[42px] font-bold leading-none text-brand-orange mb-3">60<sup class="text-base align-super text-brand-orange">%</sup></div>
-          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Experienced R&D Team</h3>
-          <p class="text-xs leading-relaxed text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
+          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Equipe de P&amp;D Experiente</h3>
+          <p class="text-xs leading-relaxed text-white max-w-[180px]">Forte Capacidade Respaldada por Equipe Bem-Educada e Altamente Experiente</p>
         </div>
 
         <!-- 优势 2 -->
@@ -58,8 +58,8 @@ const meta = {
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Proprietary Design</h3>
-          <p class="text-xs leading-relaxed text-white max-w-[180px]">More than 20 Patents covering Product Development and Manufacturing</p>
+          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Design Exclusivo</h3>
+          <p class="text-xs leading-relaxed text-white max-w-[180px]">Mais de 20 Patentes cobrindo Desenvolvimento de Produtos e Fabricação</p>
         </div>
 
         <!-- 优势 3 -->
@@ -71,8 +71,8 @@ const meta = {
               <line x1="42" y1="42" x2="48" y2="48" stroke-linecap="round" />
             </svg>
           </div>
-          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Diversified Products</h3>
-          <p class="text-xs leading-relaxed text-white max-w-[180px]">Full Range of products covering different customer applications</p>
+          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Produtos Diversificados</h3>
+          <p class="text-xs leading-relaxed text-white max-w-[180px]">Gama Completa de Produtos para Diferentes Aplicações de Clientes</p>
         </div>
 
         <!-- 优势 4 -->
@@ -84,8 +84,8 @@ const meta = {
               <polygon points="24,36 26,42 32,42 34,48 38,42 44,42 40,36" fill="currentColor" stroke="none" />
             </svg>
           </div>
-          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Quality Guaranteed</h3>
-          <p class="text-xs leading-relaxed text-white max-w-[180px]">ISO Certified manufacturing ensuring highest quality standards</p>
+          <h3 class="text-sm font-bold text-white mb-2 leading-tight uppercase tracking-wide">Qualidade Garantida</h3>
+          <p class="text-xs leading-relaxed text-white max-w-[180px]">Fabricação Certificada ISO garantindo os mais altos padrões de qualidade</p>
         </div>
       </div>
     </div>
@@ -98,13 +98,13 @@ const meta = {
 
     <div class="relative z-10 w-full max-w-[1100px] text-center">
       <div class="fade-up">
-        <h2 class="font-barlow-condensed text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide mb-3">INDUSTRY CASES</h2>
+        <h2 class="font-barlow-condensed text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide mb-3">CASOS DA INDÚSTRIA</h2>
         <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mb-[50px]"></div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-[18px] w-full fade-up">
         <!-- Card 1 -->
-        <a href="/solutions#industry" class="block no-underline">
+        <a href="/pt/solutions#industry" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -115,12 +115,12 @@ const meta = {
               <line x1="18" y1="36" x2="24" y2="36"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Industrial Manufacturing</h3>
-          <p class="text-sm leading-relaxed text-white/70">Active harmonic filtering and power factor correction for heavy machinery, welding equipment, and motor-driven systems in factories.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Manufatura Industrial</h3>
+          <p class="text-sm leading-relaxed text-white/70">Filtragem harmônica ativa e correção do fator de potência para máquinas pesadas, equipamentos de solda e sistemas acionados por motores em fábricas.</p>
         </div></a>
 
         <!-- Card 2 -->
-        <a href="/solutions#commercial" class="block no-underline">
+        <a href="/pt/solutions#commercial" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -130,12 +130,12 @@ const meta = {
               <path d="M4 28 L24 8 L44 28"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Commercial &amp; Medical Buildings</h3>
-          <p class="text-sm leading-relaxed text-white/70">Protecting sensitive medical imaging equipment and building management systems from power disturbances and voltage sags.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Edifícios Comerciais e Médicos</h3>
+          <p class="text-sm leading-relaxed text-white/70">Protegendo equipamentos médicos sensíveis e sistemas de gestão predial contra distúrbios de energia e quedas de tensão.</p>
         </div></a>
 
         <!-- Card 3 -->
-        <a href="/solutions#datacenter" class="block no-underline">
+        <a href="/pt/solutions#datacenter" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -146,12 +146,12 @@ const meta = {
               <line x1="24" y1="38" x2="24" y2="44"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Data Centers &amp; Telecom</h3>
-          <p class="text-sm leading-relaxed text-white/70">Ensuring zero-downtime power quality for critical IT infrastructure, UPS systems, and telecom switching stations.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Data Centers e Telecomunicações</h3>
+          <p class="text-sm leading-relaxed text-white/70">Garantindo qualidade de energia com zero indisponibilidade para infraestrutura crítica de TI, sistemas UPS e centrais de telecomunicações.</p>
         </div></a>
 
         <!-- Card 4 -->
-        <a href="/solutions#renewable" class="block no-underline">
+        <a href="/pt/solutions#renewable" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -164,12 +164,12 @@ const meta = {
               <path d="M33.9 33.9 L38.14 38.14"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Renewable Energy</h3>
-          <p class="text-sm leading-relaxed text-white/70">Grid integration solutions for solar and wind farms, managing reactive power and harmonic distortion from inverters.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Energia Renovável</h3>
+          <p class="text-sm leading-relaxed text-white/70">Soluções de integração à rede para fazendas solares e eólicas, gerenciando potência reativa e distorção harmônica de inversores.</p>
         </div></a>
 
         <!-- Card 5 -->
-        <a href="/solutions#rail" class="block no-underline">
+        <a href="/pt/solutions#rail" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -181,12 +181,12 @@ const meta = {
               <line x1="10" y1="10" x2="38" y2="10"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Transportation</h3>
-          <p class="text-sm leading-relaxed text-white/70">Power quality solutions for EV charging stations, railway traction systems, and electric vehicle infrastructure.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Transporte</h3>
+          <p class="text-sm leading-relaxed text-white/70">Soluções de qualidade de energia para estações de recarga de VE, sistemas de tração ferroviária e infraestrutura de veículos elétricos.</p>
         </div></a>
 
         <!-- Card 6 -->
-        <a href="/solutions#grid" class="block no-underline">
+        <a href="/pt/solutions#grid" class="block no-underline">
         <div class="bg-white/[0.06] border border-white/10 rounded p-[40px_28px_32px] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-11 h-11 mb-5 text-brand-orange">
             <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -194,8 +194,8 @@ const meta = {
               <circle cx="24" cy="24" r="18"/>
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Power Grid &amp; Utility</h3>
-          <p class="text-sm leading-relaxed text-white/70">Supporting grid stability with dynamic reactive power compensation and harmonic mitigation at substation level.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide">Rede Elétrica e Concessionárias</h3>
+          <p class="text-sm leading-relaxed text-white/70">Apoiando a estabilidade da rede com compensação dinâmica de potência reativa e mitigação harmônica em nível de subestação.</p>
         </div></a>
       </div>
     </div>
@@ -208,7 +208,7 @@ const meta = {
 
     <div class="relative z-10 w-full max-w-[1100px] text-center">
       <div class="fade-up">
-        <h2 class="font-barlow-condensed text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide mb-3">CORE ADVANTAGES</h2>
+        <h2 class="font-barlow-condensed text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide mb-3">VANTAGENS PRINCIPAIS</h2>
         <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mb-[50px]"></div>
       </div>
 
@@ -216,8 +216,8 @@ const meta = {
         <!-- Advantage 1: Expert R&D Team -->
         <div class="ca-card bg-white/[0.06] border border-white/10 rounded p-[40px_32px] backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="text-[42px] font-bold leading-none text-brand-orange mb-4">60<sup class="text-base align-super text-brand-orange">%</sup></div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Expert R&amp;D Team</h3>
-          <p class="text-sm leading-relaxed text-white/70 text-left">Team members come from world-leading enterprises, with over 60% holding master's degrees or above, ensuring deep technical expertise in power electronics innovation.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Equipe Especializada de P&amp;D</h3>
+          <p class="text-sm leading-relaxed text-white/70 text-left">Os membros da equipe vêm de empresas líderes mundiais, com mais de 60% possuindo mestrado ou superior, garantindo profunda expertise técnica em inovação de eletrônica de potência.</p>
         </div>
 
         <!-- Advantage 2: Core Patent Technologies -->
@@ -230,8 +230,8 @@ const meta = {
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Core Patent Technologies</h3>
-          <p class="text-sm leading-relaxed text-white/70 text-left">Independent intellectual property rights covering R&amp;D, design, and manufacturing with more than 20 patents protecting our innovations.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Tecnologias Centrais Patenteadas</h3>
+          <p class="text-sm leading-relaxed text-white/70 text-left">Direitos de propriedade intelectual independentes cobrindo P&amp;D, design e fabricação, com mais de 20 patentes protegendo nossas inovações.</p>
         </div>
 
         <!-- Advantage 3: Product Quality Control -->
@@ -244,8 +244,8 @@ const meta = {
               <polyline points="26,28 28,30 32,26" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Product Quality Control</h3>
-          <p class="text-sm leading-relaxed text-white/70 text-left">All products certified to CQC, CE, and ISO 9001 international standards, ensuring reliable performance and compliance across global markets.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Controle de Qualidade do Produto</h3>
+          <p class="text-sm leading-relaxed text-white/70 text-left">Todos os produtos certificados pelos padrões internacionais CQC, CE e ISO 9001, garantindo desempenho confiável e conformidade nos mercados globais.</p>
         </div>
 
         <!-- Advantage 4: Full-Process Service -->
@@ -260,8 +260,8 @@ const meta = {
               <circle cx="36" cy="36" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Full-Process Service</h3>
-          <p class="text-sm leading-relaxed text-white/70 text-left">Comprehensive service and customized solutions covering design, manufacturing, operation, and maintenance stages throughout the product lifecycle.</p>
+          <h3 class="text-base font-bold text-white mb-2.5 tracking-wide text-left">Serviço de Processo Completo</h3>
+          <p class="text-sm leading-relaxed text-white/70 text-left">Serviço abrangente e soluções personalizadas cobrindo as etapas de design, fabricação, operação e manutenção ao longo do ciclo de vida do produto.</p>
         </div>
       </div>
     </div>
@@ -274,64 +274,64 @@ const meta = {
       <div class="text-center mb-14 fade-up">
         <div class="inline-flex items-center gap-3 mb-4 justify-center">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          <span class="text-sm text-brand-orange tracking-[0.15em] uppercase">Certifications &amp; Honors</span>
+          <span class="text-sm text-brand-orange tracking-[0.15em] uppercase">Certificações e Reconhecimentos</span>
         </div>
-        <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-white uppercase tracking-[0.02em]">Global Quality Assurance</h2>
+        <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-white uppercase tracking-[0.02em]">Garantia Global de Qualidade</h2>
         <div class="w-[60px] h-[3px] bg-gradient-to-r from-transparent via-brand-orange to-transparent mx-auto mb-4"></div>
-        <p class="text-[15px] text-white/70 max-w-[600px] mx-auto leading-relaxed">Internationally certified quality management and product safety standards ensure reliable performance across all markets.</p>
+        <p class="text-[15px] text-white/70 max-w-[600px] mx-auto leading-relaxed">Padrões de gestão de qualidade e segurança de produtos certificados internacionalmente garantem desempenho confiável em todos os mercados.</p>
       </div>
 
       <!-- Carousel -->
       <div class="relative fade-up" id="certCarousel">
         <div id="certTrack" class="flex transition-transform duration-500 ease-out">
           <!-- Card 1: CE -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-xl font-bold text-brand-orange font-barlow-condensed">CE</span>
               </div>
-              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">CE Marking</h3>
-              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">TÜV Rheinland certified, EU compliance</p>
+              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">Marcação CE</h3>
+              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Certificado TÜV Rheinland, conformidade com a UE</p>
             </div>
           </div>
           <!-- Card 2: UL -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-xl font-bold text-brand-orange font-barlow-condensed">UL</span>
               </div>
-              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">UL 508 Listed</h3>
-              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">North American safety certified</p>
+              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">Listado UL 508</h3>
+              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Certificado de segurança norte-americano</p>
             </div>
           </div>
           <!-- Card 3: ISO -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-lg font-bold text-brand-orange font-barlow-condensed text-center leading-tight">ISO<br>9001</span>
               </div>
               <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">ISO 9001:2015</h3>
-              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">SGS certified quality management</p>
+              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Gestão de qualidade certificada SGS</p>
             </div>
           </div>
           <!-- Card 4: IEC -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-xl font-bold text-brand-orange font-barlow-condensed">IEC</span>
               </div>
-              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">IEC 61000 Series</h3>
-              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">EMC &amp; harmonic emission standards</p>
+              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">Série IEC 61000</h3>
+              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Normas de EMC e emissão harmônica</p>
             </div>
           </div>
           <!-- Card 5: RoHS -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-sm font-bold text-brand-orange font-barlow-condensed text-center leading-tight">RoHS<br>REACH</span>
               </div>
-              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">RoHS &amp; REACH</h3>
-              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Hazardous substance compliant</p>
+              <h3 class="text-sm font-bold text-white text-center font-barlow-condensed tracking-wide">RoHS e REACH</h3>
+              <p class="text-[11px] text-white/50 text-center mt-1 leading-relaxed">Conformidade com substâncias perigosas</p>
             </div>
           </div>
         </div>
@@ -352,7 +352,7 @@ const meta = {
         </div>
 
         <!-- Mobile touch hint -->
-        <p class="text-center text-xs text-white/40 mt-4 md:hidden">Swipe or tap dots to navigate</p>
+        <p class="text-center text-xs text-white/40 mt-4 md:hidden">Deslize ou toque nos pontos para navegar</p>
       </div>
     </div>
   </section>
@@ -363,7 +363,7 @@ const meta = {
     <div class="relative z-10 text-center px-12 py-5 max-md:px-6 max-md:py-8 bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)] inline-block">
       <div class="inline-flex items-center gap-3 mb-4 justify-center">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="text-sm text-brand-orange tracking-[0.15em] uppercase">Global Reach</span>
+        <span class="text-sm text-brand-orange tracking-[0.15em] uppercase">Alcance Global</span>
       </div>
       <div class="w-[60px] h-[3px] mx-auto bg-gradient-to-r from-transparent via-brand-orange to-transparent"></div>
     </div>

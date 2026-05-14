@@ -14,7 +14,7 @@ const meta = {
       <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
     </div>
-    <div class="relative z-10 max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
+    <div class="relative z-10 max-w-page mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
       <div class="mb-12">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-300">Commercial & Medical</h1>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-450">Power Quality Solutions</h1>
@@ -25,14 +25,14 @@ const meta = {
 
   <!-- ============ STICKY INDUSTRY TABS ============ -->
   <div id="sticky-tabs" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-subtle shadow-[0_2px_16px_rgba(38,70,83,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-20">
+    <div class="max-w-page mx-auto px-6 md:px-10 lg:px-20">
       <div class="flex items-center gap-0 md:gap-4 overflow-x-auto" id="sticky-industry-tabs"></div>
     </div>
   </div>
 
   <!-- ============ SOLUTIONS CAROUSEL ============ -->
   <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.png')">
-    <div class="max-w-[1280px] mx-auto">
+    <div class="max-w-page mx-auto">
       <div class="flex items-end justify-between mb-6">
         <div>
           <h2 class="text-[28px] md:text-[36px] font-bold text-brand-navy leading-tight font-barlow-condensed">Scenario-Based Power Quality Solution</h2>
@@ -58,10 +58,11 @@ const meta = {
   </section>
 
   <!-- ============ CASES ============ -->
-  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-bg-page px-6 md:px-10 lg:px-20 py-20 lg:py-[120px]">
-    <div class="max-w-[1280px] mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight mb-10 font-barlow-condensed" id="cases-title">Commercial & Medical Building Case Studies</h2>
-      <div class="space-y-6" id="cases-list"></div>
+  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-bg-page px-6 md:px-10 lg:px-20 pt-10 lg:pt-16 pb-20 lg:pb-[120px]">
+    <div class="max-w-page mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight font-barlow-condensed" id="cases-title">Commercial & Medical Building Case Studies</h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60 shadow-[0_0_8px_rgba(255,107,26,0.3)]"></div>
+      <div class="max-w-[75%] mx-auto space-y-6" id="cases-list"></div>
     </div>
   </section>
 
@@ -722,7 +723,7 @@ const meta = {
       rail: '/assets/images/solutions-rail-hero-bg.jpg',
     };
 
-    function setIndustry(id) {
+    window.setIndustry = function(id) {
       if (!dataMap[id]) return;
       activeIndustry = id;
       sceneIndex = 0;
@@ -858,7 +859,7 @@ const meta = {
       lucide.createIcons();
     }
 
-    function sceneGo(index) {
+    window.sceneGo = function(index) {
       if (index === sceneIndex) return;
       const els = [
         document.getElementById('sc-painpoints'),
@@ -883,14 +884,14 @@ const meta = {
       }, 300);
       resetSceneTimer();
     }
-    function sceneNext() { const len = dataMap[activeIndustry].painPoints.length; sceneGo((sceneIndex + 1) % len); }
-    function scenePrev() { const len = dataMap[activeIndustry].painPoints.length; sceneGo((sceneIndex - 1 + len) % len); }
-    function resetSceneTimer() { clearInterval(sceneTimer); sceneTimer = setInterval(sceneNext, 8000); }
+    window.sceneNext = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex + 1) % len); }
+    window.scenePrev = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex - 1 + len) % len); }
+    function resetSceneTimer() { clearInterval(sceneTimer); sceneTimer = setInterval(window.sceneNext, 8000); }
 
     // ===================== CASES (ACCORDION) =====================
     let expandedCaseIndex = null;
 
-    function toggleCase(index) {
+    window.toggleCase = function(index) {
       if (expandedCaseIndex === index) {
         expandedCaseIndex = null;
       } else {
@@ -906,14 +907,18 @@ const meta = {
         return `
         <div class="bg-bg-card border border-border-card rounded-xl overflow-hidden transition-all duration-300 ease-out hover:bg-[#F9FAFB] hover:border-[#D0D5DD] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
           <!-- Header (always visible) -->
-          <div onclick="toggleCase(${i})" class="flex flex-col md:flex-row gap-6 md:gap-8 p-6 lg:p-8 cursor-pointer">
-            <div class="w-full md:w-[200px] h-[140px] rounded-lg overflow-hidden flex-shrink-0">
+          <div onclick="toggleCase(${i})" class="flex flex-col ${i === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 p-6 lg:p-8 cursor-pointer">
+            <div class="w-full md:w-[400px] h-[280px] rounded-lg overflow-hidden flex-shrink-0">
               <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" class="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-105" loading="lazy">
             </div>
             <div class="flex-1 flex flex-col justify-center">
-              <span class="inline-flex self-start px-3 py-1 rounded text-[13px] font-semibold ${c.colorClass} ${c.bgClass} mb-3">${escapeHtml(c.industry)}</span>
-              <h3 class="text-lg font-semibold text-text-primary mb-2 font-barlow-condensed">${escapeHtml(c.title)}</h3>
-              <p class="text-base text-text-secondary mb-3">${escapeHtml(c.highlight)}</p>
+              <span class="inline-flex self-start px-3 py-1 rounded text-sm font-semibold ${c.colorClass} ${c.bgClass} mb-4">${escapeHtml(c.industry)}</span>
+              <h3 class="text-xl font-semibold text-text-primary mb-3 font-barlow-condensed">${escapeHtml(c.title)}</h3>
+              <p class="text-lg text-text-secondary mb-4 leading-relaxed">${escapeHtml(c.highlight)}</p>
+              ${c.solution && c.solution.length > 0 ? `
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-text-muted">
+                ${c.solution.map(s => `<span class="font-medium text-text-secondary">${escapeHtml(s.product)} <span class="text-electric-orange">×</span> ${s.qty} units</span>`).join('')}
+              </div>` : ''}
               <span class="inline-flex items-center gap-1.5 text-electric-orange font-medium text-sm">
                 ${isExpanded ? 'Collapse' : 'View Details'}
                 <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
@@ -1023,7 +1028,7 @@ const meta = {
     function navigateToIndustryFromHash() {
       const hash = window.location.hash.replace('#', '');
       if (hash && industryHashMap[hash]) {
-        setIndustry(hash);
+        window.setIndustry(hash);
         setTimeout(() => {
           document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
@@ -1043,7 +1048,7 @@ const meta = {
       navigateToIndustryFromHash();
 
       // Start timer
-      sceneTimer = setInterval(sceneNext, 8000);
+      sceneTimer = setInterval(window.sceneNext, 8000);
 
       // Scroll listener
       window.addEventListener('scroll', handleScroll, { passive: true });

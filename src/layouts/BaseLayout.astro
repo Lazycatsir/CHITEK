@@ -7,19 +7,20 @@ import Sidebar from '../components/Sidebar.astro';
 export interface Props {
   title: string;
   description: string;
+  lang?: 'en' | 'pt';
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
   ogUrl?: string;
 }
 
-const { title, description, ogTitle, ogDescription, ogImage, ogUrl } = Astro.props;
-const defaultOgImage = 'https://chitek.com/assets/images/logo.png';
+const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl } = Astro.props;
+const defaultOgImage = 'https://chitek.com/assets/images/logo.webp';
 const defaultOgUrl = 'https://chitek.com';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,6 +28,7 @@ const defaultOgUrl = 'https://chitek.com';
   <meta name="description" content={description} />
 
   <!-- Open Graph -->
+  <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : 'en_US'} />
   <meta property="og:title" content={ogTitle || title} />
   <meta property="og:description" content={ogDescription || description} />
   <meta property="og:image" content={ogImage || defaultOgImage} />
@@ -40,9 +42,9 @@ const defaultOgUrl = 'https://chitek.com';
   <meta name="twitter:description" content={ogDescription || description} />
 </head>
 <body class="font-barlow text-text-dark bg-white overflow-x-hidden">
-  <Nav />
+  <Nav lang={lang} />
   <slot />
-  <Footer />
+  <Footer lang={lang} />
   <Sidebar />
 
   <!-- Shared scroll animation -->
