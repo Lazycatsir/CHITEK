@@ -11,7 +11,7 @@ const meta = {
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
     <div class="absolute inset-0 animate-fade-in">
-      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" />
+      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" fetchpriority="high" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
     </div>
     <div class="relative z-10 max-w-page mx-auto w-full px-6 md:px-10 lg:px-20 pb-8">
@@ -31,7 +31,7 @@ const meta = {
   </div>
 
   <!-- ============ SOLUTIONS CAROUSEL ============ -->
-  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.png')">
+  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-6 md:px-10 lg:px-20 py-20 lg:py-[120px] relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.webp')">
     <div class="max-w-page mx-auto">
       <div class="flex items-end justify-between mb-6">
         <div>
@@ -80,7 +80,7 @@ const meta = {
 </style>
 
 <!-- Lucide icons library -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+<script is:inline src="/assets/js/lucide.min.js">
 </script>
 
 <script>

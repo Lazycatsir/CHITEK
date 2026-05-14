@@ -10,7 +10,7 @@ const meta = {
 <BaseLayout title={meta.title} description={meta.description}>
   <!-- HERO -->
   <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc(100vh-72px)] max-lg:min-h-[550px] max-md:min-h-[480px] flex items-center">
-    <img src="/assets/images/index-hero-bg.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
+    <img src="/assets/images/index-hero-bg.webp" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
 
     <div class="flex flex-col justify-center px-16 max-md:px-6 py-20 max-md:py-16 relative z-10 max-w-page w-full mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <h1 class="font-barlow-condensed text-[clamp(38px,4.5vw,62px)] font-bold leading-[1.1] text-white mb-5">
@@ -28,7 +28,7 @@ const meta = {
 
   <!-- ABOUT -->
   <section class="relative overflow-hidden bg-bg-mid text-white min-h-screen flex flex-col justify-center" id="about">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-bg.jpg')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
     <div class="absolute inset-0 bg-[rgba(7,16,30,0.7)] z-[1]"></div>
 
     <!-- 顶部标题区域 -->
@@ -110,7 +110,7 @@ const meta = {
   </section>
 
   <!-- PRODUCTS -->
-  <section class="py-24 bg-[url('/assets/images/index-products-bg.jpg')] bg-cover bg-center bg-no-repeat relative" id="products">
+  <section class="py-24 bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative" id="products">
     <div class="max-w-page mx-auto px-[--padding-page] relative z-10">
       <div class="text-center mb-16 opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
         <h2 class="font-barlow-condensed text-[clamp(36px,4vw,52px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-3">Product Series</h2>
@@ -184,7 +184,7 @@ const meta = {
 
         <!-- 右侧：图片介绍 -->
         <div class="flex items-center justify-end">
-          <div class="w-[340px] h-[460px] rounded-sm relative overflow-hidden bg-contain bg-center bg-no-repeat bg-[url('/assets/images/index-product-ahf.png')]" id="product-visual"></div>
+          <div class="w-[340px] h-[460px] rounded-sm relative overflow-hidden bg-contain bg-center bg-no-repeat bg-[url('/assets/images/index-product-ahf.webp')]" id="product-visual"></div>
         </div>
       </div>
     </div>
@@ -192,9 +192,9 @@ const meta = {
 
   <script>
     const productData = {
-      ahf: { visual: '/assets/images/index-product-ahf.png', infoId: 'info-ahf' },
-      svg: { visual: '/assets/images/index-product-svg.png', infoId: 'info-svg' },
-      avr: { visual: '/assets/images/index-product-avr.png', infoId: 'info-avr' }
+      ahf: { visual: '/assets/images/index-product-ahf.webp', infoId: 'info-ahf' },
+      svg: { visual: '/assets/images/index-product-svg.webp', infoId: 'info-svg' },
+      avr: { visual: '/assets/images/index-product-avr.webp', infoId: 'info-avr' }
     };
 
     const tabs = document.querySelectorAll('.tab');
