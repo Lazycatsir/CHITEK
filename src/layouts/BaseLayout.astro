@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Sidebar from '../components/Sidebar.astro';
+import { getHreflang, getAltHref } from '../i18n/index';
 
 export interface Props {
   title: string;
@@ -17,6 +18,10 @@ export interface Props {
 const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl } = Astro.props;
 const defaultOgImage = 'https://chitek.com/assets/images/logo.webp';
 const defaultOgUrl = 'https://chitek.com';
+
+const currentPath = Astro.url.pathname;
+const enPath = getAltHref(currentPath, 'en');
+const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
 ---
 
 <!doctype html>
@@ -26,13 +31,20 @@ const defaultOgUrl = 'https://chitek.com';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Alternate language links -->
+  <link rel="alternate" hreflang="en" href={getHreflang('en', enPath)} />
+  <link rel="alternate" hreflang="pt" href={getHreflang('pt', enPath)} />
+  <link rel="alternate" hreflang="es" href={getHreflang('es', enPath)} />
+  <link rel="alternate" hreflang="x-default" href={getHreflang('en', enPath)} />
 
   <!-- Open Graph -->
   <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : lang === 'es' ? 'es_ES' : 'en_US'} />
   <meta property="og:title" content={ogTitle || title} />
   <meta property="og:description" content={ogDescription || description} />
   <meta property="og:image" content={ogImage || defaultOgImage} />
-  <meta property="og:url" content={ogUrl || defaultOgUrl} />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CHITEK INNOPOWER" />
 
@@ -40,6 +52,35 @@ const defaultOgUrl = 'https://chitek.com';
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={ogTitle || title} />
   <meta name="twitter:description" content={ogDescription || description} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CHITEK INNOPOWER",
+  "url": "https://chitek.com",
+  "logo": "https://chitek.com/assets/images/logo.webp",
+  "description": "Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF), Static Var Generator (SVG), and Automatic Voltage Regulator (AVR).",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+86-1881899436",
+    "contactType": "sales",
+    "availableLanguage": ["English", "Portuguese", "Spanish"]
+  },
+  "sameAs": []
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CHITEK INNOPOWER",
+  "url": "https://chitek.com",
+  "description": "B2B industrial power quality solutions manufacturer — AHF, SVG, AVR for global industrial and commercial applications.",
+  "inLanguage": ["en", "pt", "es"]
+}
+  </script>
 </head>
 <body class="font-barlow text-text-dark bg-white overflow-x-hidden">
   <Nav lang={lang} />
