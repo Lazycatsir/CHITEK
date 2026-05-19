@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'Contact CHITEK – Sales & Technical Support | Power Quality',
-  description: 'Contact CHITEK for sales inquiries, technical support, and partnership opportunities. Global presence with local support in 15+ countries.',
+  title: 'Contacto CHITEK – Suporte Comercial e Técnico | Qualidade de Energia',
+  description: 'Contacte a CHITEK para consultas comerciais, suporte técnico e oportunidades de parceria. Presença global com suporte local em mais de 15 países.',
 };
 ---
 
@@ -12,15 +12,15 @@ const meta = {
   <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-[72px]">
     <img
       src="/assets/images/contact.webp"
-      alt="Contact Us Background"
+      alt="Fundo Contacte-nos"
       class="absolute inset-0 w-full h-full object-cover object-center z-0"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-[rgba(7,16,30,0.55)] via-[rgba(7,16,30,0.35)] to-[rgba(7,16,30,0.15)] z-[1]"></div>
     <div class="relative z-[2] text-center px-5 pt-20 md:pt-[100px] pb-[60px] max-w-[800px] mx-auto fade-up">
-      <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-tight mb-[clamp(12px,2vw,32px)] font-barlow-condensed text-brand-orange">Contact Us</h1>
+      <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-tight mb-[clamp(12px,2vw,32px)] font-barlow-condensed text-brand-orange">Contacte-nos</h1>
       <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 max-w-[600px] mx-auto">
-        Here you can send us an inquiry concerning general questions about
-        CHITEK.
+        Aqui pode enviar-nos uma consulta sobre questões gerais relativas
+        à CHITEK.
       </p>
     </div>
   </section>
@@ -30,10 +30,10 @@ const meta = {
     <div class="grid grid-cols-1 md:grid-cols-2 bg-white rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] overflow-hidden">
       <!-- Left: Form Side -->
       <div class="p-8 lg:p-12 bg-gray-50">
-        <h2 class="text-[clamp(20px,2vw,36px)] font-bold text-text-dark mb-1.5 font-barlow-condensed">Get Your Custom Power Quality Solution</h2>
+        <h2 class="text-[clamp(20px,2vw,36px)] font-bold text-text-dark mb-1.5 font-barlow-condensed">Obtenha a Sua Solução Personalizada de Qualidade de Energia</h2>
         <p class="text-[clamp(11px,0.9vw,14px)] text-text-muted leading-relaxed mb-7">
-          Tell us about your project. Our application engineers will provide a
-          tailored proposal within 24 hours.
+          Conte-nos sobre o seu projeto. Os nossos engenheiros de aplicação
+          fornecerão uma proposta personalizada no prazo de 24 horas.
         </p>
 
         <form
@@ -45,32 +45,32 @@ const meta = {
         >
           <input type="hidden" name="form-name" value="contact" />
           <div hidden aria-hidden="true">
-            <label>Don't fill this out <input name="bot-field" /></label>
+            <label>Não preencha este campo <input name="bot-field" /></label>
           </div>
           <!-- Full Name + Country -->
           <div class="flex flex-col sm:flex-row gap-[clamp(12px,3vw,48px)] mb-4">
             <div class="flex-1">
               <label for="name" class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-                Full Name<span class="text-brand-orange">*</span>
+                Nome Completo<span class="text-brand-orange">*</span>
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Your Name"
+                placeholder="O seu Nome"
                 required
                 class="border border-border-light rounded-md px-4 py-3 w-full text-[clamp(12px,1vw,16px)] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
               />
             </div>
             <div class="flex-1">
               <label for="country" class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-                Country<span class="text-brand-orange">*</span>
+                País<span class="text-brand-orange">*</span>
               </label>
               <input
                 type="text"
                 id="country"
                 name="country"
-                placeholder="Country"
+                placeholder="País"
                 required
                 class="border border-border-light rounded-md px-4 py-3 w-full text-[clamp(12px,1vw,16px)] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
               />
@@ -81,20 +81,20 @@ const meta = {
           <div class="flex flex-col sm:flex-row gap-[clamp(12px,3vw,48px)] mb-4">
             <div class="flex-1">
               <label for="email" class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-                Work Email <span class="text-brand-orange">*</span>
+                Email Profissional <span class="text-brand-orange">*</span>
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="your@email.com"
+                placeholder="o.seu@email.com"
                 required
                 class="border border-border-light rounded-md px-4 py-3 w-full text-[clamp(12px,1vw,16px)] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
               />
             </div>
             <div class="flex-1">
               <label for="tel" class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-                Tel / WhatsApp
+                Tel. / WhatsApp
               </label>
               <input
                 type="tel"
@@ -109,7 +109,7 @@ const meta = {
           <!-- Product Type Radio -->
           <div class="mb-4">
             <label class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-              Product Type <span class="text-brand-orange">*</span>
+              Tipo de Produto <span class="text-brand-orange">*</span>
             </label>
             <div class="flex flex-col sm:flex-row gap-3 flex-wrap">
               <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 prod-radio-label">
@@ -126,7 +126,7 @@ const meta = {
               </label>
               <label class="flex items-center gap-2 px-4 py-2.5 border border-border-light rounded-md cursor-pointer transition-all duration-200 bg-white flex-1 min-w-[100px] justify-center hover:border-brand-orange hover:bg-brand-orange/5 prod-radio-label">
                 <input type="radio" name="product_type" value="Integrated" class="w-4 h-4 accent-[#ff6b1a] cursor-pointer m-0 peer" />
-                <span class="text-[clamp(11px,0.9vw,14px)] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">NOT SURE</span>
+                <span class="text-[clamp(11px,0.9vw,14px)] font-medium text-text-mid transition-colors duration-200 peer-checked:text-brand-orange peer-checked:font-semibold">NÃO SEI</span>
               </label>
             </div>
           </div>
@@ -134,12 +134,12 @@ const meta = {
           <!-- Message -->
           <div class="mb-4">
             <label for="message" class="block text-[clamp(10px,0.8vw,13px)] font-semibold text-text-mid mb-1.5 uppercase tracking-[0.06em]">
-              Project Requirements <span class="text-brand-orange">*</span>
+              Requisitos do Projeto <span class="text-brand-orange">*</span>
             </label>
             <textarea
               id="message"
               name="message"
-              placeholder="Enter product details (such as Frequency, Voltage Level, Capacity, etc.) and other specific requirements to receive an accurate quote."
+              placeholder="Insira os detalhes do produto (como Frequência, Nível de Tensão, Capacidade, etc.) e outros requisitos específicos para receber um orçamento preciso."
               required
               class="border border-border-light rounded-md px-4 py-3 w-full text-[clamp(12px,1vw,16px)] text-text-dark bg-white outline-none transition-[border-color,box-shadow] duration-200 placeholder-[#bbb] resize-y min-h-[100px] focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 font-[inherit]"
             ></textarea>
@@ -150,7 +150,7 @@ const meta = {
             type="submit"
             class="group w-full py-3.5 px-7 bg-gradient-to-r from-[#e85a0d] via-[#ff6600] to-[#ffaa00] text-white border-none rounded-md text-[clamp(12px,1vw,16px)] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-all duration-200 mt-2 flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(232,90,13,0.4)]"
           >
-            Send Message
+            Enviar Mensagem
             <svg class="w-4 h-4 stroke-current transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -161,11 +161,11 @@ const meta = {
 
       <!-- Right: Contact Info Side -->
       <div class="p-8 lg:p-12 bg-white order-first md:order-none">
-        <h2 class="text-[clamp(20px,2vw,36px)] font-bold text-text-dark mb-1.5 font-barlow-condensed">Get in Touch</h2>
+        <h2 class="text-[clamp(20px,2vw,36px)] font-bold text-text-dark mb-1.5 font-barlow-condensed">Entre em Contacto</h2>
         <p class="text-[clamp(11px,0.9vw,14px)] text-text-muted mb-7">
-          Find the best way to get help and connect with CHITEK. Fill out a
-          short form or get tips to fix some of the most common issues right
-          from your computer.
+          Encontre a melhor forma de obter ajuda e conectar-se com a CHITEK.
+          Preencha um pequeno formulário ou obtenha dicas para resolver alguns
+          dos problemas mais comuns diretamente do seu computador.
         </p>
 
         <ul class="flex flex-col gap-5 mb-[clamp(16px,2.5vw,40px)] list-none p-0 m-0">
@@ -177,7 +177,7 @@ const meta = {
               </svg>
             </div>
             <div>
-              <div class="text-[clamp(10px,0.8vw,13px)] text-text-muted uppercase tracking-[0.06em] mb-0.5">Tel / WhatsApp</div>
+              <div class="text-[clamp(10px,0.8vw,13px)] text-text-muted uppercase tracking-[0.06em] mb-0.5">Tel. / WhatsApp</div>
               <div class="text-[clamp(12px,1vw,16px)] text-text-dark font-medium">
                 <div><a href="tel:+861881899436" class="text-text-dark no-underline transition-colors duration-200 hover:text-brand-orange">+86 1881899436</a></div>
               </div>
@@ -209,7 +209,7 @@ const meta = {
               </svg>
             </div>
             <div>
-              <div class="text-[clamp(10px,0.8vw,13px)] text-text-muted uppercase tracking-[0.06em] mb-0.5">Head Office</div>
+              <div class="text-[clamp(10px,0.8vw,13px)] text-text-muted uppercase tracking-[0.06em] mb-0.5">Sede</div>
               <div class="text-[clamp(12px,1vw,16px)] text-text-dark font-medium">Shenzhen, Guangdong, China</div>
             </div>
           </li>
@@ -219,7 +219,7 @@ const meta = {
 
         <!-- Social Networks -->
         <div>
-          <h3 class="text-[clamp(14px,1vw,17px)] font-bold text-text-dark uppercase tracking-[0.04em] mb-4">Social Networks</h3>
+          <h3 class="text-[clamp(14px,1vw,17px)] font-bold text-text-dark uppercase tracking-[0.04em] mb-4">Redes Sociais</h3>
           <div class="flex gap-2.5">
             <a href="#" class="w-10 h-10 rounded-[6px] bg-gradient-to-br from-[#d75e1d] to-[#ec5f13] flex items-center justify-center no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(232,90,13,0.35)]" aria-label="LinkedIn">
               <svg class="w-[18px] h-[18px] fill-white" viewBox="0 0 24 24">
@@ -306,8 +306,8 @@ const meta = {
     <div class="bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
       <!-- Top: decorative gradient bar -->
       <div class="px-8 md:px-12 py-5 md:py-6 bg-gradient-to-r from-[#ffaa00] via-[#ff6600] to-[#e85a0d] text-white text-center">
-        <h3 class="text-[22px] md:text-[22px] font-bold uppercase tracking-[0.04em]">Find Us</h3>
-        <p class="text-[clamp(11px,0.9vw,14px)] opacity-90">Visit our headquarters in Shenzhen, China</p>
+        <h3 class="text-[22px] md:text-[22px] font-bold uppercase tracking-[0.04em]">Encontre-nos</h3>
+        <p class="text-[clamp(11px,0.9vw,14px)] opacity-90">Visite a nossa sede em Shenzhen, China</p>
       </div>
 
       <!-- Bottom: map area -->
@@ -330,7 +330,7 @@ const meta = {
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span>Head Office Location</span>
+            <span>Localização da Sede</span>
           </div>
         </div>
       </div>
