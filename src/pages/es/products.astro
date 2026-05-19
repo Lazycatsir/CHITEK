@@ -12,7 +12,7 @@ const meta = {
   <div id="sticky-tab-bar" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-light shadow-[0_2px_16px_rgba(0,0,0,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="flex items-center justify-center gap-0 md:gap-[clamp(8px,1.5vw,20px)] overflow-x-auto">
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Active Filtro Armónico</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Filtro Armónico Activo</span></button>
         <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Static Var Generator</span></button>
         <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="2"><span class="font-barlow-condensed">Regulador Automático de Tensión</span></button>
       </div>
@@ -46,7 +46,7 @@ const meta = {
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
           <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Propuesta de Valor</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas &amp; Solucións</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas y Soluciones</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
@@ -116,7 +116,7 @@ const meta = {
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
           <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Propuesta de Valor</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas &amp; Solucións</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas y Soluciones</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
@@ -2001,12 +2001,12 @@ const meta = {
     }, { passive: true });
 
     // ===== Tab Switching =====
-    document.querySelectorTodos('.sticky-hero-tab').forEach(btn => {
+    document.querySelectorAll('.sticky-hero-tab').forEach(btn => {
       btn.addEventListener('click', () => {
         const tab = btn.dataset.tab;
 
         // Update button styles
-        document.querySelectorTodos('.sticky-hero-tab').forEach(b => {
+        document.querySelectorAll('.sticky-hero-tab').forEach(b => {
           if (b.dataset.tab === tab) {
             b.classList.remove('text-[#374151]', 'hover:text-brand-orange', 'hover:bg-orange-50');
             b.classList.add('text-white', 'bg-brand-orange', 'shadow-sm');
@@ -2017,7 +2017,7 @@ const meta = {
         });
 
         // Toggle all tab-panels
-        document.querySelectorTodos('.tab-panel').forEach(panel => {
+        document.querySelectorAll('.tab-panel').forEach(panel => {
           if (panel.dataset.tab === tab) {
             panel.classList.remove('hidden');
           } else {
@@ -2038,17 +2038,17 @@ const meta = {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           // Also reveal nested feat-cards
-          entry.target.querySelectorTodos('.feat-card').forEach((card, i) => {
+          entry.target.querySelectorAll('.feat-card').forEach((card, i) => {
             setTimeout(() => card.classList.add('visible'), i * 150);
           });
         }
       });
     }, { threshold: 0.15 });
-    document.querySelectorTodos('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ===== Roadmap Tooltip =====
     const tooltip = document.getElementById('roadmap-tooltip');
-    document.querySelectorTodos('.tooltip-trigger').forEach(el => {
+    document.querySelectorAll('.tooltip-trigger').forEach(el => {
       el.addEventListener('mouseenter', (e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         tooltip.textContent = e.currentTarget.dataset.tip;
@@ -2165,7 +2165,7 @@ const meta = {
         tbody.appendChild(tr);
       });
       table.style.borderBottom = '1px solid #d1d5db';
-      document.querySelectorTodos('.matrix-cell').forEach(btn => {
+      document.querySelectorAll('.matrix-cell').forEach(btn => {
         btn.addEventListener('click', () => {
           const series = btn.dataset.series;
           const cap = btn.dataset.cap;
@@ -2204,12 +2204,12 @@ const meta = {
     };
 
     // Tensión buttons
-    document.querySelectorTodos('.volt-btn').forEach(btn => {
+    document.querySelectorAll('.volt-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         selectedTensión = btn.dataset.v;
         selectedCell = null;
         document.getElementById('spec-panel').classList.add('hidden');
-        document.querySelectorTodos('.volt-btn').forEach(b => {
+        document.querySelectorAll('.volt-btn').forEach(b => {
           if (b.dataset.v === selectedTensión) {
             b.classList.add('border-brand-orange', 'bg-brand-orange', 'text-white');
             b.classList.remove('border-[#d1d5db]', 'text-text-dim');
@@ -2248,7 +2248,7 @@ const meta = {
       updateWizard();
     };
     function updateWizard() {
-      document.querySelectorTodos('.wizard-step').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
       document.getElementById('wiz-' + wizStep).classList.add('active');
 
       if (wizStep === 'series') {
@@ -2324,9 +2324,9 @@ const meta = {
       }).join('');
     }
     renderResources('all');
-    document.querySelectorTodos('.res-filter').forEach(btn => {
+    document.querySelectorAll('.res-filter').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorTodos('.res-filter').forEach(b => {
+        document.querySelectorAll('.res-filter').forEach(b => {
           b.classList.remove('bg-brand-orange', 'text-white', 'border-brand-orange');
           b.classList.add('bg-white', 'border-[#d1d5db]', 'text-text-dim');
         });
@@ -2339,9 +2339,9 @@ const meta = {
     // ===== Case Carousel =====
     let caseIndex = 0;
     const caseTrack = document.getElementById('case-track');
-    const caseSlides = document.querySelectorTodos('#case-carousel .case-slide');
+    const caseSlides = document.querySelectorAll('#case-carousel .case-slide');
     const totalSlides = caseSlides.length;
-    const dots = document.querySelectorTodos('#case-dots .carousel-dot');
+    const dots = document.querySelectorAll('#case-dots .carousel-dot');
 
     function goToCase(idx) {
       caseIndex = idx;
@@ -2386,9 +2386,9 @@ const meta = {
     // ===== SVG Case Carousel =====
     let svgCaseIndex = 0;
     const svgCaseTrack = document.getElementById('case-track-svg');
-    const svgCaseSlides = document.querySelectorTodos('#case-carousel-svg .case-slide');
+    const svgCaseSlides = document.querySelectorAll('#case-carousel-svg .case-slide');
     const svgTotalSlides = svgCaseSlides.length;
-    const svgDots = document.querySelectorTodos('#case-dots-svg .carousel-dot');
+    const svgDots = document.querySelectorAll('#case-dots-svg .carousel-dot');
 
     function goToSvgCase(idx) {
       svgCaseIndex = idx;
@@ -2432,10 +2432,10 @@ const meta = {
     function initFaq(containerId, prefix) {
       const container = document.getElementById(containerId);
       if (!container) return;
-      const navItems = container.querySelectorTodos('.faq-nav-item');
+      const navItems = container.querySelectorAll('.faq-nav-item');
       const faqFlex = container.closest('.faq-flex');
       if (!faqFlex) return;
-      const panels = faqFlex.querySelectorTodos('.faq-panel');
+      const panels = faqFlex.querySelectorAll('.faq-panel');
 
       navItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -2474,8 +2474,8 @@ const meta = {
     function setupFaqTab0() {
       const flex = document.querySelector('.tab-panel.faq-flex[data-tab="0"]');
       if (!flex) return;
-      const navItems = flex.querySelectorTodos('.faq-nav-item');
-      const panels = flex.querySelectorTodos('.faq-panel');
+      const navItems = flex.querySelectorAll('.faq-nav-item');
+      const panels = flex.querySelectorAll('.faq-panel');
 
       // Init first item active
       navItems.forEach((item, i) => {
@@ -2497,8 +2497,8 @@ const meta = {
     function setupFaqTab1() {
       const flex = document.querySelector('.tab-panel.faq-flex[data-tab="1"]');
       if (!flex) return;
-      const navItems = flex.querySelectorTodos('.faq-nav-item');
-      const panels = flex.querySelectorTodos('.faq-panel');
+      const navItems = flex.querySelectorAll('.faq-nav-item');
+      const panels = flex.querySelectorAll('.faq-panel');
 
       navItems.forEach((item, i) => {
         if (i === 0) {

@@ -3,17 +3,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
   title: 'CHITEK — Fabricante de AHF, SVG e AVR de Baixa Tensão | Soluções de Qualidade de Energia',
-  description: 'A CHITEK oferece Filtro Harmónico Ativo (AHF), Gerador Estático de Var (SVG), AHF/SVG SiC e Regulador Automático de Tensão (AVR) para correção da qualidade de energia em baixa tensão.',
+  description: 'A CHITEK oferece Filtro Harmónico Ativo (AHF), Gerador Estático de Var (SVG), AHF/SVG SiC e Regulador Automático de Tensão (AVR) para correção de qualidade de energia em baixa tensão.',
 };
 ---
 
-<BaseLayout lang="pt" title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} lang="pt">
   <!-- Sticky Tab Bar (visible after scrolling past hero) -->
   <div id="sticky-tab-bar" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-light shadow-[0_2px_16px_rgba(0,0,0,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="flex items-center justify-center gap-0 md:gap-[clamp(8px,1.5vw,20px)] overflow-x-auto">
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Active Filtro Harmónico</span></button>
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Static Var Generator</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Filtro Harmónico Ativo</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Gerador Estático de Var</span></button>
         <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="2"><span class="font-barlow-condensed">Regulador Automático de Tensão</span></button>
       </div>
     </div>
@@ -46,7 +46,7 @@ const meta = {
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
           <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Proposta de Valor</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas &amp; Soluções</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pontos Críticos e Soluções</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
@@ -54,21 +54,21 @@ const meta = {
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
             <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Flutuação de Tensão</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Paragens inesperadas de equipamentos, perda de dados e interrupções na linha de produção causadas por tensão de rede instável.</p>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Paradas inesperadas de equipamentos, perda de dados e interrupções na linha de produção causadas por tensão de rede instável.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
             </div>
             <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Distorção Harmónica</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Sobreaquecimento de transformadores, perdas adicionais em cabos e mau funcionamento de equipamentos de precisão devido à poluição harmónica.</p>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Sobreaquecimento do transformador, perdas adicionais em cabos e mau funcionamento de equipamentos de precisão devido à poluição harmónica.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Penalidades de Fator de Potência</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Custos ocultos crescem nas faturas de eletricidade, com as empresas de serviços públicos cobrando extra por fator de potência baixo.</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Penalizações de Fator de Potência</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Custos ocultos nas faturas de eletricidade, com as concessionárias cobrando mais pelo baixo fator de potência.</p>
           </div>
         </div>
 
@@ -80,7 +80,7 @@ const meta = {
             <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
             <div class="hidden md:block absolute -bottom-8 left-[12%] right-[12%]">
               <svg width="100%" height="30" viewBox="0 0 800 30" preserveAspectRatio="none"><path d="M 0 25 Q 400 5 800 25" fill="none" stroke="rgba(255,107,26,0.4)" stroke-width="1" stroke-dasharray="4 4"/><polygon points="790,22 800,28 790,28" fill="rgba(255,107,26,0.5)"/></svg>
-              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Closed-loop control, &lt;50&mu;s response</p>
+              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Controlo em malha fechada, resposta &lt;50&mu;s</p>
             </div>
             <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
@@ -116,29 +116,29 @@ const meta = {
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
           <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Proposta de Valor</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Problemas &amp; Soluções</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pontos Críticos e Soluções</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Carência de Potência Reativa</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">O baixo fator de potência causa sobrecarga do transformador, perdas de linha e penalidades para cargas industriais.</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Deficiência de Potência Reativa</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">O baixo fator de potência causa sobrecarga no transformador, perdas de linha e penalizações da concessionária para cargas industriais.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Cintilação de Tensão &amp; Sag</h3>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Cintilação e Queda de Tensão</h3>
             <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Mudanças súbitas de carga causam quedas e cintilação de tensão, afetando equipamentos sensíveis e a qualidade do produto.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Problemas com Bancos de Condensadores</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Os bancos de condensadores tradicionais não acompanham cargas dinâmicas, causando sobre/subcompensação e risco de ressonância.</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Problemas com Bancos de Capacitores</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Bancos de capacitores tradicionais não acompanham cargas dinâmicas, causando sobre/subcompensação e risco de ressonância.</p>
           </div>
         </div>
 
@@ -150,7 +150,7 @@ const meta = {
             <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
             <div class="hidden md:block absolute -bottom-8 left-[12%] right-[12%]">
               <svg width="100%" height="30" viewBox="0 0 800 30" preserveAspectRatio="none"><path d="M 0 25 Q 400 5 800 25" fill="none" stroke="rgba(255,107,26,0.4)" stroke-width="1" stroke-dasharray="4 4"/><polygon points="790,22 800,28 790,28" fill="rgba(255,107,26,0.5)"/></svg>
-              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Full response &lt;10ms, real-time closed-loop</p>
+              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Resposta total &lt;10ms, malha fechada em tempo real</p>
             </div>
             <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
@@ -159,7 +159,7 @@ const meta = {
               <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Amostragem da Rede</p></div>
             </div>
             <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Reativo power calculation&#10;Real-time PF analysis">
+              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Reactive power calculation&#10;Real-time PF analysis">
                 <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">02</span>
               </div>
               <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Análise Q/FP</p></div>
@@ -212,21 +212,21 @@ const meta = {
               <rect x="140" y="60" width="40" height="15" rx="2" fill="#ff4d00" opacity="0.1"/>
               <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">SiC vs IGBT</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Frequência de Comutação &gt;20kHz, loss reduction 30%</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Frequência de comutação &gt;20kHz, redução de perdas 30%</p>
           </div>
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:150ms">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Anti-Ressonância</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Antirressonância</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <path d="M10 80 Q 55 20, 100 60 T 190 40" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.6"/>
               <path d="M10 90 Q 55 40, 100 75 T 190 55" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.3"/>
               <rect x="75" y="15" width="50" height="55" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
               <path d="M85 45 L95 55 L115 35" fill="none" stroke="#ff4d00" stroke-width="2"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">5th/7th DAMPED</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">5ª/7ª AMORTECIDA</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Amortecimento adaptativo, evita amplificação de ressonância de 5ª/7ª ordem</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Amortecimento adaptativo, evita amplificação de ressonância de 5ª/7ª</p>
           </div>
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:300ms">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
@@ -239,7 +239,7 @@ const meta = {
               <rect x="110" y="55" width="60" height="45" rx="2" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.7"/>
               <text x="140" y="48" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow, sans-serif">Série U 45mm</text>
               <line x1="110" y1="65" x2="170" y2="65" stroke="#ff4d00" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 2"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">55% SPACE SAVED</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">55% ECONOMIA DE ESPAÇO</text>
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Economia de espaço vs modelos tradicionais de armário 100mm+</p>
           </div>
@@ -247,7 +247,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><path d="M6 10v4M9 10v4M12 10v4M15 10v4"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">99% de Eficiência</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Eficiência de 99%</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <rect x="40" y="20" width="120" height="80" rx="8" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.3"/>
               <rect x="40" y="20" width="118.8" height="80" rx="8" fill="#ff4d00" opacity="0.15"/>
@@ -255,10 +255,10 @@ const meta = {
               <rect x="46" y="26" width="98" height="68" rx="4" fill="#ff4d00" opacity="0.35"/>
               <line x1="42" y1="75" x2="170" y2="75" stroke="#ff4d00" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 2"/>
               <text x="100" y="58" text-anchor="middle" fill="#ff4d00" font-size="28" font-family="Barlow Condensed, sans-serif" font-weight="700" opacity="0.9">99%</text>
-              <text x="100" y="72" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" opacity="0.7">EFFICIENCY</text>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">ULTRA HIGH EFFICIENCY</text>
+              <text x="100" y="72" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" opacity="0.7">EFICIÊNCIA</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">EFICIÊNCIA ULTRA-ALTA</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Eficiência ultra-alta, maximizando a utilização de energia e reduzindo perdas no sistema</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Eficiência ultra-alta, maximizando a utilização de energia e reduzindo perdas do sistema</p>
           </div>
         </div>
       </div>
@@ -276,34 +276,34 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">&lt;5ms Response</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Resposta &lt;5ms</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <rect x="20" y="30" width="160" height="60" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
               <path d="M20 90 L60 30 L100 90 L140 30 L180 90" fill="none" stroke="#ff4d00" stroke-width="2" opacity="0.7"/>
               <line x1="60" y1="30" x2="60" y2="20" stroke="#ff4d00" stroke-width="1" stroke-dasharray="2 2"/>
               <line x1="140" y1="30" x2="140" y2="20" stroke="#ff4d00" stroke-width="1" stroke-dasharray="2 2"/>
-              <text x="100" y="18" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">&lt;5ms FULL RESPONSE</text>
-              <text x="100" y="115" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">vs. capacitor banks: seconds~minutes</text>
+              <text x="100" y="18" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">RESPOSTA TOTAL &lt;5ms</text>
+              <text x="100" y="115" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">vs. bancos de capacitores: segundos~minutos</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Compensação total em menos de 5ms, acompanhando mudanças de carga em tempo real</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Saída de compensação total em menos de 5ms, acompanhando mudanças de carga em tempo real</p>
           </div>
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:150ms">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Design Sem Condensadores</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Design Sem Capacitor</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <rect x="10" y="30" width="70" height="60" rx="3" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.4"/>
               <text x="45" y="60" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">Capacitor</text>
-              <text x="45" y="72" text-anchor="middle" fill="#9ca3af" font-size="7" font-family="Barlow Condensed, sans-serif">Banks</text>
+              <text x="45" y="72" text-anchor="middle" fill="#9ca3af" font-size="7" font-family="Barlow Condensed, sans-serif">Bancos</text>
               <line x1="85" y1="60" x2="115" y2="60" stroke="#ff4d00" stroke-width="1.5"/>
               <polygon points="110,56 118,60 110,64" fill="#ff4d00"/>
               <rect x="120" y="30" width="70" height="60" rx="3" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.7"/>
-              <text x="155" y="60" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" font-weight="600">IGBT SVG</text>
-              <text x="155" y="72" text-anchor="middle" fill="#ff4d00" font-size="7" font-family="Barlow Condensed, sans-serif">No capacitors</text>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">NO RESONANCE RISK</text>
+              <text x="155" y="60" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" font-weight="600">SVG IGBT</text>
+              <text x="155" y="72" text-anchor="middle" fill="#ff4d00" font-size="7" font-family="Barlow Condensed, sans-serif">Sem capacitores</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">SEM RISCO DE RESSONÂNCIA</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Design puramente baseado em IGBT elimina ressonância de condensadores e problemas de manutenção</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Design puro baseado em IGBT elimina ressonância de capacitores e problemas de manutenção</p>
           </div>
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:300ms">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
@@ -312,19 +312,19 @@ const meta = {
             <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Saída Bidirecional</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <rect x="30" y="20" width="60" height="35" rx="2" fill="#ff4d00" opacity="0.15" stroke="#ff4d00" stroke-width="1"/>
-              <text x="60" y="42" text-anchor="middle" fill="#ff4d00" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">+Q (Inductive)</text>
+              <text x="60" y="42" text-anchor="middle" fill="#ff4d00" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">+Q (Indutivo)</text>
               <rect x="110" y="65" width="60" height="35" rx="2" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
-              <text x="140" y="87" text-anchor="middle" fill="#3b82f6" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">-Q (Capacitive)</text>
+              <text x="140" y="87" text-anchor="middle" fill="#3b82f6" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">-Q (Capacitivo)</text>
               <line x1="90" y1="37" x2="110" y2="82" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="3 3"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">BOTH LEAD &amp; LAG</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">CAPACITIVO E INDUTIVO</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Produz potência reativa capacitiva e indutiva para operação completa em quatro quadrantes</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Saída de potência reativa capacitiva e indutiva para operação completa em quatro quadrantes</p>
           </div>
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:450ms">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="5" y1="16" x2="12" y2="12"/><line x1="19" y1="16" x2="12" y2="12"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Paralelo Multi-Unidade</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Paralelo Multiunidade</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4">
               <circle cx="100" cy="30" r="12" fill="none" stroke="#ff4d00" stroke-width="1.5"/>
               <circle cx="60" cy="80" r="12" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.6"/>
@@ -333,25 +333,25 @@ const meta = {
               <line x1="100" y1="42" x2="60" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
               <line x1="100" y1="42" x2="100" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
               <line x1="100" y1="42" x2="140" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">MAX 16 UNITS</text>
+              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">MÁX. 16 UNIDADES</text>
             </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Up to 16 units parallel, circulating current &lt;3%, plug-and-play</p>
+            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Até 16 unidades em paralelo, corrente circulante &lt;3%, plug-and-play</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tab 2: AVR (Em Breve) -->
+  <!-- Tab 2: AVR (Coming Soon) -->
   <section class="tab-panel hidden relative z-[2] bg-gradient-to-b from-[#0f1117] via-[#161b22] to-[#0d1117] py-[clamp(64px,6vw,128px)] overflow-hidden" data-tab="2">
     <div class="px-[clamp(24px,8vw,160px)] relative">
       <div class="text-center reveal max-w-3xl mx-auto">
         <span class="inline-block px-4 py-1.5 text-[clamp(10px,0.8vw,12px)] font-semibold text-brand-orange bg-brand-orange/10 border border-brand-orange/30 rounded-full mb-[clamp(12px,2vw,32px)] tracking-wider uppercase font-barlow-condensed">Em Breve</span>
         <h2 class="text-[clamp(28px,3vw,56px)] md:text-5xl font-bold text-white/90 font-barlow-condensed mb-[clamp(12px,2vw,32px)]">Regulador Automático de Tensão</h2>
         <p class="text-[clamp(13px,1.1vw,17px)] text-gray-400 leading-relaxed mb-[clamp(16px,2.5vw,40px)]">
-          CHITEK's next-generation Regulador Automático de Tensão (AVR) is currently under development, engineered to deliver precise voltage stabilization for mission-critical industrial applications. With advanced SiC-based topology and &lt;50&mu;s response time, it ensures consistent power quality under the most demanding grid conditions.
+          O Regulador Automático de Tensão (AVR) de próxima geração da CHITEK está atualmente em desenvolvimento, projetado para fornecer estabilização precisa de tensão para aplicações industriais de missão crítica. Com topologia avançada baseada em SiC e tempo de resposta &lt;50&mu;s, garante qualidade de energia consistente sob as condições de rede mais exigentes.
         </p>
-        <h3 class="font-barlow-condensed text-[clamp(32px,4vw,80px)] font-bold text-brand-orange mb-6 uppercase tracking-[0.02em] [text-shadow:0_0_30px_rgba(255,107,26,0.3)]">Lançado até ao final do ano</h3>
+        <h3 class="font-barlow-condensed text-[clamp(32px,4vw,80px)] font-bold text-brand-orange mb-6 uppercase tracking-[0.02em] [text-shadow:0_0_30px_rgba(255,107,26,0.3)]">Lançado até o final do ano</h3>
         <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/[0.06] border border-white/10 rounded-xl">
           <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
           <span class="text-[clamp(12px,0.9vw,15px)] text-gray-300 font-medium font-barlow-condensed tracking-wider">Disponível em Outubro de 2026</span>
@@ -366,8 +366,8 @@ const meta = {
       <!-- Tab 0: AHF -->
       <div class="tab-panel" data-tab="0">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Quatro Séries de Produtos, Cobertura Total de Cenários</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Quatro Séries de Produtos, Cobertura Completa de Cenários</h2>
+          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">De armários padrão a ambientes extremos, de filtragem harmónica a compensação de potência reativa — encontre a sua configuração</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
           <!-- Standard -->
@@ -389,7 +389,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensões</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Solução versátil de referência</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Solução versátil e abrangente</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -403,7 +403,7 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cobertura Standard</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cobertura Abrangente</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
@@ -414,14 +414,14 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Flagship &middot; Harmonic Compensation 2nd-50th</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Principal &middot; Compensação Harmónica 2ª-50ª</span>
             </div>
           </div>
           <!-- SiC -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Otimizado para Espaço</span>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Espaço Otimizado</span>
                 <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
@@ -444,13 +444,13 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Eslguido</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U UltraFino</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Compatível com Armário</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Compatível com Armários</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
@@ -461,15 +461,15 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Compact &middot; Best for space-constrained installs</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Compacto &middot; Ideal para instalações com espaço limitado</span>
             </div>
           </div>
-          <!-- Distribuído Series -->
+          <!-- Distributed Series -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Implantação Flexível</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distribuído</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Implementação Flexível</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distribuída</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -483,7 +483,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensões</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultracompacto &middot; Compatível com gaveta</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -503,15 +503,15 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ecrã Tátil Completo</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Touchscreen Completo</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Distribuído &middot; Drawer cabinet retrofit</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Distribuída &middot; Retrofit de armário de gaveta</span>
             </div>
           </div>
-          <!-- Antipoluição Series -->
+          <!-- Anti-Pollution Series -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
@@ -550,12 +550,12 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Fiável</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultraconfiável</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Heavy Indústria &middot; Mining, metallurgy &amp; chemical</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Indústria Pesada &middot; Mineração, metalurgia e química</span>
             </div>
           </div>
         </div>
@@ -564,8 +564,8 @@ const meta = {
       <!-- Tab 1: SVG -->
       <div class="tab-panel hidden" data-tab="1">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Quatro Séries de Produtos, Cobertura Total de Cenários</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Quatro Séries de Produtos, Cobertura Completa de Cenários</h2>
+          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">De armários padrão a ambientes extremos, de filtragem harmónica a compensação de potência reativa — encontre a sua configuração</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
           <!-- Standard -->
@@ -587,7 +587,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensões</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Solução versátil de referência</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Solução versátil e abrangente</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -597,7 +597,7 @@ const meta = {
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cobertura Standard</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cobertura Abrangente</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
@@ -606,14 +606,14 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Flagship &middot; Dynamic Compensation &lt;10ms</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Principal &middot; Compensação Dinâmica &lt;10ms</span>
             </div>
           </div>
           <!-- SiC -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Otimizado para Espaço</span>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Espaço Otimizado</span>
                 <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
@@ -634,11 +634,11 @@ const meta = {
               <div class="grid grid-cols-3 gap-2">
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Eslguido</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U UltraFino</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Compatível com Armário</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Compatível com Armários</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
@@ -647,15 +647,15 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Compact &middot; Best for space-constrained installs</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Compacto &middot; Ideal para instalações com espaço limitado</span>
             </div>
           </div>
-          <!-- Distribuído -->
+          <!-- Distributed -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Implantação Flexível</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distribuído</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Implementação Flexível</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distribuída</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -669,7 +669,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensões</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultracompacto &middot; Compatível com gaveta</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -683,15 +683,15 @@ const meta = {
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ecrã Tátil Completo</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Touchscreen Completo</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Distribuído &middot; Drawer cabinet retrofit</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Distribuída &middot; Retrofit de armário de gaveta</span>
             </div>
           </div>
-          <!-- Antipoluição -->
+          <!-- Anti-Pollution -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
@@ -724,12 +724,12 @@ const meta = {
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Fiável</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultraconfiável</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Heavy Indústria &middot; Mining, metallurgy &amp; chemical</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Indústria Pesada &middot; Mineração, metalurgia e química</span>
             </div>
           </div>
         </div>
@@ -743,10 +743,10 @@ const meta = {
       <div class="text-center mb-[clamp(16px,2.5vw,40px)] reveal">
         <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Configurador de Produtos</p>
         <h2 id="matrix-title" class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-2 font-barlow-condensed">Matriz de Seleção de Produtos AHF</h2>
-        <p class="text-text-dim text-[clamp(12px,0.9vw,15px)]">Selecione a classe de tensão e escolha a série e capacidade na matriz</p>
+        <p class="text-text-dim text-[clamp(12px,0.9vw,15px)]">Selecione a classe de tensão, depois escolha a série e capacidade na matriz</p>
       </div>
 
-      <!-- Tensão Selector -->
+      <!-- Voltage Selector -->
       <div class="flex flex-wrap justify-center gap-3 mb-[clamp(20px,3vw,48px)] reveal">
         <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-brand-orange bg-brand-orange text-white" data-v="400V"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="font-medium">400V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Standard</span></button>
         <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="208V"><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="font-medium">208V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Baixa Tensão</span></button>
@@ -760,11 +760,11 @@ const meta = {
           <thead>
             <tr class="bg-[#f9fafb]">
               <th class="p-2 text-left text-[clamp(12px,0.9vw,15px)] text-text-dim font-medium font-barlow-condensed border-b border-border-light">Capacidade \ Modelo</th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Ultra-Eslguido</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série U</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Distribuído</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série D</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">UltraFino</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série U</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Distribuída</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série D</span></div></th>
               <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Antipoluição</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série A</span></div></th>
               <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">SiC</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série C</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Standard</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série L</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Standard</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">Série S</span></div></th>
             </tr>
           </thead>
           <tbody id="matrix-tbody">
@@ -779,17 +779,17 @@ const meta = {
       <!-- Mobile Wizard -->
       <div class="md:hidden reveal" id="mobile-wizard">
         <div class="wizard-step active" id="wiz-voltage">
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Aprovadoo 1: Selecione a Classe de Tensão</p>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Passo 1: Selecione a Classe de Tensão</p>
           <div class="space-y-3" id="wiz-voltage-options"></div>
         </div>
         <div class="wizard-step" id="wiz-series">
           <button onclick="wizardBack('voltage')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Voltar à Tensão</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Aprovadoo 2: Selecione a Série</p>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Passo 2: Selecione a Série</p>
           <div class="space-y-3" id="wiz-series-options"></div>
         </div>
         <div class="wizard-step" id="wiz-capacity">
           <button onclick="wizardBack('series')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Voltar à Série</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Aprovadoo 3: Selecione a Capacidade</p>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Passo 3: Selecione a Capacidade</p>
           <div class="grid grid-cols-2 gap-3" id="wiz-capacity-options"></div>
         </div>
         <div id="mobile-spec" class="mt-6 hidden bg-bg-mid border border-white/10 rounded-lg p-5"></div>
@@ -804,11 +804,11 @@ const meta = {
         <div class="reveal" style="transition-delay:150ms">
           <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Interface HMI</p>
           <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)] font-barlow-condensed">Interface Homem-Máquina Inteligente</h2>
-          <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">Equipado com um ecrã tátil capacitivo de alta resolução de 7 polegadas, proporcionando uma experiência intuitiva de monitorização da qualidade de energia. Exibição de formas de onda em tempo real, registo histórico de dados, comunicação remota e controlo de até 16 módulos num só.</p>
+          <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">Equipado com um ecrã tátil capacitivo de alta resolução de 7 polegadas, proporcionando uma experiência intuitiva de monitorização da qualidade de energia. Visualização de formas de onda em tempo real, registo histórico de dados, comunicação remota e controlo de até 16 módulos num só.</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Ecrã Tátil de 7 Polegadas</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Touch LCD &amp; system setting</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Ecrã Tátil de 7"</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">LCD tátil e configuração do sistema</p></div>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg></div>
@@ -820,12 +820,12 @@ const meta = {
             </div>
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Multilíngue</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">EN/ZH/ES/DE/FR e mais 8</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Multi-idioma</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">EN/ZH/ES/DE/FR e mais 8</p></div>
             </div>
           </div>
           <div class="mt-6 flex items-start gap-3 bg-brand-orange/5 border border-brand-orange/15 rounded-lg px-4 py-3">
             <svg class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">Nota:</span> O controlador de banco de condensadores, que controla até <span class="font-medium text-text-dark">32 sets</span> of capacitor banks, is available. (7" monitor built-in or stand-alone type)</p>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">Nota:</span> O controlador de banco de capacitores, que controla até <span class="font-medium text-text-dark">32 conjuntos</span> de bancos de capacitores, está disponível. (Monitor de 7" incorporado ou tipo autónomo)</p>
           </div>
         </div>
         <div class="relative reveal flex justify-center">
@@ -852,7 +852,7 @@ const meta = {
       <div class="case-carousel reveal relative overflow-hidden" id="case-carousel">
         <div class="case-track flex transition-transform duration-500 ease-out" id="case-track">
 
-          <!-- Slide 1 - Centro de Dados -->
+          <!-- Slide 1 - Data Center -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-1.jpg)]">
@@ -860,18 +860,18 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Centro de Dados</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Grande Operador de Centro de Dados</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Grande Operador de Data Center</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Os sistemas UPS geraram harmónicas maciças de 5ª e 7ª ordem, causando sobreaquecimento do transformador e disparos repetidos de proteção.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Os sistemas UPS geraram maciços 5º e 7º harmónicos, causando sobreaquecimento do transformador e disparos repetidos de proteção.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-100-400 x 8 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-100-400 x 8 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -883,7 +883,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Poupança Anual</p>
+                    <p class="text-[10px] text-text-muted mb-1">Economia Anual</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$120K</p>
                   </div>
                   <div class="text-center">
@@ -895,7 +895,7 @@ const meta = {
             </div>
           </div>
 
-          <!-- Slide 2 - Automóvel -->
+          <!-- Slide 2 - Automotive -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-2.jpg)]">
@@ -903,10 +903,10 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Automóvel</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Automotivo</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Fabricante Automóvel</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Fabricante Automotivo</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
@@ -914,7 +914,7 @@ const meta = {
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-A-150-400 x 4 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-A-150-400 x 4 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -933,7 +933,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Tempo de Paragem</p>
+                    <p class="text-[10px] text-text-muted mb-1">Paragem</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-95%</p>
                   </div>
                 </div>
@@ -941,7 +941,7 @@ const meta = {
             </div>
           </div>
 
-          <!-- Slide 3 - Porto e Marinha -->
+          <!-- Slide 3 - Port & Marine -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-port.jpg)]">
@@ -949,18 +949,18 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Port &amp; Marine</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Porto e Marinha</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
                 <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Terminal de Contentores</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Os sistemas de energia de costa e os VFDs de gruas criaram harmónicas severas de 11ª/13ª ordem, afetando a sincronização da rede do navio.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Os sistemas de energia de terra e os VFDs de gruas criaram graves 11º/13º harmónicos, afetando a sincronização da rede do navio.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-L-200-690 x 6 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-L-200-690 x 6 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -972,7 +972,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Poupança Anual</p>
+                    <p class="text-[10px] text-text-muted mb-1">Economia Anual</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$85K</p>
                   </div>
                   <div class="text-center">
@@ -984,7 +984,7 @@ const meta = {
             </div>
           </div>
 
-          <!-- Slide 4 - Semicondutor -->
+          <!-- Slide 4 - Semiconductor -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-semiconductor.jpg)]">
@@ -995,15 +995,15 @@ const meta = {
                   <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Semicondutor</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Instalação de Fabrico de Wafers</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Instalação de Fabrico de Obleas</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">EUV lithography tools required &lt;3% THDi, but existing grid delivered 18% with significant even harmonics.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">As ferramentas de litografia EUV exigiam THDi &lt;3%, mas a rede existente fornecia 18% com harmónicos pares significativos.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-050-400 x 12 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-050-400 x 12 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -1020,7 +1020,7 @@ const meta = {
                   </div>
                   <div class="text-center">
                     <p class="text-[10px] text-text-muted mb-1">ROI</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">14 meses</p>
+                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">14 mo</p>
                   </div>
                 </div>
               </div>
@@ -1052,7 +1052,7 @@ const meta = {
       <div class="case-carousel reveal relative overflow-hidden" id="case-carousel-svg">
         <div class="case-track flex transition-transform duration-500 ease-out" id="case-track-svg">
 
-          <!-- SVG Slide 1 - Automóvel Soldadura -->
+          <!-- SVG Slide 1 - Automotive Welding -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-1.jpg)]">
@@ -1063,15 +1063,15 @@ const meta = {
                   <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Fábrica de Soldadura</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Linha de Soldadura Automóvel</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Linha de Soldadura Automotiva</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Robôs de soldadura por pontos causaram cintilação severa de tensão e o FP caiu para 0,65, resultando em penalidades.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Robôs de soldadura por pontos causaram cintilação severa de tensão e o FP caiu para 0,65, resultando em penalizações da concessionária.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-100-400 x 6 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-100-400 x 6 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -1087,7 +1087,7 @@ const meta = {
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">&lt;0.7</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Penalidades Evitadas</p>
+                    <p class="text-[10px] text-text-muted mb-1">Penalização Economizada</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$95K/yr</p>
                   </div>
                 </div>
@@ -1095,7 +1095,7 @@ const meta = {
             </div>
           </div>
 
-          <!-- SVG Slide 2 - Cloud Centro de Dados -->
+          <!-- SVG Slide 2 - Cloud Data Center -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-2.jpg)]">
@@ -1103,18 +1103,18 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Centro de Dados</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Campus de Centro de Dados Cloud</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Campus de Data Center na Nuvem</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Sistemas UPS com FP baixo causaram sobrecarga do transformador e 8% de afundamento de tensão durante picos de carga.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Sistemas UPS com FP baixo causaram sobrecarga do transformador e queda de tensão de 8% durante picos de carga.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-C-150-400 x 8 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-C-150-400 x 8 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -1126,7 +1126,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Afundamento de Tensão</p>
+                    <p class="text-[10px] text-text-muted mb-1">Queda de Tensão</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">8%</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">1%</span>
@@ -1141,7 +1141,7 @@ const meta = {
             </div>
           </div>
 
-          <!-- SVG Slide 3 - Terminal de Contentores -->
+          <!-- SVG Slide 3 - Container Terminal -->
           <div class="case-slide flex-[0_0_100%]">
             <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
               <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-port.jpg)]">
@@ -1160,7 +1160,7 @@ const meta = {
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-A-100-690 x 4 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-A-100-690 x 4 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
@@ -1179,7 +1179,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Poupança Anual</p>
+                    <p class="text-[10px] text-text-muted mb-1">Economia Anual</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$78K</p>
                   </div>
                 </div>
@@ -1195,23 +1195,23 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Central Solar Fotovoltaica</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Central Solar PV</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Central Solar de Escala de Utilidade</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Central Solar de Escala Pública</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Desafio</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">A geração baseada em inversores causou FP capacitivo durante períodos de baixa carga, violando o código de rede.</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">A geração baseada em inversores causou FP adiantado durante períodos de baixa carga, violando o código de rede.</p>
                   </div>
                   <div>
                     <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solução</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-200-690 x 10 unidades</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-200-690 x 10 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Intervalo de FP</p>
+                    <p class="text-[10px] text-text-muted mb-1">Faixa de FP</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.88~1.0L</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
@@ -1219,10 +1219,10 @@ const meta = {
                   </div>
                   <div class="text-center border-x border-border-light">
                     <p class="text-[10px] text-text-muted mb-1">Código de Rede</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">Aprovado</p>
+                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">Pass</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Redução de Produção</p>
+                    <p class="text-[10px] text-text-muted mb-1">Redução</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-100%</p>
                   </div>
                 </div>
@@ -1261,7 +1261,7 @@ const meta = {
       </div>
       <div class="flex flex-wrap justify-center gap-2 mb-[clamp(12px,2vw,32px)] reveal">
         <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-brand-orange text-white border border-brand-orange" data-filter="all">Todos</button>
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="spec">Specs &amp; Certs</button>
+        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="spec">Especificações e Certificações</button>
         <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="video">Vídeos</button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal" id="resource-list">
@@ -1274,15 +1274,15 @@ const meta = {
   <section id="industries" class="relative bg-white py-[clamp(48px,5vw,96px)]">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="text-center mb-[clamp(20px,3vw,48px)] reveal">
-        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Aplicações por Indústria</h2>
+        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Aplicações Industriais </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
         <a href="/solutions/datacenter" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5]">
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-datacenter.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Centro de Dados</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">UPS harmonic mitigation &amp; PF correction</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Data Center</h3>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Mitigação harmónica de UPS e correção de FP</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
               <span>Ver Solução</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
@@ -1304,7 +1304,7 @@ const meta = {
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
             <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Semicondutor</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Purificação de energia de ultra-precisão para fabrico de wafers</p>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Purificação de energia de ultraprecisão para fabrico de obleas</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
               <span>Ver Solução</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
@@ -1314,8 +1314,8 @@ const meta = {
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-port.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Port &amp; Logistics</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Supressão harmónica de VFD de gruas de grande porte</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Porto e Logística</h3>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Supressão harmónica de VFD de gruas grandes</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
               <span>Ver Solução</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
@@ -1343,22 +1343,22 @@ const meta = {
                 <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">Perguntas Frequentes</h2>
               </div>
               <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavList">
-                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Impacto da Distorção Harmónica</div>
+                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Impact of Distorção Harmónica</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">Cenários de Aplicação AHF por Indústria</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">Qual é o tempo de resposta do AHF CHITEK?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">Podem várias unidades AHF operar em paralelo?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">Que protocolos de comunicação são suportados?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">Qual é a vida útil e o plano de manutenção?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">Qual é a vida útil e o calendário de manutenção?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">O AHF requer um transformador dedicado?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">O AHF pode operar em ambientes agressivos?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">Que certificações o AHF possui?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">Como é feita a comissionamento e configuração do AHF?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">Que certificações possui o AHF?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">Como é comissionado e configurado o AHF?</div>
               </div>
             </div>
             <!-- FAQ Right Column -->
             <div class="flex-1 flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Impacto da Distorção Harmónica</span>
+                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Impact of Distorção Harmónica</span>
               </div>
               <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
                 <div class="faq-panel active" id="faqPanel1">
@@ -1367,7 +1367,7 @@ const meta = {
                       <table class="w-full text-[clamp(12px,0.9vw,15px)] border-collapse">
                         <thead>
                           <tr class="bg-brand-orange text-white">
-                            <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[16%]">Problema</th>
+                            <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[16%]">Ponto Crítico</th>
                             <th class="text-left px-5 py-3.5 font-semibold">Descrição do Cenário</th>
                             <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[28%]">Consequência</th>
                           </tr>
@@ -1375,28 +1375,28 @@ const meta = {
                         <tbody>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Distorção Harmónica</td>
-                            <td class="px-5 py-3.5 text-text-dim">Cargas não lineares como VFDs, UPSs, drivers LED e máquinas de soldadura geram harmónicas de 3ª/5ª/7ª/11ª ordem</td>
-                            <td class="px-5 py-3.5 text-text-dim">Sobreaquecimento de transformadores, perdas adicionais em cabos, mau funcionamento de equipamentos sensíveis, disparos incómodos</td>
+                            <td class="px-5 py-3.5 text-text-dim">Cargas não lineares como VFDs, UPSs, drivers LED e máquinas de soldar geram 3º/5º/7º/11º harmónicos</td>
+                            <td class="px-5 py-3.5 text-text-dim">Sobreaquecimento do transformador, perdas adicionais em cabos, mau funcionamento de equipamentos sensíveis, disparos molestos</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Risco de Ressonância</td>
                             <td class="px-5 py-3.5 text-text-dim">Filtros passivos tradicionais formam ressonância série/paralelo com a impedância do sistema</td>
-                            <td class="px-5 py-3.5 text-text-dim">Amplificação de corrente harmónica, danos em equipamentos, explosão de banco de condensadores</td>
+                            <td class="px-5 py-3.5 text-text-dim">Amplificação de corrente harmónica, danos em equipamentos, explosão de banco de capacitores</td>
                           </tr>
                           <tr class="border-b border-border-light">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">THDi Excede os Limites</td>
-                            <td class="px-5 py-3.5 text-text-dim">Distorção harmónica total de corrente > 8% (IEEE 519) ou > 5% (G5/4)</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">THDi Excede Limites</td>
+                            <td class="px-5 py-3.5 text-text-dim">Distorção total de corrente harmónica > 8% (IEEE 519) ou > 5% (G5/4)</td>
                             <td class="px-5 py-3.5 text-text-dim">Multas da concessionária, restrições de fornecimento, falha de comissionamento</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Sobrecarga do Neutro</td>
-                            <td class="px-5 py-3.5 text-text-dim">Harmónicas de 3ª ordem acumulam-se em fase em sistemas trifásicos de 4 fios</td>
-                            <td class="px-5 py-3.5 text-text-dim">Corrente neutra atinge 1,7× a corrente de fase, envelhecimento do isolamento do cabo, risco de incêndio</td>
+                            <td class="px-5 py-3.5 text-text-dim">3º harmónicos acumulam-se em fase em sistemas trifásicos de 4 fios</td>
+                            <td class="px-5 py-3.5 text-text-dim">Corrente do neutro atinge 1,7× a corrente de fase, envelhecimento do isolamento dos cabos, risco de incêndio</td>
                           </tr>
                           <tr>
                             <td class="px-5 py-3.5 font-medium text-text-dark">Leitura Falsa de FP</td>
-                            <td class="px-5 py-3.5 text-text-dim">Harmónicas distorcem as medições tradicionais do medidor de fator de potência</td>
-                            <td class="px-5 py-3.5 text-text-dim">Sobre/subcompensação do banco de condensadores, penalidades contínuas</td>
+                            <td class="px-5 py-3.5 text-text-dim">Os harmónicos distorcem as medições tradicionais do fator de potência</td>
+                            <td class="px-5 py-3.5 text-text-dim">Sobre/subcompensação do banco de capacitores, penalizações contínuas</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1418,32 +1418,32 @@ const meta = {
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Forno de Arco / Refinação</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto, desequilíbrio trifásico, cintilação severa</td>
-                            <td class="px-5 py-3.5 text-text-dim">Resposta em subciclo suprimindo cintilação de tensão, estabilizando o controlo do elétrodo</td>
+                            <td class="px-5 py-3.5 text-text-dim">Resposta sub-ciclo suprimindo cintilação de tensão, estabilizando o controlo do elétrodo</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Laminagem / Trefilagem</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Laminação / Trefilagem</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto cíclicas, flutuação severa do fator de potência</td>
-                            <td class="px-5 py-3.5 text-text-dim">Rastreio de potência reativa em tempo real, evitando penalidades de FP</td>
+                            <td class="px-5 py-3.5 text-text-dim">Acompanhamento de potência reativa em tempo real, evitando penalizações de FP</td>
                           </tr>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Energia Eólica / Solar</td>
                             <td class="px-5 py-3.5 text-text-dim">Produção intermitente, requisitos de fator de potência do código de rede</td>
-                            <td class="px-5 py-3.5 text-text-dim">Cumprir normas de interligação, prevenir desconexão</td>
+                            <td class="px-5 py-3.5 text-text-dim">Cumprir normas de interconexão, evitando desconexão</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Transporte Ferroviário</td>
-                            <td class="px-5 py-3.5 text-text-dim">Impacto de carga de tração, travagem regenerativa</td>
-                            <td class="px-5 py-3.5 text-text-dim">Estabilizar tensão da catenária, reduzir perda de energia do reóstato de travagem</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Trânsito Ferroviário</td>
+                            <td class="px-5 py-3.5 text-text-dim">Impacto da carga de tração, travagem regenerativa</td>
+                            <td class="px-5 py-3.5 text-text-dim">Estabilizar tensão da catenária, reduzindo perda de energia do resistência de travagem</td>
                           </tr>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Gruas Portuárias</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto de elevação/descida</td>
-                            <td class="px-5 py-3.5 text-text-dim">Compensação reativa dinâmica, reduzir requisitos de capacidade do transformador</td>
+                            <td class="px-5 py-3.5 text-text-dim">Compensação reativa dinâmica, reduzindo requisitos de capacidade do transformador</td>
                           </tr>
                           <tr>
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Centros de Dados</td>
-                            <td class="px-5 py-3.5 text-text-dim">UPS carga leve alta capacitância, transformador carga leve</td>
-                            <td class="px-5 py-3.5 text-text-dim">Prevenir fluxo reverso capacitivo, manter FP entre 0,95-1,0</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Data Centers</td>
+                            <td class="px-5 py-3.5 text-text-dim">UPS com alta capacitância em carga leve, transformador em carga leve</td>
+                            <td class="px-5 py-3.5 text-text-dim">Prevenir fluxo reverso capacitivo, manter FP em 0,95-1,0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1453,22 +1453,22 @@ const meta = {
                 <div class="faq-panel hidden" id="faqPanel3">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Tempo de Resposta</h4>
-                    <p class="mb-3">CHITEK AHF features a full response time of less than 50 microseconds (&lt;50&mu;s), enabling real-time harmonic compensation that responds instantly to dynamic load changes.</p>
-                    <p>Esta resposta ultrarrápida garante que mesmo cargas com flutuação rápida, como máquinas de soldadura, elevadores e variadores de frequência, sejam efetivamente compensadas sem atraso, prevenindo o acúmulo de harmónicas que poderia danificar equipamentos sensíveis.</p>
+                    <p class="mb-3">O AHF CHITEK apresenta um tempo de resposta total inferior a 50 microssegundos (&lt;50&mu;s), permitindo compensação harmónica em tempo real que responde instantaneamente a mudanças dinâmicas de carga.</p>
+                    <p>Esta resposta ultra-rápida garante que mesmo cargas que flutuam rapidamente, como máquinas de soldar, elevadores e variadores de frequência, são efetivamente compensadas sem atraso, evitando o acúmulo de harmónicos que poderia danificar equipamentos sensíveis.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel4">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Operação em Paralelo</h4>
-                    <p class="mb-3">Sim, as unidades AHF CHITEK são projetadas para operação em paralelo. Até 10 unidades podem ser ligadas em paralelo sem cabos de comunicação, usando um algoritmo de controlo mestre-escravo proprietário.</p>
+                    <p class="mb-3">Sim, as unidades AHF CHITEK são projetadas para operação em paralelo. Até 10 unidades podem ser ligadas em paralelo sem cabos de comunicação, usando um algoritmo proprietário de controlo mestre-escravo.</p>
                     <p class="mb-3">Principais benefícios da operação em paralelo:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Expansão de capacidade de 30A a 3000A+</li>
+                      <li>Expansão de capacidade de 30A para 3000A+</li>
                       <li>Redundância N+1 para aplicações críticas</li>
                       <li>Partilha automática de carga com controlo droop</li>
                       <li>Módulos hot-swappable para manutenção sem paragem</li>
                     </ul>
-                    <p>Sistemas em paralelo podem ser configurados em menos de 5 minutos através da interface intuitiva do painel frontal.</p>
+                    <p>Os sistemas em paralelo podem ser configurados em menos de 5 minutos através da interface intuitiva do painel frontal.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel5">
@@ -1476,37 +1476,37 @@ const meta = {
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Protocolos de Comunicação</h4>
                     <p class="mb-3">O AHF CHITEK suporta os seguintes protocolos de comunicação para monitorização e controlo remotos:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard em todos os modelos</li>
+                      <li><strong>RS485 / Modbus RTU</strong> — padrão em todos os modelos</li>
                       <li><strong>Ethernet / Modbus TCP</strong> — módulo de interface opcional</li>
-                      <li><strong>Profibus DP</strong> — opcional para integração em automação industrial</li>
-                      <li><strong>I/O de contacto seco</strong> — para sinalização simples de arranque/paragem e alarme</li>
+                      <li><strong>Profibus DP</strong> — opcional para integração de automação industrial</li>
+                      <li><strong>I/O de contacto seco</strong> — para sinalização simples de start/stop e alarme</li>
                     </ul>
-                    <p>Todos os parâmetros de comunicação (baud rate, paridade, endereço escravo) são configuráveis através do teclado e ecrã do painel frontal. A CHITEK também fornece software de monitorização gratuito para PC para registo de dados e análise de tendências.</p>
+                    <p>Todos os parâmetros de comunicação (taxa de baud, paridade, endereço slave) são configuráveis através do teclado e display do painel frontal. A CHITEK também fornece um software de monitorização gratuito baseado em PC para registo de dados e análise de tendências.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel6">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Vida Útil e Manutenção</h4>
-                    <p class="mb-3">CHITEK AHF has a design life exceeding 15 years under normal operating conditions (ambient below 40&deg;C, nominal load). Regular preventive maintenance is recommended every 12 months to ensure optimal performance.</p>
+                    <p class="mb-3">O AHF CHITEK tem uma vida útil de projeto superior a 15 anos em condições normais de operação (ambiente abaixo de 40&deg;C, carga nominal). Recomenda-se manutenção preventiva regular a cada 12 meses para garantir o desempenho ideal.</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Substituição do condensador do barramento DC:</strong> a cada 8-10 anos (recomendado)</li>
-                      <li><strong>Substituição da ventoinha de arrefecimento:</strong> a cada 5-7 anos (com base nas horas de operação)</li>
-                      <li><strong>Limpeza do filtro de ar:</strong> a cada 3-6 meses (ambientes com poeira)</li>
-                      <li><strong>Atualizações de firmware:</strong> disponíveis através da ferramenta de software CHITEK para PC</li>
+                      <li><strong>Substituição do capacitor do barramento DC:</strong> a cada 8-10 anos (recomendado)</li>
+                      <li><strong>Substituição da ventoinha de refrigeração:</strong> a cada 5-7 anos (com base nas horas de operação)</li>
+                      <li><strong>Limpeza do filtro de ar:</strong> a cada 3-6 meses (ambientes empoeirados)</li>
+                      <li><strong>Atualizações de firmware:</strong> disponíveis através da ferramenta de software PC CHITEK</li>
                     </ul>
-                    <p>Todos os produtos AHF CHITEK vêm com garantia standard de 2 anos, com opções de garantia alargada até 5 anos.</p>
+                    <p>Todos os produtos AHF CHITEK vêm com garantia padrão de 2 anos, com opções de garantia alargada disponíveis até 5 anos.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel7">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Requisitos do Transformador</h4>
                     <p class="mb-3">Não, o AHF CHITEK não requer um transformador de isolamento dedicado. Liga-se diretamente ao barramento de baixa tensão (380V-480V, 50/60Hz) através do disjuntor ou seccionador fusível existente.</p>
-                    <p class="mb-3">No entanto, a instalação adequada do <strong>transformador de corrente (TC)</strong> é crítica para o funcionamento correto:</p>
+                    <p class="mb-3">No entanto, a instalação correta do <strong>transformador de corrente (TC)</strong> é crítica para o funcionamento correto:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
                       <li>Os TCs devem ser instalados no lado da rede (fonte) da carga</li>
                       <li>A relação do TC deve ser selecionada para que a corrente secundária seja 1A ou 5A em plena carga</li>
-                      <li>Classe de precisão do TC 0.5 ou superior recomendada para desempenho ideal</li>
-                      <li>Distância standard de cablagem do TC até 100 metros com blindagem adequada</li>
+                      <li>Classe de precisão do TC 0,5 ou superior recomendada para desempenho ideal</li>
+                      <li>Distância padrão de cablagem do TC até 100 metros com blindagem adequada</li>
                     </ul>
                   </div>
                 </div>
@@ -1515,13 +1515,13 @@ const meta = {
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Operação em Ambiente Agressivo</h4>
                     <p class="mb-3">O AHF CHITEK é projetado para operação fiável em ambientes industriais exigentes:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Temperatura de operação:</strong> 0&deg;C to +50&deg;C (standard), with automatic derating above 40&deg;C</li>
-                      <li><strong>Temperatura de armazenamento:</strong> -25&deg;C to +70&deg;C</li>
-                      <li><strong>Humidade:</strong> 0-95% non-condensing</li>
-                      <li><strong>Proteção de ingresso:</strong> IP20 standard, IP31 optional (NEMA 1 equivalent)</li>
-                      <li><strong>Altitude:</strong> up to 2000m without derating, up to 4000m with derating</li>
+                      <li><strong>Temperatura de operação:</strong> 0&deg;C a +50&deg;C (padrão), com redução automática acima de 40&deg;C</li>
+                      <li><strong>Temperatura de armazenamento:</strong> -25&deg;C a +70&deg;C</li>
+                      <li><strong>Humidade:</strong> 0-95% sem condensação</li>
+                      <li><strong>Proteção de ingresso:</strong> IP20 padrão, IP31 opcional (equivalente a NEMA 1)</li>
+                      <li><strong>Altitude:</strong> até 2000m sem redução, até 4000m com redução</li>
                     </ul>
-                    <p>Para ambientes extremos (poeira elevada, gases corrosivos, exterior), a CHITEK oferece opções de invólucro personalizado, incluindo ventilação forçada, permutadores de calor e construção em aço inoxidável.</p>
+                    <p>Para ambientes extremos (alto teor de poeira, gases corrosivos, exterior), a CHITEK oferece opções de invólucro personalizado, incluindo ventilação forçada, trocadores de calor e construção em aço inoxidável.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel9">
@@ -1532,9 +1532,9 @@ const meta = {
                       <li><strong>CE (LVD + EMC)</strong> — conformidade com as diretivas da UE para baixa tensão e compatibilidade eletromagnética</li>
                       <li><strong>UL/cUL 508</strong> — listado para equipamentos de controlo industrial (opcional)</li>
                       <li><strong>IEC 61642</strong> — norma de aplicação de filtros harmónicos</li>
-                      <li><strong>IEC 61439-1/2</strong> — conjuntos de aparelhagem de baixa tensão</li>
+                      <li><strong>IEC 61439-1/2</strong> — conjuntos de aparelhagem de baixa tensão e controlo</li>
                       <li><strong>IEEE 519-2022</strong> — conformidade com limites harmónicos recomendados</li>
-                      <li><strong>ISO 9001:2015</strong> — sistema de gestão de qualidade (instalação de fabrico)</li>
+                      <li><strong>ISO 9001:2015</strong> — sistema de gestão da qualidade (instalação de fabrico)</li>
                     </ul>
                     <p>Pacotes de certificação personalizados estão disponíveis para requisitos regionais ou de projeto específicos.</p>
                   </div>
@@ -1542,13 +1542,13 @@ const meta = {
                 <div class="faq-panel hidden" id="faqPanel10">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Comissionamento e Configuração</h4>
-                    <p class="mb-3">O AHF CHITEK é projetado para comissionamento rápido e intuitivo. O processo de configuração standard leva menos de 15 minutos e envolve três passos simples:</p>
+                    <p class="mb-3">O AHF CHITEK é projetado para comissionamento rápido e intuitivo. O processo de configuração padrão leva menos de 15 minutos e envolve três passos simples:</p>
                     <ol class="list-decimal pl-5 space-y-1 mb-3">
-                      <li><strong>Auto-ajuste:</strong> O AHF deteta automaticamente a impedância da linha e a configuração do TC com o premir de um botão</li>
+                      <li><strong>Auto-ajuste:</strong> O AHF deteta automaticamente a impedância da linha e a configuração do TC com o toque de um botão</li>
                       <li><strong>Seleção harmónica:</strong> Escolha entre perfis harmónicos pré-configurados ou personalize ordens harmónicas individuais (2ª-50ª)</li>
-                      <li><strong>Verificação:</strong> O ecrã de forma de onda incorporado e o analisador de espectro harmónico confirmam a operação correta</li>
+                      <li><strong>Verificação:</strong> O display de forma de onda incorporado e o analisador de espectro harmónico confirmam a operação correta</li>
                     </ol>
-                    <p>Para configurações avançadas, a CHITEK fornece uma ferramenta de software gratuita para PC para backup/restauro de parâmetros, registo de dados e configuração de monitorização remota. Sistemas paralelos multi-unidade podem ser configurados em menos de 5 minutos através da interface intuitiva do painel frontal sem ferramentas externas.</p>
+                    <p>Para configurações avançadas, a CHITEK fornece uma ferramenta de software gratuita baseada em PC para backup/restauro de parâmetros, registo de dados e configuração de monitorização remota. Sistemas paralelos multi-unidade podem ser configurados em menos de 5 minutos através da interface intuitiva do painel frontal sem ferramentas externas.</p>
                   </div>
                 </div>
               </div>  <!-- close flex-1 content -->
@@ -1577,20 +1577,20 @@ const meta = {
               <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavListSvg">
                 <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Principais Problemas que o SVG Resolve</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">Cenários de Aplicação SVG por Indústria</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">Qual é a diferença entre SVG e condensadores?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">Qual é a diferença entre SVG e capacitores?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">Que funcionalidades de proteção estão incluídas?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">Qual é a vida útil típica e MTBF?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">Quais são os requisitos de instalação?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">O SVG pode lidar com cargas desequilibradas?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">Como é que o SVG se integra com energias renováveis?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">Qual é o consumo de energia em standby?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">Como o SVG se integra com energias renováveis?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">Qual é o consumo de energia em stand-by?</div>
                 <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">Que protocolos de comunicação são suportados?</div>
               </div>
             </div>
             <!-- FAQ Right Column -->
             <div class="flex-1 flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Principais Problemas que o SVG Resolve</span>
+                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Key Issues SVG Solves</span>
               </div>
               <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
                 <div class="faq-panel active" id="faqPanelSvg1">
@@ -1599,15 +1599,15 @@ const meta = {
                       <table class="w-full text-[clamp(12px,0.9vw,15px)] border-collapse">
                         <thead>
                           <tr class="bg-brand-orange text-white">
-                            <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[16%]">Problema</th>
+                            <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[16%]">Ponto Crítico</th>
                             <th class="text-left px-5 py-3.5 font-semibold">Descrição do Cenário</th>
                             <th class="text-left px-5 py-3.5 font-semibold whitespace-nowrap w-[30%]">Consequência</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr class="border-b border-border-light">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Penalidade FP</td>
-                            <td class="px-5 py-3.5 text-text-dim">cosφ &lt; 0.9, high reactive power ratio</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Penalização de FP</td>
+                            <td class="px-5 py-3.5 text-text-dim">cosφ &lt; 0,9, elevada taxa de potência reativa</td>
                             <td class="px-5 py-3.5 text-text-dim">Sobretaxa de 5%-20% de potência reativa nas faturas de eletricidade</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
@@ -1621,19 +1621,19 @@ const meta = {
                             <td class="px-5 py-3.5 text-text-dim">Sobreaquecimento parcial do transformador, corrente de sequência zero, mau funcionamento da proteção</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Ressonância de Condensadores</td>
-                            <td class="px-5 py-3.5 text-text-dim">Bancos de condensadores tradicionais formam ressonância com a impedância do sistema</td>
-                            <td class="px-5 py-3.5 text-text-dim">Amplificação harmónica, abaulamento/rotura de condensadores, sopro de banco de fusíveis</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Ressonância de Capacitor</td>
+                            <td class="px-5 py-3.5 text-text-dim">Bancos de capacitores tradicionais formam ressonância com a impedância do sistema</td>
+                            <td class="px-5 py-3.5 text-text-dim">Amplificação harmónica, abaulamento/ruptura do capacitor, queima de fusíveis</td>
                           </tr>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Potência Reversa Capacitiva</td>
                             <td class="px-5 py-3.5 text-text-dim">Sobrecompensação durante condições de carga leve</td>
-                            <td class="px-5 py-3.5 text-text-dim">Aumento de tensão, rutura de isolamento de equipamentos, multas</td>
+                            <td class="px-5 py-3.5 text-text-dim">Aumento de tensão, rutura do isolamento do equipamento, multas da concessionária</td>
                           </tr>
                           <tr>
                             <td class="px-5 py-3.5 font-medium text-text-dark">Resposta Lenta</td>
-                            <td class="px-5 py-3.5 text-text-dim">Mechanical switched capacitor response &gt; 1 second</td>
-                            <td class="px-5 py-3.5 text-text-dim">Incapaz de acompanhar mudanças rápidas de carga, falha de compensação</td>
+                            <td class="px-5 py-3.5 text-text-dim">Resposta do capacitor com comutação mecânica &gt; 1 segundo</td>
+                            <td class="px-5 py-3.5 text-text-dim">Incapacidade de acompanhar mudanças rápidas de carga, falha de compensação</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1655,32 +1655,32 @@ const meta = {
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Forno de Arco / Refinação</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto, desequilíbrio trifásico, cintilação severa</td>
-                            <td class="px-5 py-3.5 text-text-dim">Resposta em menos de 20ms, suprimir cintilação de tensão, estabilizar controlo do elétrodo</td>
+                            <td class="px-5 py-3.5 text-text-dim">Resposta sub-20ms, suprimindo cintilação de tensão, estabilizando o controlo do elétrodo</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Laminagem / Trefilagem</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Laminação / Trefilagem</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto cíclicas, flutuação severa de FP</td>
-                            <td class="px-5 py-3.5 text-text-dim">Rastreio de potência reativa em tempo real, evitando penalidades de FP</td>
+                            <td class="px-5 py-3.5 text-text-dim">Acompanhamento de potência reativa em tempo real, evitando penalizações de FP</td>
                           </tr>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Energia Eólica / Solar</td>
                             <td class="px-5 py-3.5 text-text-dim">Produção intermitente, requisitos de FP do código de rede</td>
-                            <td class="px-5 py-3.5 text-text-dim">Cumprir normas de interligação, prevenir desconexão</td>
+                            <td class="px-5 py-3.5 text-text-dim">Cumprir normas de interconexão, evitando desconexão</td>
                           </tr>
                           <tr class="border-b border-border-light bg-white/50">
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Transporte Ferroviário</td>
-                            <td class="px-5 py-3.5 text-text-dim">Impacto de carga de tração, travagem regenerativa</td>
-                            <td class="px-5 py-3.5 text-text-dim">Estabilizar tensão da catenária, reduzir perda de energia do reóstato de travagem</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Trânsito Ferroviário</td>
+                            <td class="px-5 py-3.5 text-text-dim">Impacto da carga de tração, travagem regenerativa</td>
+                            <td class="px-5 py-3.5 text-text-dim">Estabilizar tensão da catenária, reduzindo perda de energia do resistência de travagem</td>
                           </tr>
                           <tr class="border-b border-border-light">
                             <td class="px-5 py-3.5 font-medium text-text-dark">Gruas Portuárias</td>
                             <td class="px-5 py-3.5 text-text-dim">Cargas de impacto de elevação/descida</td>
-                            <td class="px-5 py-3.5 text-text-dim">Compensação reativa dinâmica, reduzir requisitos de capacidade do transformador</td>
+                            <td class="px-5 py-3.5 text-text-dim">Compensação reativa dinâmica, reduzindo requisitos de capacidade do transformador</td>
                           </tr>
                           <tr>
-                            <td class="px-5 py-3.5 font-medium text-text-dark">Centros de Dados</td>
-                            <td class="px-5 py-3.5 text-text-dim">UPS carga leve alta capacitância, transformador carga leve</td>
-                            <td class="px-5 py-3.5 text-text-dim">Prevenir fluxo reverso capacitivo, manter FP entre 0,95-1,0</td>
+                            <td class="px-5 py-3.5 font-medium text-text-dark">Data Centers</td>
+                            <td class="px-5 py-3.5 text-text-dim">UPS com alta capacitância em carga leve, transformador em carga leve</td>
+                            <td class="px-5 py-3.5 text-text-dim">Prevenir fluxo reverso capacitivo, manter FP em 0,95-1,0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1689,14 +1689,14 @@ const meta = {
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg3">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">SVG vs Bancos de Condensadores</h4>
-                    <p>A diferença fundamental é que o SVG usa eletrónica de potência (IGBT/SiC) para injetar ou absorver corrente reativa em tempo real, enquanto os bancos de condensadores fornecem compensação de passo fixo com comutação mecânica.</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">SVG vs Bancos de Capacitores</h4>
+                    <p>A diferença fundamental é que o SVG utiliza eletrónica de potência (IGBT/SiC) para injetar ou absorver corrente reativa em tempo real, enquanto os bancos de capacitores fornecem compensação de passo fixo com comutação mecânica.</p>
                     <table class="w-full border-separate border-spacing-0 text-[clamp(12px,0.9vw,15px)] leading-relaxed rounded-xl overflow-hidden border border-border-light mt-4">
                       <thead>
                         <tr class="bg-[#f5f5f7]">
                           <th class="p-3 text-left text-text-dark font-semibold">Característica</th>
                           <th class="p-3 text-left text-text-dark font-semibold">CHITEK SVG</th>
-                          <th class="p-3 text-left text-text-dark font-semibold">Banco de Condensadores</th>
+                          <th class="p-3 text-left text-text-dark font-semibold">Banco de Capacitores</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -1708,7 +1708,7 @@ const meta = {
                         <tr class="border-b border-border-light">
                           <td class="p-3 text-text-dark">Tipo de Compensação</td>
                           <td class="p-3 text-text-dim">Contínua, suave</td>
-                          <td class="p-3 text-text-dim">Por passos, discreta</td>
+                          <td class="p-3 text-text-dim">Escalonada, discreta</td>
                         </tr>
                         <tr class="border-b border-border-light">
                           <td class="p-3 text-text-dark">Risco de Ressonância</td>
@@ -1717,7 +1717,7 @@ const meta = {
                         </tr>
                         <tr>
                           <td class="p-3 text-text-dark">Filtragem Harmónica</td>
-                          <td class="p-3 text-text-dim">Integrada (modelos híbridos)</td>
+                          <td class="p-3 text-text-dim">Incorporada (modelos híbridos)</td>
                           <td class="p-3 text-text-dim">Requer reatores desafinados</td>
                         </tr>
                       </tbody>
@@ -1733,23 +1733,23 @@ const meta = {
                       <li><strong>Proteção de sobrecorrente</strong> — disparo instantâneo em sobrecorrente de saída</li>
                       <li><strong>Proteção de sobretemperatura</strong> — controlo inteligente da ventoinha com desligamento térmico</li>
                       <li><strong>Proteção de curto-circuito</strong> — deteção de dessaturação do módulo IGBT</li>
-                      <li><strong>Proteção de falta de fase</strong> — deteção e alarme para fases em falta</li>
-                      <li><strong>Proteção contra sobretensões</strong> — MOV incorporado para supressão de tensão transitória</li>
+                      <li><strong>Proteção de falta de fase</strong> — deteção e alarme de fases em falta</li>
+                      <li><strong>Proteção contra surtos</strong> — MOV incorporado para supressão de tensão transitória</li>
                     </ul>
-                    <p>Todos os eventos de proteção são registados com carimbo de hora e podem ser recuperados através do ecrã do painel frontal ou interface de comunicação remota para resolução de problemas.</p>
+                    <p>Todos os eventos de proteção são registados com carimbos de data/hora e podem ser recuperados através do display do painel frontal ou interface de comunicação remota para resolução de problemas.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg5">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Vida Útil e MTBF</h4>
-                    <p class="mb-3">CHITEK SVG has a design life exceeding 20 years under normal operating conditions (ambient temperature below 40&deg;C, nominal load).</p>
+                    <p class="mb-3">O SVG CHITEK tem uma vida útil de projeto superior a 20 anos em condições normais de operação (temperatura ambiente abaixo de 40&deg;C, carga nominal).</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>MTBF (Tempo Médio Entre Falhas):</strong> &gt;150,000 hours</li>
-                      <li><strong>Substituição do condensador eletrolítico:</strong> a cada 8-10 anos (recomendado)</li>
-                      <li><strong>Substituição da ventoinha de arrefecimento:</strong> a cada 5-7 anos (com base nas horas de operação)</li>
-                      <li><strong>Vida útil do módulo IGBT:</strong> &gt;15 years under rated conditions</li>
+                      <li><strong>MTBF (Tempo Médio Entre Falhas):</strong> &gt;150.000 horas</li>
+                      <li><strong>Substituição do capacitor eletrolítico:</strong> a cada 8-10 anos (recomendado)</li>
+                      <li><strong>Substituição da ventoinha de refrigeração:</strong> a cada 5-7 anos (com base nas horas de operação)</li>
+                      <li><strong>Vida útil do módulo IGBT:</strong> &gt;15 anos em condições nominais</li>
                     </ul>
-                    <p>Todos os produtos SVG CHITEK vêm com garantia standard de 2 anos, com opções de garantia alargada até 5 anos. Recomenda-se manutenção preventiva regular a cada 12 meses para desempenho ideal.</p>
+                    <p>Todos os produtos SVG CHITEK vêm com garantia padrão de 2 anos, com opções de garantia alargada disponíveis até 5 anos. Recomenda-se manutenção preventiva regular a cada 12 meses para um desempenho ideal.</p>
                   </div>
                 </div>
               </div>
@@ -1758,66 +1758,66 @@ const meta = {
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Requisitos de Instalação</h4>
                     <p class="mb-3">O SVG CHITEK é projetado para instalação interior simples com os seguintes requisitos:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Montagem:</strong> Montagem na parede (até 100kvar) ou no chão com base (acima de 100kvar)</li>
+                      <li><strong>Montagem:</strong> Montagem na parede (até 100kvar) ou no chão com estrutura de base (acima de 100kvar)</li>
                       <li><strong>Folga:</strong> Mínimo 200mm em todos os lados para ventilação e acesso</li>
-                      <li><strong>Ventilação:</strong> Ambient temperature 0&deg;C to +50&deg;C, forced air cooling standard</li>
+                      <li><strong>Ventilação:</strong> Temperatura ambiente 0&deg;C a +50&deg;C, arrefecimento por ar forçado padrão</li>
                       <li><strong>Elétrico:</strong> Ligação direta ao barramento BT via disjuntor; instalação do TC no lado da rede</li>
-                      <li><strong>Entrada de cabos:</strong> Entrada inferior standard, entrada superior opcional</li>
+                      <li><strong>Entrada de cabos:</strong> Entrada inferior padrão, entrada superior opcional</li>
                     </ul>
-                    <p>Para instalações exteriores ou semiexteriores, a CHITEK oferece invólucros com classificação IP54 com controlo climático incorporado.</p>
+                    <p>Para instalações exteriores ou semi-exteriores, a CHITEK oferece invólucros com classificação IP54 com controlo climático incorporado.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg7">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Manuseamento de Cargas Desequilibradas</h4>
-                    <p class="mb-3">Sim, o SVG CHITEK apresenta <strong>controlo independente por fase</strong>, permitindo lidar facilmente com cargas severamente desequilibradas.</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Manuseamento de Carga Desequilibrada</h4>
+                    <p class="mb-3">Sim, o SVG CHITEK possui <strong>controlo independente por fase</strong>, permitindo lidar facilmente com cargas severamente desequilibradas.</p>
                     <p class="mb-3">Cada fase é monitorizada e controlada independentemente, fornecendo:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Compensação de potência reativa fase por fase individual</li>
+                      <li>Compensação individual de potência reativa fase por fase</li>
                       <li>Equilíbrio automático das correntes de fase quando usado em conjunto com funções de equilíbrio de carga</li>
                       <li>Compensação de sequência zero para sistemas de 4 fios (trifásico + neutro)</li>
-                      <li>Desempenho perfeito mesmo quando uma fase tem carga drasticamente diferente das outras</li>
+                      <li>Desempenho contínuo mesmo quando uma fase tem carga drasticamente diferente das outras</li>
                     </ul>
-                    <p>Isto torna o SVG CHITEK ideal para aplicações com cargas desequilibradas, como oficinas de soldadura, centros de dados e edifícios comerciais.</p>
+                    <p>Isto torna o SVG CHITEK ideal para aplicações com cargas desequilibradas, como oficinas de soldadura, data centers e edifícios comerciais.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg8">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Integração de Energias Renováveis</h4>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Integração com Energias Renováveis</h4>
                     <p class="mb-3">O SVG CHITEK é amplamente utilizado em aplicações de energias renováveis para melhorar a qualidade de energia e a conformidade com a rede:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Centrais solares fotovoltaicas:</strong> Compensa flutuações de potência reativa causadas por mudanças de irradiância induzidas por nuvens</li>
+                      <li><strong>Centrais solares PV:</strong> Compensa flutuações de potência reativa causadas por mudanças de irradiância induzidas por nuvens</li>
                       <li><strong>Parques eólicos:</strong> Fornece suporte de tensão durante o arranque das turbinas e rajadas de vento</li>
                       <li><strong>Sistemas de armazenamento de energia:</strong> Mantém o fator de potência durante ciclos de carga/descarga</li>
-                      <li><strong>Microrredes:</strong> Estabiliza a tensão em modo de operação isolado</li>
+                      <li><strong>Microrredes:</strong> Estabiliza a tensão em operação de modo ilha</li>
                     </ul>
-                    <p>As unidades SVG podem ser integradas com sistemas SCADA da instalação via Modbus TCP para gestão coordenada de potência reativa em toda a instalação renovável.</p>
+                    <p>As unidades SVG podem ser integradas com sistemas SCADA da central via Modbus TCP para gestão coordenada de potência reativa em toda a instalação renovável.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg9">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Consumo de Energia em Standby</h4>
-                    <p class="mb-3">O SVG CHITEK é projetado para alta eficiência em todas as condições de operação, com perdas mínimas em standby:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Consumo de Energia em Stand-by</h4>
+                    <p class="mb-3">O SVG CHITEK é projetado para alta eficiência em todas as condições operacionais, com perdas mínimas em stand-by:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Consumo de energia em standby:</strong> &lt;2% of rated capacity (e.g., a 100kvar SVG consumes less than 2kW in standby)</li>
-                      <li><strong>Eficiência em plena carga:</strong> &gt;98% at rated output</li>
-                      <li><strong>Modo de suspensão:</strong> When reactive power demand is below 5% of rated capacity for 10 minutes, the SVG enters sleep mode, reducing consumption to &lt;0.5%</li>
+                      <li><strong>Consumo em stand-by:</strong> &lt;2% da capacidade nominal (ex: um SVG de 100kvar consome menos de 2kW em stand-by)</li>
+                      <li><strong>Eficiência em plena carga:</strong> &gt;98% na saída nominal</li>
+                      <li><strong>Modo de suspensão:</strong> Quando a procura de potência reativa está abaixo de 5% da capacidade nominal por 10 minutos, o SVG entra em modo de suspensão, reduzindo o consumo para &lt;0,5%</li>
                       <li><strong>Despertar automático:</strong> O SVG desperta instantaneamente do modo de suspensão quando a procura de potência reativa excede 10% da capacidade nominal</li>
                     </ul>
-                    <p>Esta gestão inteligente de energia garante custos mínimos durante períodos de baixa procura, mantendo a prontidão instantânea.</p>
+                    <p>Esta gestão inteligente de energia garante custos mínimos de energia durante períodos de baixa procura, mantendo a prontidão instantânea.</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg10">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Protocolos de Comunicação</h4>
-                    <p class="mb-3">CHITEK SVG supports the following communication protocols for remote monitoring and control:</p>
+                    <p class="mb-3">O SVG CHITEK suporta os seguintes protocolos de comunicação para monitorização e controlo remotos:</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard em todos os modelos, supports multi-drop daisy-chain topology</li>
-                      <li><strong>Ethernet / Modbus TCP</strong> — módulo de interface opcional for network integration</li>
-                      <li><strong>Profibus DP</strong> — optional for industrial automation systems</li>
-                      <li><strong>I/O de contacto seco</strong> — programmable inputs/outputs for start/stop, alarm, and status signaling</li>
+                      <li><strong>RS485 / Modbus RTU</strong> — padrão em todos os modelos, suporta topologia daisy-chain multi-drop</li>
+                      <li><strong>Ethernet / Modbus TCP</strong> — módulo de interface opcional para integração em rede</li>
+                      <li><strong>Profibus DP</strong> — opcional para sistemas de automação industrial</li>
+                      <li><strong>I/O de contacto seco</strong> — entradas/saídas programáveis para sinalização de start/stop, alarme e estado</li>
                     </ul>
-                    <p>Todos os parâmetros de comunicação (baud rate, paridade, endereço escravo, configuração IP) são totalmente configuráveis através do teclado e ecrã do painel frontal. A CHITEK também fornece software de monitorização abrangente para PC para registo de dados, análise de tendências e atualizações remotas de firmware.</p>
+                    <p>Todos os parâmetros de comunicação (taxa de baud, paridade, endereço slave, configuração IP) são totalmente configuráveis através do teclado e display do painel frontal. A CHITEK também fornece software de monitorização abrangente baseado em PC para registo de dados, análise de tendências e atualizações remotas de firmware.</p>
                   </div>
                 </div>
               </div>  <!-- close flex-1 content -->
@@ -1885,7 +1885,7 @@ const meta = {
       const mx = mouse.x, my = mouse.y;
       ctx.clearRect(0, 0, w, h);
 
-      // Rede
+      // Grid
       ctx.strokeStyle = 'rgba(255, 77, 0, 0.04)';
       ctx.lineWidth = 1;
       const gs = 60;
@@ -1951,7 +1951,7 @@ const meta = {
         const w = vpCanvas.width, h = vpCanvas.height;
         vpCtx.clearRect(0, 0, w, h);
 
-        // Rede
+        // Grid
         vpCtx.strokeStyle = 'rgba(255, 77, 0, 0.03)';
         vpCtx.lineWidth = 1;
         const gs = 80;
@@ -2001,12 +2001,12 @@ const meta = {
     }, { passive: true });
 
     // ===== Tab Switching =====
-    document.querySelectorTodos('.sticky-hero-tab').forEach(btn => {
+    document.querySelectorAll('.sticky-hero-tab').forEach(btn => {
       btn.addEventListener('click', () => {
         const tab = btn.dataset.tab;
 
         // Update button styles
-        document.querySelectorTodos('.sticky-hero-tab').forEach(b => {
+        document.querySelectorAll('.sticky-hero-tab').forEach(b => {
           if (b.dataset.tab === tab) {
             b.classList.remove('text-[#374151]', 'hover:text-brand-orange', 'hover:bg-orange-50');
             b.classList.add('text-white', 'bg-brand-orange', 'shadow-sm');
@@ -2017,7 +2017,7 @@ const meta = {
         });
 
         // Toggle all tab-panels
-        document.querySelectorTodos('.tab-panel').forEach(panel => {
+        document.querySelectorAll('.tab-panel').forEach(panel => {
           if (panel.dataset.tab === tab) {
             panel.classList.remove('hidden');
           } else {
@@ -2038,17 +2038,17 @@ const meta = {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           // Also reveal nested feat-cards
-          entry.target.querySelectorTodos('.feat-card').forEach((card, i) => {
+          entry.target.querySelectorAll('.feat-card').forEach((card, i) => {
             setTimeout(() => card.classList.add('visible'), i * 150);
           });
         }
       });
     }, { threshold: 0.15 });
-    document.querySelectorTodos('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ===== Roadmap Tooltip =====
     const tooltip = document.getElementById('roadmap-tooltip');
-    document.querySelectorTodos('.tooltip-trigger').forEach(el => {
+    document.querySelectorAll('.tooltip-trigger').forEach(el => {
       el.addEventListener('mouseenter', (e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         tooltip.textContent = e.currentTarget.dataset.tip;
@@ -2062,8 +2062,8 @@ const meta = {
 
     // ===== Product Matrix =====
     const seriesList = [
-      { key: 'U', name: 'Ultra-Eslguido',      label: 'Série U' },
-      { key: 'D', name: 'Distribuído',     label: 'Série D' },
+      { key: 'U', name: 'UltraFino',      label: 'Série U' },
+      { key: 'D', name: 'Distribuída',     label: 'Série D' },
       { key: 'A', name: 'Antipoluição',  label: 'Série A' },
       { key: 'C', name: 'SiC',             label: 'Série C' },
       { key: 'L', name: 'Standard',        label: 'Série L' },
@@ -2117,8 +2117,8 @@ const meta = {
       'C-75A-400V':  { model:'AHF-C-075A-400',  current:'75A',  voltage:'380~415V', svg:'50Kvar',  weight:'24kg', harmonic:'2nd~50th', dimension:'440x132x380mm', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'30kHz', ratedFreq:'50/60Hz' },
       'C-100A-400V': { model:'AHF-C-100A-400',  current:'100A', voltage:'380~415V', svg:'75Kvar',  weight:'30kg', harmonic:'2nd~50th', dimension:'440x176x380mm', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'30kHz', ratedFreq:'50/60Hz' },
       'C-150A-400V': { model:'AHF-C-150A-400',  current:'150A', voltage:'380~415V', svg:'100Kvar', weight:'48kg', harmonic:'2nd~50th', dimension:'600x221x450mm', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'30kHz', ratedFreq:'50/60Hz' },
-      'L-85A-690V':  { model:'AHF-L-085A-690',  current:'85A',  voltage:'690~800V', svg:'120Kvar', weight:'Contacte-nos', harmonic:'2nd~50th', dimension:'Contacte-nos', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'20kHz', ratedFreq:'50/60Hz' },
-      'L-100A-690V': { model:'AHF-L-100A-690',  current:'100A', voltage:'690~800V', svg:'120Kvar', weight:'Contacte-nos', harmonic:'2nd~50th', dimension:'Contacte-nos', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'20kHz', ratedFreq:'50/60Hz' },
+      'L-85A-690V':  { model:'AHF-L-085A-690',  current:'85A',  voltage:'690~800V', svg:'120Kvar', weight:'Contact us', harmonic:'2nd~50th', dimension:'Contact us', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'20kHz', ratedFreq:'50/60Hz' },
+      'L-100A-690V': { model:'AHF-L-100A-690',  current:'100A', voltage:'690~800V', svg:'120Kvar', weight:'Contact us', harmonic:'2nd~50th', dimension:'Contact us', monitoring:'7" HMI Touchscreen', wiring:'3P3W / 3P4W', freq:'20kHz', ratedFreq:'50/60Hz' },
     };
 
     function getSpec(series, cap, volt) {
@@ -2129,10 +2129,10 @@ const meta = {
         model: 'AHF-' + series + '-' + cap.replace('A','').padStart(3,'0') + 'A-' + volt.replace('V',''),
         current: cap,
         voltage: vLabel,
-        svg: svgBySeries[series] || 'Contacte-nos',
-        weight: 'Contacte-nos',
+        svg: svgBySeries[series] || 'Contact us',
+        weight: 'Contact us',
         harmonic: '2nd~50th',
-        dimension: 'Contacte-nos',
+        dimension: 'Contact us',
         monitoring: '7" HMI Touchscreen',
         wiring: '3P3W / 3P4W',
         freq: (series === 'C' ? '30kHz' : '20kHz'),
@@ -2140,14 +2140,14 @@ const meta = {
       };
     }
 
-    let selectedTensão = '400V';
+    let selectedVoltage = '400V';
     let selectedCell = null;
 
     function renderMatrix() {
       const tbody = document.getElementById('matrix-tbody');
       const table = tbody.closest('table');
-      const data = matrixData[selectedTensão];
-      const vColor = voltColorMap[selectedTensão];
+      const data = matrixData[selectedVoltage];
+      const vColor = voltColorMap[selectedVoltage];
       tbody.innerHTML = '';
       const lastCap = capacities[capacities.length - 1];
       capacities.forEach(cap => {
@@ -2165,7 +2165,7 @@ const meta = {
         tbody.appendChild(tr);
       });
       table.style.borderBottom = '1px solid #d1d5db';
-      document.querySelectorTodos('.matrix-cell').forEach(btn => {
+      document.querySelectorAll('.matrix-cell').forEach(btn => {
         btn.addEventListener('click', () => {
           const series = btn.dataset.series;
           const cap = btn.dataset.cap;
@@ -2184,14 +2184,14 @@ const meta = {
     function showSpecPanel() {
       const panel = document.getElementById('spec-panel');
       const content = document.getElementById('spec-panel-content');
-      const spec = getSpec(selectedCell.series, selectedCell.capacity, selectedTensão);
+      const spec = getSpec(selectedCell.series, selectedCell.capacity, selectedVoltage);
       const sInfo = seriesList.find(s => s.key === selectedCell.series);
       const seriesDesc = sInfo ? sInfo.name : selectedCell.series;
       const modelParts = spec.model.split('-');
       modelParts[1] = seriesDesc;
       const displayTitle = modelParts.join('-');
       const inquiryText = displayTitle + '-' + spec.voltage.replace('V', '');
-      content.innerHTML = '<div class="flex items-center justify-between mb-[clamp(12px,2vw,32px)]"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + displayTitle + '</h4><button onclick="closeSpecPanel()" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition-colors"><svg class="w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="space-y-1.5 mb-[clamp(12px,2vw,32px)]">' + [ ['Corrente Nominal', spec.current], ['Capacidade SVG', spec.svg], ['Tensão', spec.voltage], ['Peso', spec.weight], ['Faixa de Filtragem Harmónica', spec.harmonic], ['Dimensão', spec.dimension], ['Monitorização', spec.monitoring], ['Método de Cablagem', spec.wiring], ['Frequência de Comutação', spec.freq], ['Frequência Nominal', spec.ratedFreq] ].map(function(kv) { return '<div class="flex justify-between py-2 border-b border-[#f1f5f9]"><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + kv[0] + '</span><span class="text-[clamp(12px,0.9vw,15px)] text-text-dark font-barlow-condensed">' + kv[1] + '</span></div>'; }).join('') + '</div><button onclick="goToInquiry(\'' + inquiryText + '\')" class="w-full py-3 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Solicitar Orçamento</button>';
+      content.innerHTML = '<div class="flex items-center justify-between mb-[clamp(12px,2vw,32px)]"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + displayTitle + '</h4><button onclick="closeSpecPanel()" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition-colors"><svg class="w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="space-y-1.5 mb-[clamp(12px,2vw,32px)]">' + [ ['Corrente Nominal', spec.current], ['Capacidade SVG', spec.svg], ['Voltage', spec.voltage], ['Peso', spec.weight], ['Faixa de Filtragem Harmónica', spec.harmonic], ['Dimensão', spec.dimension], ['Monitorização', spec.monitoring], ['Método de Ligação', spec.wiring], ['Frequência de Comutação', spec.freq], ['Frequência Nominal', spec.ratedFreq] ].map(function(kv) { return '<div class="flex justify-between py-2 border-b border-[#f1f5f9]"><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + kv[0] + '</span><span class="text-[clamp(12px,0.9vw,15px)] text-text-dark font-barlow-condensed">' + kv[1] + '</span></div>'; }).join('') + '</div><button onclick="goToInquiry(\'' + inquiryText + '\')" class="w-full py-3 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Solicitar Orçamento</button>';
       panel.classList.remove('hidden');
     }
     window.goToInquiry = function(inquiryText) {
@@ -2203,14 +2203,14 @@ const meta = {
       renderMatrix();
     };
 
-    // Tensão buttons
-    document.querySelectorTodos('.volt-btn').forEach(btn => {
+    // Voltage buttons
+    document.querySelectorAll('.volt-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        selectedTensão = btn.dataset.v;
+        selectedVoltage = btn.dataset.v;
         selectedCell = null;
         document.getElementById('spec-panel').classList.add('hidden');
-        document.querySelectorTodos('.volt-btn').forEach(b => {
-          if (b.dataset.v === selectedTensão) {
+        document.querySelectorAll('.volt-btn').forEach(b => {
+          if (b.dataset.v === selectedVoltage) {
             b.classList.add('border-brand-orange', 'bg-brand-orange', 'text-white');
             b.classList.remove('border-[#d1d5db]', 'text-text-dim');
           } else {
@@ -2232,13 +2232,13 @@ const meta = {
     function renderMobileWizard() {
       const vOpts = document.getElementById('wiz-voltage-options');
       vOpts.innerHTML = Object.keys(matrixData).map(function(v) {
-        const isSel = selectedTensão === v;
+        const isSel = selectedVoltage === v;
         const colors = { '400V': 'bg-blue-500', '208V': 'bg-yellow-500', '480V': 'bg-orange-500', '690V': 'bg-red-500' };
-        return '<button onclick="selectWizTensão(\'' + v + '\')" class="w-full flex items-center gap-[clamp(8px,1.5vw,20px)] p-4 rounded-lg border transition-all text-left ' + (isSel ? 'border-brand-orange bg-brand-orange/5' : 'border-border-light bg-white hover:border-[#d1d5db]') + '"><span class="w-4 h-4 rounded-full ' + colors[v] + '"></span><div><p class="text-text-dark font-medium">' + v + '</p></div></button>';
+        return '<button onclick="selectWizVoltage(\'' + v + '\')" class="w-full flex items-center gap-[clamp(8px,1.5vw,20px)] p-4 rounded-lg border transition-all text-left ' + (isSel ? 'border-brand-orange bg-brand-orange/5' : 'border-border-light bg-white hover:border-[#d1d5db]') + '"><span class="w-4 h-4 rounded-full ' + colors[v] + '"></span><div><p class="text-text-dark font-medium">' + v + '</p></div></button>';
       }).join('');
     }
-    window.selectWizTensão = function(v) {
-      selectedTensão = v;
+    window.selectWizVoltage = function(v) {
+      selectedVoltage = v;
       wizStep = 'series';
       updateWizard();
     };
@@ -2248,20 +2248,20 @@ const meta = {
       updateWizard();
     };
     function updateWizard() {
-      document.querySelectorTodos('.wizard-step').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
       document.getElementById('wiz-' + wizStep).classList.add('active');
 
       if (wizStep === 'series') {
         const sOpts = document.getElementById('wiz-series-options');
-        const data = matrixData[selectedTensão];
+        const data = matrixData[selectedVoltage];
         sOpts.innerHTML = seriesList.map(function(s) {
           const has = (data[s.key] || []).length > 0;
-          return '<button onclick="' + (has ? 'selectWizSeries(\'' + s.key + '\')' : '') + '" class="w-full flex items-center gap-[clamp(8px,1.5vw,20px)] p-4 rounded-lg border transition-all text-left ' + (!has ? 'opacity-30 pointer-events-none border-border-light' : 'border-border-light bg-white hover:border-brand-orange') + '"><span class="w-8 h-8 rounded flex items-center justify-center text-[clamp(12px,0.9vw,15px)] font-bold text-brand-orange" style="background-color:' + voltColorMap[selectedTensão] + '15">' + s.key + '</span><div><p class="text-text-dark font-medium">' + s.name + '</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + s.label + '</p></div></button>';
+          return '<button onclick="' + (has ? 'selectWizSeries(\'' + s.key + '\')' : '') + '" class="w-full flex items-center gap-[clamp(8px,1.5vw,20px)] p-4 rounded-lg border transition-all text-left ' + (!has ? 'opacity-30 pointer-events-none border-border-light' : 'border-border-light bg-white hover:border-brand-orange') + '"><span class="w-8 h-8 rounded flex items-center justify-center text-[clamp(12px,0.9vw,15px)] font-bold text-brand-orange" style="background-color:' + voltColorMap[selectedVoltage] + '15">' + s.key + '</span><div><p class="text-text-dark font-medium">' + s.name + '</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + s.label + '</p></div></button>';
         }).join('');
       }
       if (wizStep === 'capacity') {
         const cOpts = document.getElementById('wiz-capacity-options');
-        const avail = matrixData[selectedTensão][wizSeries] || [];
+        const avail = matrixData[selectedVoltage][wizSeries] || [];
         cOpts.innerHTML = capacities.map(function(cap) {
           const isAvail = avail.includes(cap);
           const isSel = selectedCell && selectedCell.series === wizSeries && selectedCell.capacity === cap;
@@ -2280,13 +2280,13 @@ const meta = {
         document.getElementById('mobile-spec').classList.add('hidden');
       } else {
         selectedCell = { series: wizSeries, capacity: cap };
-        const spec = getSpec(wizSeries, cap, selectedTensão);
+        const spec = getSpec(wizSeries, cap, selectedVoltage);
         const mSeriesDesc = seriesList.find(s => s.key === wizSeries)?.name || wizSeries;
         const mModelParts = spec.model.split('-');
         mModelParts[1] = mSeriesDesc;
         const mDisplayTitle = mModelParts.join('-');
         const mInquiryText = mDisplayTitle + '-' + spec.voltage.replace('V', '');
-        document.getElementById('mobile-spec').innerHTML = '<div class="flex items-center justify-between mb-4"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + mDisplayTitle + '</h4><button onclick="closeMobileSpec()" class="w-7 h-7 rounded-full bg-[#f3f4f6] flex items-center justify-center"><svg class="w-3 h-3 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="grid grid-cols-2 gap-2 text-[clamp(10px,0.8vw,12px)] mb-4"><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Corrente Nominal</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.current + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Capacidade SVG</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.svg + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Tensão</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.voltage + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Peso</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.weight + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Dimensão</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.dimension + '</span></div></div><button onclick="goToInquiry(\'' + mInquiryText + '\')" class="w-full py-2.5 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Solicitar Orçamento</button>';
+        document.getElementById('mobile-spec').innerHTML = '<div class="flex items-center justify-between mb-4"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + mDisplayTitle + '</h4><button onclick="closeMobileSpec()" class="w-7 h-7 rounded-full bg-[#f3f4f6] flex items-center justify-center"><svg class="w-3 h-3 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="grid grid-cols-2 gap-2 text-[clamp(10px,0.8vw,12px)] mb-4"><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Corrente Nominal</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.current + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Capacidade SVG</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.svg + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Voltage</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.voltage + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Peso</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.weight + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Dimensão</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.dimension + '</span></div></div><button onclick="goToInquiry(\'' + mInquiryText + '\')" class="w-full py-2.5 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Solicitar Orçamento</button>';
         document.getElementById('mobile-spec').classList.remove('hidden');
       }
       updateWizard();
@@ -2308,7 +2308,7 @@ const meta = {
       { title: 'Desenhos CAD da Série AHF', type: 'cad', size: '12.6 MB', date: '2025-03' },
       { title: 'Biblioteca de Modelos BIM', type: 'cad', size: '28.3 MB', date: '2025-01' },
       { title: 'Vídeo Tutorial de Instalação', type: 'video', size: '156 MB', date: '2025-02' },
-      { title: 'Vídeo de Caso de Centro de Dados', type: 'video', size: '243 MB', date: '2024-11' },
+      { title: 'Vídeo de Caso de Data Center', type: 'video', size: '243 MB', date: '2024-11' },
     ];
     const typeIcons = {
       spec: '<svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
@@ -2320,13 +2320,13 @@ const meta = {
       const filtered = filter === 'all' ? resources : resources.filter(r => r.type === filter);
       list.innerHTML = filtered.map(function(r) {
         const isVideo = r.type === 'video';
-        return '<div class="bg-white border border-border-light rounded-lg hover:border-brand-orange/40 transition-all duration-300 group shadow-sm relative p-5"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center shrink-0">' + typeIcons[r.type] + '</div><h3 class="text-[clamp(12px,0.9vw,15px)] font-bold text-text-dark leading-snug">' + r.title + '</h3></div><div class="flex items-center gap-1.5 mb-1.5"><svg class="w-3 h-3 text-accent-blue shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + r.size + ' · ' + r.date + '</span></div><div class="border-t border-border-light mt-4 pt-4"><button onclick="alert(\'Descarregar: ' + r.title + '\')" class="w-full flex items-center justify-center gap-1.5 px-2 py-2 border border-brand-orange/30 bg-brand-orange/5 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium rounded-md hover:bg-brand-orange/10 transition-all">' + (isVideo ? '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg><span>Reproduzir</span>' : '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Descarregar</span>') + '</button></div><div class="absolute top-[-1px] left-[-1px] w-4 h-4 border-t-2 border-l-2 border-brand-orange/30"></div><div class="absolute bottom-[-1px] right-[-1px] w-4 h-4 border-b-2 border-r-2 border-brand-orange/30"></div></div>';
+        return '<div class="bg-white border border-border-light rounded-lg hover:border-brand-orange/40 transition-all duration-300 group shadow-sm relative p-5"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center shrink-0">' + typeIcons[r.type] + '</div><h3 class="text-[clamp(12px,0.9vw,15px)] font-bold text-text-dark leading-snug">' + r.title + '</h3></div><div class="flex items-center gap-1.5 mb-1.5"><svg class="w-3 h-3 text-accent-blue shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + r.size + ' · ' + r.date + '</span></div><div class="border-t border-border-light mt-4 pt-4"><button onclick="alert(\'Download: ' + r.title + '\')" class="w-full flex items-center justify-center gap-1.5 px-2 py-2 border border-brand-orange/30 bg-brand-orange/5 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium rounded-md hover:bg-brand-orange/10 transition-all">' + (isVideo ? '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg><span>Reproduzir</span>' : '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Descarregar</span>') + '</button></div><div class="absolute top-[-1px] left-[-1px] w-4 h-4 border-t-2 border-l-2 border-brand-orange/30"></div><div class="absolute bottom-[-1px] right-[-1px] w-4 h-4 border-b-2 border-r-2 border-brand-orange/30"></div></div>';
       }).join('');
     }
     renderResources('all');
-    document.querySelectorTodos('.res-filter').forEach(btn => {
+    document.querySelectorAll('.res-filter').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorTodos('.res-filter').forEach(b => {
+        document.querySelectorAll('.res-filter').forEach(b => {
           b.classList.remove('bg-brand-orange', 'text-white', 'border-brand-orange');
           b.classList.add('bg-white', 'border-[#d1d5db]', 'text-text-dim');
         });
@@ -2339,9 +2339,9 @@ const meta = {
     // ===== Case Carousel =====
     let caseIndex = 0;
     const caseTrack = document.getElementById('case-track');
-    const caseSlides = document.querySelectorTodos('#case-carousel .case-slide');
+    const caseSlides = document.querySelectorAll('#case-carousel .case-slide');
     const totalSlides = caseSlides.length;
-    const dots = document.querySelectorTodos('#case-dots .carousel-dot');
+    const dots = document.querySelectorAll('#case-dots .carousel-dot');
 
     function goToCase(idx) {
       caseIndex = idx;
@@ -2386,9 +2386,9 @@ const meta = {
     // ===== SVG Case Carousel =====
     let svgCaseIndex = 0;
     const svgCaseTrack = document.getElementById('case-track-svg');
-    const svgCaseSlides = document.querySelectorTodos('#case-carousel-svg .case-slide');
+    const svgCaseSlides = document.querySelectorAll('#case-carousel-svg .case-slide');
     const svgTotalSlides = svgCaseSlides.length;
-    const svgDots = document.querySelectorTodos('#case-dots-svg .carousel-dot');
+    const svgDots = document.querySelectorAll('#case-dots-svg .carousel-dot');
 
     function goToSvgCase(idx) {
       svgCaseIndex = idx;
@@ -2432,10 +2432,10 @@ const meta = {
     function initFaq(containerId, prefix) {
       const container = document.getElementById(containerId);
       if (!container) return;
-      const navItems = container.querySelectorTodos('.faq-nav-item');
+      const navItems = container.querySelectorAll('.faq-nav-item');
       const faqFlex = container.closest('.faq-flex');
       if (!faqFlex) return;
-      const panels = faqFlex.querySelectorTodos('.faq-panel');
+      const panels = faqFlex.querySelectorAll('.faq-panel');
 
       navItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -2474,8 +2474,8 @@ const meta = {
     function setupFaqTab0() {
       const flex = document.querySelector('.tab-panel.faq-flex[data-tab="0"]');
       if (!flex) return;
-      const navItems = flex.querySelectorTodos('.faq-nav-item');
-      const panels = flex.querySelectorTodos('.faq-panel');
+      const navItems = flex.querySelectorAll('.faq-nav-item');
+      const panels = flex.querySelectorAll('.faq-panel');
 
       // Init first item active
       navItems.forEach((item, i) => {
@@ -2497,8 +2497,8 @@ const meta = {
     function setupFaqTab1() {
       const flex = document.querySelector('.tab-panel.faq-flex[data-tab="1"]');
       if (!flex) return;
-      const navItems = flex.querySelectorTodos('.faq-nav-item');
-      const panels = flex.querySelectorTodos('.faq-panel');
+      const navItems = flex.querySelectorAll('.faq-nav-item');
+      const panels = flex.querySelectorAll('.faq-panel');
 
       navItems.forEach((item, i) => {
         if (i === 0) {

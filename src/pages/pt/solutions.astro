@@ -132,7 +132,7 @@ const meta = {
     const topologyScenes = [
       {
         id: 'medical', sceneName: 'Topologia Médica', sceneSubtitle: 'Hospital / Clínica / Reabilitação',
-        deviceLabel: 'AHF-200A', deviceType: 'Active Filtro Harmónico',
+        deviceLabel: 'AHF-200A', deviceType: 'Filtro Harmónico Ativo',
         deviceDesc: 'Ligado em paralelo ao barramento BT, mitiga harmónicas para distribuição de energia do SO / imagem / laboratório',
         branches: [
           { label: 'Dist. Energia SO', sub: 'Proteção contra Queda de Tensão' },
@@ -152,7 +152,7 @@ const meta = {
       },
       {
         id: 'lab', sceneName: 'Topologia de Laboratório e Sala Limpa', sceneSubtitle: 'Semicondutor / Biotecnologia / Fabrico de Precisão',
-        deviceLabel: 'AHF-150A', deviceType: 'Active Filtro Harmónico',
+        deviceLabel: 'AHF-150A', deviceType: 'Filtro Harmónico Ativo',
         deviceDesc: 'Ligado em série no front-end UPS para supressão harmónica de arrefecimento de processo / equipamento de laboratório',
         branches: [
           { label: 'Front-end UPS', sub: 'Energia de Precisão' },
@@ -1003,7 +1003,7 @@ const meta = {
       }
 
       // Scroll reveal
-      document.querySelectorTodos('.scroll-reveal').forEach(el => {
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.85) {
           el.classList.add('revealed');
