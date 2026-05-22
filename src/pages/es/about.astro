@@ -285,7 +285,7 @@ const meta = {
       <div class="relative fade-up" id="certCarousel">
         <div id="certTrack" class="flex transition-transform duration-500 ease-out">
           <!-- Card 1: CE -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">CE</span>
@@ -295,7 +295,7 @@ const meta = {
             </div>
           </div>
           <!-- Card 2: UL -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">UL</span>
@@ -305,7 +305,7 @@ const meta = {
             </div>
           </div>
           <!-- Card 3: ISO -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(16px,1.2vw,20px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">ISO<br>9001</span>
@@ -315,7 +315,7 @@ const meta = {
             </div>
           </div>
           <!-- Card 4: IEC -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">IEC</span>
@@ -325,7 +325,7 @@ const meta = {
             </div>
           </div>
           <!-- Card 5: RoHS -->
-          <div class="cert-card min-w-[33.333%] px-2">
+          <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
             <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
               <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(10px,0.8vw,14px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">RoHS<br>REACH</span>
@@ -358,9 +358,12 @@ const meta = {
   </section>
 
   <!-- GLOBAL REACH -->
-  <section class="relative overflow-hidden min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 max-md:px-4 bg-bg-dark">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat max-md:bg-cover opacity-100 z-0"></div>
-    <div class="relative z-10 text-center px-12 py-5 max-md:px-6 max-md:py-8 bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)] inline-block">
+  <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 max-md:px-4 bg-bg-dark">
+    <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
+    <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
+      <img src="/assets/images/about-global.webp" alt="Alcance Global" class="w-full h-full object-contain" />
+    </div>
+    <div class="relative z-10 text-center px-12 py-5 max-md:hidden bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)] inline-block">
       <div class="inline-flex items-center gap-3 mb-4 justify-center">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Alcance Global</span>
