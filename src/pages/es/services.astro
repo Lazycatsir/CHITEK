@@ -31,24 +31,136 @@ const meta = {
     </section>
 
     <!-- ========== OEM/ODM ========== -->
-    <section id="oem" class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] relative fade-up flex flex-col justify-center py-12" style="background-image:linear-gradient(rgba(255,255,255,0.03)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03)1px,transparent 1px);background-size:50px 50px">
+    <section id="oem" class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] relative fade-up flex flex-col justify-center py-12 bg-white">
         <div class="text-center mb-[clamp(16px,2.5vw,40px)]">
           <div class="inline-flex items-center gap-3 mb-3">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-electric-orange-light"><polygon points="12 2 2 7 12 12 22 7"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
             <span class="text-[clamp(12px,0.9vw,15px)] text-electric-orange-light tracking-[0.15em] uppercase">OEM / ODM</span>
           </div>
-          <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,4.5rem)] font-bold text-white mb-2">Límites Reales de Capacidad</h2>
+          <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,4.5rem)] font-bold text-text-dark mb-2">Límites Reales de Capacidad</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(16px,3vw,40px)]">
           <!-- Card 1 -->
-          <div class="bg-[rgba(17,17,17,0.8)] backdrop-blur-[8px] p-[clamp(16px,3vw,40px)] border border-[rgba(255,255,255,0.12)] relative shadow-[0_0_20px_rgba(194,94,0,0.15)]">
+          <div class="bg-white p-[clamp(16px,3vw,40px)] border border-gray-200 relative shadow-lg">
             <div class="flex items-center gap-3 mb-[clamp(12px,2vw,32px)]">
               <div class="w-10 h-10 border border-[rgba(194,94,0,0.4)] flex items-center justify-center flex-shrink-0">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.01 17.461 2 12 2z"/></svg>
               </div>
               <div>
-                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-white">Personalización de Apariencia</h3>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Personalización de Apariencia</h3>
+                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Servicio Estándar</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Color del Gabinete</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Especificado por carta RAL</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Serigrafía de Marca</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Ubicación del logo personalizada</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Información de Placa</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Contenido especificado por el cliente</div></div>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2 text-[clamp(12px,0.9vw,15px)] text-text-dark/60">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-accent-blue"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Plazo de Entrega:</span>
+              </div>
+              <div class="text-[clamp(12px,0.9vw,15px)] text-text-dark/60 pl-6">2 semanas (gabinete estándar) o 4 semanas (nuevo color)</div>
+            </div>
+            <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
+            <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-[clamp(16px,3vw,40px)] border border-gray-200 relative shadow-lg">
+            <div class="flex items-center gap-3 mb-[clamp(12px,2vw,32px)]">
+              <div class="w-10 h-10 border border-[rgba(194,94,0,0.4)] flex items-center justify-center flex-shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Configuración de Funciones</h3>
+                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Servicio de Selección</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Rango de Capacidad</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">15A — 200A；10KVar — 180KVar</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Protocolo de Comunicación</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Modbus / Profinet / Ethernet</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Orden Armónico</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">2nd — 50th</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Unidades en Paralelo</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">1 — 16 unidades</div></div>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2 text-[clamp(12px,0.9vw,15px)] text-text-dark/60">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-accent-blue"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Plazo de Entrega:</span>
+              </div>
+              <div class="text-[clamp(12px,0.9vw,15px)] text-text-dark/60 pl-6">4–6 semanas</div>
+            </div>
+            <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
+            <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-[clamp(16px,3vw,40px)] border border-gray-200 relative shadow-lg">
+            <div class="flex items-center gap-3 mb-[clamp(12px,2vw,32px)]">
+              <div class="w-10 h-10 border border-[rgba(194,94,0,0.4)] flex items-center justify-center flex-shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Personalización Profunda</h3>
+                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Basado en Proyectos</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Personalización de Nivel de Voltaje</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Requiere evaluación</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Ajuste de Tamaño del Gabinete</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Sujeto a límites térmicos</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Protección para Entornos Especiales</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Gran altitud / Costero</div></div>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2 text-[clamp(12px,0.9vw,15px)] text-text-dark/60">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-accent-blue"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Plazo de Entrega:</span>
+              </div>
+              <div class="text-[clamp(12px,0.9vw,15px)] text-text-dark/60 pl-6">8–12 semanas, requiere revisión técnica</div>
+            </div>
+            <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
+            <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
+          </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="flex items-start gap-[clamp(8px,1.5vw,20px)] p-[clamp(8px,1.5vw,32px)] border border-yellow-400 bg-yellow-50 mt-12">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-text-dark/70 leading-relaxed">Los módulos de potencia central son componentes de plataforma estandarizados para garantizar confiabilidad y ventajas de costo. El alcance de la personalización se limita a los elementos listados anteriormente. Cualquier cosa adicional requiere una evaluación especializada.</p>
+        </div>
+              <div>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Personalización de Apariencia</h3>
                 <p class="text-[clamp(10px,0.8vw,12px)] text-white/80">Servicio Estándar</p>
               </div>
             </div>
@@ -78,13 +190,13 @@ const meta = {
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-[rgba(17,17,17,0.8)] backdrop-blur-[8px] p-[clamp(16px,3vw,40px)] border border-[rgba(255,255,255,0.12)] relative shadow-[0_0_20px_rgba(194,94,0,0.15)]">
+          <div class="bg-white p-[clamp(16px,3vw,40px)] border border-gray-200 relative shadow-lg">
             <div class="flex items-center gap-3 mb-[clamp(12px,2vw,32px)]">
               <div class="w-10 h-10 border border-[rgba(194,94,0,0.4)] flex items-center justify-center flex-shrink-0">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
               </div>
               <div>
-                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-white">Configuración de Funciones</h3>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Configuración de Funciones</h3>
                 <p class="text-[clamp(10px,0.8vw,12px)] text-white/80">Servicio de Selección</p>
               </div>
             </div>
@@ -118,13 +230,13 @@ const meta = {
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-[rgba(17,17,17,0.8)] backdrop-blur-[8px] p-[clamp(16px,3vw,40px)] border border-[rgba(255,255,255,0.12)] relative shadow-[0_0_20px_rgba(194,94,0,0.15)]">
+          <div class="bg-white p-[clamp(16px,3vw,40px)] border border-gray-200 relative shadow-lg">
             <div class="flex items-center gap-3 mb-[clamp(12px,2vw,32px)]">
               <div class="w-10 h-10 border border-[rgba(194,94,0,0.4)] flex items-center justify-center flex-shrink-0">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div>
-                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-white">Personalización Profunda</h3>
+                <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Personalización Profunda</h3>
                 <p class="text-[clamp(10px,0.8vw,12px)] text-white/80">Basado en Proyectos</p>
               </div>
             </div>
@@ -295,73 +407,75 @@ const meta = {
     </section>
 
     <!-- ========== R&D QUALITY ASSURANCE PROCESS ========== -->
-    <section class="w-full py-16 px-[clamp(24px,8vw,160px)] bg-[#0d0d0d] relative fade-up overflow-hidden">
-      <div class="text-center mb-[clamp(20px,3vw,48px)]">
+    <section class="w-full py-16 px-[clamp(24px,8vw,160px)] bg-white relative fade-up overflow-hidden">
+      <div class="relative z-10 text-center mb-[clamp(20px,3vw,48px)]">
           <div class="inline-flex items-center gap-3 mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-electric-orange-light"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
             <span class="text-[clamp(12px,0.9vw,15px)] text-electric-orange-light tracking-[0.15em] uppercase">Proceso de I+D</span>
           </div>
-          <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,4rem)] font-bold text-[#f5f5f5] uppercase tracking-[0.02em] mb-3">Proceso de Aseguramiento de Calidad de I+D</h2>
+          <h2 class="font-barlow-condensed text-[clamp(1.75rem,3vw,4rem)] font-bold text-text-dark uppercase tracking-[0.02em] mb-3">Proceso de Aseguramiento de Calidad de I+D</h2>
           <div class="w-[60px] h-[3px] bg-electric-orange mx-auto"></div>
-          <!-- <p class="text-[clamp(12px,0.9vw,15px)] text-white/80 mt-4">10-stage gate process from research to mass production.</p> -->
         </div>
 
-        <div class="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-2 border border-[rgba(255,180,50,0.25)] bg-[rgba(17,17,17,0.5)] shadow-[0_0_20px_rgba(255,180,50,0.08)]">
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+        <div class="relative z-10 grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-2 border border-gray-200 bg-gray-50 shadow-md">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">01</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Pre-investigación</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informes de Encuestas de Mercado, Registros de Visitas a Clientes</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Pre-investigación</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informes de Encuestas de Mercado, Registros de Visitas a Clientes</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">02</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Inicio del Proyecto</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Formulario de Revisión de Inicio de Proyecto</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Inicio del Proyecto</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Formulario de Revisión de Inicio de Proyecto</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">03</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Asignación del Equipo</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Gráfico de Asignación del Equipo del Proyecto</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Asignación del Equipo</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Gráfico de Asignación del Equipo del Proyecto</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">04</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Planificación del Cronograma</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Plan del Proyecto, Seguimiento del Progreso, Actas de Reuniones</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Planificación del Cronograma</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Plan del Proyecto, Seguimiento del Progreso, Actas de Reuniones</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r-0 max-lg:border-r border-b border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r-0 max-lg:border-r border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">05</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Diseño de PCB</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informe de Revisión, Esquemáticos, Archivos de Salida</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Diseño de PCB</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informe de Revisión, Esquemáticos, Archivos de Salida</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">06</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Creación de BOM</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informe de Revisión, Revisión de Nuevo Código, Archivos de Salida</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Creación de BOM</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informe de Revisión, Revisión de Nuevo Código, Archivos de Salida</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 border-[rgba(255,255,255,0.06)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">07</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Construcción de Prototipo</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informe de Prueba, Informe de Revisión, Archivos de Salida</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Construcción de Prototipo</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informe de Prueba, Informe de Revisión, Archivos de Salida</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 max-md:border-b border-[rgba(255,180,50,0.2)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r border-b max-lg:border-b-0 max-md:border-b border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">08</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Revisión de Prototipo</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informe de Prueba, Informe de Revisión, DOE/DFMEA/CPK, Prueba de Confiabilidad/Vida, Especificaciones del Producto</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Revisión de Prototipo</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informe de Prueba, Informe de Revisión, DOE/DFMEA/CPK, Prueba de Confiabilidad/Vida, Especificaciones del Producto</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r max-md:border-r-0 border-b max-lg:border-b-0 border-[rgba(255,180,50,0.2)] transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r max-md:border-r-0 border-b max-lg:border-b-0 border-gray-200 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">09</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Prueba de Lote Pequeño</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed">Informe de Prueba, Informe de Producción de Prueba, Lista de Equipos de Inspección, Certificaciones</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Prueba de Lote Pequeño</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed">Informe de Prueba, Informe de Producción de Prueba, Lista de Equipos de Inspección, Certificaciones</span>
           </div>
-          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r-0 border-b-0 transition-all duration-250 hover:bg-[rgba(255,180,50,0.1)] hover:border-[rgba(255,180,50,0.3)] hover:shadow-[0_0_24px_rgba(255,180,50,0.18)]">
+          <div class="flex flex-col items-start gap-[2px] p-2.5 pr-3 border border-transparent border-r-0 border-b-0 transition-all duration-250 hover:bg-orange-50 hover:border-orange-300 hover:shadow-md">
             <span class="font-barlow-condensed text-[26px] max-lg:text-[22px] max-md:text-[18px] font-extrabold text-electric-orange-light leading-none tracking-[-0.02em]">10</span>
-            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-[#e0e0e0] leading-tight">Producción en Masa</span>
-            <span class="text-[clamp(11px,0.9vw,14px)] text-white/80 leading-relaxed"><strong class="text-white/80">Entregables:</strong> BOM, Planos, Especificaciones, SOP, Instrucciones de Depuración, Lista de Equipos, Programas de Prueba FCT y ATE</span>
+            <span class="font-barlow text-[15px] max-md:text-[clamp(12px,1vw,16px)] font-bold text-text-dark leading-tight">Producción en Masa</span>
+            <span class="text-[clamp(11px,0.9vw,14px)] text-text-dark/60 leading-relaxed"><strong class="text-text-dark/60">Entregables:</strong> BOM, Planos, Especificaciones, SOP, Instrucciones de Depuración, Lista de Equipos, Programas de Prueba FCT y ATE</span>
           </div>
         </div>
     </section>
 
     <!-- ========== MANUFACTURING PROCESS ========== -->
-    <section class="w-full py-16 px-[clamp(24px,8vw,160px)] bg-gradient-to-br from-[#1a2d40] to-[#0a1628] relative overflow-x-auto fade-up">
+    <section class="w-full py-16 px-[clamp(24px,8vw,160px)] bg-bg-dark relative overflow-x-auto fade-up">
+      <div class="absolute inset-0 overflow-hidden">
+        <img src="/assets/images/services-process.jpg" alt="" class="w-full h-full object-cover opacity-30" />
+      </div>
         <div class="text-left mb-[60px]">
           <div class="inline-flex items-center gap-3 mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-electric-orange-light"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
@@ -510,10 +624,7 @@ const meta = {
     </section>
 
     <!-- ========== TECHNICAL SUPPORT ========== -->
-    <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] py-12 relative bg-bg-dark fade-up flex flex-col justify-center" id="tech-support">
-      <div class="absolute inset-0 overflow-hidden">
-        <img src="/assets/images/services-process.jpg" alt="" class="w-full h-full object-cover opacity-30" />
-      </div>
+    <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] py-12 relative bg-gradient-to-br from-[#1a2d40] to-[#0a1628] fade-up flex flex-col justify-center" id="tech-support">
       <div class="relative z-10">
         <div class="text-center mb-16">
           <div class="inline-flex items-center gap-3 mb-4">
