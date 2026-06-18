@@ -8,7 +8,7 @@ import { getHreflang, getAltHref } from '../i18n/index';
 export interface Props {
   title: string;
   description: string;
-  lang?: 'en' | 'pt' | 'es';
+  lang?: 'en' | 'pt' | 'es' | 'ar';
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
@@ -25,7 +25,7 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,10 +37,11 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
   <link rel="alternate" hreflang="en" href={getHreflang('en', enPath)} />
   <link rel="alternate" hreflang="pt" href={getHreflang('pt', enPath)} />
   <link rel="alternate" hreflang="es" href={getHreflang('es', enPath)} />
+  <link rel="alternate" hreflang="ar" href={getHreflang('ar', enPath)} />
   <link rel="alternate" hreflang="x-default" href={getHreflang('en', enPath)} />
 
   <!-- Open Graph -->
-  <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : lang === 'es' ? 'es_ES' : 'en_US'} />
+  <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : lang === 'es' ? 'es_ES' : lang === 'ar' ? 'ar_SA' : 'en_US'} />
   <meta property="og:title" content={ogTitle || title} />
   <meta property="og:description" content={ogDescription || description} />
   <meta property="og:image" content={ogImage || defaultOgImage} />
@@ -66,7 +67,7 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
     "@type": "ContactPoint",
     "telephone": "+86-18818994346",
     "contactType": "sales",
-    "availableLanguage": ["English", "Portuguese", "Spanish"]
+    "availableLanguage": ["English", "Portuguese", "Spanish", "Arabic"]
   },
   "sameAs": []
 }
@@ -78,15 +79,17 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
   "name": "CHITEK INNOPOWER",
   "url": "https://chitek.com",
   "description": "B2B industrial power quality solutions manufacturer — AHF, SVG, AVR for global industrial and commercial applications.",
-  "inLanguage": ["en", "pt", "es"]
+  "inLanguage": ["en", "pt", "es", "ar"]
 }
   </script>
 </head>
-<body class="font-barlow text-text-dark bg-white overflow-x-hidden">
+<body class="font-barlow text-text-dark bg-white overflow-x-hidden min-h-screen flex flex-col">
   <Nav lang={lang} />
-  <slot />
+  <main class="flex-1">
+    <slot />
+  </main>
   <Footer lang={lang} />
-  <Sidebar />
+  <Sidebar lang={lang} />
 
   <!-- Shared scroll animation -->
   <script>

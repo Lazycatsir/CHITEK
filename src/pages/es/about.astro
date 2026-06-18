@@ -92,111 +92,50 @@ const meta = {
   </section>
 
   <!-- INDUSTRY CASES -->
-  <section class="relative w-full min-h-[70vh] flex items-center justify-center py-16 px-[clamp(24px,8vw,160px)] overflow-hidden" id="industry">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-industry.webp')] bg-cover bg-center z-0"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(10,20,40,0.55)] to-[rgba(10,20,40,0.75)] z-[1]"></div>
-
-    <div class="relative z-10 w-full text-center">
-      <div class="fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-white uppercase tracking-wide mb-3">CASOS DE LA INDUSTRIA</h2>
-        <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mb-[50px]"></div>
+  <section class="relative w-full overflow-hidden bg-white" id="industry">
+    <div class="relative z-10 w-full pt-12 max-md:pt-8">
+      <div class="text-center mb-8 max-md:mb-5 fade-up">
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-text-dark uppercase tracking-wide">CASOS DE LA INDUSTRIA</h2>
+        <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mt-3"></div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(12px,3vw,48px)] w-full fade-up">
-        <!-- Card 1 -->
-        <a href="/solutions#industry" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="8" y="6" width="32" height="36" rx="2"/>
-              <rect x="14" y="12" width="20" height="6" rx="1"/>
-              <line x1="18" y1="24" x2="30" y2="24"/>
-              <line x1="18" y1="30" x2="30" y2="30"/>
-              <line x1="18" y1="36" x2="24" y2="36"/>
-            </svg>
+      <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 fade-up">
+        <a href="/solutions#industry" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-manufacturing.webp" alt="Fabricación Industrial" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Fabricación Industrial</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Fabricación Industrial</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Filtrado activo de armónicos y corrección del factor de potencia para maquinaria pesada, equipos de soldadura y sistemas accionados por motores en fábricas.</p>
-        </div></a>
-
-        <!-- Card 2 -->
-        <a href="/solutions#commercial" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <path d="M6 44 L6 28 L14 28 L14 44"/>
-              <path d="M18 44 L18 18 L26 18 L26 44"/>
-              <path d="M30 44 L30 24 L38 24 L38 44"/>
-              <path d="M4 28 L24 8 L44 28"/>
-            </svg>
+        </a>
+        <a href="/solutions#commercial" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-commercial-medical.webp" alt="Edificios Comerciales y Médicos" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Edificios Comerciales y Médicos</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Edificios Comerciales y Médicos</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Protección de equipos médicos sensibles de imagen y sistemas de gestión de edificios contra perturbaciones eléctricas y caídas de voltaje.</p>
-        </div></a>
-
-        <!-- Card 3 -->
-        <a href="/solutions#datacenter" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="8" y="14" width="32" height="24" rx="2"/>
-              <rect x="14" y="20" width="8" height="6" rx="1"/>
-              <rect x="26" y="20" width="8" height="6" rx="1"/>
-              <circle cx="24" cy="38" r="2"/>
-              <line x1="24" y1="38" x2="24" y2="44"/>
-            </svg>
+        </a>
+        <a href="/solutions#datacenter" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-datacenter.webp" alt="Centros de Datos y Telecomunicaciones" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Centros de Datos y Telecomunicaciones</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Centros de Datos y Telecomunicaciones</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Garantizar calidad de energía con cero tiempo de inactividad para infraestructura de TI crítica, sistemas UPS y centrales de conmutación de telecomunicaciones.</p>
-        </div></a>
-
-        <!-- Card 4 -->
-        <a href="/solutions#renewable" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <circle cx="24" cy="24" r="10"/>
-              <path d="M24 4 L24 10"/>
-              <path d="M24 38 L24 44"/>
-              <path d="M4 24 L10 24"/>
-              <path d="M38 24 L44 24"/>
-              <path d="M9.86 9.86 L14.1 14.1"/>
-              <path d="M33.9 33.9 L38.14 38.14"/>
-            </svg>
+        </a>
+        <a href="/solutions#renewable" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-renewable.webp" alt="Energía Renovable" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Energía Renovable</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Energía Renovable</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Soluciones de integración a la red para parques solares y eólicos, gestionando potencia reactiva y distorsión armónica de inversores.</p>
-        </div></a>
-
-        <!-- Card 5 -->
-        <a href="/solutions#rail" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="10" y="18" width="28" height="20" rx="3"/>
-              <circle cx="18" cy="38" r="4"/>
-              <circle cx="30" cy="38" r="4"/>
-              <line x1="14" y1="18" x2="14" y2="10"/>
-              <line x1="34" y1="18" x2="34" y2="10"/>
-              <line x1="10" y1="10" x2="38" y2="10"/>
-            </svg>
+        </a>
+        <a href="/solutions#rail" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-transportation.webp" alt="Transporte" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Transporte</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Transporte</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Soluciones de calidad de energía para estaciones de carga de VE, sistemas de tracción ferroviaria e infraestructura para vehículos eléctricos.</p>
-        </div></a>
-
-        <!-- Card 6 -->
-        <a href="/solutions#grid" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <path d="M4 24 L12 24 L16 12 L24 36 L32 16 L36 24 L44 24"/>
-              <circle cx="24" cy="24" r="18"/>
-            </svg>
+        </a>
+        <a href="/solutions#grid" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-power-grid.webp" alt="Red Eléctrica y Servicios Públicos" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Red Eléctrica y Servicios Públicos</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Red Eléctrica y Servicios Públicos</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Apoyo a la estabilidad de la red con compensación dinámica de potencia reactiva y mitigación de armónicos a nivel de subestación.</p>
-        </div></a>
+        </a>
       </div>
     </div>
   </section>
@@ -358,13 +297,13 @@ const meta = {
   </section>
 
   <!-- GLOBAL REACH -->
-  <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 max-md:px-4 bg-bg-dark">
+  <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 px-[clamp(24px,8vw,160px)] bg-gray-100">
     <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
     <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
       <img src="/assets/images/about-global.webp" alt="Alcance Global" class="w-full h-full object-contain" />
     </div>
-    <div class="relative z-10 text-center px-12 py-5 max-md:hidden bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)] inline-block">
-      <div class="inline-flex items-center gap-3 mb-4 justify-center">
+    <div class="relative z-10 text-center px-12 py-5 bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)]">
+      <div class="inline-flex items-center gap-3 mb-4">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Alcance Global</span>
       </div>

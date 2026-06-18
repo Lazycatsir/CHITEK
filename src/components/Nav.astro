@@ -1,38 +1,39 @@
 ---
 export interface Props {
-  lang?: 'en' | 'pt' | 'es';
+  lang?: 'en' | 'pt' | 'es' | 'ar';
 }
 const { lang = 'en' } = Astro.props;
+const isRtl = lang === 'ar';
 
-const t: Record<string, { en: string; pt: string; es: string }> = {
-  products: { en: 'Products', pt: 'Produtos', es: 'Productos' },
-  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones' },
-  services: { en: 'Services', pt: 'Serviços', es: 'Servicios' },
-  about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros' },
-  contact: { en: 'Contact', pt: 'Contato', es: 'Contacto' },
-  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo' },
-  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var' },
-  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG' },
-  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial' },
-  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos' },
-  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones' },
-  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)' },
-  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)' },
-  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos' },
-  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM', es: 'OEM/ODM' },
-  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico', es: 'Soporte Técnico' },
-  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores', es: 'Programa de Distribuidores' },
-  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa', es: 'Perfil de la Empresa' },
-  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso', es: 'Casos de Estudio' },
-  certifications: { en: 'Certifications', pt: 'Certificações', es: 'Certificaciones' },
+const t: Record<string, { en: string; pt: string; es: string; ar: string }> = {
+  products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات' },
+  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول' },
+  services: { en: 'Services', pt: 'Serviços', es: 'Servicios', ar: 'الخدمات' },
+  about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros', ar: 'عن الشركة' },
+  contact: { en: 'Contact', pt: 'Contato', es: 'Contacto', ar: 'اتصل بنا' },
+  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط' },
+  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن' },
+  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG', ar: 'SiC AHF/SVG' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones', ar: 'مراكز البيانات والاتصالات' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)', ar: 'الطاقة المتجددة (الطاقة الشمسية/الرياح)' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)', ar: 'النقل (السكك الحديدية/الشحن)' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos', ar: 'شبكة الكهرباء والمرافق' },
+  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM', es: 'OEM/ODM', ar: 'OEM/ODM' },
+  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico', es: 'Soporte Técnico', ar: 'الدعم الفني' },
+  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores', es: 'Programa de Distribuidores', ar: 'برنامج الموزعين' },
+  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa', es: 'Perfil de la Empresa', ar: 'ملف الشركة' },
+  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso', es: 'Casos de Estudio', ar: 'دراسات الحالة' },
+  certifications: { en: 'Certifications', pt: 'Certificações', es: 'Certificaciones', ar: 'الشهادات' },
 };
 
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const langLabel: Record<string, string> = { en: 'English', pt: 'Português', es: 'Español' };
-const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es' };
+const langLabel: Record<string, string> = { en: 'English', pt: 'Português', es: 'Español', ar: 'العربية' };
+const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es', ar: 'sa' };
 
 /** Build href for a target language from current pathname */
 function langHref(targetLang: string): string {
@@ -41,10 +42,12 @@ function langHref(targetLang: string): string {
   let base = pathname;
   if (base.startsWith('/pt')) base = base.replace(/^\/pt/, '') || '/';
   else if (base.startsWith('/es')) base = base.replace(/^\/es/, '') || '/';
+  else if (base.startsWith('/ar')) base = base.replace(/^\/ar/, '') || '/';
   // Add target prefix
   if (targetLang === 'en') return base;
   if (targetLang === 'pt') return '/pt' + (base === '/' ? '' : base);
   if (targetLang === 'es') return '/es' + (base === '/' ? '' : base);
+  if (targetLang === 'ar') return '/ar' + (base === '/' ? '' : base);
   return '#';
 }
 const activeLangLabel = langLabel[lang] || 'English';
@@ -52,7 +55,8 @@ const activeLangFlag = langFlagCode[lang] || 'gb';
 const enHref = langHref('en');
 const ptHref = langHref('pt');
 const esHref = langHref('es');
-const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : '';
+const arHref = langHref('ar');
+const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
@@ -77,10 +81,22 @@ const homeHref = prefix || '/';
   .mobile-submenu.open {
     display: flex;
   }
+  [dir="rtl"] .lang-item {
+    border-left: none;
+    border-right-width: 3px;
+    border-right-color: transparent;
+  }
+  [dir="rtl"] .lang-item:hover,
+  [dir="rtl"] .lang-item.border-l-brand-orange {
+    border-right-color: #ff6b1a;
+  }
+  [dir="rtl"] .lang-item.border-l-brand-orange {
+    border-right-color: #ff6b1a;
+  }
 </style>
 <nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light shadow-sm">
   <div class="w-full h-full flex items-center px-5 md:px-12 gap-6 lg:gap-10">
-	  <a href={homeHref} class="flex items-center no-underline mr-auto">
+	  <a href={homeHref} class:list={["flex items-center no-underline", isRtl ? "ml-auto" : "mr-auto"]}>
     <img src="/assets/images/logo.webp" alt="CHITEK Logo" class="w-[140px] h-auto object-contain" />
   </a>
 
@@ -172,7 +188,10 @@ const homeHref = prefix || '/';
       <span class="lang-arrow text-[10px] transition-transform duration-300">▾</span>
     </div>
 
-    <div class="lang-dropdown absolute top-full right-0 bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:right-5 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+    <div class:list={[
+      "lang-dropdown absolute top-full bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:w-3 before:h-3 before:bg-white before:border-t before:border-border-light before:rotate-45",
+      isRtl ? "left-0 before:right-auto before:left-5 before:border-r before:border-l-0" : "right-0 before:right-5 before:border-l"
+    ]}>
       <a href={enHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'en' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">English</span>
         <img src="/assets/images/flags/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
@@ -184,6 +203,10 @@ const homeHref = prefix || '/';
       <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Espa&ntilde;ol</span>
         <img src="/assets/images/flags/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </a>
+      <a href={arHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'ar' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-text-mid font-medium">العربية</span>
+        <img src="/assets/images/flags/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
   </div>

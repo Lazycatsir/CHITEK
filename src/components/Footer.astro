@@ -1,37 +1,37 @@
 ---
 export interface Props {
-  lang?: 'en' | 'pt' | 'es';
+  lang?: 'en' | 'pt' | 'es' | 'ar';
 }
 const { lang = 'en' } = Astro.props;
 
-const t: Record<string, { en: string; pt: string; es: string }> = {
-  subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.', es: 'Suscríbase para disfrutar de precios especiales y soporte técnico dedicado.' },
-  emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com', es: 'nombre@email.com' },
-  subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse' },
-  products: { en: 'Products', pt: 'Produtos', es: 'Productos' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo' },
-  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado' },
-  sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)', es: 'SiC-AHF/SVG (Alta Eficiencia)' },
-  highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção', es: 'AHF/SVG de Alta Protección' },
-  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones' },
-  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial' },
-  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos' },
-  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones' },
-  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)' },
-  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)' },
-  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos' },
-  resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias', es: 'Recursos y Asociaciones' },
-  technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica', es: 'Biblioteca Técnica' },
-  globalReferences: { en: 'Global References', pt: 'Referências Globais', es: 'Referencias Globales' },
-  oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM', es: 'Servicios OEM y ODM' },
-  becomeDistributor: { en: 'Become a Distributor', pt: 'Torne-se um Distribuidor', es: 'Conviértase en Distribuidor' },
-  copyright: { en: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.', pt: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos os Direitos Reservados.', es: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos los Derechos Reservados.' },
-  ipv6Served: { en: 'IPV6 Served', pt: 'IPV6 Atendido', es: 'IPV6 Atendido' },
+const t: Record<string, { en: string; pt: string; es: string; ar: string }> = {
+  subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.', es: 'Suscríbase para disfrutar de precios especiales y soporte técnico dedicado.', ar: 'اشترك معنا للاستمتاع بأسعار الفعاليات مع دعم فني مخصص.' },
+  emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com', es: 'nombre@email.com', ar: 'name@email.com' },
+  subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse', ar: 'اشترك' },
+  products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط' },
+  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم' },
+  sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)', es: 'SiC-AHF/SVG (Alta Eficiencia)', ar: 'SiC-AHF/SVG (كفاءة عالية)' },
+  highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção', es: 'AHF/SVG de Alta Protección', ar: 'AHF/SVG حماية عالية' },
+  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones', ar: 'مراكز البيانات والاتصالات' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)', ar: 'الطاقة المتجددة (الطاقة الشمسية/الرياح)' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)', ar: 'النقل (السكك الحديدية/الشحن)' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos', ar: 'شبكة الكهرباء والمرافق' },
+  resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias', es: 'Recursos y Asociaciones', ar: 'الموارد والشراكات' },
+  technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica', es: 'Biblioteca Técnica', ar: 'المكتبة التقنية' },
+  globalReferences: { en: 'Global References', pt: 'Referências Globais', es: 'Referencias Globales', ar: 'المراجع العالمية' },
+  oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM', es: 'Servicios OEM y ODM', ar: 'خدمات OEM و ODM' },
+  becomeDistributor: { en: 'Become a Distributor', pt: 'Torne-se um Distribuidor', es: 'Conviértase en Distribuidor', ar: 'كن موزعاً' },
+  copyright: { en: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. All Rights Reserved.', pt: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos os Direitos Reservados.', es: '© 2026 Shenzhen CHITEK New Energy Technology Co., Ltd. Todos los Derechos Reservados.', ar: '© 2026 شركة شنجن تشيتكتك لتكنولوجيا الطاقة الجديدة المحدودة. جميع الحقوق محفوظة.' },
+  ipv6Served: { en: 'IPV6 Served', pt: 'IPV6 Atendido', es: 'IPV6 Atendido', ar: 'IPV6 مدعوم' },
 };
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : '';
+const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
@@ -53,9 +53,9 @@ const servicesHref = prefix + '/services';
         <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
         </div>
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
-          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m4 4V7"/></svg>
-        </div>
+        <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
       </div>
     </div>
     <div class="footer-col">
