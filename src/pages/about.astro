@@ -92,111 +92,50 @@ const meta = {
   </section>
 
   <!-- INDUSTRY CASES -->
-  <section class="relative w-full min-h-[70vh] flex items-center justify-center py-16 px-[clamp(24px,8vw,160px)] overflow-hidden" id="industry">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-industry.webp')] bg-cover bg-center z-0"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(10,20,40,0.55)] to-[rgba(10,20,40,0.75)] z-[1]"></div>
-
-    <div class="relative z-10 w-full text-center">
-      <div class="fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-white uppercase tracking-wide mb-3">INDUSTRY CASES</h2>
-        <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mb-[50px]"></div>
+  <section class="relative w-full overflow-hidden bg-white" id="industry">
+    <div class="relative z-10 w-full pt-12 max-md:pt-8">
+      <div class="text-center mb-8 max-md:mb-5 fade-up">
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-text-dark uppercase tracking-wide">INDUSTRY CASES</h2>
+        <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mt-3"></div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(12px,3vw,48px)] w-full fade-up">
-        <!-- Card 1 -->
-        <a href="/solutions#industry" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="8" y="6" width="32" height="36" rx="2"/>
-              <rect x="14" y="12" width="20" height="6" rx="1"/>
-              <line x1="18" y1="24" x2="30" y2="24"/>
-              <line x1="18" y1="30" x2="30" y2="30"/>
-              <line x1="18" y1="36" x2="24" y2="36"/>
-            </svg>
+      <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 fade-up">
+        <a href="/solutions#industry" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-manufacturing.webp" alt="Industrial Manufacturing" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Industrial Manufacturing</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Industrial Manufacturing</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Active harmonic filtering and power factor correction for heavy machinery, welding equipment, and motor-driven systems in factories.</p>
-        </div></a>
-
-        <!-- Card 2 -->
-        <a href="/solutions#commercial" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <path d="M6 44 L6 28 L14 28 L14 44"/>
-              <path d="M18 44 L18 18 L26 18 L26 44"/>
-              <path d="M30 44 L30 24 L38 24 L38 44"/>
-              <path d="M4 28 L24 8 L44 28"/>
-            </svg>
+        </a>
+        <a href="/solutions#commercial" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-commercial-medical.webp" alt="Commercial & Medical Buildings" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Commercial &amp; Medical Buildings</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Commercial &amp; Medical Buildings</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Protecting sensitive medical imaging equipment and building management systems from power disturbances and voltage sags.</p>
-        </div></a>
-
-        <!-- Card 3 -->
-        <a href="/solutions#datacenter" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="8" y="14" width="32" height="24" rx="2"/>
-              <rect x="14" y="20" width="8" height="6" rx="1"/>
-              <rect x="26" y="20" width="8" height="6" rx="1"/>
-              <circle cx="24" cy="38" r="2"/>
-              <line x1="24" y1="38" x2="24" y2="44"/>
-            </svg>
+        </a>
+        <a href="/solutions#datacenter" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-datacenter.webp" alt="Data Centers & Telecom" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Data Centers &amp; Telecom</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Data Centers &amp; Telecom</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Ensuring zero-downtime power quality for critical IT infrastructure, UPS systems, and telecom switching stations.</p>
-        </div></a>
-
-        <!-- Card 4 -->
-        <a href="/solutions#renewable" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <circle cx="24" cy="24" r="10"/>
-              <path d="M24 4 L24 10"/>
-              <path d="M24 38 L24 44"/>
-              <path d="M4 24 L10 24"/>
-              <path d="M38 24 L44 24"/>
-              <path d="M9.86 9.86 L14.1 14.1"/>
-              <path d="M33.9 33.9 L38.14 38.14"/>
-            </svg>
+        </a>
+        <a href="/solutions#renewable" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-renewable.webp" alt="Renewable Energy" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Renewable Energy</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Renewable Energy</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Grid integration solutions for solar and wind farms, managing reactive power and harmonic distortion from inverters.</p>
-        </div></a>
-
-        <!-- Card 5 -->
-        <a href="/solutions#rail" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <rect x="10" y="18" width="28" height="20" rx="3"/>
-              <circle cx="18" cy="38" r="4"/>
-              <circle cx="30" cy="38" r="4"/>
-              <line x1="14" y1="18" x2="14" y2="10"/>
-              <line x1="34" y1="18" x2="34" y2="10"/>
-              <line x1="10" y1="10" x2="38" y2="10"/>
-            </svg>
+        </a>
+        <a href="/solutions#rail" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-transportation.webp" alt="Transportation" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Transportation</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Transportation</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Power quality solutions for EV charging stations, railway traction systems, and electric vehicle infrastructure.</p>
-        </div></a>
-
-        <!-- Card 6 -->
-        <a href="/solutions#grid" class="block no-underline">
-        <div class="bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] text-left backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
-          <div class="w-11 h-11 mb-5 text-brand-orange">
-            <svg viewBox="0 0 48 48" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
-              <path d="M4 24 L12 24 L16 12 L24 36 L32 16 L36 24 L44 24"/>
-              <circle cx="24" cy="24" r="18"/>
-            </svg>
+        </a>
+        <a href="/solutions#grid" class="relative group block overflow-hidden aspect-[4/3]">
+          <img src="/assets/images/about-industry-power-grid.webp" alt="Power Grid & Utility" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Power Grid &amp; Utility</span>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide">Power Grid &amp; Utility</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70">Supporting grid stability with dynamic reactive power compensation and harmonic mitigation at substation level.</p>
-        </div></a>
+        </a>
       </div>
     </div>
   </section>
@@ -268,7 +207,7 @@ const meta = {
   </section>
 
   <!-- CERTIFICATIONS & HONORS -->
-  <section class="relative overflow-hidden py-12 px-[clamp(24px,8vw,160px)] bg-[#0c1628]" id="certifications">
+  <section class="relative overflow-hidden py-12 px-[clamp(24px,8vw,160px)] bg-white" id="certifications">
     <div>
       <!-- Section Header -->
       <div class="text-center mb-14 fade-up">
@@ -276,9 +215,9 @@ const meta = {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Certifications &amp; Honors</span>
         </div>
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,56px)] font-bold text-white uppercase tracking-[0.02em]">Global Quality Assurance</h2>
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,56px)] font-bold text-text-dark uppercase tracking-[0.02em]">Global Quality Assurance</h2>
         <div class="w-[60px] h-[3px] bg-gradient-to-r from-transparent via-brand-orange to-transparent mx-auto mb-4"></div>
-        <p class="text-[15px] text-white/70 max-w-[600px] mx-auto leading-relaxed">Internationally certified quality management and product safety standards ensure reliable performance across all markets.</p>
+        <p class="text-[15px] text-text-secondary max-w-[600px] mx-auto leading-relaxed">Internationally certified quality management and product safety standards ensure reliable performance across all markets.</p>
       </div>
 
       <!-- Carousel -->
@@ -286,69 +225,69 @@ const meta = {
         <div id="certTrack" class="flex transition-transform duration-500 ease-out">
           <!-- Card 1: CE -->
           <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
-            <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
-              <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+            <div class="bg-bg-card border border-border-card rounded p-4 h-full transition-all duration-[350ms] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] flex flex-col items-center">
+              <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">CE</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white text-center font-barlow-condensed tracking-wide">CE Marking</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-white/50 text-center mt-1 leading-relaxed">TÜV Rheinland certified, EU compliance</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">CE Marking</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">TÜV Rheinland certified, EU compliance</p>
             </div>
           </div>
           <!-- Card 2: UL -->
           <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
-            <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
-              <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+            <div class="bg-bg-card border border-border-card rounded p-4 h-full transition-all duration-[350ms] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] flex flex-col items-center">
+              <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">UL</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white text-center font-barlow-condensed tracking-wide">UL 508 Listed</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-white/50 text-center mt-1 leading-relaxed">North American safety certified</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">UL 508 Listed</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">North American safety certified</p>
             </div>
           </div>
           <!-- Card 3: ISO -->
           <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
-            <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
-              <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+            <div class="bg-bg-card border border-border-card rounded p-4 h-full transition-all duration-[350ms] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] flex flex-col items-center">
+              <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(16px,1.2vw,20px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">ISO<br>9001</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white text-center font-barlow-condensed tracking-wide">ISO 9001:2015</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-white/50 text-center mt-1 leading-relaxed">SGS certified quality management</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">ISO 9001:2015</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">SGS certified quality management</p>
             </div>
           </div>
           <!-- Card 4: IEC -->
           <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
-            <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
-              <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+            <div class="bg-bg-card border border-border-card rounded p-4 h-full transition-all duration-[350ms] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] flex flex-col items-center">
+              <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">IEC</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white text-center font-barlow-condensed tracking-wide">IEC 61000 Series</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-white/50 text-center mt-1 leading-relaxed">EMC &amp; harmonic emission standards</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">IEC 61000 Series</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">EMC &amp; harmonic emission standards</p>
             </div>
           </div>
           <!-- Card 5: RoHS -->
           <div class="cert-card min-w-[33.333%] max-md:min-w-full px-2">
-            <div class="bg-white/[0.06] border border-white/10 rounded p-4 h-full backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)] flex flex-col items-center">
-              <div class="w-full h-[72px] mb-2.5 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+            <div class="bg-bg-card border border-border-card rounded p-4 h-full transition-all duration-[350ms] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] flex flex-col items-center">
+              <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(10px,0.8vw,14px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">RoHS<br>REACH</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white text-center font-barlow-condensed tracking-wide">RoHS &amp; REACH</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-white/50 text-center mt-1 leading-relaxed">Hazardous substance compliant</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">RoHS &amp; REACH</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">Hazardous substance compliant</p>
             </div>
           </div>
         </div>
 
         <!-- Nav Arrows -->
-        <button id="certPrev" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 border border-white/20 rounded-full text-white hover:bg-brand-orange hover:border-brand-orange transition-all duration-200 cursor-pointer z-10 max-md:hidden">
+        <button id="certPrev" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-bg-card border border-border-card rounded-full text-text-dark hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 cursor-pointer z-10 max-md:hidden">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <button id="certNext" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 border border-white/20 rounded-full text-white hover:bg-brand-orange hover:border-brand-orange transition-all duration-200 cursor-pointer z-10 max-md:hidden">
+        <button id="certNext" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-bg-card border border-border-card rounded-full text-text-dark hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 cursor-pointer z-10 max-md:hidden">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
 
         <!-- Dots -->
         <div class="flex items-center justify-center gap-2.5 mt-8" id="certDots">
           <span class="cert-dot w-2.5 h-2.5 rounded-full bg-brand-orange cursor-pointer transition-all duration-300" data-index="0"></span>
-          <span class="cert-dot w-2.5 h-2.5 rounded-full bg-white/30 cursor-pointer transition-all duration-300" data-index="1"></span>
-          <span class="cert-dot w-2.5 h-2.5 rounded-full bg-white/30 cursor-pointer transition-all duration-300" data-index="2"></span>
+          <span class="cert-dot w-2.5 h-2.5 rounded-full bg-border-subtle cursor-pointer transition-all duration-300" data-index="1"></span>
+          <span class="cert-dot w-2.5 h-2.5 rounded-full bg-border-subtle cursor-pointer transition-all duration-300" data-index="2"></span>
         </div>
 
         <!-- Mobile touch hint -->
@@ -358,13 +297,13 @@ const meta = {
   </section>
 
   <!-- GLOBAL REACH -->
-  <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 max-md:px-4 bg-bg-dark">
+  <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 px-[clamp(24px,8vw,160px)] bg-gray-100">
     <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
     <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
       <img src="/assets/images/about-global.webp" alt="Global Reach" class="w-full h-full object-contain" />
     </div>
-    <div class="relative z-10 text-center px-12 py-5 max-md:hidden bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)] inline-block">
-      <div class="inline-flex items-center gap-3 mb-4 justify-center">
+    <div class="relative z-10 text-center px-12 py-5 bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)]">
+      <div class="inline-flex items-center gap-3 mb-4">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Global Reach</span>
       </div>
@@ -400,7 +339,7 @@ const meta = {
         for (var i = 0; i < dots.length; i++) {
           dots[i].className =
             "cert-dot w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 " +
-            (i === current ? "bg-brand-orange" : "bg-white/30");
+            (i === current ? "bg-brand-orange" : "bg-border-subtle");
         }
       }
 

@@ -14,7 +14,6 @@ const t: Record<string, { en: string; pt: string; es: string }> = {
   activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo' },
   staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var' },
   sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG' },
-  automaticVoltageRegulator: { en: 'Automatic Voltage Regulator', pt: 'Regulador Automático de Tensão', es: 'Regulador Automático de Tensión' },
   industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial' },
   commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos' },
   dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones' },
@@ -102,7 +101,6 @@ const homeHref = prefix || '/';
         <a href={productsHref + '#ahf'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
         <a href={productsHref + '#svg'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
         <a href={productsHref + '#sic'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('sicAhfSvg')}</a>
-        <a href={productsHref + '#avr'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('automaticVoltageRegulator')}</a>
       </div>
     </div>
 
@@ -203,7 +201,6 @@ const homeHref = prefix || '/';
       <a href={productsHref + '#ahf'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('activeHarmonicFilter')}</a>
       <a href={productsHref + '#svg'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('staticVarGenerator')}</a>
       <a href={productsHref + '#sic'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('sicAhfSvg')}</a>
-      <a href={productsHref + '#avr'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('automaticVoltageRegulator')}</a>
     </div>
   </div>
   <div class="border-b border-border-light">

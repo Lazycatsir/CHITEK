@@ -117,7 +117,6 @@ const meta = {
         <div class="flex justify-center gap-1 mt-[clamp(8px,2vw,32px)] relative border-b border-border-light max-w-[740px] mx-auto overflow-x-auto max-md:justify-start">
           <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">Filtro Ativo de Harmónicos</div>
           <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">Gerador Estático de Reativos</div>
-          <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="avr">Regulador Automático de Tensão</div>
         </div>
       </div>
 
@@ -138,12 +137,6 @@ const meta = {
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">O Gerador Estático de Reativos CHITEK utiliza comutação IGBT avançada até 25,6 kHz para regular com precisão a magnitude e fase da tensão do inversor. Fornece compensação dinâmica de potência reativa e equilíbrio de carga trifásico com excecional precisão para aplicações industriais exigentes.</p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
-          </div>
-          <div class="product-info-item hidden" id="info-avr">
-            <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AVR</h3>
-            <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
-            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">O Regulador Automático de Tensão CHITEK mantém a tensão de saída dentro de ±1% apesar de variações de entrada até ±30%. Utiliza comutador de taps e controlo PWM avançados para proteger equipamentos críticos contra quedas, picos e subtensões em sistemas de 208V–480V em ambientes de rede instáveis.</p>
             <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
           </div>
         </div>
@@ -193,8 +186,7 @@ const meta = {
   <script>
     const productData = {
       ahf: { visual: '/assets/images/index-product-ahf.webp', infoId: 'info-ahf' },
-      svg: { visual: '/assets/images/index-product-svg.webp', infoId: 'info-svg' },
-      avr: { visual: '/assets/images/index-product-avr.webp', infoId: 'info-avr' }
+      svg: { visual: '/assets/images/index-product-svg.webp', infoId: 'info-svg' }
     };
 
     const tabs = document.querySelectorAll('.tab');
