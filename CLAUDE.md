@@ -107,6 +107,15 @@ npm run build   # astro build（生产构建到 dist/）
 npm run preview # astro preview（预览生产构建）
 ```
 
+## 打开首页
+
+用户说"打开首页"时，执行：
+
+1. 检查 server 是否在运行：`netstat -ano | findstr "LISTENING" | findstr "4321"`
+2. 如果没运行，后台启动：`Start-Process cmd "/c cd /d F:\下载\CHITEK && npm run dev" -WindowStyle Minimized`
+3. 等 10 秒让 server 启动
+4. 打开浏览器：`Start-Process "http://localhost:4321/"`
+
 ## 技术栈
 
 | 技术 | 用途 |
@@ -124,3 +133,9 @@ npm run preview # astro preview（预览生产构建）
 - headline（标题）
 - supporting text（支持性文本）
 - 可选的 CTA（行动号召按钮）
+
+## News/Blog 规范
+
+- 文章列表按日期从新到旧排列（最新在最前面）
+- 新增文章日期应设为最近日期，确保排在列表顶部
+- 每篇文章需要：frontmatter（title/category/date/description/keywords）+ Schema.org Article 结构化数据 + SEO 关键词标签

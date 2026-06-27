@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+<BaseLayout title="News & Insights | CHITEK INNOPOWER" description="Stay updated with the latest news, technical papers, and industry insights from CHITEK INNOPOWER power quality solutions." lang="en">
+  <Sidebar lang="en" />
+
+  <!-- Hero Section -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-20 md:py-28">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight mb-6">
+        News & <span class="text-brand-orange">Insights</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+        Stay informed with the latest developments in power quality technology, industry trends, and CHITEK solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section id="articles" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mb-4">
+        Latest Articles
+      </h2>
+      <p class="text-text-mid text-lg mb-12 max-w-2xl">
+        Explore our latest news, product updates, and company announcements.
+      </p>
+
+      <div class="space-y-6">
+        <!-- Article 1 - Jun 15, 2026 -->
+        <a href="/news/blog-active-harmonic-filter-for-vfd-systems" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-brand-orange/40">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jun 15, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active Harmonic Filters for VFD Systems: Why They Are Critical
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Active Harmonic Filters are indispensable for VFD-heavy facilities. Learn why AHFs are the smart choice for stabilizing power quality.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 2 - Jun 8, 2026 -->
+        <a href="/news/blog-ahf-vs-line-reactors" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-purple-500/10 to-purple-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-purple-500/40">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jun 8, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active Harmonic Filters vs Line Reactors: A Technical Comparison
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              A comprehensive technical comparison between Active Harmonic Filters and Line Reactors for industrial power quality mitigation.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 3 - Jun 1, 2026 -->
+        <a href="/news/blog-svg-power-electronics-daily-life" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-green-500/40">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jun 1, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Why SVG Is the Invisible Guardian of Modern Infrastructure
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              SVG is the silent power quality bodyguard for modern grids, industrial parks, and urban infrastructure. Learn how it powers daily life.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 4 - Dec 15, 2024 -->
+        <a href="/news/sic-ahf-launch" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-brand-orange/40">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Product Update</span>
+              <span class="text-xs text-text-muted">Dec 15, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              New SiC-Based Active Harmonic Filter Series Launch
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint. The new series features advanced SiC MOSFET technology for superior switching performance.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 5 - Nov 28, 2024 -->
+        <a href="/news/saudi-arabia-standards" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-blue-500/10 to-blue-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-blue-500/40">
+              <path d="M9 17H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-4l-5 5v-5z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Industry News</span>
+              <span class="text-xs text-text-muted">Nov 28, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Saudi Arabia Power Quality Standards Update
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements with THD reduction to below 5%.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 6 - Nov 10, 2024 -->
+        <a href="/news/solar-farm-dubai" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-green-500/40">
+              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Case Study</span>
+              <span class="text-xs text-text-muted">Nov 10, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Solar Farm Power Quality Optimization in Dubai
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai, reducing energy losses by 15%.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 7 - Oct 22, 2024 -->
+        <a href="/news/sic-vs-igbt" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-purple-500/10 to-purple-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-purple-500/40">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Oct 22, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SiC vs IGBT: The Future of Power Quality Equipment
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 8 - Oct 05, 2024 -->
+        <a href="/news/carbon-neutral-factories" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-cyan-500/40">
+              <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+            </svg>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Sustainability</span>
+              <span class="text-xs text-text-muted">Oct 05, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Power Quality Solutions for Carbon Neutral Factories
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-center gap-2 mt-16">
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-muted hover:border-brand-orange hover:text-brand-orange transition-colors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+            <path d="M15 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded bg-brand-orange text-white font-semibold text-sm">1</a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">2</a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">3</a>
+        <span class="w-10 h-10 flex items-center justify-center text-text-muted">...</span>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">8</a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-muted hover:border-brand-orange hover:text-brand-orange transition-colors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+            <path d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

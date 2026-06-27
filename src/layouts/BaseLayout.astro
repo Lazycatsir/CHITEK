@@ -13,9 +13,10 @@ export interface Props {
   ogDescription?: string;
   ogImage?: string;
   ogUrl?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl } = Astro.props;
+const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website' } = Astro.props;
 const defaultOgImage = 'https://chitek.com/assets/images/logo.webp';
 const defaultOgUrl = 'https://chitek.com';
 
@@ -46,7 +47,7 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
   <meta property="og:description" content={ogDescription || description} />
   <meta property="og:image" content={ogImage || defaultOgImage} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:site_name" content="CHITEK INNOPOWER" />
 
   <!-- Twitter Card -->
@@ -82,6 +83,7 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${enPath}`;
   "inLanguage": ["en", "pt", "es", "ar"]
 }
   </script>
+  <slot name="head" />
 </head>
 <body class="font-barlow text-text-dark bg-white overflow-x-hidden min-h-screen flex flex-col">
   <Nav lang={lang} />

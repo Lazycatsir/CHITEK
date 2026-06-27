@@ -9,8 +9,10 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string }> = {
   products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات' },
   solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول' },
   services: { en: 'Services', pt: 'Serviços', es: 'Servicios', ar: 'الخدمات' },
+  news: { en: 'News', pt: 'Notícias', es: 'Noticias', ar: 'الأخبار' },
   about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros', ar: 'عن الشركة' },
   contact: { en: 'Contact', pt: 'Contato', es: 'Contacto', ar: 'اتصل بنا' },
+  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...' },
   search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...' },
   activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط' },
   staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن' },
@@ -60,6 +62,7 @@ const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
+const newsHref = prefix + '/news';
 const aboutHref = prefix + '/about';
 const contactHref = prefix + '/contact';
 const homeHref = prefix || '/';
@@ -159,6 +162,7 @@ const homeHref = prefix || '/';
         <a href={aboutHref + '#about'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('companyProfile')}</a>
         <a href={aboutHref + '#industry'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('caseStudies')}</a>
         <a href={aboutHref + '#certifications'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('certifications')}</a>
+        <a href={newsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('news')}</a>
       </div>
     </div>
 
@@ -260,6 +264,7 @@ const homeHref = prefix || '/';
       <a href={aboutHref + '#about'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('companyProfile')}</a>
       <a href={aboutHref + '#industry'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('caseStudies')}</a>
       <a href={aboutHref + '#certifications'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('certifications')}</a>
+      <a href={newsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('news')}</a>
     </div>
   </div>
   <div class="border-b-0">

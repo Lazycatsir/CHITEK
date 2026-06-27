@@ -21,6 +21,7 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string }> = {
   transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)', ar: 'النقل (السكك الحديدية/الشحن)' },
   powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos', ar: 'شبكة الكهرباء والمرافق' },
   resourcesPartnership: { en: 'Resources & Partnership', pt: 'Recursos e Parcerias', es: 'Recursos y Asociaciones', ar: 'الموارد والشراكات' },
+  news: { en: 'News & Insights', pt: 'Notícias e Insights', es: 'Noticias y Perspectivas', ar: 'الأخبار والرؤى' },
   technicalLibrary: { en: 'Technical Library', pt: 'Biblioteca Técnica', es: 'Biblioteca Técnica', ar: 'المكتبة التقنية' },
   globalReferences: { en: 'Global References', pt: 'Referências Globais', es: 'Referencias Globales', ar: 'المراجع العالمية' },
   oemOdmServices: { en: 'OEM & ODM Services', pt: 'Serviços OEM e ODM', es: 'Servicios OEM y ODM', ar: 'خدمات OEM و ODM' },
@@ -35,6 +36,7 @@ const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
+const newsHref = prefix + '/news';
 ---
 <footer class="bg-footer-bg text-white" id="footer">
   <div class="px-[clamp(24px,8vw,160px)]">
@@ -85,6 +87,7 @@ const servicesHref = prefix + '/services';
         <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
         <li><a href={servicesHref + '#oem'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
         <li><a href={servicesHref + '#distributor'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
+        <li><a href={newsHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('news')}</a></li>
       </ul>
     </div>
   </div>
