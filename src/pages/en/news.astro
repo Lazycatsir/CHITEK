@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
 ---
-<BaseLayout title="新闻资讯 | CHITEK INNOPOWER" description="了解CHITEK INNOPOWER电能质量解决方案的最新动态、技术论文和行业洞察。" lang="zh">
-  <Sidebar lang="zh" />
+<BaseLayout title="News & Insights | CHITEK INNOPOWER" description="Stay updated with the latest news, technical papers, and industry insights from CHITEK INNOPOWER power quality solutions." lang="en">
+  <Sidebar lang="en" />
 
   <!-- Hero Section -->
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
@@ -12,10 +12,10 @@ import Sidebar from '../components/Sidebar.astro';
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-20 md:py-28">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight mb-6">
-        新闻与<span class="text-brand-orange">洞察</span>
+        News & <span class="text-brand-orange">Insights</span>
       </h1>
       <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-        了解电能质量技术、行业趋势和CHITEK解决方案的最新动态。
+        Stay informed with the latest developments in power quality technology, industry trends, and CHITEK solutions.
       </p>
     </div>
   </section>
@@ -24,10 +24,10 @@ import Sidebar from '../components/Sidebar.astro';
   <section id="articles" class="py-20 md:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-12">
       <h2 class="text-3xl md:text-4xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mb-4">
-        最新文章
+        Latest Articles
       </h2>
       <p class="text-text-mid text-lg mb-12 max-w-2xl">
-        探索我们的最新资讯、产品更新和公司动态。
+        Explore our latest news, product updates, and company announcements.
       </p>
 
       <div class="space-y-6">
@@ -40,17 +40,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
               <span class="text-xs text-text-muted">Jun 15, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              VFD系统中的有源电力滤波器：为何至关重要
+              Active Harmonic Filters for VFD Systems: Why They Are Critical
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              有源电力滤波器对VFD密集型设施不可或缺。了解AHF为何是稳定电能质量的明智选择。
+              Active Harmonic Filters are indispensable for VFD-heavy facilities. Learn why AHFs are the smart choice for stabilizing power quality.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -67,17 +67,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
               <span class="text-xs text-text-muted">Jun 8, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              有源电力滤波器与进线电抗器：技术对比
+              Active Harmonic Filters vs Line Reactors: A Technical Comparison
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              有源电力滤波器与进线电抗器在工业电能质量治理中的全面技术对比。
+              A comprehensive technical comparison between Active Harmonic Filters and Line Reactors for industrial power quality mitigation.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -94,17 +94,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Technology</span>
               <span class="text-xs text-text-muted">Jun 1, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              SVG：现代基础设施的隐形守护者
+              Why SVG Is the Invisible Guardian of Modern Infrastructure
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              SVG是现代电网、工业园区和城市基础设施的无声电能质量守护者。了解它如何赋能日常生活。
+              SVG is the silent power quality bodyguard for modern grids, industrial parks, and urban infrastructure. Learn how it powers daily life.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -121,17 +121,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">产品更新</span>
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Product Update</span>
               <span class="text-xs text-text-muted">Dec 15, 2024</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              全新SiC有源电力滤波器系列正式发布
+              New SiC-Based Active Harmonic Filter Series Launch
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              CHITEK推出新一代SiC AHF系列，实现99%谐波补偿，体积缩小20%。新系列采用先进SiC MOSFET技术，提供卓越的开关性能。
+              CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint. The new series features advanced SiC MOSFET technology for superior switching performance.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -148,17 +148,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">行业动态</span>
+              <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Industry News</span>
               <span class="text-xs text-text-muted">Nov 28, 2024</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              沙特阿拉伯电能质量标准更新
+              Saudi Arabia Power Quality Standards Update
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              沙特阿拉伯新法规要求工业设施加强谐波滤波。CHITEK解决方案满足所有合规要求，THD可降至5%以下。
+              New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements with THD reduction to below 5%.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -175,17 +175,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">案例研究</span>
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Case Study</span>
               <span class="text-xs text-text-muted">Nov 10, 2024</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              迪拜光伏电站电能质量优化
+              Solar Farm Power Quality Optimization in Dubai
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              CHITEK SVG解决方案如何将迪拜50MW光伏电站的功率因数从0.85提升至0.99，降低能耗15%。
+              How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai, reducing energy losses by 15%.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -202,17 +202,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
               <span class="text-xs text-text-muted">Oct 22, 2024</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              SiC vs IGBT：电能质量设备的未来
+              SiC vs IGBT: The Future of Power Quality Equipment
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              碳化硅技术正以更高效率、更快开关速度和更低散热需求革新电能质量设备。
+              Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -229,17 +229,17 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">可持续发展</span>
+              <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Sustainability</span>
               <span class="text-xs text-text-muted">Oct 05, 2024</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
-              碳中和工厂的电能质量解决方案
+              Power Quality Solutions for Carbon Neutral Factories
             </h3>
             <p class="text-text-mid text-sm leading-relaxed mb-4">
-              先进的电能质量管理如何助力企业可持续发展目标，帮助制造工厂实现碳中和目标。
+              How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets.
             </p>
             <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
-              阅读全文
+              Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>

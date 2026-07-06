@@ -1,42 +1,38 @@
-export type Locale = 'en' | 'pt' | 'es' | 'ar';
+export type Locale = 'en' | 'pt' | 'es' | 'ar' | 'zh';
 
 const BASE_URL = 'https://chitek.com';
 
+const LOCALE_PREFIXES: Record<Locale, string> = {
+  zh: '',
+  en: '/en',
+  es: '/es',
+  ar: '/ar',
+  pt: '/pt',
+};
+
+/** Detect locale and base path from a pathname */
+function parsePathname(pathname: string): { locale: Locale; base: string } {
+  for (const [code, prefix] of Object.entries(LOCALE_PREFIXES) as [Locale, string][]) {
+    if (prefix && pathname.startsWith(prefix + '/') || pathname === prefix) {
+      const base = pathname.slice(prefix.length) || '/';
+      return { locale: code, base };
+    }
+  }
+  return { locale: 'zh', base: pathname || '/' };
+}
+
 /** Get the alternative locale URL for the current page */
 export function getAltHref(pathname: string, targetLang: Locale): string {
-  // If currently on /pt/... or /es/... or /ar/..., switch to English (root)
-  const prefix = pathname.startsWith('/pt') ? '/pt' : pathname.startsWith('/es') ? '/es' : pathname.startsWith('/ar') ? '/ar' : '';
-  if (prefix) {
-    if (targetLang === 'en') {
-      const rest = pathname.replace(prefix, '') || '/';
-      return rest;
-    }
-    return pathname;
-  }
-  // If currently on English root, switch to target language
-  if (targetLang === 'pt') {
-    return '/pt' + (pathname === '/' ? '' : pathname);
-  }
-  if (targetLang === 'es') {
-    return '/es' + (pathname === '/' ? '' : pathname);
-  }
-  if (targetLang === 'ar') {
-    return '/ar' + (pathname === '/' ? '' : pathname);
-  }
-  return pathname;
+  const { base } = parsePathname(pathname);
+  const prefix = LOCALE_PREFIXES[targetLang];
+  if (targetLang === 'zh') return base;
+  return prefix + (base === '/' ? '' : base);
 }
 
 /** Build alternate-language link for SEO hreflang */
 export function getHreflang(lang: Locale, pathname: string): string {
-  let url: string;
-  if (lang === 'en') {
-    url = pathname;
-  } else if (lang === 'pt') {
-    url = '/pt' + (pathname === '/' ? '' : pathname);
-  } else if (lang === 'es') {
-    url = '/es' + (pathname === '/' ? '' : pathname);
-  } else {
-    url = '/ar' + (pathname === '/' ? '' : pathname);
-  }
-  return `${BASE_URL}${url}`;
+  const { base } = parsePathname(pathname);
+  const prefix = LOCALE_PREFIXES[lang];
+  const path = lang === 'zh' ? base : prefix + (base === '/' ? '' : base);
+  return `${BASE_URL}${path}`;
 }

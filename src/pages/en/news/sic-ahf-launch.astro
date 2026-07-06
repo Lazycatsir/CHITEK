@@ -1,22 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Sidebar from '../../components/Sidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
 
 const article = {
-  title: "Active Harmonic Filters vs Line Reactors: A Technical Comparison",
-  category: "Technology",
-  date: "2026-06-08",
-  dateDisplay: "Jun 8, 2026",
+  title: "New SiC-Based Active Harmonic Filter Series Launch",
+  category: "Product Update",
+  date: "2024-12-15",
+  dateDisplay: "Dec 15, 2024",
   author: "CHITEK Technical Team",
-  readTime: "6 min read",
-  description: "A comprehensive technical comparison between Active Harmonic Filters and Line Reactors for industrial power quality mitigation.",
-  keywords: ["active harmonic filter", "line reactor", "power quality", "harmonic mitigation", "IEEE 519", "AHF", "industrial automation", "energy efficiency"]
+  readTime: "5 min read",
+  description: "CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint.",
+  keywords: ["active harmonic filter", "SiC AHF", "harmonic compensation", "power quality", "silicon carbide", "THD reduction", "industrial power", "VFD harmonic filter", "data center power quality", "CHITEK"]
 };
 
 const otherArticles = [
-  { title: "New SiC-Based Active Harmonic Filter Series Launch", category: "Product Update", href: "/news/sic-ahf-launch", color: "orange" },
-  { title: "Active Harmonic Filters for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "blue" },
-  { title: "Why SVG Is the Invisible Guardian of Modern Infrastructure", category: "Technology", href: "/news/svg-power-electronics-daily-life", color: "green" },
+  { title: "Saudi Arabia Power Quality Standards Update", category: "Industry News", href: "/news/saudi-arabia-standards", color: "blue" },
+  { title: "Solar Farm Power Quality Optimization in Dubai", category: "Case Study", href: "/news/solar-farm-dubai", color: "green" },
+  { title: "SiC vs IGBT: The Future of Power Quality Equipment", category: "Technology", href: "/news/sic-vs-igbt", color: "purple" },
 ];
 
 const relatedProducts = [
@@ -40,23 +40,35 @@ const relatedCases = [
   ogDescription={article.description}
   ogImage="https://chitek.com/assets/images/blog/sic-ahf-launch.webp"
 >
+  <!-- Schema.org Article Structured Data -->
   <script type="application/ld+json" slot="head">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Active Harmonic Filters vs Line Reactors: A Technical Comparison",
-    "description": "A comprehensive technical comparison between Active Harmonic Filters and Line Reactors for industrial power quality mitigation.",
+    "headline": "New SiC-Based Active Harmonic Filter Series Launch",
+    "description": "CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint.",
     "image": "https://chitek.com/assets/images/blog/sic-ahf-launch.webp",
-    "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek.com/assets/images/logo.webp" } },
-    "datePublished": "2026-06-08",
-    "dateModified": "2026-06-08",
-    "keywords": "active harmonic filter, line reactor, power quality, harmonic mitigation, IEEE 519, AHF, industrial automation, energy efficiency"
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2024-12-15",
+    "dateModified": "2024-12-15",
+    "keywords": "active harmonic filter, SiC AHF, harmonic compensation, power quality, silicon carbide, THD reduction, industrial power, VFD harmonic filter, data center power quality, CHITEK"
   }
   </script>
 
   <Sidebar lang="en" />
 
+  <!-- Article Header -->
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
@@ -80,73 +92,106 @@ const relatedCases = [
     </div>
   </section>
 
+  <!-- Article Content + Sidebar -->
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
 
+      <!-- Main Content -->
       <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
         <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
-          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="AHF vs Line Reactors" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="SiC-Based Active Harmonic Filter" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
         </div>
 
+        <!-- Article Body -->
         <div class="prose prose-lg max-w-none">
           <p class="text-text-mid text-lg leading-relaxed mb-6">
-            If you manage power quality for industrial facilities running non-linear loads like Variable Frequency Drives (VFDs) or switch-mode power supplies, you are likely battling harmonic distortion. Left unchecked, harmonics lead to overheating equipment, unexplained trip-outs, and heavy utility penalties.
-          </p>
-          <p class="text-text-mid leading-relaxed mb-6">
-            When it comes to mitigation, engineering teams usually look at two primary contenders: Active Harmonic Filters (AHF) and Line Reactors. While both address harmonics, their methods, efficiency, and long-term impact on your system profile couldn't be more different.
+            CHITEK INNOPOWER is proud to announce the launch of its next-generation SiC-Based Active Harmonic Filter (AHF) series, setting new standards in power quality optimization for industrial and commercial applications.
           </p>
 
-          <h2 id="comparison" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Technical Comparison
+          <h2 id="overview" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Product Overview
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The new SiC AHF series leverages cutting-edge Silicon Carbide (SiC) MOSFET technology, delivering superior switching performance compared to traditional IGBT-based solutions. This advancement enables:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>99% harmonic compensation efficiency</li>
+            <li>20% reduction in physical footprint</li>
+            <li>Switching frequency up to 25kHz</li>
+            <li>Lower thermal management requirements</li>
+            <li>Extended operational lifespan</li>
+          </ul>
+
+          <h2 id="features" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Key Features
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            The SiC AHF series incorporates advanced features designed for demanding industrial environments:
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Real-Time Monitoring</h3>
+              <p class="text-text-mid text-sm">Built-in power quality analyzer with continuous harmonic monitoring and remote diagnostics capabilities.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Modular Design</h3>
+              <p class="text-text-mid text-sm">Scalable architecture allows easy expansion from 30A to 600A modules for growing facilities.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Smart Grid Ready</h3>
+              <p class="text-text-mid text-sm">Compatible with modern smart grid protocols including Modbus TCP/IP and IEC 61850.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">IP54 Protection</h3>
+              <p class="text-text-mid text-sm">Enhanced protection rating for harsh industrial environments with dust and moisture exposure.</p>
+            </div>
+          </div>
+
+          <h2 id="specs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Technical Specifications
           </h2>
           <div class="overflow-x-auto mb-6">
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-50">
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Performance Metric</th>
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Active Harmonic Filter (AHF)</th>
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Line Reactor</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parameter</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Value</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Mitigation Method</td><td class="p-4 border-b border-border-light text-text-mid">Active elimination (phase cancellation)</td><td class="p-4 border-b border-border-light text-text-mid">Passive limitation (frequency opposition)</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Target THDi Levels</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5% (IEEE 519 compliance)</td><td class="p-4 border-b border-border-light text-text-mid">30%–50% THDi remaining</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Harmonic Targeting</td><td class="p-4 border-b border-border-light text-text-mid">Surgical precision (targets specific orders)</td><td class="p-4 border-b border-border-light text-text-mid">Non-selective, broadband attenuation</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Power Factor Impact</td><td class="p-4 border-b border-border-light text-text-mid">Actively improves displacement PF</td><td class="p-4 border-b border-border-light text-text-mid">Inherently degrades displacement PF</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage Stability</td><td class="p-4 border-b border-border-light text-text-mid">Maintains stable terminal voltage</td><td class="p-4 border-b border-border-light text-text-mid">Causes an inherent voltage drop</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">System Resonance Risk</td><td class="p-4 border-b border-border-light text-text-mid">Extremely low</td><td class="p-4 border-b border-border-light text-text-mid">High risk</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Rated Current</td><td class="p-4 border-b border-border-light text-text-mid">50A - 200A</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage</td><td class="p-4 border-b border-border-light text-text-mid">380V-480V AC</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">THD Compensation</td><td class="p-4 border-b border-border-light text-text-mid">Up to 99%</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Response Time</td><td class="p-4 border-b border-border-light text-text-mid">&lt; 5ms</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Efficiency</td><td class="p-4 border-b border-border-light text-text-mid">98.5%+</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Protection Rating</td><td class="p-4 border-b border-border-light text-text-mid">IP54</td></tr>
               </tbody>
             </table>
           </div>
 
-          <h2 id="elimination-vs-limitation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Elimination vs. Limitation
+          <h2 id="applications" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Application Scenarios
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            Line reactors act like a speed bump. They limit the amplitude of harmonics trying to exit the load, but they don't remove them. You are typically left with 30% to 50% THDi. AHFs act like noise-canceling headphones. They actively neutralize the distortion at the source, driving THDi down below 5%.
+            The SiC AHF series is ideal for applications requiring high-performance harmonic filtering:
           </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>Variable Frequency Drive (VFD) systems</li>
+            <li>Data center power distribution</li>
+            <li>Medical facility power systems</li>
+            <li>Industrial manufacturing lines</li>
+            <li>Renewable energy installations</li>
+          </ul>
 
-          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Power Factor: Correction vs. Degradation
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Installation Guide
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            Because line reactors add inductive reactance, they degrade your system's displacement power factor. This often forces you to invest in separate power factor correction hardware. An AHF pulling double duty can dynamically inject leading or lagging reactive power (kVAR) as needed, simultaneously correcting power factor while cleaning up harmonics.
+            The modular design enables quick installation with minimal downtime. Standard installation can be completed within 0.5 hours depending on system configuration. CHITEK provides comprehensive installation support including on-site technical assistance.
           </p>
 
-          <h2 id="resonance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Mitigating vs. Creating Resonance Risks
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Adding line reactors alters your system's overall impedance profile. In networks with existing capacitor banks, this can accidentally shift the resonant frequency right into a critical harmonic order (like the 5th or 7th), amplifying the distortion. AHFs present a very low impedance path and actively dampen existing resonance, making them the inherently safer bet for complex industrial grids.
-          </p>
-
-          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            The Bottom Line
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            While line reactors offer structural simplicity, a lower upfront cost, and excellent motor protection (dv/dt reduction), they only offer a preliminary, partial solution for harmonic mitigation. For modern, automated facilities requiring strict compliance with standards like IEEE 519, protection of highly sensitive data infrastructure, or simultaneous power factor correction, the Active Harmonic Filter is the superior, future-proof investment.
-          </p>
-
+          <!-- SEO Keywords -->
           <div class="mt-10 pt-6 border-t border-border-light">
             <div class="flex flex-wrap gap-2">
               {article.keywords.map((keyword) => (
@@ -156,6 +201,7 @@ const relatedCases = [
           </div>
         </div>
 
+        <!-- Author & Navigation -->
         <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
           <div class="flex items-center gap-4 mb-4 md:mb-0">
             <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
@@ -183,8 +229,11 @@ const relatedCases = [
         </div>
       </article>
 
+      <!-- Sidebar -->
       <aside class="lg:w-[320px] shrink-0">
         <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
@@ -200,6 +249,8 @@ const relatedCases = [
               ))}
             </div>
           </div>
+
+          <!-- Related Products -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
@@ -225,6 +276,8 @@ const relatedCases = [
               ))}
             </div>
           </div>
+
+          <!-- Related Cases -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
@@ -241,6 +294,7 @@ const relatedCases = [
               ))}
             </div>
           </div>
+
         </div>
       </aside>
 

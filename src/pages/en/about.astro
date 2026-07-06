@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: '关于CHITEK – 电能质量企业简介与资质认证',
-  description: 'CHITEK成立于2019年，是一家专注于电力电子研发、制造和服务的高新技术企业。ISO 9001认证，拥有20余项专利。',
+  title: 'About CHITEK – Power Quality Company Profile & Certifications',
+  description: 'CHITEK is a high-tech enterprise founded in 2019, specializing in power electronics R&D, manufacturing, and service. ISO 9001 certified with 20+ patents.',
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang="zh">
+<BaseLayout title={meta.title} description={meta.description}>
   <!-- ABOUT -->
   <section class="about relative overflow-hidden bg-bg-mid text-white mt-[72px] min-h-[calc(100vh-72px)] flex flex-col justify-center py-10 scroll-mt-[72px]" id="about">
     <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center opacity-30 z-0"></div>
@@ -15,23 +15,27 @@ const meta = {
 
     <!-- 顶部标题区域 -->
     <div class="relative z-10 text-center px-5 pt-6 pb-4 max-w-[900px] mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <h1 class="font-barlow-condensed text-[clamp(36px,5vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(8px,2vw,32px)] text-white leading-[1.1]">公司简介</h1>
+      <h1 class="font-barlow-condensed text-[clamp(36px,5vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(8px,2vw,32px)] text-white leading-[1.1]">COMPANY INTRO</h1>
     </div>
 
     <!-- 主体大框 (包含左右内容) -->
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <!-- 左侧 关于CHITEK 区域 -->
+      <!-- 左侧 About CHITEK 区域 -->
       <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h2>
+        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">ABOUT <span class="text-brand-orange">CHITEK</span></h2>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
-          深圳市启点新能源科技有限公司成立于2019年，总部位于深圳，是一家专注于电力电子产品研发、制造和销售服务的高新技术企业。致力于打造节能、绿色的未来。
+          Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and
+          headquartered in Shenzhen, is a high-tech enterprise specializing in
+          the research, development, manufacturing, and service of power
+          electronic products. Committed to building an energy-efficient and
+          green future.
         </p>
         <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
-          播放视频
+          Play Video
         </a>
       </div>
 
@@ -40,8 +44,8 @@ const meta = {
         <!-- 优势 1 -->
         <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">经验丰富的研发团队</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">60%成员拥有硕士及以上学历，来自世界领先企业</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Experienced R&amp;D Team</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
         </div>
 
         <!-- 优势 2 -->
@@ -54,8 +58,8 @@ const meta = {
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">自主研发设计</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">20余项专利覆盖产品研发与制造</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Proprietary Design</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">More than 20 Patents covering Product Development and Manufacturing</p>
         </div>
 
         <!-- 优势 3 -->
@@ -67,8 +71,8 @@ const meta = {
               <line x1="42" y1="42" x2="48" y2="48" stroke-linecap="round" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">多元化产品</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">全系列产品覆盖不同客户应用场景</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Diversified Products</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Full Range of products covering different customer applications</p>
         </div>
 
         <!-- 优势 4 -->
@@ -80,82 +84,82 @@ const meta = {
               <polygon points="24,36 26,42 32,42 34,48 38,42 44,42 40,36" fill="currentColor" stroke="none" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">品质保障</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">ISO认证制造，确保最高质量标准</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Quality Guaranteed</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">ISO Certified manufacturing ensuring highest quality standards</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 行业应用案例 -->
+  <!-- INDUSTRY CASES -->
   <section class="relative w-full overflow-hidden bg-white" id="industry">
     <div class="relative z-10 w-full pt-12 max-md:pt-8">
       <div class="text-center mb-8 max-md:mb-5 fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-text-dark uppercase tracking-wide">行业应用案例</h2>
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-text-dark uppercase tracking-wide">INDUSTRY CASES</h2>
         <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mt-3"></div>
       </div>
 
       <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 fade-up">
         <a href="/solutions#industry" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-manufacturing.webp" alt="工业制造" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-manufacturing.webp" alt="Industrial Manufacturing" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">工业制造</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Industrial Manufacturing</span>
           </div>
         </a>
         <a href="/solutions#commercial" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-commercial-medical.webp" alt="商业及医疗建筑" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-commercial-medical.webp" alt="Commercial & Medical Buildings" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">商业及医疗建筑</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Commercial &amp; Medical Buildings</span>
           </div>
         </a>
         <a href="/solutions#datacenter" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-datacenter.webp" alt="数据中心与通信" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-datacenter.webp" alt="Data Centers & Telecom" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">数据中心与通信</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Data Centers &amp; Telecom</span>
           </div>
         </a>
         <a href="/solutions#renewable" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-renewable.webp" alt="新能源" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-renewable.webp" alt="Renewable Energy" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">新能源</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Renewable Energy</span>
           </div>
         </a>
         <a href="/solutions#rail" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-transportation.webp" alt="交通运输" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-transportation.webp" alt="Transportation" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">交通运输</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Transportation</span>
           </div>
         </a>
         <a href="/solutions#grid" class="relative group block overflow-hidden aspect-[4/3]">
-          <img src="/assets/images/about-industry-power-grid.webp" alt="电网与公用事业" class="w-full h-full object-cover" loading="lazy" />
+          <img src="/assets/images/about-industry-power-grid.webp" alt="Power Grid & Utility" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
-            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">电网与公用事业</span>
+            <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Power Grid &amp; Utility</span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 核心优势 -->
+  <!-- CORE ADVANTAGES -->
   <section class="core-advantages relative w-full min-h-[calc(100vh-72px)] flex items-center justify-center py-16 px-[clamp(24px,8vw,160px)] overflow-hidden" id="core-advantages">
     <div class="absolute inset-0 bg-[url('/assets/images/about-key-features.webp')] bg-cover bg-center z-0"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-[rgba(10,20,40,0.65)] to-[rgba(10,20,40,0.82)] z-[1]"></div>
 
     <div class="relative z-10 w-full text-center">
       <div class="fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-white uppercase tracking-wide mb-3">核心优势</h2>
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,52px)] font-bold text-white uppercase tracking-wide mb-3">CORE ADVANTAGES</h2>
         <div class="w-[60px] h-[3px] bg-brand-orange mx-auto mb-[50px]"></div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-[clamp(12px,3vw,48px)] w-full fade-up">
-        <!-- 优势 1: 经验丰富的研发团队 -->
+        <!-- Advantage 1: Expert R&D Team -->
         <div class="ca-card bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="text-[42px] font-bold leading-none text-brand-orange mb-4 text-left">60<sup class="text-[clamp(13px,1.1vw,17px)] align-super text-brand-orange">%</sup></div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">经验丰富的研发团队</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">团队成员来自世界领先企业，60%以上拥有硕士及以上学历，确保电力电子创新领域的深厚技术专长。</p>
+          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">Expert R&amp;D Team</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">Team members come from world-leading enterprises, with over 60% holding master's degrees or above, ensuring deep technical expertise in power electronics innovation.</p>
         </div>
 
-        <!-- 优势 2: 核心专利技术 -->
+        <!-- Advantage 2: Core Patent Technologies -->
         <div class="ca-card bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-12 h-12 mb-4 text-brand-orange text-left">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
@@ -165,11 +169,11 @@ const meta = {
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">核心专利技术</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">独立知识产权覆盖研发、设计和制造，20余项专利保护我们的创新成果。</p>
+          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">Core Patent Technologies</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">Independent intellectual property rights covering R&amp;D, design, and manufacturing with more than 20 patents protecting our innovations.</p>
         </div>
 
-        <!-- 优势 3: 产品质量管控 -->
+        <!-- Advantage 3: Product Quality Control -->
         <div class="ca-card bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-12 h-12 mb-4 text-brand-orange text-left">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
@@ -179,11 +183,11 @@ const meta = {
               <polyline points="26,28 28,30 32,26" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">产品质量管控</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">所有产品通过CQC、CE和ISO 9001国际认证，确保全球市场的可靠性能和合规性。</p>
+          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">Product Quality Control</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">All products certified to CQC, CE, and ISO 9001 international standards, ensuring reliable performance and compliance across global markets.</p>
         </div>
 
-        <!-- 优势 4: 全流程服务 -->
+        <!-- Advantage 4: Full-Process Service -->
         <div class="ca-card bg-white/[0.06] border border-white/10 rounded p-[clamp(16px,3vw,48px)] backdrop-blur transition-all duration-[350ms] hover:bg-brand-orange/[0.1] hover:border-brand-orange hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]">
           <div class="w-12 h-12 mb-4 text-brand-orange text-left">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none stroke-linecap-round stroke-linejoin-round">
@@ -195,25 +199,25 @@ const meta = {
               <circle cx="36" cy="36" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </div>
-          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">全流程服务</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">覆盖设计、制造、运维和维护阶段的综合服务和定制化解决方案。</p>
+          <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-white mb-2.5 tracking-wide text-left">Full-Process Service</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-relaxed text-white/70 text-left">Comprehensive service and customized solutions covering design, manufacturing, operation, and maintenance stages throughout the product lifecycle.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 资质认证与荣誉 -->
+  <!-- CERTIFICATIONS & HONORS -->
   <section class="relative overflow-hidden py-12 px-[clamp(24px,8vw,160px)] bg-white" id="certifications">
     <div>
       <!-- Section Header -->
       <div class="text-center mb-14 fade-up">
         <div class="inline-flex items-center gap-3 mb-4 justify-center">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">资质认证与荣誉</span>
+          <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Certifications &amp; Honors</span>
         </div>
-        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,56px)] font-bold text-text-dark uppercase tracking-[0.02em]">全球品质保障</h2>
+        <h2 class="font-barlow-condensed text-[clamp(28px,3vw,56px)] font-bold text-text-dark uppercase tracking-[0.02em]">Global Quality Assurance</h2>
         <div class="w-[60px] h-[3px] bg-gradient-to-r from-transparent via-brand-orange to-transparent mx-auto mb-4"></div>
-        <p class="text-[15px] text-text-secondary max-w-[600px] mx-auto leading-relaxed">国际认证的质量管理和产品安全标准，确保在所有市场的可靠性能。</p>
+        <p class="text-[15px] text-text-secondary max-w-[600px] mx-auto leading-relaxed">Internationally certified quality management and product safety standards ensure reliable performance across all markets.</p>
       </div>
 
       <!-- Carousel -->
@@ -225,8 +229,8 @@ const meta = {
               <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">CE</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">CE认证</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">TÜV莱茵认证，欧盟合规</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">CE Marking</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">TÜV Rheinland certified, EU compliance</p>
             </div>
           </div>
           <!-- Card 2: UL -->
@@ -235,8 +239,8 @@ const meta = {
               <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">UL</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">UL 508认证</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">北美安全认证</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">UL 508 Listed</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">North American safety certified</p>
             </div>
           </div>
           <!-- Card 3: ISO -->
@@ -246,7 +250,7 @@ const meta = {
                 <span class="text-[clamp(16px,1.2vw,20px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">ISO<br>9001</span>
               </div>
               <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">ISO 9001:2015</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">SGS认证质量管理</p>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">SGS certified quality management</p>
             </div>
           </div>
           <!-- Card 4: IEC -->
@@ -255,8 +259,8 @@ const meta = {
               <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(18px,1.4vw,24px)] font-bold text-brand-orange font-barlow-condensed">IEC</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">IEC 61000系列</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">EMC与谐波排放标准</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">IEC 61000 Series</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">EMC &amp; harmonic emission standards</p>
             </div>
           </div>
           <!-- Card 5: RoHS -->
@@ -265,8 +269,8 @@ const meta = {
               <div class="w-full h-[72px] mb-2.5 bg-brand-orange/10 rounded flex items-center justify-center overflow-hidden">
                 <span class="text-[clamp(10px,0.8vw,14px)] font-bold text-brand-orange font-barlow-condensed text-center leading-tight">RoHS<br>REACH</span>
               </div>
-              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">RoHS与REACH</h3>
-              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">有害物质合规</p>
+              <h3 class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark text-center font-barlow-condensed tracking-wide">RoHS &amp; REACH</h3>
+              <p class="text-[clamp(10px,0.8vw,14px)] text-text-secondary text-center mt-1 leading-relaxed">Hazardous substance compliant</p>
             </div>
           </div>
         </div>
@@ -287,21 +291,21 @@ const meta = {
         </div>
 
         <!-- Mobile touch hint -->
-        <p class="text-center text-[clamp(10px,0.8vw,14px)] text-white/40 mt-4 md:hidden">滑动或点击圆点导航</p>
+        <p class="text-center text-[clamp(10px,0.8vw,14px)] text-white/40 mt-4 md:hidden">Swipe or tap dots to navigate</p>
       </div>
     </div>
   </section>
 
-  <!-- 全球业务覆盖 -->
+  <!-- GLOBAL REACH -->
   <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 px-[clamp(24px,8vw,160px)] bg-gray-100">
     <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
     <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
-      <img src="/assets/images/about-global.webp" alt="全球业务覆盖" class="w-full h-full object-contain" />
+      <img src="/assets/images/about-global.webp" alt="Global Reach" class="w-full h-full object-contain" />
     </div>
     <div class="relative z-10 text-center px-12 py-5 bg-[rgba(0,0,0,0.25)] backdrop-blur-[4px] border border-[rgba(255,255,255,0.15)]">
       <div class="inline-flex items-center gap-3 mb-4">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-orange"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">全球业务覆盖</span>
+        <span class="text-[clamp(10px,0.8vw,14px)] text-brand-orange tracking-[0.15em] uppercase">Global Reach</span>
       </div>
       <div class="w-[60px] h-[3px] mx-auto bg-gradient-to-r from-transparent via-brand-orange to-transparent"></div>
     </div>

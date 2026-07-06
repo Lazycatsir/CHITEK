@@ -1,20 +1,20 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK — 低压AHF、SVG与AVR制造商 | 电能质量解决方案',
-  description: 'CHITEK提供有源电力滤波器(AHF)、静止无功发生器(SVG)、SiC AHF/SVG和自动电压调节器(AVR)，用于低压电能质量矫正。',
+  title: 'CHITEK — Low Voltage AHF, SVG & AVR Manufacturer | Power Quality Solutions',
+  description: 'CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG, and Automatic Voltage Regulator (AVR) for low-voltage power quality correction.',
 };
 ---
 
-<BaseLayout lang="zh" title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description}>
   <!-- Sticky Tab Bar (visible after scrolling past hero) -->
   <div id="sticky-tab-bar" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-light shadow-[0_2px_16px_rgba(0,0,0,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="flex items-center justify-center gap-0 md:gap-[clamp(8px,1.5vw,20px)] overflow-x-auto">
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">有源电力滤波器</span></button>
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">静止无功发生器</span></button>
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="2"><span class="font-barlow-condensed">自动电压调节器</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Active Harmonic Filter</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Static Var Generator</span></button>
+        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="2"><span class="font-barlow-condensed">Automatic Voltage Regulator</span></button>
       </div>
     </div>
   </div>
@@ -25,9 +25,9 @@ const meta = {
     <div class="relative z-[2]">
       <div class="text-center">
         <h1 id="hero-title" class="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-tight mb-[clamp(12px,2vw,32px)] hero-fade font-barlow-condensed text-brand-orange">
-          卓越产品
+          Excellent Products
         </h1>
-        <p id="hero-subtitle" class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 hero-fade max-w-2xl mx-auto">面向工业和商业应用的先进电能质量解决方案。</p>
+        <p id="hero-subtitle" class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 hero-fade max-w-2xl mx-auto">Advanced power quality solutions for industrial and commercial applications.</p>
         <div class="flex items-center justify-center gap-[clamp(8px,1.5vw,20px)] mt-8 opacity-0 animate-[decorIn_0.8s_0.6s_ease_forwards]">
           <div class="h-px w-16 bg-gradient-to-r from-transparent to-brand-orange/60"></div>
           <div class="w-2 h-2 rotate-45 border border-brand-orange/60"></div>
@@ -45,36 +45,36 @@ const meta = {
     <div class="tab-panel relative z-[3]" data-tab="0">
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">价值主张</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">痛点与解决方案</h2>
+          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Value Proposition</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pain Points &amp; Solutions</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">电压波动</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">电网电压不稳定导致设备意外停机、数据丢失和生产线中断。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Voltage Fluctuation</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Unexpected equipment downtime, data loss, and production line interruptions caused by unstable grid voltage.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">谐波畸变</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">谐波污染导致变压器过热、电缆附加损耗和精密设备故障。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Harmonic Distortion</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Transformer overheating, additional cable losses, and precision equipment malfunction from harmonic pollution.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">功率因数罚款</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">电费中隐性成本攀升，电力公司对功率因数不足收取额外费用。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Power Factor Penalties</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Hidden costs climbing on electricity bills, with utility companies charging extra for poor power factor.</p>
           </div>
         </div>
 
         <!-- Tech Roadmap -->
         <div class="relative reveal">
-          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">技术处理流程</p>
+          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">Technical Process Flow</p>
           <div class="relative flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,1.5vw,20px)] md:gap-0">
             <div class="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-px bg-white/10"></div>
             <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
@@ -86,7 +86,7 @@ const meta = {
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
                 <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">01</span>
               </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">电网采样</p></div>
+              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Grid Sampling</p></div>
             </div>
             <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="2nd-50th harmonic detection&#10;Real-time spectrum analysis">
@@ -104,7 +104,7 @@ const meta = {
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Response &lt;50&mu;s&#10;Closed-loop real-time injection">
                 <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">04</span>
               </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">谐波注入</p></div>
+              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Harmonic Injection</p></div>
             </div>
           </div>
         </div>
@@ -115,36 +115,36 @@ const meta = {
     <div class="tab-panel hidden relative z-[3]" data-tab="1">
       <div class="px-[clamp(24px,8vw,160px)] relative">
         <div class="text-center mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">价值主张</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">痛点与解决方案</h2>
+          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Value Proposition</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pain Points &amp; Solutions</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">无功功率不足</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">低功率因数导致变压器过载、线路损耗和工业负载的电力公司罚款。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Reactive Power Shortage</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Low power factor causes transformer overload, line losses, and utility penalties for industrial loads.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">电压闪变与跌落</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">负载突变导致电压跌落和闪变，影响敏感设备和产品质量。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Voltage Flicker &amp; Sag</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Sudden load changes cause voltage dips and flicker, affecting sensitive equipment and product quality.</p>
           </div>
           <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
             <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
             </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">电容器组问题</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">传统电容器组无法跟踪动态负载，导致过补偿/欠补偿和谐振风险。</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Capacitor Bank Issues</h3>
+            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Traditional capacitor banks cannot track dynamic loads, causing over/under compensation and resonance risk.</p>
           </div>
         </div>
 
         <!-- SVG Compensation Flow -->
         <div class="relative reveal">
-          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">SVG补偿流程</p>
+          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">SVG Compensation Flow</p>
           <div class="relative flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,1.5vw,20px)] md:gap-0">
             <div class="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-px bg-white/10"></div>
             <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
@@ -156,7 +156,7 @@ const meta = {
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
                 <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">01</span>
               </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">电网采样</p></div>
+              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Grid Sampling</p></div>
             </div>
             <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Reactive power calculation&#10;Real-time PF analysis">
@@ -174,7 +174,7 @@ const meta = {
               <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Response &lt;10ms&#10;Continuous real-time output">
                 <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">04</span>
               </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">无功注入</p></div>
+              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Var Injection</p></div>
             </div>
           </div>
         </div>
@@ -191,15 +191,15 @@ const meta = {
     <div class="tab-panel" data-tab="0">
       <div class="px-[clamp(24px,8vw,160px)]">
         <div class="text-left mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">核心特性</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">核心技术优势</h2>
+          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] reveal">
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 15h6M15 9v6"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">SiC技术</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">SiC Technology</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="10" y="20" width="80" height="80" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.5"/>
               <rect x="20" y="30" width="25" height="25" rx="2" fill="#ff4d00" opacity="0.6"/>
@@ -218,7 +218,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">抗谐振</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Anti-Resonance</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <path d="M10 80 Q 55 20, 100 60 T 190 40" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.6"/>
               <path d="M10 90 Q 55 40, 100 75 T 190 55" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.3"/>
@@ -232,7 +232,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v18M16 3v18M4 8h16M4 16h16"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">超紧凑</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Ultra-Compact</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="30" y="30" width="60" height="70" rx="2" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
               <text x="60" y="22" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow, sans-serif">100mm+</text>
@@ -247,7 +247,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><path d="M6 10v4M9 10v4M12 10v4M15 10v4"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">99%效率</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">99% Efficiency</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="40" y="20" width="120" height="80" rx="8" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.3"/>
               <rect x="40" y="20" width="118.8" height="80" rx="8" fill="#ff4d00" opacity="0.15"/>
@@ -268,15 +268,15 @@ const meta = {
     <div class="tab-panel hidden" data-tab="1">
       <div class="px-[clamp(24px,8vw,160px)]">
         <div class="text-left mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">核心特性</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">核心技术优势</h2>
+          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] reveal">
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">&lt;5ms响应</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">&lt;5ms Response</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="20" y="30" width="160" height="60" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
               <path d="M20 90 L60 30 L100 90 L140 30 L180 90" fill="none" stroke="#ff4d00" stroke-width="2" opacity="0.7"/>
@@ -291,7 +291,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">无电容设计</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Capacitor-Free Design</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="10" y="30" width="70" height="60" rx="3" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.4"/>
               <text x="45" y="60" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">Capacitor</text>
@@ -309,7 +309,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">双向输出</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Bidirectional Output</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <rect x="30" y="20" width="60" height="35" rx="2" fill="#ff4d00" opacity="0.15" stroke="#ff4d00" stroke-width="1"/>
               <text x="60" y="42" text-anchor="middle" fill="#ff4d00" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">+Q (Inductive)</text>
@@ -324,7 +324,7 @@ const meta = {
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="5" y1="16" x2="12" y2="12"/><line x1="19" y1="16" x2="12" y2="12"/></svg>
             </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">多机并联</h3>
+            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Multi-Unit Parallel</h3>
             <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
               <circle cx="100" cy="30" r="12" fill="none" stroke="#ff4d00" stroke-width="1.5"/>
               <circle cx="60" cy="80" r="12" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.6"/>
@@ -346,15 +346,15 @@ const meta = {
   <section class="tab-panel hidden relative z-[2] bg-gradient-to-b from-[#0f1117] via-[#161b22] to-[#0d1117] py-[clamp(64px,6vw,128px)] overflow-hidden" data-tab="2">
     <div class="px-[clamp(24px,8vw,160px)] relative">
       <div class="text-center reveal max-w-3xl mx-auto">
-        <span class="inline-block px-4 py-1.5 text-[clamp(10px,0.8vw,12px)] font-semibold text-brand-orange bg-brand-orange/10 border border-brand-orange/30 rounded-full mb-[clamp(12px,2vw,32px)] tracking-wider uppercase font-barlow-condensed">即将推出</span>
-        <h2 class="text-[clamp(28px,3vw,56px)] md:text-5xl font-bold text-white/90 font-barlow-condensed mb-[clamp(12px,2vw,32px)]">自动电压调节器</h2>
+        <span class="inline-block px-4 py-1.5 text-[clamp(10px,0.8vw,12px)] font-semibold text-brand-orange bg-brand-orange/10 border border-brand-orange/30 rounded-full mb-[clamp(12px,2vw,32px)] tracking-wider uppercase font-barlow-condensed">Coming Soon</span>
+        <h2 class="text-[clamp(28px,3vw,56px)] md:text-5xl font-bold text-white/90 font-barlow-condensed mb-[clamp(12px,2vw,32px)]">Automatic Voltage Regulator</h2>
         <p class="text-[clamp(13px,1.1vw,17px)] text-gray-400 leading-relaxed mb-[clamp(16px,2.5vw,40px)]">
-          CHITEK下一代自动电压调节器(AVR)正在研发中，专为关键工业应用提供精确电压稳定。采用先进的SiC拓扑和&lt;50&mu;s响应时间，在最严苛的电网条件下确保一致的电能质量。
+          CHITEK's next-generation Automatic Voltage Regulator (AVR) is currently under development, engineered to deliver precise voltage stabilization for mission-critical industrial applications. With advanced SiC-based topology and &lt;50&mu;s response time, it ensures consistent power quality under the most demanding grid conditions.
         </p>
-        <h3 class="font-barlow-condensed text-[clamp(32px,4vw,80px)] font-bold text-brand-orange mb-6 uppercase tracking-[0.02em] [text-shadow:0_0_30px_rgba(255,107,26,0.3)]">年内发布</h3>
+        <h3 class="font-barlow-condensed text-[clamp(32px,4vw,80px)] font-bold text-brand-orange mb-6 uppercase tracking-[0.02em] [text-shadow:0_0_30px_rgba(255,107,26,0.3)]">Launched by year-end</h3>
         <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/[0.06] border border-white/10 rounded-xl">
           <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
-          <span class="text-[clamp(12px,0.9vw,15px)] text-gray-300 font-medium font-barlow-condensed tracking-wider">2026年10月上市</span>
+          <span class="text-[clamp(12px,0.9vw,15px)] text-gray-300 font-medium font-barlow-condensed tracking-wider">Available October 2026</span>
         </div>
       </div>
     </div>
@@ -366,8 +366,8 @@ const meta = {
       <!-- Tab 0: AHF -->
       <div class="tab-panel" data-tab="0">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">四大产品系列，全场景覆盖</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">从标准柜到极端环境，从谐波滤波到无功补偿——找到您的配置</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
+          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
           <div class="max-sm:flex max-sm:transition-transform max-sm:duration-500 max-sm:gap-[clamp(20px,5vw,100px)] sm:contents" data-product-track>
@@ -375,8 +375,8 @@ const meta = {
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">经典之选</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">标准型</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">Classic Choice</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Standard</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -390,7 +390,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">灵活的主流方案</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Versatile mainstream solution</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -398,31 +398,31 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">统一设计</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Unified Design</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">主流覆盖</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Mainstream Coverage</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">快速更换</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Quick Swap</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF旗舰 · 2-50次谐波补偿</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Flagship &middot; Harmonic Compensation 2nd-50th</span>
             </div>
           </div>
           <!-- SiC -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">空间优化</span>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Space Optimized</span>
                 <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
@@ -437,7 +437,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 130.5 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">业界领先的3U高度</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">Industry-leading 3U height</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -445,32 +445,32 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U超薄</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Slim</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">柜体友好</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cabinet-Friendly</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">广泛兼容</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Widely Compatible</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF紧凑型 · 适合空间受限安装</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Compact &middot; Best for space-constrained installs</span>
             </div>
           </div>
           <!-- Distributed Series -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">灵活部署</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">分布式</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Flexible Deployment</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distributed</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -484,7 +484,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">超紧凑 · 兼容抽屉柜</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -492,32 +492,32 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">超紧凑</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Incredibly Compact</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">并排安装</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Side-by-Side Mount</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">全触控屏</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Full Touchscreen</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF分布式 · 抽屉柜改造</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Distributed &middot; Drawer cabinet retrofit</span>
             </div>
           </div>
           <!-- Anti-Pollution Series -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">恶劣环境</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">抗污染型</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">Harsh Environments</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Anti-Pollution</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -531,7 +531,7 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">重工业防护设计</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">Heavy-industry protection design</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
@@ -539,24 +539,24 @@ const meta = {
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">防尘</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Dust</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">抗污染</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Pollution</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">超高可靠</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Reliable</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF重工业 · 矿山、冶金和化工</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
             </div>
           </div>
           </div>
@@ -572,8 +572,8 @@ const meta = {
       <!-- Tab 1: SVG -->
       <div class="tab-panel hidden" data-tab="1">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">四大产品系列，全场景覆盖</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">从标准柜到极端环境，从谐波滤波到无功补偿——找到您的配置</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
+          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
           <div class="max-sm:flex max-sm:transition-transform max-sm:duration-500 max-sm:gap-[clamp(20px,5vw,100px)] sm:contents" data-product-track>
@@ -581,8 +581,8 @@ const meta = {
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">经典之选</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">标准型</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">Classic Choice</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Standard</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -596,33 +596,33 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">灵活的主流方案</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Versatile mainstream solution</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">统一设计</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Unified Design</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">主流覆盖</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Mainstream Coverage</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">快速更换</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Quick Swap</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG旗舰 · &lt;10ms动态补偿</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Flagship &middot; Dynamic Compensation &lt;10ms</span>
             </div>
           </div>
           <!-- SiC -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">空间优化</span>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Space Optimized</span>
                 <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
@@ -637,34 +637,34 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 130.5 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">业界领先的3U高度</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">Industry-leading 3U height</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U超薄</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Slim</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">柜体友好</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cabinet-Friendly</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">广泛兼容</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Widely Compatible</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG紧凑型 · 适合空间受限安装</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Compact &middot; Best for space-constrained installs</span>
             </div>
           </div>
           <!-- Distributed -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">灵活部署</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">分布式</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Flexible Deployment</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distributed</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -678,34 +678,34 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">超紧凑 · 兼容抽屉柜</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">超紧凑</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Incredibly Compact</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">并排安装</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Side-by-Side Mount</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">全触控屏</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Full Touchscreen</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG分布式 · 抽屉柜改造</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Distributed &middot; Drawer cabinet retrofit</span>
             </div>
           </div>
           <!-- Anti-Pollution -->
           <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
             <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">恶劣环境</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">抗污染型</h3>
+                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">Harsh Environments</span>
+                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Anti-Pollution</h3>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -719,26 +719,26 @@ const meta = {
                 <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
                   <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">重工业防护设计</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">Heavy-industry protection design</div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2">
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">防尘</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Dust</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">抗污染</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Pollution</div>
                 </div>
                 <div class="text-center">
                   <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">超高可靠</div>
+                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Reliable</div>
                 </div>
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG重工业 · 矿山、冶金和化工</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
             </div>
           </div>
           </div>
@@ -757,20 +757,20 @@ const meta = {
   <section id="matrix" class="relative bg-white py-[clamp(24px,2.5vw,48px)]">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="text-center mb-[clamp(16px,2.5vw,40px)] reveal">
-        <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">产品配置器</p>
-        <h2 id="matrix-title" class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-2 font-barlow-condensed">AHF产品选型矩阵</h2>
+        <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Product Configurator</p>
+        <h2 id="matrix-title" class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-2 font-barlow-condensed">AHF Product Selection Matrix</h2>
         <p class="text-[clamp(12px,0.9vw,15px)] flex items-center justify-center gap-2 text-red-500 font-medium">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          点击电压等级按钮，然后从矩阵中选择系列和容量按钮并请求报价。
+          Click voltage class button, then choose series and capacity button from the matrix and request quote.
         </p>
       </div>
 
       <!-- Voltage Selector -->
       <div class="flex flex-wrap justify-center gap-3 mb-[clamp(20px,3vw,48px)] reveal">
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-brand-orange bg-brand-orange text-white" data-v="400V"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="font-medium">400V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">标准</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="208V"><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="font-medium">208V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">低压</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="480V"><span class="w-3 h-3 rounded-full bg-orange-500"></span><span class="font-medium">480V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">高压</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="690V"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="font-medium">690V/800V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">工业</span></button>
+        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-brand-orange bg-brand-orange text-white" data-v="400V"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="font-medium">400V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Standard</span></button>
+        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="208V"><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="font-medium">208V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Low Voltage</span></button>
+        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="480V"><span class="w-3 h-3 rounded-full bg-orange-500"></span><span class="font-medium">480V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">High Voltage</span></button>
+        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="690V"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="font-medium">690V/800V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Industrial</span></button>
       </div>
 
       <!-- Desktop Matrix -->
@@ -778,12 +778,12 @@ const meta = {
         <table class="w-full border-collapse border border-border-light rounded-lg">
           <thead>
             <tr class="bg-[#f9fafb]">
-              <th class="p-2 text-left text-[clamp(12px,0.9vw,15px)] text-text-dim font-medium font-barlow-condensed border-b border-border-light">容量 \ 型号</th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">超薄型</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">U-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">分布式</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">D-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">抗污染型</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">A-Series</span></div></th>
+              <th class="p-2 text-left text-[clamp(12px,0.9vw,15px)] text-text-dim font-medium font-barlow-condensed border-b border-border-light">Capacity \ Model</th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Ultra-Slim</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">U-Series</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Distributed</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">D-Series</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Anti-Pollution</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">A-Series</span></div></th>
               <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">SiC</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">C-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">标准型</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">L-Series</span></div></th>
+              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Standard</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">L-Series</span></div></th>
             </tr>
           </thead>
           <tbody id="matrix-tbody">
@@ -798,17 +798,17 @@ const meta = {
       <!-- Mobile Wizard -->
       <div class="md:hidden reveal" id="mobile-wizard">
         <div class="wizard-step active" id="wiz-voltage">
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">步骤1：选择电压等级</p>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 1: Select Voltage Class</p>
           <div class="space-y-3" id="wiz-voltage-options"></div>
         </div>
         <div class="wizard-step" id="wiz-series">
-          <button onclick="wizardBack('voltage')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; 返回电压选择</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">步骤2：选择系列</p>
+          <button onclick="wizardBack('voltage')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Back to Voltage</button>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 2: Select Series</p>
           <div class="space-y-3" id="wiz-series-options"></div>
         </div>
         <div class="wizard-step" id="wiz-capacity">
-          <button onclick="wizardBack('series')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; 返回系列选择</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">步骤3：选择容量</p>
+          <button onclick="wizardBack('series')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Back to Series</button>
+          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 3: Select Capacity</p>
           <div class="grid grid-cols-2 gap-3" id="wiz-capacity-options"></div>
         </div>
         <div id="mobile-spec" class="mt-6 hidden bg-bg-mid border border-white/10 rounded-lg p-5"></div>
@@ -821,30 +821,30 @@ const meta = {
     <div class="px-[clamp(24px,8vw,160px)] relative">
       <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
         <div class="reveal" style="transition-delay:150ms">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">HMI界面</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)] font-barlow-condensed">智能人机交互界面</h2>
-          <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">配备7英寸高分辨率电容触摸屏，提供直观的电能质量监控体验。实时波形显示、历史数据记录、远程通信，一台设备最多可控制16个模块。</p>
+          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">HMI Interface</p>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)] font-barlow-condensed">Intelligent Human-Machine Interface</h2>
+          <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">Equipped with a 7-inch high-resolution capacitive touchscreen providing an intuitive power quality monitoring experience. Real-time waveform display, historical data logging, remote communication, and control of up to 16 modules in one.</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">7英寸触摸屏</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">触控LCD与系统设置</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">7-inch Touchscreen</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Touch LCD &amp; system setting</p></div>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">实时测量</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">参数 / 波形 / 频谱</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Real-time Measurement</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Parameters / waveforms / spectra</p></div>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Modbus / Ethernet</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">远程监控与数据记录</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Modbus / Ethernet</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Remote monitoring & data logging</p></div>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">多语言</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">EN/ZH/ES/DE/FR and 8 more</p></div>
+              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Multi-Language</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">EN/ZH/ES/DE/FR and 8 more</p></div>
             </div>
           </div>
           <div class="mt-6 flex items-start gap-3 bg-brand-orange/5 border border-brand-orange/15 rounded-lg px-4 py-3">
             <svg class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">注：</span>电容器组控制器可控制最多<span class="font-medium text-text-dark">32组</span>电容器组。（内置7"显示器或独立式）</p>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">Note:</span> Capacitor bank controller, which controls up to <span class="font-medium text-text-dark">32 sets</span> of capacitor banks, is available. (7" monitor built-in or stand-alone type)</p>
           </div>
         </div>
         <div class="relative reveal flex justify-center">
@@ -859,7 +859,7 @@ const meta = {
 
     <!-- Floating title -->
     <div class="absolute top-[clamp(16px,3vw,40px)] lg:top-12 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
-      <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-brand-orange font-barlow-condensed">成功案例</h2>
+      <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-brand-orange font-barlow-condensed">Success Stories</h2>
       <div class="mx-auto mt-3 w-14 h-[3px] rounded-full bg-gradient-to-r from-brand-orange/40 via-brand-orange to-brand-orange/40 shadow-[0_0_8px_rgba(255,107,26,0.35)]"></div>
     </div>
 
@@ -882,14 +882,14 @@ const meta = {
                   <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">大型数据中心运营商</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Major Data Center Operator</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS系统产生大量5次、7次谐波，导致变压器过热和反复保护跳闸。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS systems generated massive 5th, 7th harmonics causing transformer overheating and repeated protection trips.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-100-400 x 8 units</p>
                   </div>
                 </div>
@@ -902,11 +902,11 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">年节省</p>
+                    <p class="text-[10px] text-text-muted mb-1">Annual Savings</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$120K</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">寿命延长</p>
+                    <p class="text-[10px] text-text-muted mb-1">Life Extended</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">3x</p>
                   </div>
                 </div>
@@ -922,17 +922,17 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">汽车制造</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Automotive</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">汽车制造商</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Automotive Manufacturer</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">焊接机器人变频器产生谐波干扰，导致PLC误动作和频繁产线中断。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Welding robot VFDs produced harmonic interference causing PLC misoperation and frequent line interruptions.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-A-150-400 x 4 units</p>
                   </div>
                 </div>
@@ -945,14 +945,14 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">功率因数</p>
+                    <p class="text-[10px] text-text-muted mb-1">Power Factor</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.82</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
                     </div>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">停机时间</p>
+                    <p class="text-[10px] text-text-muted mb-1">Downtime</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-95%</p>
                   </div>
                 </div>
@@ -968,17 +968,17 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">港口与船舶</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Port &amp; Marine</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">集装箱码头</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Container Terminal</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">岸电系统和起重机变频器产生严重的11次/13次谐波，影响船舶电网同步。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Shore power systems and crane VFDs created severe 11th/13th harmonics affecting vessel grid synchronization.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-L-200-690 x 6 units</p>
                   </div>
                 </div>
@@ -991,11 +991,11 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">年节省</p>
+                    <p class="text-[10px] text-text-muted mb-1">Annual Savings</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$85K</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">电网同步</p>
+                    <p class="text-[10px] text-text-muted mb-1">Grid Sync</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">100%</p>
                   </div>
                 </div>
@@ -1011,17 +1011,17 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">半导体</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Semiconductor</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">晶圆制造工厂</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Wafer Fab Facility</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">EUV光刻工具要求THDi&lt;3%，但现有电网提供18%且有显著偶次谐波。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">EUV lithography tools required &lt;3% THDi, but existing grid delivered 18% with significant even harmonics.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-050-400 x 12 units</p>
                   </div>
                 </div>
@@ -1034,7 +1034,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">良率提升</p>
+                    <p class="text-[10px] text-text-muted mb-1">Yield Improve</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">+8.5%</p>
                   </div>
                   <div class="text-center">
@@ -1079,17 +1079,17 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">焊接工厂</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Welding Plant</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">汽车焊接产线</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Automotive Welding Line</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">点焊机器人导致严重电压闪变，功率因数降至0.65，引发电力公司罚款。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Spot welding robots caused severe voltage flicker and PF dropped to 0.65, leading to utility penalties.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-100-400 x 6 units</p>
                   </div>
                 </div>
@@ -1106,7 +1106,7 @@ const meta = {
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">&lt;0.7</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">罚款节省</p>
+                    <p class="text-[10px] text-text-muted mb-1">Penalty Saved</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$95K/yr</p>
                   </div>
                 </div>
@@ -1125,14 +1125,14 @@ const meta = {
                   <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">云数据中心园区</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Cloud Data Center Campus</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS系统功率因数低导致变压器过载，峰值负载时电压跌落8%。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS systems with poor PF caused transformer overload and 8% voltage sag during peak loads.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-C-150-400 x 8 units</p>
                   </div>
                 </div>
@@ -1145,14 +1145,14 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">电压跌落</p>
+                    <p class="text-[10px] text-text-muted mb-1">Voltage Sag</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">8%</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">1%</span>
                     </div>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">变压器负载</p>
+                    <p class="text-[10px] text-text-muted mb-1">Transformer Load</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-35%</p>
                   </div>
                 </div>
@@ -1168,17 +1168,17 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">港口起重机</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Port Crane</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">集装箱码头</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Container Terminal</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">起重机电机启动导致严重电压闪变，影响其他码头设备和照明。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Crane motor starting caused severe voltage flicker, affecting other dock equipment and lighting.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-A-100-690 x 4 units</p>
                   </div>
                 </div>
@@ -1191,7 +1191,7 @@ const meta = {
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">电压跌落</p>
+                    <p class="text-[10px] text-text-muted mb-1">Voltage Dip</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">12%</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">2%</span>
@@ -1214,34 +1214,34 @@ const meta = {
               </div>
               <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">光伏电站</span>
+                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">PV Solar Farm</span>
                   <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">大型光伏电站</h3>
+                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Utility-Scale Solar Plant</h3>
                 <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">挑战</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">逆变器发电在低负载期间导致超前功率因数，违反电网规范。</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
+                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Inverter-based generation caused leading PF during low-load periods, violating grid code.</p>
                   </div>
                   <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">解决方案</p>
+                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
                     <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-200-690 x 10 units</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">功率因数范围</p>
+                    <p class="text-[10px] text-text-muted mb-1">PF Range</p>
                     <div class="flex items-center justify-center gap-1">
                       <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.88~1.0L</span>
                       <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
                     </div>
                   </div>
                   <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">电网规范</p>
+                    <p class="text-[10px] text-text-muted mb-1">Grid Code</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">Pass</p>
                   </div>
                   <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">限电</p>
+                    <p class="text-[10px] text-text-muted mb-1">Curtailment</p>
                     <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-100%</p>
                   </div>
                 </div>
@@ -1276,12 +1276,12 @@ const meta = {
   <section id="resources" class="relative bg-[#f5f5f7] py-[clamp(24px,3vw,64px)]">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="text-center mb-[clamp(16px,2.5vw,40px)] reveal">
-        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">文档库</h2>
+        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Document Library</h2>
       </div>
       <div class="flex flex-wrap justify-center gap-2 mb-[clamp(12px,2vw,32px)] reveal">
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-brand-orange text-white border border-brand-orange" data-filter="all">全部</button>
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="spec">规格与认证</button>
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="video">视频</button>
+        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-brand-orange text-white border border-brand-orange" data-filter="all">All</button>
+        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="spec">Specs &amp; Certs</button>
+        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="video">Videos</button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal" id="resource-list">
         <!-- JS fills this -->
@@ -1293,7 +1293,7 @@ const meta = {
   <section id="industries" class="relative bg-white py-[clamp(48px,5vw,96px)]">
     <div class="px-[clamp(24px,8vw,160px)]">
       <div class="text-center mb-[clamp(20px,3vw,48px)] reveal">
-        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">行业应用 </h2>
+        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Industry Applications </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
         <a href="/solutions/datacenter" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]">
@@ -1301,9 +1301,9 @@ const meta = {
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
             <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Data Center</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">UPS谐波治理与功率因数校正</p>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">UPS harmonic mitigation &amp; PF correction</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>查看方案</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </div>
         </a>
@@ -1311,10 +1311,10 @@ const meta = {
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-hospital.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">医疗</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">精密医疗设备电能质量</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Healthcare</h3>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Precision medical equipment power quality</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>查看方案</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </div>
         </a>
@@ -1323,9 +1323,9 @@ const meta = {
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
             <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Semiconductor</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">晶圆厂超精密电源净化</p>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Wafer fab ultra-precision power purification</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>查看方案</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </div>
         </a>
@@ -1333,10 +1333,10 @@ const meta = {
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-port.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">港口物流</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">大型起重机变频器谐波抑制</p>
+            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Port &amp; Logistics</h3>
+            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Large crane VFD harmonic suppression</p>
             <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>查看方案</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </div>
         </a>
@@ -1359,25 +1359,25 @@ const meta = {
             <!-- FAQ Left Column -->
             <div class="w-full lg:w-[360px] lg:flex-shrink-0 bg-white lg:border-r border-b lg:border-b-0 border-border-light flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light">
-                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">常见问题</h2>
+                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">Frequently Asked Questions</h2>
               </div>
               <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavList">
-                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">谐波畸变的影响</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">AHF行业应用场景</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">CHITEK AHF的响应时间是多少？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">多台AHF可以并联运行吗？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">支持哪些通信协议？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">使用寿命和维护周期是怎样的？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">AHF需要专用变压器吗？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">AHF能在恶劣环境中运行吗？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">AHF有哪些认证？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">AHF如何调试和配置？</div>
+                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Impact of Harmonic Distortion</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">AHF Application Scenarios by Industry</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">What is the response time of CHITEK AHF?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">Can multiple AHF units operate in parallel?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">What communication protocols are supported?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">What is the lifespan and maintenance schedule?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">Does the AHF require a dedicated transformer?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">Can the AHF operate in harsh environments?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">What certifications does the AHF hold?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">How is the AHF commissioned and configured?</div>
               </div>
             </div>
             <!-- FAQ Right Column -->
             <div class="flex-1 flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">谐波畸变的影响</span>
+                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Impact of Harmonic Distortion</span>
               </div>
               <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
                 <div class="faq-panel active" id="faqPanel1">
@@ -1564,25 +1564,25 @@ const meta = {
             <!-- FAQ Left Column -->
             <div class="w-full lg:w-[360px] lg:flex-shrink-0 bg-white lg:border-r border-b lg:border-b-0 border-border-light flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light">
-                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">常见问题</h2>
+                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">Frequently Asked Questions</h2>
               </div>
               <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavListSvg">
-                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">SVG解决的关键问题</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">SVG行业应用场景</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">SVG与电容器有什么区别？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">包含哪些保护功能？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">典型使用寿命和MTBF是多少？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">安装要求是什么？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">SVG能处理不平衡负载吗？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">SVG如何与新能源集成？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">待机功耗是多少？</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">支持哪些通信协议？</div>
+                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Key Issues SVG Solves</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">SVG Application Scenarios by Industry</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">What is the difference between SVG and capacitors?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">What protection features are included?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">What is the typical lifespan and MTBF?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">What are the installation requirements?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">Can SVG handle unbalanced loads?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">How does SVG integrate with renewable energy?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">What is the standby power consumption?</div>
+                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">What communication protocols are supported?</div>
               </div>
             </div>
             <!-- FAQ Right Column -->
             <div class="flex-1 flex flex-col">
               <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">SVG解决的关键问题</span>
+                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Key Issues SVG Solves</span>
               </div>
               <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
                 <div class="faq-panel active" id="faqPanelSvg1">
@@ -1993,7 +1993,7 @@ const meta = {
         });
 
         // Update matrix section title based on active tab
-        const matrixTitles = ['AHF产品选型矩阵', 'SVG产品选型矩阵', 'AVR产品选型矩阵'];
+        const matrixTitles = ['AHF Product Selection Matrix', 'SVG Product Selection Matrix', 'AVR Product Selection Matrix'];
         var matrixTitleEl = document.getElementById('matrix-title');
         if (matrixTitleEl) matrixTitleEl.textContent = matrixTitles[parseInt(tab)] || matrixTitles[0];
       });
@@ -2158,7 +2158,7 @@ const meta = {
       modelParts[1] = seriesDesc;
       const displayTitle = modelParts.join('-');
       const inquiryText = displayTitle + '-' + spec.voltage.replace('V', '');
-      content.innerHTML = '<div class="flex items-center justify-between mb-[clamp(12px,2vw,32px)]"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + displayTitle + '</h4><button onclick="closeSpecPanel()" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition-colors"><svg class="w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="space-y-1.5 mb-[clamp(12px,2vw,32px)]">' + [ ['额定电流', spec.current], ['SVG容量', spec.svg], ['电压', spec.voltage], ['重量', spec.weight], ['谐波滤波范围', spec.harmonic], ['尺寸', spec.dimension], ['监控', spec.monitoring], ['接线方式', spec.wiring], ['开关频率', spec.freq], ['额定频率', spec.ratedFreq] ].map(function(kv) { return '<div class="flex justify-between py-2 border-b border-[#f1f5f9]"><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + kv[0] + '</span><span class="text-[clamp(12px,0.9vw,15px)] text-text-dark font-barlow-condensed">' + kv[1] + '</span></div>'; }).join('') + '</div><button onclick="goToInquiry(\'' + inquiryText + '\')" class="w-full py-3 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">请求报价</button>';
+      content.innerHTML = '<div class="flex items-center justify-between mb-[clamp(12px,2vw,32px)]"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + displayTitle + '</h4><button onclick="closeSpecPanel()" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition-colors"><svg class="w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="space-y-1.5 mb-[clamp(12px,2vw,32px)]">' + [ ['Rated Current', spec.current], ['SVG Capacity', spec.svg], ['Voltage', spec.voltage], ['Weight', spec.weight], ['Harmonic Filtering range', spec.harmonic], ['Dimension', spec.dimension], ['Monitoring', spec.monitoring], ['Wiring method', spec.wiring], ['Switching frequency', spec.freq], ['Rated frequency', spec.ratedFreq] ].map(function(kv) { return '<div class="flex justify-between py-2 border-b border-[#f1f5f9]"><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + kv[0] + '</span><span class="text-[clamp(12px,0.9vw,15px)] text-text-dark font-barlow-condensed">' + kv[1] + '</span></div>'; }).join('') + '</div><button onclick="goToInquiry(\'' + inquiryText + '\')" class="w-full py-3 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Request Quote</button>';
       panel.classList.remove('hidden');
     }
     window.goToInquiry = function(inquiryText) {
@@ -2253,7 +2253,7 @@ const meta = {
         mModelParts[1] = mSeriesDesc;
         const mDisplayTitle = mModelParts.join('-');
         const mInquiryText = mDisplayTitle + '-' + spec.voltage.replace('V', '');
-        document.getElementById('mobile-spec').innerHTML = '<div class="flex items-center justify-between mb-4"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + mDisplayTitle + '</h4><button onclick="closeMobileSpec()" class="w-7 h-7 rounded-full bg-[#f3f4f6] flex items-center justify-center"><svg class="w-3 h-3 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="grid grid-cols-2 gap-2 text-[clamp(10px,0.8vw,12px)] mb-4"><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">额定电流</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.current + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">SVG容量</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.svg + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">电压</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.voltage + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">重量</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.weight + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">尺寸</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.dimension + '</span></div></div><button onclick="goToInquiry(\'' + mInquiryText + '\')" class="w-full py-2.5 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">请求报价</button>';
+        document.getElementById('mobile-spec').innerHTML = '<div class="flex items-center justify-between mb-4"><h4 class="text-[clamp(14px,1vw,17px)] font-semibold text-brand-orange font-barlow-condensed">' + mDisplayTitle + '</h4><button onclick="closeMobileSpec()" class="w-7 h-7 rounded-full bg-[#f3f4f6] flex items-center justify-center"><svg class="w-3 h-3 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="grid grid-cols-2 gap-2 text-[clamp(10px,0.8vw,12px)] mb-4"><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Rated Current</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.current + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">SVG Capacity</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.svg + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Voltage</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.voltage + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Weight</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.weight + '</span></div><div class="bg-[#f9fafb] p-2 rounded border border-border-light"><span class="text-text-muted">Dimension</span><span class="text-text-dark ml-1 font-barlow-condensed">' + spec.dimension + '</span></div></div><button onclick="goToInquiry(\'' + mInquiryText + '\')" class="w-full py-2.5 rounded-lg bg-brand-orange text-white text-[clamp(12px,0.9vw,15px)] font-medium hover:bg-brand-orange-dark transition-colors">Request Quote</button>';
         document.getElementById('mobile-spec').classList.remove('hidden');
       }
       updateWizard();
@@ -2287,7 +2287,7 @@ const meta = {
       const filtered = filter === 'all' ? resources : resources.filter(r => r.type === filter);
       list.innerHTML = filtered.map(function(r) {
         const isVideo = r.type === 'video';
-        return '<div class="bg-white border border-border-light rounded-lg hover:border-brand-orange/40 transition-all duration-300 group shadow-sm relative p-5"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center shrink-0">' + typeIcons[r.type] + '</div><h3 class="text-[clamp(12px,0.9vw,15px)] font-bold text-text-dark leading-snug">' + r.title + '</h3></div><div class="flex items-center gap-1.5 mb-1.5"><svg class="w-3 h-3 text-accent-blue shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + r.size + ' · ' + r.date + '</span></div><div class="border-t border-border-light mt-4 pt-4"><button onclick="alert(\'Download: ' + r.title + '\')" class="w-full flex items-center justify-center gap-1.5 px-2 py-2 border border-brand-orange/30 bg-brand-orange/5 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium rounded-md hover:bg-brand-orange/10 transition-all">' + (isVideo ? '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg><span>播放</span>' : '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>下载</span>') + '</button></div><div class="absolute top-[-1px] left-[-1px] w-4 h-4 border-t-2 border-l-2 border-brand-orange/30"></div><div class="absolute bottom-[-1px] right-[-1px] w-4 h-4 border-b-2 border-r-2 border-brand-orange/30"></div></div>';
+        return '<div class="bg-white border border-border-light rounded-lg hover:border-brand-orange/40 transition-all duration-300 group shadow-sm relative p-5"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center shrink-0">' + typeIcons[r.type] + '</div><h3 class="text-[clamp(12px,0.9vw,15px)] font-bold text-text-dark leading-snug">' + r.title + '</h3></div><div class="flex items-center gap-1.5 mb-1.5"><svg class="w-3 h-3 text-accent-blue shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted">' + r.size + ' · ' + r.date + '</span></div><div class="border-t border-border-light mt-4 pt-4"><button onclick="alert(\'Download: ' + r.title + '\')" class="w-full flex items-center justify-center gap-1.5 px-2 py-2 border border-brand-orange/30 bg-brand-orange/5 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium rounded-md hover:bg-brand-orange/10 transition-all">' + (isVideo ? '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg><span>Play</span>' : '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Download</span>') + '</button></div><div class="absolute top-[-1px] left-[-1px] w-4 h-4 border-t-2 border-l-2 border-brand-orange/30"></div><div class="absolute bottom-[-1px] right-[-1px] w-4 h-4 border-b-2 border-r-2 border-brand-orange/30"></div></div>';
       }).join('');
     }
     renderResources('all');

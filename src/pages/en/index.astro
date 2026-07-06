@@ -1,27 +1,27 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK INNOPOWER – 低压电能质量解决方案制造商',
-  description: 'CHITEK是低压电能质量解决方案领先制造商——有源电力滤波器(AHF)、静止无功发生器(SVG)和自动电压调节器(AVR)，广泛应用于工业和商业领域。',
+  title: 'CHITEK INNOPOWER – Power Quality Solutions Manufacturer',
+  description: 'CHITEK is a leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF), Static Var Generator (SVG), and Automatic Voltage Regulator (AVR) for industrial and commercial applications.',
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang="zh">
+<BaseLayout title={meta.title} description={meta.description}>
   <!-- HERO -->
   <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc(100vh-72px)] max-lg:min-h-[550px] max-md:min-h-[480px] flex items-center">
     <img src="/assets/images/index-hero-bg.webp" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
 
     <div class="flex flex-col justify-center px-[clamp(24px,8vw,160px)] py-20 max-md:py-16 relative z-10 w-full mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <h1 class="font-barlow-condensed text-[clamp(38px,4.5vw,72px)] font-bold leading-[1.1] text-white mb-5">
-        <span class="text-brand-orange">低压AHF与SVG解决方案</span>领先OEM供应商
+        <span class="text-brand-orange">Leading OEM Provider</span> of Low-Voltage<br />AHF and SVG Solutions
       </h1>
       <p class="text-[clamp(13px,1.2vw,19px)] font-normal text-white/85 leading-[1.75] max-w-[560px] mb-9">
-        优化电能质量，提升生产效率。服务全球30+国家与地区。
+        Optimize Power Quality for Enhanced Productivity. Serving 30+ Countries Overworld.
       </p>
       <div class="flex gap-3.5 items-center">
-        <a href="#products" class="bg-brand-orange text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-brand-orange hover:bg-brand-orange-dark hover:border-brand-orange-dark transition-[background,border-color] duration-200">探索产品</a>
-        <a href="#about" class="text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200">了解更多</a>
+        <a href="#products" class="bg-brand-orange text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-brand-orange hover:bg-brand-orange-dark hover:border-brand-orange-dark transition-[background,border-color] duration-200">Explore Products</a>
+        <a href="#about" class="text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200">Learn More</a>
       </div>
     </div>
   </section>
@@ -33,23 +33,27 @@ const meta = {
 
     <!-- 顶部标题区域 -->
     <div class="relative z-10 text-center px-5 pt-6 pb-4 max-w-[900px] mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(8px,2vw,32px)] text-white leading-[1.1]">公司简介</h2>
+      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(8px,2vw,32px)] text-white leading-[1.1]">COMPANY INTRO</h2>
     </div>
 
     <!-- 主体大框 -->
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <!-- 左侧 About CHITEK 区域 -->
       <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h2>
+        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">ABOUT <span class="text-brand-orange">CHITEK</span></h2>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
-          深圳市启点新能源科技有限公司成立于2019年，总部位于深圳，是一家专注于电力电子产品研发、制造和销售服务的高新技术企业。致力于打造节能、绿色的未来。
+          Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and
+          headquartered in Shenzhen, is a high-tech enterprise specializing in
+          the research, development, manufacturing, and service of power
+          electronic products. Committed to building an energy-efficient and
+          green future.
         </p>
         <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
-          播放视频
+          Play Video
         </a>
       </div>
 
@@ -58,8 +62,8 @@ const meta = {
         <!-- 优势 1 -->
         <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">经验丰富的研发团队</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">60%成员拥有硕士及以上学历，来自世界领先企业</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Experienced R&amp;D Team</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
         </div>
 
         <!-- 优势 2 -->
@@ -72,8 +76,8 @@ const meta = {
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">自主研发设计</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">20余项专利覆盖产品研发与制造</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Proprietary Design</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">More than 20 Patents covering Product Development and Manufacturing</p>
         </div>
 
         <!-- 优势 3 -->
@@ -85,8 +89,8 @@ const meta = {
               <line x1="42" y1="42" x2="48" y2="48" stroke-linecap="round" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">多元化产品</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">全系列产品覆盖不同客户应用场景</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Diversified Products</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Full Range of products covering different customer applications</p>
         </div>
 
         <!-- 优势 4 -->
@@ -98,8 +102,8 @@ const meta = {
               <polygon points="24,36 26,42 32,42 34,48 38,42 44,42 40,36" fill="currentColor" stroke="none" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">品质保障</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">ISO认证制造，确保最高质量标准</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Quality Guaranteed</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">ISO Certified manufacturing ensuring highest quality standards</p>
         </div>
       </div>
     </div>
@@ -109,10 +113,10 @@ const meta = {
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
     <div class="relative z-10">
       <div class="text-center mb-[clamp(16px,3vw,48px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">产品系列</h2>
+        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">Product Series</h2>
         <div class="flex justify-center gap-1 mt-[clamp(8px,2vw,32px)] relative border-b border-border-light max-w-[740px] mx-auto overflow-x-auto max-md:justify-start">
-          <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">有源电力滤波器</div>
-          <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">静止无功发生器</div>
+          <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">Active Harmonic Filter</div>
+          <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">Static Var Generator</div>
         </div>
       </div>
 
@@ -123,49 +127,51 @@ const meta = {
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
-              覆盖208V至800V的有源电力滤波器，效率高达99%。全面覆盖工业、商业和公用事业应用场景。
+              Active Power Filters covering 208V to 800V, with efficiency up to
+              99%. Full scene application coverage for industrial, commercial and
+              utility applications.
             </p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
+            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
           </div>
           <div class="product-info-item hidden" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
-            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">CHITEK静止无功发生器采用先进的IGBT开关技术，开关频率高达25.6kHz，精确调节逆变器电压幅值和相位。为要求严苛的工业应用提供卓越精度的动态无功功率补偿和三相负载平衡。</p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
+            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">CHITEK Static Var Generator employs advanced IGBT switching at up to 25.6kHz to precisely regulate inverter voltage magnitude and phase. Delivers dynamic reactive power compensation and three-phase load balancing with exceptional accuracy for demanding industrial applications.</p>
+            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
           </div>
         </div>
 
         <!-- 中间：功能特征网格 -->
         <div class="grid grid-cols-2 gap-px bg-border-light h-full">
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">补偿效果好</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Smart &amp; Convenient</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">具有谐波补偿THDi &lt;5%、功率因数补偿PF&gt;0.99和三相不平衡等多种补偿功能</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Peakload shifting, peak shaving and frequency modulation, virtual capacity increase and off-grid mode.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">模块化设计</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">High Efficiency</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">采用模块化设计，全系列机型可直接替换，方便集成和扩容，易用灵活</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Ultra-low calorific value, low standby power, efficiency up to 98.5–99.2%. SiC technology.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">高密度低损耗</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Versatile Compatibility</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">相同功率体积更小，节约占地空间，损耗满载时&lt;2.5%</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">3-phase 3-wire / 4-wire global voltage standards compatible. Supports active harmonic filtering.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">保护功能</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Battery Friendly</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">具备过压、过流、过温等多种保护功能，确保运行异常时保护系统及设备</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Different battery clusters work independently, avoiding parallel circle current.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">友好UI界面</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Easy Maintenance</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">LCD显示，友好人机界面，实时监控，操作便捷</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">When a module is faulty, it does not affect other circuits. Quick maintenance within 5 mins.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">扩展功能强</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Safe &amp; Reliable</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">支持485通信、Wifi扩展功能，标准配置2路输入2路输出干接点</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Complete fault protection functions, no battery circle current, Pollution Level III rated.</div>
           </div>
         </div>
 
@@ -223,7 +229,7 @@ const meta = {
   <!-- SOLUTIONS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-white flex flex-col py-12" id="solutions">
     <div class="text-center mb-[clamp(8px,1.5vw,24px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">解决方案概览</h2>
+      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">Solution Insights</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
@@ -244,11 +250,11 @@ const meta = {
                 <rect x="30" y="36" width="6" height="6"/>
               </svg>
             </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">消除医院谐波污染</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">为关键医疗设备和生命支持系统提供不间断的电能质量保障，采用先进的谐波滤波和电压稳定技术。</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Eliminate Harmonics in Hospital</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Ensure uninterrupted power quality for critical medical equipment and life-saving systems with advanced harmonic filtering and voltage stabilization.</p>
           </div>
           <a href="/solutions#commercial" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              了解更多
+              Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>
                 <polyline points="7 7 17 7 17 17"/>
@@ -274,11 +280,11 @@ const meta = {
                 <path d="M20 26h16M20 36h16"/>
               </svg>
             </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">避免数据中心功率因数罚款</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">可持续、自主、无处不在的解决方案，以可靠的电能质量基础设施赋能AI发展。</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Avoid PF Penalties in Data Centers</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Are sustainable, autonomous and ubiquitous, powering AI to help solve the problems of today with reliable power quality infrastructure.</p>
           </div>
           <a href="/solutions#datacenter" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              了解更多
+              Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>
                 <polyline points="7 7 17 7 17 17"/>
@@ -303,11 +309,11 @@ const meta = {
                 <rect x="30" y="34" width="8" height="6"/>
               </svg>
             </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">稳定工业电压</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">智能、自主的解决方案，能够即时适应变化，以智能电能质量方案优化生产效率。</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Stabilize Voltage In Industries</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Are intelligent, autonomous and capable to instantly adapt to changes with smart power quality solutions that optimize production efficiency.</p>
           </div>
           <a href="/solutions#industry" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              了解更多
+              Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>
                 <polyline points="7 7 17 7 17 17"/>

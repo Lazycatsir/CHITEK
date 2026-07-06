@@ -1,56 +1,56 @@
 ---
 export interface Props {
-  lang?: 'en' | 'pt' | 'es' | 'ar';
+  lang?: 'en' | 'pt' | 'es' | 'ar' | 'zh';
 }
 const { lang = 'en' } = Astro.props;
 const isRtl = lang === 'ar';
 
-const t: Record<string, { en: string; pt: string; es: string; ar: string }> = {
-  products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات' },
-  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول' },
-  services: { en: 'Services', pt: 'Serviços', es: 'Servicios', ar: 'الخدمات' },
-  news: { en: 'News', pt: 'Notícias', es: 'Noticias', ar: 'الأخبار' },
-  about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros', ar: 'عن الشركة' },
-  contact: { en: 'Contact', pt: 'Contato', es: 'Contacto', ar: 'اتصل بنا' },
-  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...' },
-  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط' },
-  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن' },
-  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG', ar: 'SiC AHF/SVG' },
-  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي' },
-  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية' },
-  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones', ar: 'مراكز البيانات والاتصالات' },
-  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)', ar: 'الطاقة المتجددة (الطاقة الشمسية/الرياح)' },
-  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)', ar: 'النقل (السكك الحديدية/الشحن)' },
-  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos', ar: 'شبكة الكهرباء والمرافق' },
-  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM', es: 'OEM/ODM', ar: 'OEM/ODM' },
-  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico', es: 'Soporte Técnico', ar: 'الدعم الفني' },
-  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores', es: 'Programa de Distribuidores', ar: 'برنامج الموزعين' },
-  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa', es: 'Perfil de la Empresa', ar: 'ملف الشركة' },
-  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso', es: 'Casos de Estudio', ar: 'دراسات الحالة' },
-  certifications: { en: 'Certifications', pt: 'Certificações', es: 'Certificaciones', ar: 'الشهادات' },
+const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: string }> = {
+  products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات', zh: '产品中心' },
+  solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول', zh: '解决方案' },
+  services: { en: 'Services', pt: 'Serviços', es: 'Servicios', ar: 'الخدمات', zh: '服务支持' },
+  news: { en: 'News', pt: 'Notícias', es: 'Noticias', ar: 'الأخبار', zh: '新闻资讯' },
+  about: { en: 'About', pt: 'Sobre', es: 'Sobre Nosotros', ar: 'عن الشركة', zh: '关于我们' },
+  contact: { en: 'Contact', pt: 'Contato', es: 'Contacto', ar: 'اتصل بنا', zh: '联系我们' },
+  search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...', zh: '搜索...' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器AHF' },
+  staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن', zh: '无功静止发生器SVG' },
+  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG', ar: 'SiC AHF/SVG', zh: '碳化硅系列 Sic AHF/SVG' },
+  industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي', zh: '工业制造' },
+  commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية', zh: '商业及医疗建筑' },
+  dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones', ar: 'مراكز البيانات والاتصالات', zh: '数据中心与通信' },
+  renewableEnergy: { en: 'Renewable Energy (PV/Wind)', pt: 'Energia Renovável (FV/Eólica)', es: 'Energía Renovable (FV/Eólica)', ar: 'الطاقة المتجددة (الطاقة الشمسية/الرياح)', zh: '新能源（光伏/风电）' },
+  transportation: { en: 'Transportation (Rail/Charging)', pt: 'Transporte (Ferroviário/Carregamento)', es: 'Transporte (Ferroviario/Carga)', ar: 'النقل (السكك الحديدية/الشحن)', zh: '轨道交通与充电' },
+  powerGridUtility: { en: 'Power Grid & Utility', pt: 'Rede Elétrica e Utilidades', es: 'Red Eléctrica y Servicios Públicos', ar: 'شبكة الكهرباء والمرافق', zh: '电网与公用事业' },
+  oemOdm: { en: 'OEM/ODM', pt: 'OEM/ODM', es: 'OEM/ODM', ar: 'OEM/ODM', zh: 'OEM/ODM' },
+  technicalSupport: { en: 'Technical Support', pt: 'Suporte Técnico', es: 'Soporte Técnico', ar: 'الدعم الفني', zh: '技术支持' },
+  distributorProgram: { en: 'Distributor Program', pt: 'Programa de Distribuidores', es: 'Programa de Distribuidores', ar: 'برنامج الموزعين', zh: '经销商计划' },
+  companyProfile: { en: 'Company Profile', pt: 'Perfil da Empresa', es: 'Perfil de la Empresa', ar: 'ملف الشركة', zh: '公司简介' },
+  caseStudies: { en: 'Case Studies', pt: 'Estudos de Caso', es: 'Casos de Estudio', ar: 'دراسات الحالة', zh: '案例研究' },
+  certifications: { en: 'Certifications', pt: 'Certificações', es: 'Certificaciones', ar: 'الشهادات', zh: '资质认证' },
 };
 
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const langLabel: Record<string, string> = { en: 'English', pt: 'Português', es: 'Español', ar: 'العربية' };
-const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es', ar: 'sa' };
+const langLabel: Record<string, string> = { en: 'English', pt: 'Português', es: 'Español', ar: 'العربية', zh: '中文' };
+const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es', ar: 'sa', zh: 'cn' };
 
 /** Build href for a target language from current pathname */
 function langHref(targetLang: string): string {
   const { pathname } = Astro.url;
   // Strip existing language prefix
   let base = pathname;
-  if (base.startsWith('/pt')) base = base.replace(/^\/pt/, '') || '/';
-  else if (base.startsWith('/es')) base = base.replace(/^\/es/, '') || '/';
-  else if (base.startsWith('/ar')) base = base.replace(/^\/ar/, '') || '/';
-  // Add target prefix
-  if (targetLang === 'en') return base;
-  if (targetLang === 'pt') return '/pt' + (base === '/' ? '' : base);
-  if (targetLang === 'es') return '/es' + (base === '/' ? '' : base);
-  if (targetLang === 'ar') return '/ar' + (base === '/' ? '' : base);
-  return '#';
+  for (const prefix of ['/en', '/es', '/ar', '/pt']) {
+    if (base.startsWith(prefix)) {
+      base = base.slice(prefix.length) || '/';
+      break;
+    }
+  }
+  // Add target prefix (zh = root, no prefix)
+  if (targetLang === 'zh') return base;
+  const prefix = '/' + targetLang;
+  return prefix + (base === '/' ? '' : base);
 }
 const activeLangLabel = langLabel[lang] || 'English';
 const activeLangFlag = langFlagCode[lang] || 'gb';
@@ -58,7 +58,8 @@ const enHref = langHref('en');
 const ptHref = langHref('pt');
 const esHref = langHref('es');
 const arHref = langHref('ar');
-const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : '';
+const zhHref = langHref('zh');
+const prefix = lang === 'en' ? '/en' : lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
@@ -211,6 +212,10 @@ const homeHref = prefix || '/';
       <a href={arHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'ar' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">العربية</span>
         <img src="/assets/images/flags/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+      </a>
+      <a href={zhHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'zh' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-text-mid font-medium">中文</span>
+        <img src="/assets/images/flags/cn.png" alt="China" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
   </div>

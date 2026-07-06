@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'Power Quality Solutions – Industrial & Utility Applications | CHITEK',
-  description: 'CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide.',
+  title: '电能质量解决方案 – 工业与公用事业应用 | CHITEK',
+  description: 'CHITEK为全球工业制造、商业建筑、数据中心、新能源、交通运输和电网应用提供电能质量解决方案。',
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout lang="zh" title={meta.title} description={meta.description}>
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
     <div class="absolute inset-0 animate-fade-in">
@@ -16,9 +16,9 @@ const meta = {
     </div>
     <div class="relative z-10 w-full px-[clamp(24px,8vw,160px)] pb-8">
       <div class="mb-12">
-        <h1 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-300">Commercial & Medical</h1>
-        <h2 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-450">Power Quality Solutions</h2>
-        <p class="mt-6 text-[clamp(14px,1.2vw,20px)] text-white/80 max-w-xl leading-relaxed animate-slide-up-[clamp(12px,2vw,32px)]00">From precision operating rooms to Grade-A offices — full-scenario power quality assurance</p>
+        <h1 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-300">商业与医疗</h1>
+        <h2 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-450">电能质量解决方案</h2>
+        <p class="mt-6 text-[clamp(14px,1.2vw,20px)] text-white/80 max-w-xl leading-relaxed animate-slide-up-[clamp(12px,2vw,32px)]00">从精密手术室到甲级写字楼——全场景电能质量保障</p>
       </div>
     </div>
   </section>
@@ -35,7 +35,7 @@ const meta = {
     <div>
       <div class="mb-6">
         <div>
-          <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-brand-navy leading-tight font-barlow-condensed">Scenario-Based Power Quality Solution</h2>
+          <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-brand-navy leading-tight font-barlow-condensed">场景化电能质量解决方案</h2>
         </div>
         <div class="flex items-center justify-center gap-4 mt-4">
           <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary font-medium" id="sc-counter">1 / 3</span>
@@ -46,11 +46,11 @@ const meta = {
         <div class="flex items-center gap-2" id="sc-scene-label"></div>
       </div>
       <div class="mb-12">
-        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">Pain Points</h3>
+        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">痛点</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(12px,3vw,48px)] transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-painpoints"></div>
       </div>
       <div class="mb-12">
-        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">System Topology</h3>
+        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">系统拓扑</h3>
         <div class="bg-bg-card border border-border-card rounded-xl p-[clamp(8px,1.5vw,32px)] lg:p-10 transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-topology"></div>
       </div>
       <div class="flex items-center justify-center gap-[clamp(12px,3vw,48px)] mt-12" id="sc-indicators"></div>
@@ -60,7 +60,7 @@ const meta = {
   <!-- ============ CASES ============ -->
   <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-[linear-gradient(135deg,#fff5f0,#fef0e5,#fde4d0)] px-[clamp(24px,8vw,160px)] pt-10 lg:pt-16 pb-8 lg:pb-12">
     <div>
-      <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-text-primary leading-tight font-barlow-condensed" id="cases-title">Commercial & Medical Building Case Studies</h2>
+      <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-text-primary leading-tight font-barlow-condensed" id="cases-title">商业与医疗建筑案例研究</h2>
       <div class="mt-3 mb-[clamp(16px,2.5vw,40px)] w-36 h-[3px] rounded-full bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60 shadow-[0_0_8px_rgba(255,107,26,0.3)]"></div>
       <div class="max-w-[75%] max-md:max-w-full mx-auto space-y-6 [&>:last-child]:mb-0" id="cases-list"></div>
     </div>
@@ -89,136 +89,136 @@ const meta = {
 
     // ===================== DATA =====================
     const industries = [
-      { id: 'industry', label: 'Industrial', icon: 'factory' },
-      { id: 'commercial', label: 'Commercial & Medical', icon: 'building-2' },
-      { id: 'datacenter', label: 'Data Center', icon: 'server' },
-      { id: 'renewable', label: 'Renewable Energy', icon: 'zap' },
-      { id: 'rail', label: 'Rail Transit', icon: 'train-front' },
-      { id: 'grid', label: 'Power Grid', icon: 'globe' },
+      { id: 'industry', label: '工业', icon: 'factory' },
+      { id: 'commercial', label: '商业与医疗', icon: 'building-2' },
+      { id: 'datacenter', label: '数据中心', icon: 'server' },
+      { id: 'renewable', label: '新能源', icon: 'zap' },
+      { id: 'rail', label: '轨道交通', icon: 'train-front' },
+      { id: 'grid', label: '电网', icon: 'globe' },
     ];
 
     let activeIndustry = 'commercial';
 
     const painPointScenes = [
       {
-        id: 'medical', label: 'Medical', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Medical Scenario', sceneSubtitle: 'Hospital / Clinic / Rehabilitation',
+        id: 'medical', label: '医疗', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '医疗场景', sceneSubtitle: '医院 / 诊所 / 康复中心',
         cards: [
-          { icon: 'activity', title: 'CT / MRI', desc: 'Imaging Equipment', metric: '15%', metricLabel: 'THD', consequences: [{ title: 'Image Artifacts', sub: 'Misdiagnosis risk, requires repeat scans, doubling patient wait time' }, { title: 'Equipment Overheat', sub: 'Transformer derating, shortened component lifespan, unplanned maintenance' }] },
-          { icon: 'heart-pulse', title: 'Operating Room', desc: 'Surgical Equipment', metric: 'ms-level', metricLabel: 'Voltage Sag', consequences: [{ title: 'Surgery Interruption', sub: 'Momentary outage, equipment reboot cycle, procedure delays' }, { title: 'Life Safety Risk', sub: 'Critical support equipment malfunction, emergency backup transfer latency' }] },
-          { icon: 'flask-conical', title: 'Laboratory', desc: 'Sensitive Analyzers', metric: 'High', metricLabel: 'Zero-seq. Current', consequences: [{ title: 'Phase Imbalance', sub: 'Precision instrument drift, calibration invalidated, reagent waste' }, { title: 'Neutral Overload', sub: 'Overheated conductors, fire risk, N-line burnout potential' }] },
+          { icon: 'activity', title: 'CT / MRI', desc: '影像设备', metric: '15%', metricLabel: 'THD', consequences: [{ title: '图像伪影', sub: '误诊风险，需重复扫描，患者等待时间翻倍' }, { title: '设备过热', sub: '变压器降额运行，元器件寿命缩短，非计划维护' }] },
+          { icon: 'heart-pulse', title: '手术室', desc: '手术设备', metric: '毫秒级', metricLabel: '电压暂降', consequences: [{ title: '手术中断', sub: '瞬时断电，设备重启周期，手术延误' }, { title: '生命安全风险', sub: '关键支撑设备故障，备用电源切换延迟' }] },
+          { icon: 'flask-conical', title: '实验室', desc: '精密分析仪', metric: '高', metricLabel: '零序电流', consequences: [{ title: '三相不平衡', sub: '精密仪器漂移，校准失效，试剂浪费' }, { title: '中性线过载', sub: '导体过热，火灾风险，N线烧毁隐患' }] },
         ],
       },
       {
-        id: 'office', label: 'Commercial Office', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'Commercial Office Scenario', sceneSubtitle: 'Office / Mall / Hotel',
+        id: 'office', label: '商业办公', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '商业办公场景', sceneSubtitle: '写字楼 / 商场 / 酒店',
         cards: [
-          { icon: 'lightbulb', title: 'Lighting', desc: 'LED Driver Harmonic', metric: '23%', metricLabel: 'THD', consequences: [{ title: 'Severe Flicker', sub: 'Visual fatigue, reduced productivity, occupant discomfort complaints' }, { title: 'Neutral Overheat', sub: 'Triplen harmonic accumulation, N-line burnout, fire hazard' }] },
-          { icon: 'arrow-up-down', title: 'Elevator', desc: 'VFD Start-up Surge', metric: '7x', metricLabel: 'Inrush', consequences: [{ title: 'Voltage Dip', sub: 'Equipment trip, control system reset, passenger entrapment risk' }, { title: 'Mechanical Wear', sub: 'Frequent maintenance, brake pad replacement, rope fatigue' }] },
-          { icon: 'thermometer-snowflake', title: 'HVAC', desc: 'Compressor Reactive', metric: '0.65', metricLabel: 'Power Factor', consequences: [{ title: 'Penalty Charge', sub: 'Utility power factor surcharge, monthly bill 30%+ increase' }, { title: 'Transformer Overload', sub: 'Excess reactive current, overheating, shortened service life' }] },
+          { icon: 'lightbulb', title: '照明', desc: 'LED驱动谐波', metric: '23%', metricLabel: 'THD', consequences: [{ title: '严重闪烁', sub: '视觉疲劳，生产力下降，租户投诉不适' }, { title: '中性线过热', sub: '三次谐波累积，N线烧毁，火灾隐患' }] },
+          { icon: 'arrow-up-down', title: '电梯', desc: '变频器启动浪涌', metric: '7x', metricLabel: '冲击电流', consequences: [{ title: '电压跌落', sub: '设备跳闸，控制系统复位，乘客被困风险' }, { title: '机械磨损', sub: '维护频繁，制动片更换，钢丝绳疲劳' }] },
+          { icon: 'thermometer-snowflake', title: '暖通空调', desc: '压缩机无功', metric: '0.65', metricLabel: '功率因数', consequences: [{ title: '罚款', sub: '电力公司功率因数加收，月度账单增加30%+' }, { title: '变压器过载', sub: '无功电流过大，过热，使用寿命缩短' }] },
         ],
       },
       {
-        id: 'lab', label: 'Lab / Cleanroom', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'Lab & Cleanroom', sceneSubtitle: 'Semiconductor / Biotech / Precision Mfg',
+        id: 'lab', label: '实验室/洁净室', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '实验室与洁净室', sceneSubtitle: '半导体 / 生物科技 / 精密制造',
         cards: [
-          { icon: 'wind', title: 'Cleanroom', desc: 'FFU Fan VFD', metric: '> 1.0', metricLabel: 'Pst Flicker', consequences: [{ title: 'Yield Loss', sub: 'Wafer defect density increase, batch rejection, revenue impact' }, { title: 'Light Fluctuation', sub: 'Photolithography misalignment, inspection false rejects' }] },
-          { icon: 'cpu', title: 'Lab Equipment', desc: 'Sensitive Instruments', metric: '30%', metricLabel: 'Voltage Dip', consequences: [{ title: 'Data Loss', sub: 'Unsaved measurement data, experiment interruption, reagent waste' }, { title: 'Calibration Drift', sub: 'Post-sag recalibration required, 4-8 hrs instrument downtime' }] },
-          { icon: 'toy-brick', title: 'Cooling Pumps', desc: 'Motor Start-up', metric: '5~8x', metricLabel: 'Inrush', consequences: [{ title: 'Bus Voltage Drop', sub: 'Cascade trip risk, neighboring equipment brownout, batch shutdown' }, { title: 'Breaker Trip', sub: 'False overcurrent trip, unplanned production halt, restart SOP' }] },
+          { icon: 'wind', title: '洁净室', desc: 'FFU风机变频', metric: '> 1.0', metricLabel: 'Pst闪烁', consequences: [{ title: '良率损失', sub: '晶圆缺陷密度增加，批次报废，营收影响' }, { title: '光线波动', sub: '光刻对位偏差，检测误判' }] },
+          { icon: 'cpu', title: '实验室设备', desc: '精密仪器', metric: '30%', metricLabel: '电压暂降', consequences: [{ title: '数据丢失', sub: '未保存的测量数据，实验中断，试剂浪费' }, { title: '校准漂移', sub: '暂降后需重新校准，仪器停机4-8小时' }] },
+          { icon: 'toy-brick', title: '冷却水泵', desc: '电机启动', metric: '5~8x', metricLabel: '冲击电流', consequences: [{ title: '母线电压骤降', sub: '级联跳闸风险，相邻设备欠压，批次停产' }, { title: '断路器跳闸', sub: '误过流跳闸，非计划停机，重启SOP' }] },
         ],
       },
     ];
 
     const topologyScenes = [
       {
-        id: 'medical', sceneName: 'Medical Topology', sceneSubtitle: 'Hospital / Clinic / Rehabilitation',
-        deviceLabel: 'AHF-200A', deviceType: 'Active Harmonic Filter',
-        deviceDesc: 'Parallel-connected to LV busbar, mitigates harmonics for OR / imaging / lab power distribution',
+        id: 'medical', sceneName: '医疗拓扑', sceneSubtitle: '医院 / 诊所 / 康复中心',
+        deviceLabel: 'AHF-200A', deviceType: '有源滤波器',
+        deviceDesc: '并联接入低压母线，为手术室/影像/实验室配电系统治理谐波',
         branches: [
-          { label: 'OR Power Dist.', sub: 'Voltage Sag Protection' },
-          { label: 'Imaging Power', sub: 'CT / MRI Harmonics' },
-          { label: 'Lab Power Dist.', sub: 'Phase Imbalance' },
+          { label: '手术室配电', sub: '电压暂降保护' },
+          { label: '影像供电', sub: 'CT / MRI谐波' },
+          { label: '实验室配电', sub: '三相不平衡' },
         ],
       },
       {
-        id: 'office', sceneName: 'Commercial Office Topology', sceneSubtitle: 'Office / Mall / Hotel',
-        deviceLabel: 'SVG-300A', deviceType: 'Static Var Generator',
-        deviceDesc: 'SVG at LV bus, compensates reactive power for elevator / lighting / HVAC circuits',
+        id: 'office', sceneName: '商业办公拓扑', sceneSubtitle: '写字楼 / 商场 / 酒店',
+        deviceLabel: 'SVG-300A', deviceType: '静止无功发生器',
+        deviceDesc: 'SVG安装于低压母线，为电梯/照明/空调回路补偿无功功率',
         branches: [
-          { label: 'Lighting Power', sub: 'Harmonic Source' },
-          { label: 'Elevator Power', sub: 'VFD Surge' },
-          { label: 'HVAC Power', sub: 'Reactive Load' },
+          { label: '照明供电', sub: '谐波源' },
+          { label: '电梯供电', sub: '变频器浪涌' },
+          { label: '暖通供电', sub: '无功负荷' },
         ],
       },
       {
-        id: 'lab', sceneName: 'Lab & Cleanroom Topology', sceneSubtitle: 'Semiconductor / Biotech / Precision Mfg',
-        deviceLabel: 'AHF-150A', deviceType: 'Active Harmonic Filter',
-        deviceDesc: 'Series-connected at UPS front-end for process cooling / lab equipment harmonic suppression',
+        id: 'lab', sceneName: '实验室与洁净室拓扑', sceneSubtitle: '半导体 / 生物科技 / 精密制造',
+        deviceLabel: 'AHF-150A', deviceType: '有源滤波器',
+        deviceDesc: '串联于UPS前端，用于工艺冷却/实验室设备谐波抑制',
         branches: [
-          { label: 'UPS Front-end', sub: 'Precision Power' },
-          { label: 'Process Cooling', sub: 'Pump Inrush' },
-          { label: 'Lab Equipment', sub: 'Sensitive Load' },
+          { label: 'UPS前端', sub: '精密供电' },
+          { label: '工艺冷却', sub: '水泵冲击' },
+          { label: '实验室设备', sub: '敏感负荷' },
         ],
       },
     ];
 
     const cases = [
       {
-        title: 'Harmonic Mitigation at Beijing Union Hospital Outpatient Building',
-        highlight: 'THD 18.3% → 4.1%, annual power savings 670K CNY',
+        title: '广州三甲医院门诊楼治理',
+        highlight: 'THD 18.3% → 4.1%，年节电67万元',
         image: '/assets/images/solutions-commercial-medical-case-hospital.jpg',
-        industry: 'Medical Building',
+        industry: '医疗建筑',
         colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
-        link: '/about/cases/pumc-hospital',
-        overview: '2,000-bed tertiary hospital, 10kV/0.4kV distribution, 4×1600kVA transformers. After imaging center expansion, THD at main busbar exceeded 18%, causing recurring CT/MRI image artifacts and one operating-room power quality incident.',
-        trend: 'THD trend: 18.3% → 12.5% → 8.2% → 4.1%',
+        link: '/about/cases/guangzhou-hospital',
+        overview: '2000床位三甲医院，10kV/0.4kV配电系统，4×1600kVA变压器。影像中心扩建后，主母线THD超过18%，导致CT/MRI图像伪影频发，并发生一次手术室电能质量事故。',
+        trend: 'THD趋势：18.3% → 12.5% → 8.2% → 4.1%',
         solution: [
-          { product: 'AHF-200A', qty: 2, use: 'OR & imaging dept.' },
-          { product: 'SVG-100A', qty: 1, use: 'HVAC reactive compensation' },
+          { product: 'AHF-200A', qty: 2, use: '手术室及影像科' },
+          { product: 'SVG-100A', qty: 1, use: '暖通无功补偿' },
         ],
         results: [
-          'THD < 5% (IEEE 519 compliant)',
-          'Transformer temperature ↓ 15°C',
-          'Annual maintenance cost ↓ 45%',
+          'THD < 5%（符合IEEE 519标准）',
+          '变压器温度下降15°C',
+          '年维护费用降低45%',
         ],
       },
       {
-        title: 'Power Quality Retrofit at Lujiazui Grade-A Office Tower, Shanghai',
-        highlight: 'PF 0.72 → 0.95, penalty elimination 450K CNY/year',
+        title: '上海陆家嘴甲级写字楼电能质量改造',
+        highlight: 'PF 0.72 → 0.95，消除罚款45万元/年',
         image: '/assets/images/solutions-commercial-medical-case-office.jpg',
-        industry: 'Commercial Office',
+        industry: '商业办公',
         colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
         link: '/about/cases/lujiazui-office',
-        overview: '45-story Grade-A office tower, 20kV/0.4kV, 6×2000kVA transformers. Extensive LED retrofit and VFD elevator modernization introduced severe harmonics and poor power factor, triggering monthly utility penalties.',
-        trend: 'PF trend: 0.72 → 0.82 → 0.91 → 0.95',
+        overview: '45层甲级写字楼，20kV/0.4kV配电，6×2000kVA变压器。大规模LED改造和变频电梯升级引入严重谐波和低功率因数，导致每月电力公司罚款。',
+        trend: 'PF趋势：0.72 → 0.82 → 0.91 → 0.95',
         solution: [
-          { product: 'SVG-300A', qty: 2, use: 'Main LV busbar PF correction' },
-          { product: 'AHF-100A', qty: 3, use: 'Floor lighting harmonic filters' },
+          { product: 'SVG-300A', qty: 2, use: '低压母线功率因数校正' },
+          { product: 'AHF-100A', qty: 3, use: '楼层照明谐波滤波' },
         ],
         results: [
-          'PF > 0.95, zero utility penalties',
-          'Transformer loss ↓ 22%',
-          'Annual savings 450K CNY',
+          'PF > 0.95，零罚款',
+          '变压器损耗降低22%',
+          '年节省45万元',
         ],
       },
       {
-        title: 'Voltage Flicker Mitigation at Suzhou Semiconductor Cleanroom Lab',
-        highlight: 'Flicker Pst < 0.3, zero equipment downtime',
+        title: '苏州半导体洁净室实验室电压闪烁治理',
+        highlight: '闪烁Pst < 0.3，设备零停机',
         image: '/assets/images/solutions-commercial-medical-case-lab.jpg',
-        industry: 'Lab / Cleanroom',
+        industry: '实验室/洁净室',
         colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
         link: '/about/cases/suzhou-lab',
-        overview: '12,000m² Class-100 cleanroom, dual 10kV feeders, 8×2500kVA transformers. Process cooling pump inrush and UPS harmonic feedback caused Pst flicker exceeding 1.2, leading to photolithography yield loss and quarterly equipment shutdown events.',
-        trend: 'Pst trend: 1.2 → 0.7 → 0.4 → 0.3',
+        overview: '12000平方米百级洁净室，双路10kV供电，8×2500kVA变压器。工艺冷却水泵冲击电流和谐波反馈导致Pst闪烁超过1.2，造成光刻良率损失和季度性设备停机。',
+        trend: 'Pst趋势：1.2 → 0.7 → 0.4 → 0.3',
         solution: [
-          { product: 'AHF-150A', qty: 2, use: 'UPS front-end harmonic suppression' },
-          { product: 'SVG-100A', qty: 2, use: 'Process cooling pump surge compensation' },
-          { product: 'Smart Monitor', qty: 1, use: 'Plant-wide PQ monitoring platform' },
+          { product: 'AHF-150A', qty: 2, use: 'UPS前端谐波抑制' },
+          { product: 'SVG-100A', qty: 2, use: '工艺冷却水泵浪涌补偿' },
+          { product: 'Smart Monitor', qty: 1, use: '全厂电能质量监测平台' },
         ],
         results: [
-          'Flicker Pst < 0.3 (IEC 61000-3-3 compliant)',
-          'Zero unplanned equipment downtime since deployment',
-          'Yield rate recovered to pre-flicker baseline',
+          '闪烁Pst < 0.3（符合IEC 61000-3-3标准）',
+          '部署后设备零非计划停机',
+          '良率恢复至闪烁前基准水平',
         ],
       },
     ];
@@ -226,430 +226,430 @@ const meta = {
     // ===================== GRID DATA =====================
     const gridPainPoints = [
       {
-        id: 'transmission', label: 'Transmission', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Transmission & Distribution', sceneSubtitle: 'Substation / Distribution / Rural Upgrade',
+        id: 'transmission', label: '输电', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '输电与配电', sceneSubtitle: '变电站 / 配电网 / 农网升级',
         cards: [
-          { icon: 'network', title: 'Nonlinear Load', desc: 'Harmonic Injection from industrial & traction loads', metric: '>10%', metricLabel: 'THD', consequences: [{ title: 'Transformer Overheat', sub: 'Excess harmonic loss, insulation aging, forced derating up to 30% capacity' }, { title: 'Protection Misoperation', sub: 'Relay false trip, breaker nuisance operation, grid reliability degradation' }] },
-          { icon: 'zap', title: 'Distributed Gen', desc: 'Grid Disturbance from DG interconnection', metric: '±10%', metricLabel: 'Voltage Fluct.', consequences: [{ title: 'Reverse Power Flow', sub: 'DG backfeed causes voltage rise, tap changer hunting, protection coordination failure' }, { title: 'Islanding Risk', sub: 'Unintentional island formation, out-of-sync reconnection, equipment damage' }] },
-          { icon: 'git-branch', title: 'Line Reactive', desc: 'Long-distance transfer reactive loss', metric: '< 0.9', metricLabel: 'End V (pu)', consequences: [{ title: 'Line Loss Surge', sub: 'I²R loss exponential increase, rural feeder end-voltage collapse, load shedding' }, { title: 'Voltage Collapse Risk', sub: 'Reactive deficit cascade, wide-area blackout potential, N-1 contingency failure' }] },
+          { icon: 'network', title: '非线性负荷', desc: '工业及牵引负荷谐波注入', metric: '>10%', metricLabel: 'THD', consequences: [{ title: '变压器过热', sub: '附加谐波损耗，绝缘老化，被迫降额至30%容量' }, { title: '保护误动作', sub: '继电器误跳闸，断路器误动作，电网可靠性下降' }] },
+          { icon: 'zap', title: '分布式发电', desc: 'DG并网引发的电网扰动', metric: '±10%', metricLabel: '电压波动', consequences: [{ title: '反向潮流', sub: 'DG倒送功率引起电压升高，分接头频繁调节，保护配合失灵' }, { title: '孤岛风险', sub: '非计划孤岛形成，不同步重合闸，设备损坏' }] },
+          { icon: 'git-branch', title: '线路无功', desc: '长距离传输无功损耗', metric: '< 0.9', metricLabel: '末端电压(pu)', consequences: [{ title: '线损激增', sub: 'I²R损耗指数增长，农网馈线末端电压崩溃，切负荷' }, { title: '电压崩溃风险', sub: '无功缺额级联，大面积停电隐患，N-1事故失效' }] },
         ],
       },
       {
-        id: 'urban', label: 'Urban Dist.', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'Urban Distribution Network', sceneSubtitle: 'City Center / Development Zone / Old Residential',
+        id: 'urban', label: '城市配网', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '城市配电网', sceneSubtitle: '市中心 / 开发区 / 老旧居民区',
         cards: [
-          { icon: 'plug-zap', title: 'EV Charging', desc: 'Impact surge from fast-charging clusters', metric: '120kW+', metricLabel: 'Load Step', consequences: [{ title: 'Grid Sag', sub: 'Concurrent charging peak causes 15%+ voltage dip, distribution transformer overload trip' }, { title: 'Harmonic Injection', sub: 'EV rectifier 6-pulse harmonics, THD exceeding 8% at PCC, grid pollution' }] },
-          { icon: 'building-2', title: 'Commercial Load', desc: 'Phase imbalance from single-phase loads', metric: '>8%', metricLabel: 'Unbalance', consequences: [{ title: 'Neutral Overload', sub: 'Zero-sequence current accumulation, N-line burnout, fire hazard in old residential areas' }, { title: 'Motor Derating', sub: 'Negative-sequence heating in 3-phase motors, shortened service life, unplanned outage' }] },
-          { icon: 'cable', title: 'Cable Network', desc: 'Capacitive reactive from underground cables', metric: 'Leading', metricLabel: 'PF > 0.95', consequences: [{ title: 'Over-compensation', sub: 'Cable capacitance causes leading PF at light load, voltage rise, insulation stress' }, { title: 'Resonance Risk', sub: 'Cable capacitance + transformer inductance parallel resonance, harmonic amplification' }] },
+          { icon: 'plug-zap', title: '充电桩', desc: '快充集群冲击浪涌', metric: '120kW+', metricLabel: '负荷阶跃', consequences: [{ title: '电网电压暂降', sub: '并发充电高峰导致15%+电压跌落，配电变压器过载跳闸' }, { title: '谐波注入', sub: 'EV整流器6脉波谐波，PCC点THD超过8%，电网污染' }] },
+          { icon: 'building-2', title: '商业负荷', desc: '单相负荷导致三相不平衡', metric: '>8%', metricLabel: '不平衡度', consequences: [{ title: '中性线过载', sub: '零序电流累积，N线烧毁，老旧居民区火灾隐患' }, { title: '电机降额', sub: '三相电机负序发热，使用寿命缩短，非计划停机' }] },
+          { icon: 'cable', title: '电缆网络', desc: '地下电缆容性无功', metric: '超前', metricLabel: 'PF > 0.95', consequences: [{ title: '过补偿', sub: '电缆电容导致轻载时PF超前，电压升高，绝缘应力' }, { title: '谐振风险', sub: '电缆电容+变压器电感并联谐振，谐波放大' }] },
         ],
       },
       {
-        id: 'microgrid', label: 'Microgrid', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'Microgrid & CCHP', sceneSubtitle: 'Campus / Island / Remote Area',
+        id: 'microgrid', label: '微电网', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '微电网与冷热电联供', sceneSubtitle: '园区 / 海岛 / 偏远地区',
         cards: [
-          { icon: 'sun', title: 'Multi-source Grid', desc: 'Harmonic stacking from PV + wind + storage', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'PCC Violation', sub: 'Multi-inverter harmonic superposition, IEEE 519 PCC limit exceeded, grid operator penalty' }, { title: 'Resonance Instability', sub: 'LCL filter interaction, wideband oscillation, inverter cascade trip' }] },
-          { icon: 'battery-charging', title: 'Storage Cycling', desc: 'Reactive fluctuation from charge/discharge', metric: 'PF Swing', metricLabel: '0.7~1.0', consequences: [{ title: 'Penalty Charge', sub: 'Bidirectional PF swing triggers utility reactive energy billing, monthly cost surge' }, { title: 'Cycle Life Loss', sub: 'Excess reactive current heats battery PCS, accelerated IGBT aging, warranty void risk' }] },
-          { icon: 'shuffle', title: 'Grid Switching', desc: 'Voltage sag during island/grid transition', metric: '>20%', metricLabel: 'Sag Depth', consequences: [{ title: 'Load Trip', sub: 'STS transfer > 4ms causes contactor dropout, critical load UPS transfer to battery' }, { title: 'Diesel Start Fail', sub: 'Sag during generator start sequence, AVR excitation collapse, black-start failure' }] },
+          { icon: 'sun', title: '多源并网', desc: '光伏+风电+储能谐波叠加', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'PCC点超标', sub: '多逆变器谐波叠加，IEEE 519 PCC限值超标，电网运营商罚款' }, { title: '谐振不稳定', sub: 'LCL滤波器交互，宽频振荡，逆变器级联脱网' }] },
+          { icon: 'battery-charging', title: '储能充放', desc: '充放电无功波动', metric: 'PF摆动', metricLabel: '0.7~1.0', consequences: [{ title: '罚款', sub: '双向PF摆动触发电力公司无功电费，月度费用激增' }, { title: '循环寿命损失', sub: '附加无功电流加热PCS，IGBT加速老化，质保失效风险' }] },
+          { icon: 'shuffle', title: '并离网切换', desc: '并/离网切换电压暂降', metric: '>20%', metricLabel: '暂降深度', consequences: [{ title: '负荷脱扣', sub: 'STS切换>4ms导致接触器脱落，关键负荷UPS转电池' }, { title: '柴发启动失败', sub: '发电机启动过程中暂降，AVR励磁崩溃，黑启动失败' }] },
         ],
       },
     ];
     const gridTopology = [
       {
-        id: 'transmission', sceneName: 'Transmission Topology', sceneSubtitle: 'Substation / Distribution / Rural Upgrade',
-        deviceLabel: 'SVG + AHF', deviceType: 'Combined System',
-        deviceDesc: 'SVG at 35kV/10kV bus for reactive + AHF at critical load feeder for harmonics, DG tie-point marked',
+        id: 'transmission', sceneName: '输电拓扑', sceneSubtitle: '变电站 / 配电网 / 农网升级',
+        deviceLabel: 'SVG + AHF', deviceType: '组合系统',
+        deviceDesc: 'SVG安装于35kV/10kV母线用于无功补偿+AHF安装于关键负荷馈线用于谐波治理，DG接入点标注',
         branches: [
-          { label: 'Critical Load', sub: 'Sensitive Equipment' },
-          { label: 'DG Tie-point', sub: 'Reverse Power Flow' },
-          { label: 'Rural Feed', sub: 'Long Line Drop' },
+          { label: '关键负荷', sub: '敏感设备' },
+          { label: 'DG接入点', sub: '反向潮流' },
+          { label: '农网馈线', sub: '长线路压降' },
         ],
       },
       {
-        id: 'urban', sceneName: 'Urban Distribution Topology', sceneSubtitle: 'City Center / Dev Zone / Old Residential',
-        deviceLabel: 'SPC + SVG-10kV', deviceType: 'Distribution System',
-        deviceDesc: 'SPC at 10kV feeder for balance + SVG at bus for reactive, EV station/commercial/resident marked',
+        id: 'urban', sceneName: '城市配网拓扑', sceneSubtitle: '市中心 / 开发区 / 老旧居民区',
+        deviceLabel: 'SPC + SVG-10kV', deviceType: '配电系统',
+        deviceDesc: 'SPC安装于10kV馈线用于平衡+SVG安装于母线用于无功补偿，标注充电站/商业/居民负荷',
         branches: [
-          { label: 'EV Station', sub: 'Impact Load' },
-          { label: 'Commercial Load', sub: 'Phase Imbalance' },
-          { label: 'Residential', sub: 'Single-phase Load' },
+          { label: '充电站', sub: '冲击负荷' },
+          { label: '商业负荷', sub: '三相不平衡' },
+          { label: '居民负荷', sub: '单相负荷' },
         ],
       },
       {
-        id: 'microgrid', sceneName: 'Microgrid Topology', sceneSubtitle: 'Campus / Island / Remote Area',
-        deviceLabel: 'SVG+AHF + SPC', deviceType: 'Microgrid System',
-        deviceDesc: 'SVG+AHF at PCC for power quality + SPC for load balance, PV/storage/diesel branch marked',
+        id: 'microgrid', sceneName: '微电网拓扑', sceneSubtitle: '园区 / 海岛 / 偏远地区',
+        deviceLabel: 'SVG+AHF + SPC', deviceType: '微电网系统',
+        deviceDesc: 'SVG+AHF安装于PCC点用于电能质量+SPC用于负荷平衡，标注光伏/储能/柴油分支',
         branches: [
-          { label: 'PV Array', sub: 'Intermittent Source' },
-          { label: 'Battery PCS', sub: 'Bidirectional Flow' },
-          { label: 'Diesel Gen', sub: 'Backup Supply' },
+          { label: '光伏阵列', sub: '间歇性电源' },
+          { label: '储能PCS', sub: '双向流动' },
+          { label: '柴油发电机', sub: '备用电源' },
         ],
       },
     ];
     const gridCases = [
       {
-        title: 'Integrated PQ Management at Provincial 220kV Substation', highlight: 'THD 11% → 3.5%, transformer loss down 12%, annual savings 3.2M kWh', image: '/assets/images/solutions-grid-case-substation.jpg', industry: 'Power Grid', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '220kV/35kV/10kV provincial substation serving mixed industrial and residential load. Harmonic injection from nearby steel mill and increasing DG penetration caused THD exceeding 11% at 35kV bus, triggering capacitor bank breaker trips and transformer overheating alarms.',
-        trend: 'THD trend: 11.0% → 7.8% → 5.2% → 3.5%',
-        solution: [{ product: 'SVG-800V', qty: 2, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 3, use: 'Critical feeder harmonic filtering' }],
-        results: ['THD < 4% (GB/T 14549 compliant)', 'Transformer loss reduced 12% (3.2M kWh/year saved)', 'Line loss improved 0.8 percentage points'],
+        title: '省级220kV变电站电能质量综合治理', highlight: 'THD 11% → 3.5%，变压器损耗降低12%，年节电320万kWh', image: '/assets/images/solutions-grid-case-substation.jpg', industry: '电网', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: '220kV/35kV/10kV省级变电站，供混合工业及居民负荷。附近钢厂谐波注入和DG渗透率上升导致35kV母线THD超过11%，引发电容器组断路器跳闸和变压器过热告警。',
+        trend: 'THD趋势：11.0% → 7.8% → 5.2% → 3.5%',
+        solution: [{ product: 'SVG-800V', qty: 2, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 3, use: '关键馈线谐波滤波' }],
+        results: ['THD < 4%（符合GB/T 14549标准）', '变压器损耗降低12%（年节电320万kWh）', '线损改善0.8个百分点'],
       },
       {
-        title: 'Urban Core Distribution Network Upgrade Project', highlight: 'EV station imbalance < 3%, voltage qualification 99.97%', image: '/assets/images/solutions-grid-case-urban.jpg', industry: 'Urban Distribution', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: 'City center 10kV distribution network with 12 EV fast-charging stations and mixed commercial/residential load. Evening peak concurrent charging caused severe phase imbalance and voltage sag, while underground cable network produced leading PF at light load.',
-        trend: 'Unbalance trend: 12% → 8% → 5% → 2.8%',
-        solution: [{ product: 'SPC-150A', qty: 4, use: 'EV station 3-phase balancing' }, { product: 'SVG-10kV', qty: 2, use: 'Feeder reactive compensation' }],
-        results: ['Phase unbalance < 3% at all EV stations', 'Voltage qualification rate 99.97%', 'Zero cable over-compensation incidents'],
+        title: '城市核心区配电网升级改造工程', highlight: '充电站不平衡度<3%，电压合格率99.97%', image: '/assets/images/solutions-grid-case-urban.jpg', industry: '城市配网', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: '市中心10kV配电网，含12座EV快充站及混合商业/居民负荷。晚间并发充电高峰导致严重三相不平衡和电压暂降，同时地下电缆网络在轻载时产生超前PF。',
+        trend: '不平衡度趋势：12% → 8% → 5% → 2.8%',
+        solution: [{ product: 'SPC-150A', qty: 4, use: '充电站三相平衡' }, { product: 'SVG-10kV', qty: 2, use: '馈线无功补偿' }],
+        results: ['所有充电站三相不平衡度<3%', '电压合格率99.97%', '零电缆过补偿事故'],
       },
       {
-        title: 'Island PV-Wind-Storage Integrated Microgrid Project', highlight: 'Island/grid switch sag < 5%, reliability 99.9%, diesel reduction 60%', image: '/assets/images/solutions-grid-case-microgrid.jpg', industry: 'Microgrid', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: 'Remote island microgrid with 2MW PV, 1.5MW wind, 4MWh BESS, and 1MW diesel backup. Multi-source harmonic stacking at PCC and voltage sag during grid/island transitions caused frequent load shedding and diesel premature start.',
-        trend: 'Sag trend: 25% → 12% → 7% → <5%',
-        solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC power quality conditioning' }, { product: 'SPC-100A', qty: 1, use: 'Load balance across phases' }],
-        results: ['Island/grid switching sag < 5%', 'System reliability 99.9%', 'Diesel runtime reduced 60% annually'],
+        title: '海岛风光储一体化微电网工程', highlight: '并离网切换暂降<5%，可靠性99.9%，柴油发电减少60%', image: '/assets/images/solutions-grid-case-microgrid.jpg', industry: '微电网', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: '偏远海岛微电网，含2MW光伏、1.5MW风电、4MWh储能及1MW柴油备用。PCC点多源谐波叠加及并/离网切换时电压暂降导致频繁切负荷和柴油机过早启动。',
+        trend: '暂降趋势：25% → 12% → 7% → <5%',
+        solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC点电能质量调节' }, { product: 'SPC-100A', qty: 1, use: '跨相负荷平衡' }],
+        results: ['并/离网切换暂降<5%', '系统可靠性99.9%', '柴油机年运行时间减少60%'],
       },
     ];
 
     // ===================== DATACENTER DATA =====================
     const dcPainPoints = [
       {
-        id: 'cloud', label: 'Cloud Computing', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Large Cloud Computing Center', sceneSubtitle: 'HPC / Cloud Provider / Colocation',
+        id: 'cloud', label: '云计算', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '大型云计算中心', sceneSubtitle: 'HPC / 云服务商 / 托管',
         cards: [
-          { icon: 'cloud', title: 'UPS Harmonics', desc: 'Reflective pollution from UPS rectifiers', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'Parallel Circulation', sub: 'UPS harmonic current circulates between parallel units, load sharing imbalance, thermal runaway risk' }, { title: 'Battery Life ↓', sub: 'Harmonic ripple accelerates VRLA battery corrosion, 3-year life reduced to 18 months' }] },
-          { icon: 'server', title: 'Server Farm', desc: 'Phase imbalance from single-phase IT load', metric: '>15%', metricLabel: 'Unbalance', consequences: [{ title: 'Neutral Overheat', sub: 'Triplen + phase imbalance combine, zero-seq > phase current, fire risk' }, { title: 'PDU Trip', sub: 'Per-phase overload despite avg below rating, rack PDU breaker nuisance trip, row outage' }] },
-          { icon: 'fan', title: 'Cooling System', desc: 'Reactive impact from VFD chillers/CRAC', metric: 'PUE', metricLabel: 'Deterioration', consequences: [{ title: 'Transformer Overload', sub: 'Excess reactive consumes transformer capacity, forced cooling upgrade, CapEx waste' }, { title: 'Energy Penalty', sub: 'PUE 1.6→1.8 from reactive losses, annual OpEx +800K CNY at 10MW facility' }] },
+          { icon: 'cloud', title: 'UPS谐波', desc: 'UPS整流器反射污染', metric: '>12%', metricLabel: 'THD', consequences: [{ title: '并联环流', sub: 'UPS谐波电流在并联机组间环流，负载分配不均，热失控风险' }, { title: '电池寿命缩短', sub: '谐波纹波加速VRLA电池腐蚀，3年寿命降至18个月' }] },
+          { icon: 'server', title: '服务器集群', desc: '单相IT负荷导致三相不平衡', metric: '>15%', metricLabel: '不平衡度', consequences: [{ title: '中性线过热', sub: '三次谐波+三相不平衡叠加，零序电流>相电流，火灾风险' }, { title: 'PDU跳闸', sub: '单相过载但平均值未超额定，机架PDU断路器误跳，整排断电' }] },
+          { icon: 'fan', title: '制冷系统', desc: '变频冷水机/CRAC无功影响', metric: 'PUE', metricLabel: '恶化', consequences: [{ title: '变压器过载', sub: '无功电流消耗变压器容量，被迫升级冷却，资本支出浪费' }, { title: '能耗罚款', sub: '无功损耗导致PUE 1.6→1.8，10MW设施年运营费+80万元' }] },
         ],
       },
       {
-        id: 'finance', label: 'Financial DC', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'Financial Data Center', sceneSubtitle: 'Bank / Securities / Insurance',
+        id: 'finance', label: '金融数据中心', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '金融数据中心', sceneSubtitle: '银行 / 证券 / 保险',
         cards: [
-          { icon: 'landmark', title: 'High-freq Trading', desc: 'Sag sensitive trading infrastructure', metric: '< 3ms', metricLabel: 'Sag Tolerance', consequences: [{ title: 'Trade Interrupt', sub: 'CBEMA/ITIC curve violation, server PSU dropout, millisecond sag = million-yuan loss' }, { title: 'Regulatory Fine', sub: 'CSRC trading continuity mandate, outage >5min triggers mandatory reporting, compliance penalty' }] },
-          { icon: 'power', title: 'Diesel Switchover', desc: 'Transfer shock during genset test/outage', metric: '±15%', metricLabel: 'Voltage Step', consequences: [{ title: 'UPS Overload', sub: 'ATS transfer inrush, UPS switches to battery, rectifier walk-in overload, system crash' }, { title: 'Generator Hunting', sub: 'Load step causes governor oscillation, frequency >2% deviation, PSU shutdown' }] },
-          { icon: 'thermometer', title: 'Precision HVAC', desc: 'Harmonic source from VFD compressors', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'PUE Rise', sub: 'Harmonic derating of cooling xfmrs, reduced cooling capacity, hot spot in racks' }, { title: 'Control Fault', sub: 'Harmonic noise on HVAC controller PSU, sensor drift, temperature oscillation' }] },
+          { icon: 'landmark', title: '高频交易', desc: '暂降敏感交易基础设施', metric: '< 3ms', metricLabel: '暂降耐受', consequences: [{ title: '交易中断', sub: 'CBEMA/ITIC曲线违规，服务器PSU掉电，毫秒暂降=百万元损失' }, { title: '监管处罚', sub: '证监会交易连续性要求，中断>5分钟触发强制报告，合规罚款' }] },
+          { icon: 'power', title: '柴发切换', desc: '机组测试/停电时切换冲击', metric: '±15%', metricLabel: '电压阶跃', consequences: [{ title: 'UPS过载', sub: 'ATS切换冲击，UPS转电池，整流器爬坡过载，系统崩溃' }, { title: '发电机振荡', sub: '负荷阶跃导致调速器振荡，频率偏差>2%，PSU关机' }] },
+          { icon: 'thermometer', title: '精密空调', desc: '变频压缩机谐波源', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'PUE升高', sub: '冷却变压器谐波降额，制冷能力下降，机架热点' }, { title: '控制故障', sub: '谐波噪声干扰空调控制器PSU，传感器漂移，温度振荡' }] },
         ],
       },
       {
-        id: 'edge', label: 'Edge Computing', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'Edge Computing Node', sceneSubtitle: '5G Base / IoT / Distributed Room',
+        id: 'edge', label: '边缘计算', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '边缘计算节点', sceneSubtitle: '5G基站 / IoT / 分布式机房',
         cards: [
-          { icon: 'router', title: 'Grid Quality', desc: 'Unstable supply at remote/rural sites', metric: '>20%', metricLabel: 'Sag Depth', consequences: [{ title: 'Node Offline', sub: 'Frequent sag triggers mini-UPS battery discharge, cycle life exhausted within 6 months' }, { title: 'Truck Roll Cost', sub: 'Each site visit costs 800 CNY, 200+ nodes = 160K CNY/month O&M overhead' }] },
-          { icon: 'hard-drive', title: 'Small UPS', desc: 'Overload risk at single-cabinet sites', metric: '>80%', metricLabel: 'Load Ratio', consequences: [{ title: 'No Redundancy', sub: 'N config, single UPS failure = complete node outage, SLA 99.9% breached' }, { title: 'Battery Overheat', sub: 'High charge rate in compact cabinet, thermal runaway, fire risk in unattended sites' }] },
-          { icon: 'radio', title: 'Distributed Load', desc: 'Phase imbalance from single-phase 5G/IoT', metric: '>10%', metricLabel: 'Unbalance', consequences: [{ title: 'Efficiency Loss', sub: 'DER coordination failure, negative-seq current, PCS derating 15%, curtailment' }, { title: 'Single-phase Trip', sub: 'Per-phase overcurrent, cascade trip of co-located equipment on same feeder' }] },
+          { icon: 'router', title: '电网质量', desc: '偏远/农村站点供电不稳定', metric: '>20%', metricLabel: '暂降深度', consequences: [{ title: '节点离线', sub: '频繁暂降触发mini-UPS电池放电，6个月内循环寿命耗尽' }, { title: '上门维护成本', sub: '每次上门800元，200+节点=月运维费16万元' }] },
+          { icon: 'hard-drive', title: '小型UPS', desc: '单柜站点过载风险', metric: '>80%', metricLabel: '负载率', consequences: [{ title: '无冗余', sub: 'N配置，单台UPS故障=节点完全中断，SLA 99.9%不达标' }, { title: '电池过热', sub: '紧凑柜体高充电倍率，热失控，无人值守站点火灾风险' }] },
+          { icon: 'radio', title: '分布式负荷', desc: '单相5G/IoT导致三相不平衡', metric: '>10%', metricLabel: '不平衡度', consequences: [{ title: '效率损失', sub: 'DER协调失败，负序电流，PCS降额15%，弃电' }, { title: '单相跳闸', sub: '单相过流，同馈线共址设备级联脱扣' }] },
         ],
       },
     ];
     const dcTopology = [
       {
-        id: 'cloud', sceneName: 'Cloud Computing Topology', sceneSubtitle: 'HPC / Cloud Provider / Colocation',
-        deviceLabel: 'AHF+SVG', deviceType: 'Power Quality System',
-        deviceDesc: 'AHF at UPS input for harmonics + SVG at LV bus for reactive, cooling system branch marked',
+        id: 'cloud', sceneName: '云计算拓扑', sceneSubtitle: 'HPC / 云服务商 / 托管',
+        deviceLabel: 'AHF+SVG', deviceType: '电能质量系统',
+        deviceDesc: 'AHF安装于UPS输入端用于谐波+SVG安装于低压母线用于无功补偿，标注制冷系统分支',
         branches: [
-          { label: 'UPS Input', sub: 'Harmonic Source' },
-          { label: 'Server Rack', sub: 'Imbalanced Load' },
-          { label: 'CRAC/HVAC', sub: 'VFD Reactive Load' },
+          { label: 'UPS输入', sub: '谐波源' },
+          { label: '服务器机架', sub: '不平衡负荷' },
+          { label: 'CRAC/HVAC', sub: '变频无功负荷' },
         ],
       },
       {
-        id: 'finance', sceneName: 'Financial DC Topology', sceneSubtitle: 'Bank / Securities / Insurance',
-        deviceLabel: 'AHF-100A + SVG-150A', deviceType: 'Precision System',
-        deviceDesc: 'AHF series at UPS front-end + SVG at LV bus, ATS switchover / trading desk / HVAC marked',
+        id: 'finance', sceneName: '金融数据中心拓扑', sceneSubtitle: '银行 / 证券 / 保险',
+        deviceLabel: 'AHF-100A + SVG-150A', deviceType: '精密系统',
+        deviceDesc: 'AHF串联于UPS前端+SVG安装于低压母线，标注ATS切换/交易终端/空调负荷',
         branches: [
-          { label: 'UPS System', sub: 'Harmonic Source' },
-          { label: 'Trading Desk', sub: 'Sag Sensitive' },
-          { label: 'Precision HVAC', sub: 'VFD Harmonics' },
+          { label: 'UPS系统', sub: '谐波源' },
+          { label: '交易终端', sub: '暂降敏感' },
+          { label: '精密空调', sub: '变频谐波' },
         ],
       },
       {
-        id: 'edge', sceneName: 'Edge Node Topology', sceneSubtitle: '5G Base / IoT / Distributed Room',
-        deviceLabel: 'AHF-Slim 15A', deviceType: 'Rack-mount Unit',
-        deviceDesc: 'AHF-Slim rack-mount in distribution cabinet, mains direct / mini UPS loop marked',
+        id: 'edge', sceneName: '边缘节点拓扑', sceneSubtitle: '5G基站 / IoT / 分布式机房',
+        deviceLabel: 'AHF-Slim 15A', deviceType: '机架式单元',
+        deviceDesc: 'AHF-Slim机架式安装于配电柜，标注市电直供/mini-UPS回路',
         branches: [
-          { label: 'Mains Direct', sub: 'Rural Grid Supply' },
-          { label: 'Mini UPS', sub: 'Overload Risk' },
-          { label: '5G/IoT Load', sub: 'Distributed Power' },
+          { label: '市电直供', sub: '农村电网供电' },
+          { label: 'Mini UPS', sub: '过载风险' },
+          { label: '5G/IoT负荷', sub: '分布式电源' },
         ],
       },
     ];
     const dcCases = [
       {
-        title: 'Harmonic Mitigation at Major Cloud Provider North China DC', highlight: 'THD 14% → 2.8%, UPS parallel circulation down 80%, annual savings 2.6M CNY', image: '/assets/images/solutions-datacenter-case-cloud.jpg', industry: 'Cloud Computing', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '40MW hyperscale data center with 3×2.4MW UPS parallel configuration. UPS input harmonic circulating current caused load imbalance, battery thermal stress, and false PDU alarms. Annual PUE penalty from reactive losses exceeded 1.5M CNY.',
-        trend: 'THD trend: 14.0% → 8.5% → 4.2% → 2.8%',
-        solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS input harmonic suppression' }, { product: 'SVG-150kvar', qty: 3, use: 'LV bus reactive compensation' }],
-        results: ['THD < 3% at UPS input (IEEE 519 compliant)', 'UPS parallel circulation current reduced 80%', 'Annual energy savings 2.6M CNY'],
+        title: '华北某大型云数据中心谐波治理', highlight: 'THD 14% → 2.8%，UPS并联环流降低80%，年节省260万元', image: '/assets/images/solutions-datacenter-case-cloud.jpg', industry: '云计算', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: '40MW超大规模数据中心，3×2.4MW UPS并联配置。UPS输入谐波环流导致负载不均、电池热应力及PDU误告警。无功损耗年PUE罚款超过150万元。',
+        trend: 'THD趋势：14.0% → 8.5% → 4.2% → 2.8%',
+        solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS输入谐波抑制' }, { product: 'SVG-150kvar', qty: 3, use: '低压母线无功补偿' }],
+        results: ['UPS输入THD < 3%（符合IEEE 519标准）', 'UPS并联环流降低80%', '年节电260万元'],
       },
       {
-        title: 'Power Quality Retrofit at State-owned Bank DR Center', highlight: 'Voltage sag < 3ms, high-frequency trading zero interruption, PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.jpg', industry: 'Financial DC', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: 'Tier-IV DR center for state-owned bank, hosting real-time trading and settlement. ATS monthly test caused 10-15ms transfer sag that triggered trading server PSU dropout. Precision HVAC VFD harmonics degraded PUE from 1.48 to 1.65 over 18 months.',
-        trend: 'PUE trend: 1.65 → 1.58 → 1.52 → 1.48',
-        solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS rectifier front-end filtering' }, { product: 'SVG-100A', qty: 2, use: 'Trading floor dynamic reactive' }],
-        results: ['Voltage sag < 3ms, zero trading interruption', 'PUE recovered from 1.65 to 1.48', 'Annual OpEx savings 1.2M CNY'],
+        title: '国有银行灾备中心电能质量改造', highlight: '电压暂降<3ms，高频交易零中断，PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.jpg', industry: '金融数据中心', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: '国有银行Tier-IV灾备中心，承载实时交易和清算。ATS月度测试产生10-15ms切换暂降，导致交易服务器PSU掉电。精密空调变频谐波使PUE在18个月内从1.48恶化至1.65。',
+        trend: 'PUE趋势：1.65 → 1.58 → 1.52 → 1.48',
+        solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS整流前端滤波' }, { product: 'SVG-100A', qty: 2, use: '交易大厅动态无功' }],
+        results: ['电压暂降<3ms，交易零中断', 'PUE从1.65恢复至1.48', '年运营费节省120万元'],
       },
       {
-        title: 'Batch Deployment at Operator 5G Edge Computing Nodes', highlight: '1U rack-mount, remote ops, 42K CNY/node/year saved, ROI < 18 months', image: '/assets/images/solutions-datacenter-case-edge.jpg', industry: 'Edge Computing', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: 'Telecom operator deploying 200+ 5G MEC edge nodes in rural/suburban sites. Unstable grid voltage with >20% sag, single-cabinet UPS overload, and high truck-roll O&M cost created an unsustainable operational model at scale.',
-        trend: 'Node uptime: 97.2% → 98.8% → 99.5% → 99.9%',
-        solution: [{ product: 'AHF-15A', qty: 200, use: '1U rack-mount per node cabinet' }, { product: 'Cloud Monitor', qty: 1, use: 'Centralized remote monitoring platform' }],
-        results: ['Node uptime improved from 97.2% to 99.9%', 'Truck-roll O&M cost reduced 42K CNY/node/year', 'ROI < 18 months'],
+        title: '运营商5G边缘计算节点批量部署', highlight: '1U机架式，远程运维，每节点年省4.2万元，ROI < 18个月', image: '/assets/images/solutions-datacenter-case-edge.jpg', industry: '边缘计算', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: '电信运营商在农村/城郊部署200+个5G MEC边缘节点。电网电压不稳定（暂降>20%）、单柜UPS过载及高上门运维成本形成不可持续的规模化运营模式。',
+        trend: '节点在线率：97.2% → 98.8% → 99.5% → 99.9%',
+        solution: [{ product: 'AHF-15A', qty: 200, use: '每节点机柜1U机架式安装' }, { product: 'Cloud Monitor', qty: 1, use: '集中远程监控平台' }],
+        results: ['节点在线率从97.2%提升至99.9%', '每节点年运维成本降低4.2万元', 'ROI < 18个月'],
       },
     ];
 
     // ===================== INDUSTRIAL DATA =====================
     const indPainPoints = [
       {
-        id: 'welding', label: 'Welding & Metal', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Welding & Metal Processing', sceneSubtitle: 'Automotive / Shipbuilding / Steel Structure',
+        id: 'welding', label: '焊接与金属', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '焊接与金属加工', sceneSubtitle: '汽车 / 造船 / 钢结构',
         cards: [
-          { icon: 'flame', title: 'Arc Welder Bank', desc: 'Harmonic surge from batch arc welding', metric: '>25%', metricLabel: 'THD', consequences: [{ title: 'Transformer Overheat', sub: 'Intermittent high harmonic current, insulation aging accelerated 3x, forced derating' }, { title: 'Protection Trip', sub: 'Harmonic peak triggers breaker false trip, production line stoppage, rework cost' }] },
-          { icon: 'factory', title: 'Medium Freq. Furnace', desc: 'Voltage flicker from induction furnace', metric: 'Reactive', metricLabel: 'Fluctuation', consequences: [{ title: 'Grid Voltage Sag', sub: 'Furnace cycle causes Pst > 1.5, neighboring equipment malfunction, batch rejection' }, { title: 'Penalty Fee', sub: 'Utility flicker violation, monthly reactive energy surcharge, contract non-compliance' }] },
-          { icon: 'cpu', title: 'CNC Machining Center', desc: 'Phase imbalance from servo drives', metric: 'High', metricLabel: 'Zero-seq.', consequences: [{ title: 'Servo Malfunction', sub: 'Phase imbalance causes position error, workpiece dimensional drift, scrap rate increase' }, { title: 'Yield Loss', sub: 'Frequent tool breakage, surface finish degradation, customer return rate surge' }] },
+          { icon: 'flame', title: '电焊机组', desc: '批量电弧焊谐波浪涌', metric: '>25%', metricLabel: 'THD', consequences: [{ title: '变压器过热', sub: '间歇性高谐波电流，绝缘老化加速3倍，被迫降额' }, { title: '保护跳闸', sub: '谐波峰值触发断路器误跳，产线停产，返工成本' }] },
+          { icon: 'factory', title: '中频炉', desc: '感应炉电压闪烁', metric: '无功', metricLabel: '波动', consequences: [{ title: '电网电压暂降', sub: '电炉周期导致Pst > 1.5，邻近设备故障，批次报废' }, { title: '罚款', sub: '电力公司闪烁违规，月度无功电费加收，合同违约' }] },
+          { icon: 'cpu', title: '数控加工中心', desc: '伺服驱动三相不平衡', metric: '高', metricLabel: '零序', consequences: [{ title: '伺服故障', sub: '三相不平衡导致位置误差，工件尺寸漂移，废品率上升' }, { title: '良率损失', sub: '频繁断刀，表面质量下降，客户退货率激增' }] },
         ],
       },
       {
-        id: 'petrochemical', label: 'Chemical & Oil', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'Chemical & Petrochemical', sceneSubtitle: 'Refining / Fine Chemical / Oil & Gas',
+        id: 'petrochemical', label: '化工与石油', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '化工与石化', sceneSubtitle: '炼化 / 精细化工 / 油气',
         cards: [
-          { icon: 'droplets', title: 'VFD Bank', desc: 'Harmonic stacking from multi-VFD installation', metric: '>18%', metricLabel: 'THD', consequences: [{ title: 'Grid Violation', sub: 'Multi-VFD harmonic overlay, IEEE 519 PCC limit exceeded, utility warning notice' }, { title: 'Capacitor Trip', sub: 'Harmonic amplification in PFC capacitors, fuse blowing, reactive penalty escalation' }] },
-          { icon: 'waves', title: 'High-power Pump', desc: 'Startup surge from large motors', metric: '6~10x', metricLabel: 'Inrush', consequences: [{ title: 'Bus Voltage Dip', sub: 'DOL start causes 20%+ bus dip, DCS I/O module brownout, control loop instability' }, { title: 'DCS Alert', sub: 'Repeated sag triggers DCS alarm flood, operator cognitive overload, response delay' }] },
-          { icon: 'shield-alert', title: 'DCS System', desc: 'Sag sensitive control infrastructure', metric: '>15%', metricLabel: 'Sag Depth', consequences: [{ title: 'Control Freeze', sub: 'Sag causes DCS processor reset, valve position loss, exothermic reaction risk' }, { title: 'Process Stop', sub: 'Safety instrumented system triggers ESD, batch loss, 48hr restart procedure' }] },
+          { icon: 'droplets', title: '变频器群', desc: '多台变频器谐波叠加', metric: '>18%', metricLabel: 'THD', consequences: [{ title: '电网超标', sub: '多变频器谐波叠加，IEEE 519 PCC限值超标，电力公司警告' }, { title: '电容跳闸', sub: 'PFC电容器谐波放大，熔丝熔断，无功罚款升级' }] },
+          { icon: 'waves', title: '大功率泵', desc: '大型电机启动浪涌', metric: '6~10x', metricLabel: '冲击电流', consequences: [{ title: '母线电压跌落', sub: '直接启动导致20%+母线跌落，DCS I/O模块欠压，控制环路不稳定' }, { title: 'DCS告警', sub: '反复暂降触发DCS告警风暴，操作员认知超负荷，响应延迟' }] },
+          { icon: 'shield-alert', title: 'DCS系统', desc: '暂降敏感控制基础设施', metric: '>15%', metricLabel: '暂降深度', consequences: [{ title: '控制冻结', sub: '暂降导致DCS处理器复位，阀门位置丢失，放热反应风险' }, { title: '工艺停机', sub: '安全仪表系统触发ESD，批次损失，48小时重启程序' }] },
         ],
       },
       {
-        id: 'semiconductor', label: 'Semiconductor', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'Semiconductor & Electronics', sceneSubtitle: 'Wafer Fab / Packaging / PCB',
+        id: 'semiconductor', label: '半导体', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '半导体与电子', sceneSubtitle: '晶圆厂 / 封装 / PCB',
         cards: [
-          { icon: 'cpu', title: 'Wafer Fab', desc: 'Voltage sag at lithography scanners', metric: '< 5ms', metricLabel: 'Sag Tolerance', consequences: [{ title: 'Scanner Halt', sub: 'Sub-cycle sag causes scanner stage position loss, 4hr recalibration, wafer scrap' }, { title: 'Wafer Scrap', sub: 'Single sag event = 25 wafers scraped × $5K/wafer = $125K loss per incident' }] },
-          { icon: 'wind', title: 'Cleanroom', desc: 'Harmonic pollution from FFU/VFD', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'Filter Load ↑', sub: 'Harmonic current increases FFU motor temperature, bearing failure rate 3x, particle count rise' }, { title: 'Particle Risk', sub: 'FFU speed fluctuation causes positive pressure loss, Class-100 cleanroom breach' }] },
-          { icon: 'microscope', title: 'Test Equipment', desc: 'Phase imbalance at ATE/test floor', metric: '>5%', metricLabel: 'Unbalance', consequences: [{ title: 'Data Error', sub: 'ATE power supply ripple rejection degraded, false DUT rejection, yield reporting error' }, { title: 'Neutral Overheat', sub: 'High zero-seq current in test floor PDU, N-line temp > 90°C, fire risk' }] },
+          { icon: 'cpu', title: '晶圆厂', desc: '光刻扫描仪电压暂降', metric: '< 5ms', metricLabel: '暂降耐受', consequences: [{ title: '扫描仪停机', sub: '亚周波暂降导致扫描仪台面位置丢失，4小时重新校准，晶圆报废' }, { title: '晶圆报废', sub: '单次暂降事件=25片晶圆报废×$5K/片=每次损失$125K' }] },
+          { icon: 'wind', title: '洁净室', desc: 'FFU/变频器谐波污染', metric: '>8%', metricLabel: 'THD', consequences: [{ title: '过滤器负荷增加', sub: '谐波电流增加FFU电机温度，轴承故障率3倍，粒子计数上升' }, { title: '粒子风险', sub: 'FFU转速波动导致正压丧失，百级洁净室超标' }] },
+          { icon: 'microscope', title: '测试设备', desc: 'ATE/测试层三相不平衡', metric: '>5%', metricLabel: '不平衡度', consequences: [{ title: '数据错误', sub: 'ATE电源纹波抑制退化，DUT误判报废，良率报告错误' }, { title: '中性线过热', sub: '测试层PDU零序电流高，N线温度>90°C，火灾风险' }] },
         ],
       },
     ];
     const indTopology = [
       {
-        id: 'welding', sceneName: 'Welding & Metal Topology', sceneSubtitle: 'Automotive / Shipbuilding / Steel Structure',
-        deviceLabel: 'AHF-150A', deviceType: 'Harmonic Filter',
-        deviceDesc: 'Parallel to workshop LV bus, targets welder bank / furnace feeders for harmonic suppression',
+        id: 'welding', sceneName: '焊接与金属拓扑', sceneSubtitle: '汽车 / 造船 / 钢结构',
+        deviceLabel: 'AHF-150A', deviceType: '谐波滤波器',
+        deviceDesc: '并联至车间低压母线，针对焊机/电炉馈线进行谐波抑制',
         branches: [
-          { label: 'Welder Dist.', sub: 'Harmonic Surge' },
-          { label: 'Furnace Dist.', sub: 'Flicker Source' },
-          { label: 'CNC Dist.', sub: 'Phase Imbalance' },
+          { label: '焊机配电', sub: '谐波浪涌' },
+          { label: '电炉配电', sub: '闪烁源' },
+          { label: '数控配电', sub: '三相不平衡' },
         ],
       },
       {
-        id: 'petrochemical', sceneName: 'Chemical & Oil Topology', sceneSubtitle: 'Refining / Fine Chemical / Oil & Gas',
-        deviceLabel: 'SVG-800V', deviceType: 'Static Var Generator',
-        deviceDesc: 'SVG-800V/690V at HV bus + AHF for VFD harmonics, DCS sensitive load feeder marked',
+        id: 'petrochemical', sceneName: '化工与石油拓扑', sceneSubtitle: '炼化 / 精细化工 / 油气',
+        deviceLabel: 'SVG-800V', deviceType: '静止无功发生器',
+        deviceDesc: 'SVG-800V/690V安装于高压母线+AHF用于变频器谐波，标注DCS敏感负荷馈线',
         branches: [
-          { label: 'Cracking Dist.', sub: 'VFD Bank' },
-          { label: 'Distillation', sub: 'E-Heating Load' },
-          { label: 'Circ. Water', sub: 'Large Pump' },
+          { label: '裂解配电', sub: '变频器群' },
+          { label: '蒸馏装置', sub: '电加热负荷' },
+          { label: '循环水', sub: '大功率泵' },
         ],
       },
       {
-        id: 'semiconductor', sceneName: 'Semiconductor Topology', sceneSubtitle: 'Wafer Fab / Packaging / PCB',
-        deviceLabel: 'AHF+SVG', deviceType: 'Combo System',
-        deviceDesc: 'AHF+SVG combo at UPS front-end, marks dual-feed wafer fab / cleanroom feeders',
+        id: 'semiconductor', sceneName: '半导体拓扑', sceneSubtitle: '晶圆厂 / 封装 / PCB',
+        deviceLabel: 'AHF+SVG', deviceType: '组合系统',
+        deviceDesc: 'AHF+SVG组合安装于UPS前端，标注双路供电晶圆厂/洁净室馈线',
         branches: [
-          { label: 'UPS Front-end', sub: 'Precision Power' },
-          { label: 'Process Cooling', sub: 'Pump Inrush' },
-          { label: 'Test Equipment', sub: 'Sensitive Load' },
+          { label: 'UPS前端', sub: '精密供电' },
+          { label: '工艺冷却', sub: '水泵冲击' },
+          { label: '测试设备', sub: '敏感负荷' },
         ],
       },
     ];
     const indCases = [
       {
-        title: 'Harmonic Mitigation at Auto Body Welding Workshop', highlight: 'THD 28% → 4.2%, transformer temp. drop 15°C, annual savings 1.2M CNY', image: '/assets/images/solutions-industrial-case-welding.jpg', industry: 'Welding & Metal', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: 'Large automotive body shop with 48 arc welding robots and 6 medium-frequency spot welders. Batch welding cycles created severe harmonic surges (THD 28%) and voltage flicker, causing monthly transformer overheat alarms and two unplanned production stoppages.',
-        trend: 'THD trend: 28% → 18% → 9% → 4.2%',
-        solution: [{ product: 'AHF-150A', qty: 3, use: 'Welder bus harmonic mitigation' }, { product: 'SVG-100A', qty: 2, use: 'Furnace reactive compensation' }],
-        results: ['THD < 5% (IEEE 519 compliant)', 'Transformer temp. reduced 15°C', 'Annual energy savings 1.2M CNY'],
+        title: '汽车车身焊装车间谐波治理', highlight: 'THD 28% → 4.2%，变压器温度降低15°C，年节省120万元', image: '/assets/images/solutions-industrial-case-welding.jpg', industry: '焊接与金属', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: '大型汽车车身焊装车间，48台弧焊机器人和6台中频点焊机。批量焊接周期产生严重谐波浪涌（THD 28%）和电压闪烁，导致每月变压器过热告警及两次非计划停产。',
+        trend: 'THD趋势：28% → 18% → 9% → 4.2%',
+        solution: [{ product: 'AHF-150A', qty: 3, use: '焊机母线谐波治理' }, { product: 'SVG-100A', qty: 2, use: '电炉无功补偿' }],
+        results: ['THD < 5%（符合IEEE 519标准）', '变压器温度降低15°C', '年节电120万元'],
       },
       {
-        title: 'Power Quality Retrofit at Petrochemical Base VFD Bank', highlight: 'PF 0.65 → 0.95, penalty elimination 3.8M CNY/year, DCS zero downtime', image: '/assets/images/solutions-industrial-case-petrochemical.jpg', industry: 'Chemical & Oil', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: 'Large petrochemical complex with 200+ VFD-driven pumps and compressors. Multi-VFD harmonic stacking caused THD exceeding 18% at 35kV PCC, triggering utility warnings and 3.8M CNY annual reactive penalties. DCS system experienced recurring brownout alarms during large pump starts.',
-        trend: 'PF trend: 0.65 → 0.78 → 0.88 → 0.95',
-        solution: [{ product: 'SVG-800V', qty: 4, use: '35kV bus reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'VFD feeder harmonic filtering' }],
-        results: ['PF > 0.95, zero reactive penalties', 'DCS zero downtime since deployment', 'Annual penalty savings 3.8M CNY'],
+        title: '石化基地变频器群电能质量改造', highlight: 'PF 0.65 → 0.95，消除罚款380万元/年，DCS零停机', image: '/assets/images/solutions-industrial-case-petrochemical.jpg', industry: '化工与石油', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: '大型石化综合体，200+台变频驱动泵和压缩机。多变频器谐波叠加导致35kV PCC点THD超过18%，触发电力公司警告及年无功罚款380万元。DCS系统在大泵启动时反复出现欠压告警。',
+        trend: 'PF趋势：0.65 → 0.78 → 0.88 → 0.95',
+        solution: [{ product: 'SVG-800V', qty: 4, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 6, use: '变频馈线谐波滤波' }],
+        results: ['PF > 0.95，零无功罚款', 'DCS部署后零停机', '年罚款节省380万元'],
       },
       {
-        title: 'Voltage Sag Protection at 12-inch Wafer Fab', highlight: 'Sag duration < 5ms, wafer yield improvement 3%', image: '/assets/images/solutions-industrial-case-semiconductor.jpg', industry: 'Semiconductor', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '12-inch wafer fab with immersion lithography scanners requiring < 5ms sag tolerance. Utility-side faults 30km away caused recurring scanner stage loss, each incident scrapping 25 wafers at $5K each. Monthly average 3 incidents.',
-        trend: 'Yield trend (scrap rate): 4.2% → 2.8% → 1.5% → 1.2%',
-        solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS front-end dual-feed protection' }, { product: 'SPC-100A', qty: 2, use: 'Test floor phase balancing' }],
-        results: ['Sag protection < 5ms, zero scanner halt', 'Wafer yield improved 3 percentage points', 'ROI < 8 months from scrap reduction alone'],
+        title: '12英寸晶圆厂电压暂降防护', highlight: '暂降持续时间<5ms，晶圆良率提升3%', image: '/assets/images/solutions-industrial-case-semiconductor.jpg', industry: '半导体', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: '12英寸晶圆厂，浸没式光刻扫描仪要求暂降耐受<5ms。30km外电网侧故障导致扫描仪台面反复丢失，每次事件报废25片晶圆（$5K/片）。月均3次事件。',
+        trend: '良率趋势（废品率）：4.2% → 2.8% → 1.5% → 1.2%',
+        solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS前端双路保护' }, { product: 'SPC-100A', qty: 2, use: '测试层三相平衡' }],
+        results: ['暂降保护<5ms，扫描仪零停机', '晶圆良率提升3个百分点', '仅废品减少即可<8个月ROI'],
       },
     ];
 
     // ===================== RAIL DATA =====================
     const railPainPoints = [
       {
-        id: 'metro', label: 'Metro & LRT', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Metro & Light Rail', sceneSubtitle: 'Traction / Station / Depot',
+        id: 'metro', label: '地铁与轻轨', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '地铁与轻轨', sceneSubtitle: '牵引 / 车站 / 车辆段',
         cards: [
-          { icon: 'train-front', title: 'Traction Rectifier', desc: 'Harmonic injection from 24-pulse rectifier', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'Grid Penalty', sub: '24-pulse characteristic harmonics (23rd/25th), IEEE 519 PCC violation, utility surcharge' }, { title: 'Capacitor Failure', sub: 'Harmonic amplification in PFC bank, capacitor can rupture, fire risk in underground substation' }] },
-          { icon: 'building', title: 'Station M&E', desc: 'Equipment bank imbalance', metric: '>10%', metricLabel: 'Unbalance', consequences: [{ title: 'Neutral Overheat', sub: 'Elevator + HVAC single-phase load mix, N-line current exceeds phase, insulation melt risk' }, { title: 'Breaker Trip', sub: 'Per-phase overload despite avg < rating, station lighting outage, passenger safety hazard' }] },
-          { icon: 'battery-charging', title: 'Regen. Braking', desc: 'Energy feedback voltage rise', metric: 'Voltage', metricLabel: 'Rise', consequences: [{ title: 'Inverter OV', sub: 'Regenerative energy backfeed, DC link overvoltage, inverter IGBT protection shutdown' }, { title: 'Protection Trip', sub: 'OV protection cascade tripping, train delay > 5min, service SLA penalty' }] },
+          { icon: 'train-front', title: '牵引整流', desc: '24脉波整流器谐波注入', metric: '>15%', metricLabel: 'THD', consequences: [{ title: '电网罚款', sub: '24脉波特征谐波（23次/25次），IEEE 519 PCC违规，电力公司加收' }, { title: '电容器故障', sub: 'PFC柜谐波放大，电容器可能爆裂，地下变电站火灾风险' }] },
+          { icon: 'building', title: '车站机电', desc: '设备群不平衡', metric: '>10%', metricLabel: '不平衡度', consequences: [{ title: '中性线过热', sub: '电梯+空调单相负荷混合，N线电流超过相电流，绝缘融化风险' }, { title: '断路器跳闸', sub: '单相过载但平均值<额定值，车站照明中断，乘客安全隐患' }] },
+          { icon: 'battery-charging', title: '再生制动', desc: '能量回馈电压升高', metric: '电压', metricLabel: '升高', consequences: [{ title: '逆变器过压', sub: '再生能量倒送，直流母线过压，逆变器IGBT保护关机' }, { title: '保护跳闸', sub: '过压保护级联跳闸，列车延误>5分钟，运营SLA罚款' }] },
         ],
       },
       {
-        id: 'hsr', label: 'High-speed Rail', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'High-speed Rail', sceneSubtitle: 'Traction Substation / AT / Section',
+        id: 'hsr', label: '高铁', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '高速铁路', sceneSubtitle: '牵引变电所 / AT所 / 分区所',
         cards: [
-          { icon: 'gauge', title: '27.5kV Single-phase', desc: 'Negative sequence from V/V connection', metric: '>8%', metricLabel: 'Unbalance', consequences: [{ title: 'Grid Violation', sub: 'Single-phase traction load causes negative sequence at 220kV PCC, utility curtailment order' }, { title: 'Generator Heating', sub: 'Negative sequence current in nearby thermal plant generators, rotor surface temperature alarm' }] },
-          { icon: 'zap', title: 'EMU Converter', desc: 'Wideband harmonic from 4Q converter', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'Contact Wire Heat', sub: 'High-freq harmonic current increases contact wire I²R loss, accelerated annealing, sag increase' }, { title: 'Signaling Interference', sub: 'Harmonic EMI couples to track circuit, cab signal distortion, ETCS availability degradation' }] },
-          { icon: 'cable', title: 'Feeder Line', desc: 'Voltage loss along long-distance AT feed', metric: '>10%', metricLabel: 'Drop', consequences: [{ title: 'Speed Limit', sub: 'End-voltage below 22.5kV limits train power, speed restriction imposed, schedule delay' }, { title: 'AT Saturation', sub: 'Overvoltage at sending end causes autotransformer core saturation, harmonic generation' }] },
+          { icon: 'gauge', title: '27.5kV单相', desc: 'V/V接线负序分量', metric: '>8%', metricLabel: '不平衡度', consequences: [{ title: '电网违规', sub: '单相牵引负荷在220kV PCC产生负序，电力公司限电令' }, { title: '发电机发热', sub: '附近火电厂发电机负序电流，转子表面温度告警' }] },
+          { icon: 'zap', title: '动车变流', desc: '四象限变流器宽频谐波', metric: '>12%', metricLabel: 'THD', consequences: [{ title: '接触线发热', sub: '高频谐波电流增加接触线I²R损耗，退火加速，弛度增大' }, { title: '信号干扰', sub: '谐波EMI耦合至轨道电路，机车信号失真，ETCS可用性下降' }] },
+          { icon: 'cable', title: '馈线', desc: '长距离AT馈线电压损失', metric: '>10%', metricLabel: '压降', consequences: [{ title: '限速', sub: '末端电压低于22.5kV限制列车功率，实施限速，延误' }, { title: 'AT过饱和', sub: '首端过电压导致自耦变压器铁芯饱和，产生谐波' }] },
         ],
       },
       {
-        id: 'ev', label: 'EV Charging', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'EV Charging Infrastructure', sceneSubtitle: 'Highway / Urban Fast / Bus Depot',
+        id: 'ev', label: '充电桩', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '充电基础设施', sceneSubtitle: '高速服务区 / 城市快充 / 公交场站',
         cards: [
-          { icon: 'plug-zap', title: 'Fast Charger', desc: 'Power impact from DC fast charging', metric: '120kW+', metricLabel: 'Load Step', consequences: [{ title: 'Grid Sag', sub: 'Multi-charger simultaneous start, 15%+ voltage dip, distribution transformer protection trip' }, { title: 'Demand Charge', sub: 'Peak demand spike triggers utility demand ratchet, monthly capacity charge 3x baseline' }] },
-          { icon: 'radio', title: 'Charger Harmonics', desc: 'Harmonic stack from 12-pulse chargers', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'PF Penalty', sub: 'Harmonic + reactive combine, PF < 0.85 at PCC, monthly penalty + carbon tax surcharge' }, { title: 'EMI Issue', sub: 'Conducted EMI into LV grid, nearby residential TV/radio interference, complaint volume surge' }] },
-          { icon: 'wrench', title: 'Distribution Xfmr', desc: 'Overload & imbalance at charging station', metric: '>90%', metricLabel: 'Load', consequences: [{ title: 'Life Shorten', sub: 'Cyclic thermal stress from peaking load, insulation aging 5x faster, expected life < 3 years' }, { title: '3-phase Uneven', sub: 'Single-phase AC chargers dominate, zero-seq current > 40%, N-line replacement every 2 years' }] },
+          { icon: 'plug-zap', title: '快充桩', desc: '直流快充功率冲击', metric: '120kW+', metricLabel: '负荷阶跃', consequences: [{ title: '电网暂降', sub: '多充电器同时启动，15%+电压跌落，配电变压器保护跳闸' }, { title: '需量电费', sub: '峰值需量尖峰触发电力公司需量棘轮，月度容量电费3倍基准' }] },
+          { icon: 'radio', title: '充电谐波', desc: '12脉波充电器谐波叠加', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'PF罚款', sub: '谐波+无功叠加，PCC点PF < 0.85，月度罚款+碳税附加' }, { title: 'EMI问题', sub: '传导EMI进入低压电网，附近居民电视/收音机干扰，投诉量激增' }] },
+          { icon: 'wrench', title: '配电变压器', desc: '充电站过载与不平衡', metric: '>90%', metricLabel: '负荷', consequences: [{ title: '寿命缩短', sub: '峰谷负荷循环热应力，绝缘老化5倍速，预期寿命<3年' }, { title: '三相不均', sub: '单相交流充电器主导，零序电流>40%，N线每2年更换' }] },
         ],
       },
     ];
     const railTopology = [
       {
-        id: 'metro', sceneName: 'Metro Topology', sceneSubtitle: 'Traction / Station / Depot',
-        deviceLabel: 'SVG + AHF', deviceType: 'Combined System',
-        deviceDesc: 'SVG at 35kV ring + AHF at traction substation 750V/1500V rectifier, station/depot marked',
+        id: 'metro', sceneName: '地铁拓扑', sceneSubtitle: '牵引 / 车站 / 车辆段',
+        deviceLabel: 'SVG + AHF', deviceType: '组合系统',
+        deviceDesc: 'SVG安装于35kV环网+AHF安装于牵引变电所750V/1500V整流器，标注车站/车辆段',
         branches: [
-          { label: 'Traction Sub.', sub: 'Rectifier Load' },
-          { label: 'Station Dist.', sub: 'M&E Load' },
-          { label: 'Depot Power', sub: 'Auxiliary Load' },
+          { label: '牵引变电所', sub: '整流负荷' },
+          { label: '车站配电', sub: '机电负荷' },
+          { label: '车辆段供电', sub: '辅助负荷' },
         ],
       },
       {
-        id: 'hsr', sceneName: 'HSR Topology', sceneSubtitle: 'Traction Substation / AT / Section',
-        deviceLabel: 'SVG-27.5kV + AHF-200A', deviceType: 'Traction System',
-        deviceDesc: 'SVG-27.5kV at traction bus + AHF at 10kV feeder, AT section / contact wire marked',
+        id: 'hsr', sceneName: '高铁拓扑', sceneSubtitle: '牵引变电所 / AT所 / 分区所',
+        deviceLabel: 'SVG-27.5kV + AHF-200A', deviceType: '牵引系统',
+        deviceDesc: 'SVG-27.5kV安装于牵引母线+AHF安装于10kV馈线，标注AT段/接触线',
         branches: [
-          { label: 'Contact Wire', sub: 'Single-phase Load' },
-          { label: 'Feeder Line', sub: 'Harmonic Source' },
-          { label: 'Station Power', sub: 'Composite Load' },
+          { label: '接触线', sub: '单相负荷' },
+          { label: '馈线', sub: '谐波源' },
+          { label: '站用电源', sub: '复合负荷' },
         ],
       },
       {
-        id: 'ev', sceneName: 'EV Charging Topology', sceneSubtitle: 'Highway / Urban Fast / Bus Depot',
-        deviceLabel: 'SVG + AHF-150A', deviceType: 'Charging System',
-        deviceDesc: 'SVG at charging station 10kV + AHF at DC fast charger AC side, transformer/charger bank marked',
+        id: 'ev', sceneName: '充电桩拓扑', sceneSubtitle: '高速服务区 / 城市快充 / 公交场站',
+        deviceLabel: 'SVG + AHF-150A', deviceType: '充电系统',
+        deviceDesc: 'SVG安装于充电站10kV侧+AHF安装于直流快充桩交流侧，标注变压器/充电机组',
         branches: [
-          { label: '10kV Dist.', sub: 'Station Feed' },
-          { label: 'Fast Charger', sub: 'Surge Load' },
-          { label: 'Bus Charger', sub: 'Batch Load' },
+          { label: '10kV配电', sub: '站用馈线' },
+          { label: '快充桩', sub: '冲击负荷' },
+          { label: '公交充电', sub: '批量负荷' },
         ],
       },
     ];
     const railCases = [
       {
-        title: 'Traction Power Retrofit at Metro Line 8, Major City', highlight: 'THD 16% → 4.5%, regenerative braking recovery up 35%, annual savings 8.5M kWh', image: '/assets/images/solutions-rail-case-metro.jpg', industry: 'Metro & LRT', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: 'Metro line with 22 stations and 35kV ring distribution. 24-pulse traction rectifiers generated characteristic harmonics causing monthly utility penalty. Regenerative braking energy was dissipated in resistors due to voltage rise during feedback, wasting 12M kWh annually.',
-        trend: 'THD trend: 16% → 10% → 6.5% → 4.5%',
-        solution: [{ product: 'SVG-300A', qty: 3, use: '35kV ring reactive compensation' }, { product: 'AHF-200A', qty: 6, use: 'Traction substation harmonic filtering' }],
-        results: ['THD < 5%, penalty elimination', 'Regenerative braking recovery +35%', 'Annual savings 8.5M kWh electricity'],
+        title: '某大城市地铁8号线牵引供电改造', highlight: 'THD 16% → 4.5%，再生制动回收率提升35%，年节电850万kWh', image: '/assets/images/solutions-rail-case-metro.jpg', industry: '地铁与轻轨', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: '地铁线路，22座车站，35kV环网配电。24脉波牵引整流器产生特征谐波导致月度电力公司罚款。再生制动能量因回馈时电压升高而耗散于电阻，年浪费1200万kWh。',
+        trend: 'THD趋势：16% → 10% → 6.5% → 4.5%',
+        solution: [{ product: 'SVG-300A', qty: 3, use: '35kV环网无功补偿' }, { product: 'AHF-200A', qty: 6, use: '牵引变电所谐波滤波' }],
+        results: ['THD < 5%，消除罚款', '再生制动回收率+35%', '年节电850万kWh'],
       },
       {
-        title: 'Negative Sequence Mitigation at HSR Traction Substation', highlight: 'Negative sequence < 2%, contact wire fluctuation < 5%, EMU current stability improved', image: '/assets/images/solutions-rail-case-hsr.jpg', industry: 'High-speed Rail', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: 'High-speed rail traction substation with V/V connection transformer feeding single-phase 27.5kV catenary. Negative sequence > 8% at 220kV PCC triggered utility interconnection violation. Contact wire voltage fluctuation at section boundary caused EMU current limitation and schedule delays.',
-        trend: 'Negative sequence: 8.5% → 5% → 3% → 1.8%',
-        solution: [{ product: 'SVG-27.5kV', qty: 2, use: 'Traction bus reactive + balance' }, { product: 'AHF-200A', qty: 2, use: '10kV feeder harmonic filtering' }],
-        results: ['Negative sequence < 2% (GB/T 15543 compliant)', 'Contact wire voltage fluctuation < 5%', 'EMU current stability fully restored'],
+        title: '高铁牵引变电所负序治理', highlight: '负序<2%，接触线波动<5%，动车电流稳定性改善', image: '/assets/images/solutions-rail-case-hsr.jpg', industry: '高铁', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: '高铁牵引变电所，V/V接线变压器馈送单相27.5kV接触网。220kV PCC点负序>8%触发电力公司并网违规。分区所边界接触线电压波动导致动车限速和延误。',
+        trend: '负序：8.5% → 5% → 3% → 1.8%',
+        solution: [{ product: 'SVG-27.5kV', qty: 2, use: '牵引母线无功+平衡' }, { product: 'AHF-200A', qty: 2, use: '10kV馈线谐波滤波' }],
+        results: ['负序<2%（符合GB/T 15543标准）', '接触线电压波动<5%', '动车电流稳定性全面恢复'],
       },
       {
-        title: 'Power Quality Retrofit at Highway Service 120-pile Fast Charging Station', highlight: '3-phase imbalance < 3%, transformer load 95% → 78%, pile THD < 5%', image: '/assets/images/solutions-rail-case-charging.jpg', industry: 'EV Charging', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: 'Highway service area with 120 DC fast charging piles (60kW-180kW). Holiday peak concurrent charging caused severe phase imbalance and transformer overload at 95%. 12-pulse charger harmonics accumulated to THD > 15% at 10kV PCC during peak hours.',
-        trend: 'Unbalance trend: 15% → 9% → 5% → 2.5%',
-        solution: [{ product: 'SPC-150A', qty: 4, use: 'Charging bay 3-phase balancing' }, { product: 'AHF-150A', qty: 6, use: 'Fast charger harmonic filtering' }],
-        results: ['3-phase imbalance < 3%', 'Transformer load reduced from 95% to 78%', 'Pile THD < 5%, zero complaints'],
+        title: '高速服务区120桩快充电站电能质量改造', highlight: '三相不平衡<3%，变压器负荷95% → 78%，桩THD < 5%', image: '/assets/images/solutions-rail-case-charging.jpg', industry: '充电桩', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: '高速服务区，120台直流快充桩（60kW-180kW）。节假日并发充电高峰导致严重三相不平衡和变压器过载至95%。12脉波充电器谐波在高峰时段于10kV PCC累积至THD > 15%。',
+        trend: '不平衡度趋势：15% → 9% → 5% → 2.5%',
+        solution: [{ product: 'SPC-150A', qty: 4, use: '充电区三相平衡' }, { product: 'AHF-150A', qty: 6, use: '快充桩谐波滤波' }],
+        results: ['三相不平衡<3%', '变压器负荷从95%降至78%', '桩THD < 5%，零投诉'],
       },
     ];
 
     // ===================== RENEWABLE DATA =====================
     const rePainPoints = [
       {
-        id: 'solar', label: 'Solar PV', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: 'Solar PV Power Station', sceneSubtitle: 'Utility-scale / Distributed / Agri-PV',
+        id: 'solar', label: '光伏', color: 'text-electric-orange', colorHex: '#e76f51',
+        sceneName: '光伏发电站', sceneSubtitle: '集中式 / 分布式 / 农光互补',
         cards: [
-          { icon: 'sun', title: 'Inverter Harmonics', desc: 'Wideband oscillation from multi-inverter', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'Resonance Risk', sub: 'LCL filter + grid impedance resonance, wideband oscillation, inverter cascade trip' }, { title: 'Grid Violation', sub: 'Harmonic emission exceeds GB/T 14549 at PCC, grid company curtailment order' }] },
-          { icon: 'activity', title: 'Grid Voltage', desc: 'Fluctuation from irradiance variation', metric: 'PF Low', metricLabel: 'Reactive Diff.', consequences: [{ title: 'Dispatch Penalty', sub: 'Reactive power deviation from dispatch setpoint, AVC assessment failure, revenue deduction' }, { title: 'Voltage Limit', sub: 'Cloud-edge effect, ±10% voltage swing in < 1min, reverse power protection trip' }] },
-          { icon: 'battery-charging', title: 'DC Ripple', desc: 'AC side reflection from DC ripple', metric: 'DC Bias', metricLabel: 'Xfmr Overheat', consequences: [{ title: 'Core Saturation', sub: 'DC component causes transformer core half-cycle saturation, magnetizing current surge, humming' }, { title: 'Efficiency Loss', sub: 'Excess core loss + harmonic copper loss, PR (performance ratio) drops 2-3 percentage points' }] },
+          { icon: 'sun', title: '逆变器谐波', desc: '多逆变器宽频振荡', metric: '>8%', metricLabel: 'THD', consequences: [{ title: '谐振风险', sub: 'LCL滤波器+电网阻抗谐振，宽频振荡，逆变器级联脱网' }, { title: '电网违规', sub: '谐波排放超过GB/T 14549 PCC限值，电网公司限电令' }] },
+          { icon: 'activity', title: '电网电压', desc: '辐照度变化引起波动', metric: 'PF低', metricLabel: '无功偏差', consequences: [{ title: '调度罚款', sub: '无功功率偏离调度设定值，AVC考核不合格，收入扣减' }, { title: '电压越限', sub: '云边效应，1分钟内±10%电压摆动，反向功率保护跳闸' }] },
+          { icon: 'battery-charging', title: '直流纹波', desc: '直流纹波交流侧反射', metric: '直流偏磁', metricLabel: '变压器过热', consequences: [{ title: '铁芯饱和', sub: '直流分量导致变压器铁芯半波饱和，励磁电流激增，噪声' }, { title: '效率损失', sub: '附加铁损+谐波铜损，PR（性能比）下降2-3个百分点' }] },
         ],
       },
       {
-        id: 'wind', label: 'Wind Farm', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: 'Wind Power Farm', sceneSubtitle: 'Onshore / Offshore / Distributed',
+        id: 'wind', label: '风电', color: 'text-brand-orange', colorHex: '#f4a261',
+        sceneName: '风力发电场', sceneSubtitle: '陆上 / 海上 / 分布式',
         cards: [
-          { icon: 'wind', title: 'Converter Harmonics', desc: 'Low-order distortion from full-power converter', metric: '>10%', metricLabel: 'THD', consequences: [{ title: 'Grid Rejection', sub: '5th/7th harmonic dominant, utility interconnect test failure, energization delay cost' }, { title: 'Collector Resonance', sub: '35kV cable capacitance + transformer inductance, parallel resonance near 7th harmonic' }] },
-          { icon: 'trending-up', title: 'Wind Fluctuation', desc: 'Reactive surge from gust/turbulence', metric: 'Reactive', metricLabel: 'Swing', consequences: [{ title: 'PF Penalty', sub: 'Rapid reactive swing from wind gusts, monthly PF < 0.85, utility reactive charge 2x' }, { title: 'AVC Hunting', sub: 'AVC system oscillation chasing wind variation, tap changer excessive wear, 5x maintenance' }] },
-          { icon: 'component', title: 'Box Transformer', desc: 'Phase imbalance from auxiliary load', metric: '>5%', metricLabel: 'Unbalance', consequences: [{ title: 'Limit Violation', sub: 'Single-phase auxiliary supply imbalance, negative sequence exceeds grid code limit' }, { title: 'Overheat Trip', sub: 'Imbalance + harmonic combine, winding hot-spot temperature alarm, forced curtailment' }] },
+          { icon: 'wind', title: '变流器谐波', desc: '全功率变流器低次畸变', metric: '>10%', metricLabel: 'THD', consequences: [{ title: '电网拒收', sub: '5次/7次谐波主导，电力公司并网测试失败，延迟并网成本' }, { title: '集电谐振', sub: '35kV电缆电容+变压器电感，并联谐振点靠近7次谐波' }] },
+          { icon: 'trending-up', title: '风速波动', desc: '阵风/湍流无功浪涌', metric: '无功', metricLabel: '摆动', consequences: [{ title: 'PF罚款', sub: '阵风引起快速无功摆动，月度PF < 0.85，电力公司无功费2倍' }, { title: 'AVC振荡', sub: 'AVC系统追逐风速变化振荡，分接头过度磨损，维护5倍' }] },
+          { icon: 'component', title: '箱式变压器', desc: '辅助负荷三相不平衡', metric: '>5%', metricLabel: '不平衡度', consequences: [{ title: '限值违规', sub: '单相辅助电源不平衡，负序超过电网规范限值' }, { title: '过热跳闸', sub: '不平衡+谐波叠加，绕组热点温度告警，被迫限电' }] },
         ],
       },
       {
-        id: 'storage', label: 'Energy Storage', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: 'Energy Storage System', sceneSubtitle: 'Grid-side / User-side / Source-side',
+        id: 'storage', label: '储能', color: 'text-brand-navy', colorHex: '#264653',
+        sceneName: '储能系统', sceneSubtitle: '电网侧 / 用户侧 / 电源侧',
         cards: [
-          { icon: 'battery-charging', title: 'Charge/Discharge', desc: 'Harmonic stack from multi-PCS', metric: '>6%', metricLabel: 'THD', consequences: [{ title: 'Grid Pollution', sub: 'Multi-PCS interleaving harmonics, PCC THD exceeds GB/T 34120, grid operator warning' }, { title: 'Battery Ripple', sub: 'AC ripple current on DC bus, lithium plating acceleration, cycle life reduced 20%' }] },
-          { icon: 'arrow-left-right', title: 'PCS Reactive', desc: 'Lag regulation at low load', metric: '< 0.9', metricLabel: 'PF', consequences: [{ title: 'Penalty Fee', sub: 'Standby mode reactive consumption triggers penalty, monthly charge + demand ratchet' }, { title: 'Regulation Fail', sub: 'AGC/AVC joint dispatch setpoint not met, ancillary service qualification revoked' }] },
-          { icon: 'globe', title: 'Grid Point', desc: 'Voltage flicker at interconnect', metric: '> 0.8', metricLabel: 'Pst', consequences: [{ title: 'Interconnect Fail', sub: 'Flicker Pst > 0.8 during mode transition, grid interconnect agreement non-compliance' }, { title: 'Islanding Risk', sub: 'Grid disturbance detection confused by flicker, unintentional islanding, safety hazard' }] },
+          { icon: 'battery-charging', title: '充放电', desc: '多PCS谐波叠加', metric: '>6%', metricLabel: 'THD', consequences: [{ title: '电网污染', sub: '多PCS交错谐波，PCC点THD超过GB/T 34120，电网运营商警告' }, { title: '电池纹波', sub: '直流母线交流纹波电流，锂枝晶加速，循环寿命降低20%' }] },
+          { icon: 'arrow-left-right', title: 'PCS无功', desc: '低载滞后调节', metric: '< 0.9', metricLabel: 'PF', consequences: [{ title: '罚款', sub: '待机模式无功消耗触发罚款，月度费用+需量棘轮' }, { title: '调节不合格', sub: 'AGC/AVC联合调度设定值不达标，辅助服务资格取消' }] },
+          { icon: 'globe', title: '并网点', desc: '并网连接处电压闪烁', metric: '> 0.8', metricLabel: 'Pst', consequences: [{ title: '并网失败', sub: '模式切换时闪烁Pst > 0.8，并网协议不合规' }, { title: '孤岛风险', sub: '闪烁干扰电网扰动检测，非计划孤岛，安全隐患' }] },
         ],
       },
     ];
     const reTopology = [
       {
-        id: 'solar', sceneName: 'Solar PV Topology', sceneSubtitle: 'Utility-scale / Distributed / Agri-PV',
-        deviceLabel: 'SVG+AHF', deviceType: 'PV Quality System',
-        deviceDesc: 'SVG at 35kV step-up bus + AHF at inverter AC side, combiner box marked',
+        id: 'solar', sceneName: '光伏拓扑', sceneSubtitle: '集中式 / 分布式 / 农光互补',
+        deviceLabel: 'SVG+AHF', deviceType: '光伏电能质量系统',
+        deviceDesc: 'SVG安装于35kV升压母线+AHF安装于逆变器交流侧，标注汇流箱',
         branches: [
-          { label: 'Combiner Box', sub: 'DC Collection' },
-          { label: 'Inverter AC', sub: 'Harmonic Source' },
-          { label: '35kV Step-up', sub: 'Grid Interconnect' },
+          { label: '汇流箱', sub: '直流汇集' },
+          { label: '逆变器交流', sub: '谐波源' },
+          { label: '35kV升压', sub: '并网连接' },
         ],
       },
       {
-        id: 'wind', sceneName: 'Wind Farm Topology', sceneSubtitle: 'Onshore / Offshore / Distributed',
-        deviceLabel: 'SVG-690V + AHF-100A', deviceType: 'Wind Quality System',
-        deviceDesc: 'SVG-690V at turbine side + AHF at box transformer LV, 35kV collector line marked',
+        id: 'wind', sceneName: '风电拓扑', sceneSubtitle: '陆上 / 海上 / 分布式',
+        deviceLabel: 'SVG-690V + AHF-100A', deviceType: '风电电能质量系统',
+        deviceDesc: 'SVG-690V安装于风机侧+AHF安装于箱变低压侧，标注35kV集电线路',
         branches: [
-          { label: 'Turbine Conv.', sub: 'Harmonic Source' },
-          { label: 'Box Transformer', sub: 'Imbalance Load' },
-          { label: '35kV Collect', sub: 'Grid Connection' },
+          { label: '风机变流', sub: '谐波源' },
+          { label: '箱式变压器', sub: '不平衡负荷' },
+          { label: '35kV集电', sub: '并网连接' },
         ],
       },
       {
-        id: 'storage', sceneName: 'Storage Topology', sceneSubtitle: 'Grid-side / User-side / Source-side',
-        deviceLabel: 'AHF+SVG Combo', deviceType: 'Storage Quality System',
-        deviceDesc: 'SVG+AHF combo at PCS AC side, battery cluster / PCS / transformer / grid point marked',
+        id: 'storage', sceneName: '储能拓扑', sceneSubtitle: '电网侧 / 用户侧 / 电源侧',
+        deviceLabel: 'AHF+SVG组合', deviceType: '储能电能质量系统',
+        deviceDesc: 'SVG+AHF组合安装于PCS交流侧，标注电池簇/PCS/变压器/并网点',
         branches: [
-          { label: 'Battery Cluster', sub: 'DC Source' },
-          { label: 'PCS AC Side', sub: 'Bidirectional' },
-          { label: 'Grid Point', sub: 'Interconnection' },
+          { label: '电池簇', sub: '直流源' },
+          { label: 'PCS交流侧', sub: '双向流动' },
+          { label: '并网点', sub: '并网连接' },
         ],
       },
     ];
     const reCases = [
       {
-        title: '500MW PV Farm Harmonic Mitigation Project in Northwest China', highlight: 'THD 9.5% → 3.2%, passed grid acceptance, penalty avoidance + extra revenue 1.8M CNY', image: '/assets/images/solutions-renewable-case-solar.jpg', industry: 'Solar PV', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '500MW utility-scale PV farm with 2,500 string inverters across 35kV collection system. Multi-inverter harmonic resonance at 35kV bus caused THD exceeding 9.5% at PCC, failing grid acceptance test twice. Cloud-edge effect caused ±10% voltage swings triggering AVC penalties.',
-        trend: 'THD trend: 9.5% → 6.5% → 4.5% → 3.2%',
-        solution: [{ product: 'SVG-800V', qty: 8, use: '35kV step-up bus reactive compensation' }, { product: 'AHF-200A', qty: 12, use: 'Inverter AC feeder harmonic filtering' }],
-        results: ['THD < 3.5% (GB/T 14549 compliant)', 'Grid acceptance test passed first attempt', 'Annual penalty avoidance + revenue 1.8M CNY'],
+        title: '西北500MW光伏电站谐波治理工程', highlight: 'THD 9.5% → 3.2%，通过电网验收，避免罚款+增收180万元', image: '/assets/images/solutions-renewable-case-solar.jpg', industry: '光伏', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        overview: '500MW集中式光伏电站，2500台组串式逆变器，35kV集电系统。多逆变器在35kV母线谐波共振导致PCC点THD超过9.5%，两次电网验收未通过。云边效应导致±10%电压摆动，触发AVC罚款。',
+        trend: 'THD趋势：9.5% → 6.5% → 4.5% → 3.2%',
+        solution: [{ product: 'SVG-800V', qty: 8, use: '35kV升压母线无功补偿' }, { product: 'AHF-200A', qty: 12, use: '逆变器交流馈线谐波滤波' }],
+        results: ['THD < 3.5%（符合GB/T 14549标准）', '电网验收一次通过', '年避免罚款+增收180万元'],
       },
       {
-        title: '200MW Offshore Wind Farm Power Quality Retrofit', highlight: 'PF 0.88 → 0.98, reactive penalty compliance, box transformer imbalance < 2%', image: '/assets/images/solutions-renewable-case-wind.jpg', industry: 'Wind Farm', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '200MW offshore wind farm with 50 × 4MW full-power converter turbines. Low-order harmonics (5th/7th) dominated at 35kV collector bus. Wind gust-driven reactive swings caused monthly PF below 0.88. Single-phase auxiliary loads at box transformers created 5%+ imbalance at collector level.',
-        trend: 'PF trend: 0.88 → 0.92 → 0.95 → 0.98',
-        solution: [{ product: 'SVG-690V', qty: 50, use: 'Per-turbine reactive compensation' }, { product: 'AHF-100A', qty: 25, use: 'Collector feeder harmonic filtering' }],
-        results: ['PF > 0.98, zero reactive penalties', 'Box transformer imbalance < 2%', 'Collector system resonance eliminated'],
+        title: '200MW海上风电场电能质量改造', highlight: 'PF 0.88 → 0.98，无功罚款达标，箱变不平衡<2%', image: '/assets/images/solutions-renewable-case-wind.jpg', industry: '风电', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        overview: '200MW海上风电场，50×4MW全功率变流风机。35kV集电母线5次/7次低次谐波主导。阵风驱动无功摆动导致月度PF低于0.88。箱变单相辅助负荷在集电层产生5%+不平衡。',
+        trend: 'PF趋势：0.88 → 0.92 → 0.95 → 0.98',
+        solution: [{ product: 'SVG-690V', qty: 50, use: '每台风机无功补偿' }, { product: 'AHF-100A', qty: 25, use: '集电馈线谐波滤波' }],
+        results: ['PF > 0.98，零无功罚款', '箱变不平衡<2%', '集电系统谐振消除'],
       },
       {
-        title: '100MW/200MWh Grid-side Battery Storage Station', highlight: 'PCS THD < 4%, grid point flicker Pst < 0.5, interconnect agreement compliant', image: '/assets/images/solutions-renewable-case-storage.jpg', industry: 'Energy Storage', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '100MW/200MWh grid-side battery storage station with 40 × 2.5MW PCS units. Multi-PCS harmonic interleaving caused THD > 6% at 35kV PCC. Mode transition (charge→discharge) flicker Pst exceeded 0.8, failing grid interconnect compliance test.',
-        trend: 'Flicker Pst trend: 0.85 → 0.65 → 0.50 → 0.35',
-        solution: [{ product: 'SVG+AHF Combo', qty: 8, use: 'PCS AC bus power quality conditioning' }, { product: 'PQ-Gateway', qty: 1, use: 'Grid compliance monitoring platform' }],
-        results: ['PCS THD < 4% (IEEE 519 compliant)', 'Grid point flicker Pst < 0.5', 'Interconnect agreement fully compliant'],
+        title: '100MW/200MWh电网侧储能电站', highlight: 'PCS THD < 4%，并网点闪烁Pst < 0.5，并网协议合规', image: '/assets/images/solutions-renewable-case-storage.jpg', industry: '储能', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        overview: '100MW/200MWh电网侧储能电站，40×2.5MW PCS单元。多PCS谐波交错导致35kV PCC点THD > 6%。充放电模式切换闪烁Pst超过0.8，并网合规测试未通过。',
+        trend: '闪烁Pst趋势：0.85 → 0.65 → 0.50 → 0.35',
+        solution: [{ product: 'SVG+AHF组合', qty: 8, use: 'PCS交流母线电能质量调节' }, { product: 'PQ-Gateway', qty: 1, use: '并网合规监测平台' }],
+        results: ['PCS THD < 4%（符合IEEE 519标准）', '并网点闪烁Pst < 0.5', '并网协议完全合规'],
       },
     ];
 
@@ -707,12 +707,12 @@ const meta = {
     }
 
     const industryTitles = {
-      commercial: 'Commercial & Medical Building Case Studies',
-      grid: 'Power Grid Case Studies',
-      datacenter: 'Data Center Case Studies',
-      industry: 'Industrial Manufacturing Case Studies',
-      renewable: 'Renewable Energy Case Studies',
-      rail: 'Rail Transit Case Studies',
+      commercial: '商业与医疗建筑案例研究',
+      grid: '电网案例研究',
+      datacenter: '数据中心案例研究',
+      industry: '工业制造案例研究',
+      renewable: '新能源案例研究',
+      rail: '轨道交通案例研究',
     };
     const heroImages = {
       commercial: '/assets/images/solutions-commercial-medical-hero-bg.jpg',
@@ -729,7 +729,7 @@ const meta = {
       sceneIndex = 0;
       expandedCaseIndex = null;
       document.getElementById('hero-image').src = heroImages[id] || heroImages['commercial'];
-      document.getElementById('cases-title').textContent = industryTitles[id] || 'Case Studies';
+      document.getElementById('cases-title').textContent = industryTitles[id] || '案例研究';
       renderIndustryTabs('sticky-industry-tabs');
       renderScene();
       renderCases();
@@ -760,14 +760,14 @@ const meta = {
 
         <!-- Utility Grid -->
         <rect x="${gridX}" y="${centerY - 22}" width="${gridW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
-        <text x="${gridX + gridW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="14" font-weight="600">Utility</text>
+        <text x="${gridX + gridW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="14" font-weight="600">电网</text>
 
         <!-- Grid → Transformer -->
         <line x1="${gridX + gridW}" y1="${centerY}" x2="${trafoX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
 
         <!-- Transformer -->
         <rect x="${trafoX}" y="${centerY - 22}" width="${trafoW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
-        <text x="${trafoX + trafoW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="13" font-weight="600">Transformer</text>
+        <text x="${trafoX + trafoW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="13" font-weight="600">变压器</text>
 
         <!-- Transformer → Device -->
         <line x1="${trafoX + trafoW}" y1="${centerY}" x2="${devX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
@@ -790,7 +790,7 @@ const meta = {
         }).join('')}
 
         <!-- LV Busbar label -->
-        <text x="${devX + devW/2}" y="${svgH - 8}" text-anchor="middle" fill="#8B919A" font-size="11">LV Busbar</text>
+        <text x="${devX + devW/2}" y="${svgH - 8}" text-anchor="middle" fill="#8B919A" font-size="11">低压母线</text>
       </svg>`;
     }
 
@@ -841,10 +841,10 @@ const meta = {
         `<p class="text-[clamp(11px,0.9vw,14px)] text-brand-orange text-center font-semibold bg-orange-50 px-4 py-2 rounded-lg mx-auto mt-6 inline-block">${escapeHtml(tpScene.deviceDesc)}</p>
         <div class="flex items-center justify-center gap-4 mt-6">
           <button class="flex items-center gap-2 px-6 py-3 border border-border-card rounded-lg text-[clamp(11px,0.9vw,14px)] font-medium text-text-secondary hover:border-brand-orange hover:text-brand-orange transition-all duration-200">
-            <i data-lucide="download" class="w-4 h-4"></i>Download PDF
+            <i data-lucide="download" class="w-4 h-4"></i>下载PDF
           </button>
           <button class="flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-lg text-[clamp(11px,0.9vw,14px)] font-semibold hover:brightness-110 transition-all duration-200">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>Tech Inquiry
+            <i data-lucide="message-circle" class="w-4 h-4"></i>技术咨询
           </button>
         </div>`;
 
@@ -917,10 +917,10 @@ const meta = {
               <p class="text-[clamp(11px,0.9vw,14px)] text-text-secondary mb-4 leading-relaxed">${escapeHtml(c.highlight)}</p>
               ${c.solution && c.solution.length > 0 ? `
               <div class="mb-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[clamp(11px,0.9vw,14px)] text-text-muted">
-                ${c.solution.map(s => `<span class="font-medium text-text-secondary">${escapeHtml(s.product)} <span class="text-electric-orange">×</span> ${s.qty} units</span>`).join('')}
+                ${c.solution.map(s => `<span class="font-medium text-text-secondary">${escapeHtml(s.product)} <span class="text-electric-orange">×</span> ${s.qty} 台</span>`).join('')}
               </div>` : ''}
               <span class="inline-flex items-center gap-1.5 text-electric-orange font-medium text-[clamp(11px,0.9vw,14px)]">
-                ${isExpanded ? 'Collapse' : 'View Details'}
+                ${isExpanded ? '收起' : '查看详情'}
                 <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
               </span>
             </div>
@@ -931,13 +931,13 @@ const meta = {
             <div class="px-6 lg:px-8 pb-8 border-t border-border-card">
               <!-- Project Overview -->
               <div class="pt-6 pb-4">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">Project Overview</h4>
+                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">项目概述</h4>
                 <p class="text-[clamp(11px,0.9vw,14px)] text-text-secondary leading-relaxed">${escapeHtml(c.overview)}</p>
               </div>
 
               <!-- Trend -->
               <div class="bg-bg-alt-1 rounded-xl p-[clamp(8px,1.5vw,32px)] mb-6">
-                <h4 class="text-[clamp(11px,0.9vw,14px)] font-semibold text-brand-navy mb-3">Before / After</h4>
+                <h4 class="text-[clamp(11px,0.9vw,14px)] font-semibold text-brand-navy mb-3">改造前后</h4>
                 <p class="text-[28px] font-bold text-brand-orange leading-tight mb-1">${escapeHtml(c.trend)}</p>
                 <div class="flex items-center gap-3 mt-3">
                   <span class="h-2 flex-1 rounded-full bg-electric-orange/20"></span>
@@ -949,12 +949,12 @@ const meta = {
 
               <!-- Solution Deployed -->
               <div class="mb-6">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">Solution Deployed</h4>
+                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">实施方案</h4>
                 <div class="space-y-3">
                   ${c.solution.map(s => `
                     <div class="flex items-center gap-4 bg-bg-alt-1 rounded-lg px-5 py-3">
                       <span class="text-[clamp(11px,0.9vw,14px)] font-bold text-electric-orange w-[90px]">${escapeHtml(s.product)}</span>
-                      <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary">× ${s.qty} units</span>
+                      <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary">× ${s.qty} 台</span>
                       <span class="text-xs text-text-muted">${escapeHtml(s.use)}</span>
                     </div>
                   `).join('')}
@@ -963,7 +963,7 @@ const meta = {
 
               <!-- Key Results -->
               <div class="mb-6">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">Key Results</h4>
+                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">核心成果</h4>
                 <div class="space-y-2">
                   ${c.results.map(r => `
                     <div class="flex items-start gap-2.5">
