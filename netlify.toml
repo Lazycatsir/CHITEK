@@ -3,26 +3,33 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# English subdomain: www.en.chitek-inno.com / en.chitek-inno.com → /en/ path
-# 不用 force，让 Netlify 先检查文件是否存在，资源文件直接提供
+# 静态资源直接提供（不走重定向，避免 /_astro 被转发到 /en/_astro）
 [[redirects]]
-  from = "https://en.chitek-inno.com/*"
-  to = "/en/:splat"
-  status = 200
-
-[[redirects]]
-  from = "https://www.en.chitek-inno.com/*"
-  to = "/en/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/_astro/*"
+  to = "/_astro/:splat"
   status = 200
 
 [[redirects]]
   from = "/assets/*"
   to = "/assets/:splat"
+  status = 200
+
+# English subdomain → /en/ path（force 确保始终转发）
+[[redirects]]
+  from = "https://en.chitek-inno.com/*"
+  to = "/en/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.en.chitek-inno.com/*"
+  to = "/en/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 
 [[headers]]
