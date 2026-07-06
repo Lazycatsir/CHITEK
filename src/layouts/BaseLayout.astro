@@ -17,11 +17,11 @@ export interface Props {
 }
 
 const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website' } = Astro.props;
-const defaultOgImage = 'https://chitek.com/assets/images/logo.webp';
-const defaultOgUrl = 'https://chitek.com';
+const defaultOgImage = 'https://chitek-inno.com/assets/images/logo.webp';
+const siteDomain = lang === 'zh' ? 'https://chitek-inno.com' : 'https://en.chitek-inno.com';
 
 const currentPath = Astro.url.pathname;
-const canonicalUrl = ogUrl || `${defaultOgUrl}${currentPath}`;
+const canonicalUrl = ogUrl || `${siteDomain}${currentPath}`;
 ---
 
 <!doctype html>
@@ -61,8 +61,8 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${currentPath}`;
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "CHITEK INNOPOWER",
-  "url": "https://chitek.com",
-  "logo": "https://chitek.com/assets/images/logo.webp",
+  "url": "https://chitek-inno.com",
+  "logo": "https://chitek-inno.com/assets/images/logo.webp",
   "description": "Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF), Static Var Generator (SVG), and Automatic Voltage Regulator (AVR).",
   "contactPoint": {
     "@type": "ContactPoint",
@@ -78,7 +78,7 @@ const canonicalUrl = ogUrl || `${defaultOgUrl}${currentPath}`;
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "CHITEK INNOPOWER",
-  "url": "https://chitek.com",
+  "url": "https://chitek-inno.com",
   "description": "B2B industrial power quality solutions manufacturer — AHF, SVG, AVR for global industrial and commercial applications.",
     "inLanguage": ["en", "pt", "es", "ar", "zh"]
 }

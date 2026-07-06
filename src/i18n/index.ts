@@ -1,6 +1,7 @@
 export type Locale = 'en' | 'pt' | 'es' | 'ar' | 'zh';
 
-const BASE_URL = 'https://chitek.com';
+const BASE_URL = 'https://chitek-inno.com';
+const EN_BASE_URL = 'https://en.chitek-inno.com';
 
 const LOCALE_PREFIXES: Record<Locale, string> = {
   zh: '',
@@ -34,5 +35,6 @@ export function getHreflang(lang: Locale, pathname: string): string {
   const { base } = parsePathname(pathname);
   const prefix = LOCALE_PREFIXES[lang];
   const path = lang === 'zh' ? base : prefix + (base === '/' ? '' : base);
-  return `${BASE_URL}${path}`;
+  const baseDomain = lang === 'zh' ? BASE_URL : EN_BASE_URL;
+  return `${baseDomain}${path}`;
 }

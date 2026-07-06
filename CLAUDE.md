@@ -7,7 +7,7 @@ B2B 工业网站，目标：将访问者转化为询盘。已迁移到 Astro 静
 - **框架**：Astro 6.x + Tailwind CSS v4 (@tailwindcss/vite)
 - **字体**：Barlow + Barlow Condensed，自托管 WOFF2
 - **部署目标**：Netlify
-- **当前语言**：仅英文（多语言计划中）
+- **当前语言**：中文（默认）+ 英文/西语/阿语/葡语（多语言已配置）
 
 ## 目录结构
 
@@ -27,12 +27,17 @@ CHITEK/
 │   ├── layouts/
 │   │   └── BaseLayout.astro       # 基础布局（head/meta/OG/Nav/Footer/Sidebar/scroll动画）
 │   ├── pages/
-│   │   ├── index.astro            # 首页（hero/about/products/solutions）
-│   │   ├── about.astro            # 关于我们
-│   │   ├── contact.astro          # 联系我们
-│   │   ├── products.astro         # 产品中心（tab切换/WebGL/产品矩阵/案例轮播/FAQ）
-│   │   ├── services.astro         # 服务
-│   │   └── solutions.astro        # 解决方案（JS动态渲染/6大行业切换/案例/FAQ）
+│   │   ├── index.astro            # 中文首页（默认语言，根路径）
+│   │   ├── about.astro            # 中文 - 关于我们
+│   │   ├── contact.astro          # 中文 - 联系我们
+│   │   ├── products.astro         # 中文 - 产品中心
+│   │   ├── services.astro         # 中文 - 服务
+│   │   ├── solutions.astro        # 中文 - 解决方案
+│   │   ├── news.astro             # 中文 - 新闻
+│   │   ├── en/                    # 英文页面
+│   │   ├── es/                    # 西语页面
+│   │   ├── ar/                    # 阿语页面
+│   │   └── pt/                    # 葡语页面
 │   └── styles/
 │       └── global.css             # Tailwind v4 入口（@theme + @font-face + @keyframes）
 ├── docs/superpowers/              # 设计文档与计划
@@ -43,6 +48,23 @@ CHITEK/
 ├── .gitignore
 └── CLAUDE.md
 ```
+
+## 多语言路由
+
+Astro i18n 已配置，中文为默认语言：
+
+| 语言 | 路由 | 域名 |
+|------|------|------|
+| 中文（zh） | 根路径：`/about`, `/products` | www.chitek-inno.com |
+| 英文（en） | `/en/about`, `/en/products` | www.en.chitek-inno.com |
+| 西语（es） | `/es/about`, `/es/products` | www.chitek-inno.com/es/... |
+| 阿语（ar） | `/ar/about`, `/ar/products` | www.chitek-inno.com/ar/... |
+| 葡语（pt） | `/pt/about`, `/pt/products` | www.chitek-inno.com/pt/... |
+
+- `astro.config.mjs` 中 `i18n.defaultLocale: 'zh'`，`prefixDefaultLocale: false`
+- Netlify `netlify.toml` 配置 `en.chitek-inno.com` → `/en/` 重定向
+- 语言切换逻辑在 `Nav.astro` 的 `langHref()` 函数
+- hreflang SEO 标签在 `BaseLayout.astro`
 
 ## 编码规范
 
