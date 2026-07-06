@@ -3,9 +3,15 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# English subdomain: en.chitek-inno.com → /en/ path
+# English subdomain: www.en.chitek-inno.com / en.chitek-inno.com → /en/ path
 [[redirects]]
   from = "https://en.chitek-inno.com/*"
+  to = "/en/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.en.chitek-inno.com/*"
   to = "/en/:splat"
   status = 200
   force = true
