@@ -4,17 +4,16 @@
   functions = "netlify/functions"
 
 # English subdomain: www.en.chitek-inno.com / en.chitek-inno.com → /en/ path
+# 不用 force，让 Netlify 先检查文件是否存在，资源文件直接提供
 [[redirects]]
   from = "https://en.chitek-inno.com/*"
   to = "/en/:splat"
   status = 200
-  force = true
 
 [[redirects]]
   from = "https://www.en.chitek-inno.com/*"
   to = "/en/:splat"
   status = 200
-  force = true
 
 [[redirects]]
   from = "/api/*"

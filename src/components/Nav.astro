@@ -47,10 +47,13 @@ function langHref(targetLang: string): string {
       break;
     }
   }
-  // Add target prefix (zh = root, no prefix)
-  if (targetLang === 'zh') return base;
+  // en → en.chitek-inno.com (子域名，不需要前缀)
+  if (targetLang === 'en') return 'https://en.chitek-inno.com' + base;
+  // zh → chitek-inno.com
+  if (targetLang === 'zh') return 'https://chitek-inno.com' + base;
+  // es/ar/pt → chitek-inno.com/{lang} (主域名，需要前缀)
   const prefix = '/' + targetLang;
-  return prefix + (base === '/' ? '' : base);
+  return 'https://chitek-inno.com' + prefix + (base === '/' ? '' : base);
 }
 const activeLangLabel = langLabel[lang] || 'English';
 const activeLangFlag = langFlagCode[lang] || 'gb';
@@ -59,7 +62,8 @@ const ptHref = langHref('pt');
 const esHref = langHref('es');
 const arHref = langHref('ar');
 const zhHref = langHref('zh');
-const prefix = lang === 'en' ? '/en' : lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : '';
+// zh/en 在各自域名下用根路径，es/ar/pt 在主域名下需要前缀
+const prefix = lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '';
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
