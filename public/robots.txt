@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chitek.com/sitemap.xml
+Sitemap: https://chitek-inno.com/sitemap.xml

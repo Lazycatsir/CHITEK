@@ -1,72 +1,84 @@
----
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Sidebar from '../../../components/Sidebar.astro';
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
 
 const article = {
-  title: "Filtros Ativos de Harmônicos para Sistemas VFD: Por Que São Essenciais",
-  category: "Technology",
-  date: "2026-06-15",
-  dateDisplay: "Jun 15, 2026",
-  author: "CHITEK Technical Team",
-  readTime: "4 min de leitura",
-  description: "Os Filtros Ativos de Harmônicos são indispensáveis para instalações com grande uso de VFD. Saiba por que os AHF são a escolha inteligente para estabilizar a qualidade de energia.",
-  keywords: ["filtro ativo de harmônicos", "VFD", "distorção harmônica", "qualidade de energia", "inversor de frequência variável", "automação industrial", "AHF", "resiliência da rede"]
+  title: "新型 SiC 有源电力滤波器系列发布",
+  category: "产品更新",
+  date: "2024-12-15",
+  dateDisplay: "2024年12月15日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "CHITEK 推出新一代 SiC AHF 系列，实现 99% 谐波补偿，占地面积减少 20%。",
+  keywords: ["有源电力滤波器", "SiC AHF", "谐波补偿", "电能质量", "碳化硅", "THD 降低", "工业电力", "VFD 谐波滤波器", "数据中心电能质量", "CHITEK"]
 };
 
 const otherArticles = [
-  { title: "Nova Série de Filtros Ativos de Harmônicos Baseada em SiC", category: "Product Update", href: "/pt/news/sic-ahf-launch", color: "orange" },
-  { title: "AHF vs Reatores de Linha: Comparativo Técnico", category: "Technology", href: "/pt/news/ahf-vs-line-reactors", color: "purple" },
-  { title: "Por Que o SVG É o Guardião Invisível da Infraestrutura Moderna", category: "Technology", href: "/pt/news/svg-power-electronics-daily-life", color: "green" },
+  { title: "沙特阿拉伯电能质量标准更新", category: "行业动态", href: "/news/saudi-arabia-standards", color: "blue" },
+  { title: "迪拜光伏电站电能质量优化", category: "案例研究", href: "/news/solar-farm-dubai", color: "green" },
+  { title: "SiC 与 IGBT：电能质量设备的未来", category: "技术", href: "/news/sic-vs-igbt", color: "purple" },
 ];
 
 const relatedProducts = [
-  { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "有源电力滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
 ];
 
 const relatedCases = [
-  { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
-  { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-  { name: "Brazil Data Center", industry: "Data Centers" },
+  { name: "迪拜 50MW 光伏电站", industry: "可再生能源" },
+  { name: "沙特工业工厂", industry: "制造业" },
+  { name: "巴西数据中心", industry: "数据中心" },
 ];
 ---
 <BaseLayout 
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
-  lang="pt"
+  lang="en"
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek.com/assets/images/blog/sic-ahf-launch.webp"
 >
+  <!-- Schema.org Article Structured Data -->
   <script type="application/ld+json" slot="head">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Filtros Ativos de Harmônicos para Sistemas VFD: Por Que São Essenciais",
-    "description": "Os Filtros Ativos de Harmônicos são indispensáveis para instalações com grande uso de VFD. Saiba por que os AHF são a escolha inteligente para estabilizar a qualidade de energia.",
+    "headline": "新型 SiC 有源电力滤波器系列发布",
+    "description": "CHITEK 推出新一代 SiC AHF 系列，实现 99% 谐波补偿，占地面积减少 20%。",
     "image": "https://chitek.com/assets/images/blog/sic-ahf-launch.webp",
-    "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek.com/assets/images/logo.webp" } },
-    "datePublished": "2026-06-15",
-    "dateModified": "2026-06-15",
-    "keywords": "filtro ativo de harmônicos, VFD, distorção harmônica, qualidade de energia, inversor de frequência variável, automação industrial, AHF, resiliência da rede"
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2024-12-15",
+    "dateModified": "2024-12-15",
+    "keywords": "active harmonic filter, SiC AHF, harmonic compensation, power quality, silicon carbide, THD reduction, industrial power, VFD harmonic filter, data center power quality, CHITEK"
   }
   </script>
 
-  <Sidebar lang="pt" />
+  <Sidebar lang="zh" />
 
+  <!-- Article Header -->
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
-      <a href="/pt/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        Voltar para Notícias
+        返回新闻
       </a>
       <div class="flex items-center gap-3 mb-4">
         <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
@@ -80,55 +92,106 @@ const relatedCases = [
     </div>
   </section>
 
+  <!-- Article Content + Sidebar -->
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
 
+      <!-- Main Content -->
       <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
         <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
-          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="Filtro Ativo de Harmônicos para Sistemas VFD" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="SiC-Based Active Harmonic Filter" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
         </div>
 
+        <!-- Article Body -->
         <div class="prose prose-lg max-w-none">
           <p class="text-text-mid text-lg leading-relaxed mb-6">
-            A transição para Inversores de Frequência Variável (VFD) energeticamente eficientes está revolucionando o controle de motores. Porém, essa eficiência tem um custo oculto: a distorção harmônica.
-          </p>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Os harmônicos de VFD distorcem suas formas de onda, levando a transformadores e cabos superaquecidos, qualidade de energia instável com disparos indesejados de disjuntores, falhas em bancos de capacitores e equipamentos conectados, além de menor eficiência geral do sistema e vida útil reduzida dos equipamentos.
-          </p>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Um único VFD pode não criar uma crise. Porém, uma rede operando com dezenas de sistemas VFD se tornará não confiável e cara com o tempo. É aí que os Filtros Ativos de Harmônicos (AHF) se tornam indispensáveis.
+            CHITEK INNOPOWER 宣布推出新一代 SiC 有源电力滤波器 (AHF) 系列，为工业和商业应用的电能质量优化树立新标准。
           </p>
 
-          <h2 id="why-ahf" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Por Que os AHF São a Escolha Inteligente para Locais com Grande Uso de VFD
+          <h2 id="overview" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            产品概述
           </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            新型 SiC AHF 系列采用先进的碳化硅 (SiC) MOSFET 技术，相比传统 IGBT 方案提供更优异的开关性能。这一技术进步实现了：
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>99% 谐波补偿效率</li>
+            <li>占地面积减少 20%</li>
+            <li>开关频率高达 25kHz</li>
+            <li>更低的散热管理需求</li>
+            <li>延长使用寿命</li>
+          </ul>
 
+          <h2 id="features" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            核心特性
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            SiC AHF 系列集成了专为严苛工业环境设计的先进功能：
+          </p>
           <div class="grid md:grid-cols-2 gap-6 mb-6">
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Limpeza Dinâmica em Tempo Real</h3>
-              <p class="text-text-mid text-sm">Diferente de filtros passivos fixos, os AHF detectam e cancelam correntes harmônicas em tempo real, adaptando-se automaticamente conforme as velocidades do motor, demandas de produção e cargas de VFD flutuam ao longo do dia.</p>
+              <h3 class="font-semibold text-text-dark mb-2">实时监测</h3>
+              <p class="text-text-mid text-sm">内置电能质量分析仪，支持持续谐波监测和远程诊断。</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Precisão Cirúrgica</h3>
-              <p class="text-text-mid text-sm">Eles direcionam frequências harmônicas específicas com alta precisão, removendo o ruído específico gerado por cargas não lineares complexas.</p>
+              <h3 class="font-semibold text-text-dark mb-2">模块化设计</h3>
+              <p class="text-text-mid text-sm">可扩展架构，轻松从 30A 扩展至 600A 模块，适应设施增长需求。</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Imunidade de Qualidade de Energia</h3>
-              <p class="text-text-mid text-sm">Mitiga simultaneamente harmônicos e melhora o fator de potência do sistema, protegendo quadros de distribuição e aprimorando a confiabilidade geral.</p>
+              <h3 class="font-semibold text-text-dark mb-2">智能电网就绪</h3>
+              <p class="text-text-mid text-sm">兼容现代智能电网协议，包括 Modbus TCP/IP 和 IEC 61850。</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Comprovado para Indústrias Dinâmicas</h3>
-              <p class="text-text-mid text-sm">De grandes sistemas de bombas e redes de HVAC extensas a linhas de produção e estações de tratamento de água, os AHF limpam a forma de onda, garantindo operação estável.</p>
+              <h3 class="font-semibold text-text-dark mb-2">IP54 防护等级</h3>
+              <p class="text-text-mid text-sm">增强防护等级，适用于粉尘和潮湿暴露的严苛工业环境。</p>
             </div>
           </div>
 
-          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Conclusão
+          <h2 id="specs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            技术规格
+          </h2>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">参数</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">数值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">额定电流</td><td class="p-4 border-b border-border-light text-text-mid">50A - 200A</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">电压</td><td class="p-4 border-b border-border-light text-text-mid">380V-480V AC</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">THD 补偿</td><td class="p-4 border-b border-border-light text-text-mid">最高 99%</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">响应时间</td><td class="p-4 border-b border-border-light text-text-mid">&lt; 5ms</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">效率</td><td class="p-4 border-b border-border-light text-text-mid">98.5%+</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">防护等级</td><td class="p-4 border-b border-border-light text-text-mid">IP54</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="applications" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            应用场景
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            Para engenheiros e gestores de instalações que supervisionam infraestrutura com grande uso de VFD, a estabilidade da qualidade de energia é inegociável. Não deixe que os harmônicos de VFD aumentem seus custos de manutenção e reduzam a vida útil dos equipamentos. Os Filtros Ativos de Harmônicos fornecem a proteção adaptativa em tempo real que as instalações industriais modernas exigem.
+            SiC AHF 系列适用于需要高性能谐波滤波的应用：
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>变频器 (VFD) 系统</li>
+            <li>数据中心配电</li>
+            <li>医疗设施供电系统</li>
+            <li>工业生产线</li>
+            <li>可再生能源设施</li>
+          </ul>
+
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            安装指南
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            模块化设计实现快速安装，最大限度减少停机时间。标准安装可在 0.5 小时内完成（视系统配置而定）。CHITEK 提供全面的安装支持，包括现场技术协助。
           </p>
 
+          <!-- SEO Keywords -->
           <div class="mt-10 pt-6 border-t border-border-light">
             <div class="flex flex-wrap gap-2">
               {article.keywords.map((keyword) => (
@@ -138,6 +201,7 @@ const relatedCases = [
           </div>
         </div>
 
+        <!-- Author & Navigation -->
         <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
           <div class="flex items-center gap-4 mb-4 md:mb-0">
             <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
@@ -146,12 +210,12 @@ const relatedCases = [
               </svg>
             </div>
             <div>
-              <div class="font-semibold text-text-dark">Equipe Técnica CHITEK</div>
-              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+              <div class="font-semibold text-text-dark">CHITEK 技术团队</div>
+              <div class="text-sm text-text-muted">发布于 {article.dateDisplay}</div>
             </div>
           </div>
           <div class="flex items-center gap-3">
-            <span class="text-sm text-text-muted">Compartilhar:</span>
+            <span class="text-sm text-text-muted">分享:</span>
             <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
@@ -165,14 +229,17 @@ const relatedCases = [
         </div>
       </article>
 
+      <!-- Sidebar -->
       <aside class="lg:w-[320px] shrink-0">
         <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
               </svg>
-              Mais Artigos
+              更多文章
             </h3>
             <div class="space-y-2">
               {otherArticles.map((item) => (
@@ -182,12 +249,14 @@ const relatedCases = [
               ))}
             </div>
           </div>
+
+          <!-- Related Products -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
               </svg>
-              Produtos Relacionados
+              相关产品
             </h3>
             <div class="space-y-2">
               {relatedProducts.map((product) => (
@@ -207,25 +276,31 @@ const relatedCases = [
               ))}
             </div>
           </div>
+
+          <!-- Related Cases -->
           <div class="bg-gray-50 rounded-xl p-4">
             <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
-              Casos de Clientes
+              客户案例
             </h3>
             <div class="space-y-2">
               {relatedCases.map((caseItem) => (
-                <a href="/pt/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                <a href="/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
                   <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
                 </a>
               ))}
             </div>
           </div>
+
         </div>
       </aside>
 
     </div>
   </section>
 </BaseLayout>
+
+
+

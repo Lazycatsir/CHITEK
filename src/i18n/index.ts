@@ -1,7 +1,12 @@
 export type Locale = 'en' | 'pt' | 'es' | 'ar' | 'zh';
 
-const BASE_URL = 'https://chitek-inno.com';
-const EN_BASE_URL = 'https://en.chitek-inno.com';
+export const LOCALE_DOMAIN: Record<Locale, string> = {
+  zh: 'https://chitek-inno.com',
+  en: 'https://en.chitek-inno.com',
+  es: 'https://es.chitek-inno.com',
+  ar: 'https://ar.chitek-inno.com',
+  pt: 'https://pt.chitek-inno.com',
+};
 
 const LOCALE_PREFIXES: Record<Locale, string> = {
   zh: '',
@@ -33,11 +38,5 @@ export function getAltHref(pathname: string, targetLang: Locale): string {
 /** Build alternate-language link for SEO hreflang */
 export function getHreflang(lang: Locale, pathname: string): string {
   const { base } = parsePathname(pathname);
-  // en → en.chitek-inno.com (子域名，无前缀)
-  if (lang === 'en') return `${EN_BASE_URL}${base}`;
-  // zh → chitek-inno.com (根路径)
-  if (lang === 'zh') return `${BASE_URL}${base}`;
-  // es/ar/pt → chitek-inno.com/{lang} (主域名，有前缀)
-  const prefix = LOCALE_PREFIXES[lang];
-  return `${BASE_URL}${prefix}${base === '/' ? '' : base}`;
+  return `${LOCALE_DOMAIN[lang]}${base}`;
 }

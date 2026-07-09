@@ -10,7 +10,7 @@ const meta = {
 <BaseLayout title={meta.title} description={meta.description} lang="zh">
   <!-- HERO -->
   <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc(100vh-72px)] max-lg:min-h-[550px] max-md:min-h-[480px] flex items-center">
-    <img src="/assets/images/index-hero-bg.webp" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
+    <img src="/assets/images/index-hero-bg.webp" alt="CHITEK 低压AHF与SVG电能质量解决方案" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
 
     <div class="flex flex-col justify-center px-[clamp(24px,8vw,160px)] py-20 max-md:py-16 relative z-10 w-full mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <h1 class="font-barlow-condensed text-[clamp(38px,4.5vw,72px)] font-bold leading-[1.1] text-white mb-5">
@@ -40,12 +40,12 @@ const meta = {
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <!-- 左侧 About CHITEK 区域 -->
       <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h2>
+        <h3 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h3>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
           深圳市启点新能源科技有限公司成立于2019年，总部位于深圳，是一家专注于电力电子产品研发、制造和销售服务的高新技术企业。致力于打造节能、绿色的未来。
         </p>
-        <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <a href="/about" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -119,19 +119,19 @@ const meta = {
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
         <!-- 左侧：文字介绍 -->
         <div class="min-h-[240px] relative">
-          <div class="product-info-item active block" id="info-ahf">
+          <div class="product-info-item active" id="info-ahf">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
               覆盖208V至800V的有源电力滤波器，效率高达99%。全面覆盖工业、商业和公用事业应用场景。
             </p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
+            <a href="/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
           </div>
-          <div class="product-info-item hidden" id="info-svg">
+          <div class="product-info-item" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">CHITEK静止无功发生器采用先进的IGBT开关技术，开关频率高达25.6kHz，精确调节逆变器电压幅值和相位。为要求严苛的工业应用提供卓越精度的动态无功功率补偿和三相负载平衡。</p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
+            <a href="/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">产品中心 &rarr;</a>
           </div>
         </div>
 
@@ -198,12 +198,10 @@ const meta = {
 
         // 2. 切换左侧文字
         infoItems.forEach(item => {
-          item.classList.remove('active', 'block');
-          item.classList.add('hidden');
+          item.classList.remove('active');
         });
         const target = document.getElementById(data.infoId);
-        target.classList.remove('hidden');
-        target.classList.add('active', 'block');
+        target.classList.add('active');
 
         // 3. 切换右侧图片
         productVisual.style.backgroundImage = `url('${data.visual}')`;
@@ -217,6 +215,12 @@ const meta = {
       border-bottom-color: #ff6b1a;
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    }
+    .product-info-item {
+      display: none;
+    }
+    .product-info-item.active {
+      display: block;
     }
   </style>
 

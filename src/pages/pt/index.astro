@@ -49,7 +49,7 @@ const meta = {
           eletrónica de potência. Comprometida em construir um futuro energeticamente
           eficiente e verde.
         </p>
-        <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <a href="/pt/about" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -123,7 +123,7 @@ const meta = {
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
         <!-- 左侧：文字介绍 -->
         <div class="min-h-[240px] relative">
-          <div class="product-info-item active block" id="info-ahf">
+          <div class="product-info-item active" id="info-ahf">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
@@ -131,13 +131,13 @@ const meta = {
               99%. Cobertura completa de aplicações para cenários industriais, comerciais
               e de utilidade pública.
             </p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
+            <a href="/pt/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
           </div>
-          <div class="product-info-item hidden" id="info-svg">
+          <div class="product-info-item" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">O Gerador Estático de Reativos CHITEK utiliza comutação IGBT avançada até 25,6 kHz para regular com precisão a magnitude e fase da tensão do inversor. Fornece compensação dinâmica de potência reativa e equilíbrio de carga trifásico com excecional precisão para aplicações industriais exigentes.</p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
+            <a href="/pt/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Centro de Produtos &rarr;</a>
           </div>
         </div>
 
@@ -204,12 +204,10 @@ const meta = {
 
         // 2. 切换左侧文字
         infoItems.forEach(item => {
-          item.classList.remove('active', 'block');
-          item.classList.add('hidden');
+          item.classList.remove('active');
         });
         const target = document.getElementById(data.infoId);
-        target.classList.remove('hidden');
-        target.classList.add('active', 'block');
+        target.classList.add('active');
 
         // 3. 切换右侧图片
         productVisual.style.backgroundImage = `url('${data.visual}')`;
@@ -224,6 +222,12 @@ const meta = {
     }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .product-info-item {
+      display: none;
+    }
+    .product-info-item.active {
+      display: block;
+    }
   </style>
 
   <!-- SOLUTIONS -->

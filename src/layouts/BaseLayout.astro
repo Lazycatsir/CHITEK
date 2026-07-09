@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Sidebar from '../components/Sidebar.astro';
-import { getHreflang } from '../i18n/index';
+import { getHreflang, type Locale } from '../i18n/index';
 
 export interface Props {
   title: string;
@@ -18,10 +18,9 @@ export interface Props {
 
 const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website' } = Astro.props;
 const defaultOgImage = 'https://chitek-inno.com/assets/images/logo.webp';
-const siteDomain = lang === 'zh' ? 'https://chitek-inno.com' : 'https://en.chitek-inno.com';
 
 const currentPath = Astro.url.pathname;
-const canonicalUrl = ogUrl || `${siteDomain}${currentPath}`;
+const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
 ---
 
 <!doctype html>

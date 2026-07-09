@@ -39,7 +39,6 @@ const langFlagCode: Record<string, string> = { en: 'gb', pt: 'pt', es: 'es', ar:
 /** Build href for a target language from current pathname */
 function langHref(targetLang: string): string {
   const { pathname } = Astro.url;
-  // Strip existing language prefix
   let base = pathname;
   for (const prefix of ['/en', '/es', '/ar', '/pt']) {
     if (base.startsWith(prefix)) {
@@ -47,13 +46,14 @@ function langHref(targetLang: string): string {
       break;
     }
   }
-  // en → en.chitek-inno.com (子域名，不需要前缀)
-  if (targetLang === 'en') return 'https://en.chitek-inno.com' + base;
-  // zh → chitek-inno.com
-  if (targetLang === 'zh') return 'https://chitek-inno.com' + base;
-  // es/ar/pt → chitek-inno.com/{lang} (主域名，需要前缀)
-  const prefix = '/' + targetLang;
-  return 'https://chitek-inno.com' + prefix + (base === '/' ? '' : base);
+  const domain: Record<string, string> = {
+    zh: 'https://chitek-inno.com',
+    en: 'https://en.chitek-inno.com',
+    es: 'https://es.chitek-inno.com',
+    ar: 'https://ar.chitek-inno.com',
+    pt: 'https://pt.chitek-inno.com',
+  };
+  return (domain[targetLang] || 'https://chitek-inno.com') + base;
 }
 const activeLangLabel = langLabel[lang] || 'English';
 const activeLangFlag = langFlagCode[lang] || 'gb';
@@ -167,7 +167,7 @@ const homeHref = prefix || '/';
         <a href={aboutHref + '#about'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('companyProfile')}</a>
         <a href={aboutHref + '#industry'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('caseStudies')}</a>
         <a href={aboutHref + '#certifications'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('certifications')}</a>
-        <a href={newsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('news')}</a>
+        {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <a href={newsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('news')}</a>}
       </div>
     </div>
 
@@ -273,7 +273,7 @@ const homeHref = prefix || '/';
       <a href={aboutHref + '#about'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('companyProfile')}</a>
       <a href={aboutHref + '#industry'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('caseStudies')}</a>
       <a href={aboutHref + '#certifications'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('certifications')}</a>
-      <a href={newsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('news')}</a>
+      {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <a href={newsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('news')}</a>}
     </div>
   </div>
   <div class="border-b-0">

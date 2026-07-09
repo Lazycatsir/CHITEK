@@ -87,7 +87,7 @@ const newsHref = prefix + '/news';
         <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
         <li><a href={servicesHref + '#oem'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
         <li><a href={servicesHref + '#distributor'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
-        <li><a href={newsHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('news')}</a></li>
+        {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <li><a href={newsHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('news')}</a></li>}
       </ul>
     </div>
   </div>

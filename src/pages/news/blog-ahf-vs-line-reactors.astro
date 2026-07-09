@@ -1,0 +1,306 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "有源电力滤波器与进线电抗器：技术对比",
+  category: "技术",
+  date: "2026-06-08",
+  dateDisplay: "2026年6月8日",
+  author: "CHITEK 技术团队",
+  readTime: "6 分钟阅读",
+  description: "有源电力滤波器与进线电抗器在工业电能质量治理方面的全面技术对比。",
+  keywords: ["有源电力滤波器", "进线电抗器", "电能质量", "谐波治理", "IEEE 519", "AHF", "工业自动化", "能效"]
+};
+
+const otherArticles = [
+  { title: "有源电力滤波器技术实力与产品优势全解析", category: "技术", href: "/news/blog-chitek-ahf-advantages", color: "orange" },
+  { title: "新型 SiC 有源电力滤波器系列发布", category: "产品更新", href: "/news/sic-ahf-launch", color: "orange" },
+  { title: "VFD 系统中的有源电力滤波器", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "blue" },
+];
+
+const relatedProducts = [
+  { name: "有源电力滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+
+const relatedCases = [
+  { name: "迪拜 50MW 光伏电站", industry: "可再生能源" },
+  { name: "沙特工业工厂", industry: "制造业" },
+  { name: "巴西数据中心", industry: "数据中心" },
+];
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek.com/assets/images/blog/sic-ahf-launch.webp"
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "有源电力滤波器与进线电抗器：技术对比",
+    "description": "有源电力滤波器与进线电抗器在工业电能质量治理方面的全面技术对比。",
+    "image": "https://chitek.com/assets/images/blog/sic-ahf-launch.webp",
+    "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek.com/assets/images/logo.webp" } },
+    "datePublished": "2026-06-08",
+    "dateModified": "2026-06-08",
+    "keywords": "active harmonic filter, line reactor, power quality, harmonic mitigation, IEEE 519, AHF, industrial automation, energy efficiency"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="AHF vs Line Reactors" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">
+            如果您管理的工业设施运行着变频器 (VFD) 或开关电源等非线性负载的电能质量，您很可能正在与谐波失真作斗争。如果不加以控制，谐波会导致设备过热、不明原因的跳闸以及高额电费罚款。
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            在治理方案方面，工程团队通常关注两个主要选项：有源电力滤波器 (AHF) 和进线电抗器。虽然两者都能处理谐波，但它们的方法、效率以及对系统长期影响截然不同。
+          </p>
+
+          <h2 id="comparison" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            技术对比
+          </h2>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">性能指标</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">有源电力滤波器 (AHF)</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">进线电抗器</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">治理方式</td><td class="p-4 border-b border-border-light text-text-mid">主动消除（相位抵消）</td><td class="p-4 border-b border-border-light text-text-mid">被动限制（频率对冲）</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">目标 THDi 水平</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5%（符合 IEEE 519 标准）</td><td class="p-4 border-b border-border-light text-text-mid">剩余 30%–50% THDi</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">谐波针对性</td><td class="p-4 border-b border-border-light text-text-mid">精准治理（针对特定次谐波）</td><td class="p-4 border-b border-border-light text-text-mid">非选择性、宽频衰减</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">功率因数影响</td><td class="p-4 border-b border-border-light text-text-mid">主动改善位移功率因数</td><td class="p-4 border-b border-border-light text-text-mid">固有地降低位移功率因数</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">电压稳定性</td><td class="p-4 border-b border-border-light text-text-mid">保持稳定的端电压</td><td class="p-4 border-b border-border-light text-text-mid">产生固有电压降</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">系统谐振风险</td><td class="p-4 border-b border-border-light text-text-mid">极低</td><td class="p-4 border-b border-border-light text-text-mid">高风险</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="elimination-vs-limitation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            消除与限制
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            进线电抗器类似于减速带。它们限制试图从负载流出的谐波幅值，但并不消除它们。通常仍会残留 30% 到 50% 的 THDi。AHF 则类似于降噪耳机。它们主动在源头中和失真，将 THDi 降至 5% 以下。
+          </p>
+
+          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            功率因数：校正与劣化
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            由于进线电抗器增加了感性电抗，它们会降低系统的位移功率因数。这往往迫使您投资单独的功率因数校正设备。而兼具双重功能的 AHF 可以根据需要动态注入超前或滞后无功功率 (kVAR)，在治理谐波的同时校正功率因数。
+          </p>
+
+          <h2 id="resonance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            治理与产生谐振风险
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            添加进线电抗器会改变系统的整体阻抗特性。在已有电容器组的网络中，这可能会意外地将谐振频率转移到关键谐波次数（如 5 次或 7 次），从而放大失真。AHF 呈现极低阻抗路径并主动抑制现有谐振，使其成为复杂工业电网中更安全的固有选择。
+          </p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            核心结论
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            虽然进线电抗器具有结构简单、前期成本较低以及出色的电机保护（dv/dt 抑制）优势，但它们仅提供谐波治理的初步、部分解决方案。对于需要严格符合 IEEE 519 等标准、保护高敏感数据基础设施或同时进行功率因数校正的现代自动化设施，有源电力滤波器是更优越、面向未来的投资。
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            When it comes to mitigation, engineering teams usually look at two primary contenders: Active Harmonic Filters (AHF) and Line Reactors. While both address harmonics, their methods, efficiency, and long-term impact on your system profile couldn't be more different.
+          </p>
+
+          <h2 id="comparison" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Technical Comparison
+          </h2>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Performance Metric</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Active Harmonic Filter (AHF)</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Line Reactor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Mitigation Method</td><td class="p-4 border-b border-border-light text-text-mid">Active elimination (phase cancellation)</td><td class="p-4 border-b border-border-light text-text-mid">Passive limitation (frequency opposition)</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Target THDi Levels</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5% (IEEE 519 compliance)</td><td class="p-4 border-b border-border-light text-text-mid">30%�?0% THDi remaining</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Harmonic Targeting</td><td class="p-4 border-b border-border-light text-text-mid">Surgical precision (targets specific orders)</td><td class="p-4 border-b border-border-light text-text-mid">Non-selective, broadband attenuation</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Power Factor Impact</td><td class="p-4 border-b border-border-light text-text-mid">Actively improves displacement PF</td><td class="p-4 border-b border-border-light text-text-mid">Inherently degrades displacement PF</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage Stability</td><td class="p-4 border-b border-border-light text-text-mid">Maintains stable terminal voltage</td><td class="p-4 border-b border-border-light text-text-mid">Causes an inherent voltage drop</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">System Resonance Risk</td><td class="p-4 border-b border-border-light text-text-mid">Extremely low</td><td class="p-4 border-b border-border-light text-text-mid">High risk</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="elimination-vs-limitation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Elimination vs. Limitation
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Line reactors act like a speed bump. They limit the amplitude of harmonics trying to exit the load, but they don't remove them. You are typically left with 30% to 50% THDi. AHFs act like noise-canceling headphones. They actively neutralize the distortion at the source, driving THDi down below 5%.
+          </p>
+
+          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Power Factor: Correction vs. Degradation
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Because line reactors add inductive reactance, they degrade your system's displacement power factor. This often forces you to invest in separate power factor correction hardware. An AHF pulling double duty can dynamically inject leading or lagging reactive power (kVAR) as needed, simultaneously correcting power factor while cleaning up harmonics.
+          </p>
+
+          <h2 id="resonance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Mitigating vs. Creating Resonance Risks
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Adding line reactors alters your system's overall impedance profile. In networks with existing capacitor banks, this can accidentally shift the resonant frequency right into a critical harmonic order (like the 5th or 7th), amplifying the distortion. AHFs present a very low impedance path and actively dampen existing resonance, making them the inherently safer bet for complex industrial grids.
+          </p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            The Bottom Line
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            While line reactors offer structural simplicity, a lower upfront cost, and excellent motor protection (dv/dt reduction), they only offer a preliminary, partial solution for harmonic mitigation. For modern, automated facilities requiring strict compliance with standards like IEEE 519, protection of highly sensitive data infrastructure, or simultaneous power factor correction, the Active Harmonic Filter is the superior, future-proof investment.
+          </p>
+
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">CHITEK 技术团队</div>
+              <div class="text-sm text-text-muted">发布于 {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">分享:</span>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href="/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>
+
+
+

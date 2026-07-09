@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK INNOPOWER �?manufacturer of power quality solutions',
-  description: 'CHITEK is a leading manufacturer of low-voltage power quality solutions �?Active Harmonic Filter (AHF), Static Var Generator (SVG) for industrial and commercial applications.',
+  title: 'CHITEK INNOPOWER �?manufacturer of power quality solutions',
+  description: 'CHITEK is a leading manufacturer of low-voltage power quality solutions �?Active Harmonic Filter (AHF), Static Var Generator (SVG) for industrial and commercial applications.',
 };
 ---
 
@@ -42,7 +42,7 @@ const meta = {
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
           شركة شنجن تشيتكتك لتكنولوجيا الطاقة الجديدة المحدودة، تأسست في عام 2019 ومقرها في شنجن، وهي مؤسسة عالية التكنولوجيا متخصصة في البحث والتطوير والتصنيع وخدمة منتجات إلكترونيات الطاقة. ملتزمة ببناء مستقبل موفر للطاقة وصديق للبيئة.
         </p>
-        <a href="#" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <a href="/ar/about" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -110,19 +110,19 @@ const meta = {
 
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
         <div class="min-h-[240px] relative">
-          <div class="product-info-item active block" id="info-ahf">
+          <div class="product-info-item active" id="info-ahf">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
               فلاتر الطاقة النشطة التي تغطي من 208 فولت إلى 800 فولت، بكفاءة تصل إلى 99%. تغطية كاملة للتطبيقات الصناعية والتجارية ومرافق الخدمة.
             </p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
+            <a href="/ar/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
           </div>
-          <div class="product-info-item hidden" id="info-svg">
+          <div class="product-info-item" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">يستخدم مولد الفولت أمبير الساكن من تشيتكتك تقنية IGBT المتقدمة بمعدل تبديل يصل إلى 25.6 كيلوهرتز لتنظيم دقيق لحجم وجهد العاكس. يقدم تعويضاً ديناميكياً للقدرةreactive power وتوازن الأحمال الثلاثية بدقة استثنائية.</p>
-            <a href="#" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
+            <a href="/ar/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
           </div>
         </div>
 
@@ -185,12 +185,10 @@ const meta = {
         this.classList.add('active');
 
         infoItems.forEach(item => {
-          item.classList.remove('active', 'block');
-          item.classList.add('hidden');
+          item.classList.remove('active');
         });
         const target = document.getElementById(data.infoId);
-        target.classList.remove('hidden');
-        target.classList.add('active', 'block');
+        target.classList.add('active');
 
         productVisual.style.backgroundImage = `url('${data.visual}')`;
       });
@@ -201,8 +199,14 @@ const meta = {
     .tab.active {
       color: #ff6b1a;
       border-bottom-color: #ff6b1a;
+    }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .product-info-item {
+      display: none;
+    }
+    .product-info-item.active {
+      display: block;
     }
   </style>
 
