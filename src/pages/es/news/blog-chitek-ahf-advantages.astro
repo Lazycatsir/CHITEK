@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Tecnología de Filtros Activos de Armónicos: Un Análisis Completo de las Ventajas de CHITEK",
+  category: "Tecnología",
+  date: "2026-07-09",
+  dateDisplay: "Jul 9, 2026",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "8 min de lectura",
+  description: "Explore las ventajas competitivas de los Filtros Activos de Armónicos de CHITEK: 9 patentes, certificaciones internacionales, matriz de 8 modelos, colaboración académica y presencia global en más de 10 países.",
+  keywords: ["filtro activo de armónicos", "AHF", "calidad de energía", "mitigación de armónicos", "compensación de potencia reactiva", "IGBT", "carburo de silicio", "CHITEK"]
+};
+
+const otherArticles = [
+  { title: "Filtros Activos de Armónicos para Sistemas VFD: Por Qué Son Críticos", category: "Tecnología", href: "/es/news/blog-active-harmonic-filter-for-vfd-systems", color: "blue" },
+  { title: "AHF vs Reacciones de Línea: Comparación Técnica", category: "Tecnología", href: "/es/news/blog-ahf-vs-line-reactors", color: "purple" },
+  { title: "Por Qué SVG Es el Guardián Invisible de la Infraestructura Moderna", category: "Tecnología", href: "/es/news/blog-svg-power-electronics-daily-life", color: "green" },
+];
+
+const relatedProducts = [
+  { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Generador Estático de Reactivos SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Serie Eficiente SiC-AHF/SVG", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+
+const relatedCases = [
+  { name: "Planta Industrial en Arabia Saudita", industry: "Manufactura" },
+  { name: "Centro de Datos en Brasil", industry: "Centros de Datos" },
+  { name: "Optimización de Calidad de Energía en Dubai", industry: "Energía Renovable" },
+];
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp"
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tecnología de Filtros Activos de Armónicos: Un Análisis Completo de las Ventajas de CHITEK",
+    "description": "Explore las ventajas competitivas de los Filtros Activos de Armónicos de CHITEK: 9 patentes, certificaciones internacionales, matriz de 8 modelos, colaboración académica y eficiencia global.",
+    "image": "https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp",
+    "author": { "@type": "Organization", "name": "Equipo Técnico CHITEK" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-09",
+    "keywords": "filtro activo de armónicos, AHF, calidad de energía, mitigación de armónicos, compensación de potencia reactiva, IGBT, carburo de silicio, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="Filtro Activo de Armónicos CHITEK" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">
+            En el panorama industrial actual, la calidad de la energía eléctrica se ha convertido en un factor crítico para la productividad y la confiabilidad operativa. La creciente penetración de cargas no lineales —variadores de velocidad (VFD), fuentes de alimentación conmutadas, equipos de soldadura, hornos de arco y cargadores de vehículos eléctricos— está generando niveles cada vez más altos de distorsión armónica en las redes de todo el mundo.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los armónicos no corregidos provocan sobrecalentamiento de transformadores y conductores, disparos intempestivos de interruptores, fallas prematuras en bancos de capacitores, interferencia en sistemas de comunicación y, en última instancia, costosas multas por parte de las compañías eléctricas. Frente a estos desafíos, los Filtros Activos de Armónicos (AHF) se han consolidado como la solución central para la mitigación de armónicos, y su demanda en el mercado global continúa creciendo a un ritmo acelerado.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            En CHITEK, hemos desarrollado una plataforma tecnológica de AHF integral y patentada que aborda cada una de estas problemáticas desde la raíz. A continuación, presentamos un análisis exhaustivo de las ventajas competitivas que hacen de nuestros filtros activos la opción preferida por ingenieros y gestores de instalaciones en todo el mundo.
+          </p>
+
+          <h2 id="core-patents" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            1. Innovación Protegida: 9 Patentes Núcleo en Tecnología AHF
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La base de nuestra tecnología AHF descansa sobre un portafolio robusto de 9 patentes nacionales e internacionales que cubren desde la arquitectura de control hasta el diseño mecánico y térmico. Cuatro de ellas representan hitos fundamentales en nuestra estrategia de I+D:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">CN222852255U — Estructura de Disipación Mejorada</h3>
+              <p class="text-text-mid text-sm">Patente de modelo de utilidad para la estructura de disipación térmica de un Filtro Activo de Armónicos tipo gabinete. El diseño optimiza el flujo de aire y la transferencia de calor, asegurando que los módulos IGBT y SiC operen dentro de rangos de temperatura seguros incluso bajo cargas armónicas máximas sostenidas. Esta innovación permite que nuestros AHF mantengan una capacidad nominal completa a 40 °C ambiente sin reducción de potencia.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">CN118487279B — Bypass Modular Inteligente</h3>
+              <p class="text-text-mid text-sm">Patente de invención que describe un sistema inteligente de desconexión por sobrecalentamiento para módulos de acondicionamiento de energía en paralelo. Cuando un módulo detecta una condición térmica anormal, se desconecta de forma autónoma sin interrumpir la operación continua del sistema. Los módulos restantes redistribuyen la carga armónica instantáneamente, garantizando disponibilidad del 99.99% en configuraciones N+1.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">CN222814372U — Montaje Trifásico de Alto Rendimiento</h3>
+              <p class="text-text-mid text-sm">Patente de modelo de utilidad para la estructura de montaje de un filtro de potencia trifásico de alto rendimiento. La disposición optimizada de los buses de corriente alterna y los módulos de conmutación minimiza la inductancia parásita, logrando una conmutación limpia y reduciendo las pérdidas de conmutación en más de un 18% en comparación con diseños convencionales.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">CN210780598U — Electrónica de Potencia con Protección Total</h3>
+              <p class="text-text-mid text-sm">Patente de modelo de utilidad que integra un módulo IGBT con disipación térmica pasiva mejorada. La solución de protección total mediante encapsulamiento completo protege los componentes electrónicos contra polvo, humedad, corrosión y vibraciones, extendiendo la vida útil del filtro activo a más de 15 años en entornos industriales hostiles.</p>
+            </div>
+          </div>
+
+          <h2 id="certifications" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            2. Certificaciones Internacionales y Conformidad con Estándares Globales
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los Filtros Activos de Armónicos de CHITEK cuentan con las certificaciones más exigentes de la industria, lo que garantiza su aceptación en proyectos de infraestructura crítica en cualquier región del mundo:
+          </p>
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-4">
+              <div class="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="text-sm font-medium text-text-dark">ISO 9001:2015 — Sistema de Gestión de Calidad</div>
+            </div>
+            <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-4">
+              <div class="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="text-sm font-medium text-text-dark">Certificación CQC (China Quality Certification)</div>
+            </div>
+            <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-4">
+              <div class="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="text-sm font-medium text-text-dark">Marca CE (Conformidad Europea)</div>
+            </div>
+            <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-4">
+              <div class="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="text-sm font-medium text-text-dark">GB/T 15576-2008 — Estándar Nacional de China para Equipos de Compensación de Potencia Reactiva de Baja Tensión</div>
+            </div>
+          </div>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Estas certificaciones no solo validan la calidad de fabricación y el rendimiento de nuestros equipos, sino que también simplifican los procesos de aprobación regulatoria en proyectos internacionales, reduciendo los tiempos de entrega y los costos de cumplimiento normativo para nuestros clientes.
+          </p>
+
+          <h2 id="product-matrix" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            3. Matriz de Producto Completa: 8 Modelos para Cada Aplicación
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Entendemos que no hay dos instalaciones iguales. Por eso ofrecemos una matriz de 8 modelos de AHF que cubre un rango de corrientes de compensación desde 5 A hasta 200 A, alojados en gabinetes de 1U a 4U de altura. Esta versatilidad permite a los ingenieros seleccionar la solución exacta que se adapta a sus necesidades específicas:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li><strong>Modelos compactos (5 A – 30 A, 1U–2U)</strong>: Ideales para paneles de distribución secundarios, centros de datos modulares y maquinaria individual de media potencia.</li>
+            <li><strong>Modelos de rango medio (50 A–100 A, 2U–3U)</strong>: Diseñados para líneas de producción industrial, sistemas HVAC centralizados y edificios comerciales de gran tamaño.</li>
+            <li><strong>Modelos de alta capacidad (150 A–200 A, 4U)</strong>: Para grandes plantas manufactureras, infraestructura crítica de数据中心, estaciones de bombeo y plantas de tratamiento de aguas.</li>
+          </ul>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Todos los modelos están disponibles en configuraciones con IGBT de silicio tradicional y con MOSFET de carburo de silicio (SiC) de última generación. La serie SiC alcanza una eficiencia pico del 99%, con pérdidas de conmutación reducidas en más de un 50% respecto a los IGBT convencionales, lo que se traduce en menores costos operativos y una huella de carbono reducida para el usuario final.
+          </p>
+
+          <h2 id="rd" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            4. Colaboración Académica de Primer Nivel: I+D con Instituciones de Prestigio
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La innovación en CHITEK no ocurre en aislamiento. Mantenemos alianzas estratégicas de investigación con dos de las instituciones académicas más respetadas en el campo de la electrónica de potencia:
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Instituto Tecnológico de Harbin (HIT)</h3>
+              <p class="text-text-mid text-sm">Considerada una de las principales universidades de ingeniería de China, HIT colabora con CHITEK en el desarrollo de algoritmos de control avanzados para la cancelación selectiva de armónicos. La investigación conjunta ha dado lugar a técnicas patentadas de filtrado adaptativo que mejoran la velocidad de respuesta transitoria de nuestros AHF a menos de 100 microsegundos.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Universidad de Macao (UM)</h3>
+              <p class="text-text-mid text-sm">La alianza con UM se enfoca en la integración de electrónica de potencia de banda ancha (SiC y GaN) en sistemas de acondicionamiento de energía. Los resultados de esta colaboración han permitido a CHITEK ser pionera en la comercialización de filtros activos basados en MOSFET SiC con eficiencias superiores al 99%.</p>
+            </div>
+          </div>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Estas alianzas garantizan que nuestra tecnología AHF se mantenga a la vanguardia, incorporando los últimos avances académicos en algoritmos de control, semiconductores de potencia y gestión térmica.
+          </p>
+
+          <h2 id="global-reach" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            5. Alcance Global: Presencia en Más de 10 Países
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los Filtros Activos de Armónicos de CHITEK han sido desplegados con éxito en más de 10 países en cuatro continentes, incluyendo mercados tan diversos como Alemania, Brasil, Arabia Saudita, Emiratos Árabes Unidos, México, Turquía, Indonesia y Vietnam. Esta presencia global nos ha permitido acumular una experiencia invaluable en la adaptación de nuestras soluciones a diferentes condiciones de red, códigos eléctricos locales y perfiles de carga típicos de cada región.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Para facilitar la operación en entornos internacionales, todos nuestros AHF cuentan con interfaces de usuario y documentación técnica disponibles en múltiples idiomas, incluyendo español, inglés, portugués y árabe. Además, el sistema de monitoreo remoto incorpora conectividad 4G y WiFi, permitiendo el acceso global a los datos de operación en tiempo real sin importar la ubicación geográfica del cliente.
+          </p>
+
+          <h2 id="customer-service" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            6. Flexibilidad de Instalación y Operación en Paralelo
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Uno de los diferenciadores más valorados de nuestros AHF es la flexibilidad que ofrecen en la instalación y la expansión futura. Todos los modelos están diseñados para operación en paralelo, lo que significa que los clientes pueden comenzar con una configuración básica e incrementar la capacidad de compensación añadiendo módulos adicionales a medida que crecen sus necesidades, sin interrumpir la operación existente.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            El sistema de control distribuido patentado asegura que todos los módulos en paralelo compartan la carga armónica de manera equitativa y coordinada, eliminando el riesgo de que un módulo individual se sature mientras otros permanecen infrautilizados. Esta capacidad de escalado granular convierte a nuestros AHF en una inversión a prueba de futuro para instalaciones en expansión.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Desde el punto de vista de la instalación eléctrica, nuestros filtros admiten configuración tanto con transformador de aislamiento como sin él, y son compatibles con sistemas trifásicos de 3 hilos y 4 hilos, así como con redes monofásicas. La tensión nominal cubre los rangos de 208 V a 480 V (50/60 Hz), abarcando prácticamente cualquier instalación industrial o comercial en el mundo.
+          </p>
+
+          <h2 id="design-innovation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            7. Innovación en Diseño: Cableado a Prueba de Errores y Protección Total
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Un aspecto frecuentemente subestimado en los equipos de calidad de energía es la facilidad de instalación y puesta en marcha. CHITEK ha incorporado en sus AHF un diseño de cableado a prueba de errores (foolproof) que minimiza el riesgo de conexiones incorrectas durante el montaje. Las bornes están claramente etiquetadas, los conectores son asimétricos para evitar inversiones de fase y el manual de instalación incluye diagramas detallados paso a paso.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Para entornos industriales particularmente agresivos —como plantas químicas, fundiciones, instalaciones portuarias y zonas de alta humedad— nuestros AHF ofrecen la opción de encapsulado completo (full potting). Este proceso sella todos los componentes electrónicos en un compuesto de resina epóxica, proporcionando una protección hermética contra polvo, humedad, vapores corrosivos y vibraciones extremas. La protección total garantiza una vida útil superior a 15 años incluso en condiciones que destruirían equipos convencionales en menos de la mitad de ese tiempo.
+          </p>
+
+          <h2 id="smart-connectivity" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            8. Conectividad Inteligente: Monitoreo Remoto 4G/WiFi
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            En la era de la Industria 4.0, un equipo que no puede comunicarse es un equipo aislado. Los AHF de CHITEK integran módulos de comunicación 4G y WiFi que permiten el monitoreo remoto completo del estado operativo del filtro, incluyendo THDi antes y después de la compensación, tensión de red, corriente de carga, factor de potencia, temperatura de los módulos de potencia y registros de eventos históricos.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La plataforma de monitoreo en la nube de CHITEK ofrece acceso mediante aplicación móvil y portal web, con alertas configurables que notifican al personal de mantenimiento ante cualquier anomalía. Esta capacidad de diagnóstico remoto reduce drásticamente los tiempos de respuesta ante fallas incipientes y permite una gestión predictiva del mantenimiento, maximizando la disponibilidad del sistema.
+          </p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            9. Conclusión: La Innovación como Valor y el Compromiso con el Futuro
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los Filtros Activos de Armónicos de CHITEK representan mucho más que un producto: son la materialización de un compromiso continuo con la innovación tecnológica, la calidad certificada y el soporte global. Cada una de las ventajas descritas en este artículo —desde el portafolio de 9 patentes hasta la conectividad 4G/WiFi— ha sido diseñada pensando en las necesidades reales de los ingenieros y gestores de instalaciones que día a día trabajan para mantener la calidad de energía en sus redes.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            En un mercado donde los armónicos son cada vez más abundantes y las exigencias regulatorias más estrictas, contar con un AHF de CHITEK no es simplemente adquirir un equipo, sino integrar una plataforma tecnológica respaldada por investigadores de clase mundial, certificaciones internacionales y una trayectoria comprobada en más de 10 países.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Nuestro equipo técnico está disponible para asesorarle en la selección del modelo más adecuado para su aplicación específica, realizar estudios de calidad de energía en sus instalaciones y ofrecer soporte continuo durante todo el ciclo de vida del producto. Porque en CHITEK creemos que la verdadera innovación no está en lo que hacemos, sino en el valor que aportamos a cada uno de nuestros clientes.
+          </p>
+
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href="/es/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

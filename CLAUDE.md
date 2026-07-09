@@ -15,15 +15,17 @@ B2B 工业网站，目标：将访问者转化为询盘。已迁移到 Astro 静
 CHITEK/
 ├── public/
 │   └── assets/
-│       ├── css/.gitkeep
 │       ├── fonts/                   # 自托管 WOFF2（Barlow + Barlow Condensed）
 │       └── images/                  # 图片资源
+│   └── robots.txt                   # SEO 爬虫规则
 ├── src/
 │   ├── components/
 │   │   ├── Nav.astro               # 全局导航（desktop + mobile menu）
 │   │   ├── Footer.astro           # 全局页脚
 │   │   └── Sidebar.astro          # 右侧联系栏
 │   ├── env.d.ts                    # Astro 类型声明
+│   ├── i18n/
+│   │   └── index.ts               # 多语言路径映射（getHreflang/getAltHref）
 │   ├── layouts/
 │   │   └── BaseLayout.astro       # 基础布局（head/meta/OG/Nav/Footer/Sidebar/scroll动画）
 │   ├── pages/
@@ -34,16 +36,15 @@ CHITEK/
 │   │   ├── services.astro         # 中文 - 服务
 │   │   ├── solutions.astro        # 中文 - 解决方案
 │   │   ├── news.astro             # 中文 - 新闻
+│   │   ├── news/                  # 中文新闻文章
 │   │   ├── en/                    # 英文页面
 │   │   ├── es/                    # 西语页面
 │   │   ├── ar/                    # 阿语页面
 │   │   └── pt/                    # 葡语页面
 │   └── styles/
 │       └── global.css             # Tailwind v4 入口（@theme + @font-face + @keyframes）
-├── docs/superpowers/              # 设计文档与计划
-│   ├── specs/
-│   └── plans/
 ├── astro.config.mjs
+├── netlify.toml                   # 部署配置 + 重定向规则
 ├── package.json
 ├── .gitignore
 └── CLAUDE.md
@@ -55,16 +56,24 @@ Astro i18n 已配置，中文为默认语言：
 
 | 语言 | 路由 | 域名 |
 |------|------|------|
-| 中文（zh） | 根路径：`/about`, `/products` | www.chitek-inno.com |
-| 英文（en） | `/en/about`, `/en/products` | www.en.chitek-inno.com |
-| 西语（es） | `/es/about`, `/es/products` | www.chitek-inno.com/es/... |
-| 阿语（ar） | `/ar/about`, `/ar/products` | www.chitek-inno.com/ar/... |
-| 葡语（pt） | `/pt/about`, `/pt/products` | www.chitek-inno.com/pt/... |
+| 中文（zh） | 根路径：`/about`, `/products` | chitek-inno.com |
+| 英文（en） | `/en/about`, `/en/products` | en.chitek-inno.com |
+| 西语（es） | `/es/about`, `/es/products` | es.chitek-inno.com |
+| 阿语（ar） | `/ar/about`, `/ar/products` | ar.chitek-inno.com |
+| 葡语（pt） | `/pt/about`, `/pt/products` | pt.chitek-inno.com |
 
 - `astro.config.mjs` 中 `i18n.defaultLocale: 'zh'`，`prefixDefaultLocale: false`
-- Netlify `netlify.toml` 配置 `en.chitek-inno.com` → `/en/` 重定向
+- Netlify `netlify.toml` 配置各语言子域名重定向（`force = true`，静态资源 `/_astro/*` 和 `/assets/*` 排除在外）
 - 语言切换逻辑在 `Nav.astro` 的 `langHref()` 函数
-- hreflang SEO 标签在 `BaseLayout.astro`
+- hreflang + canonical 在 `BaseLayout.astro` 中根据 `lang` prop 自动生成各语言子域名 URL
+- 中文 canonical → `chitek-inno.com/*`，英文 → `en.chitek-inno.com/*`，西语 → `es.chitek-inno.com/*`，阿语 → `ar.chitek-inno.com/*`，葡语 → `pt.chitek-inno.com/*`
+- **新闻页面仅支持 zh/en/es/ar**，葡语（pt）无新闻内容，导航栏和页脚不显示新闻链接
+- Sitemap 由 `@astrojs/sitemap` 自动生成，按语言子域名分配 URL
+
+## 工作流程
+
+- **默认不提交 Git**：改完代码后不主动 git commit/push，只在用户明确说"提交"时才执行
+- **构建验证**：改完代码后运行 `npm run build` 验证无报错
 
 ## 编码规范
 
@@ -144,6 +153,7 @@ npm run preview # astro preview（预览生产构建）
 | --- | --- |
 | Astro 6.x | 静态站点框架 |
 | Tailwind CSS v4 (@tailwindcss/vite) | 原子化 CSS |
+| @astrojs/sitemap | 自动生成 sitemap（按子域名分配 URL） |
 | 全局 CSS（global.css） | @theme + @font-face + 自定义样式 |
 | 自托管 WOFF2 | Barlow + Barlow Condensed 字体 |
 | Netlify | 静态部署 + 表单处理 |
@@ -160,4 +170,9 @@ npm run preview # astro preview（预览生产构建）
 
 - 文章列表按日期从新到旧排列（最新在最前面）
 - 新增文章日期应设为最近日期，确保排在列表顶部
-- 每篇文章需要：frontmatter（title/category/date/description/keywords）+ Schema.org Article 结构化数据 + SEO 关键词标签
+- 每篇文章需要：frontmatter（title/category/date/dateDisplay/author/readTime/description/keywords）+ Schema.org Article 结构化数据 + SEO 关键词标签
+- 每篇文章须包含侧边栏组件（`Sidebar` + `otherArticles`/`relatedProducts`/`relatedCases`）
+- 中文文章 `lang="zh"`（canonical → `chitek-inno.com`），英文 `lang="en"`（→ `en.chitek-inno.com`），依此类推
+- ogImage 使用 `https://chitek.com/assets/images/blog/sic-ahf-launch.webp`
+- 列表页使用硬编码 HTML（非 `Astro.glob()`），新增文章需手动添加到各语言列表页首位
+- 支持的语言：zh（9篇）、en（9篇）、es（9篇）、ar（9篇）— 每翻译一个语言必须保证文章文件存在，避免幽灵链接

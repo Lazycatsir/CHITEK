@@ -3,3 +3,10 @@ dist/
 .DS_Store
 .astro/
 .playwright-mcp/
+.claude/settings.local.json
+.claude/fix-*.js
+.claude/fix-*.mjs
+.claude/worktrees/
+.mimocode/
+translate-*.mjs
+translate-*.js

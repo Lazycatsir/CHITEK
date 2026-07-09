@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
 
@@ -34,11 +34,11 @@ const relatedCases = [
 <BaseLayout 
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
-  lang="en"
+  lang="zh"
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek.com/assets/images/blog/sic-ahf-launch.webp"
+  ogImage="https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp"
 >
   <script type="application/ld+json" slot="head">
   {
@@ -46,9 +46,9 @@ const relatedCases = [
     "@type": "Article",
     "headline": "有源电力滤波器与进线电抗器：技术对比",
     "description": "有源电力滤波器与进线电抗器在工业电能质量治理方面的全面技术对比。",
-    "image": "https://chitek.com/assets/images/blog/sic-ahf-launch.webp",
+    "image": "https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp",
     "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2026-06-08",
     "dateModified": "2026-06-08",
     "keywords": "active harmonic filter, line reactor, power quality, harmonic mitigation, IEEE 519, AHF, industrial automation, energy efficiency"
@@ -145,60 +145,6 @@ const relatedCases = [
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
             虽然进线电抗器具有结构简单、前期成本较低以及出色的电机保护（dv/dt 抑制）优势，但它们仅提供谐波治理的初步、部分解决方案。对于需要严格符合 IEEE 519 等标准、保护高敏感数据基础设施或同时进行功率因数校正的现代自动化设施，有源电力滤波器是更优越、面向未来的投资。
-          </p>
-          <p class="text-text-mid leading-relaxed mb-6">
-            When it comes to mitigation, engineering teams usually look at two primary contenders: Active Harmonic Filters (AHF) and Line Reactors. While both address harmonics, their methods, efficiency, and long-term impact on your system profile couldn't be more different.
-          </p>
-
-          <h2 id="comparison" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Technical Comparison
-          </h2>
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full border-collapse">
-              <thead>
-                <tr class="bg-gray-50">
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Performance Metric</th>
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Active Harmonic Filter (AHF)</th>
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Line Reactor</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Mitigation Method</td><td class="p-4 border-b border-border-light text-text-mid">Active elimination (phase cancellation)</td><td class="p-4 border-b border-border-light text-text-mid">Passive limitation (frequency opposition)</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Target THDi Levels</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5% (IEEE 519 compliance)</td><td class="p-4 border-b border-border-light text-text-mid">30%�?0% THDi remaining</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Harmonic Targeting</td><td class="p-4 border-b border-border-light text-text-mid">Surgical precision (targets specific orders)</td><td class="p-4 border-b border-border-light text-text-mid">Non-selective, broadband attenuation</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Power Factor Impact</td><td class="p-4 border-b border-border-light text-text-mid">Actively improves displacement PF</td><td class="p-4 border-b border-border-light text-text-mid">Inherently degrades displacement PF</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage Stability</td><td class="p-4 border-b border-border-light text-text-mid">Maintains stable terminal voltage</td><td class="p-4 border-b border-border-light text-text-mid">Causes an inherent voltage drop</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">System Resonance Risk</td><td class="p-4 border-b border-border-light text-text-mid">Extremely low</td><td class="p-4 border-b border-border-light text-text-mid">High risk</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2 id="elimination-vs-limitation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Elimination vs. Limitation
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Line reactors act like a speed bump. They limit the amplitude of harmonics trying to exit the load, but they don't remove them. You are typically left with 30% to 50% THDi. AHFs act like noise-canceling headphones. They actively neutralize the distortion at the source, driving THDi down below 5%.
-          </p>
-
-          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Power Factor: Correction vs. Degradation
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Because line reactors add inductive reactance, they degrade your system's displacement power factor. This often forces you to invest in separate power factor correction hardware. An AHF pulling double duty can dynamically inject leading or lagging reactive power (kVAR) as needed, simultaneously correcting power factor while cleaning up harmonics.
-          </p>
-
-          <h2 id="resonance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Mitigating vs. Creating Resonance Risks
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            Adding line reactors alters your system's overall impedance profile. In networks with existing capacitor banks, this can accidentally shift the resonant frequency right into a critical harmonic order (like the 5th or 7th), amplifying the distortion. AHFs present a very low impedance path and actively dampen existing resonance, making them the inherently safer bet for complex industrial grids.
-          </p>
-
-          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            The Bottom Line
-          </h2>
-          <p class="text-text-mid leading-relaxed mb-6">
-            While line reactors offer structural simplicity, a lower upfront cost, and excellent motor protection (dv/dt reduction), they only offer a preliminary, partial solution for harmonic mitigation. For modern, automated facilities requiring strict compliance with standards like IEEE 519, protection of highly sensitive data infrastructure, or simultaneous power factor correction, the Active Harmonic Filter is the superior, future-proof investment.
           </p>
 
           <div class="mt-10 pt-6 border-t border-border-light">

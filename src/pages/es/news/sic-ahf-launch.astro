@@ -3,38 +3,38 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
 
 const article = {
-  title: "New SiC-Based Active Harmonic Filter Series Launch",
-  category: "Product Update",
+  title: "Lanzamiento de la Nueva Serie de Filtros Activos de Armónicos Basados en SiC",
+  category: "Actualización de Producto",
   date: "2024-12-15",
   dateDisplay: "Dec 15, 2024",
-  author: "CHITEK Technical Team",
-  readTime: "5 min read",
-  description: "CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint.",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "5 min de lectura",
+  description: "CHITEK presenta su nueva serie de AHFs basados en SiC de última generación, logrando un 99% de compensación de armónicos con un 20% menos de espacio.",
   keywords: ["active harmonic filter", "SiC AHF", "harmonic compensation", "power quality", "silicon carbide", "THD reduction", "industrial power", "VFD harmonic filter", "data center power quality", "CHITEK"]
 };
 
 const otherArticles = [
-  { title: "Saudi Arabia Power Quality Standards Update", category: "Industry News", href: "/news/saudi-arabia-standards", color: "blue" },
-  { title: "Solar Farm Power Quality Optimization in Dubai", category: "Case Study", href: "/news/solar-farm-dubai", color: "green" },
-  { title: "SiC vs IGBT: The Future of Power Quality Equipment", category: "Technology", href: "/news/sic-vs-igbt", color: "purple" },
+  { title: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", category: "Noticias del Sector", href: "/es/news/saudi-arabia-standards", color: "blue" },
+  { title: "Optimización de la Calidad de Energia en Granja Solar en Dubai", category: "Estudio de Caso", href: "/es/news/solar-farm-dubai", color: "green" },
+  { title: "SiC vs IGBT: El Futuro de los Equipos de Calidad de Energía", category: "Tecnología", href: "/es/news/sic-vs-igbt", color: "purple" },
 ];
 
 const relatedProducts = [
-  { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Filtro Activo de Armónicos AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Generador Estático de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
 ];
 
 const relatedCases = [
-  { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
-  { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-  { name: "Brazil Data Center", industry: "Data Centers" },
+  { name: "Granja Solar Dubai 50MW", industry: "Energía Renovable" },
+  { name: "Planta Industrial Saudita", industry: "Manufactura" },
+  { name: "Centro de Datos Brasil", industry: "Centros de Datos" },
 ];
 ---
 <BaseLayout 
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
-  lang="en"
+  lang="es"
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
@@ -45,12 +45,12 @@ const relatedCases = [
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "New SiC-Based Active Harmonic Filter Series Launch",
-    "description": "CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint.",
+    "headline": "Lanzamiento de la Nueva Serie de Filtros Activos de Armónicos Basados en SiC",
+    "description": "CHITEK presenta su nueva serie de AHFs basados en SiC de última generación, logrando un 99% de compensación de armónicos con un 20% menos de espacio.",
     "image": "https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp",
     "author": {
       "@type": "Organization",
-      "name": "CHITEK Technical Team"
+      "name": "Equipo Técnico de CHITEK"
     },
     "publisher": {
       "@type": "Organization",
@@ -66,7 +66,7 @@ const relatedCases = [
   }
   </script>
 
-  <Sidebar lang="en" />
+  <Sidebar lang="es" />
 
   <!-- Article Header -->
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
@@ -74,11 +74,11 @@ const relatedCases = [
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
-      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        Back to News
+        Volver a Noticias
       </a>
       <div class="flex items-center gap-3 mb-4">
         <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
@@ -100,95 +100,95 @@ const relatedCases = [
       <article class="flex-1 max-w-4xl">
         <!-- Featured Image -->
         <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
-          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="SiC-Based Active Harmonic Filter" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="Filtro Activo de Armónicos Basado en SiC" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
         </div>
 
         <!-- Article Body -->
         <div class="prose prose-lg max-w-none">
           <p class="text-text-mid text-lg leading-relaxed mb-6">
-            CHITEK INNOPOWER is proud to announce the launch of its next-generation SiC-Based Active Harmonic Filter (AHF) series, setting new standards in power quality optimization for industrial and commercial applications.
+            CHITEK INNOPOWER se enorgullece en anunciar el lanzamiento de su nueva serie de Filtros Activos de Armónicos (AHF) basados en SiC de última generación, estableciendo nuevos estándares en la optimización de la calidad de energía para aplicaciones industriales y comerciales.
           </p>
 
           <h2 id="overview" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Product Overview
+            Descripción General del Producto
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            The new SiC AHF series leverages cutting-edge Silicon Carbide (SiC) MOSFET technology, delivering superior switching performance compared to traditional IGBT-based solutions. This advancement enables:
+            La nueva serie AHF SiC aprovecha la tecnología de vanguardia de MOSFET de Carburo de Silicio (SiC), ofreciendo un rendimiento de conmutación superior en comparación con las soluciones tradicionales basadas en IGBT. Este avance permite:
           </p>
           <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
-            <li>99% harmonic compensation efficiency</li>
-            <li>20% reduction in physical footprint</li>
-            <li>Switching frequency up to 25kHz</li>
-            <li>Lower thermal management requirements</li>
-            <li>Extended operational lifespan</li>
+            <li>99% de eficiencia en compensación de armónicos</li>
+            <li>20% de reducción en el espacio físico</li>
+            <li>Frecuencia de conmutación de hasta 25kHz</li>
+            <li>Menores requisitos de gestión térmica</li>
+            <li>Vida útil operativa extendida</li>
           </ul>
 
           <h2 id="features" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Key Features
+            Características Principales
           </h2>
           <p class="text-text-mid leading-relaxed mb-4">
-            The SiC AHF series incorporates advanced features designed for demanding industrial environments:
+            La serie AHF SiC incorpora características avanzadas diseñadas para entornos industriales exigentes:
           </p>
           <div class="grid md:grid-cols-2 gap-6 mb-6">
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Real-Time Monitoring</h3>
-              <p class="text-text-mid text-sm">Built-in power quality analyzer with continuous harmonic monitoring and remote diagnostics capabilities.</p>
+              <h3 class="font-semibold text-text-dark mb-2">Monitoreo en Tiempo Real</h3>
+              <p class="text-text-mid text-sm">Analizador de calidad de energía integrado con monitoreo continuo de armónicos y capacidades de diagnóstico remoto.</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Modular Design</h3>
-              <p class="text-text-mid text-sm">Scalable architecture allows easy expansion from 30A to 600A modules for growing facilities.</p>
+              <h3 class="font-semibold text-text-dark mb-2">Diseño Modular</h3>
+              <p class="text-text-mid text-sm">Arquitectura escalable que permite una fácil expansión desde módulos de 30A hasta 600A para instalaciones en crecimiento.</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">Smart Grid Ready</h3>
-              <p class="text-text-mid text-sm">Compatible with modern smart grid protocols including Modbus TCP/IP and IEC 61850.</p>
+              <h3 class="font-semibold text-text-dark mb-2">Listo para Smart Grid</h3>
+              <p class="text-text-mid text-sm">Compatible con protocolos modernos de redes inteligentes, incluyendo Modbus TCP/IP e IEC 61850.</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="font-semibold text-text-dark mb-2">IP54 Protection</h3>
-              <p class="text-text-mid text-sm">Enhanced protection rating for harsh industrial environments with dust and moisture exposure.</p>
+              <h3 class="font-semibold text-text-dark mb-2">Protección IP54</h3>
+              <p class="text-text-mid text-sm">Clasificación de protección mejorada para entornos industriales adversos con exposición a polvo y humedad.</p>
             </div>
           </div>
 
           <h2 id="specs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Technical Specifications
+            Especificaciones Técnicas
           </h2>
           <div class="overflow-x-auto mb-6">
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-50">
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parameter</th>
-                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Value</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parámetro</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Valor</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Rated Current</td><td class="p-4 border-b border-border-light text-text-mid">50A - 200A</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage</td><td class="p-4 border-b border-border-light text-text-mid">380V-480V AC</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">THD Compensation</td><td class="p-4 border-b border-border-light text-text-mid">Up to 99%</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Response Time</td><td class="p-4 border-b border-border-light text-text-mid">&lt; 5ms</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Efficiency</td><td class="p-4 border-b border-border-light text-text-mid">98.5%+</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Protection Rating</td><td class="p-4 border-b border-border-light text-text-mid">IP54</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Corriente Nominal</td><td class="p-4 border-b border-border-light text-text-mid">50A - 200A</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Voltaje</td><td class="p-4 border-b border-border-light text-text-mid">380V-480V AC</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Compensación THD</td><td class="p-4 border-b border-border-light text-text-mid">Hasta 99%</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Tiempo de Respuesta</td><td class="p-4 border-b border-border-light text-text-mid">&lt; 5ms</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Eficiencia</td><td class="p-4 border-b border-border-light text-text-mid">98.5%+</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Clasificación de Protección</td><td class="p-4 border-b border-border-light text-text-mid">IP54</td></tr>
               </tbody>
             </table>
           </div>
 
           <h2 id="applications" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Application Scenarios
+            Escenarios de Aplicación
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            The SiC AHF series is ideal for applications requiring high-performance harmonic filtering:
+            La serie AHF SiC es ideal para aplicaciones que requieren filtrado de armónicos de alto rendimiento:
           </p>
           <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
-            <li>Variable Frequency Drive (VFD) systems</li>
-            <li>Data center power distribution</li>
-            <li>Medical facility power systems</li>
-            <li>Industrial manufacturing lines</li>
-            <li>Renewable energy installations</li>
+            <li>Sistemas de Variadores de Frecuencia (VFD)</li>
+            <li>Distribución de energía en centros de datos</li>
+            <li>Sistemas eléctricos en instalaciones médicas</li>
+            <li>Líneas de fabricación industrial</li>
+            <li>Instalaciones de energía renovable</li>
           </ul>
 
           <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
-            Installation Guide
+            Guía de Instalación
           </h2>
           <p class="text-text-mid leading-relaxed mb-6">
-            The modular design enables quick installation with minimal downtime. Standard installation can be completed within 0.5 hours depending on system configuration. CHITEK provides comprehensive installation support including on-site technical assistance.
+            El diseño modular permite una instalación rápida con un tiempo de inactividad mínimo. La instalación estándar se puede completar en 0.5 horas dependiendo de la configuración del sistema. CHITEK proporciona soporte integral de instalación que incluye asistencia técnica en el sitio.
           </p>
 
           <!-- SEO Keywords -->
@@ -210,12 +210,12 @@ const relatedCases = [
               </svg>
             </div>
             <div>
-              <div class="font-semibold text-text-dark">CHITEK Technical Team</div>
-              <div class="text-sm text-text-muted">Published {article.dateDisplay}</div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
             </div>
           </div>
           <div class="flex items-center gap-3">
-            <span class="text-sm text-text-muted">Share:</span>
+            <span class="text-sm text-text-muted">Compartir:</span>
             <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
@@ -239,7 +239,7 @@ const relatedCases = [
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
               </svg>
-              More Articles
+              Más Artículos
             </h3>
             <div class="space-y-2">
               {otherArticles.map((item) => (
@@ -256,7 +256,7 @@ const relatedCases = [
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
               </svg>
-              Related Products
+              Productos Relacionados
             </h3>
             <div class="space-y-2">
               {relatedProducts.map((product) => (
@@ -283,11 +283,11 @@ const relatedCases = [
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
                 <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
-              Customer Cases
+              Casos de Clientes
             </h3>
             <div class="space-y-2">
               {relatedCases.map((caseItem) => (
-                <a href="/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                <a href="/es/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
                   <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
                 </a>
