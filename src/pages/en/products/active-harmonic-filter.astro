@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'Active Harmonic Filter (AHF) Manufacturer | CHITEK',
+  description: 'CHITEK Active Harmonic Filter (AHF) — IGBT-based dynamic harmonic mitigation, <5% THD, power factor correction and load balancing for VFD, UPS and industrial loads.',
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang="en">
+  <!-- Structured data: BreadcrumbList + Product + FAQPage -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://en.chitek-inno.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://en.chitek-inno.com/products" },
+      { "@type": "ListItem", "position": 3, "name": "Active Harmonic Filter", "item": "https://en.chitek-inno.com/products/active-harmonic-filter" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CHITEK Active Harmonic Filter (AHF)",
+    "brand": { "@type": "Brand", "name": "CHITEK INNOPOWER" },
+    "description": "IGBT / SiC based active harmonic filter that dynamically cancels harmonic currents, corrects power factor and balances loads to keep THDi below 5% per IEEE 519.",
+    "category": "Power Quality / Harmonic Mitigation",
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "220-690V" },
+      { "@type": "PropertyValue", "name": "Rated Capacity", "value": "15A-200A per module, parallel expandable" },
+      { "@type": "PropertyValue", "name": "Frequency", "value": "50/60 Hz" },
+      { "@type": "PropertyValue", "name": "Wiring", "value": "3P3W / 3P4W" },
+      { "@type": "PropertyValue", "name": "Filtering Range", "value": "2nd-51st order harmonic" },
+      { "@type": "PropertyValue", "name": "Full Response Time", "value": "<50 us" },
+      { "@type": "PropertyValue", "name": "Efficiency", "value": ">=97%" },
+      { "@type": "PropertyValue", "name": "THDi", "value": "<5% (IEEE 519)" },
+      { "@type": "PropertyValue", "name": "Topology", "value": "3-level NPC, IGBT / SiC" },
+      { "@type": "PropertyValue", "name": "Standard", "value": "IEC 61000 / IEC 62477" },
+      { "@type": "PropertyValue", "name": "Communication", "value": "MODBUS / optional Ethernet" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is an Active Harmonic Filter (AHF)?", "acceptedAnswer": { "@type": "Answer", "text": "An Active Harmonic Filter (AHF) is a power quality device that continuously measures the load current with a CT, calculates the harmonic, reactive and unbalanced components with a DSP/FPGA, and injects an equal and opposite compensation current through an IGBT or SiC inverter — cancelling harmonics in real time and keeping Total Harmonic Distortion (THDi) below 5%." } },
+      { "@type": "Question", "name": "How does an active harmonic filter work?", "acceptedAnswer": { "@type": "Answer", "text": "The AHF samples the load current via an external CT, runs an FFT in the DSP to separate 2nd-51st order harmonics, then commands the IGBT/SiC bridge to synthesize a counter-phase current. The grid then sees only the fundamental — harmonics, reactive power and neutral current are all compensated dynamically." } },
+      { "@type": "Question", "name": "Active harmonic filter vs passive filter: what is the difference?", "acceptedAnswer": { "@type": "Answer", "text": "A passive filter uses fixed LC tanks tuned to specific frequencies; it can resonate with the grid impedance and only treats known harmonics. An AHF measures and cancels any harmonic spectrum in real time, avoids resonance, and also corrects power factor and imbalance — ideal for variable and dynamic loads." } },
+      { "@type": "Question", "name": "When should I use an AHF instead of an SVG?", "acceptedAnswer": { "@type": "Answer", "text": "Use an AHF when harmonic distortion (THDi) is the problem — VFDs, UPS, rectifiers, welding. Use an SVG (Static Var Generator) when the priority is reactive power and voltage stability with low harmonic content. Many sites deploy AHF + SVG together for full power-quality correction." } },
+      { "@type": "Question", "name": "What THD limit must my system meet?", "acceptedAnswer": { "@type": "Answer", "text": "IEEE 519 limits harmonic current distortion to typically 5%-8% depending on the short-circuit ratio at the point of common coupling; G5/4 and regional grids set similar thresholds. Exceeding them risks utility fines, supply restrictions and failed commissioning. A properly sized AHF holds THDi under 5%." } },
+      { "@type": "Question", "name": "How do I size and select an active harmonic filter?", "acceptedAnswer": { "@type": "Answer", "text": "Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%-30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (15A-200A per module, parallel expandable to 3000A+)." } },
+      { "@type": "Question", "name": "Can an AHF handle 3-phase 4-wire neutral current?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. In 3-phase 4-wire systems the 3rd harmonic accumulates in the neutral and can reach 1.7x the phase current. CHITEK AHF in 3P4W mode injects compensating neutral current, eliminating overload, insulation aging and fire risk." } },
+      { "@type": "Question", "name": "Wall-mounted or cabinet AHF — which should I choose?", "acceptedAnswer": { "@type": "Answer", "text": "The Ultra-Slim (U-Series) wall-mounted unit fits space-constrained switchrooms up to ~100A. For larger capacities, outdoor or parallel duty, choose a floor-standing Standard (L-Series) or Distributed (D-Series) cabinet. Selection depends on capacity, cooling and installation space." } },
+      { "@type": "Question", "name": "How is the AHF installed and commissioned?", "acceptedAnswer": { "@type": "Answer", "text": "Install the AHF in parallel with the load downstream of the metering point, connect the CT around the incoming feeder, and power on. Configuration is done on the front HMI: set the compensation priority (harmonic / reactive / balance), and up to 10 units auto-synchronize in under 5 minutes with hot-swappable modules." } }
+    ]
+  }
+  </script>
+
+  <!-- Hero -->
+  <section class="relative w-full overflow-hidden min-h-[58vh] flex items-center justify-center" style="background:url('/assets/images/products-hero-bg.webp') center/cover no-repeat">
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <p class="text-brand-orange font-barlow-condensed tracking-widest text-[clamp(13px,1.2vw,18px)] font-semibold mb-3">POWER QUALITY SOLUTIONS</p>
+      <h1 class="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-tight mb-5 font-barlow-condensed text-white">Active Harmonic Filter (AHF)</h1>
+      <p class="text-[clamp(1.05rem,2vw,1.4rem)] text-white/90 max-w-2xl mx-auto leading-relaxed">Dynamic, IGBT / SiC-based harmonic mitigation that drives THDi below 5%, corrects power factor and balances loads for VFD, UPS and industrial applications.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb (visible) -->
+  <nav class="bg-[#fafbfc] border-b border-border-light" aria-label="Breadcrumb">
+    <div class="mx-auto max-w-7xl px-6 py-3 text-[clamp(12px,0.9vw,14px)] text-text-muted">
+      <a href="/en" class="hover:text-brand-orange transition-colors">Home</a>
+      <span class="mx-2 text-border-light">/</span>
+      <a href="/en/products" class="hover:text-brand-orange transition-colors">Products</a>
+      <span class="mx-2 text-border-light">/</span>
+      <span class="text-text-dark font-medium">Active Harmonic Filter</span>
+    </div>
+  </nav>
+
+  <!-- Overview -->
+  <section id="overview" class="bg-white py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="flex items-center justify-center gap-4 mb-8">
+        <div class="h-[2px] w-12 bg-gradient-to-r from-transparent to-brand-orange/60"></div>
+        <div class="h-[3px] w-24 bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60"></div>
+        <div class="h-[2px] w-12 bg-gradient-to-r from-brand-orange/60 to-transparent"></div>
+      </div>
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-6 font-barlow-condensed text-center">What Is an Active Harmonic Filter</h2>
+      <div class="max-w-3xl mx-auto text-[clamp(14px,1.1vw,17px)] leading-relaxed text-text-mid space-y-4">
+        <p>An <strong class="text-text-dark">Active Harmonic Filter (AHF)</strong> is a solid-state power-quality device that eliminates harmonic distortion at its source. Nonlinear loads — variable frequency drives (VFDs), UPS systems, LED drivers, rectifiers and welding equipment — generate 3rd, 5th, 7th and higher-order harmonics that overheat transformers, waste cable capacity and trip sensitive equipment.</p>
+        <p>Instead of tuning fixed reactors, the CHITEK AHF measures the load current in real time and injects a precisely equal, opposite-phase compensation current. The result is a clean sinusoidal grid current with <strong class="text-text-dark">THDi held below 5%</strong> per IEEE 519 — without the resonance risk of passive filters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="relative py-[clamp(48px,5vw,96px)] overflow-hidden" style="background: linear-gradient(rgba(7,16,30,0.92), rgba(7,16,30,0.92)), url('/assets/images/products-key-features.jpg') center/cover no-repeat">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-white mb-10 font-barlow-condensed text-center">How an Active Harmonic Filter Works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-5">
+        <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
+          <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">01</div>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Sense (CT)</h3>
+          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">An external current transformer samples the load current continuously at the point of common coupling.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
+          <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">02</div>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Analyze (FFT + DSP)</h3>
+          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">A DSP / FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance in microseconds.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
+          <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">03</div>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Command (IGBT / SiC)</h3>
+          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">The inverter bridge is commanded to synthesize the required compensation current at 20 kHz switching.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
+          <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">04</div>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Inject</h3>
+          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">A counter-phase current is injected in parallel, cancelling the harmonic component at its source.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
+          <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">05</div>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Clean Grid</h3>
+          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">The utility sees only the fundamental — THDi &lt; 5%, improved power factor, balanced phases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section id="benefits" class="bg-white py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-center">Key Benefits</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Harmonic Mitigation</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Suppresses 2nd–51st order harmonics, holding THDi below 5% and eliminating resonance risk.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Power Factor Correction</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Dynamic reactive compensation keeps PF in the 0.95–1.0 range and avoids utility penalty charges.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Neutral Current Relief</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">3P4W mode cancels accumulated 3rd-harmonic neutral current, preventing overload and fire hazard.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Load Balancing</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Redistributes phase currents to remove three-phase unbalance and stabilize voltage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications (static HTML table) -->
+  <section id="specifications" class="bg-[#fafbfc] py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">Technical Specifications</h2>
+      <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
+        <table class="w-full border-collapse text-[clamp(13px,1vw,15px)]">
+          <tbody>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark w-1/2">Rated Voltage</th><td class="p-4 text-text-mid">220–690 V</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Rated Capacity</th><td class="p-4 text-text-mid">15 A – 200 A per module (parallel expandable to 3000 A+)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Frequency</th><td class="p-4 text-text-mid">50 / 60 Hz</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Wiring Mode</th><td class="p-4 text-text-mid">3P3W / 3P4W</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Filtering Range</th><td class="p-4 text-text-mid">2nd – 51st order harmonic</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Full Response Time</th><td class="p-4 text-text-mid">&lt; 50 μs</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Switching Frequency</th><td class="p-4 text-text-mid">20 kHz</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Efficiency</th><td class="p-4 text-text-mid">≥ 97%</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">THDi (after compensation)</th><td class="p-4 text-text-mid">&lt; 5% (IEEE 519)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Topology</th><td class="p-4 text-text-mid">3-level NPC, IGBT / SiC</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">IP Class</th><td class="p-4 text-text-mid">IP20 (customizable)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Protection Standard</th><td class="p-4 text-text-mid">IEC 61000 / IEC 62477</td></tr>
+            <tr><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Communication</th><td class="p-4 text-text-mid">MODBUS / optional Ethernet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Series (5 H3 anchored sections) -->
+  <section id="series" class="bg-white py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-3 font-barlow-condensed text-center">AHF Product Series</h2>
+      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.1vw,16px)]">Five series cover every scenario — from wall-mounted compact units to heavy-industrial anti-pollution cabinets.</p>
+
+      <div class="space-y-10">
+        <div class="rounded-2xl border border-border-light overflow-hidden">
+          <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light"><h3 id="standard" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Standard Series (L-Series)</h3></div>
+          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+            <p>The general-purpose cabinet AHF for commercial and light-industrial sites. Capacity 50 A – 200 A per module, parallel expandable. Best for UPS rooms, HVAC VFDs and building distribution where a floor-standing cabinet fits.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-border-light overflow-hidden">
+          <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light"><h3 id="sic" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">SiC Series (C-Series)</h3></div>
+          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+            <p>Silicon-carbide topology delivers higher switching efficiency, greater power density and lower thermal loss in the same footprint. Ideal for space- and efficiency-critical installations that demand the smallest cabinet for the highest capacity.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-border-light overflow-hidden">
+          <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light"><h3 id="distributed" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Distributed Series (D-Series)</h3></div>
+          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+            <p>Modular, hot-swappable units deployed close to distributed loads. N+1 redundancy and cable-saving parallel operation make it the choice for large plants with many separate feeder panels.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-border-light overflow-hidden">
+          <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light"><h3 id="anti-pollution" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Anti-Pollution Series (A-Series)</h3></div>
+          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+            <p>Engineered for severe harmonic environments — arc furnaces, rolling mills, welding lines and rectifier loads. Reinforced protection (16-way wide range) and anti-resonance control keep the grid stable under the dirtiest profiles.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-border-light overflow-hidden">
+          <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light"><h3 id="ultra-slim" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Ultra-Slim Series (U-Series)</h3></div>
+          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+            <p>Wall-mounted, 45 mm-class slim unit for space-constrained switchrooms up to ~100 A. Brings active filtering to retrofits and small substations where a floor-standing cabinet cannot fit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications -->
+  <section id="applications" class="bg-[#fafbfc] py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-center">Applications by Industry</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Data Centers</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Cancels UPS capacitive reverse flow, holds PF at 0.95–1.0.</p></div>
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Textile &amp; Manufacturing</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Tames VFD harmonics on spinning, weaving and extrusion lines.</p></div>
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Metals &amp; Mining</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Arc-furnace flicker suppression and reactive support.</p></div>
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Healthcare</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Protects imaging and life-support equipment from harmonic interference.</p></div>
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Commercial Buildings</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Reduces transformer heating and neutral overload in 3P4W systems.</p></div>
+        <div class="rounded-2xl border border-border-light p-6 bg-white"><h3 class="font-semibold text-text-dark mb-2">Renewables &amp; Storage</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Meets grid-code PF requirements for solar and BESS inverters.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AHF vs Passive / Line Reactor -->
+  <section id="vs-passive" class="bg-white py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">AHF vs Passive Filter &amp; Line Reactor</h2>
+      <div class="overflow-x-auto rounded-2xl border border-border-light">
+        <table class="w-full border-collapse text-[clamp(13px,1vw,15px)]">
+          <thead>
+            <tr class="bg-[#fff5f0] text-text-dark"><th class="text-left p-4 font-semibold">Criterion</th><th class="text-left p-4 font-semibold">Active Harmonic Filter</th><th class="text-left p-4 font-semibold">Passive Filter / Line Reactor</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-border-light"><th class="text-left p-4 font-semibold text-text-dark">Compensation</th><td class="p-4 text-text-mid">Real-time, any spectrum</td><td class="p-4 text-text-mid">Fixed tuned frequencies only</td></tr>
+            <tr class="border-t border-border-light"><th class="text-left p-4 font-semibold text-text-dark">Resonance risk</th><td class="p-4 text-text-mid">None (infinite grid impedance)</td><td class="p-4 text-text-mid">Can resonate with grid impedance</td></tr>
+            <tr class="border-t border-border-light"><th class="text-left p-4 font-semibold text-text-dark">Reactive / imbalance</th><td class="p-4 text-text-mid">Yes, simultaneously</td><td class="p-4 text-text-mid">No</td></tr>
+            <tr class="border-t border-border-light"><th class="text-left p-4 font-semibold text-text-dark">Best for</th><td class="p-4 text-text-mid">Dynamic / variable loads</td><td class="p-4 text-text-mid">Stable, predictable loads</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (static, visible, crawlable) -->
+  <section id="faq" class="bg-[#fafbfc] py-[clamp(48px,5vw,96px)]">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="group rounded-2xl border border-border-light bg-white p-5" open>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">What is an Active Harmonic Filter (AHF)?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">An Active Harmonic Filter (AHF) is a power quality device that continuously measures the load current with a CT, calculates the harmonic, reactive and unbalanced components with a DSP/FPGA, and injects an equal and opposite compensation current through an IGBT or SiC inverter — cancelling harmonics in real time and keeping Total Harmonic Distortion (THDi) below 5%.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How does an active harmonic filter work?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">The AHF samples the load current via an external CT, runs an FFT in the DSP to separate 2nd–51st order harmonics, then commands the IGBT/SiC bridge to synthesize a counter-phase current. The grid then sees only the fundamental — harmonics, reactive power and neutral current are all compensated dynamically.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Active harmonic filter vs passive filter: what is the difference?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">A passive filter uses fixed LC tanks tuned to specific frequencies; it can resonate with the grid impedance and only treats known harmonics. An AHF measures and cancels any harmonic spectrum in real time, avoids resonance, and also corrects power factor and imbalance — ideal for variable and dynamic loads.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">When should I use an AHF instead of an SVG?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Use an AHF when harmonic distortion (THDi) is the problem — VFDs, UPS, rectifiers, welding. Use an SVG (Static Var Generator) when the priority is reactive power and voltage stability with low harmonic content. Many sites deploy AHF + SVG together for full power-quality correction.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">What THD limit must my system meet?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">IEEE 519 limits harmonic current distortion to typically 5%–8% depending on the short-circuit ratio at the point of common coupling; G5/4 and regional grids set similar thresholds. Exceeding them risks utility fines, supply restrictions and failed commissioning. A properly sized AHF holds THDi under 5%.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How do I size and select an active harmonic filter?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%–30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (15 A–200 A per module, parallel expandable to 3000 A+).</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Can an AHF handle 3-phase 4-wire neutral current?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Yes. In 3-phase 4-wire systems the 3rd harmonic accumulates in the neutral and can reach 1.7× the phase current. CHITEK AHF in 3P4W mode injects compensating neutral current, eliminating overload, insulation aging and fire risk.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Wall-mounted or cabinet AHF — which should I choose?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">The Ultra-Slim (U-Series) wall-mounted unit fits space-constrained switchrooms up to ~100 A. For larger capacities, outdoor or parallel duty, choose a floor-standing Standard (L-Series) or Distributed (D-Series) cabinet. Selection depends on capacity, cooling and installation space.</p>
+        </details>
+        <details class="group rounded-2xl border border-border-light bg-white p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How is the AHF installed and commissioned?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Install the AHF in parallel with the load downstream of the metering point, connect the CT around the incoming feeder, and power on. Configuration is done on the front HMI: set the compensation priority (harmonic / reactive / balance), and up to 10 units auto-synchronize in under 5 minutes with hot-swappable modules.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section id="related" class="bg-white py-[clamp(40px,4vw,72px)]">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(20px,2vw,32px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">Related Power Quality Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <a href="/en/products/static-var-generator/" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
+          <h3 class="font-semibold text-text-dark mb-2 group-hover:text-brand-orange transition-colors">Static Var Generator (SVG)</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Dynamic reactive power compensation and voltage stabilization for flicker-prone and capacitive loads.</p>
+        </a>
+        <a href="/en/products/sic-ahf-svg/" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
+          <h3 class="font-semibold text-text-dark mb-2 group-hover:text-brand-orange transition-colors">SiC AHF &amp; SVG</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Silicon-carbide active filter and SVG in the highest-density, lowest-loss package.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Long-tail Tags internal linking block -->
+  <section class="bg-[#fafbfc] py-[clamp(32px,3vw,56px)] border-t border-border-light">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-[clamp(16px,1.3vw,22px)] font-semibold text-text-dark mb-4 font-barlow-condensed">Explore Active Harmonic Filters</h2>
+      <div class="flex flex-wrap gap-2">
+        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter price</a>
+        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter panel</a>
+        <a href="/en/products/active-harmonic-filter/#faq" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter cost</a>
+        <a href="/en/products/active-harmonic-filter/#applications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter for VFD</a>
+        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">3 phase active harmonic filter</a>
+        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter 50A</a>
+        <a href="/en/products/active-harmonic-filter/#vs-passive" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active power filter</a>
+        <a href="/en/products/active-harmonic-filter/#how-it-works" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">harmonic filter in power system</a>
+        <a href="/en/products/active-harmonic-filter/#benefits" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter manufacturer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-bg-dark py-[clamp(48px,5vw,88px)]">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+      <h2 class="text-[clamp(22px,2.2vw,38px)] font-bold text-white mb-4 font-barlow-condensed">Get a Quote for Your Active Harmonic Filter</h2>
+      <p class="text-white/80 mb-8 text-[clamp(14px,1.1vw,17px)]">Send us your load profile and harmonic spectrum — our engineers will size the right series and capacity.</p>
+      <a href="/en/contact" class="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-3.5 text-[clamp(14px,1.1vw,17px)] transition-colors">Request a Quote</a>
+    </div>
+  </section>
+</BaseLayout>

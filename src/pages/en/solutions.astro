@@ -5,6 +5,9 @@ const meta = {
   title: 'Power Quality Solutions – Industrial & Utility Applications | CHITEK',
   description: 'CHITEK provides power quality solutions for Industrial Manufacturing, Commercial Buildings, Data Centers, Renewable Energy, Transportation, and Power Grid applications worldwide.',
 };
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>

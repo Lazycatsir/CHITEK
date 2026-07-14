@@ -5,6 +5,9 @@ const meta = {
   title: 'About CHITEK – Power Quality Company Profile & Certifications',
   description: 'CHITEK is a high-tech enterprise founded in 2019, specializing in power electronics R&D, manufacturing, and service. ISO 9001 certified with 20+ patents.',
 };
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
@@ -100,37 +103,37 @@ const meta = {
       </div>
 
       <div class="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 fade-up">
-        <a href="/solutions#industry" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#industry')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-manufacturing.webp" alt="Industrial Manufacturing" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Industrial Manufacturing</span>
           </div>
         </a>
-        <a href="/solutions#commercial" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#commercial')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-commercial-medical.webp" alt="Commercial & Medical Buildings" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Commercial &amp; Medical Buildings</span>
           </div>
         </a>
-        <a href="/solutions#datacenter" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#datacenter')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-datacenter.webp" alt="Data Centers & Telecom" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Data Centers &amp; Telecom</span>
           </div>
         </a>
-        <a href="/solutions#renewable" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#renewable')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-renewable.webp" alt="Renewable Energy" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Renewable Energy</span>
           </div>
         </a>
-        <a href="/solutions#rail" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#rail')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-transportation.webp" alt="Transportation" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Transportation</span>
           </div>
         </a>
-        <a href="/solutions#grid" class="relative group block overflow-hidden aspect-[4/3]">
+        <a href={lp('/solutions#grid')} class="relative group block overflow-hidden aspect-[4/3]">
           <img src="/assets/images/about-industry-power-grid.webp" alt="Power Grid & Utility" class="w-full h-full object-cover" loading="lazy" />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center max-md:bg-black/40 max-md:opacity-100">
             <span class="text-white text-[clamp(16px,1.5vw,24px)] max-md:text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide max-md:opacity-100">Power Grid &amp; Utility</span>

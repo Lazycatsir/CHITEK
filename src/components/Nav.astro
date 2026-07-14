@@ -4,6 +4,8 @@ export interface Props {
 }
 const { lang = 'en' } = Astro.props;
 const isRtl = lang === 'ar';
+// 本地开发/预览（localhost）用路径前缀；线上 zh/en 用根路径（子域名承载语言）
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 
 const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: string }> = {
   products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات', zh: '产品中心' },
@@ -46,6 +48,11 @@ function langHref(targetLang: string): string {
       break;
     }
   }
+  // 本地开发/预览（localhost）用路径前缀相对链接，避免跳到线上子域名；线上维持绝对子域名
+  if (isLocal) {
+    const localPrefix: Record<string, string> = { zh: '', en: '/en', es: '/es', ar: '/ar', pt: '/pt' };
+    return (localPrefix[targetLang] || '') + base;
+  }
   const domain: Record<string, string> = {
     zh: 'https://chitek-inno.com',
     en: 'https://en.chitek-inno.com',
@@ -62,8 +69,10 @@ const ptHref = langHref('pt');
 const esHref = langHref('es');
 const arHref = langHref('ar');
 const zhHref = langHref('zh');
-// zh/en 在各自域名下用根路径，es/ar/pt 在主域名下需要前缀
-const prefix = lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '';
+// 本地（localhost）全语言用路径前缀；线上 zh/en 用根路径（子域名承载语言），es/ar/pt 需前缀
+const prefix = isLocal
+  ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
+  : (lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '');
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';
@@ -167,9 +176,18 @@ const homeHref = prefix || '/';
         <a href={aboutHref + '#about'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('companyProfile')}</a>
         <a href={aboutHref + '#industry'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('caseStudies')}</a>
         <a href={aboutHref + '#certifications'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('certifications')}</a>
-        {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <a href={newsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('news')}</a>}
       </div>
     </div>
+
+    <!-- News (top-level tab, between About and Contact) -->
+    {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && (
+      <div class="group relative flex items-center">
+        <a href={newsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+          {_('news')}
+          <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
+        </a>
+      </div>
+    )}
 
     <!-- Contact (no dropdown) -->
     <div class="group relative flex items-center">
@@ -273,9 +291,13 @@ const homeHref = prefix || '/';
       <a href={aboutHref + '#about'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('companyProfile')}</a>
       <a href={aboutHref + '#industry'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('caseStudies')}</a>
       <a href={aboutHref + '#certifications'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('certifications')}</a>
-      {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <a href={newsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('news')}</a>}
     </div>
   </div>
+  {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && (
+  <div class="border-b border-border-light">
+    <a href={newsHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]">{_('news')}</a>
+  </div>
+  )}
   <div class="border-b-0">
     <a href={contactHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em] border-b-0">{_('contact')}</a>
   </div>

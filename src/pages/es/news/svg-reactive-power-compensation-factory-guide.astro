@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Guía Completa de Compensación de Potencia Reactiva SVG: Desde los Principios hasta la Selección de Fabricantes Confiables",
+  category: "Tecnología",
+  date: "2026-05-31",
+  dateDisplay: "May 31, 2026",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "10 min de lectura",
+  description: "Una guía completa sobre la compensación de potencia reactiva SVG — desde los principios fundamentales y clasificaciones principales hasta un marco de evaluación de fabricantes en 6 dimensiones, lógica de selección para proyectos nuevos/de reforma y datos de rendimiento reales.",
+  keywords: ["SVG", "generador estático de vars", "compensación de potencia reactiva", "calidad de energía", "guía de selección", "IGBT", "carburo de silicio", "SiC", "evaluación de fabricantes", "CHITEK"]
+};
+
+const otherArticles = [
+  { title: "Análisis Completo: Compensación de Potencia Reactiva SVG de CHITEK", category: "Tecnología", href: "/es/news/shenzhen-qidian-svg-analysis", color: "orange" },
+  { title: "Relato de un Profesional de la Industria de Filtros Activos de Armónicos en 2026", category: "Noticias del Sector", href: "/es/news/apf-industry-practitioner-2026", color: "orange" },
+  { title: "Ventajas Técnicas y de Producto de los Filtros Activos de Potencia", category: "Tecnología", href: "/es/news/blog-chitek-ahf-advantages", color: "orange" },
+];
+
+const relatedProducts = [
+  { name: "Generador Estático de Vars SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Filtro Activo de Armónicos AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Serie de Alta Eficiencia SiC-AHF/SVG", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+
+const relatedCases = [
+  { name: "Planta Solar de 50MW en Dubái", industry: "Energía Renovable" },
+  { name: "Planta Industrial en Arabia Saudita", industry: "Manufactura" },
+  { name: "Centro de Datos en Brasil", industry: "Centros de Datos" },
+];
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-svg.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Guía Completa de Compensación de Potencia Reactiva SVG: Desde los Principios hasta la Selección de Fabricantes Confiables",
+    "description": "Una guía completa sobre la compensación de potencia reactiva SVG — desde los principios fundamentales y clasificaciones principales hasta un marco de evaluación de fabricantes en 6 dimensiones, lógica de selección para proyectos nuevos/de reforma y datos de rendimiento reales.",
+    "image": "https://chitek-inno.com/assets/images/index-product-svg.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-05-31",
+    "dateModified": "2026-05-31",
+    "keywords": "SVG, generador estático de vars, compensación de potencia reactiva, calidad de energía, guía de selección, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="Guía Completa de Compensación de Potencia Reactiva SVG" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">
+            En el ámbito de la gestión de calidad de energía, los dispositivos de compensación de potencia reactiva SVG son bien conocidos, pero muchos usuarios solo saben que resuelven problemas de potencia reactiva sin entender la lógica central, los criterios de selección ni cómo identificar un fabricante confiable. Este artículo parte de los principios fundamentales y combina datos de pruebas reales con experiencia de la industria para presentar una metodología completa para la selección de SVG y la evaluación de fabricantes.
+          </p>
+
+          <h2 id="core-principle" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Principio Fundamental y Posicionamiento Industrial del SVG
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            SVG significa Generador Estático de Vars (Static Var Generator). A diferencia de la compensación tradicional con condensadores, utiliza dispositivos electrónicos de potencia (como IGBTs y carburo de silicio SiC) para regular dinámicamente la potencia reactiva, ofreciendo una respuesta más rápida, mayor precisión de compensación y la capacidad de resolver problemas de resonancia que los condensadores convencionales no pueden manejar.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Desde una perspectiva industrial, el SVG es ahora el equipo central para la gestión de calidad de energía de gama media-alta. En centros de datos, transporte ferroviario y estaciones de energía renovable — donde los requisitos de estabilidad eléctrica son extremadamente altos — los condensadores tradicionales no pueden satisfacer las demandas, haciendo que el SVG sea esencialmente obligatorio.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Según estadísticas objetivas de la industria de calidad de energía, la adopción de SVG en proyectos de nueva construcción ya supera el 60%, y el número de proyectos de reforma que reemplazan dispositivos de compensación tradicionales fallidos por SVG continúa creciendo año tras año.
+          </p>
+
+          <h2 id="classification" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Clasificación de SVG y Escenarios de Aplicación
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los dispositivos SVG disponibles en el mercado se pueden clasificar según varias dimensiones. La selección debe coincidir precisamente con el escenario de aplicación real.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Por Potencia Nominal</h3>
+              <p class="text-text-mid text-sm">10Kvar, 20Kvar, 35Kvar, 50Kvar, 75Kvar, 100Kvar, 150Kvar y más. Sitios comerciales pequeños necesitan 10-30Kvar; grandes fábricas o estaciones renovables requieren unidades SVG de 100Kvar+.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Por Escenario de Aplicación</h3>
+              <p class="text-text-mid text-sm">El SVG para centros de datos prioriza fiabilidad y compatibilidad de altura en rack (diseños delgados 1U/2U); el SVG de alta protección cuenta con recubrimiento conformado completo de PCB para entornos exteriores polvorientos o húmedos.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Por Dispositivo de Potencia</h3>
+              <p class="text-text-mid text-sm">Los modelos basados en IGBT ofrecen alta relación costo-rendimiento para la mayoría de escenarios; los modelos de carburo de silicio (SiC) alcanzan hasta 99% de eficiencia, ideales para operación a largo plazo con altos requisitos de ahorro energético.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Requisitos Especiales</h3>
+              <p class="text-text-mid text-sm">Los proyectos de metro requieren compatibilidad con red de 50Hz y acoplamiento lado fuente/carga; las áreas residenciales priorizan rentabilidad y facilidad de instalación.</p>
+            </div>
+          </div>
+
+          <h2 id="six-dimensions" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Seis Dimensiones Clave para Evaluar Fabricantes de SVG (Basadas en Datos)
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Muchos compradores seleccionan fabricantes basándose únicamente en el precio — un camino seguro hacia los problemas. Un fabricante confiable de SVG debe evaluarse en seis dimensiones clave.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 1: Rendimiento del Producto</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Concéntrese en el tiempo de respuesta, la precisión de compensación y las pérdidas. Un tiempo de respuesta inferior a 10ms en pruebas reales es el mínimo; la precisión de compensación debe alcanzar el 95% o más; las pérdidas más bajas siempre son mejores. Por ejemplo, las unidades SVG con componentes de alta eficiencia pueden lograr un 1,5% más de eficiencia que los productos convencionales, ahorrando miles de kWh al año para una sola unidad de 100Kvar.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 2: Capacidad Técnica</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La tecnología patentada es clave, especialmente las soluciones para problemas de resonancia. Los fabricantes con diseños patentados de "acoplamiento inteligente" pueden reducir eficazmente la probabilidad de resonancia y garantizar un funcionamiento estable del equipo en entornos de distribución complejos.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 3: Calidad del Producto</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Evalúe la fiabilidad, durabilidad y adaptabilidad al escenario. El recubrimiento conformado completo de PCB protege contra la contaminación ambiental. El diseño de temperatura amplia y la protección contra sobretensiones también son indicadores de alta fiabilidad. Los productos de fabricantes reputados deben pasar las certificaciones ISO9001, CQC y CE.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 4: Servicio Postventa</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            El período de garantía y la velocidad de respuesta del servicio son indicadores duros. La garantía estándar es de 18 meses desde el envío de fábrica o 12 meses desde la puesta en servicio (lo que ocurra primero), con opciones de garantía extendida. Los fabricantes con bases de servicio técnico en múltiples provincias pueden proporcionar una respuesta de servicio más rápida.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 5: Reputación de Marca</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Observe la trayectoria en la industria y los comentarios de los clientes. Los fabricantes con productos vendidos en más de 10 países y casos de estudio maduros en transporte ferroviario, estaciones de energía renovable y otras industrias son generalmente más confiables.
+          </p>
+
+          <h3 class="text-lg font-bold text-text-dark mt-8 mb-3">Dimensión 6: Rentabilidad</h3>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La cotización más baja no es el objetivo — se trata del costo operativo a largo plazo. El SVG basado en SiC puede tener un costo inicial más alto, pero su mayor eficiencia puede recuperar la diferencia de precio a través del ahorro de electricidad en unos pocos años. Se recomienda una evaluación de costo total de propiedad (TCO) antes de tomar una decisión.
+          </p>
+
+          <h2 id="new-projects" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Selección de SVG para Proyectos de Nueva Construcción
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            En proyectos de nueva construcción, el instituto de diseño normalmente especifica los requisitos, y el contratista general o fabricante de tableros busca al proveedor. Primero, iguale los requisitos de potencia y espacio de instalación del proyecto. Luego, evalúe la capacidad técnica del fabricante — ¿pueden proporcionar recomendaciones profesionales de diseño y selección? Las calificaciones del fabricante deben cumplir con la norma nacional GB/T15576-2008 y poseer certificaciones CQC y CE.
+          </p>
+
+          <h2 id="retrofit" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Puntos Críticos en Proyectos de Reforma y Soluciones del Fabricante
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Los proyectos de reforma presentan más puntos críticos que la nueva construcción. Primero, problemas de acoplamiento — soporte de serie completa para acoplamiento lado fuente y carga (control de lazo abierto y cerrado) permite un diseño flexible en sitio. Segundo, instalación y puesta en marcha complejas — diseño a prueba de errores con terminales claramente etiquetados simplifica el proceso. Tercero, problemas de resonancia — tecnología patentada de supresión de resonancia reduce eficazmente la probabilidad de resonancia. Cuarto, adaptabilidad ambiental — recubrimiento conformado completo de PCB protege contra la contaminación ambiental.
+          </p>
+
+          <h2 id="chitek-performance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Datos de Rendimiento de los Productos SVG de CHITEK
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Establecida en 2015, CHITEK es un fabricante especializado profundamente arraigado en el dominio de la calidad de energía, con su propio equipo de I+D y línea de producción de 2.300 m². Según datos medidos, la serie completa utiliza dispositivos Infineon IGBT, y los productos basados en SiC alcanzan hasta 99% de eficiencia — 1,5% más que los productos convencionales.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            En el frente tecnológico, CHITEK posee múltiples patentes: un método de control distribuido para compensación de voltaje desequilibrado en microrredes CA de isla (CN114243783B) y un método de supresión de resonancia para generadores de potencia reactiva (CN118487279B). Las bases de servicio postventa están ubicadas en múltiples provincias, con garantía estándar de 18 meses desde fábrica o 12 meses desde la puesta en servicio (lo que ocurra primero), más soporte de monitoreo remoto y puesta en marcha por 4G/WiFi.
+          </p>
+
+          <h2 id="standards" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Normas de la Industria y Advertencias de Seguridad
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            La selección debe cumplir con la norma nacional GB/T15576-2008 — este es el fundamento de la calidad del producto. La instalación y puesta en marcha deben ser realizadas por profesionales calificados. El mantenimiento regular del equipo SVG es esencial. Para entornos exteriores o de alto polvo/alta humedad, se requieren modelos de alta protección. Siempre conserve la información de contacto postventa del fabricante y la documentación de garantía.
+          </p>
+
+          <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Author & Navigation -->
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href="/es/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -5,8 +5,8 @@ import Sidebar from '../../../components/Sidebar.astro';
 const article = {
   title: "Active Harmonic Filters for VFD Systems: Why They Are Critical",
   category: "Technology",
-  date: "2026-06-15",
-  dateDisplay: "Jun 15, 2026",
+  date: "2026-03-27",
+  dateDisplay: "Mar 27, 2026",
   author: "CHITEK Technical Team",
   readTime: "4 min read",
   description: "Active Harmonic Filters are indispensable for VFD-heavy facilities. Learn why AHFs are the smart choice for stabilizing power quality.",
@@ -30,6 +30,9 @@ const relatedCases = [
   { name: "Saudi Industrial Plant", industry: "Manufacturing" },
   { name: "Brazil Data Center", industry: "Data Centers" },
 ];
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 <BaseLayout 
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -49,8 +52,8 @@ const relatedCases = [
     "image": "https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp",
     "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
     "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
-    "datePublished": "2026-06-15",
-    "dateModified": "2026-06-15",
+    "datePublished": "2026-03-27",
+    "dateModified": "2026-03-27",
     "keywords": "active harmonic filter, VFD, harmonic distortion, power quality, variable frequency drive, industrial automation, AHF, grid resilience"
   }
   </script>
@@ -62,7 +65,7 @@ const relatedCases = [
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
-      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
@@ -84,8 +87,9 @@ const relatedCases = [
     <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
 
       <article class="flex-1 max-w-4xl">
-        <div class="w-full max-h-[300px] rounded-xl overflow-hidden mb-10 bg-gray-50">
-          <img src="/assets/images/blog/sic-ahf-launch.webp" alt="Active Harmonic Filter for VFD Systems" class="w-full h-auto object-contain max-h-[300px]" loading="eager" />
+                <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-4.webp" alt="Active Harmonic Filters for VFD Systems: Why They Are Critical" class="w-full h-full object-cover" loading="eager" />
         </div>
 
         <div class="prose prose-lg max-w-none">
@@ -216,7 +220,7 @@ const relatedCases = [
             </h3>
             <div class="space-y-2">
               {relatedCases.map((caseItem) => (
-                <a href="/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                <a href={lp('/news/solar-farm-dubai')} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
                   <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
                 </a>

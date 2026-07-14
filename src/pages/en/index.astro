@@ -5,14 +5,28 @@ const meta = {
   title: 'CHITEK INNOPOWER – Power Quality Solutions Manufacturer',
   description: 'CHITEK is a leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF), Static Var Generator (SVG), and Automatic Voltage Regulator (AVR) for industrial and commercial applications.',
 };
+// 本地开发/预览用 /en 前缀；线上（子域名承载语言）保持根相对
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
   <!-- HERO -->
   <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc(100vh-72px)] max-lg:min-h-[550px] max-md:min-h-[480px] flex items-center">
-    <img src="/assets/images/index-hero-bg.webp" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%] z-0 pointer-events-none" />
+    <div class="hero-carousel absolute inset-0 z-0 pointer-events-none">
+      <img src="/assets/images/index-hero-bg1.webp" alt="Facilitate harmonious coexistence of energy and ecology" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <img src="/assets/images/index-hero-bg.webp" alt="Hero Background" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+    </div>
 
-    <div class="flex flex-col justify-center px-[clamp(24px,8vw,160px)] py-20 max-md:py-16 relative z-10 w-full mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
+    <!-- 文字面板 0：新图专属主题（第一页，仅此一句） -->
+    <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
+      <h1 class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
+        <span class="text-white">Facilitate harmonious coexistence of</span><br /><span class="text-brand-orange">energy and ecology</span>
+      </h1>
+    </div>
+
+    <!-- 文字面板 1：原首图内容（第二页，保持不变） -->
+    <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
       <h1 class="font-barlow-condensed text-[clamp(38px,4.5vw,72px)] font-bold leading-[1.1] text-white mb-5">
         <span class="text-brand-orange">Leading OEM Provider</span> of Low-Voltage<br />AHF and SVG Solutions
       </h1>
@@ -24,23 +38,25 @@ const meta = {
         <a href="#about" class="text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200">Learn More</a>
       </div>
     </div>
+
+    <!-- HERO 轮播指示点 -->
+    <div class="hero-dots absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
+      <button type="button" class="hero-dot hero-dot-active" data-slide="0" aria-label="切换到第 1 张"></button>
+      <button type="button" class="hero-dot" data-slide="1" aria-label="切换到第 2 张"></button>
+    </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="relative overflow-hidden bg-bg-mid text-white min-h-[calc(100vh-72px)] flex flex-col justify-center py-10" id="about">
+  <section class="relative overflow-hidden bg-bg-mid text-white min-h-[calc(100vh-72px)] flex flex-col justify-center py-14" id="about">
     <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
     <div class="absolute inset-0 bg-[rgba(7,16,30,0.7)] z-[1]"></div>
 
-    <!-- 顶部标题区域 -->
-    <div class="relative z-10 text-center px-5 pt-6 pb-4 max-w-[900px] mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(8px,2vw,32px)] text-white leading-[1.1]">COMPANY INTRO</h2>
-    </div>
 
     <!-- 主体大框 -->
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <!-- 左侧 About CHITEK 区域 -->
       <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">ABOUT <span class="text-brand-orange">CHITEK</span></h2>
+        <h2 class="font-barlow-condensed text-[45px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">ABOUT <span class="text-brand-orange">CHITEK</span></h2>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
           Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and
@@ -49,7 +65,7 @@ const meta = {
           electronic products. Committed to building an energy-efficient and
           green future.
         </p>
-        <a href="/en/about" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <a href={lp('/about')} class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -60,14 +76,14 @@ const meta = {
       <!-- 右侧四大优势区域 -->
       <div class="flex-[1.2] grid grid-cols-1 md:grid-cols-2">
         <!-- 优势 1 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Experienced R&amp;D Team</h3>
           <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
         </div>
 
         <!-- 优势 2 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="32" r="8" />
@@ -81,7 +97,7 @@ const meta = {
         </div>
 
         <!-- 优势 3 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <path d="M20 20 L44 20 L44 44 L20 44 Z" stroke-linecap="round" />
@@ -94,7 +110,7 @@ const meta = {
         </div>
 
         <!-- 优势 4 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="16" r="8" />
@@ -105,6 +121,26 @@ const meta = {
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Quality Guaranteed</h3>
           <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">ISO Certified manufacturing ensuring highest quality standards</p>
         </div>
+      </div>
+    </div>
+
+    <!-- 统计数字：整合进 Company Intro 区域，不再单独成区 -->
+    <div class="relative z-10 w-[clamp(320px,90vw,1800px)] mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-4 text-center pt-[clamp(20px,3vw,48px)]">
+      <div class="flex flex-col items-center">
+        <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="2019" data-duration="1600">0</span></div>
+        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">Established in</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="2700" data-duration="1800">0</span><span class="text-[clamp(28px,3vw,40px)]">+</span></div>
+        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">Company Area</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="30" data-duration="2600">0</span><span class="text-[clamp(28px,3vw,40px)]">+</span></div>
+        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">Intellectual Properties</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="20" data-duration="2600">0</span><span class="text-[clamp(28px,3vw,40px)]">+</span></div>
+        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">Export Countries</div>
       </div>
     </div>
   </section>
@@ -120,55 +156,53 @@ const meta = {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start">
         <!-- 左侧：文字介绍 -->
-        <div class="min-h-[240px] relative">
+        <div class="min-h-[240px] relative fade-up conv-left">
           <div class="product-info-item active" id="info-ahf">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
-              Active Power Filters covering 208V to 800V, with efficiency up to
-              99%. Full scene application coverage for industrial, commercial and
-              utility applications.
+              Active Harmonic Filters (AHF) covering 208V to 800V, with efficiency up to 99%. An AHF is a real-time, IGBT-based or Sic-based active filter that detects harmonic currents drawn by non-linear loads and injects equal, opposite currents to cancel them at the source — restoring a clean sinusoidal waveform and correcting power factor. Used across industrial plants, commercial buildings, data centers, hospitals, EV charging and renewable sites where harmonic distortion, PF penalties or grid instability are a concern.
             </p>
-            <a href="/en/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
+            <a href={lp('/products')} class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
           </div>
           <div class="product-info-item" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
-            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">CHITEK Static Var Generator employs advanced IGBT switching at up to 25.6kHz to precisely regulate inverter voltage magnitude and phase. Delivers dynamic reactive power compensation and three-phase load balancing with exceptional accuracy for demanding industrial applications.</p>
-            <a href="/en/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
+            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">CHITEK Static Var Generator (SVG) employs advanced IGBT or Sic switching at up to 25.6kHz to precisely regulate inverter voltage magnitude and phase. An SVG is a real-time reactive power compensator that injects or absorbs reactive current to dynamically correct power factor and stabilize voltage — eliminating penalties, sag and flicker. Used across industrial plants, commercial buildings, data centers, renewable farms, EV charging hubs and utility networks where reactive power, voltage fluctuation or load imbalance are a concern.</p>
+            <a href={lp('/products')} class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">Product Center &rarr;</a>
           </div>
         </div>
 
         <!-- 中间：功能特征网格 -->
         <div class="grid grid-cols-2 gap-px bg-border-light h-full">
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Smart &amp; Convenient</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Peakload shifting, peak shaving and frequency modulation, virtual capacity increase and off-grid mode.</div>
           </div>
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">High Efficiency</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Ultra-low calorific value, low standby power, efficiency up to 98.5–99.2%. SiC technology.</div>
           </div>
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Versatile Compatibility</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">3-phase 3-wire / 4-wire global voltage standards compatible. Supports active harmonic filtering.</div>
           </div>
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Battery Friendly</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Different battery clusters work independently, avoiding parallel circle current.</div>
           </div>
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Easy Maintenance</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">When a module is faulty, it does not affect other circuits. Quick maintenance within 5 mins.</div>
           </div>
-          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200">
+          <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">Safe &amp; Reliable</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
             <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">Complete fault protection functions, no battery circle current, Pollution Level III rated.</div>
@@ -176,7 +210,7 @@ const meta = {
         </div>
 
         <!-- 右侧：图片介绍 -->
-        <div class="flex items-center justify-end">
+        <div class="flex items-center justify-end fade-up conv-right">
           <div class="w-[clamp(160px,25vw,340px)] h-[clamp(300px,34vw,460px)] rounded-sm relative overflow-hidden bg-contain bg-center bg-no-repeat bg-[url('/assets/images/index-product-ahf.webp')]" id="product-visual"></div>
         </div>
       </div>
@@ -213,6 +247,93 @@ const meta = {
         productVisual.style.backgroundImage = `url('${data.visual}')`;
       });
     });
+
+    // STATS 数字滚动动画（可重复播放）
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length) {
+      const animateCount = (el) => {
+        const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+        const duration = parseInt(el.getAttribute('data-duration'), 10) || 1500;
+        if (el._rafId) cancelAnimationFrame(el._rafId);
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = target <= 50 ? p : 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.floor(eased * target).toString();
+          if (p < 1) {
+            el._rafId = requestAnimationFrame(step);
+          } else {
+            el.textContent = target.toString();
+            el._rafId = null;
+          }
+        };
+        el._rafId = requestAnimationFrame(step);
+      };
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+          } else {
+            // 离开视口时重置，便于下次重新播放
+            if (entry.target._rafId) cancelAnimationFrame(entry.target._rafId);
+            entry.target._rafId = null;
+            entry.target.textContent = '0';
+          }
+        });
+      }, { threshold: 0.4 });
+      statNumbers.forEach((el) => statsObserver.observe(el));
+    }
+
+    // HERO 轮播
+    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+    const heroTexts = Array.from(document.querySelectorAll('.hero-text'));
+    const heroDots = Array.from(document.querySelectorAll('.hero-dot'));
+    if (heroSlides.length > 1) {
+      let heroIdx = 0;
+      let heroTimer = null;
+      const heroShow = (i) => {
+        heroSlides[heroIdx].classList.remove('hero-slide-active');
+        if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.remove('hero-text-active');
+        if (heroDots[heroIdx]) heroDots[heroIdx].classList.remove('hero-dot-active');
+        heroIdx = (i + heroSlides.length) % heroSlides.length;
+        heroSlides[heroIdx].classList.add('hero-slide-active');
+        if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.add('hero-text-active');
+        if (heroDots[heroIdx]) heroDots[heroIdx].classList.add('hero-dot-active');
+      };
+      const heroStart = () => { heroTimer = setInterval(() => heroShow(heroIdx + 1), 5000); };
+      const heroStop = () => { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } };
+      heroDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { heroStop(); heroShow(i); heroStart(); });
+      });
+      heroStart();
+    }
+
+    // 可反复触发入场：进视口加 .visible，出视口移除；滚动回来重新播放
+    // 作用对象：Product Series 左右两栏 + Solution Insights 标题与三张卡片
+    const revealEls = document.querySelectorAll('.conv-left, .conv-right, .insight-title, .insight-card, .ps-card');
+    if (revealEls.length) {
+      const insightCards = Array.from(document.querySelectorAll('.insight-card'));
+      const psCards = Array.from(document.querySelectorAll('.ps-card'));
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target;
+          if (entry.isIntersecting) {
+            if (el.classList.contains('insight-card')) {
+              const i = insightCards.indexOf(el);
+              setTimeout(() => el.classList.add('visible'), i * 120);
+            } else if (el.classList.contains('ps-card')) {
+              const i = psCards.indexOf(el);
+              setTimeout(() => el.classList.add('visible'), i * 90);
+            } else {
+              el.classList.add('visible');
+            }
+          } else {
+            el.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
   </script>
 
   <style>
@@ -228,36 +349,85 @@ const meta = {
     .product-info-item.active {
       display: block;
     }
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-slide {
+      opacity: 0;
+      transition: opacity 1200ms ease-in-out;
+    }
+    .hero-slide.hero-slide-active {
+      opacity: 1;
+    }
+    .hero-text {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1200ms ease-in-out;
+    }
+    .hero-text.hero-text-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.45);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 250ms ease, width 250ms ease;
+    }
+    .hero-dot.hero-dot-active {
+      background: #ff6b1a;
+      width: 26px;
+    }
+    /* Product Series: left & right columns converge toward the center */
+    @media (min-width: 1024px) {
+      .fade-up.conv-left  { transform: translateX(-64px); }
+      .fade-up.conv-right { transform: translateX(64px); }
+    }
+    .fade-up.conv-left.visible,
+    .fade-up.conv-right.visible { transform: translateY(0); }
+    .conv-left, .conv-right { transition-delay: 120ms; }
+
+    /* Product Series 中间功能网格：6 张卡片自上而下错峰浮现，进出视口可反复触发 */
+    .ps-card { opacity: 0; transform: translateY(36px); transition: opacity .55s ease, transform .55s ease, background-color 200ms ease, color 200ms ease; }
+    .ps-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Solution Insights: 大标题从左滑入；三张卡片自下而上（错峰），进出视口可反复触发 */
+    @media (min-width: 1024px) {
+      .insight-title { transform: translateX(-64px); }
+    }
+    .insight-title.visible { transform: translateX(0); }
+    .insight-title { transition-delay: 80ms; }
+    .insight-card { opacity: 0; transform: translateY(64px); }
+    .insight-card.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .conv-left, .conv-right,
+      .insight-title, .insight-card,
+      .ps-card { transform: none !important; transition: none !important; opacity: 1 !important; }
+    }
   </style>
 
   <!-- SOLUTIONS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-white flex flex-col py-12" id="solutions">
-    <div class="text-center mb-[clamp(8px,1.5vw,24px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
+    <div class="text-center mb-[clamp(8px,1.5vw,24px)] fade-up insight-title">
       <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">Solution Insights</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
       <!-- Hospital -->
-      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300">
+      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-hospital.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
-        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-between z-10">
+        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <div class="w-14 h-14 mb-8">
-              <svg viewBox="0 0 56 56" class="w-full h-full stroke-white stroke-[1.5] fill-none [stroke-linecap:round] [stroke-linejoin:round]">
-                <path d="M12 20h32v28H12z"/>
-                <path d="M8 20l20-12 20 12"/>
-                <path d="M28 8v12"/>
-                <rect x="20" y="28" width="6" height="6"/>
-                <rect x="30" y="28" width="6" height="6"/>
-                <rect x="20" y="36" width="6" height="6"/>
-                <rect x="30" y="36" width="6" height="6"/>
-              </svg>
-            </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Eliminate Harmonics in Hospital</h3>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">Eliminate Harmonics in Hospital</h3>
             <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Ensure uninterrupted power quality for critical medical equipment and life-saving systems with advanced harmonic filtering and voltage stabilization.</p>
           </div>
-          <a href="/solutions#commercial" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+          <a href={lp('/solutions#commercial')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>
@@ -268,26 +438,15 @@ const meta = {
       </div>
 
       <!-- Data Center -->
-      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300">
+      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-datacenter.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
-        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-between z-10">
+        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <div class="w-14 h-14 mb-8">
-              <svg viewBox="0 0 56 56" class="w-full h-full stroke-white stroke-[1.5] fill-none [stroke-linecap:round] [stroke-linejoin:round]">
-                <rect x="8" y="12" width="40" height="32" rx="2"/>
-                <line x1="8" y1="22" x2="48" y2="22"/>
-                <line x1="8" y1="32" x2="48" y2="32"/>
-                <circle cx="16" cy="17" r="2"/>
-                <circle cx="24" cy="17" r="2"/>
-                <circle cx="32" cy="17" r="2"/>
-                <path d="M20 26h16M20 36h16"/>
-              </svg>
-            </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Avoid PF Penalties in Data Centers</h3>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">Avoid PF Penalties in Data Centers</h3>
             <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Are sustainable, autonomous and ubiquitous, powering AI to help solve the problems of today with reliable power quality infrastructure.</p>
           </div>
-          <a href="/solutions#datacenter" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+          <a href={lp('/solutions#datacenter')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>
@@ -298,25 +457,15 @@ const meta = {
       </div>
 
       <!-- Manufacturing -->
-      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300">
+      <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-manufacturing.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
-        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-between z-10">
+        <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <div class="w-14 h-14 mb-8">
-              <svg viewBox="0 0 56 56" class="w-full h-full stroke-white stroke-[1.5] fill-none [stroke-linecap:round] [stroke-linejoin:round]">
-                <path d="M12 16h32v28H12z"/>
-                <path d="M20 16V8l8 4 8-4v8"/>
-                <rect x="18" y="22" width="8" height="8"/>
-                <rect x="30" y="22" width="8" height="8"/>
-                <rect x="18" y="34" width="8" height="6"/>
-                <rect x="30" y="34" width="8" height="6"/>
-              </svg>
-            </div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-5 text-brand-orange capitalize min-h-[2.6em]">Stabilize Voltage In Industries</h3>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">Stabilize Voltage In Industries</h3>
             <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">Are intelligent, autonomous and capable to instantly adapt to changes with smart power quality solutions that optimize production efficiency.</p>
           </div>
-          <a href="/solutions#industry" class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+          <a href={lp('/solutions#industry')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               Learn more
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
                 <line x1="7" y1="17" x2="17" y2="7"/>

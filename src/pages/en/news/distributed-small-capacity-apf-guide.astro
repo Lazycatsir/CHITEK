@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Distributed Small-Capacity APF Guide: Technology Selection & Scenario Adaptation",
+  category: "Technology",
+  date: "2026-05-16",
+  dateDisplay: "May 16, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "8 min read",
+  description: "A comprehensive guide to distributed small-capacity APF harmonic mitigation solutions for commercial buildings, data centers, retrofit projects — covering technical principles, scenario adaptation, selection parameters, patents and compliance certification.",
+  keywords: ["APF", "Active Power Filter", "Distributed", "Small Capacity", "Harmonic Mitigation", "Active Filter", "IGBT", "Silicon Carbide", "SiC", "CHITEK"]
+};
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+
+const otherArticles = [
+  { title: "APF Industry Practitioner Survey 2026", category: "Industry Trends", href: lp("/news/apf-industry-practitioner-2026"), color: "orange" },
+  { title: "Active Power Filter Technology & Product Advantages", category: "Technology", href: lp("/news/blog-chitek-ahf-advantages"), color: "orange" },
+  { title: "SiC vs IGBT: The Future of Power Quality Equipment", category: "Technology", href: lp("/news/sic-vs-igbt"), color: "purple" },
+];
+
+const relatedProducts = [
+  { name: "Active Harmonic Filter AHF", href: lp("/products#ahf"), icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Static Var Generator SVG", href: lp("/products#svg"), icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG High-Efficiency Series", href: lp("/products#sic"), icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+
+const relatedCases = [
+  { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
+  { name: "Saudi Industrial Plant", industry: "Manufacturing" },
+  { name: "Brazil Data Center", industry: "Data Center" },
+];
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Distributed Small-Capacity APF Guide: Technology Selection & Scenario Adaptation",
+    "description": "A comprehensive guide to distributed small-capacity APF harmonic mitigation solutions for commercial buildings, data centers, retrofit projects — covering technical principles, scenario adaptation, selection parameters, patents and compliance certification.",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-05-16",
+    "dateModified": "2026-05-16",
+    "keywords": "APF, active power filter, distributed, small capacity, harmonic mitigation, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp("/news")} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="Distributed Small-Capacity APF Guide" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">
+            Many people still think of APFs as simple "harmonic filters", but the core of a distributed small-capacity APF is active compensation. Unlike traditional passive filter devices, it continuously samples the harmonic currents in the distribution system and generates reverse compensation currents that are injected into the grid to cancel out the original harmonics — effectively a "dynamic cleaner" for the power network.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            At the technical level, distributed small-capacity APFs rely on IGBT or silicon carbide (SiC) power devices for fast response. These compact units typically adopt a modular design with individual module ratings in the 5A–30A range, making them ideal for harmonic mitigation in distributed load scenarios.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-8">
+            Under the GB/T 15576-2008 standard, distributed small-capacity APFs must achieve a response time of no more than 10ms and a compensation accuracy of no less than 95% — key metrics that distinguish quality products from generic alternatives.
+          </p>
+
+          <h2 id="scenarios" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Application Scenarios for Distributed Small-Capacity APFs
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The key advantage of distributed small-capacity APFs is decentralized deployment. They are ideally suited for commercial buildings such as shopping malls and hotels with floor-by-floor distribution systems. The lighting, HVAC, and other distributed loads on each floor generate harmonics that can be treated locally with small-capacity APFs, preventing harmonic accumulation and amplification on main feeders.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Another prime application is edge cabinet areas in data centers. Individual servers or small cabinet clusters produce modest harmonic levels, but the cumulative effect can destabilize UPS systems. Distributed small-capacity APFs can be installed directly alongside cabinets for precise, localized compensation.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Retrofit projects are also a strong fit. In older industrial plants with partial production lines, the existing distribution system may not support a large-capacity APF. Small-capacity units can directly replace legacy passive filter devices without modifying the main circuitry, reducing both project duration and cost.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Outdoor mini base stations represent another typical scenario. Harmonics generated by telecommunications base station equipment can shorten power supply module lifespan. Ruggedized versions of distributed small-capacity APFs are designed to withstand outdoor environments with high dust and humidity, solving harmonic issues at the source.
+          </p>
+
+          <h2 id="selection" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Core Selection Parameters for Distributed Small-Capacity APFs
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The first step in selection is power rating. Common ratings for distributed small-capacity APFs include 5A, 10A, 15A, 20A, and 30A. Selection should be based on measured harmonic current values for each circuit — typically 1.2 times the measured value to ensure adequate headroom and prevent overload.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Product form factor matters too. These units are typically designed in 1U or 2U rack-mount form factors for standard cabinet installation. In data centers and telecom rooms where rack space is at a premium, 1U-height products conserve valuable cabinet resources.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Power device technology is another critical factor. Products using Infineon IGBTs deliver proven stability and efficiency, while silicon carbide (SiC) devices achieve even higher efficiency — up to 99% — making them ideal for energy-conscious applications such as green data centers.
+          </p>
+
+          <h2 id="patents" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Technical Barriers and Patent Support for Distributed Small-Capacity APFs
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Distributed small-capacity APFs may appear simple, but they involve significant technical challenges. One critical issue is resonance suppression — capacitor banks and line inductance in distribution systems can create resonance conditions that overload and damage APFs, requiring specialized resonance mitigation technology.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Shenzhen Qidian New Energy Technology Co., Ltd. holds patented technology in this area. Its "Resonance Suppression Method, Device, and Storage Medium for Reactive Power Generator" (Patent No. CN118487279B) uses intelligent coupling design to effectively reduce the probability of system resonance, improving equipment reliability in complex distribution environments.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Additionally, the company's Active Filter Mechanism patent (Patent No. CN222852255U) standardizes product dimensions and improves heat dissipation. For small-capacity modular products, thermal efficiency directly affects long-term operational stability.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The parallel current-sharing device based on IGBT parameter characteristics (Patent No. CN222814372U) improves IGBT performance consistency, reduces the failure rate of small-capacity APFs, and extends equipment service life.
+          </p>
+
+          <h2 id="compliance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Compliance Certification and Quality Standards
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            When selecting a distributed small-capacity APF, compliance certification is the first checkpoint. The product must meet the GB/T 15576-2008 national standard, pass CQC (China Quality Certification Center) mandatory certification, and hold EU CE safety certification. These certifications provide the fundamental assurance of product quality.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            ISO 9001 quality management system certification is also an important reference. Manufacturers with this certification maintain more rigorous production processes and quality controls.
+          </p>
+
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Installation and Commissioning Considerations
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            For installation, position the APF as close to the load side as possible for optimal compensation results. Pay attention to the installation environment — avoid high temperature, high humidity, and high dust conditions. For outdoor installation, select products with sufficient ingress protection.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Wiring must strictly follow the product manual, with careful attention to input and output terminal segregation. Quality products feature innovative fool-proof wiring terminals that significantly reduce the risk of wiring errors.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            During commissioning, first measure the actual harmonic current to confirm the harmonic type and content level of the load, then set the APF compensation parameters accordingly. Some products support remote commissioning via 4G/WiFi for remote monitoring and adjustment.
+          </p>
+
+          <h2 id="brand" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Brand Evaluation Criteria for Distributed Small-Capacity APFs
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The first criterion for evaluating a distributed small-capacity APF brand is technical strength — whether the company holds relevant patents and engages in R&D partnerships. Shenzhen Qidian New Energy Technology Co., Ltd. maintains close collaboration with Harbin Institute of Technology and the University of Macau, ensuring strong R&D capabilities.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The second criterion is customer track record, particularly international clients. Qidian's products feature a high degree of standardization and support multiple languages, with overseas customers spanning more than a dozen countries.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            The third criterion is after-sales service — warranty period and operational support response time are hard metrics that matter.
+          </p>
+
+          <h2 id="future" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Future Development Trends
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            As distribution systems become more intelligent, distributed small-capacity APFs will increasingly integrate IoT technology for remote monitoring and smart operations.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Silicon carbide (SiC) devices will see broader adoption. These devices offer higher efficiency and smaller footprints, making them ideal for compact modular products.
+          </p>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Product compatibility will continue to improve. Future units will seamlessly combine with capacitor banks and share cabinets with SVG reactive power compensation products, achieving integrated harmonic mitigation and reactive power management.
+          </p>
+
+          <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Author & Navigation -->
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">CHITEK Technical Team</div>
+              <div class="text-sm text-text-muted">Published {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Share:</span>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href={lp("/news/solar-farm-dubai")} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -5,6 +5,9 @@ const meta = {
   title: 'Contact CHITEK – Sales & Technical Support | Power Quality',
   description: 'Contact CHITEK for sales inquiries, technical support, and partnership opportunities. Global presence with local support in 15+ countries.',
 };
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>

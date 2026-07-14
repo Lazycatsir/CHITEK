@@ -32,7 +32,11 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-const prefix = lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'zh' ? '/zh' : '';
+// 本地（localhost）全语言用路径前缀；线上维持原 prefix 逻辑
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const prefix = isLocal
+  ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
+  : (lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'zh' ? '/zh' : '');
 const productsHref = prefix + '/products';
 const solutionsHref = prefix + '/solutions';
 const servicesHref = prefix + '/services';

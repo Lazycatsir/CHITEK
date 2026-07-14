@@ -5,6 +5,9 @@ const meta = {
   title: 'CHITEK — Low Voltage AHF, SVG & AVR Manufacturer | Power Quality Solutions',
   description: 'CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG, and Automatic Voltage Regulator (AVR) for low-voltage power quality correction.',
 };
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
@@ -380,7 +383,7 @@ const meta = {
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">APF Current</div>
+                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
                   <div class="font-semibold text-text-dark">50A ~ 200A</div>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -415,7 +418,7 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Flagship &middot; Harmonic Compensation 2nd-50th</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Flagship &middot; Harmonic Compensation 2nd-50th</span>
             </div>
           </div>
           <!-- SiC -->
@@ -427,8 +430,8 @@ const meta = {
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">APF Current</div>
-                  <div class="font-semibold text-text-dark">50A ~ 100A</div>
+                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
+                  <div class="font-semibold text-text-dark">50A ~ 150A</div>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
@@ -462,7 +465,7 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Compact &middot; Best for space-constrained installs</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Compact &middot; Best for space-constrained installs</span>
             </div>
           </div>
           <!-- Distributed Series -->
@@ -474,7 +477,7 @@ const meta = {
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">APF Current</div>
+                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
                   <div class="font-semibold text-text-dark">15A ~ 50A</div>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-2.5">
@@ -509,7 +512,7 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Distributed &middot; Drawer cabinet retrofit</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Distributed &middot; Drawer cabinet retrofit</span>
             </div>
           </div>
           <!-- Anti-Pollution Series -->
@@ -521,8 +524,8 @@ const meta = {
               </div>
               <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
                 <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">APF Current</div>
-                  <div class="font-semibold text-text-dark">75A ~ 150A</div>
+                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
+                  <div class="font-semibold text-text-dark">50A ~ 200A</div>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-2.5">
                   <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
@@ -556,7 +559,7 @@ const meta = {
               </div>
             </div>
             <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">APF Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
+              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
             </div>
           </div>
           </div>
@@ -820,7 +823,7 @@ const meta = {
   <section id="hmi" class="relative bg-[#f5f5f7] py-[clamp(64px,6vw,128px)] overflow-hidden">
     <div class="px-[clamp(24px,8vw,160px)] relative">
       <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
-        <div class="reveal" style="transition-delay:150ms">
+        <div class="hmi-left">
           <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">HMI Interface</p>
           <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)] font-barlow-condensed">Intelligent Human-Machine Interface</h2>
           <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">Equipped with a 7-inch high-resolution capacitive touchscreen providing an intuitive power quality monitoring experience. Real-time waveform display, historical data logging, remote communication, and control of up to 16 modules in one.</p>
@@ -847,7 +850,7 @@ const meta = {
             <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">Note:</span> Capacitor bank controller, which controls up to <span class="font-medium text-text-dark">32 sets</span> of capacitor banks, is available. (7" monitor built-in or stand-alone type)</p>
           </div>
         </div>
-        <div class="relative reveal flex justify-center">
+        <div class="relative hmi-right flex justify-center">
           <img src="/assets/images/products-monitoring.webp" alt="HMI Monitoring Interface" class="w-auto max-w-[320px] lg:max-w-[380px] h-auto rounded-2xl shadow-xl">
         </div>
       </div>
@@ -1296,7 +1299,7 @@ const meta = {
         <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Industry Applications </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
-        <a href="/solutions/datacenter" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]">
+        <a href={lp('/solutions/datacenter')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]">
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-datacenter.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
@@ -1307,7 +1310,7 @@ const meta = {
             </div>
           </div>
         </a>
-        <a href="/solutions/healthcare" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:120ms">
+        <a href={lp('/solutions/healthcare')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:120ms">
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-hospital.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
@@ -1318,7 +1321,7 @@ const meta = {
             </div>
           </div>
         </a>
-        <a href="/solutions/semiconductor" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:240ms">
+        <a href={lp('/solutions/semiconductor')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:240ms">
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-semiconductor.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
@@ -1329,7 +1332,7 @@ const meta = {
             </div>
           </div>
         </a>
-        <a href="/solutions/port" class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:360ms">
+        <a href={lp('/solutions/port')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:360ms">
           <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-port.jpg)]"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
           <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
@@ -1804,6 +1807,18 @@ const meta = {
     opacity: 1;
     transform: translateY(0);
   }
+  /* HMI 左右两栏向中间靠拢加载（可重复触发） */
+  .hmi-left, .hmi-right {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+  }
+  .hmi-left { transform: translateX(-64px); }
+  .hmi-right { transform: translateX(64px); }
+  .hmi-left.visible, .hmi-right.visible { opacity: 1; transform: translateX(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .hmi-left, .hmi-right { opacity: 1; transform: none; transition: none; }
+  }
   .wizard-step:not(.active) {
     display: none;
   }
@@ -2012,6 +2027,21 @@ const meta = {
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ===== HMI 左右两栏向中间靠拢（可重复触发） =====
+    const hmiCols = document.querySelectorAll('.hmi-left, .hmi-right');
+    if (hmiCols.length) {
+      const hmiObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.25 });
+      hmiCols.forEach(el => hmiObserver.observe(el));
+    }
 
     // ===== Roadmap Tooltip =====
     const tooltip = document.getElementById('roadmap-tooltip');

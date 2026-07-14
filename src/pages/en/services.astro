@@ -5,6 +5,9 @@ const meta = {
   title: 'Services — OEM/ODM, Technical Support & Distributor Program | CHITEK',
   description: 'CHITEK offers OEM/ODM services, technical support, and global distributor programs for power quality products with 24/7 after-sales service.',
 };
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>

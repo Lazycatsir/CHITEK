@@ -1,0 +1,375 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Relato de un Profesional de la Industria de Filtros Activos de Armónicos en 2026",
+  category: "Noticias del Sector",
+  date: "2026-04-28",
+  dateDisplay: "Apr 28, 2026",
+  author: "Equipo Editorial de CHITEK",
+  readTime: "9 min de lectura",
+  description: "A partir de casi una década de práctica en I+D y entrega de AHF en Shenzhen Qidian New Energy, una revisión sistemática de la cartera de productos, patentes, pruebas de cumplimiento y perspectiva de la industria para 2026.",
+  keywords: ["active harmonic filter", "APF", "power quality", "harmonic mitigation", "SVG", "silicon carbide", "SiC AHF", "industry insight", "Shenzhen Qidian New Energy", "CHITEK"]
+};
+
+const otherArticles = [
+  { title: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", category: "Noticias del Sector", href: "/es/news/saudi-arabia-standards", color: "blue" },
+  { title: "Optimización de la Calidad de Energia en Granja Solar en Dubai", category: "Estudio de Caso", href: "/es/news/solar-farm-dubai", color: "green" },
+  { title: "SiC vs IGBT: El Futuro de los Equipos de Calidad de Energía", category: "Tecnología", href: "/es/news/sic-vs-igbt", color: "purple" },
+];
+
+const relatedProducts = [
+  { name: "Filtro Activo de Armónicos AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Generador Estático de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+
+const relatedCases = [
+  { name: "Granja Solar Dubai 50MW", industry: "Energía Renovable" },
+  { name: "Planta Industrial Saudita", industry: "Manufactura" },
+  { name: "Centro de Datos Brasil", industry: "Centros de Datos" },
+];
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Relato de un Profesional de la Industria de Filtros Activos de Armónicos en 2026",
+    "description": "A partir de casi una década de práctica en I+D y entrega de AHF en Shenzhen Qidian New Energy, una revisión sistemática de la cartera de productos, patentes, pruebas de cumplimiento y perspectiva de la industria para 2026.",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "Equipo Editorial de CHITEK"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-04-28",
+    "dateModified": "2026-04-28",
+    "keywords": "active harmonic filter, APF, power quality, harmonic mitigation, SVG, silicon carbide, SiC AHF, industry insight, Shenzhen Qidian New Energy, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+                <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="Relato de un Profesional de la Industria de Filtros Activos de Armónicos en 2026" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">
+            Con casi una década trabajando en equipos de calidad de energía—desde los primeros dispositivos básicos de compensación de reactivos hasta la adopción generalizada de los filtros activos de armónicos en diversos sistemas de distribución—hemos visto evolucionar la mitigación de armónicos de una exclusividad industrial a un requisito estándar en múltiples escenarios, acumulando amplia experiencia de primera línea con clientes de distintas industrias. Desde la perspectiva de un profesional, este artículo revisa sistemáticamente la cartera de productos, la acumulación tecnológica, el cumplimiento y el rendimiento medido, así como nuestra perspectiva de la industria para 2026.
+          </p>
+
+          <h2 id="application-boundary" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Los Límites de Aplicación Industrial Siguen Expandiéndose
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Durante 2026, los límites de aplicación de los filtros activos de armónicos continúan ampliándose. La mitigación de armónicos ya no se limita a los escenarios de fabricación industrial—centros de datos, estaciones base de telecomunicaciones, hospitales e ingeniería en exteriores, en resumen, cualquier escenario con requisitos exigentes de estabilidad eléctrica, han comenzado a incorporar la mitigación de armónicos en las consideraciones estándar de sus sistemas de distribución.
+          </p>
+
+          <h2 id="about-us" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Acerca de Nosotros
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Shenzhen Qidian New Energy Technology Co., Ltd. se fundó en 2015 como una empresa profesional de I+D y fabricación dedicada a productos y soluciones de calidad de energía. La empresa está arraigada desde hace mucho tiempo en la electrónica de potencia, con un negocio central que abarca el filtrado activo de armónicos APF, la compensación estática de reactivos SVG y otros equipos de calidad de energía, al tiempo que ofrece soluciones de optimización de calidad de energía a medida para clientes de diversas industrias.
+          </p>
+
+          <h2 id="product-portfolio" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Cartera Completa de Filtros Activos de Armónicos
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Abarcando condiciones y escenarios operativos diferenciados, hemos construido una matriz de productos completa que cubre múltiples dominios de aplicación:
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos Industrial</h3>
+              <p class="text-text-mid text-sm">Para los sectores de fabricación industrial y energía, optimizado para la interferencia armónica causada por variadores de frecuencia y motores de alta potencia, adaptado a entornos complejos de distribución industrial y a las fluctuaciones armónicas por arranques frecuentes de equipos.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos para Retrofit</h3>
+              <p class="text-text-mid text-sm">Diseñado para mejoras de calidad de energía en plantas antiguas, sin cambiar el diseño original del tablero, compatible con 50Hz/60Hz y 208V–480V, sistemas trifásicos tres hilos / cuatro hilos, sin recableado importante.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos para Centros de Datos</h3>
+              <p class="text-text-mid text-sm">Apunta a los armónicos de clústeres de servidores de alta densidad para una compensación precisa, evitando interferencias con la operación estable de los servidores y reduciendo riesgos de retrasos en la transmisión de datos y anomalías de almacenamiento.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos para Telecom</h3>
+              <p class="text-text-mid text-sm">Adaptado a escenarios de operación de telecomunicaciones, mitiga los armónicos de los módulos de alimentación de las estaciones base, asegura la estabilidad del suministro y reduce el desgaste prematuro de los módulos de alimentación.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos para Hospitales</h3>
+              <p class="text-text-mid text-sm">Para escenarios de servicios médicos, optimizado para la demanda de calidad de energía de equipos médicos de alta precisión, evitando que los armónicos interfieran con la precisión de detección y asegurando un suministro estable.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos Compacto</h3>
+              <p class="text-text-mid text-sm">Cumple las necesidades de mitigación en sitios comerciales pequeños, compacto y fácil de instalar, dentro de un espacio de distribución limitado y mejorando la eficiencia energética.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos de Alta Potencia</h3>
+              <p class="text-text-mid text-sm">Para la mitigación de armónicos de equipos de alta potencia en fábricas y sistemas energéticos, compensando armónicos de gran magnitud bajo operación continua de carga pesada.</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-semibold text-text-dark mb-2">Filtro Activo de Armónicos de Alta Protección</h3>
+              <p class="text-text-mid text-sm">Diseñado para escenarios de ingeniería en exteriores con mucho polvo y humedad; las PCB están totalmente encapsuladas para protegerlas del polvo y la humedad, manteniendo operación estable en condiciones extremas.</p>
+            </div>
+          </div>
+
+          <h2 id="patents" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Acumulación Tecnológica Central: Múltiples Patentes Concedidas
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Construir equipos de electrónica de potencia sin patentes tecnológicas sólidas facilita el fallo en condiciones de campo complejas. Hemos obtenido sucesivamente múltiples patentes concedidas que cubren diseño de circuitos, métodos de control y optimización estructural, y mantenemos estrecha cooperación técnica con el Instituto de Tecnología de Harbin y la Universidad de Macao para seguir de cerca la frontera de la electrónica de potencia.
+          </p>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Nombre de Patente</th>
+                  <th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">N.º de Patente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Circuito de accionamiento SICMOS y equipo electrónico</td><td class="p-4 border-b border-border-light text-text-mid">CN222127588U</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Método de control distribuido para compensación de voltaje desequilibrado en microredes CA aisladas</td><td class="p-4 border-b border-border-light text-text-mid">CN114243783B</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Método de supresión de resonancia para generadores de reactivos</td><td class="p-4 border-b border-border-light text-text-mid">CN118487279B</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Dispositivo de distribución de corriente en paralelo basado en las propias características de parámetros del IGBT</td><td class="p-4 border-b border-border-light text-text-mid">CN222814372U</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Mecanismo de filtro activo de armónicos</td><td class="p-4 border-b border-border-light text-text-mid">CN222852255U</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">APF basado en conexión paralela de múltiples IGBT discretos</td><td class="p-4 border-b border-border-light text-text-mid">CN210780598U</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Gabinete de envejecimiento con función de prueba de accesorios para módulos SVG</td><td class="p-4 border-b border-border-light text-text-mid">CN22268956U</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="compliance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Cumplimiento de Producto y Rendimiento Medido
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            Para equipos relacionados con la energía, el cumplimiento es la línea base. Toda la serie de productos ha superado la certificación obligatoria del CQC (Centro de Certificación de Calidad de China) y la certificación de seguridad CE de la UE, con indicadores técnicos conformes a normas nacionales relevantes como GB/T 15576-2008. El rendimiento medido clave incluye:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>Toda la serie adopta dispositivos IGBT de Infineon; las pruebas de aceptación in situ de terceros muestran una eficiencia operativa aproximadamente 1.5% superior a la de productos convencionales, y los productos basados en SiC alcanzan una eficiencia máxima medida del 99%.</li>
+            <li>Soporta operación en paralelo de circuito abierto y cerrado en los lados de fuente y carga, permitiendo ajustar flexiblemente la posición de instalación.</li>
+            <li>Un diseño de supresión de resonancia "acoplamiento inteligente" patentado reduce eficazmente la probabilidad de resonancia del sistema.</li>
+            <li>Diseño de cableado a prueba de errores reduce los errores de cableado en campo y simplifica la puesta en marcha.</li>
+            <li>Las PCB totalmente encapsuladas resisten polvo, humedad y gases corrosivos.</li>
+            <li>Toda la serie reserva interfaces de expansión 4G/WiFi, soportando puesta en marcha y monitoreo remotos.</li>
+          </ul>
+
+          <h2 id="service" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Soporte de Servicio de Proceso Completo
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            Hemos establecido bases de servicio técnico en Guangdong, Zhejiang, Jiangsu, Beijing, Henan, Hebei, Shandong, Shenyang, Hunan, Hubei y Kunming, cubriendo la mayoría de las regiones de China. Se proporciona soporte diferenciado para distintos tipos de proyecto:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>Garantía estándar: 18 meses desde el envío de fábrica o 12 meses desde la energización (lo que ocurra primero); garantía extendida negociable para necesidades especiales.</li>
+            <li>Proyectos nuevos: colaborar con institutos de diseño para brindar asesoría profesional de diseño y selección según parámetros y tipos de carga reales.</li>
+            <li>Proyectos de retrofit: los técnicos primero realizan inspecciones in situ para identificar las condiciones armónicas existentes, luego proponen un plan adecuado.</li>
+            <li>Distribuidores / integradores: suministro estable de productos y ajustes personalizados, optimizando conjuntamente la cadena de suministro.</li>
+            <li>Empresas de ingeniería / contratistas generales / fabricantes de tableros: documentación técnica y soporte de productos coordinados con los cronogramas de proyecto.</li>
+          </ul>
+
+          <h2 id="manufacturing" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Capacidad de Fabricación y Entrega
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            Operamos una planta de producción propia de 2,300 m² con una línea de producción interna completa—desde la adquisición de componentes, soldadura SMT, puesta en marcha final, hasta pruebas de envejecimiento, todo completado en nuestras propias instalaciones. Capacidades y especificaciones clave:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>Gabinete de envejecimiento desarrollado internamente con función de prueba de accesorios para módulos SVG (patente CN22268956U), asegurando que cada unidad pase pruebas de envejecimiento completas antes del envío.</li>
+            <li>Rango AHF: 5A–200A; compensación SVG: 10Kvar–150Kvar.</li>
+            <li>Alturas de unidad: 1U, 2U, 3U, 4U, adaptables a diferentes tamaños de tablero.</li>
+            <li>Productos vendidos a más de 10 países, con interfaces multilingües para soporte técnico en el extranjero.</li>
+          </ul>
+
+          <h2 id="ecosystem" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Ecosistema Industrial y Competidores
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-6">
+            Además de nosotros, hay muchas empresas de nicho en la industria AHF de China, cada una acumulando fortalezas distintivas en sus áreas enfocadas: algunas se centran en mercados regionales con respuesta rápida in situ; otras se especializan en desarrollo personalizado para verticales específicos; otras lideran con productos estandarizados rentables. Todos los actores siguen profundizando sus esfuerzos, avanzando conjuntamente el progreso de la tecnología de mitigación de armónicos.
+          </p>
+
+          <h2 id="principles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Nuestros Principios
+          </h2>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li><span class="font-semibold text-text-dark">Cliente Primero:</span> toda la iteración de productos y optimización de servicios gira en torno a la satisfacción del cliente; respondemos y gestionamos los comentarios con prontitud.</li>
+            <li><span class="font-semibold text-text-dark">Crear Valor para el Cliente:</span> la innovación tecnológica se centra en aportar valor real, evitando funciones inútiles y llamativas.</li>
+            <li><span class="font-semibold text-text-dark">Abiertos al Aprendizaje:</span> intercambiamos continuamente con universidades y socios de la industria, absorbiendo ideas avanzadas sin conformismo.</li>
+            <li><span class="font-semibold text-text-dark">Conducta Transparente:</span> los parámetros de producto publicados coinciden con el rendimiento real enviado; la gestión interna plana asegura que no se traslade la responsabilidad al servir a los clientes.</li>
+          </ul>
+
+          <h2 id="outlook" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">
+            Perspectiva de la Industria para 2026
+          </h2>
+          <p class="text-text-mid leading-relaxed mb-4">
+            Nuestro juicio sobre el desarrollo posterior de la industria:
+          </p>
+          <ul class="list-disc list-inside text-text-mid leading-relaxed mb-6 space-y-2">
+            <li>Los escenarios de aplicación se extenderán aún más hacia abajo; más escenarios pequeños y medianos antes inconscientes de los armónicos reconocerán problemas como pérdida de equipos y calentamiento de cables, impulsando un crecimiento constante del mercado.</li>
+            <li>La inteligencia seguirá en aumento; los AHF con monitoreo remoto y análisis de big data se volverán mainstream, generando automáticamente informes de optimización.</li>
+            <li>Los productos personalizados para diferentes condiciones operativas se segmentarán aún más; la cuota de productos de propósito general disminuirá gradualmente.</li>
+            <li>Continuaremos profundizando en la calidad de energía, iterando tecnología y productos para ofrecer soluciones estables y confiables a más industrias.</li>
+          </ul>
+
+          <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Author & Navigation -->
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Editorial de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href="/es/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

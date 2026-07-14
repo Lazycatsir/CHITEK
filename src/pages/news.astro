@@ -31,17 +31,190 @@ import Sidebar from '../components/Sidebar.astro';
       </p>
 
       <div class="space-y-6">
-        <!-- Article 1 - Jul 9, 2026 (NEW) -->
-        <a href="/news/blog-chitek-ahf-advantages" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-brand-orange/40">
-              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
+        <!-- 2025-12-15: 有源 vs 无源 -->
+        <a href="/news/active-vs-passive-harmonic-filters" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="有源与无源谐波滤波器：各自真正的用武之地" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
-              <span class="text-xs text-text-muted">Jul 9, 2026</span>
+              <span class="text-xs text-text-muted">Dec 15, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              有源与无源谐波滤波器：各自真正的用武之地
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              对无源（调谐 LC）滤波器与有源电力滤波器（AHF）在低压母线谐波治理中的实用对比——涵盖产生根源、局限性以及 IGBT→SiC 的技术演进路径。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2025-11-20: 有源 PFC -->
+        <a href="/news/active-pfc-dynamic-reactive-compensation" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="低压母线上的有源功率因数校正与动态无功补偿" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Nov 20, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              低压母线上的有源功率因数校正与动态无功补偿
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              面向低压母线动态无功补偿的有源功率因数校正与静止无功发生器（SVG）技术——涵盖原理、IGBT 与 SiC 对比及部署清单。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2025-10-25: 三防涂覆 -->
+        <a href="/news/conformal-coating-ahf-reliability" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="低压 AHF 模块中的三防涂覆：三防保护如何延长变流器寿命" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Oct 25, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              低压 AHF 模块中的三防涂覆：三防保护如何延长变流器寿命
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              三防涂覆（防潮、防尘、防腐）如何在恶劣环境中延长低压 AHF 模块寿命——涵盖涂层类型、材料权衡以及 IGBT 与 SiC 的热预算。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- NEW: SVG工厂指南 - May 31, 2026 -->
+        <a href="/news/svg-reactive-power-compensation-factory-guide" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="SVG无功补偿装置百科：从原理到靠谱厂家判定标准" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 31, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SVG无功补偿装置百科：从原理到靠谱厂家判定标准
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从核心原理、主流分类、六维厂家判定标准，到新建/改造项目的选型逻辑与实测数据，全面解析SVG无功补偿装置的技术要点与靠谱厂家甄别方法。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- NEW: 小容量APF百科 - May 16, 2026 -->
+        <a href="/news/distributed-small-capacity-apf-guide" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="分布式小容量APF百科指南：技术选型与场景适配" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 16, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              分布式小容量APF百科指南：技术选型与场景适配
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从技术原理、场景适配、核心选型参数到专利技术与合规认证，全面解析分布式小容量APF在商业建筑、数据中心、改造项目等场景中的谐波治理方案。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- NEW: SVG 全解析 - May 1, 2026 -->
+        <a href="/news/shenzhen-qidian-svg-analysis" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="深耕电能质量领域 深圳启点SVG无功补偿设备全解析" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 1, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              深耕电能质量领域 深圳启点SVG无功补偿设备全解析
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从研发实力、核心专利、产品规格体系到场景解决方案，全面解析深圳启点新能源的SVG无功补偿设备及其在电能质量治理中的技术优势。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 0 - Apr 28, 2026 -->
+        <a href="/news/apf-industry-practitioner-2026" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="2026年有源滤波器行业从业者从业情况自述" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">行业动态</span>
+              <span class="text-xs text-text-muted">Apr 28, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              2026年有源滤波器行业从业者从业情况自述
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从深圳启点新能源近十年的有源滤波器研发与交付实践出发，系统梳理产品矩阵、专利技术、合规实测与 2026 年行业趋势判断。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 1 - Apr 12, 2026 (NEW) -->
+        <a href="/news/blog-chitek-ahf-advantages" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="有源电力滤波器技术实力与产品优势全解析" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Apr 12, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
               有源电力滤波器技术实力与产品优势全解析
@@ -58,17 +231,15 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
         </a>
 
-        <!-- Article 2 - Jun 15, 2026 -->
+        <!-- Article 2 - Mar 27, 2026 -->
         <a href="/news/blog-active-harmonic-filter-for-vfd-systems" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-brand-orange/40">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="VFD系统中的有源电力滤波器：为何至关重要" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
-              <span class="text-xs text-text-muted">Jun 15, 2026</span>
+              <span class="text-xs text-text-muted">Mar 27, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
               VFD系统中的有源电力滤波器：为何至关重要
@@ -85,17 +256,15 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
         </a>
 
-        <!-- Article 2 - Jun 8, 2026 -->
+        <!-- Article 2 - Mar 11, 2026 -->
         <a href="/news/blog-ahf-vs-line-reactors" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-purple-500/10 to-purple-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-purple-500/40">
-              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-8.webp" alt="有源电力滤波器与进线电抗器：技术对比" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">技术</span>
-              <span class="text-xs text-text-muted">Jun 8, 2026</span>
+              <span class="text-xs text-text-muted">Mar 11, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
               有源电力滤波器与进线电抗器：技术对比
@@ -112,17 +281,15 @@ import Sidebar from '../components/Sidebar.astro';
           </div>
         </a>
 
-        <!-- Article 3 - Jun 1, 2026 -->
+        <!-- Article 3 - Feb 22, 2026 -->
         <a href="/news/blog-svg-power-electronics-daily-life" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-green-500/40">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-7.webp" alt="SVG：现代基础设施的隐形守护者" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">技术</span>
-              <span class="text-xs text-text-muted">Jun 1, 2026</span>
+              <span class="text-xs text-text-muted">Feb 22, 2026</span>
             </div>
             <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
               SVG：现代基础设施的隐形守护者
@@ -141,10 +308,8 @@ import Sidebar from '../components/Sidebar.astro';
 
         <!-- Article 4 - Dec 15, 2024 -->
         <a href="/news/sic-ahf-launch" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-brand-orange/40">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="全新SiC有源电力滤波器系列正式发布" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
@@ -168,10 +333,8 @@ import Sidebar from '../components/Sidebar.astro';
 
         <!-- Article 5 - Nov 28, 2024 -->
         <a href="/news/saudi-arabia-standards" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-blue-500/10 to-blue-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-blue-500/40">
-              <path d="M9 17H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-4l-5 5v-5z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="沙特阿拉伯电能质量标准更新" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
@@ -195,10 +358,8 @@ import Sidebar from '../components/Sidebar.astro';
 
         <!-- Article 6 - Nov 10, 2024 -->
         <a href="/news/solar-farm-dubai" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-green-500/10 to-green-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-green-500/40">
-              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="迪拜光伏电站电能质量优化" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
@@ -222,10 +383,8 @@ import Sidebar from '../components/Sidebar.astro';
 
         <!-- Article 7 - Oct 22, 2024 -->
         <a href="/news/sic-vs-igbt" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-purple-500/10 to-purple-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-purple-500/40">
-              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="SiC vs IGBT：电能质量设备的未来" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
@@ -249,10 +408,8 @@ import Sidebar from '../components/Sidebar.astro';
 
         <!-- Article 8 - Oct 05, 2024 -->
         <a href="/news/carbon-neutral-factories" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
-          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-auto bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-cyan-500/40">
-              <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-            </svg>
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="碳中和工厂的电能质量解决方案" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
             <div class="flex items-center gap-3 mb-3">
