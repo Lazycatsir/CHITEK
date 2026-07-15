@@ -1384,24 +1384,24 @@ const meta = {
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <div class="space-y-4">
                       <div>
-                        <strong class="text-text-dark">Harmonic Distortion</strong>
-                        <p class="text-text-dim mt-1">Nonlinear loads such as VFDs, UPSs, LED drivers, and welding machines generate 3rd/5th/7th/11th harmonics, leading to transformer overheating, additional cable losses, sensitive equipment malfunction, and nuisance tripping.</p>
+                        <strong class="text-text-dark">谐波畸变</strong>
+                        <p class="text-text-dim mt-1">变频器、UPS、LED驱动器和电焊机等非线性负载会产生3/5/7/11次谐波，导致变压器过热、电缆附加损耗、灵敏设备误动作和误跳闸。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Resonance Risk</strong>
-                        <p class="text-text-dim mt-1">Traditional passive filters form series/parallel resonance with system impedance, causing harmonic current amplification, equipment damage, and capacitor bank explosion.</p>
+                        <strong class="text-text-dark">谐振风险</strong>
+                        <p class="text-text-dim mt-1">传统无源滤波器与系统阻抗形成串/并联谐振，导致谐波电流放大、设备损坏和电容器组爆炸。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">THDi Exceeds Limits</strong>
-                        <p class="text-text-dim mt-1">Total harmonic current distortion &gt; 8% (IEEE 519) or &gt; 5% (G5/4), resulting in utility fines, power supply restrictions, and commissioning failure.</p>
+                        <strong class="text-text-dark">THDi超标</strong>
+                        <p class="text-text-dim mt-1">总谐波电流畸变率>8%（IEEE 519）或>5%（G5/4）时，将面临电力罚款、供电限制和调试失败。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Neutral Overload</strong>
-                        <p class="text-text-dim mt-1">3rd harmonics accumulate in phase in 3-phase 4-wire systems, causing neutral current to reach 1.7&times; phase current, cable insulation aging, and fire hazard.</p>
+                        <strong class="text-text-dark">中性线过载</strong>
+                        <p class="text-text-dim mt-1">3次谐波在三相四线系统中同相叠加，导致中性线电流达到相电流的1.7倍，电缆绝缘老化，存在火灾隐患。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">False PF Reading</strong>
-                        <p class="text-text-dim mt-1">Harmonics distort traditional power factor meter measurements, leading to capacitor bank over/under compensation and ongoing penalty charges.</p>
+                        <strong class="text-text-dark">功率因数误读</strong>
+                        <p class="text-text-dim mt-1">谐波会干扰传统功率因数表的测量，导致电容器组过补或欠补，持续产生罚款。</p>
                       </div>
                     </div>
                   </div>
@@ -1410,137 +1410,137 @@ const meta = {
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <div class="space-y-4">
                       <div>
-                        <strong class="text-text-dark">Arc Furnace / Refining</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Impact loads, three-phase unbalance, severe flicker</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Sub-cycle response suppressing voltage flicker, stabilizing electrode control</p>
+                        <strong class="text-text-dark">电弧炉/精炼</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>冲击性负载、三相不平衡、严重闪变</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>亚周波响应抑制电压闪变，稳定电极控制</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Steel Rolling / Wire Drawing</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Cyclical impact loads, severe power factor fluctuation</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Real-time reactive power tracking, avoiding PF penalty charges</p>
+                        <strong class="text-text-dark">轧钢/拉丝</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>周期性冲击负载、功率因数剧烈波动</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>实时无功跟踪，避免功率因数罚款</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Wind / Solar Power</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Intermittent output, grid-code power factor requirements</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Meeting utility interconnection standards, preventing disconnection</p>
+                        <strong class="text-text-dark">风电/光伏</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>间歇性出力、并网功率因数要求</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>满足电网互联标准，防止脱网</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Rail Transit</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Traction load impact, regenerative braking</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Stabilizing catenary voltage, reducing braking resistor energy loss</p>
+                        <strong class="text-text-dark">轨道交通</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>牵引负荷冲击、再生制动</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>稳定接触网电压，减少制动电阻能耗</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Harbor Cranes</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Hoisting/lowering impact loads</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Dynamic reactive compensation, reducing transformer capacity requirements</p>
+                        <strong class="text-text-dark">港口起重机</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>起升/下降冲击负载</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>动态无功补偿，降低变压器容量需求</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Data Centers</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> UPS light-load high capacitance, transformer light-load</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Preventing capacitive reverse flow, maintaining PF at 0.95-1.0</p>
+                        <strong class="text-text-dark">数据中心</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>UPS轻载高容性、变压器轻载</p>
+                        <p class="text-text-dim"><strong>AHF应用：</strong>防止容性倒送，维持功率因数在0.95-1.0</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel3">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Response Time</h4>
-                    <p class="mb-3">CHITEK AHF features a full response time of less than 50 microseconds (&lt;50&mu;s), enabling real-time harmonic compensation that responds instantly to dynamic load changes.</p>
-                    <p>This ultra-fast response ensures that even rapidly fluctuating loads such as welding machines, elevators, and variable frequency drives are effectively compensated without delay, preventing harmonic buildup that could damage sensitive equipment.</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">响应时间</h4>
+                    <p class="mb-3">CHITEK AHF的全响应时间小于50微秒（<50μs），可实现实时谐波补偿，即时响应动态负载变化。</p>
+                    <p>这种超快速响应确保即使电焊机、电梯和变频驱动等快速波动的负载也能得到及时补偿，防止谐波积累对敏感设备造成损害。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel4">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Parallel Operation</h4>
-                    <p class="mb-3">Yes, CHITEK AHF units are designed for parallel operation. Up to 10 units can be paralleled without any communication cables, using a proprietary master-slave control algorithm.</p>
-                    <p class="mb-3">Key benefits of parallel operation:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">并联运行</h4>
+                    <p class="mb-3">可以。CHITEK AHF专为并联运行设计。最多10台设备可通过专利主从控制算法实现无通信线并联。</p>
+                    <p class="mb-3">并联运行的主要优势：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Capacity expansion from 30A to 3000A+</li>
-                      <li>N+1 redundancy for critical applications</li>
-                      <li>Automatic load sharing with droop control</li>
-                      <li>Hot-swappable modules for maintenance without downtime</li>
+                      <li>容量扩展，从30A到3000A以上</li>
+                      <li>关键应用的N+1冗余</li>
+                      <li>下垂控制自动均流</li>
+                      <li>模块热插拔，维护无需停机</li>
                     </ul>
-                    <p>Parallel systems can be configured in less than 5 minutes through the intuitive front panel interface.</p>
+                    <p>通过直观的前面板界面，并联系统可在5分钟内完成配置。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel5">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Communication Protocols</h4>
-                    <p class="mb-3">CHITEK AHF supports the following communication protocols for remote monitoring and control:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">通信协议</h4>
+                    <p class="mb-3">CHITEK AHF支持以下通信协议，用于远程监控和控制：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard on all models</li>
-                      <li><strong>Ethernet / Modbus TCP</strong> — optional interface module</li>
-                      <li><strong>Profibus DP</strong> — optional for industrial automation integration</li>
-                      <li><strong>Dry contact I/O</strong> — for simple start/stop and alarm signaling</li>
+                      <li><strong>RS485 / Modbus RTU</strong> — 所有型号标配</li>
+                      <li><strong>Ethernet / Modbus TCP</strong> — 可选接口模块</li>
+                      <li><strong>Profibus DP</strong> — 可选，用于工业自动化集成</li>
+                      <li><strong>干接点I/O</strong> — 用于简单的启动/停止和报警信号</li>
                     </ul>
-                    <p>All communication parameters (baud rate, parity, slave address) are configurable via the front panel keypad and display. CHITEK also provides a free PC-based monitoring software for data logging and trend analysis.</p>
+                    <p>所有通信参数（波特率、校验位、从站地址）均可通过前面板键盘和显示屏配置。CHITEK还提供免费的PC端监控软件，用于数据记录和趋势分析。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel6">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Lifespan and Maintenance</h4>
-                    <p class="mb-3">CHITEK AHF has a design life exceeding 15 years under normal operating conditions (ambient below 40&deg;C, nominal load). Regular preventive maintenance is recommended every 12 months to ensure optimal performance.</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">使用寿命和维护</h4>
+                    <p class="mb-3">CHITEK AHF在正常工况下（环境温度低于40°C，额定负载）设计寿命超过15年。建议每12个月进行一次预防性维护，以确保最佳性能。</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>DC bus capacitor replacement:</strong> every 8-10 years (recommended)</li>
-                      <li><strong>Cooling fan replacement:</strong> every 5-7 years (based on operating hours)</li>
-                      <li><strong>Air filter cleaning:</strong> every 3-6 months (dusty environments)</li>
-                      <li><strong>Firmware updates:</strong> available via CHITEK PC software tool</li>
+                      <li><strong>直流母线电容更换：</strong>每8-10年（推荐）</li>
+                      <li><strong>冷却风扇更换：</strong>每5-7年（按运行时间）</li>
+                      <li><strong>空气滤网清洁：</strong>每3-6个月（多尘环境）</li>
+                      <li><strong>固件升级：</strong>通过CHITEK PC端软件工具完成</li>
                     </ul>
-                    <p>All CHITEK AHF products come with a standard 2-year warranty, with extended warranty options available up to 5 years.</p>
+                    <p>所有CHITEK AHF产品均提供标准2年质保，可选延保至5年。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel7">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Transformer Requirements</h4>
-                    <p class="mb-3">No, the CHITEK AHF does not require a dedicated isolation transformer. It connects directly to the low-voltage bus (380V-480V, 50/60Hz) through the existing circuit breaker or fused disconnect.</p>
-                    <p class="mb-3">However, proper <strong>current transformer (CT)</strong> installation is critical for correct operation:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">变压器要求</h4>
+                    <p class="mb-3">不需要。CHITEK AHF无需专用隔离变压器。它通过现有断路器或熔断器直接连接低压母线（380V-480V，50/60Hz）。</p>
+                    <p class="mb-3">但正确的<strong>电流互感器（CT）</strong>安装对正常运作至关重要：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>CTs must be installed on the mains side (grid source) of the load</li>
-                      <li>CT ratio should be selected so the secondary current is 1A or 5A at full load</li>
-                      <li>CT accuracy class 0.5 or better recommended for optimal performance</li>
-                      <li>Standard CT wiring distance up to 100 meters with proper shielding</li>
+                      <li>CT必须安装在负载的电源侧（电网侧）</li>
+                      <li>CT变比应选择使二次侧电流在满载时为1A或5A</li>
+                      <li>建议使用精度等级0.5或更高的CT以获得最佳性能</li>
+                      <li>标准CT接线距离可达100米（需适当屏蔽）</li>
                     </ul>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel8">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Harsh Environment Operation</h4>
-                    <p class="mb-3">CHITEK AHF is designed for reliable operation in demanding industrial environments:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">恶劣环境运行</h4>
+                    <p class="mb-3">CHITEK AHF专为在严苛工业环境中可靠运行而设计：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Operating temperature:</strong> 0&deg;C to +50&deg;C (standard), with automatic derating above 40&deg;C</li>
-                      <li><strong>Storage temperature:</strong> -25&deg;C to +70&deg;C</li>
-                      <li><strong>Humidity:</strong> 0-95% non-condensing</li>
-                      <li><strong>Ingress protection:</strong> IP20 standard, IP31 optional (NEMA 1 equivalent)</li>
-                      <li><strong>Altitude:</strong> up to 2000m without derating, up to 4000m with derating</li>
+                      <li><strong>运行温度：</strong>0°C至+50°C（标准），40°C以上自动降额</li>
+                      <li><strong>存储温度：</strong>-25°C至+70°C</li>
+                      <li><strong>湿度：</strong>0-95%无冷凝</li>
+                      <li><strong>防护等级：</strong>IP20标准，IP31可选（相当于NEMA 1）</li>
+                      <li><strong>海拔：</strong>2000m以下无需降额，4000m以下需降额</li>
                     </ul>
-                    <p>For extreme environments (high dust, corrosive gases, outdoor), CHITEK offers custom enclosure options including forced ventilation, heat exchangers, and stainless steel construction.</p>
+                    <p>对于极端环境（高粉尘、腐蚀性气体、户外），CHITEK提供定制机箱选项，包括强制通风、热交换器和不锈钢结构。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel9">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Certifications and Compliance</h4>
-                    <p class="mb-3">CHITEK AHF products are fully certified and comply with major international standards:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">认证与合规</h4>
+                    <p class="mb-3">CHITEK AHF产品已全面认证，符合主要国际标准：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>CE (LVD + EMC)</strong> — compliance with EU directives for low voltage and electromagnetic compatibility</li>
-                      <li><strong>UL/cUL 508</strong> — listed for industrial control equipment (optional)</li>
-                      <li><strong>IEC 61642</strong> — harmonic filter application standard</li>
-                      <li><strong>IEC 61439-1/2</strong> — low-voltage switchgear and controlgear assemblies</li>
-                      <li><strong>IEEE 519-2022</strong> — recommended harmonic limits compliance</li>
-                      <li><strong>ISO 9001:2015</strong> — quality management system (manufacturing facility)</li>
+                      <li><strong>CE（LVD + EMC）</strong> — 符合欧盟低压和电磁兼容指令</li>
+                      <li><strong>UL/cUL 508</strong> — 工业控制设备认证（可选）</li>
+                      <li><strong>IEC 61642</strong> — 谐波滤波器应用标准</li>
+                      <li><strong>IEC 61439-1/2</strong> — 低压开关设备和控制设备</li>
+                      <li><strong>IEEE 519-2022</strong> — 谐波限值合规建议</li>
+                      <li><strong>ISO 9001:2015</strong> — 质量管理体系（制造工厂）</li>
                     </ul>
-                    <p>Custom certification packages are available for specific regional or project requirements.</p>
+                    <p>可根据特定区域或项目要求提供定制认证包。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanel10">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Commissioning and Configuration</h4>
-                    <p class="mb-3">CHITEK AHF is designed for quick and intuitive commissioning. The standard setup process takes less than 15 minutes and involves three simple steps:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">调试与配置</h4>
+                    <p class="mb-3">CHITEK AHF专为快速直观的调试而设计。标准设置过程不到15分钟，只需三个简单步骤：</p>
                     <ol class="list-decimal pl-5 space-y-1 mb-3">
-                      <li><strong>Auto-tuning:</strong> The AHF automatically detects line impedance and CT configuration with the press of a button</li>
-                      <li><strong>Harmonic selection:</strong> Choose from pre-configured harmonic profiles or customize individual harmonic orders (2nd-50th)</li>
-                      <li><strong>Verification:</strong> Built-in waveform display and harmonic spectrum analyzer confirm correct operation</li>
+                      <li><strong>自动整定：</strong>一键按下，AHF自动检测线路阻抗和CT配置</li>
+                      <li><strong>谐波选择：</strong>从预配置的谐波模板中选择，或自定义各次谐波（2-50次）</li>
+                      <li><strong>验证：</strong>内置波形显示和谐波频谱分析仪确认运行正确</li>
                     </ol>
-                    <p>For advanced configurations, CHITEK provides a free PC-based software tool for parameter backup/restore, data logging, and remote monitoring setup. Multi-unit parallel systems can be configured in under 5 minutes through the intuitive front panel interface without any external tools.</p>
+                    <p>对于高级配置，CHITEK提供免费的PC端软件工具，用于参数备份/恢复、数据记录和远程监控设置。多台并联系统可通过直观的前面板界面在5分钟内完成配置，无需任何外部工具。</p>
                   </div>
                 </div>
               </div>  <!-- close flex-1 content -->
@@ -1589,28 +1589,28 @@ const meta = {
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <div class="space-y-4">
                       <div>
-                        <strong class="text-text-dark">PF Penalty</strong>
-                        <p class="text-text-dim mt-1">cos&phi; &lt; 0.9 with high reactive power ratio, leading to 5%-20% reactive power surcharge on electricity bills.</p>
+                        <strong class="text-text-dark">功率因数罚款</strong>
+                        <p class="text-text-dim mt-1">cosφ<0.9且无功比例高，导致电费产生5%-20%的无功附加费。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Voltage Flicker</strong>
-                        <p class="text-text-dim mt-1">Impact loads from arc furnaces, rolling mills, and welders cause lighting flicker, motor speed fluctuation, and product quality instability.</p>
+                        <strong class="text-text-dark">电压闪变</strong>
+                        <p class="text-text-dim mt-1">电弧炉、轧机和电焊机的冲击负载导致照明闪烁、电机转速波动和产品质量不稳定。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Three-Phase Unbalance</strong>
-                        <p class="text-text-dim mt-1">Uneven distribution of single-phase high-power loads leads to transformer partial load overheating, zero-sequence current, and protection misoperation.</p>
+                        <strong class="text-text-dark">三相不平衡</strong>
+                        <p class="text-text-dim mt-1">单相大功率负载分布不均导致变压器局部过载发热、零序电流和保护误动作。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Capacitor Resonance</strong>
-                        <p class="text-text-dim mt-1">Traditional capacitor banks form resonance with system impedance, causing harmonic amplification, capacitor bulging/rupture, and fuse bank blowout.</p>
+                        <strong class="text-text-dark">电容器谐振</strong>
+                        <p class="text-text-dim mt-1">传统电容器组与系统阻抗形成谐振，导致谐波放大、电容器鼓胀/爆裂和熔丝熔断。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Capacitive Reverse Power</strong>
-                        <p class="text-text-dim mt-1">Over-compensation during light-load conditions results in voltage rise, equipment insulation breakdown, and utility fines.</p>
+                        <strong class="text-text-dark">容性倒送</strong>
+                        <p class="text-text-dim mt-1">轻载时过补偿导致电压升高、设备绝缘击穿和电力罚款。</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Slow Response</strong>
-                        <p class="text-text-dim mt-1">Mechanical switched capacitor response &gt; 1 second makes it unable to track rapid load changes, leading to compensation failure.</p>
+                        <strong class="text-text-dark">响应缓慢</strong>
+                        <p class="text-text-dim mt-1">机械开关电容器响应时间>1秒，无法跟踪快速负载变化，导致补偿失败。</p>
                       </div>
                     </div>
                   </div>
@@ -1619,70 +1619,70 @@ const meta = {
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
                     <div class="space-y-4">
                       <div>
-                        <strong class="text-text-dark">Arc Furnace / Refining</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Impact loads, three-phase unbalance, severe flicker</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Sub-20ms response, suppressing voltage flicker, stabilizing electrode control</p>
+                        <strong class="text-text-dark">电弧炉/精炼</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>冲击性负载、三相不平衡、严重闪变</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>亚20ms响应，抑制电压闪变，稳定电极控制</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Steel Rolling / Wire Drawing</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Cyclical impact loads, severe PF fluctuation</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Real-time reactive power tracking, avoiding PF penalty charges</p>
+                        <strong class="text-text-dark">轧钢/拉丝</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>周期性冲击负载、功率因数剧烈波动</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>实时无功跟踪，避免功因罚款</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Wind / Solar Power</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Intermittent output, grid-code PF requirements</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Meeting utility interconnection standards, preventing disconnection</p>
+                        <strong class="text-text-dark">风电/光伏</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>间歇性出力、并网功率因数要求</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>满足电网互联标准，防止脱网</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Rail Transit</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Traction load impact, regenerative braking</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Stabilizing catenary voltage, reducing braking resistor energy loss</p>
+                        <strong class="text-text-dark">轨道交通</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>牵引负荷冲击、再生制动</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>稳定接触网电压，减少制动电阻能耗</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Harbor Cranes</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Hoisting/lowering impact loads</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Dynamic reactive compensation, reducing transformer capacity requirements</p>
+                        <strong class="text-text-dark">港口起重机</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>起升/下降冲击负载</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>动态无功补偿，降低变压器容量需求</p>
                       </div>
                       <div>
-                        <strong class="text-text-dark">Data Centers</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> UPS light-load high capacitance, transformer light-load</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Preventing capacitive reverse flow, maintaining PF at 0.95-1.0</p>
+                        <strong class="text-text-dark">数据中心</strong>
+                        <p class="text-text-dim mt-1"><strong>负载特点：</strong>UPS轻载高容性、变压器轻载</p>
+                        <p class="text-text-dim"><strong>SVG应用：</strong>防止容性倒送，维持功因在0.95-1.0</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg3">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">SVG vs Capacitor Banks</h4>
-                    <p>The fundamental difference is that SVG uses power electronics (IGBT/SiC) to inject or absorb reactive current in real time, while capacitor banks provide fixed-step compensation with mechanical switching.</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">SVG与电容器组的区别</h4>
+                    <p>根本区别在于SVG使用电力电子器件（IGBT/SiC）实时注入或吸收无功电流，而电容器组通过机械开关提供固定级差补偿。</p>
                     <table class="w-full border-separate border-spacing-0 text-[clamp(12px,0.9vw,15px)] leading-relaxed rounded-xl overflow-hidden border border-border-light mt-4">
                       <thead>
                         <tr class="bg-[#f5f5f7]">
-                          <th class="p-3 text-left text-text-dark font-semibold">Feature</th>
+                          <th class="p-3 text-left text-text-dark font-semibold">特性</th>
                           <th class="p-3 text-left text-text-dark font-semibold">CHITEK SVG</th>
-                          <th class="p-3 text-left text-text-dark font-semibold">Capacitor Bank</th>
+                          <th class="p-3 text-left text-text-dark font-semibold">电容器组</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Response Time</td>
-                          <td class="p-3 text-text-dim">&lt;10ms</td>
-                          <td class="p-3 text-text-dim">1-5 cycles (20-100ms)</td>
+                          <td class="p-3 text-text-dark">响应时间</td>
+                          <td class="p-3 text-text-dim"><10ms</td>
+                          <td class="p-3 text-text-dim">1-5个周波（20-100ms）</td>
                         </tr>
                         <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Compensation Type</td>
-                          <td class="p-3 text-text-dim">Continuous, smooth</td>
-                          <td class="p-3 text-text-dim">Step-wise, discrete</td>
+                          <td class="p-3 text-text-dark">补偿类型</td>
+                          <td class="p-3 text-text-dim">连续平滑</td>
+                          <td class="p-3 text-text-dim">分级离散</td>
                         </tr>
                         <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Resonance Risk</td>
-                          <td class="p-3 text-text-dim">None (active injection)</td>
-                          <td class="p-3 text-text-dim">High (LC circuit formation)</td>
+                          <td class="p-3 text-text-dark">谐振风险</td>
+                          <td class="p-3 text-text-dim">无（有源注入）</td>
+                          <td class="p-3 text-text-dim">高（形成LC回路）</td>
                         </tr>
                         <tr>
-                          <td class="p-3 text-text-dark">Harmonic Filtering</td>
-                          <td class="p-3 text-text-dim">Built-in (hybrid models)</td>
-                          <td class="p-3 text-text-dim">Requires detuned reactors</td>
+                          <td class="p-3 text-text-dark">谐波滤波</td>
+                          <td class="p-3 text-text-dim">内置（混合型号）</td>
+                          <td class="p-3 text-text-dim">需配调谐电抗器</td>
                         </tr>
                       </tbody>
                     </table>
@@ -1690,98 +1690,98 @@ const meta = {
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg4">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Protection Features</h4>
-                    <p class="mb-3">CHITEK SVG includes comprehensive protection features to ensure safe and reliable operation:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">保护功能</h4>
+                    <p class="mb-3">CHITEK SVG包含全面的保护功能，确保安全可靠运行：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Over-voltage / Under-voltage protection</strong> — automatic shutdown when grid voltage exceeds safe limits</li>
-                      <li><strong>Over-current protection</strong> — instantaneous trip on output over-current</li>
-                      <li><strong>Over-temperature protection</strong> — intelligent fan control with thermal shutdown</li>
-                      <li><strong>Short-circuit protection</strong> — IGBT module desaturation detection</li>
-                      <li><strong>Phase loss protection</strong> — detection and alarm for missing phases</li>
-                      <li><strong>Surge protection</strong> — built-in MOV for transient voltage suppression</li>
+                      <li><strong>过压/欠压保护</strong> — 电网电压超限时自动停机</li>
+                      <li><strong>过流保护</strong> — 输出过流时瞬时跳闸</li>
+                      <li><strong>过热保护</strong> — 智能风扇控制，带过热停机</li>
+                      <li><strong>短路保护</strong> — IGBT模块退饱和检测</li>
+                      <li><strong>缺相保护</strong> — 相位缺失检测与报警</li>
+                      <li><strong>浪涌保护</strong> — 内置MOV压敏电阻，抑制瞬态过压</li>
                     </ul>
-                    <p>All protection events are logged with time stamps and can be retrieved via the front panel display or remote communication interface for troubleshooting.</p>
+                    <p>所有保护事件均带时间戳记录，可通过前面板显示屏或远程通信接口调取，便于故障排查。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg5">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Lifespan and MTBF</h4>
-                    <p class="mb-3">CHITEK SVG has a design life exceeding 20 years under normal operating conditions (ambient temperature below 40&deg;C, nominal load).</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">使用寿命与MTBF</h4>
+                    <p class="mb-3">CHITEK SVG在正常工况下（环境温度低于40°C，额定负载）设计寿命超过20年。</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>MTBF (Mean Time Between Failures):</strong> &gt;150,000 hours</li>
-                      <li><strong>Electrolytic capacitor replacement:</strong> every 8-10 years (recommended)</li>
-                      <li><strong>Cooling fan replacement:</strong> every 5-7 years (based on operating hours)</li>
-                      <li><strong>IGBT module lifespan:</strong> &gt;15 years under rated conditions</li>
+                      <li><strong>MTBF（平均无故障时间）：</strong>>150,000小时</li>
+                      <li><strong>电解电容更换：</strong>每8-10年（推荐）</li>
+                      <li><strong>冷却风扇更换：</strong>每5-7年（按运行时间）</li>
+                      <li><strong>IGBT模块寿命：</strong>>15年（额定工况）</li>
                     </ul>
-                    <p>All CHITEK SVG products come with a standard 2-year warranty, with extended warranty options available up to 5 years. Regular preventive maintenance is recommended every 12 months for optimal performance.</p>
+                    <p>所有CHITEK SVG产品均提供标准2年质保，可选延保至5年。建议每12个月进行一次预防性维护，以确保最佳性能。</p>
                   </div>
                 </div>
               </div>
                 <div class="faq-panel hidden" id="faqPanelSvg6">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Installation Requirements</h4>
-                    <p class="mb-3">CHITEK SVG is designed for straightforward indoor installation with the following requirements:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">安装要求</h4>
+                    <p class="mb-3">CHITEK SVG专为便捷的室内安装而设计，具体要求如下：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Mounting:</strong> Wall-mount (up to 100kvar) or floor-mount with base frame (above 100kvar)</li>
-                      <li><strong>Clearance:</strong> Minimum 200mm on all sides for ventilation and access</li>
-                      <li><strong>Ventilation:</strong> Ambient temperature 0&deg;C to +50&deg;C, forced air cooling standard</li>
-                      <li><strong>Electrical:</strong> Direct connection to LV bus via circuit breaker; CT installation on mains side</li>
-                      <li><strong>Cable entry:</strong> Bottom entry standard, top entry optional</li>
+                      <li><strong>安装方式：</strong>壁挂式（100kvar以下）或落地式带底座框架（100kvar以上）</li>
+                      <li><strong>间距：</strong>各侧最小200mm，确保通风和维护空间</li>
+                      <li><strong>通风：</strong>环境温度0°C至+50°C，标配强制风冷</li>
+                      <li><strong>电气：</strong>通过断路器直接连接低压母线；CT安装于电源侧</li>
+                      <li><strong>进线方式：</strong>底部进线标配，顶部进线可选</li>
                     </ul>
-                    <p>For outdoor or semi-outdoor installations, CHITEK offers IP54-rated enclosures with built-in climate control.</p>
+                    <p>对于户外或半户外安装，CHITEK提供IP54防护等级机箱，内置温控系统。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg7">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Unbalanced Load Handling</h4>
-                    <p class="mb-3">Yes, CHITEK SVG features <strong>per-phase independent control</strong>, allowing it to handle severely unbalanced loads with ease.</p>
-                    <p class="mb-3">Each phase is independently monitored and controlled, providing:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">不平衡负载处理</h4>
+                    <p class="mb-3">可以。CHITEK SVG采用<strong>分相独立控制</strong>技术，能轻松处理严重不平衡负载。</p>
+                    <p class="mb-3">每相独立监测和控制，提供：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Individual phase-by-phase reactive power compensation</li>
-                      <li>Automatic balancing of phase currents when used in conjunction with load balancing functions</li>
-                      <li>Zero-sequence compensation for 4-wire systems (3-phase + neutral)</li>
-                      <li>Seamless performance even when one phase has drastically different loading than others</li>
+                      <li>逐相独立进行无功补偿</li>
+                      <li>配合负载平衡功能时自动均衡相电流</li>
+                      <li>四线制系统的零序补偿（三相+零线）</li>
+                      <li>即使某相负载与其他相相差悬殊仍能稳定运行</li>
                     </ul>
-                    <p>This makes CHITEK SVG ideal for applications with unbalanced loads such as welding shops, data centers, and commercial buildings.</p>
+                    <p>这使得CHITEK SVG非常适合于电焊车间、数据中心和商业建筑等存在不平衡负载的应用场景。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg8">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Renewable Energy Integration</h4>
-                    <p class="mb-3">CHITEK SVG is widely used in renewable energy applications to improve power quality and grid compliance:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">新能源集成</h4>
+                    <p class="mb-3">CHITEK SVG广泛应用于新能源领域，改善电能质量和电网合规性：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Solar PV plants:</strong> Compensates reactive power fluctuations caused by cloud-induced irradiance changes</li>
-                      <li><strong>Wind farms:</strong> Provides voltage support during turbine startup and wind gusts</li>
-                      <li><strong>Energy storage systems:</strong> Maintains power factor during charge/discharge cycles</li>
-                      <li><strong>Microgrids:</strong> Stabilizes voltage in island mode operation</li>
+                      <li><strong>光伏电站：</strong>补偿云层遮挡引起辐照度变化导致的无功波动</li>
+                      <li><strong>风电场：</strong>在风机启动和阵风期间提供电压支撑</li>
+                      <li><strong>储能系统：</strong>充放电周期内维持功率因数稳定</li>
+                      <li><strong>微电网：</strong>孤岛运行模式下稳定电压</li>
                     </ul>
-                    <p>SVG units can be integrated with plant SCADA systems via Modbus TCP for coordinated reactive power management across the entire renewable facility.</p>
+                    <p>SVG设备可通过Modbus TCP与电站SCADA系统集成，实现整个新能源设施的协调无功管理。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg9">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Standby Power Consumption</h4>
-                    <p class="mb-3">CHITEK SVG is designed for high efficiency across all operating conditions, with minimal standby losses:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">待机功耗</h4>
+                    <p class="mb-3">CHITEK SVG在所有工况下均设计为高效率运行，待机损耗极低：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Standby power consumption:</strong> &lt;2% of rated capacity (e.g., a 100kvar SVG consumes less than 2kW in standby)</li>
-                      <li><strong>Full-load efficiency:</strong> &gt;98% at rated output</li>
-                      <li><strong>Sleep mode:</strong> When reactive power demand is below 5% of rated capacity for 10 minutes, the SVG enters sleep mode, reducing consumption to &lt;0.5%</li>
-                      <li><strong>Automatic wake-up:</strong> The SVG instantly wakes from sleep mode when reactive power demand exceeds 10% of rated capacity</li>
+                      <li><strong>待机功耗：</strong><额定容量的2%（例如100kvar SVG待机功耗小于2kW）</li>
+                      <li><strong>满载效率：</strong>>98%（额定输出时）</li>
+                      <li><strong>休眠模式：</strong>当无功需求低于额定容量5%持续10分钟时，SVG进入休眠模式，功耗降至<0.5%</li>
+                      <li><strong>自动唤醒：</strong>当无功需求超过额定容量10%时，SVG瞬间从休眠模式唤醒</li>
                     </ul>
-                    <p>This intelligent power management ensures minimal energy costs during periods of low demand while maintaining instant readiness.</p>
+                    <p>这种智能电源管理确保在低需求期间能耗最小化，同时保持即时响应能力。</p>
                   </div>
                 </div>
                 <div class="faq-panel hidden" id="faqPanelSvg10">
                   <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Communication Protocols</h4>
-                    <p class="mb-3">CHITEK SVG supports the following communication protocols for remote monitoring and control:</p>
+                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">通信协议</h4>
+                    <p class="mb-3">CHITEK SVG支持以下通信协议，用于远程监控和控制：</p>
                     <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard on all models, supports multi-drop daisy-chain topology</li>
-                      <li><strong>Ethernet / Modbus TCP</strong> — optional interface module for network integration</li>
-                      <li><strong>Profibus DP</strong> — optional for industrial automation systems</li>
-                      <li><strong>Dry contact I/O</strong> — programmable inputs/outputs for start/stop, alarm, and status signaling</li>
+                      <li><strong>RS485 / Modbus RTU</strong> — 所有型号标配，支持菊花链多站拓扑</li>
+                      <li><strong>Ethernet / Modbus TCP</strong> — 可选接口模块，用于网络集成</li>
+                      <li><strong>Profibus DP</strong> — 可选，用于工业自动化系统</li>
+                      <li><strong>干接点I/O</strong> — 可编程输入/输出，用于启停、报警和状态信号</li>
                     </ul>
-                    <p>All communication parameters (baud rate, parity, slave address, IP configuration) are fully configurable via the front panel keypad and display. CHITEK also provides comprehensive PC-based monitoring software for data logging, trend analysis, and remote firmware updates.</p>
+                    <p>所有通信参数（波特率、校验位、从站地址、IP配置）均可通过前面板键盘和显示屏完全配置。CHITEK还提供全面的PC端监控软件，用于数据记录、趋势分析和远程固件升级。</p>
                   </div>
                 </div>
               </div>  <!-- close flex-1 content -->
