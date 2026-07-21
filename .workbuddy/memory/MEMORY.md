@@ -24,3 +24,5 @@
 - Astro 6.x + Tailwind v4(@tailwindcss/vite) + @astrojs/sitemap + Netlify
 - 中文默认语言；zh/en/es/ar/pt 五语子域名；新闻仅 zh/en/es/ar 四语
 - 禁止内联 style（动态值除外）；Tailwind v4 任意变体 `[&.class]` 扫描不到，用 `<style>` 纯 CSS
+- **Astro scoped `<style>` 引用组件外全局类必须 `:global()`**：`<style>` 里每段选择器都会被加 `[data-astro-cid]`，包括写在 `<html>`/`<body>` 上的全局 flag 类（`.js`/`.dark`/`.rtl`）。这些元素在组件外没有 cid → 被 scope 后永不匹配。凡引用组件外元素的类，一律写 `:global(.js) .xxx{}`。曾导致 reveal 滚动动画"标题可见但不动"（隐藏态 `opacity:0` 整条失效）。定位手段：Playwright(共享 venv) headless 读 getComputedStyle。
+- **JS 交付方式（重要）**：`.astro` 里普通 `<script>`（无 `is:inline`）会被 Astro/Vite **打包成外部 ES 模块**——build 产物为 `<script type="module" src="/_astro/<hash>.js">`，dev 为 `/src/...?astro&type=script&index=0&lang.ts`，**并非真正内联**在 HTML 里。只有 `<script is:inline>` 与 `<script type="application/ld+json">`（结构化数据，非可执行 JS）才保留在 HTML 内。当前真正 `is:inline` 的仅两处：① `en/products/active-harmonic-filter.astro` 的 `classList.add('js')`；② 各语言 `solutions.astro` 的 `<script is:inline src="/assets/js/lucide.min.js">` 加载本地库。其余交互 JS（Nav、BaseLayout 共享脚本、products 页 psPopIn 动画等）均随普通 `<script>` 被打包成外部模块——功能正常（模块 defer，DOM 就绪后执行）。若需真正单文件内联（如 CSP 禁止外部模块），需给对应 `<script>` 加 `is:inline`（代价：不被打包/压缩、跨页不去重）。

@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "جودة الطاقة في محطات معالجة المياه: AHF وSVG منخفض الجهد",
+  category: "تكنولوجيا",
+  date: "2026-07-01",
+  dateDisplay: "1 يوليو 2026",
+  author: "الفريق الفني لـ CHITEK",
+  readTime: "5 دقائق قراءة",
+  description: "كيف يحل AHF وSVG منخفض الجهد مشاكل التوافقيات وانخفاض معامل القدرة وتقلبات الجهد في محطات معالجة المياه.",
+  keywords: [
+    "Energy quality device",
+    "Advanced Active Filter",
+    "Parallel active filter",
+    "SiC MOSFET",
+    "Active Harmonic Filter",
+    "Ultra High-Efficiency AHF",
+    "Silicon Carbide Power Quality Filter",
+    "SiC-Based Harmonic Mitigation System",
+    "Next-Generation Active Harmonic Filter",
+    "Power quality",
+    "Water treatment"
+  ]
+};
+
+const otherArticles = [
+    { title: "تعزيز موثوقية AHF", category: "تكنولوجيا", href: "/ar/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "مرشحات التوافقيات مقابل مفاعلات الخط", category: "تكنولوجيا", href: "/ar/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF لأنظمة VFD", category: "تكنولوجيا", href: "/ar/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "مرشح توافقي نشط AHF", href: "/products#ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار ثابت SVG", href: "/products#ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG عالي الكفاءة", href: "/products#ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "مصنع صناعي سعودي", industry: "التصنيع" },
+    { name: "محطة شمسية 50MW دبي", industry: "الطاقة المتجددة" },
+    { name: "مركز بيانات البرازيل", industry: "مراكز البيانات" }
+  ];
+
+const lp = (p: string) => p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "جودة الطاقة في محطات معالجة المياه: AHF وSVG منخفض الجهد",
+    "description": "كيف يحل AHF وSVG منخفض الجهد مشاكل التوافقيات وانخفاض معامل القدرة وتقلبات الجهد في محطات معالجة المياه.",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-07-01",
+    "dateModified": "2026-07-01",
+    "keywords": "مرشح توافقي نشط, AHF, SVG, معالجة المياه, جودة الطاقة, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden" dir="rtl">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={'/ar/news'} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white" dir="rtl">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="جودة الطاقة في محطات معالجة المياه: AHF وSVG منخفض الجهد" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+<div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6" dir="rtl">محطة معالجة المياه هي عملية تشغيل مستمر مع حمولة متغيرة. يشرح هذا المقال كيف يعالج AHF وSVG منخفض الجهد هذه المشاكل.</p>
+
+          <h2 id="load-profile" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">لماذا ملف الحمل صعب</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">حمل المحطة ليس ثابتاً.</p>
+
+          <h2 id="vfd-harmonics" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">التوافقيات من المضخات والمنافخ بالتحكم VFD</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">VFD هي أحمال غير خطية. يقوم <strong>AHF</strong> بتقليل THDi في الوقت الفعلي.</p>
+
+          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">معامل القدرة وSVG</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">يوفر <strong>SVG منخفض الجهد</strong> تعويضاً ديناميكياً.</p>
+
+          <h2 id="combined" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">AHF + SVG معاً</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">يقوم AHF بتنظيف التوافقيات؛ ويقوم SVG بتصحيح معامل القدرة وتثبيت الجهد.</p>
+
+          <h2 id="igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">نواة المحول: IGBT وSiC</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">منصات AHF/SVG من <strong>CHITEK</strong> مبنية على مسار الهجرة IGBT&rarr;SiC.</p>
+
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">أين يتم التركيب وماذا نقيس</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">المواقع الشائعة: لوحة التوزيع الرئيسية للجهد المنخفض.</p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4" dir="rtl">الاستنتاج</h2>
+          <p class="text-text-mid leading-relaxed mb-6" dir="rtl">يعمل حل AHF + SVG على تخفيف كلا المشكلتين، وحماية النظام الكهربائي.</p>
+        </div>
+
+                <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+
+<!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d="{product.icon}"/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "水处理厂电能质量：低压 AHF + SVG 在泵母线侧的应用",
+  category: "技术",
+  date: "2026-07-01",
+  dateDisplay: "2026年7月1日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "介绍低压有源谐波滤波器(AHF)和静止无功发生器(SVG)如何解决水处理厂VFD控制泵和鼓风机带来的谐波、低功率因数和电压波动问题。",
+  keywords: [
+    "Energy quality device",
+    "Advanced Active Filter",
+    "Parallel active filter",
+    "SiC MOSFET",
+    "Active Harmonic Filter",
+    "Ultra High-Efficiency AHF",
+    "Silicon Carbide Power Quality Filter",
+    "SiC-Based Harmonic Mitigation System",
+    "Next-Generation Active Harmonic Filter",
+    "Power quality",
+    "Water treatment"
+  ]
+};
+
+const otherArticles = [
+    { title: "三防涂层防护提升AHF可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与进线电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "VFD系统的有源谐波滤波器方案", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#zh/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#zh/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#zh/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜50MW光伏电站", industry: "新能源" },
+    { name: "巴西数据中心", industry: "数据中心" }
+  ];
+
+const lp = (p: string) => p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "水处理厂电能质量：低压 AHF + SVG 在泵母线侧的应用",
+    "description": "介绍低压有源谐波滤波器(AHF)和静止无功发生器(SVG)如何解决水处理厂VFD控制泵和鼓风机带来的谐波、低功率因数和电压波动问题。",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-07-01",
+    "dateModified": "2026-07-01",
+    "keywords": "有源谐波滤波器, AHF, SVG, 水处理, 电能质量, VFD谐波, 功率因数校正, 低压, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={'/news'} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="水处理厂电能质量：低压 AHF + SVG 在泵母线侧的应用" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+<div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">水处理厂是一个连续运行、负载多变的工艺过程。水泵、鼓风机、搅拌器、压缩机、加药系统和控制面板必须不间断运行——电气可靠性就是工艺可靠性。现代水厂为了提升效率引入了VFD、UPS、软启动器和自动化设备,但这些设备同时带来了谐波注入、功率因数下降和电压波动问题。本文介绍低压(&le; ~1 kV)AHF和SVG如何应对这些挑战。</p>
+
+          <h2 id="load-profile" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为什么负载曲线难以应对</h2>
+          <p class="text-text-mid leading-relaxed mb-6">水厂的负载不是固定的。泵速随需水量变化,鼓风机负载随处理工艺调整,电机频繁启停,部分设备长时间连续运行。这种波动给电气系统带来多重压力：</p>
+          <ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+            <li>VFD控制泵和鼓风机产生的谐波畸变</li>
+            <li>电机负载导致的低功率因数</li>
+            <li>负载变化时的电压波动</li>
+            <li>变压器和电缆过热</li>
+            <li>断路器误跳闸</li>
+            <li>电机效率下降和电容器组应力增大</li>
+            <li>控制系统性能不稳定</li>
+          </ul>
+          <p class="text-text-mid leading-relaxed mb-6">一旦水泵或鼓风机跳闸,将直接影响整个水处理流程。</p>
+
+          <h2 id="vfd-harmonics" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">VFD控制泵和鼓风机的谐波问题</h2>
+          <p class="text-text-mid leading-relaxed mb-6">VFD是非线性负载。6脉波前端从电网吸取脉冲电流,产生n = 6k &plusmn; 1次特征谐波(5次、7次、11次、13次……)。未加治理时,THDi通常达到8&ndash;30%,远超IEEE 519低压限制的<strong>&lt; 5%</strong>(单次谐波&lt; 3%)。谐波畸变会扩散到变压器、电缆、开关设备、保护装置和控制面板——工厂虽然继续运行,但设备温度升高、效率下降。</p>
+          <p class="text-text-mid leading-relaxed mb-6"><strong>有源谐波滤波器(AHF)</strong>通过CT检测负载电流,注入反相谐波分量：</p>
+          <blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i<sub>c</sub>* = i<sub>L</sub> &minus; i<sub>s</sub>(基波)</blockquote>
+          <p class="text-text-mid leading-relaxed mb-6">它实时降低THDi,减少变压器发热,保护电缆和开关设备,降低误跳闸风险。与固定式无源滤波器不同,AHF能跟踪每日变化的谐波电流。</p>
+
+          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">功率因数与SVG</h2>
+          <p class="text-text-mid leading-relaxed mb-6">大型水泵、鼓风机和电机消耗无功功率。如果不加控制,功率因数下降,在相同有功功率下电流增大(PF从0.95降到0.8时电流增加约19%),导致I&sup2;R损耗上升,并面临供电局的力率罚款。</p>
+          <p class="text-text-mid leading-relaxed mb-6"><strong>低压静止无功发生器(SVG)</strong>提供动态无功补偿,将功率因数维持在<strong>0.99+</strong>,并在电机负载变化时支撑母线电压。其响应时间<strong>&lt; 1 ms</strong>,远超投切电容器组的&gt; 20 ms,能跟上泵和鼓风机的快速负荷变化,不会过补或欠补。</p>
+
+          <h2 id="combined" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">AHF + SVG 联合应用</h2>
+          <p class="text-text-mid leading-relaxed mb-6">许多水厂同时面临谐波和低功率因数问题。只治理其中一项无法解决全部问题。AHF负责滤除谐波,SVG负责补偿无功和稳定电压。两者配合覆盖整个低压母线。</p>
+
+          <h2 id="igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">功率核心：IGBT 与 SiC</h2>
+          <p class="text-text-mid leading-relaxed mb-6">AHF和SVG的性能受限于其功率开关器件。标准<strong>IGBT</strong>的结温约150 &deg;C,开关频率通常低于20 kHz,损耗随频率上升而增加,限制了跟踪速度。</p>
+          <p class="text-text-mid leading-relaxed mb-6"><strong>SiC MOSFET</strong>则实现了质的飞跃：碳化硅是宽禁带材料(3.26 eV vs. 硅的1.12 eV),可耐受约200 &deg;C,开关频率达到IGBT的2&ndash;3倍,开关损耗降低约50%——从而实现+1&ndash;3%的效率提升和更精确的控制。<strong>CHITEK</strong>低压AHF/SVG平台正沿着IGBT&rarr;SiC的演进路径发展。</p>
+
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">安装位置与测量建议</h2>
+          <p class="text-text-mid leading-relaxed mb-6">常见安装位置：主低压配电柜、电机控制中心(MCC)、VFD柜、泵控制室、鼓风机控制柜、变压器二次侧、主进线柜。正确选点应基于实测数据,而非经验猜测。</p>
+          <p class="text-text-mid leading-relaxed mb-6">选型前工程师应核实：</p>
+          <ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+            <li>系统电压和变压器容量</li>
+            <li>VFD数量和泵/鼓风机电机额定功率</li>
+            <li>实测THDi和主导谐波次数</li>
+            <li>功率因数趋势和负载变化规律</li>
+            <li>现有电容器组状况、电缆/变压器温度</li>
+            <li>目标补偿水平</li>
+          </ul>
+          <p class="text-text-mid leading-relaxed mb-6">按实测数据选型,而非仅按电机总功率估算,避免选型过大/过小或安装位置不当。</p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">结论</h2>
+          <p class="text-text-mid leading-relaxed mb-6">水处理厂使用VFD泵、鼓风机和电机提升了运行效率,但也带来了谐波、低功率因数和电压波动。基于IGBT&rarr;SiC核心的低压AHF + SVG方案能同时解决这两大问题,保护电气系统,确保水处理工艺的持续稳定运行。</p>
+        </div>
+
+                <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+
+<!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d="{product.icon}"/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

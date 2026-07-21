@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK — Low Voltage AHF, SVG & AVR Manufacturer | Power Quality Solutions',
-  description: 'CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG, and Automatic Voltage Regulator (AVR) for low-voltage power quality correction.',
+  title: 'CHITEK — Low Voltage AHF & SVG Manufacturer | Power Quality Solutions',
+  description: 'CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG for low-voltage power quality correction.',
 };
 
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
@@ -17,8 +17,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <div class="flex items-center justify-center gap-0 md:gap-[clamp(8px,1.5vw,20px)] overflow-x-auto">
         <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Active Harmonic Filter</span></button>
         <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Static Var Generator</span></button>
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="2"><span class="font-barlow-condensed">Automatic Voltage Regulator</span></button>
-      </div>
+              </div>
     </div>
   </div>
 
@@ -46,7 +45,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <!-- Tab 0: AHF -->
       <div class="tab-panel" data-tab="0">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed reveal-x-left [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
           <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
@@ -252,7 +251,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <!-- Tab 1: SVG -->
       <div class="tab-panel hidden" data-tab="1">
         <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
+          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed reveal-x-left [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
           <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
@@ -438,11 +437,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- Tab 0: AHF -->
     <div class="tab-panel" data-tab="0">
       <div class="px-[clamp(24px,8vw,160px)]">
-        <div class="text-left mb-16 reveal">
+        <div class="text-left mb-16 reveal-x-left">
           <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
           <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] reveal">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] feat-grid">
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 15h6M15 9v6"/></svg>
@@ -462,7 +461,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Switching frequency &gt;20kHz, loss reduction 30%</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:150ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
@@ -476,7 +475,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Adaptive damping, prevents 5th/7th resonance amplification</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:300ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v18M16 3v18M4 8h16M4 16h16"/></svg>
             </div>
@@ -491,7 +490,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Space saving vs traditional 100mm+ cabinet models</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:450ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><path d="M6 10v4M9 10v4M12 10v4M15 10v4"/></svg>
             </div>
@@ -515,11 +514,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- Tab 1: SVG -->
     <div class="tab-panel hidden" data-tab="1">
       <div class="px-[clamp(24px,8vw,160px)]">
-        <div class="text-left mb-16 reveal">
+        <div class="text-left mb-16 reveal-x-left">
           <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
           <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] reveal">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] feat-grid">
           <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -535,7 +534,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Full compensation output in under 5ms, tracking load changes in real-time</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:150ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
             </div>
@@ -553,7 +552,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Pure IGBT-based design eliminates capacitor resonance and maintenance issues</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:300ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
@@ -568,7 +567,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </svg>
             <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Outputs both leading and lagging reactive power for full four-quadrant operation</p>
           </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]" style="transition-delay:450ms">
+          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
             <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="5" y1="16" x2="12" y2="12"/><line x1="19" y1="16" x2="12" y2="12"/></svg>
             </div>
@@ -738,24 +737,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <div id="roadmap-tooltip" class="fixed z-50 px-4 py-2 bg-text-dark border border-brand-orange/30 rounded text-[clamp(10px,0.8vw,12px)] text-brand-orange whitespace-pre-line pointer-events-none hidden font-barlow-condensed shadow-lg"></div>
   </section>
 
-  <!-- Tab 2: AVR (Coming Soon) -->
-  <section class="tab-panel hidden relative z-[2] bg-gradient-to-b from-[#0f1117] via-[#161b22] to-[#0d1117] py-[clamp(64px,6vw,128px)] overflow-hidden" data-tab="2">
-    <div class="px-[clamp(24px,8vw,160px)] relative">
-      <div class="text-center reveal max-w-3xl mx-auto">
-        <span class="inline-block px-4 py-1.5 text-[clamp(10px,0.8vw,12px)] font-semibold text-brand-orange bg-brand-orange/10 border border-brand-orange/30 rounded-full mb-[clamp(12px,2vw,32px)] tracking-wider uppercase font-barlow-condensed">Coming Soon</span>
-        <h2 class="text-[clamp(28px,3vw,56px)] md:text-5xl font-bold text-white/90 font-barlow-condensed mb-[clamp(12px,2vw,32px)]">Automatic Voltage Regulator</h2>
-        <p class="text-[clamp(13px,1.1vw,17px)] text-gray-400 leading-relaxed mb-[clamp(16px,2.5vw,40px)]">
-          CHITEK's next-generation Automatic Voltage Regulator (AVR) is currently under development, engineered to deliver precise voltage stabilization for mission-critical industrial applications. With advanced SiC-based topology and &lt;50&mu;s response time, it ensures consistent power quality under the most demanding grid conditions.
-        </p>
-        <h3 class="font-barlow-condensed text-[clamp(32px,4vw,80px)] font-bold text-brand-orange mb-6 uppercase tracking-[0.02em] [text-shadow:0_0_30px_rgba(255,107,26,0.3)]">Launched by year-end</h3>
-        <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/[0.06] border border-white/10 rounded-xl">
-          <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
-          <span class="text-[clamp(12px,0.9vw,15px)] text-gray-300 font-medium font-barlow-condensed tracking-wider">Available October 2026</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- Product Matrix -->
   <section id="matrix" class="relative bg-white py-[clamp(24px,2.5vw,48px)]">
     <div class="px-[clamp(24px,8vw,160px)]">
@@ -1816,20 +1798,23 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   .hmi-left { transform: translateX(-64px); }
   .hmi-right { transform: translateX(64px); }
   .hmi-left.visible, .hmi-right.visible { opacity: 1; transform: translateX(0); }
+  .reveal-x-left { opacity: 0; transform: translateX(-64px); transition: opacity 0.7s ease, transform 0.7s ease; will-change: opacity, transform; }
+  .reveal-x-left.visible { opacity: 1; transform: translateX(0); }
   @media (prefers-reduced-motion: reduce) {
-    .hmi-left, .hmi-right { opacity: 1; transform: none; transition: none; }
+    .hmi-left, .hmi-right, .reveal-x-left, .feat-card { opacity: 1; transform: none; transition: none; }
   }
   .wizard-step:not(.active) {
     display: none;
   }
   .feat-card {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(-48px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    will-change: opacity, transform;
   }
   .feat-card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
   /* 产品系列四张卡片弹出加载（可反复触发：首次进入 / 滚动重入 / 切换 Tab 均重放） */
   .ps-card { opacity: 0; will-change: transform, opacity; }
@@ -2022,7 +2007,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         });
 
         // Update matrix section title based on active tab
-        const matrixTitles = ['AHF Product Selection Matrix', 'SVG Product Selection Matrix', 'AVR Product Selection Matrix'];
+        const matrixTitles = ['AHF Product Selection Matrix', 'SVG Product Selection Matrix'];
         var matrixTitleEl = document.getElementById('matrix-title');
         if (matrixTitleEl) matrixTitleEl.textContent = matrixTitles[parseInt(tab)] || matrixTitles[0];
       });
@@ -2056,6 +2041,33 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       }, { threshold: 0.25 });
       hmiCols.forEach(el => hmiObserver.observe(el));
     }
+
+    // ===== Four Product Series 标题：从左侧滑入（可重复触发） =====
+    const xLeftEls = document.querySelectorAll('.reveal-x-left');
+    if (xLeftEls.length) {
+      const xLeftObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+          else entry.target.classList.remove('visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -20% 0px' });
+      xLeftEls.forEach(el => xLeftObserver.observe(el));
+    }
+
+    // ===== Core Technology Advantages 卡片：从左错峰滑入（可重复触发） =====
+    document.querySelectorAll('.feat-grid').forEach(grid => {
+      const cards = grid.querySelectorAll('.feat-card');
+      const featObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            cards.forEach((card, i) => setTimeout(() => card.classList.add('visible'), i * 150));
+          } else {
+            cards.forEach(card => card.classList.remove('visible'));
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -12% 0px' });
+      featObs.observe(grid);
+    });
 
     // ===== Roadmap Tooltip =====
     const tooltip = document.getElementById('roadmap-tooltip');
@@ -2530,7 +2542,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     initFaq('faqNavListSvg', 'faqPanelSvg');
     // Ensure first items are properly set up after DOM
     // ===== Hash-Based Navigation =====
-    const productHashMap = { 'ahf': '0', 'svg': '1', 'avr': '2', 'sic': '0', 'high-protection': '0' };
+    const productHashMap = { 'ahf': '0', 'svg': '1', 'sic': '0', 'high-protection': '0' };
 
     function navigateToProduct() {
       const hash = window.location.hash.replace('#', '');

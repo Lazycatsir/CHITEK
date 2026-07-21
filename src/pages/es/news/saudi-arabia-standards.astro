@@ -8,6 +8,7 @@ const article = {
   date: "2024-11-28",
   author: "Equipo Regulatorio de CHITEK",
   readTime: "4 min de lectura"
+,  keywords: ["Saudi Arabia","power quality standards","harmonic filter","IEEE 519","active harmonic filter","SVG","power factor","low voltage","grid compliance","CHITEK"]
 };
 ---
 <BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="Nuevas regulaciones en Arabia Saudita requieren filtrado mejorado de armónicos para instalaciones industriales. Las soluciones CHITEK cumplen con todos los requisitos de conformidad." lang="es">
@@ -94,7 +95,16 @@ const article = {
         </p>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+              <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+
+<div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
         <div class="flex items-center gap-4 mb-4 md:mb-0">
           <span class="text-sm text-text-muted">Compartir este artículo:</span>
           <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">

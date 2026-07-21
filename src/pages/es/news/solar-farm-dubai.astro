@@ -8,6 +8,7 @@ const article = {
   date: "2024-11-10",
   author: "Equipo de Proyectos de CHITEK",
   readTime: "6 min de lectura"
+,  keywords: ["solar farm","Dubai","power quality","active harmonic filter","SVG","renewable energy","harmonic mitigation","solar power","case study","CHITEK"]
 };
 ---
 <BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="Cómo las soluciones SVG de CHITEK mejoraron el factor de potencia de 0.85 a 0.99 para una instalación solar de 50MW en Dubai." lang="es">
@@ -117,7 +118,16 @@ const article = {
         </ul>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+              <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+
+<div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
         <div class="flex items-center gap-4 mb-4 md:mb-0">
           <span class="text-sm text-text-muted">Compartir este artículo:</span>
           <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">

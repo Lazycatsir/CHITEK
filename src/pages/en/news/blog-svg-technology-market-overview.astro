@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "SVG Technology Market Overview: Core Technologies and Application Scenarios",
+  category: "Technology",
+  date: "2026-07-18",
+  dateDisplay: "Jul 18, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "5 min read",
+  description: "A technology-focused overview of the low-voltage SVG market, covering core IGBT/SiC technologies, key application scenarios in data centers and industry, and engineering selection criteria.",
+  keywords: [
+    "SVG",
+    "static var generator",
+    "reactive power compensation",
+    "power quality",
+    "low voltage",
+    "grid stability",
+    "CHITEK"
+  ]
+};
+
+const otherArticles = [
+    { title: "Data Center Power Quality with AHF + SVG", category: "Technology", href: "/news/blog-ai-data-center-power-quality", color: "orange" },
+    { title: "Case Study: AHF in Oil & Gas", category: "Case Study", href: "/news/blog-case-study-ahf-energy-industry", color: "orange" },
+    { title: "Power Quality in Water Treatment", category: "Technology", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
+    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
+    { name: "Brazil Data Center", industry: "Data Centers" }
+  ];
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-svg.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SVG Technology Market Overview: Core Technologies and Application Scenarios",
+    "description": "A technology-focused overview of the low-voltage SVG market, covering core IGBT/SiC technologies, key application scenarios in data centers and industry, and engineering selection criteria.",
+    "image": "https://chitek-inno.com/assets/images/index-product-svg.webp",
+    "author": {"@type": "Organization","name": "CHITEK Technical Team"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "keywords": "SVG, static var generator, reactive power compensation, power quality, low voltage, grid stability"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="SVG Technology Market Overview: Core Technologies and Application Scenarios" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">The Static Var Generator (SVG) market has grown significantly as data centers, telecom base stations, industrial manufacturing, and renewable energy installations demand increasingly sophisticated reactive power compensation and harmonic mitigation. This article provides a technology-focused overview of the SVG landscape, examining the core technologies, application scenarios, and selection criteria that engineers should understand.</p>
+
+<h2 id="market-trends" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Market Trends and Technology Drivers</h2>
+<p class="text-text-mid leading-relaxed mb-6">The domestic SVG market grew 18.7% in 2025, driven by digitalization across data centers, telecom, and industrial sectors. Key trends include higher power density requirements, faster dynamic response, and integration with harmonic filtering capabilities. Modern SVGs must handle increasingly complex grid conditions while maintaining high reliability.</p>
+
+<h2 id="core-technology" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Core SVG Technology</h2>
+<p class="text-text-mid leading-relaxed mb-6">A low-voltage SVG uses an IGBT-based voltage-source converter to inject or absorb reactive current within <strong>&lt; 1 ms</strong>, holding power factor at <strong>0.99+</strong> while stabilizing voltage. The SVG is the user-side equivalent of a grid STATCOM, scaled for the LV point of common coupling. Key technological differentiators include:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>IGBT parallel technology</strong> &mdash; Multi-tube discrete IGBT parallel topology for higher current capacity and lower losses</li>
+  <li><strong>SiC MOSFET migration</strong> &mdash; Silicon carbide devices enabling 2&ndash;3&times; switching frequency at ~50% lower loss</li>
+  <li><strong>Advanced control algorithms</strong> &mdash; 3DSP+CPLD digital control for microsecond-level response</li>
+  <li><strong>Modular architecture</strong> &mdash; 1U&ndash;4U form factors for flexible deployment</li>
+</ul>
+
+<h2 id="application-scenarios" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Key Application Scenarios</h2>
+<p class="text-text-mid leading-relaxed mb-6"><strong>Data Centers:</strong> Server clusters create rapidly fluctuating reactive power demands. SVGs provide continuous PF correction at 0.99+, keeping UPS systems and cooling infrastructure stable. <strong>Telecom:</strong> Base station power systems benefit from SVGs that handle variable loads and maintain grid compliance. <strong>Industrial Manufacturing:</strong> Large motor-driven processes with VFDs create both harmonics and reactive demands that SVGs address.</p>
+
+<h2 id="selection" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering Selection Criteria</h2>
+<p class="text-text-mid leading-relaxed mb-6">When selecting an SVG, engineers should evaluate: system voltage and capacity requirements, measured PF trend and load variation profile, existing capacitor banks and transformer capacity, environmental conditions (temperature, humidity, dust), and target compensation level. Size to measured reactive demand with 10&ndash;20% headroom for load growth.</p>
+
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusion</h2>
+<p class="text-text-mid leading-relaxed mb-6">The SVG market continues to evolve with IGBT&rarr;SiC migration, higher power density, and smarter control algorithms. <strong>CHITEK</strong> low-voltage SVG platforms are built on this technology trajectory, suited to the demanding loads of modern data centers, telecom infrastructure, and industrial facilities.</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Share:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              More Articles</h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              Related Products</h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0"><path d={product.icon}/></svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              Customer Cases</h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

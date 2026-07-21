@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Industrial Active Harmonic Filter Selection Guide: Technical Specifications and Best Practices",
+  category: "Technology",
+  date: "2026-07-15",
+  dateDisplay: "Jul 15, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "5 min read",
+  description: "A technical guide to selecting industrial active harmonic filters: market trends, key specifications, THD reduction data, and engineering best practices.",
+  keywords: [
+    "active harmonic filter",
+    "AHF",
+    "APF",
+    "industrial power quality",
+    "harmonic mitigation",
+    "THD reduction",
+    "SiC",
+    "IGBT",
+    "CHITEK"
+  ]
+};
+
+const otherArticles = [
+    { title: "Data Center Power Quality with AHF + SVG", category: "Technology", href: "/news/blog-ai-data-center-power-quality", color: "orange" },
+    { title: "Case Study: AHF in Oil & Gas", category: "Case Study", href: "/news/blog-case-study-ahf-energy-industry", color: "orange" },
+    { title: "Power Quality in Water Treatment", category: "Technology", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
+    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
+    { name: "Brazil Data Center", industry: "Data Centers" }
+  ];
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Industrial Active Harmonic Filter Selection Guide: Technical Specifications and Best Practices",
+    "description": "A technical guide to selecting industrial active harmonic filters: market trends, key specifications, THD reduction data, and engineering best practices.",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "CHITEK Technical Team"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15",
+    "keywords": "active harmonic filter, AHF, APF, industrial power quality, harmonic mitigation, THD reduction"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-4.webp" alt="Industrial Active Harmonic Filter Selection Guide: Technical Specifications and Best Practices" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">Harmonic distortion in industrial facilities is a silent profit killer. Uncontrolled harmonics can reduce motor lifespan by over 50%, decrease effective equipment capacity by 20&ndash;30%, and even trigger grid resonance. As smart manufacturing and carbon-neutrality targets drive deeper adoption of VFDs, rectifiers, and other nonlinear loads, the Active Harmonic Filter (AHF) has become essential equipment rather than optional. This article provides a technical guide to industrial AHF selection based on real-world performance data.</p>
+
+<h2 id="market" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Market Growth and Technical Requirements</h2>
+<p class="text-text-mid leading-relaxed mb-6">The industrial AHF market reached 12.68 billion CNY in 2025, growing at 20% CAGR. Three trends dominate: AI-adaptive AHF replacing traditional fixed-filter designs, energy efficiency mandates driving 15&ndash;25% consumption reduction, and modular high-power-density form factors for space-constrained installations.</p>
+
+<h2 id="specs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Key Technical Specifications</h2>
+<p class="text-text-mid leading-relaxed mb-6">Industrial-grade AHFs should deliver: harmonic filtering efficiency above <strong>98%</strong> across 2nd&ndash;50th orders, response time under <strong>5 ms</strong> (ideally <strong>&lt; 100 &micro;s</strong>), THD reduction to below <strong>3&ndash;5%</strong>, IP54+ protection for harsh environments, and parallel redundancy for high-availability installations. CHITEK&rsquo;s platforms achieve these specifications through patented IGBT parallel current-sharing technology, 3DSP+CPLD digital control, and optional SiC MOSFET upgrade paths.</p>
+
+<h2 id="selection" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Selection Criteria</h2>
+<p class="text-text-mid leading-relaxed mb-6">Engineers should verify: measured THDi and dominant harmonic orders at the point of common coupling, system voltage and transformer capacity, environmental conditions (dust, humidity, temperature), and target compensation level. Demand third-party test reports (SGS/CNAS) verifying actual filtering efficiency &ge; 95% and response time &le; 5 ms. Size to measured harmonic current with 10&ndash;15% headroom.</p>
+
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusion</h2>
+<p class="text-text-mid leading-relaxed mb-6">Industrial harmonic mitigation is not a commodity purchase but a long-term investment in reliability and efficiency. CHITEK&rsquo;s low-voltage AHF platforms, built on a patented IGBT&rarr;SiC technology foundation, deliver verified performance across demanding industrial environments.</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Share:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              More Articles</h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              Related Products</h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0"><path d={product.icon}/></svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              Customer Cases</h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

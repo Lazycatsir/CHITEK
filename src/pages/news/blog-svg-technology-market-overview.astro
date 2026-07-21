@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "SVG技术市场概览：核心技术与应用场景",
+  category: "技术",
+  date: "2026-07-18",
+  dateDisplay: "2026年7月18日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "低压SVG市场的技术概览，涵盖IGBT/SiC核心技术、数据中心和工业关键应用场景、以及工程选型标准。",
+  keywords: [
+    "SVG",
+    "static var generator",
+    "reactive power compensation",
+    "power quality",
+    "low voltage",
+    "grid stability",
+    "CHITEK"
+  ]
+};
+
+const otherArticles = [
+    { title: "数据中心电能质量：AHF+SVG方案", category: "技术", href: "/news/blog-ai-data-center-power-quality", color: "orange" },
+    { title: "案例研究：油气厂AHF应用", category: "案例研究", href: "/news/blog-case-study-ahf-energy-industry", color: "orange" },
+    { title: "水处理厂电能质量方案", category: "技术", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜50MW光伏电站", industry: "新能源" },
+    { name: "巴西数据中心", industry: "数据中心" }
+  ];
+
+const lp = (p: string) => p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-svg.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SVG技术市场概览：核心技术与应用场景",
+    "description": "低压SVG市场的技术概览，涵盖IGBT/SiC核心技术、数据中心和工业关键应用场景、以及工程选型标准。",
+    "image": "https://chitek-inno.com/assets/images/index-product-svg.webp",
+    "author": {"@type": "Organization","name": "CHITEK Technical Team"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "keywords": "SVG, static var generator, reactive power compensation, power quality, low voltage, grid stability"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={'/news'} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="SVG技术市场概览：核心技术与应用场景" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">随着数据中心、电信基站、工业制造及新能源领域的数字化与规模化发展，静止无功发生器(SVG)市场需求持续增长。本文从技术角度梳理SVG的核心技术、应用场景和选型要点。</p>
+<h2 id="market-trends" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">市场趋势与技术驱动力</h2>
+<p class="text-text-mid leading-relaxed mb-6">2025年国内SVG市场规模同比增长18.7%，数据中心、电信和工业领域是主要驱动力。现代SVG需要在更复杂的电网条件下保持高可靠运行。</p>
+<h2 id="core-technology" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">核心技术</h2>
+<p class="text-text-mid leading-relaxed mb-6">低压SVG基于IGBT电压源变流器，在<strong>&lt; 1 ms</strong>内注入或吸收无功电流，将功率因数维持在<strong>0.99+</strong>。关键技术包括多管分立IGBT并联、SiC MOSFET演进、DSP+CPLD数字控制和模块化设计。</p>
+<h2 id="application-scenarios" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">应用场景</h2>
+<p class="text-text-mid leading-relaxed mb-6"><strong>数据中心：</strong>服务器集群的快速波动无功需求，SVG提供0.99+的连续功率因数校正。<strong>电信基站：</strong>应对可变负载并保持电网合规。<strong>工业制造：</strong>VFD驱动的大型电机工艺产生谐波和无功需求，SVG可有效应对。</p>
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">结论</h2>
+<p class="text-text-mid leading-relaxed mb-6"><strong>CHITEK</strong>低压SVG平台基于IGBT&rarr;SiC技术路线，适合现代数据中心、电信和工业设施的高要求负载。</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              更多文章</h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              相关产品</h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0"><path d={product.icon}/></svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              客户案例</h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

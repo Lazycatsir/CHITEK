@@ -142,10 +142,13 @@ npm run preview # astro preview（预览生产构建）
 
 用户说"打开首页"时，执行：
 
-1. 检查 server 是否在运行：`netstat -ano | findstr "LISTENING" | findstr "4321"`
-2. 如果没运行，后台启动：`Start-Process cmd "/c cd /d F:\下载\CHITEK && npm run dev" -WindowStyle Minimized`
-3. 等 10 秒让 server 启动
-4. 打开浏览器：`Start-Process "http://localhost:4321/"`
+1. 检查 dev server 是否在运行：`curl -s -o /dev/null -w '%{http_code}' http://localhost:4321/`（返回 200 即正常）
+2. 如果没运行，后台启动：
+   ```bash
+   cd /f/下载/CHITEK && /c/Users/lenovo/.workbuddy/binaries/node/versions/22.22.2/node.exe node_modules/astro/bin/astro.mjs dev --host --port 4321
+   ```
+3. 等待端口绑定（首次启动 vite 依赖优化约需 1–2 分钟，用 curl 重试循环检测）
+4. 返回 URL `http://localhost:4321/`（中文首页）或 `http://localhost:4321/en/`（英文首页）
 
 ## 技术栈
 
@@ -166,13 +169,97 @@ npm run preview # astro preview（预览生产构建）
 - supporting text（支持性文本）
 - 可选的 CTA（行动号召按钮）
 
-## News/Blog 规范
+## 新闻系统（News）
 
-- 文章列表按日期从新到旧排列（最新在最前面）
-- 新增文章日期应设为最近日期，确保排在列表顶部
-- 每篇文章需要：frontmatter（title/category/date/dateDisplay/author/readTime/description/keywords）+ Schema.org Article 结构化数据 + SEO 关键词标签
-- 每篇文章须包含侧边栏组件（`Sidebar` + `otherArticles`/`relatedProducts`/`relatedCases`）
-- 中文文章 `lang="zh"`（canonical → `chitek-inno.com`），英文 `lang="en"`（→ `en.chitek-inno.com`），依此类推
-- ogImage 使用 `https://chitek.com/assets/images/blog/sic-ahf-launch.webp`
-- 列表页使用硬编码 HTML（非 `Astro.glob()`），新增文章需手动添加到各语言列表页首位
-- 支持的语言：zh（9篇）、en（9篇）、es（9篇）、ar（9篇）— 每翻译一个语言必须保证文章文件存在，避免幽灵链接
+### 文章总数
+- zh(中文): 20 篇（含测试新增 `blog-ahf-water-treatment-plants`）
+- en(英文): 20 篇
+- es(西语): 20 篇
+- ar(阿语): 20 篇
+- pt(葡语): **无新闻页面**，导航和页脚隐藏新闻入口
+
+### 发布流水线（完整流程 → 见 `README.md`）
+
+```
+百家号 .txt ──→ zh .astro ──→ en/es/ar 翻译同步
+LinkedIn .md ──→ en .astro ──→ es/ar 翻译同步
+                                  ↓
+                         4 语列表页手工插卡片(硬编码 HTML)
+```
+
+### 输入源
+- **百家号 .txt**：`web-crawler/outreach/templates/百家号文章/`，纯文本，首行"标题: XXX"，产出中文站
+- **LinkedIn .md**：`web-crawler/outreach/templates/blog - linkedin/`，Markdown，产出英文站
+
+### 生成 .astro 文件必需字段
+
+**frontmatter (`article = { ... }` 对象)：**
+- `title` / `category` / `date`(ISO yyyy-mm-dd) / `dateDisplay`(本地化) / `author` / `readTime` / `description`(SEO ~120字) / `keywords`(数组)
+
+**Sidebar 数据：** `otherArticles`(3篇)、`relatedProducts`(3个)、`relatedCases`(3个)，需同步翻译
+
+**SEO：** `<title>` + OG 标签 + Schema.org Article JSON-LD（`datePublished`/`dateModified` 硬编码 ISO，与 `article.date` 一致）
+
+**ogImage：** `https://chitek-inno.com/assets/images/index-product-{ahf,svg}.webp` 或 `blog/sic-ahf-launch.webp`
+
+### 详情页结构（参照 `conformal-coating-ahf-reliability.astro`）
+1. `BaseLayout` + JSON-LD (slot="head") + `<Sidebar lang="X" />`（自闭合组件）
+2. Hero section：深色背景 `pt-[72px] bg-bg-dark` → 回链"Back to News" → 分类标签+日期+阅读时间 → 标题(`font-barlow-condensed`)
+3. Content section：白色背景 `py-12 md:py-16` → flex 布局 → 左侧 `article`：
+   - Featured image：`h-64 md:h-96`，`/assets/images/news/news-img-N.webp`
+   - 正文包在 `<div class="prose prose-lg max-w-none">` 内
+4. 右侧 `<aside>` inline sidebar：More Articles / Related Products / Customer Cases
+
+### 列表页更新 —— 最关键步骤
+
+**⚠️ 4 个列表文件是硬编码 HTML**，非 `Astro.glob()` 动态生成：
+
+| 语言 | 文件 |
+|------|------|
+| zh | `src/pages/news.astro` |
+| en | `src/pages/en/news.astro` |
+| es | `src/pages/es/news/index.astro` |
+| ar | `src/pages/ar/news/index.astro` |
+
+**卡片规则：**
+- `<img src="/assets/images/news/news-img-N.webp">` — 必须用真实图片，禁止 SVG 渐变装饰
+- 分类标签 CSS：`text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full`
+- 日期：`text-xs text-text-muted`
+- Read More：`inline-flex items-center text-brand-orange text-sm font-semibold`
+- 箭头 SVG：`path d="M5 12h14M12 5l7 7-7 7"`，`ml-1`
+- **日期严格降序**，新卡片必须按实际日期找到正确插入位置
+
+**分页结构（满 8 张后出现）：**
+`<div class="flex items-center justify-center gap-2 mt-16">` + 左箭头(`M15 19l-7-7 7-7`) + 页码 + 右箭头(`M9 5l7 7-7 7`)
+
+### 多语言差异
+- zh: 裸路径 `/news/slug`，无 `lp()` 包裹
+- en: `lp('/news/slug')`——本地 dev 加 `/en/` 前缀，线上裸路径
+- es: 硬编码 `/es/news/slug`
+- ar: 硬编码 `/ar/news/slug` + `dir="rtl"`
+- pt: 跳过（无新闻页）
+
+**阅读全文文本：** en"Read More" / zh"阅读全文" / es"Leer Más" / ar"اقرأ المزيد"
+
+### 构建验证
+```bash
+# 优先 dev server 预览
+cd F:/下载/CHITEK
+node_modules/astro/bin/astro.mjs dev --host --port 4321
+# 检查 /zh/en/es/ar/news 及各详情页是否 200
+
+# 生产构建
+npm run build
+# 检查 dist/ 下有对应 /news/slug/index.html + sitemap 包含新页面
+```
+
+### 踩坑速查
+- 卡片必须插在 `space-y-6` 内（不是 Sidebar 和 Hero 之间）
+- 卡片 href 必须引号包裹：`href="/news/slug"`（非 `href=/news/slug`）
+- `article.date` 必须 ISO，`dateDisplay` 单独保留本地化
+- 所有语言必须定义 `lp()`：en 带 dev→/en/ 逻辑，非 en 用 `const lp = (p) => p;`
+- JS 模板 `${}` 与 Python f-string 冲突 → 用 `.replace()` 避开
+- 详情页 JSON-LD 中 `publisher.logo.url` 必须用 `logo.webp`（非 `Chitek-logo.png`）
+- **每篇详情页必须包含 SEO Keywords 标签区**：`<!-- SEO Keywords -->` + `<div>` 渲染 `article.keywords.map()`，位于正文与 Author 之间。`article.keywords` 必须在 frontmatter 中定义，注意 JS 对象逗号分隔
+- 新增后必须跑一次日期降序校验
+- **完整踩坑表（22 条）→ 见 `README.md`**

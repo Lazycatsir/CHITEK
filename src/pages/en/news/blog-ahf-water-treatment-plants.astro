@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus",
+  category: "Technology",
+  date: "2026-07-01",
+  dateDisplay: "Jul 1, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "5 min read",
+  description: "How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in water treatment plants with VFD-controlled pumps and blowers.",
+  keywords: [
+    "Energy quality device",
+    "Advanced Active Filter",
+    "Parallel active filter",
+    "SiC MOSFET",
+    "Active Harmonic Filter",
+    "Ultra High-Efficiency AHF",
+    "Silicon Carbide Power Quality Filter",
+    "SiC-Based Harmonic Mitigation System",
+    "Next-Generation Active Harmonic Filter",
+    "Power quality",
+    "Water treatment"
+  ]
+};
+
+const otherArticles = [
+    { title: "Enhancing AHF Reliability with Conformal Coating", category: "Technology", href: "/en/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Active Harmonic Filters vs. Line Reactors", category: "Technology", href: "/en/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF for VFD Systems", category: "Technology", href: "/en/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
+    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
+    { name: "Brazil Data Center", industry: "Data Centers" }
+  ];
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+---
+<BaseLayout 
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus",
+    "description": "How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in water treatment plants with VFD-controlled pumps and blowers.",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "CHITEK Technical Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chitek-inno.com/assets/images/logo.webp"
+      }
+    },
+    "datePublished": "2026-07-01",
+    "dateModified": "2026-07-01",
+    "keywords": "Active Harmonic Filter, AHF, SVG, Water Treatment, Power Quality, VFD Harmonics, Power Factor Correction, Low Voltage, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+<div class="prose prose-lg max-w-none">
+          <p class="text-text-mid text-lg leading-relaxed mb-6">A water treatment plant is a continuously running, load-varying process. Pumps, blowers, mixers, compressors, dosing systems, and control panels must run without interruption &mdash; electrical reliability is process reliability. Modern plants add VFDs, UPS, soft starters, and automation for efficiency, but those same devices inject harmonics, drop PF, and cause voltage fluctuation. This article covers how low-voltage (&le; ~1 kV) AHF and SVG address it.</p>
+
+          <h2 id="load-profile" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why the Load Profile Is Hard</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Plant load is not fixed. Pump speed follows demand; blower load tracks the treatment process; motors start and stop; some equipment runs for long continuous hours. That swing stresses the electrical system:</p>
+          <ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+            <li>Harmonic distortion from VFD-controlled pumps and blowers</li>
+            <li>Poor PF from motor loads</li>
+            <li>Voltage fluctuation during load changes</li>
+            <li>Transformer and cable heating</li>
+            <li>Nuisance breaker trips</li>
+            <li>Reduced motor efficiency and stress on capacitor banks</li>
+            <li>Unstable control-system performance</li>
+          </ul>
+          <p class="text-text-mid leading-relaxed mb-6">If pumps or blowers trip, the treatment process is directly affected.</p>
+
+          <h2 id="vfd-harmonics" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Harmonics from VFD-Controlled Pumps and Blowers</h2>
+          <p class="text-text-mid leading-relaxed mb-6">VFDs are nonlinear loads. A 6-pulse front end draws pulsed current, producing characteristic harmonics at n = 6k &plusmn; 1 (5th, 7th, 11th, 13th&hellip;). Uncorrected, THDi commonly reaches 8&ndash;30%, above the IEEE 519 low-voltage limit of <strong>&lt; 5%</strong> (single harmonic &lt; 3%). The distortion spreads through transformers, cables, switchgear, protection, and control panels &mdash; the plant keeps running but hotter and less efficiently.</p>
+          <p class="text-text-mid leading-relaxed mb-6">An <strong>AHF</strong> measures load current with a CT and injects the opposite-phase harmonic component:</p>
+          <blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i<sub>c</sub>* = i<sub>L</sub> &minus; i<sub>s</sub>(fundamental)</blockquote>
+          <p class="text-text-mid leading-relaxed mb-6">It reduces THDi in real time, lowers transformer heating, protects cables and switchgear, and cuts nuisance tripping. Unlike a fixed passive filter, it tracks the day&rsquo;s changing harmonic current.</p>
+
+          <h2 id="power-factor" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Power Factor and the SVG</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Large pumps, blowers, and motors draw reactive power. Uncontrolled, PF drops; the plant draws more current for the same real load (at 0.8 vs. 0.95 PF, &sim;19% more current, I = P / (&radic;3 &middot; V &middot; PF)), raising I&sup2;R loss and risking utility penalties.</p>
+          <p class="text-text-mid leading-relaxed mb-6">A <strong>low-voltage SVG</strong> provides dynamic reactive compensation, holding PF near <strong>0.99+</strong> and supporting voltage during motor load changes. It responds in <strong>&lt; 1 ms</strong> versus &gt; 20 ms for a switched capacitor bank, so it keeps up with pump and blower swings without over/under-compensating.</p>
+
+          <h2 id="combined" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">AHF + SVG Together</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Many plants face both harmonics and poor PF. Using only one leaves the other unsolved. An AHF cleans harmonics; an SVG corrects PF and stabilizes voltage. Together they cover the full LV bus &mdash; useful when a plant has many VFD pumps, large blower systems, high THDi, transformer overheating, capacitor-bank failures, unstable voltage, or repeated trips, and especially when expansion is planned.</p>
+
+          <h2 id="igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The Converter Core: IGBT and SiC</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Both devices are bounded by their power switch. A standard <strong>IGBT</strong> is rated to ~150 &deg;C junction temperature, switching typically below 20 kHz; loss rises with frequency and caps tracking speed.</p>
+          <p class="text-text-mid leading-relaxed mb-6">A <strong>SiC MOSFET</strong> lifts that: silicon carbide is a wide-bandgap material (3.26 eV vs. silicon&rsquo;s 1.12 eV), tolerates ~200 &deg;C, switches at 2&ndash;3&times; the IGBT frequency, and cuts switching loss by ~50% &mdash; gaining +1&ndash;3% efficiency and tighter control. <strong>CHITEK</strong> low-voltage AHF/SVG platforms are built on this IGBT&rarr;SiC migration path, suited to the continuous-duty, swingy load of a treatment plant.</p>
+
+          <h2 id="installation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Where to Install and What to Measure</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Common locations: main LV distribution panel, motor control center, VFD cabinet, pump control room, blower control panel, transformer secondary, main incomer. The correct point follows measurement, not guesswork.</p>
+          <p class="text-text-mid leading-relaxed mb-6">Engineers should check before selection:</p>
+          <ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+            <li>System voltage and transformer capacity</li>
+            <li>Number of VFDs; pump/blower motor ratings</li>
+            <li>Measured THDi and dominant harmonic orders</li>
+            <li>PF trend and load variation</li>
+            <li>Existing capacitor banks; cable/transformer temperature</li>
+            <li>Target compensation level</li>
+          </ul>
+          <p class="text-text-mid leading-relaxed mb-6">Size to the measurement, not just total motor power, to avoid under/over-sizing or wrong placement.</p>
+
+          <h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusion</h2>
+          <p class="text-text-mid leading-relaxed mb-6">Water treatment plants run VFD pumps, blowers, and motors that improve efficiency but also create harmonics, poor PF, and voltage fluctuation. Low-voltage AHF + SVG &mdash; on an IGBT&rarr;SiC core &mdash; mitigates both, protecting the electrical system and keeping the process running.</p>
+        </div>
+
+                <!-- SEO Keywords -->
+          <div class="mt-10 pt-6 border-t border-border-light">
+            <div class="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+              ))}
+            </div>
+          </div>
+
+<!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Share:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d="{product.icon}"/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
