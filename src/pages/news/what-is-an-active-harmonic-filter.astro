@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥",
+  category: "技术",
+  date: "2026-07-22",
+  dateDisplay: "2026年7月22日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "有源谐波滤波器（AHF）实时抵消谐波电流并校正无功功率。本文从检测到注入逐步讲解其原理，并说明为什么 IGBT→SiC 开关决定了性能上限。",
+  keywords: [    "有源谐波滤波器",
+      "AHF",
+      "谐波",
+      "电能质量",
+      "IGBT",
+      "SiC",
+      "无功功率",
+      "THDi",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "用敷形涂层提升 AHF 可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与线路电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "面向 VFD 系统的 AHF", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-1.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥",
+    "description": "有源谐波滤波器（AHF）实时抵消谐波电流并校正无功功率。本文从检测到注入逐步讲解其原理，并说明为什么 IGBT→SiC 开关决定了性能上限。",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-1.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-22",
+    "dateModified": "2026-07-22",
+    "keywords": "有源谐波滤波器 AHF 谐波 电能质量 IGBT SiC"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+        <span class="text-xs text-gray-400">2026年7月22日</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 分钟阅读</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-1.webp" alt="什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">有源谐波滤波器（AHF）是一种并联连接的高功率电力电子补偿装置，通过实时抵消谐波电流并调节无功功率来改善电能质量。与无源 LC 陷波器不同，它能适应变化的负载，并避免与系统阻抗发生谐振。本文从检测到注入逐步讲解其原理，并说明为什么半导体选型（IGBT 还是 SiC）决定了性能上限。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">AHF 在做什么</h2>
+<p class="text-text-mid leading-relaxed mb-6">AHF 并联在畸变母线上，持续测量负载电流。它计算出补偿电流——幅值相等、相位与多余谐波和无功分量相反——并注入电网，使电源侧得到近似正弦波和高功率因数。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工作原理，逐步拆解</h2>
+<p class="text-text-mid leading-relaxed mb-3"><strong>1. 谐波检测与分离。</strong> 高精度电流传感器（霍尔效应，覆盖约 50 次谐波）实时采样负载电流。信号通过两种方式分解：瞬时无功功率理论（p–q）将三相电流变换为实部和虚部，FFT 则提取各次谐波的幅值与相位。结果是与谐波电流幅值相等、相位相反的参考电流指令——即"反向谐波"。</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>2. 补偿电流生成。</strong> 核心是建立在高频开关器件（IGBT 或 SiC）上的电压源逆变器（VSI）。它注入补偿电流，与原谐波电流叠加后相互抵消。</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>3. 无功功率补偿。</strong> 同一逆变器提供超前或滞后电流以抵消负载的无功分量，将功率因数拉向单位值（CHITEK 低压 AHF/SVG 目标 <strong>0.99+</strong>）。</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>4. 闭环控制与稳定。</strong> 持续监测补偿后的电网电流并与参考值比较，调整逆变器输出以保持精度。</p>
+<p class="text-text-mid leading-relaxed mb-6"><strong>5. 抗谐振与适应性。</strong> 主动控制避免与电网阻抗形成谐振回路，可处理宽频谐波（3、5、7 次及高次），并支持多台并联实现分布式补偿。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">补偿定律</h2>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L − i_s(基波)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">由 15–20 kHz 开关的桥臂合成，校正跟踪在 <strong>&lt; 1 ms</strong> 内完成，可同时将第 5 至 25 次谐波的 THDi 从 <strong>30%+ 降至 &lt; 5%</strong>——随负载实时变化。若不治理，非线性负载处 THDi 通常在 <strong>8% 至 30%</strong> 之间，而 IEEE 519 在公共连接点（PCC）限值为 <strong>THDi &lt; 5%</strong>。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">半导体瓶颈：IGBT 与 SiC</h2>
+<p class="text-text-mid leading-relaxed mb-3">IGBT：结温上限约 <strong>150°C</strong>，开关频率通常 <strong>低于 20 kHz</strong>。</p>
+<p class="text-text-mid leading-relaxed mb-6">SiC MOSFET：禁带宽度 <strong>3.26 eV 对 1.12 eV</strong>，结温 <strong>200°C</strong>，击穿场强 <strong>约 10×</strong>，开关频率 <strong>2–3×</strong>，开关损耗 <strong>约低 50%</strong>。SiC 拓宽了抵消带宽（可处理 13 次及以上），缩小机柜体积并降低温升——这正是 CHITEK 低压 AHF 平台的技术方向。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>在 PCC 测量</strong>：用电能质量分析仪覆盖完整工况周期。</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>AHF 靠近源端</strong>：装在对非线性负载群供电的馈线上。</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>投运前审计电容柜</strong>，排查谐振风险。</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>按实测 TDD 选型</strong>，参考峰值需求。</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>预留裕量</strong>（15–25%）以应对新增变频器。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">AHF 是一个"测量→计算→注入"的闭环，能够动态、无谐振地消除畸变。原理恒定，开关决定带宽与体积。CHITEK 低压 AHF 平台正是围绕这条 IGBT→SiC 升级路径、基于实测数据设计而成。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的 AHF 实际在抵消哪些谐波次数？它的开关是否额定可用于母线上最高那一次谐波？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK 技术团队</p>
+                <p class="text-sm text-text-muted">5 分钟阅读</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Carburo de silicio en filtros AHF: por qué el conmutador de banda ancha redefine el rendimiento LV AHF",
+  category: "Actualización de producto",
+  date: "2026-07-18",
+  dateDisplay: "18 jul 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "4 min de lectura",
+  description: "El AHF siempre ha estado limitado por el conmutador en que se construye. Los SiC MOSFET cambian el techo. Este artículo cuantifica lo que el material de banda ancha aporta a un AHF LV y dónde el IGBT aún tiene su lugar.",
+  keywords: [    "SiC",
+      "Carburo de silicio",
+      "AHF",
+      "IGBT",
+      "Banda ancha",
+      "Eficiencia",
+      "Densidad de potencia",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "Mayor fiabilidad del AHF con recubrimiento conformado", category: "Tecnología", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Filtros AHF frente a reactancias de línea", category: "Tecnología", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF para sistemas VFD", category: "Tecnología", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "Centro de datos en Brasil", industry: "Centros de datos" },
+    { name: "Planta industrial en Arabia Saudita", industry: "Manufactura" },
+    { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-5.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Carburo de silicio en filtros AHF: por qué el conmutador de banda ancha redefine el rendimiento LV AHF",
+    "description": "El AHF siempre ha estado limitado por el conmutador en que se construye. Los SiC MOSFET cambian el techo. Este artículo cuantifica lo que el material de banda ancha aporta a un AHF LV y dónde el IGBT aún tiene su lugar.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-5.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "keywords": "SiC Carburo de silicio AHF IGBT Banda ancha Eficiencia"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Actualización de producto</span>
+        <span class="text-xs text-gray-400">18 jul 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">4 min de lectura</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        Carburo de silicio en filtros AHF: por qué el conmutador de banda ancha redefine el rendimiento LV AHF
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-5.webp" alt="Carburo de silicio en filtros AHF: por qué el conmutador de banda ancha redefine el rendimiento LV AHF" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">El filtro activo de armónicos (AHF) siempre ha estado limitado por el conmutador en que se construye. Durante décadas ese conmutador fue el IGBT de silicio —eficaz, pero acotado por la física del silicio. Los SiC MOSFET cambian el techo. Este artículo cuantifica lo que el material de banda ancha aporta realmente a un AHF LV y dónde el IGBT convencional aún tiene su lugar.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">El techo del IGBT</h2>
+<p class="text-text-mid leading-relaxed mb-3">Un AHF LV convencional usa IGBT con unión a <strong>150°C</strong>, conmutando típicamente <strong>menos de 20 kHz</strong>.</p>
+<p class="text-text-mid leading-relaxed mb-3">• <strong>Límite de ancho de banda:</strong> la corriente de cancelación se sintetiza a f_sw; los órdenes altos (13.º, 17.º, 25.º…) que limpia están acotados por la frecuencia.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>Costo térmico:</strong> la pérdida de conmutación sube con la frecuencia; para quedarse bajo 150°C se añaden disipadores y ventiladores, volviendo el gabinete voluminoso.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cambia realmente SiC</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Banda prohibida:</strong> <strong>3,26 eV vs 1,12 eV</strong> del silicio.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Temperatura de unión:</strong> hasta <strong>200°C</strong>, frente a 150°C del IGBT.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Campo de ruptura:</strong> ~<strong>10×</strong> el silicio.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Frecuencia de conmutación:</strong> <strong>2–3× el IGBT</strong>.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>Pérdida de conmutación:</strong> ~<strong>50% menor</strong>, eleva eficiencia <strong>1–3%</strong>.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">El beneficio para un AHF</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>Mayor ancho de banda de cancelación.</strong> f_sw más alta maneja orden 13 y superiores —la diferencia entre limpieza parcial y total.</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>Gabinete más pequeño y frío.</strong> Menor pérdida y unión 200°C reducen el sistema térmico.</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>Eficiencia.</strong> 1–3% menos de pérdida es costo operativo del AHF eliminado.</p>
+<p class="text-text-mid leading-relaxed mb-6">4. <strong>Fiabilidad.</strong> Más frío extiende la vida y permite ventiladores más lentos.</p>
+<p class="text-text-mid leading-relaxed mb-6">La ley de corrección no cambia: <strong>i_c* = i_L − i_s(fundamental)</strong> —SiC solo la ejecuta más rápido y en banda más ancha, siguiendo en <strong>&lt; 1 ms</strong> y bajando THDi de <strong>30%+ a &lt; 5%</strong> en más órdenes.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cuándo el IGBT aún gana</h2>
+<p class="text-text-mid leading-relaxed mb-6">No es un reemplazo total. En entornos industriales estándar con perfil predecible y donde domina el costo inicial, el IGBT AHF sigue siendo robusto y económico. SiC gana su prima donde espacio, ahorro energético y alto orden son la restricción —centros de datos densos, salas compactas.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">En conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">SiC no hace obsoleto al IGBT AHF; eleva el techo para los casos que lo necesitan. La plataforma LV AHF de CHITEK se construye sobre esta ruta IGBT→SiC —mismo principio, más ancho de banda, menor volumen, más frío.</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Cuál es el orden armónico más alto que genera su bus —y su AHF está calificado para cancelarlo?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">Equipo Técnico CHITEK</p>
+                <p class="text-sm text-text-muted">4 min de lectura</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

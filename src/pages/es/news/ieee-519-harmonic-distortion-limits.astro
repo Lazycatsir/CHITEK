@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Límites armónicos IEEE 519-2022: qué exigen y cómo un AHF de baja tensión logra el cumplimiento",
+  category: "Tecnología",
+  date: "2026-07-20",
+  dateDisplay: "20 jul 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "5 min de lectura",
+  description: "IEEE 519-2022 fija los límites y responsabilidades de distorsión armónica en el punto de acoplamiento común. Este artículo explica qué exige la norma y cómo un AHF de baja tensión CHITEK logra el cumplimiento en tiempo real.",
+  keywords: [    "IEEE 519",
+      "Armónicos",
+      "THDi",
+      "Cumplimiento",
+      "AHF",
+      "PCC",
+      "Calidad de energía",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "Mayor fiabilidad del AHF con recubrimiento conformado", category: "Tecnología", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Filtros AHF frente a reactancias de línea", category: "Tecnología", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF para sistemas VFD", category: "Tecnología", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "Centro de datos en Brasil", industry: "Centros de datos" },
+    { name: "Planta industrial en Arabia Saudita", industry: "Manufactura" },
+    { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Límites armónicos IEEE 519-2022: qué exigen y cómo un AHF de baja tensión logra el cumplimiento",
+    "description": "IEEE 519-2022 fija los límites y responsabilidades de distorsión armónica en el punto de acoplamiento común. Este artículo explica qué exige la norma y cómo un AHF de baja tensión CHITEK logra el cumplimiento en tiempo real.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "keywords": "IEEE 519 Armónicos THDi Cumplimiento AHF PCC"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Tecnología</span>
+        <span class="text-xs text-gray-400">20 jul 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 min de lectura</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        Límites armónicos IEEE 519-2022: qué exigen y cómo un AHF de baja tensión logra el cumplimiento
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="Límites armónicos IEEE 519-2022: qué exigen y cómo un AHF de baja tensión logra el cumplimiento" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022, "IEEE Recommended Practice and Requirements for Harmonic Control in Electric Power Systems", es la referencia que usan la mayoría de las instalaciones de Norteamérica para gestionar armónicos. No dicta el diseño del producto; fija los <em>límites y responsabilidades</em> en el punto de acoplamiento común (PCC) para que tanto el usuario como la utility mantengan la distorsión acotada.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué hace la norma</h2>
+<p class="text-text-mid leading-relaxed mb-2">• Define <strong>cargas lineales</strong> (motores, resistencias) vs <strong>cargas no lineales</strong> (VFD, UPS, SMPS, LED, rectificadores —las fuentes).</p>
+<p class="text-text-mid leading-relaxed mb-2">• Define el <strong>PCC</strong> —donde su equipo encuentra la red.</p>
+<p class="text-text-mid leading-relaxed mb-2">• Fija <strong>límites de corriente</strong> que el usuario debe cumplir y <strong>límites de tensión</strong> que gestiona la utility.</p>
+<p class="text-text-mid leading-relaxed mb-6">• Guía la interacción entre fuente y carga.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué importan los armónicos</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Sobrecalentamiento</strong> —cables, transformadores, motores más calientes; aislamiento envejece.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>Corrientes no deseadas</strong> —disparos intempestivos, mal funcionamiento de relés, fallas VFD/motor. Una carga no lineal de 6 pulsos produce armónicos en <strong>n = 6k ± 1</strong> (5.º, 7.º, 11.º, 13.º…). El límite de baja tensión es <strong>THDi &lt; 5%</strong> con individuales &lt; 3%.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cambió en 2022</h2>
+<p class="text-text-mid leading-relaxed mb-6">La revisión 2022 mejora ediciones previas: mejores métodos de medición; guía estadística más clara; reglas explícitas para sistemas con cargas lineales y no lineales mezcladas.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo un AHF de baja tensión logra el cumplimiento</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un AHF de baja tensión muestrea la corriente de carga e inyecta la compensatoria: <strong>i_c* = i_L − i_s(fundamental)</strong> en <strong>&lt; 1 ms</strong> (convertidor IGBT/SiC), bajando <strong>THDi de 30%+ a &lt; 5%</strong> y siguiendo la carga en tiempo real —a diferencia de una trampa LC pasiva, que no sigue el vaivén diurno y puede resonar. El AHF también corrige el FP de desplazamiento y equilibra la corriente trifásica.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC en el AHF</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un <strong>IGBT</strong> convencional limita la unión cerca de <strong>150°C</strong> y conmuta bajo ~20 kHz. Los <strong>SiC MOSFET</strong> —banda prohibida <strong>3,26 eV</strong> vs Si <strong>1,12 eV</strong>, unión a <strong>200°C</strong>, ~10× campo de ruptura, <strong>2–3×</strong> frecuencia, <strong>~50% menos</strong> pérdida— suben eficiencia 1–3% y reducen el equipo.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>Medir THDi y órdenes</strong> en el PCC con carga real.</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>Dimensionar el AHF a la corriente medida</strong>, no a la kVA del transformador.</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>Instalar cerca de la fuente</strong> para que la corriente no circule por alimentadores comunes.</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>Revisar resonancia de condensadores</strong> antes de la puesta en marcha.</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>Dejar 20–25%</strong> de margen para crecimiento.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 es el objetivo; un <strong>AHF de baja tensión CHITEK</strong> en etapas IGBT/SiC es el medio —cancelando armónicos en tiempo real en el PCC para mantener THDi &lt; 5% sin riesgo de resonancia.</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Qué THDi y órdenes individuales mide su PCC hoy contra los límites IEEE 519?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">Equipo Técnico CHITEK</p>
+                <p class="text-sm text-text-muted">5 min de lectura</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

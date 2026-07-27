@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "حدود التوافقيات IEEE 519-2022: ما تتطلبه وكيف يحقق AHF منخفض الجهد الامتثال",
+  category: "تقنية",
+  date: "2026-07-20",
+  dateDisplay: "20 يوليو 2026",
+  author: "فريق CHITEK الفني",
+  readTime: "5 دقائق قراءة",
+  description: "يحدد IEEE 519-2022 حدود ومسؤوليات تشوه التوافقيات عند نقطة الربط المشتركة. يشرح هذا المقال ما تتطلبه المواصفة وكيف يحقق AHF منخفض الجهد من CHITEK الامتثال في الوقت الحقيقي.",
+  keywords: [    "IEEE 519",
+      "التوافقيات",
+      "THDi",
+      "امتثال",
+      "AHF",
+      "PCC",
+      "جودة الطاقة",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "تعزيز موثوقية مرشح AHF بطلاء كونفورمال", category: "تقنية", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "مرشحات AHF مقابل مفاعلات الخط", category: "تقنية", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
+    { name: "مصنع صناعي في السعودية", industry: "التصنيع" },
+    { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "حدود التوافقيات IEEE 519-2022: ما تتطلبه وكيف يحقق AHF منخفض الجهد الامتثال",
+    "description": "يحدد IEEE 519-2022 حدود ومسؤوليات تشوه التوافقيات عند نقطة الربط المشتركة. يشرح هذا المقال ما تتطلبه المواصفة وكيف يحقق AHF منخفض الجهد من CHITEK الامتثال في الوقت الحقيقي.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "keywords": "IEEE 519 التوافقيات THDi امتثال AHF PCC"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">تقنية</span>
+        <span class="text-xs text-gray-400">20 يوليو 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 دقائق قراءة</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        حدود التوافقيات IEEE 519-2022: ما تتطلبه وكيف يحقق AHF منخفض الجهد الامتثال
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="حدود التوافقيات IEEE 519-2022: ما تتطلبه وكيف يحقق AHF منخفض الجهد الامتثال" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022 "الممارسة والتطلبات الموصى بها للتحكم في التوافقيات في أنظمة الطاقة الكهربائية" هي المرجع الذي تستخدمه معظم المنشآت في أمريكا الشمالية لإدارة التوافقيات. لا تملي تصميم المنتج؛ بل تحدد <em>الحدود والمسؤوليات</em> عند نقطة الربط المشتركة (PCC) ليبقى التشوه محصوراً لدى المستخدم والشركة.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تفعل المواصفة</h2>
+<p class="text-text-mid leading-relaxed mb-2">• تُعرّف <strong>الأحمال الخطية</strong> (محركات، سخانات) مقابل <strong>غير الخطية</strong> (VFD وUPS ومزودات الطاقة وLED والمرشحات —المصادر).</p>
+<p class="text-text-mid leading-relaxed mb-2">• تُعرّف <strong>PCC</strong> —حيث يلتقي تجهيزك بالشبكة.</p>
+<p class="text-text-mid leading-relaxed mb-2">• تضع <strong>حدود تيار</strong> يجب أن يلتزم بها المستخدم و<strong>حدود جهد</strong> تديرها الشركة.</p>
+<p class="text-text-mid leading-relaxed mb-6">• ترشد التفاعل بين المصدر والحمل.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تهم التوافقيات</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>احترار</strong> —كابلات ومحولات ومحركات أشد حرارة؛ عمر أقصر.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>تيارات غير مرغوبة</strong> —رحلات وصل عشوائية، سوء عمل المرحل، أعطال VFD/محرك. حمل غير خطي 6 نبضات يولد توافقيات <strong>n = 6k ± 1</strong> (5 و7 و11 و13…). حد التيار منخفض الجهد <strong>THDi &lt; 5%</strong> وكل رتبة &lt; 3%.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تغيّر 2022</h2>
+<p class="text-text-mid leading-relaxed mb-6">تحسّن الإصدار 2022 السابق: طرق قياس أفضل؛ توجيه إحصائي أوضح؛ قواعد صريحة لأنظمة بمزيج خطي وغير خطي.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يحقق AHF منخفض الجهد الامتثال</h2>
+<p class="text-text-mid leading-relaxed mb-6">يأخذ AHF منخفض الجهد عينة من تيار الحمل ويحقن التعويض: <strong>i_c* = i_L − i_s(الأساسية)</strong> في <strong>&lt; 1 ms</strong> (محوّل IGBT/SiC)، مخفضاً <strong>THDi من 30%+ إلى &lt; 5%</strong> متابعاً الحمل لحظياً —عكس فخ LC السلبي الذي لا يتبع التأرجح النهاري وقد يرنّ. يعالج AHF أيضاً عامل القدرة الإزاحي ويوازن التيار الثلاثي.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC في مرحلة AHF</h2>
+<p class="text-text-mid leading-relaxed mb-6"><strong>IGBT</strong> التقليدي محدود الوصلة قرب <strong>150°C</strong> ويبدّل دون ~20 kHz. <strong>SiC MOSFET</strong> —فجوة النطاق <strong>3.26 eV</strong> مقابل Si <strong>1.12 eV</strong>، وصلة <strong>200°C</strong>، حقل انهيار ~10×، تردد <strong>2–3×</strong>، فقد <strong>~50% أقل</strong>— ترفع الكفاءة 1–3% وتصغر الوحدة.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>قس THDi والرتب</strong> عند PCC تحت حمل حقيقي.</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>حجّم AHF حسب التيار المقاس</strong> لا حسب kVA المحول.</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>ركّب قرب مصدر التوافقيات</strong> لمنع دوران التيار في مغذيات مشتركة.</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>افحص رنين المكثفات</strong> قبل التشغيل.</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>اترك 20–25%</strong> هامشاً للنمو.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 هو الهدف؛ و<strong>AHF منخفض الجهد من CHITEK</strong> على مراحل IGBT/SiC هو الوسيلة —يلغي التوافقيات لحظياً عند PCC لإبقاء THDi &lt; 5% بلا رنين.</p>
+<p class="text-text-mid leading-relaxed mb-6">ما THDi والرتب التي يقيسها PCC اليوم مقابل حدود IEEE 519؟</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">فريق CHITEK الفني</p>
+                <p class="text-sm text-text-muted">5 دقائق قراءة</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              المقالات
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              المنتجات ذات الصلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -18,7 +18,10 @@
 - 列表页 `src/pages/news.astro` 为硬编码 HTML，新增文章需手动插到各语言列表页首位。
 - 文章 frontmatter 需 title/category/date/dateDisplay/author/readTime/description/keywords；含 Schema.org Article + SEO 关键词标签 + Sidebar。
 - 日期设最近日期确保排列表顶部；每翻译一语言必须保证该语言文章文件存在（避免幽灵链接）。
-- 配图放 `public/assets/images/blog/`，blog 目录目前仅 `sic-ahf-launch.webp`；无专属图时复用 `public/assets/images/` 下语义匹配图（如 index-product-ahf.webp），ogImage 域名用 chitek-inno.com。
+- 配图放 `public/assets/images/blog/`，blog 目录目前仅 `sic-ahf-launch.webp`；无专属图时复用 `public/assets/images/news/news-img-1..8.webp`（或 index-product-ahf.webp），ogImage 域名用 chitek-inno.com。
+- **⚠️ 正文内容必须来自真实草稿源（最重要）**：`F:/下载/web-crawler/outreach/templates/`（**项目外的兄弟目录**，不在 CHITEK 内）——`百家号文章/*.txt`（中文 ~1500–3800 字）、`blog - linkedin/*.md`（英文 ~2000–5600 字节，已 CHITEK 品牌化）。`README.md`(新闻发布流水线) 与 `CLAUDE.md`(§新闻系统) 即规定由此提取。**严禁凭空编造正文**（7-24 曾误编 240–355 字短文，7-27 已用真实 .md 草稿重做 5 篇 → zh 正文 1035–1303 字）。
+- **批量新增文章（推荐做法）**：每篇多语言内容用 Python 生成脚本直接 `.write()` 20 个 .astro 文件 + 向 4 列表页 `<div class="space-y-6">` 顶部插卡片，**不要用 Edit/Write 直接改大段多语言文本**（Edit 对大 Unicode 静默截断、Write 大文件也有风险）。生成脚本模板要点：① 复用现有文章结构（frontmatter + JSON-LD + Sidebar）；② en 的 `lp` 在 frontmatter 定义（`isLocal? '/en'+p : p`），zh/es/ar 的 `lp` 在 body 定义且 = identity；③ 列表卡片 href 按语言：zh `/news/s`、en `href="{lp('/news/s')}"`（**外层有双引号！**）、es `/es/news/s`、ar `/ar/news/s`；④ 卡片插在 `space-y-6` 容器首行（即列表最顶部，按插入顺序最新在上）。
+- 新闻图片库存：`public/assets/images/news/news-img-1.webp` … `news-img-8.webp`（8 张）。
 
 ## 技术栈
 - Astro 6.x + Tailwind v4(@tailwindcss/vite) + @astrojs/sitemap + Netlify

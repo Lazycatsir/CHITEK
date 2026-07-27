@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "SVG 与投切电容柜：为什么低压母线动态无功更优",
+  category: "技术",
+  date: "2026-07-19",
+  dateDisplay: "2026年7月19日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "低压母线功率因数校正通常从电容柜开始——但现代工厂负载多变。本文量化 SVG 与固定电容柜的分歧点，以及为何对合规与损耗至关重要。",
+  keywords: [    "SVG",
+      "电容柜",
+      "功率因数",
+      "无功功率",
+      "无功",
+      "电压闪变",
+      "谐波",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "用敷形涂层提升 AHF 可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与线路电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "面向 VFD 系统的 AHF", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SVG 与投切电容柜：为什么低压母线动态无功更优",
+    "description": "低压母线功率因数校正通常从电容柜开始——但现代工厂负载多变。本文量化 SVG 与固定电容柜的分歧点，以及为何对合规与损耗至关重要。",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "keywords": "SVG 电容柜 功率因数 无功功率 无功 电压闪变"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+        <span class="text-xs text-gray-400">2026年7月19日</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 分钟阅读</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        SVG 与投切电容柜：为什么低压母线动态无功更优
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-4.webp" alt="SVG 与投切电容柜：为什么低压母线动态无功更优" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">低压母线功率因数校正通常从电容柜开始——对稳定、可预测的感性负载确实有效。但现代工厂运行变频驱动、UPS 整流器和光伏逆变器，其无功需求分钟级波动。在这类母线上，固定电容柜就成了错误的工具。静止无功发生器（SVG）是把同一件事做成动态的。本文量化两者分歧点，以及为何对合规与损耗至关重要。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">供给无功的两种方式</h2>
+<p class="text-text-mid leading-relaxed mb-6">投切电容柜是被动器件：其无功输出由安装电容决定，以离散台阶投切。它看不到母线——只输出额定值。SVG 是基于高频 IGBT 的电压源换流器（VSC），持续测量母线并实时吸收或注入无功电流，覆盖四个象限。控制律本质是 <em>i_q* = f(V_bus, PF设定值)</em>——每几毫秒将本地电压与功率因数驱动到设定点。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">响应时间：亚周期 vs 数十毫秒</h2>
+<p class="text-text-mid leading-relaxed mb-6">这是决定性数字。电容柜步进需 10–20 ms 且单向。低压 SVG 响应在 <strong>1 ms 内</strong>，调节精度 <strong>±1%</strong>，即使负载波动也保持 PF <strong>0.99+</strong>。差距体现在闪变上：大电机启动或电弧工艺使母线下陷时，SVG 在跌落传播前就托住电压；电容柜才刚开始切换。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">谐波交互——隐藏风险</h2>
+<p class="text-text-mid leading-relaxed mb-6">固定电容的并联电纳可能在某些谐波次数与电网阻抗谐振，<em>放大</em>畸变而非减小。IEEE 519 将低压 THDi 限在约 5%、各次约 3%；调谐失当的电容柜把你推向反方向。SVG 不引入并联谐振点，且与有源谐波滤波器（AHF）配合时主动抑制谐波而非放大。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">功率因数调节：0.99+ vs 摇摆</h2>
+<p class="text-text-mid leading-relaxed mb-6">电容柜通常将 PF 维持在 <strong>0.80–0.95</strong>，轻载时过补偿至过电压、峰值欠补偿。低 PF 放大线路电流：PF 从 0.95 降至 0.80，电流升高约 <strong>19%</strong>，I²R 损耗增加，并可能迫使变压器降容 <strong>10–20%</strong>。SVG 持续将 PF 维持在近单位值，削减每月无功罚款。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>在 PCC 测量无功曲线</strong>完整工况周期。</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>SVG 置于负载母线</strong>供给可变负载群。</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>审计现有电容柜</strong>的并联谐振风险。</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>检查弱电网裕量</strong>——按最差电压跌落选型。</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>预留裕量</strong>（15–25%）应对新增变频器或充电桩。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">升级路径：IGBT → SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">常规低压 SVG 用 IGBT，结温约 150°C、开关通常低于 20 kHz。将桥臂改为 SiC MOSFET（结温 200°C、击穿场强约 10×、开关频率 2–3×、损耗约低 50%）可拓宽控制带宽并缩小同 kVAr 机柜——这正是 CHITEK 低压 SVG 平台的方向。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">负载稳定时，电容柜仍有其位。负载波动时，SVG 是唯一快到能在无谐振风险下保持 PF 0.99+ 的补偿装置。CHITEK 低压 SVG 平台基于实测选型，并围绕这种动态 VSC 方法构建。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的母线一天实际保持多少功率因数？轻载与峰值间摆动多大？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK 技术团队</p>
+                <p class="text-sm text-text-muted">5 分钟阅读</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

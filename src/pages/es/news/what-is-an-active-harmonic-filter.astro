@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "¿Qué es un filtro activo de armónicos? Principios, el comando i_c* y el puente IGBT/SiC",
+  category: "Tecnología",
+  date: "2026-07-22",
+  dateDisplay: "22 jul 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "5 min de lectura",
+  description: "Un filtro activo de armónicos (AHF) cancela la corriente armónica y corrige la potencia reactiva en tiempo real. Este artículo recorre el principio desde la detección hasta la inyección y explica por qué el conmutador IGBT→SiC fija el techo de rendimiento.",
+  keywords: [    "Filtro activo de armónicos",
+      "AHF",
+      "Armónicos",
+      "Calidad de energía",
+      "IGBT",
+      "SiC",
+      "Potencia reactiva",
+      "THDi",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "Mayor fiabilidad del AHF con recubrimiento conformado", category: "Tecnología", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Filtros AHF frente a reactancias de línea", category: "Tecnología", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF para sistemas VFD", category: "Tecnología", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "Centro de datos en Brasil", industry: "Centros de datos" },
+    { name: "Planta industrial en Arabia Saudita", industry: "Manufactura" },
+    { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-1.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Qué es un filtro activo de armónicos? Principios, el comando i_c* y el puente IGBT/SiC",
+    "description": "Un filtro activo de armónicos (AHF) cancela la corriente armónica y corrige la potencia reactiva en tiempo real. Este artículo recorre el principio desde la detección hasta la inyección y explica por qué el conmutador IGBT→SiC fija el techo de rendimiento.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-1.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-22",
+    "dateModified": "2026-07-22",
+    "keywords": "Filtro activo de armónicos AHF Armónicos Calidad de energía IGBT SiC"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Tecnología</span>
+        <span class="text-xs text-gray-400">22 jul 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 min de lectura</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        ¿Qué es un filtro activo de armónicos? Principios, el comando i_c* y el puente IGBT/SiC
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-1.webp" alt="¿Qué es un filtro activo de armónicos? Principios, el comando i_c* y el puente IGBT/SiC" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un filtro activo de armónicos (AHF) es un compensador electrónico de potencia conectado en paralelo que mejora la calidad de la energía cancelando la corriente armónica y ajustando la potencia reactiva en tiempo real. A diferencia de una trampa LC pasiva, se adapta a la carga cambiante y evita la resonancia con la impedancia del sistema. Este artículo recorre el principio desde la detección hasta la inyección y explica por qué la elección del semiconductor (IGBT vs SiC) fija el techo de rendimiento.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué hace un AHF</h2>
+<p class="text-text-mid leading-relaxed mb-6">El AHF se conecta en paralelo al bus distorsionado y mide continuamente la corriente de carga. Calcula la corriente de compensación —igual en magnitud, opuesta en fase al contenido armónico y reactivo no deseado— e la inyecta, dejando a la fuente una cuasi-sinusoide y un alto factor de potencia.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">El principio, paso a paso</h2>
+<p class="text-text-mid leading-relaxed mb-3"><strong>1. Detección y separación de armónicos.</strong> Sensores de corriente de alta precisión (efecto Hall, hasta ~50 órdenes armónicos) muestrean la corriente de carga en tiempo real. La señal se descompone de dos formas: la teoría de potencia reactiva instantánea (p–q) transforma la corriente trifásica en componentes real e imaginaria, mientras la FFT extrae amplitud y fase de cada armónico. El resultado es un comando de corriente de referencia igual en amplitud y opuesto en fase —el "armónico inverso".</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>2. Generación de la corriente de compensación.</strong> El núcleo es un inversor de fuente de voltaje (VSI) basado en dispositivos de conmutación de alta frecuencia (IGBT o SiC). Inyecta la corriente de compensación, que se combina con la corriente armónica original y la cancela.</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>3. Compensación de potencia reactiva.</strong> El mismo inversor aporta corriente adelantada o atrasada para contrarrestar el componente reactivo de la carga, elevando el FP hacia la unidad (objetivo CHITEK LV AHF/SVG: <strong>0.99+</strong>).</p>
+<p class="text-text-mid leading-relaxed mb-3"><strong>4. Control en lazo cerrado y estabilidad.</strong> Se monitoriza la corriente de red compensada y se compara con la referencia; se ajusta la salida del inversor para mantener la precisión.</p>
+<p class="text-text-mid leading-relaxed mb-6"><strong>5. Anti-resonancia y adaptabilidad.</strong> El control activo evita formar circuitos resonantes con la impedancia de red, maneja armónicos de banda ancha (3, 5, 7, órdenes altos) y admite múltiples unidades en paralelo para compensación distribuida.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">La ley de compensación</h2>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L − i_s(fundamental)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Sintetizada por un puente que conmuta a 15–20 kHz, la corrección sigue en <strong>&lt; 1 ms</strong> y reduce el THDi de <strong>30%+ a &lt; 5%</strong> en los órdenes 5.º a 25.º simultáneamente —siguiendo la carga según varía. Sin tratar, el THDi en una carga no lineal suele estar entre <strong>8% y 30%</strong>, frente al límite IEEE 519 de <strong>THDi &lt; 5%</strong> en el PCC.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">El cuello de botella del semiconductor: IGBT vs SiC</h2>
+<p class="text-text-mid leading-relaxed mb-3">IGBT: unión limitada cerca de <strong>150°C</strong>, frecuencia de conmutación típicamente <strong>menor a 20 kHz</strong>.</p>
+<p class="text-text-mid leading-relaxed mb-6">SiC MOSFET: banda prohibida <strong>3,26 eV vs 1,12 eV</strong>, unión <strong>200°C</strong>, campo de ruptura <strong>~10×</strong>, frecuencia de conmutación <strong>2–3×</strong>, pérdida de conmutación <strong>~50% menor</strong>. SiC amplía el ancho de banda de cancelación (maneja orden 13 y superiores), reduce el gabinete y funciona más frío —la dirección sobre la que CHITEK construye su plataforma LV AHF.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue ingenieril</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>Medir en el PCC</strong> con un analizador de calidad durante un ciclo completo.</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>Ubicar el AHF en la fuente</strong> —en el alimentador del集群 no lineal.</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>Auditar bancos de condensadores</strong> por resonancia antes de la puesta en marcha.</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>Dimensionar según TDD medido</strong> referido a la demanda pico.</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>Dejar margen</strong> (15–25%) para variadores adicionales.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">En conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un AHF es un bucle medición→cálculo→inyección que cancela la distorsión dinámicamente y sin resonancia. El principio es constante; el conmutador decide el ancho de banda y el volumen. Las plataformas LV AHF de CHITEK se construyen sobre esta ruta de actualización IGBT→SiC, especificadas a partir de una medición real.</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Qué órdenes armónicos está cancelando realmente su AHF —y su conmutador, está calificado para el más alto de su bus?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">Equipo Técnico CHITEK</p>
+                <p class="text-sm text-text-muted">5 min de lectura</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

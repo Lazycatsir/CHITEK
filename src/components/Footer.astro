@@ -6,6 +6,7 @@ const { lang = 'en' } = Astro.props;
 
 const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: string }> = {
   subscribeText: { en: 'Subscribe to us to enjoy event prices, along with dedicated technical support.', pt: 'Inscreva-se para aproveitar preços especiais, juntamente com suporte técnico dedicado.', es: 'Suscríbase para disfrutar de precios especiales y soporte técnico dedicado.', ar: 'اشترك معنا للاستمتاع بأسعار الفعاليات مع دعم فني مخصص.', zh: '订阅我们，享受活动优惠价格及专属技术支持。' },
+  contactPhone: { en: 'Contact: 0755-23596807', pt: 'Contato: 0755-23596807', es: 'Contacto: 0755-23596807', ar: 'اتصل: 0755-23596807', zh: '联系电话：0755-23596807' },
   emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com', es: 'nombre@email.com', ar: 'name@email.com', zh: 'name@email.com' },
   subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse', ar: 'اشترك', zh: '订阅' },
   products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات', zh: '产品中心' },
@@ -48,6 +49,7 @@ const newsHref = prefix + '/news';
     <div class="flex flex-col">
       <img src="/assets/images/logo.webp" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[clamp(100px,10vw,160px)] h-auto object-contain mb-[clamp(8px,1.5vw,20px)]" />
       <p class="text-[clamp(11px,0.9vw,14px)] text-white/70 leading-[1.8] max-w-[260px] mb-[clamp(12px,2vw,32px)]">{_('subscribeText')}</p>
+      <p class="text-[clamp(11px,0.9vw,14px)] text-white/80 font-medium mb-[clamp(12px,2vw,32px)]">{_('contactPhone')}</p>
       <div class="flex">
         <input type="email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(11px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
         <button class="bg-brand-orange text-white border-none cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>

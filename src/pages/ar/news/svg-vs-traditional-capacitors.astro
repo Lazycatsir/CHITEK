@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "SVG مقابل مجموعات مكثفات موصولة: لماذا يتفوق فار الديناميكي على الضبط الثابت",
+  category: "تقنية",
+  date: "2026-07-19",
+  dateDisplay: "19 يوليو 2026",
+  author: "فريق CHITEK الفني",
+  readTime: "5 دقائق قراءة",
+  description: "يبدأ تصحيح عامل القدرة على ناقل الجهد المنخفض بمجموعة مكثفات —لكن المصانع الحديثة أحمالها متغيرة. يقدر هذا المقال أين يتباعد SVG عن المجموعة الثابتة ولماذا يهم للامتثال والخسائر.",
+  keywords: [    "SVG",
+      "مجموعة مكثفات",
+      "عامل القدرة",
+      "القدرة غير الفاعلة",
+      "فار",
+      "وميض الجهد",
+      "التوافقيات",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "تعزيز موثوقية مرشح AHF بطلاء كونفورمال", category: "تقنية", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "مرشحات AHF مقابل مفاعلات الخط", category: "تقنية", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
+    { name: "مصنع صناعي في السعودية", industry: "التصنيع" },
+    { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SVG مقابل مجموعات مكثفات موصولة: لماذا يتفوق فار الديناميكي على الضبط الثابت",
+    "description": "يبدأ تصحيح عامل القدرة على ناقل الجهد المنخفض بمجموعة مكثفات —لكن المصانع الحديثة أحمالها متغيرة. يقدر هذا المقال أين يتباعد SVG عن المجموعة الثابتة ولماذا يهم للامتثال والخسائر.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "keywords": "SVG مجموعة مكثفات عامل القدرة القدرة غير الفاعلة فار وميض الجهد"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">تقنية</span>
+        <span class="text-xs text-gray-400">19 يوليو 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 دقائق قراءة</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        SVG مقابل مجموعات مكثفات موصولة: لماذا يتفوق فار الديناميكي على الضبط الثابت
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-4.webp" alt="SVG مقابل مجموعات مكثفات موصولة: لماذا يتفوق فار الديناميكي على الضبط الثابت" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">يبدأ تصحيح عامل القدرة على ناقل الجهد المنخفض (LV) عادةً بمجموعة مكثفات —ولحمل حثي مستقر يمكن التنبؤ به تنجح. لكن المصانع الحديثة تشغّل قيادات تردد متغير ومرشحات UPS وعواكس PV يتأرجح طلبها غير الفاعل دقيقة بدقيقة. على هذه النواقل يصبح المجموعة الثابتة الأداة الخاطئة. مولد فار الساكن (SVG) هو نفس العمل بشكل ديناميكي. يقدر هذا المقال أين يتباعدان ولماذا يهم للامتثال والخسائر.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">طريقتان لتزويد القدرة غير الفاعلة</h2>
+<p class="text-text-mid leading-relaxed mb-6">مجموعة المكثفات الموصولة سلبية: مخرجها من الفار ثابت حسب السعة المركبة، بخطوات متقطعة. لا ترى الناقل. أما SVG فهو عاكس بمصدر جهد (VSC) على IGBT عالية التردد؛ يقيس الناقل باستمرار ويعوض أو يمتص تياراً غير فاعل لحظياً عبر الأرباع الأربعة. قانون التحكم جوهرياً <em>i_q* = f(V_bus, هدف PF)</em>.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">زمن الاستجابة: دون دورة مقابل عشرات الملي ثانية</h2>
+<p class="text-text-mid leading-relaxed mb-6">هذا الرقم الحاسم. المجموعة تخطو في 10–20 ms واتجاه واحد. SVG منخفض الجهد يستجيب في <strong>أقل من 1 ms</strong> وينظّم بدقة <strong>±1%</strong> مبقياً PF <strong>0.99+</strong> رغم تذبذب الحمل. الفجوة تظهر كوميض: حين يقلع محرك كبير، يسند SVG الجهد قبل انتشار الهبوط.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تفاعل التوافقيات —الخطر المخفي</h2>
+<p class="text-text-mid leading-relaxed mb-6">قد يرنّ قبول المكثف الثابت الموازي مع معاوقة الشبكة عند رتبة توافقية <em>مضخماً</em> التشوه. IEEE 519 يحد THDi LV عند ~5%؛ مجموعة سيئة الضبط تدفعك عكسياً. SVG لا يضيف نقطة رنين، ومع AHF يكبح التوافقيات فعلياً.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تنظيم عامل القدرة: 0.99+ مقابل تذبذب</h2>
+<p class="text-text-mid leading-relaxed mb-6">تُبقي المجموعات PF في نطاق <strong>0.80–0.95</strong> وتفرط في التعويض عند الحمل الخفيف. خفض PF من 0.95 إلى 0.80 يرفع التيار ~<strong>19%</strong>، يزيد خسائر I²R وقد يُجبر المحول على تخفيض <strong>10–20%</strong>. SVG يثبّت PF قرب الوحدة فيتقص الشهرية.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>قس المنحنى غير الفاعل</strong> عند PCC عبر دورة كاملة.</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>ضع SVG على ناقل الحمل</strong> المغذي للعنقود المتغير.</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>راجع المكثفات القائمة</strong> لخطر الرنين الموازي.</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>افحص هامش الشبكة الضعيفة</strong> —حجّم لأسوأ هبوط.</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>اترك هامشاً</strong> (15–25%) للقيادات أو الشواحن الإضافية.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">مسار الترقية: IGBT → SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">يستخدم SVG LV التقليدي IGBT محدودة قرب 150°C تبديل تحت 20 kHz. نقل الجسر إلى SiC MOSFET (وصلة 200°C، حقل ~10×، تردد 2–3×، فقد ~50% أقل) يوسع النطاق ويصغر الخزانة لنفس kVAr —اتجاه منصة CHITEK LV SVG.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid leading-relaxed mb-6">حيث الحمل مستقر، للمجموعة مكانها. حيث يتحرك، SVG هو التعويض الوحيد السريع الكافي لإبقاء PF 0.99+ بلا رنين. بنيت منصات CHITEK LV SVG من قياس حقيقي حول هذا النهج الديناميكي VSC.</p>
+<p class="text-text-mid leading-relaxed mb-6">ما عامل القدرة الذي يثبته ناقلك فعلاً خلال اليوم —وكم يتذبذب بين الحمل الخفيف والذروة؟</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">فريق CHITEK الفني</p>
+                <p class="text-sm text-text-muted">5 دقائق قراءة</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              المقالات
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              المنتجات ذات الصلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

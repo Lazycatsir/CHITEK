@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能",
+  category: "产品更新",
+  date: "2026-07-18",
+  dateDisplay: "2026年7月18日",
+  author: "CHITEK 技术团队",
+  readTime: "4 分钟阅读",
+  description: "AHF 一直受其所用开关的制约。碳化硅（SiC）MOSFET 改变了这一上限。本文量化宽禁带材料为低压 AHF 带来什么，以及 IGBT 在何处仍有一席之地。",
+  keywords: [    "SiC",
+      "碳化硅",
+      "AHF",
+      "IGBT",
+      "宽禁带",
+      "效率",
+      "功率密度",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "用敷形涂层提升 AHF 可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与线路电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "面向 VFD 系统的 AHF", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-5.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能",
+    "description": "AHF 一直受其所用开关的制约。碳化硅（SiC）MOSFET 改变了这一上限。本文量化宽禁带材料为低压 AHF 带来什么，以及 IGBT 在何处仍有一席之地。",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-5.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "keywords": "SiC 碳化硅 AHF IGBT 宽禁带 效率"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">产品更新</span>
+        <span class="text-xs text-gray-400">2026年7月18日</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">4 分钟阅读</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-5.webp" alt="有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">有源谐波滤波器（AHF）一直受其所用开关的制约。数十年来这个开关是硅基 IGBT——有效，但受硅的物理极限约束。碳化硅（SiC）MOSFET 改变了这一上限。本文量化宽禁带材料为低压 AHF 真正带来什么，以及常规 IGBT 在何处仍有一席之地。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 的天花板</h2>
+<p class="text-text-mid leading-relaxed mb-3">常规低压 AHF 用 IGBT，结温额定 <strong>150°C</strong>，开关通常 <strong>低于 20 kHz</strong>。</p>
+<p class="text-text-mid leading-relaxed mb-3">• <strong>带宽限制：</strong>补偿电流在 f_sw 处合成；滤波器能干净到达的高次谐波（13、17、25 次…）受开关速度约束。</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>热成本：</strong>开关损耗随频率上升。为压在 150°C 上限内，设计者加散热片和风扇，使机柜庞大且可靠性依赖运动部件。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">SiC 实际改变了什么</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>禁带宽度：</strong> <strong>3.26 eV 对硅 1.12 eV</strong>——本质更高。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>结温：</strong>额定 <strong>200°C</strong>，IGBT 为 150°C。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>击穿场强：</strong>约 <strong>10×</strong> 硅，漂移层更薄、R_ds(on) 更低。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>开关频率：</strong>相同损耗预算下 <strong>2–3× IGBT</strong>。</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>开关损耗：</strong>约 <strong>低 50%</strong>，效率提升 <strong>1–3%</strong>。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">对 AHF 的回报</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>更宽抵消带宽。</strong>更高 f_sw 意味着 13 次及以上也能处理——在布满 SMPS 的母线上，这是"部分"与"完全"净化的差别。</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>更小更冷的机柜。</strong>更低损耗与 200°C 结温缩小热系统；同 kVAr 更小体积。</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>效率。</strong>降低 1–3% 损耗即省去 AHF 自身运行成本。</p>
+<p class="text-text-mid leading-relaxed mb-6">4. <strong>可靠性。</strong>更冷的运行延长元件寿命，风扇可更慢转。</p>
+<p class="text-text-mid leading-relaxed mb-6">补偿定律不变：<strong>i_c* = i_L − i_s(基波)</strong>——SiC 只是让它执行更快、频带更宽，在 <strong>&lt; 1 ms</strong> 内跟踪负载，将 THDi 从 <strong>30%+ 降至 &lt; 5%</strong> 并覆盖更多次。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 何时仍胜出</h2>
+<p class="text-text-mid leading-relaxed mb-6">这不是全面替换。在谐波谱可预测、首成本高敏感的常规工业场景，常规 IGBT AHF 仍是稳健、高性价比的选择。SiC 的溢价在空间、长期节能与高次性能受限处才划算——密集数据中心、紧凑开关室、含快速开关非线性负载的母线。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">SiC 不会让 IGBT AHF 过时；它为需要的场景抬高了性能上限。CHITEK 低压 AHF 平台围绕这条 IGBT→SiC 升级路径构建——同一校正原理，更宽带宽、更小体积、更冷运行。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的母线实际产生的最高谐波次数是多少？你的 AHF 是否额定可抵消它？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK 技术团队</p>
+                <p class="text-sm text-text-muted">4 分钟阅读</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

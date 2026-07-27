@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "为什么电动汽车充电站需要低压 AHF + SVG",
+  category: "技术",
+  date: "2026-07-21",
+  dateDisplay: "2026年7月21日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "每台直流快充都是非线性负载。充电桩在同一母线上成倍增加时，畸变会叠加。本文解释为什么低压 AHF + SVG 是充电站谐波、不平衡与无功波动的正确解决方案。",
+  keywords: [    "电动汽车充电",
+      "直流快充",
+      "谐波",
+      "AHF",
+      "SVG",
+      "电能质量",
+      "三相不平衡",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "用敷形涂层提升 AHF 可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与线路电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "面向 VFD 系统的 AHF", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-2.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "为什么电动汽车充电站需要低压 AHF + SVG",
+    "description": "每台直流快充都是非线性负载。充电桩在同一母线上成倍增加时，畸变会叠加。本文解释为什么低压 AHF + SVG 是充电站谐波、不平衡与无功波动的正确解决方案。",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-2.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21",
+    "keywords": "电动汽车充电 直流快充 谐波 AHF SVG 电能质量"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+        <span class="text-xs text-gray-400">2026年7月21日</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 分钟阅读</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        为什么电动汽车充电站需要低压 AHF + SVG
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="为什么电动汽车充电站需要低压 AHF + SVG" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">电动汽车充电基础设施正在快速增长——商业车库、车队、公交场站、高速服务区。每台直流快充都是大功率非线性负载，充电桩在同一母线上成倍增加时，畸变会叠加。谐波治理已不再是可选项，而是建设可靠充电站的组成部分。本文讲清机理、代价，以及为什么低压 AHF + SVG 是正确解。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">充电桩为何使母线畸变</h2>
+<p class="text-text-mid leading-relaxed mb-6">直流快充是开关模式变流器：整流前端 + DC/DC 级。和任何 VFD、UPS 或光伏逆变器一样，它脉冲式取流，产生特征谐波 <strong>n = 6k ± 1</strong>：5、7、11、13 次。更糟的是，充电桩常三相但不平衡（单相桩集中在一相），因此还注入负序电流和 3 的倍数次中性线电流。若不治理，母线 THDi 通常在 <strong>8% 至 30%</strong> 之间，而 IEEE 519 在 PCC 限值为 <strong>THDi &lt; 5%</strong>。且这是动态的：高峰时多台直流快充集中是严重应力源。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">失控畸变的代价</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>变压器过热</strong>与寿命缩短。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>电缆 I²R 损耗升高</strong>，保护设备承压。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>误跳闸</strong>与可靠性下降。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>功率因数降低</strong>→ 电费罚款，系统效率下降。</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>应力扩散</strong>至开关柜、断路器、电容柜及上游设备——是系统问题，非仅充电桩问题。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为何选 AHF + SVG，而非固定滤波器</h2>
+<p class="text-text-mid leading-relaxed mb-6">有源谐波滤波器采样负载电流，分离基波与畸变并注入反向量：<strong>i_c* = i_L − i_s(基波)</strong>。由 15–20 kHz 开关桥合成，跟踪在 <strong>&lt; 1 ms</strong> 内，将第 5 至 25 次 THDi 从 <strong>30%+ 降至 &lt; 5%</strong>。静止无功发生器（SVG）处理无功波动与三相不平衡：亚周期（&lt; 1 ms）响应、连续 ±1% 调节、PF 保持 <strong>0.99+</strong>，而电容柜是 &gt;20 ms 阶梯式、且易过/欠补偿。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 与 SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">常规低压 AHF/SVG 用 IGBT，结温约 150°C、开关通常低于 20 kHz。改用 SiC MOSFET（结温 200°C、击穿场强约 10×、开关频率 2–3×、开关损耗约低 50%）可拓宽带宽并缩小机柜——在紧凑充电柜中价值显著。这正是 CHITEK 低压 AHF + SVG 平台的方向。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程师应先测什么</h2>
+<p class="text-text-mid leading-relaxed mb-2">• PCC 处总谐波畸变（THD/TDD）。</p>
+<p class="text-text-mid leading-relaxed mb-2">• 充电桩数量与功率；交流桩与直流快充比例。</p>
+<p class="text-text-mid leading-relaxed mb-2">• 负载随时间变化（峰/谷）。</p>
+<p class="text-text-mid leading-relaxed mb-2">• 变压器容量与温度。</p>
+<p class="text-text-mid leading-relaxed mb-6">• 现有电容柜（谐振风险）与上游容量。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">典型应用场景</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>公共快充：</strong>负荷日内波动大；实时补偿保持稳定运行。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>商业楼宇充电：</strong>给既有电梯/HVAC/照明母线叠加谐波应力；AHF 保护之。</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>公交/车队场站：</strong>集中充电窗口 → 高畸变与变压器负载；AHF + SVG 缓解。</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>物流/工业枢纽：</strong>充电桩叠加在既有变频器/整流器上；动态滤波是可靠路径。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">充电桩天生非线性且不平衡。低压 <strong>AHF + SVG</strong> 组合实时抵消谐波、再平衡三相——保护变压器、电缆与断路器，并随站点扩展。CHITEK 低压 AHF + SVG 平台正是基于这种"先测量"的工程准则设计。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的充电枢纽实际在母线上施加了多大 THDi 与相不平衡？PCC 处是否低于 5%？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK 技术团队</p>
+                <p class="text-sm text-text-muted">5 分钟阅读</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

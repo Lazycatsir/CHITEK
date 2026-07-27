@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规",
+  category: "技术",
+  date: "2026-07-20",
+  dateDisplay: "2026年7月20日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "IEEE 519-2022 规定了公共连接点处的谐波畸变限值及各方责任。本文解释该标准要求什么，以及 CHITEK 低压 AHF 如何实时满足合规。",
+  keywords: [    "IEEE 519",
+      "谐波",
+      "THDi",
+      "合规",
+      "AHF",
+      "PCC",
+      "电能质量",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "用敷形涂层提升 AHF 可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "有源谐波滤波器与线路电抗器对比", category: "技术", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "面向 VFD 系统的 AHF", category: "技术", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "有源谐波滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "沙特工业厂房", industry: "制造业" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+];
+
+const lp = (p) => p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规",
+    "description": "IEEE 519-2022 规定了公共连接点处的谐波畸变限值及各方责任。本文解释该标准要求什么，以及 CHITEK 低压 AHF 如何实时满足合规。",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "keywords": "IEEE 519 谐波 THDi 合规 AHF PCC"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+        <span class="text-xs text-gray-400">2026年7月20日</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 分钟阅读</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022《电力系统谐波控制推荐规程与要求》是北美大多数设施用于管理谐波的参考标准。它不规定产品设计，而是设定<em>公共连接点（PCC）处的限值与责任</em>，让用户和电力公司在畸变上都有界。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">标准做了什么</h2>
+<p class="text-text-mid leading-relaxed mb-2">• 定义<strong>线性负载</strong>（电机、电阻加热器）与<strong>非线性负载</strong>（VFD、UPS、开关电源、LED、整流器——谐波源）。</p>
+<p class="text-text-mid leading-relaxed mb-2">• 定义<strong>PCC</strong>——设备与电网交汇处。</p>
+<p class="text-text-mid leading-relaxed mb-2">• 设定<strong>电流畸变限值</strong>（用户须满足）与<strong>电压畸变限值</strong>（电力公司须管理）。</p>
+<p class="text-text-mid leading-relaxed mb-6">• 指导源与负载之间的相互作用。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为何谐波重要</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>过热</strong>——线缆、变压器、电机更热；绝缘老化、寿命缩短。</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>异常电流</strong>——断路器误跳、继电器误动、VFD/电机故障。6 脉波非线性负载产生特征谐波 <strong>n = 6k ± 1</strong>（5、7、11、13 次…）。低压电流限值为 <strong>THDi &lt; 5%</strong>，各次谐波 &lt; 3%。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">2022 版改了什么</h2>
+<p class="text-text-mid leading-relaxed mb-6">2022 版相较旧版改进：更好的谐波测量方法；更清晰的统计/数据分析指引；对线性与非线性混合负载系统给出明确规则。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">低压 AHF 如何满足合规</h2>
+<p class="text-text-mid leading-relaxed mb-6">低压 AHF 采样负载电流并注入补偿电流：<strong>i_c* = i_L − i_s(基波)</strong>，在 <strong>&lt; 1 ms</strong> 内完成（高频 IGBT/SiC 变流器），将 <strong>THDi 从 30%+ 降至 &lt; 5%</strong> 并实时跟踪负载——不同于固定无源 LC 陷波器（无法跟随日内波动，还可能与系统电容谐振）。AHF 同时校正位移功率因数，并可平衡三相电流。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">AHF 级的 IGBT 与 SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">常规 <strong>IGBT</strong> 结温上限约 <strong>150°C</strong>、开关低于约 20 kHz。<strong>SiC MOSFET</strong>——禁带 <strong>3.26 eV</strong> 对硅 <strong>1.12 eV</strong>、结温至 <strong>200°C</strong>、击穿场强约 10×、开关频率 <strong>2–3×</strong>、开关损耗 <strong>约低 50%</strong>——效率提升 1–3%，并缩小连续运行的体积。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<p class="text-text-mid leading-relaxed mb-2">1. <strong>在 PCC 实测 THDi 与各次</strong>真实负载下。</p>
+<p class="text-text-mid leading-relaxed mb-2">2. <strong>按实测谐波电流选型 AHF</strong>，而非变压器 kVA。</p>
+<p class="text-text-mid leading-relaxed mb-2">3. <strong>靠近谐波源安装</strong>，避免滤波电流在共用馈线环流。</p>
+<p class="text-text-mid leading-relaxed mb-2">4. <strong>投运前查电容柜谐振</strong>。</p>
+<p class="text-text-mid leading-relaxed mb-6">5. <strong>留 20–25%</strong> 裕量应对负载增长。</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">结论</h2>
+<p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 是合规目标；基于 IGBT/SiC 的 CHITEK <strong>低压 AHF</strong> 是手段——在 PCC 实时抵消谐波，保持 THDi &lt; 5% 且无谐振风险。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的 PCC 当前实测 THDi 与各次谐波，对照 IEEE 519 限值如何？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK 技术团队</p>
+                <p class="text-sm text-text-muted">5 分钟阅读</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

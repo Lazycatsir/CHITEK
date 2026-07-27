@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHITEK 网站管理手册 — 给不编程的人</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #07101e; color: #e0e0e0; line-height: 1.7; padding: 0 20px; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 32px 0 80px; }
+  h1 { font-size: 26px; font-weight: 600; color: #fff; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 3px solid #ff6b1a; }
+  h1 small { font-size: 14px; font-weight: 400; color: #999; display: block; margin-top: 4px; }
+  h2 { font-size: 20px; font-weight: 600; color: #ff6b1a; margin: 48px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #1e3048; }
+  h3 { font-size: 15px; font-weight: 600; color: #ddd; margin: 28px 0 10px; }
+  p { margin: 12px 0; }
+  ul, ol { margin: 8px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  a { color: #ff8a4a; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: #141f30; color: #ff8a4a; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  pre { background: #0b1525; border: 1px solid #1e3048; border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 10px 0; color: #ccc; white-space: pre-wrap; }
+  hr { border: none; border-top: 1px solid #1e3048; margin: 28px 0; }
+  .tag { display: inline-block; background: #1a2a40; color: #ff8a4a; font-size: 11px; padding: 1px 8px; border-radius: 4px; margin-right: 6px; font-weight: 600; }
+  .tag-green { background: #0a2e1a; color: #6fcf97; }
+  .tag-red { background: #2e0a0a; color: #eb5757; }
+  .tag-blue { background: #0a1e2e; color: #5dade2; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #1e3048; }
+  th { background: #0b1525; color: #aaa; font-weight: 500; }
+  td { color: #ccc; }
+  .box { background: #0b1525; border: 1px solid #1e3048; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .box-ok { border-color: #004a1a; background: #001a08; }
+  .box .title { font-weight: 600; color: #ddd; margin-bottom: 6px; }
+  .step { display: flex; gap: 10px; margin: 6px 0; padding: 6px 0; }
+  .step-num { flex-shrink: 0; width: 24px; height: 24px; background: #ff6b1a; color: #fff; border-radius: 50%; text-align: center; font-size: 12px; line-height: 24px; font-weight: 600; }
+  .step-body { flex: 1; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { position: relative; padding: 4px 0 4px 28px; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border: 2px solid #555; border-radius: 3px; }
+  .checklist .done::before { background: #27ae60; border-color: #27ae60; }
+  .checklist .done::after { content: "✓"; position: absolute; left: 3px; top: 3px; color: #fff; font-size: 12px; font-weight: bold; }
+  .cmd { background: #0a0f18; border: 1px solid #1e3048; border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 13px; color: #5dade2; cursor: pointer; user-select: all; margin: 6px 0; }
+  .cmd::before { content: "$ "; color: #6fcf97; user-select: none; }
+  .cmd:hover { border-color: #ff6b1a; }
+  .sub { color: #888; font-size: 12px; }
+  .nav { position: sticky; top: 0; background: #07101e; padding: 10px 0; border-bottom: 1px solid #1e3048; margin-bottom: 24px; z-index: 10; }
+  .nav a { color: #aaa; font-size: 13px; margin-right: 16px; }
+  .nav a:hover { color: #ff6b1a; text-decoration: none; }
+  @media print { body { background: #fff; color: #222; } h2 { color: #c5520f; } code { background: #eee; } pre { background: #f5f5f5; border: 1px solid #ddd; color: #333; } .cmd { background: #f5f5f5; color: #1a5a8a; } .nav { display: none; } .wrap { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="nav">
+  <a href="#s1">1. 这是什么</a>
+  <a href="#s2">2. 准备什么</a>
+  <a href="#s3">3. 日常任务</a>
+  <a href="#s4">4. 检查清单</a>
+  <a href="#s5">5. 故障排查</a>
+</div>
+
+<h1>CHITEK 网站管理手册<small>不编程、只说话。对 OpenCode 说人话，它帮你改网站。</small></h1>
+
+<p>你的角色：<strong>内容管理者</strong>，不需要写代码。<br>
+OpenCode 的角色：<strong>网站管理员</strong>，听你的指令改代码并发布。</p>
+
+<p>OpenCode（<a href="https://opencode.ai" target="_blank">opencode.ai</a>）是免费开源工具。你对它说人话，它会：</p>
+<ul>
+  <li>读取项目说明文档理解规则</li>
+  <li>修改对应的源代码文件</li>
+  <li>运行 <code>npm run build</code> 确保网站能正常构建</li>
+  <li>提交并推送到 GitHub，Netlify 自动将新版部署上线</li>
+</ul>
+
+<div class="box box-ok">
+  <div class="title">✅ 最重要的安全保证</div>
+  <p><strong>构建失败 ≠ 网站挂掉。</strong> 就算改错了、构建失败了，线上网站依然显示旧版本，不会白屏。修复后重新推送即可。</p>
+</div>
+
+<hr>
+
+<!-- ==================== 1 ==================== -->
+<h2 id="s1">1. 这是什么网站</h2>
+
+<table>
+  <tr><th>项目</th><th>说明</th></tr>
+  <tr><td>网址</td><td><a href="https://chitek-inno.com" target="_blank">chitek-inno.com</a>（中文）<br><a href="https://en.chitek-inno.com" target="_blank">en.chitek-inno.com</a>（英文）<br>es/ar/pt.chitek-inno.com（西语/阿语/葡语）</td></tr>
+  <tr><td>语言</td><td>中文 / 英文 / 西语 / 阿语 / 葡语，共 5 套</td></tr>
+  <tr><td>任务频率</td><td>最常见：加新闻文章；偶尔：改文字、换图</td></tr>
+  <tr><td>GitHub 仓库</td><td><code>github.com/Lazycatsir/CHITEK</code></td></tr>
+  <tr><td>部署方式</td><td>推送到 GitHub 后自动构建上线，你不需要管部署过程</td></tr>
+  <tr><td>管理方式</td><td>你说话 → OpenCode 执行 → 推送即上线</td></tr>
+</table>
+
+<h3>常见术语（你可能会遇到）</h3>
+<table>
+  <tr><th>术语</th><th>意思</th></tr>
+  <tr><td>npm run build</td><td>把网站"编译"成最终文件 → 不编译就没法上线</td></tr>
+  <tr><td>git push</td><td>把本地的修改发送到 GitHub → 自动触发网站更新</td></tr>
+  <tr><td>frontmatter</td><td>文章顶部 `---` 之间的信息块（标题、日期等）—— OpenCode 会自动处理</td></tr>
+</table>
+
+<hr>
+
+<!-- ==================== 2 ==================== -->
+<h2 id="s2">2. 需要准备什么</h2>
+
+<div class="box box-ok">
+  <div class="title">✅ 项目文件夹里已有全部代码和文档</div>
+  <p>你只需要装几个软件、配一次推送密钥。之后全部让 OpenCode 操作。</p>
+</div>
+
+<h3>2.1 必装软件</h3>
+<table>
+  <tr><th>软件</th><th>版�版</th><th>去哪下载</th><th>做什么用</th></tr>
+  <tr><td>OpenCode</td><td>最新版</td><td><a href="https://opencode.ai" target="_blank">opencode.ai</a> 下载桌面版</td><td>你说话的窗口、管理网站的操作员</td></tr>
+  <tr><td>Node.js</td><td>22.x</td><td><a href="https://nodejs.org" target="_blank">nodejs.org</a></td><td>跑网站构建工具，必须 22 版</td></tr>
+  <tr><td>Git</td><td>最新版</td><td><a href="https://git-scm.com" target="_blank">git-scm.com</a></td><td>代码版本管理、推送到 GitHub</td></tr>
+</table>
+
+<p>你<strong>不需要</strong>：注册 GitHub 账号、登录 Netlify、了解部署过程。OpenCode 会搞定。</p>
+
+<h3>2.2 安装步骤（逐条做）</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>装 OpenCode</strong><br>到 <a href="https://opencode.ai" target="_blank">opencode.ai</a> 下载桌面版安装。完成后打开，会看到聊天界面。</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>装 Node.js 22.x</strong><br>到 <a href="https://nodejs.org" target="_blank">nodejs.org</a> 下载 LTS 版（22.x），一路"下一步"安装。<br>📖 看不懂安装界面？参考图文教程：<a href="https://zhuanlan.zhihu.com/p/2004975759790477711" target="_blank">《Node.js 安装及环境配置超详细教程（win11 为例）》</a>（含下载、安装选项、验证 <code>node -v</code> / <code>npm -v</code>、换国内镜像）</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>装 Git</strong><br>到 <a href="https://git-scm.com" target="_blank">git-scm.com</a> 下载安装，全部选默认。<br>📖 安装时每个步骤不知怎么选？参考图文教程：<a href="https://blog.csdn.net/mukes/article/details/115693833" target="_blank">《Git 详细安装教程（详解每个步骤）》</a>（含 PATH、OpenSSH、换行符、终端等 15 个安装选项说明）</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>生成推送密钥</strong><br>打开终端（按 Win+R → 输入 cmd → 回车），运行：<br><code>ssh-keygen -t ed25519 -f "%USERPROFILE%\.ssh\chitek_deploy" -N ""</code><br>然后把生成的<strong>公钥</strong>发给交接人：<br><code>type "%USERPROFILE%\.ssh\chitek_deploy.pub"</code><br>复制屏幕上输出的整行文字，发给交接人。他在 GitHub 配置好后你就可以推送了。</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>拿到项目文件夹并装依赖</strong><br>交接人把 CHITEK 文件夹给你（U盘或网盘），在文件夹里<strong>按 Shift+右键 → 打开 PowerShell</strong>，运行：<br><code>npm install</code><br>等它跑完不报红字就行。</div></div>
+
+<h3>2.3 交接人（原开发者）要做的事</h3>
+<table>
+  <tr><th>#</th><th>事项</th><th>操作说明</th><th>状态</th></tr>
+  <tr><td>1</td><td>给你项目文件夹</td><td>把整个 CHITEK 文件夹复制给你（U盘/网盘）</td><td>□ 未完成</td></tr>
+  <tr><td>2</td><td>配置 Deploy Key</td><td>你提供公钥（就是上面第 4 步输出的内容）给他，他加到 GitHub<br>仓库 → Settings → Deploy keys → Add deploy key，勾 Write access</td><td>□ 未完成</td></tr>
+  <tr><td>3</td><td>确认远程仓库地址正确</td><td>在项目文件夹运行 <code>git remote -v</code>，应显示 <code>git@github.com:Lazycatsir/CHITEK.git</code></td><td>□ 未完成</td></tr>
+</table>
+
+<p class="sub">💡 配好 Deploy Key 后，你就拥有"只管推代码、其他什么都不用管"的权限。推了自动上线。</p>
+
+<hr>
+
+<!-- ==================== 3 ==================== -->
+<h2 id="s3">3. 日常任务手册（核心）</h2>
+
+<p>以下每个任务都是"对 OpenCode 说的话"。<strong>照抄复制粘贴</strong>，把 <code>[方括号]</code> 里的内容换成你的实际信息即可。</p>
+
+<!-- 任务1：发新闻 -->
+<h3>📰 任务 1：发布新新闻文章</h3>
+<p><span class="tag tag-green">最常见</span><span class="tag">5-10 分钟</span></p>
+<div class="box box-ok">
+  <div class="title">✅ 你准备什么</div>
+  <ul>
+    <li>写好文章正文（纯文字，不需要排版）</li>
+    <li>如果有配图：把图片文件（jpg/webp/png）放在 <code>public/assets/images/news/</code> 文件夹里，文件名如 <code>news-img-21.webp</code></li>
+    <li>如果没有配图，OpenCode 会自动用已有图片</li>
+  </ul>
+</div>
+<p><strong>对 OpenCode 说的话（整个复制过去，改 [方括号] 里的）：</strong></p>
+<pre><code>请帮我在网站发一篇新闻文章。
+
+文章标题：[填写标题]
+类别：[Technology / Case Study / Product Update / Industry News / Sustainability]
+发布日期：[2026-07-24]
+文章图片：[填写图片文件名，如 news-img-21.webp；没有就删掉这行]
+
+正文：
+[把整篇文章贴在这里]
+
+要求：
+1. 先读 README.md 和 CLAUDE.md 里的新闻发布规范
+2. 先创建中文版（src/pages/news/xxxx.astro）
+3. 翻译成英文、西语、阿语三个版本
+4. 葡语（pt）不需要新闻，跳过
+5. 在 4 个语言的新闻列表页各插入一张新卡片，按日期降序放在正确位置
+6. 运行 npm run build 确认构建通过
+7. 推送到 GitHub</code></pre>
+
+<div class="box">
+  <div class="title">⏱ 这时 OpenCode 会做这些（你可以等着看）</div>
+  <ol>
+    <li>读项目文档了解新闻文章结构和格式</li>
+    <li>生成中文版 .astro 文件（frontmatter + HTML 正文 + SEO 标签）</li>
+    <li>翻译成英文/西语/阿语版本，各 1 个文件</li>
+    <li>在 4 个语言的新闻列表页插入新卡片</li>
+    <li>运行 <code>npm run build</code> 确认构建通过</li>
+    <li><code>git add → git commit → git push</code> 推送到 GitHub</li>
+  </ol>
+</div>
+
+<div class="box box-ok">
+  <div class="title">✅ 怎么检查发布成功</div>
+  <ol>
+    <li>上网站 <a href="https://chitek-inno.com/news" target="_blank">chitek-inno.com/news</a> 看列表里是否有新文章</li>
+    <li>点进去看内容是否正确</li>
+    <li>检查英文 <a href="https://en.chitek-inno.com/news" target="_blank">en.chitek-inno.com/news</a> 也有同一篇</li>
+    <li>如果没显示：等 1-2 分钟再刷（Netlify 构建需要时间）。如果还不行，参考第 5 节</li>
+  </ol>
+</div>
+
+<p class="sub">💡 如果 OpenCode 中途停下来问问题，回答"按项目惯例处理"即可。</p>
+<p class="sub">💡 如果构建失败，OpenCode 会自动修复后重试。连续 2 次修不好，参考第 5 节。</p>
+
+<hr>
+
+<!-- 任务2：改文字 -->
+<h3>✏️ 任务 2：修改页面文字</h3>
+<p><span class="tag tag-green">最简单</span><span class="tag tag-blue">2-5 分钟</span></p>
+
+<h4>场景 A：只改一个语言的一处</h4>
+<pre><code>把[英文]首页 hero 区域的副标题从"旧的文字"改成"新的文字"。
+只改这一处，其他语言不动。
+改完后构建验证，没问题就推送。</code></pre>
+
+<h4>场景 B：5 个语言同步改同一段话</h4>
+<pre><code>把 Products 页顶部标题从"xxx"改成"yyy"，5 个语言同步改。
+中文：yyy
+英文：yyy 的英文翻译
+西语：yyy 的西语翻译
+阿语：yyy 的阿语翻译
+葡语：yyy 的葡语翻译
+改完后跑 build 确认，推送。</code></pre>
+
+<p class="sub">💡 不确定翻译时让 OpenCode 自动翻："把首页的'xxx'改成'yyy'，翻译成 5 个语言版本"。</p>
+
+<hr>
+
+<!-- 任务3：换图 -->
+<h3>🖼️ 任务 3：更换图片</h3>
+<p><span class="tag tag-green">简单</span><span class="tag">3-5 分钟</span></p>
+
+<div class="box box-ok">
+  <div class="title">✅ 你准备什么</div>
+  <ul>
+    <li>新的图片文件（推荐 webp 格式）</li>
+    <li>把图片放到 <code>public/assets/images/</code> 下对应的子目录</li>
+  </ul>
+</div>
+
+<pre><code>我把新图片放在了 public/assets/images/products/新图片.webp。
+请把中文首页的 hero 背景图换成这张。
+改完启动 dev server 预览确认，构建通过后推送。</code></pre>
+
+<p class="sub">💡 不确定替换哪张图，截图给 OpenCode 问："这个区域用的是什么图？"</p>
+
+<hr>
+
+<!-- 任务4：加页面 -->
+<h3>📄 任务 4：加一个全新页面</h3>
+<p><span class="tag">不常用</span><span class="tag">15-30 分钟</span></p>
+
+<pre><code>请帮我创建一个新页面。
+
+页面路径：/en/new-product
+页面名字：New Product Name
+导航菜单里要显示这个链接
+
+参考 src/pages/en/products/active-harmonic-filter.astro 的结构来做。
+页面主要内容：
+[描述你要放什么——标题、段落、表格、图片等]
+
+完成后创建中文/西语/阿语/葡语版本（5 个语言全部做好）。
+在导航栏和各语言首页添加链接。
+构建验证后推送。</code></pre>
+
+<p class="sub">💡 加新页面是技术性最重的操作。效果不对时截图给交接人，不用自己调。</p>
+
+<hr>
+
+<!-- 任务5：跨语言同步 -->
+<h3>🌐 任务 5：把一个语言的改动同步到其他语言</h3>
+<p><span class="tag">不常用</span></p>
+
+<pre><code>我把[英文]的产品页改了：[简单描述改了什么]。
+请把同样的修改同步到中文、西语、阿语、葡语版本。
+注意：只改结构和类名，不要动各语言的翻译文本。
+改完后确认 5 个版结构一致，构建验证后推送。</code></pre>
+
+<hr>
+
+<!-- 任务6：回滚 -->
+<h3>↩️ 任务 6：网站回滚到旧版本（出了问题也不怕）</h3>
+<p><span class="tag tag-red">紧急</span><span class="tag">1-2 分钟</span></p>
+
+<div class="box box-ok">
+  <div class="title">✅ 构建失败不需要回滚</div>
+  <p>只有"新版上线后发现内容错了"才需要回滚。构建失败的话，线上还是旧版本，不用回滚。</p>
+</div>
+
+<p><strong>方法：让 OpenCode 回滚</strong></p>
+<pre><code>刚刚推送的版本有问题，帮我回滚到上一个版本。
+用 git revert，构建通过后推上去。</code></pre>
+
+<hr>
+
+<!-- 任务7：构建失败检查 -->
+<h3>⚠️ 任务 7：构建失败了 / 网站没更新</h3>
+
+<div class="box box-ok">
+  <div class="title">✅ 先确认：是不是"还没发布"</div>
+  <p>推送后需要 1-3 分钟构建，期间网站仍显示旧版本。等 3 分钟再刷。</p>
+</div>
+
+<p><strong>对 OpenCode 说：</strong></p>
+<pre><code>网站好像没更新。帮我检查：
+1. 运行 npm run build 看有没有报错
+2. 如果有报错，修复
+3. 检查 git push 是否成功
+4. 修复后重新构建并推送</code></pre>
+
+<p><strong>OpenCode 连续 2 次修不好：</strong></p>
+<ol>
+  <li>把报错红字复制下来（或者截图）</li>
+  <li>发给交接人</li>
+  <li>同时做回滚（任务 6）恢复网站到已知正常的版本</li>
+</ol>
+
+<hr>
+
+<!-- ==================== 4 ==================== -->
+<h2 id="s4">4. 检查清单</h2>
+
+<div class="box box-ok">
+  <div class="title">✅ 你和交接人一起逐条确认</div>
+</div>
+
+<h3>4.1 软件安装</h3>
+<ul class="checklist">
+  <li class="">OpenCode 已安装并能打开</li>
+  <li class="">Node.js 22.x 已安装（终端运行 <code>node --version</code>，输出以 v22 开头）</li>
+  <li class="">Git 已安装（终端运行 <code>git --version</code>，有版本号）</li>
+  <li class="">项目文件夹已在你的电脑上</li>
+  <li class="">在项目文件夹运行 <code>npm install</code> 成功（无红色报错）</li>
+</ul>
+
+<h3>4.2 权限配置</h3>
+<ul class="checklist">
+  <li class="">已生成 SSH 密钥并将公钥发给交接人</li>
+  <li class="">交接人已把 Deploy Key 加到 GitHub 仓库（勾了 Write access）</li>
+  <li class="">远程仓库地址是 SSH 格式（终端运行 <code>git remote -v</code>，显示 <code>git@github.com:Lazycatsir/CHITEK.git</code>）</li>
+</ul>
+
+<h3>4.3 最终验证（最重要，逐条做一遍）</h3>
+<ul class="checklist">
+  <li class=""><code>npm run dev</code> 能启动，浏览器访问 <a href="http://localhost:4321" target="_blank">localhost:4321</a> 能看到网站</li>
+  <li class=""><code>npm run build</code> 成功（终端最后显示 Completed，无红字）</li>
+  <li class="">任意改一个文字后，对 OpenCode 说"提交并推送"能成功推送到 GitHub（OpenCode 不报错）</li>
+  <li class="">等 2 分钟后刷新公网网站（比如 chitek-inno.com），改动已生效</li>
+</ul>
+
+<hr>
+
+<!-- ==================== 5 ==================== -->
+<h2 id="s5">5. 故障排查</h2>
+
+<h3>OpenCode 停下来问问题，不知怎么答</h3>
+<p>说：<strong>"按项目惯例处理，继续就行。"</strong></p>
+
+<h3>构建报红字错误</h3>
+<p>对 OpenCode 说：<code>修复构建错误，重复跑 build 直到通过。</code></p>
+<p>连续 2 次修不好：报错截图发交接人。</p>
+
+<h3>构建成功但网站没变</h3>
+<ol>
+  <li>确认推送成功：问 OpenCode "git push 有报错吗？"</li>
+  <li>浏览器强制刷新：Ctrl+Shift+R（或清除缓存）</li>
+  <li>等 3 分钟后再次刷新</li>
+  <li>还不行：截图发交接人</li>
+</ol>
+
+<h3>网站完全不显示了（白屏/404）</h3>
+<p><strong>不要慌，先刷新几次（可能临时问题）。</strong> 仍然白屏的话立刻联系交接人。</p>
+<p class="sub">💡 白屏通常是临时配置问题，不会导致数据丢失。</p>
+
+<h3>找不到了这个手册</h3>
+<p>在项目文件夹里打开 OpenCode，说：<code>读 docs/站点管理手册.html 给我看。</code></p>
+
+<h3>交接人联系方式</h3>
+<table>
+  <tr><th>角色</th><th>联系方式</th></tr>
+  <tr><td>交接人姓名</td><td>________________</td></tr>
+  <tr><td>微信/电话</td><td>________________</td></tr>
+</table>
+
+<hr>
+
+<p style="text-align:center; color:#555; font-size:12px; margin-top:60px;">CHITEK 站点管理手册 — 2026-07 · 基于 OpenCode + GitHub Deploy Key</p>
+
+</div>
+</body>
+</html>

@@ -72,8 +72,16 @@ Astro i18n 已配置，中文为默认语言：
 
 ## 工作流程
 
+### 原始开发模式
 - **默认不提交 Git**：改完代码后不主动 git commit/push，只在用户明确说"提交"时才执行
 - **构建验证**：改完代码后运行 `npm run build` 验证无报错
+
+### 交接后（非技术人员用 OpenCode 管理）
+- **工作流**：用户说人话 → AI 改代码 → `npm run build` 验证 → git commit+push → Netlify 自动构建部署
+- **构建验证是铁律**：每次实质性修改后必须先 `npm run build` 确保无报错，再推送到 GitHub
+- **常见构建失败原因**：`.astro` frontmatter 的 `const article = {...}` 对象字面量缺逗号（尤其是 `readTime` 后接 `keywords` 时最容易漏）
+- **构建失败不致命**：Netlify 保留上次成功部署，网站不会下线，只是不更新。修复后重新推送即可
+- **多语言同步后再推送**：创建新闻/页面后必须保证各语言文件都存在，避免跳转层上的死链
 
 ## 编码规范
 
@@ -263,3 +271,25 @@ npm run build
 - **每篇详情页必须包含 SEO Keywords 标签区**：`<!-- SEO Keywords -->` + `<div>` 渲染 `article.keywords.map()`，位于正文与 Author 之间。`article.keywords` 必须在 frontmatter 中定义，注意 JS 对象逗号分隔
 - 新增后必须跑一次日期降序校验
 - **完整踩坑表（22 条）→ 见 `README.md`**
+
+## ⚠️ 常见构建失败原因
+
+### 1. frontmatter 对象字面量缺逗号
+这是最常见的 `npm run build` 失败原因。当给 `const article = { ... }` 追加字段（如 `keywords`）时，前一行末尾必须加逗号：
+
+```
+  readTime: "5 min read"     ← 缺逗号 → 报错 Expected "}" but found "keywords"
+  keywords: ["..."]           ← 正确：readTime: "5 min read",
+```
+
+每次修改涉及 frontmatter 对象属性时，检查前一行是否有尾逗号。用 AI 批量修改时尤其容易漏。
+
+### 2. CRLF 行尾（仅当用正则匹配时需要注意）
+本项目 `.astro` 文件是 CRLF 行尾。用正则匹配行尾时，`\n` 锚点匹配不到，必须写 `\r?\n`。
+
+### 3. 阿拉伯语（ar）文件的 UTF-8 BOM
+`ar/` 目录下的 `.astro` 文件带 UTF-8 BOM 头（`\xef\xbb\xbf`）。改写时必须保持 BOM，否则文件会乱码。用 Python 处理时：`open(path, 'rb').read()[:3]` 检测 BOM，有 BOM 则 `utf-8-sig` 编解码。
+
+### 4. 构建失败不致命
+Netlify 保留上次成功部署，网站不会下线。失败后修复 → 重新推送即可。构建日志在 Netlify → Deploys 页面。
+

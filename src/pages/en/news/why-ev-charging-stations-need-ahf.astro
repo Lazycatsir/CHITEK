@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Why EV Charging Stations Need a Low-Voltage AHF + SVG",
+  category: "Technology",
+  date: "2026-07-21",
+  dateDisplay: "Jul 21, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "5 min read",
+  description: "Every DC fast charger is a nonlinear load. As chargers multiply on one bus the distortion compounds. This article explains why a low-voltage AHF + SVG is the right fix for harmonics, unbalance, and reactive swing at charging hubs.",
+  keywords: [    "EV charging",
+      "DC fast charger",
+      "Harmonics",
+      "AHF",
+      "SVG",
+      "Power quality",
+      "Three-phase unbalance",
+      "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "Enhancing AHF Reliability with Conformal Coating", category: "Technology", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Active Harmonic Filters vs. Line Reactors", category: "Technology", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+];
+const relatedCases = [
+    { name: "Brazil Data Center", industry: "Data Centers" },
+    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
+    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
+];
+
+const isLocal = false;
+const lp = (p) => isLocal ? '/en' + p : p;
+
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/news/news-img-2.webp"
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why EV Charging Stations Need a Low-Voltage AHF + SVG",
+    "description": "Every DC fast charger is a nonlinear load. As chargers multiply on one bus the distortion compounds. This article explains why a low-voltage AHF + SVG is the right fix for harmonics, unbalance, and reactive swing at charging hubs.",
+    "image": "https://chitek-inno.com/assets/images/news/news-img-2.webp",
+    "author": {"@type": "Organization","name": "CHITEK Technical Team"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21",
+    "keywords": "EV charging DC fast charger Harmonics AHF SVG Power quality"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+        <span class="text-xs text-gray-400">Jul 21, 2026</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">5 min read</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        Why EV Charging Stations Need a Low-Voltage AHF + SVG
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="Why EV Charging Stations Need a Low-Voltage AHF + SVG" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">EV charging infrastructure is growing fast — commercial garages, fleets, bus depots, highway sites. Every DC fast charger is a high-power, nonlinear load, and as chargers multiply on one bus the distortion compounds. Harmonic control is no longer optional; it is part of building a reliable charging station. This article covers the mechanism, the cost, and why a low-voltage (LV) AHF + SVG is the right fix.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why chargers distort the bus</h2>
+<p class="text-text-mid leading-relaxed mb-6">A DC fast charger is a switched-mode converter: rectifier front-end + DC/DC stage. Like any VFD, UPS, or PV inverter, it draws current in pulses, generating characteristic harmonics at orders <strong>n = 6k ± 1</strong>: the 5th, 7th, 11th, 13th. Worse, chargers are often three-phase but unbalanced (single-phase piles on one phase), so they also inject negative-sequence current and triplen neutral content. Left untreated, THDi at the bus commonly sits between <strong>8% and 30%</strong>, against the IEEE 519 limit of <strong>THDi &lt; 5%</strong> at the PCC. And it is dynamic: a hub with many DC fast chargers at peak is a serious stressor.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What uncontrolled distortion costs</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Transformer overheating</strong> and reduced life.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Higher cable I²R losses</strong> and stressed protection devices.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Nuisance tripping</strong> and reduced reliability.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Lower PF</strong> → utility penalties; reduced system efficiency.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>Spread of stress</strong> to switchgear, breakers, capacitor banks, and upstream equipment — a system problem, not just a charger problem.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why an AHF + SVG, not a fixed filter</h2>
+<p class="text-text-mid leading-relaxed mb-6">An active harmonic filter samples the load current, separates fundamental from distortion, and injects the inverse: <strong>i_c* = i_L − i_s(fundamental)</strong>. Synthesized by a bridge switching at 15–20 kHz, it tracks within <strong>&lt; 1 ms</strong> and pulls THDi from <strong>30%+ down to &lt; 5%</strong> across the 5th through 25th orders. A static var generator (SVG) handles the reactive swing and three-phase unbalance: sub-cycle (&lt; 1 ms) response, continuous ±1% regulation, PF held at <strong>0.99+</strong>, versus a capacitor bank's &gt;20 ms step and over/under-correction.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">Conventional LV AHF/SVG use IGBTs capped near 150°C, switching typically under 20 kHz. Migrating to SiC MOSFETs (200°C junction, ~10× breakdown field, 2–3× switching frequency, ~50% lower switching loss) widens bandwidth and shrinks the cabinet — valuable in a compact charging cabinet. That is the direction CHITEK's LV AHF + SVG platform is built on.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What engineers should measure first</h2>
+<p class="text-text-mid leading-relaxed mb-2">• Total harmonic distortion (THD/TDD) at the PCC.</p>
+<p class="text-text-mid leading-relaxed mb-2">• Charger quantity and power rating; AC vs DC fast-charger mix.</p>
+<p class="text-text-mid leading-relaxed mb-2">• Load variation over time (peak vs off-peak).</p>
+<p class="text-text-mid leading-relaxed mb-2">• Transformer size and temperature.</p>
+<p class="text-text-mid leading-relaxed mb-6">• Existing capacitor banks (resonance risk) and upstream capacity.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Typical application profiles</h2>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Public fast-charging:</strong> strong load variation by time of day; real-time compensation keeps operation stable.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Commercial-building charging:</strong> adds harmonic stress to an existing lift/HVAC/lighting bus; AHF protects it.</p>
+<p class="text-text-mid leading-relaxed mb-2">• <strong>Bus / fleet depots:</strong> concentrated charging windows → high distortion and transformer loading; AHF + SVG relieves it.</p>
+<p class="text-text-mid leading-relaxed mb-6">• <strong>Logistics / industrial hubs:</strong> chargers stack on top of existing drives/rectifiers; dynamic filtering is the reliable path.</p>
+<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
+<p class="text-text-mid leading-relaxed mb-6">Chargers are nonlinear and unbalanced by design. A low-voltage <strong>AHF + SVG</strong> pair cancels the harmonics and rebalances the phases in real time — protecting transformers, cables, and breakers, and scaling with the site. CHITEK's LV AHF + SVG platforms are specified from exactly this measurement-first discipline.</p>
+<p class="text-text-mid leading-relaxed mb-6">What THDi and phase unbalance is your charging hub actually putting on the bus — and is it under 5% at the PCC?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">CHITEK Technical Team</p>
+                <p class="text-sm text-text-muted">5 min read</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Share:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((item) => (
+                <a href={item.href} class="flex items-center gap-3 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange shrink-0"><path d="{item.icon}"/></svg>
+                  <span class="text-sm font-semibold text-text-dark leading-snug">{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((item) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>
