@@ -82,6 +82,32 @@ const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
     "inLanguage": ["en", "pt", "es", "ar", "zh"]
 }
   </script>
+
+  <!-- Google Analytics (GA4) — only on non-Chinese languages; zh is excluded (Google blocked in mainland + PIPL) -->
+  {lang !== 'zh' && (
+    <>
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HVJS1DXF00"></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HVJS1DXF00');
+      </script>
+    </>
+  )}
+
+  <!-- Baidu Tongji — Chinese site only (zh); data stays in mainland, PIPL-friendly. Non-zh uses GA4 instead. -->
+  {lang === 'zh' && (
+    <script is:inline>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3b9dceb779c78363e60cb3aba11959bd";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  )}
   <slot name="head" />
 </head>
 <body class="font-barlow text-text-dark bg-white overflow-x-hidden min-h-screen flex flex-col">

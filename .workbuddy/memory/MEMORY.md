@@ -29,3 +29,7 @@
 - 禁止内联 style（动态值除外）；Tailwind v4 任意变体 `[&.class]` 扫描不到，用 `<style>` 纯 CSS
 - **Astro scoped `<style>` 引用组件外全局类必须 `:global()`**：`<style>` 里每段选择器都会被加 `[data-astro-cid]`，包括写在 `<html>`/`<body>` 上的全局 flag 类（`.js`/`.dark`/`.rtl`）。这些元素在组件外没有 cid → 被 scope 后永不匹配。凡引用组件外元素的类，一律写 `:global(.js) .xxx{}`。曾导致 reveal 滚动动画"标题可见但不动"（隐藏态 `opacity:0` 整条失效）。定位手段：Playwright(共享 venv) headless 读 getComputedStyle。
 - **JS 交付方式（重要）**：`.astro` 里普通 `<script>`（无 `is:inline`）会被 Astro/Vite **打包成外部 ES 模块**——build 产物为 `<script type="module" src="/_astro/<hash>.js">`，dev 为 `/src/...?astro&type=script&index=0&lang.ts`，**并非真正内联**在 HTML 里。只有 `<script is:inline>` 与 `<script type="application/ld+json">`（结构化数据，非可执行 JS）才保留在 HTML 内。当前真正 `is:inline` 的仅两处：① `en/products/active-harmonic-filter.astro` 的 `classList.add('js')`；② 各语言 `solutions.astro` 的 `<script is:inline src="/assets/js/lucide.min.js">` 加载本地库。其余交互 JS（Nav、BaseLayout 共享脚本、products 页 psPopIn 动画等）均随普通 `<script>` 被打包成外部模块——功能正常（模块 defer，DOM 就绪后执行）。若需真正单文件内联（如 CSP 禁止外部模块），需给对应 `<script>` 加 `is:inline`（代价：不被打包/压缩、跨页不去重）。
+
+## 分析工具(GA4 / GSC)
+- **GA4**：测量 ID `G-HVJS1DXF00`，接在 `src/layouts/BaseLayout.astro` 的 `<head>`（两个 `is:inline` 脚本），用 `{lang !== 'zh' && (<>…</>)}` 条件渲染——**中文页(`/`)不加载**（大陆 Google 被墙 + PIPL 合规），en/es/pt/ar 四语加载同一 ID。改 ID 直接编辑该文件（或后续改 `import.meta.env.PUBLIC_GA_ID` 环境变量）。
+- **GSC**：用「网域属性」(Domain) 验证，只需在 DNS 加一条 TXT 记录（`google-site-verification=…`），**代码层无需改**（不用写 HTML meta）。验证后在 GSC 提交 `https://chitek-inno.com/sitemap-index.xml`（@astrojs/sitemap 已自动生成）。中文搜索表现另用「百度搜索资源平台」+ 百度统计。
