@@ -1,0 +1,61 @@
+---
+export interface Props {
+  current: number;
+  total: number;
+  url: (page: number) => string;
+  label: string;
+  prevLabel: string;
+  nextLabel: string;
+}
+
+const { current, total, url, label, prevLabel, nextLabel } = Astro.props;
+const pages = Array.from({ length: total }, (_, i) => i + 1);
+
+const btn = 'w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm';
+const btnOff = 'w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-muted opacity-40 text-sm';
+const btnOn = 'w-10 h-10 flex items-center justify-center rounded bg-brand-orange text-white font-semibold text-sm';
+---
+
+<nav class="flex items-center justify-center gap-2 mt-16" aria-label={label}>
+  {
+    current > 1 ? (
+      <a href={url(current - 1)} class={btn} aria-label={prevLabel} rel="prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+      </a>
+    ) : (
+      <span class={btnOff} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+      </span>
+    )
+  }
+
+  {
+    pages.map((n) =>
+      n === current ? (
+        <span class={btnOn} aria-current="page">{n}</span>
+      ) : (
+        <a href={url(n)} class={btn} rel={n === current + 1 ? 'next' : undefined}>{n}</a>
+      )
+    )
+  }
+
+  {
+    current < total ? (
+      <a href={url(current + 1)} class={btn} aria-label={nextLabel} rel="next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    ) : (
+      <span class={btnOff} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+    )
+  }
+</nav>

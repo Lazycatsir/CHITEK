@@ -31,7 +31,7 @@ const relatedCases = [
   { name: "巴西数据中心", industry: "数据中心" },
 ];
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="zh"
@@ -39,6 +39,7 @@ const relatedCases = [
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
   {
@@ -187,7 +188,7 @@ const relatedCases = [
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Response Speed</td><td class="p-4 border-b border-border-light text-text-mid font-semibold">5�?0 ms</td><td class="p-4 border-b border-border-light text-text-mid">20�?0 ms</td><td class="p-4 border-b border-border-light text-text-mid">100 ms–seconds</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Response Speed</td><td class="p-4 border-b border-border-light text-text-mid font-semibold">5–10 ms</td><td class="p-4 border-b border-border-light text-text-mid">20–30 ms</td><td class="p-4 border-b border-border-light text-text-mid">100 ms–seconds</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Reactive Power Regulation</td><td class="p-4 border-b border-border-light text-text-mid font-semibold">Bi-directional, continuous</td><td class="p-4 border-b border-border-light text-text-mid">Capacitive step-less</td><td class="p-4 border-b border-border-light text-text-mid">Unidirectional, stepped</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Harmonic Suppression</td><td class="p-4 border-b border-border-light text-text-mid font-semibold">Strong</td><td class="p-4 border-b border-border-light text-text-mid">Limited</td><td class="p-4 border-b border-border-light text-text-mid">Virtually none</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Physical Footprint</td><td class="p-4 border-b border-border-light text-text-mid font-semibold">Small (Modular)</td><td class="p-4 border-b border-border-light text-text-mid">Large</td><td class="p-4 border-b border-border-light text-text-mid">Very large</td></tr>

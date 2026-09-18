@@ -7,7 +7,7 @@ const meta = {
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang="en">
+<BaseLayout title={meta.title} description={meta.description} lang="en" alternates={false}>
   <script is:inline>document.documentElement.classList.add('js');</script>
   <!-- Structured data: BreadcrumbList + Product + FAQPage -->
   <script type="application/ld+json" is:inline>
@@ -30,8 +30,8 @@ const meta = {
     "description": "IGBT / SiC based active harmonic filter that dynamically cancels harmonic currents, corrects power factor and balances loads to keep THDi below 5% per IEEE 519.",
     "category": "Power Quality / Harmonic Mitigation",
     "additionalProperty": [
-      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "220-690V" },
-      { "@type": "PropertyValue", "name": "Rated Capacity", "value": "15A-200A per module, parallel expandable" },
+      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "208-690V" },
+      { "@type": "PropertyValue", "name": "Rated Capacity", "value": "50A-200A per module, parallel expandable" },
       { "@type": "PropertyValue", "name": "Frequency", "value": "50/60 Hz" },
       { "@type": "PropertyValue", "name": "Wiring", "value": "3P3W / 3P4W" },
       { "@type": "PropertyValue", "name": "Filtering Range", "value": "2nd-51st order harmonic" },
@@ -54,7 +54,7 @@ const meta = {
       { "@type": "Question", "name": "Active harmonic filter vs passive filter: what is the difference?", "acceptedAnswer": { "@type": "Answer", "text": "A passive filter uses fixed LC tanks tuned to specific frequencies; it can resonate with the grid impedance and only treats known harmonics. An AHF measures and cancels any harmonic spectrum in real time, avoids resonance, and also corrects power factor and imbalance — ideal for variable and dynamic loads." } },
       { "@type": "Question", "name": "When should I use an AHF instead of an SVG?", "acceptedAnswer": { "@type": "Answer", "text": "Use an AHF when harmonic distortion (THDi) is the problem — VFDs, UPS, rectifiers, welding. Use an SVG (Static Var Generator) when the priority is reactive power and voltage stability with low harmonic content. Many sites deploy AHF + SVG together for full power-quality correction." } },
       { "@type": "Question", "name": "What THD limit must my system meet?", "acceptedAnswer": { "@type": "Answer", "text": "IEEE 519 limits harmonic current distortion to typically 5%-8% depending on the short-circuit ratio at the point of common coupling; G5/4 and regional grids set similar thresholds. Exceeding them risks utility fines, supply restrictions and failed commissioning. A properly sized AHF holds THDi under 5%." } },
-      { "@type": "Question", "name": "How do I size and select an active harmonic filter?", "acceptedAnswer": { "@type": "Answer", "text": "Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%-30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (15A-200A per module, parallel expandable to 3000A+)." } },
+      { "@type": "Question", "name": "How do I size and select an active harmonic filter?", "acceptedAnswer": { "@type": "Answer", "text": "Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%-30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (50A-200A per module, parallel expandable to 3000A+)." } },
       { "@type": "Question", "name": "Can an AHF handle 3-phase 4-wire neutral current?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. In 3-phase 4-wire systems the 3rd harmonic accumulates in the neutral and can reach 1.7x the phase current. CHITEK AHF in 3P4W mode injects compensating neutral current, eliminating overload, insulation aging and fire risk." } },
       { "@type": "Question", "name": "Wall-mounted or cabinet AHF — which should I choose?", "acceptedAnswer": { "@type": "Answer", "text": "The Ultra-Slim (U-Series) wall-mounted unit fits space-constrained switchrooms up to ~100A. For larger capacities, outdoor or parallel duty, choose a floor-standing Standard (L-Series) or Distributed (D-Series) cabinet. Selection depends on capacity, cooling and installation space." } },
       { "@type": "Question", "name": "How is the AHF installed and commissioned?", "acceptedAnswer": { "@type": "Answer", "text": "Install the AHF in parallel with the load downstream of the metering point, connect the CT around the incoming feeder, and power on. Configuration is done on the front HMI: set the compensation priority (harmonic / reactive / balance), and up to 10 units auto-synchronize in under 5 minutes with hot-swappable modules." } }
@@ -119,7 +119,7 @@ const meta = {
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
           <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Rated Voltage</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">220–690V</div>
+          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">208–690V</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
           <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Capacity</div>
@@ -256,8 +256,8 @@ const meta = {
       <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
         <table class="w-full border-collapse text-[clamp(13px,1vw,15px)]">
           <tbody>
-            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark w-1/2">Rated Voltage</th><td class="p-4 text-text-mid">220–690 V</td></tr>
-            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Rated Capacity</th><td class="p-4 text-text-mid">15 A – 200 A per module (parallel expandable to 3000 A+)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark w-1/2">Rated Voltage</th><td class="p-4 text-text-mid">208–690 V</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Rated Capacity</th><td class="p-4 text-text-mid">50 A – 200 A per module (parallel expandable to 3000 A+)</td></tr>
             <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Frequency</th><td class="p-4 text-text-mid">50 / 60 Hz</td></tr>
             <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Wiring Mode</th><td class="p-4 text-text-mid">3P3W / 3P4W</td></tr>
             <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Filtering Range</th><td class="p-4 text-text-mid">2nd – 51st order harmonic</td></tr>
@@ -573,7 +573,7 @@ const meta = {
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How do I size and select an active harmonic filter?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%–30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (15 A–200 A per module, parallel expandable to 3000 A+).</p>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%–30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (50 A–200 A per module, parallel expandable to 3000 A+).</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Can an AHF handle 3-phase 4-wire neutral current?</summary>

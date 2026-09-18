@@ -1,35 +1,70 @@
-# CHITEK 项目长期记忆（MEMORY.md）
+# CHITEK 长期记忆（MEMORY.md）
 
-## 工作流约定（来自 CLAUDE.md）
-- 默认不提交 Git：仅用户明确说"提交"才 commit/push。
-- **预览用 `npm run dev`（端口 4321）实时热更新**：改 `src/` 后刷新浏览器即所见即所得，**不必每次 `npm run build`**（build 慢且受删除守卫限制，见下）。
-- 仅在需要出最终产物 / 部署时才跑 `npm run build`。
+> 本文件 = 当前有效的事实与硬规则。施工过程/踩坑见 `.workbuddy/memory/YYYY-MM-DD.md`。
+> **专题规范（动对应内容前必读）**：产品页 → `PRODUCT_PAGE_SPEC.md` ｜ 新闻 → `NEWS_SPEC.md` ｜ SEO/hreflang/追踪/运营计划/竞品 → `SEO_SPEC.md`
 
-## 关键环境约束（务必记住）
-- 本环境 `npm run build` / `astro check` 收尾会删除 `dist/.prerender/.vite/`（vite 临时缓存），触发 WorkBuddy `genie-safe-delete` 批量删除守卫（阈值 50 文件/turn）被拦截，导致 build/check 无法完整跑通。
-- `build.noClean:true` 无效，Astro 仍删该目录。`astro check` 重优化依赖时同样会删它。
-- 结论：不要在本环境反复尝试 build/check 来"验证无报错"——会被删 dist 守卫阻断。改用：① 与已成功构建的现有页面做模板一致性核对；② 请用户在其本地（无此守卫）`npm run build` 验证；③ 若用户明确允许删除 dist 临时目录，再跑。
-- 安装临时校验依赖用 `npm i --no-save @astrojs/check typescript`，避免改 package.json。
-- **`npm run dev` 可用且优先用于预览**：首次启动 vite 依赖优化耗时较长（实测约 1 分钟才绑定 4321，期间 netstat 看不到端口、curl 000，并非卡死，耐心等即可）。启动后常驻后台，改 src 自动热更新。
-- **重启 dev 若卡死不绑端口**：先 `taskkill /F /PID <pid>`（pkill 常杀不到 node.exe）杀干净 → `rm -rf node_modules/.vite node_modules/.astro .astro`（可重生，rm 被包装进回收站，安全可逆）→ 再用托管 node 直跑 `astro.mjs dev` 重启。旧 vite/astro 缓存锁会让新实例卡在依赖优化、150s 无输出不绑端口。
-- **Edit 工具缩进不符会静默空操作**：old_string 缩进与文件实际不符时，Edit 可能返回"成功"但实际未改动（多行/批量尤甚）。改完务必 grep 校验行数/内容；批量改动优先用正确缩进或 Python 脚本带 `assert count == N`。
+## 沟通与流程
+- 用户非 SEO 出身：术语须「一句话定义 + 生活类比 + 今天能做的一步」。
+- 建议要「30 分钟能做完」+ 可复制话术/邮件模板，不要只给框架。
+- **不要给甘特式排期表**（周次/月份时间轴）：计划类只写「优先级 → 依赖条件 → 验收清单」。
+- 默认不提交 Git（用户说"提交"才 commit/push）。预览走 dev 端口 4321；部署才 `npm run build`。
 
-## 新闻(News)新增规则
-- 列表页 `src/pages/news.astro` 为硬编码 HTML，新增文章需手动插到各语言列表页首位。
-- 文章 frontmatter 需 title/category/date/dateDisplay/author/readTime/description/keywords；含 Schema.org Article + SEO 关键词标签 + Sidebar。
-- 日期设最近日期确保排列表顶部；每翻译一语言必须保证该语言文章文件存在（避免幽灵链接）。
-- 配图放 `public/assets/images/blog/`，blog 目录目前仅 `sic-ahf-launch.webp`；无专属图时复用 `public/assets/images/news/news-img-1..8.webp`（或 index-product-ahf.webp），ogImage 域名用 chitek-inno.com。
-- **⚠️ 正文内容必须来自真实草稿源（最重要）**：`F:/下载/web-crawler/outreach/templates/`（**项目外的兄弟目录**，不在 CHITEK 内）——`百家号文章/*.txt`（中文 ~1500–3800 字）、`blog - linkedin/*.md`（英文 ~2000–5600 字节，已 CHITEK 品牌化）。`README.md`(新闻发布流水线) 与 `CLAUDE.md`(§新闻系统) 即规定由此提取。**严禁凭空编造正文**（7-24 曾误编 240–355 字短文，7-27 已用真实 .md 草稿重做 5 篇 → zh 正文 1035–1303 字）。
-- **批量新增文章（推荐做法）**：每篇多语言内容用 Python 生成脚本直接 `.write()` 20 个 .astro 文件 + 向 4 列表页 `<div class="space-y-6">` 顶部插卡片，**不要用 Edit/Write 直接改大段多语言文本**（Edit 对大 Unicode 静默截断、Write 大文件也有风险）。生成脚本模板要点：① 复用现有文章结构（frontmatter + JSON-LD + Sidebar）；② en 的 `lp` 在 frontmatter 定义（`isLocal? '/en'+p : p`），zh/es/ar 的 `lp` 在 body 定义且 = identity；③ 列表卡片 href 按语言：zh `/news/s`、en `href="{lp('/news/s')}"`（**外层有双引号！**）、es `/es/news/s`、ar `/ar/news/s`；④ 卡片插在 `space-y-6` 容器首行（即列表最顶部，按插入顺序最新在上）。
-- 新闻图片库存：`public/assets/images/news/news-img-1.webp` … `news-img-8.webp`（8 张）。
+## 环境约束（踩过坑的）
+- `npm run build`/`astro check` 收尾删 dist 会触发 genie-safe-delete（阈值 50 文件/turn）→ 跑不通。验证改用模板核对 / 请用户本地 build。
+- dev 启动：vite 首次优化 ~1 分钟才绑 4321；卡死 → taskkill PID → 删 `node_modules/.vite` `.astro` → 托管 node 直跑 `astro.mjs dev`。
+- ⚠️ Astro dev 监听器漏掉「程序化写入」：批量改 .astro 后可能不重编译 → 重启 dev 或再 Edit 一次。served HTML 带 `data-astro-cid-*`，精确串匹配不到，正则须容忍。
+- `Nav.astro` 是 `fixed top-0 h-[72px]`，页面首元素须自加 `mt-[72px]`；BaseLayout 只渲染 `<main>`。
+- ⚠️ 批量替换的 assert 必须挑**该处独有**的正文串（class 串常在多处重复，JSON-LD 里也可能有同名文案，**自己新写的 HTML 注释/JS 选择器也会命中**）→ 尽量数「标签级」串如 `<div data-x`。
+- ⚠️ **切段式批量替换的边界陷阱**：用 `s.index("group-hover/ahf")` 这类**属性中段的关键词**切段时，该关键词在 class 属性里出现的位置**之前**的 token（如同一 class 里的 `top-0 bottom-0`）会落进**上一段** → 结果是「目标元素没改到、相邻同类元素被误改」。而且只断言**总数**（如 `top-0 bottom-0` 剩 1 个）会**照样通过**，因为数量守恒、只是改错了对象。
+  正确做法：① 按**完整 class 串**（或完整标签）定位，而不是属性里的某个词；② 改完对**每个站点单独断言**（例：AHF 面板应为 `top-0 ml-2`、SiC 面板应为 `top-0 bottom-0`），而不是只数总出现次数。
+- `src/pages/` 下任何备份文件都会被当路由编译 → 备份放 `docs/_ref/` 或 `F:\trash`。
+- 通用工具链（托管 node / pwsh 7.6.3 / Playwright 共享 venv / Bash 已废）→ 见跨项目记忆。
 
 ## 技术栈
-- Astro 6.x + Tailwind v4(@tailwindcss/vite) + @astrojs/sitemap + Netlify
-- 中文默认语言；zh/en/es/ar/pt 五语子域名；新闻仅 zh/en/es/ar 四语
-- 禁止内联 style（动态值除外）；Tailwind v4 任意变体 `[&.class]` 扫描不到，用 `<style>` 纯 CSS
-- **Astro scoped `<style>` 引用组件外全局类必须 `:global()`**：`<style>` 里每段选择器都会被加 `[data-astro-cid]`，包括写在 `<html>`/`<body>` 上的全局 flag 类（`.js`/`.dark`/`.rtl`）。这些元素在组件外没有 cid → 被 scope 后永不匹配。凡引用组件外元素的类，一律写 `:global(.js) .xxx{}`。曾导致 reveal 滚动动画"标题可见但不动"（隐藏态 `opacity:0` 整条失效）。定位手段：Playwright(共享 venv) headless 读 getComputedStyle。
-- **JS 交付方式（重要）**：`.astro` 里普通 `<script>`（无 `is:inline`）会被 Astro/Vite **打包成外部 ES 模块**——build 产物为 `<script type="module" src="/_astro/<hash>.js">`，dev 为 `/src/...?astro&type=script&index=0&lang.ts`，**并非真正内联**在 HTML 里。只有 `<script is:inline>` 与 `<script type="application/ld+json">`（结构化数据，非可执行 JS）才保留在 HTML 内。当前真正 `is:inline` 的仅两处：① `en/products/active-harmonic-filter.astro` 的 `classList.add('js')`；② 各语言 `solutions.astro` 的 `<script is:inline src="/assets/js/lucide.min.js">` 加载本地库。其余交互 JS（Nav、BaseLayout 共享脚本、products 页 psPopIn 动画等）均随普通 `<script>` 被打包成外部模块——功能正常（模块 defer，DOM 就绪后执行）。若需真正单文件内联（如 CSP 禁止外部模块），需给对应 `<script>` 加 `is:inline`（代价：不被打包/压缩、跨页不去重）。
+- Astro 6.x + Tailwind v4 + Netlify；zh/en/es/ar/pt 五语（新闻仅四语，pt 无新闻）。禁内联 style；scoped `<style>` 引用全局类须 `:global()`。
+- **字体规范（全站只有 2 个字族）**：`Barlow`（正文，`--font-barlow`，由 `BaseLayout` 的 `<body class="font-barlow">` 兜底）+ `Barlow Condensed`（标题，`--font-barlow-condensed`）。惯例：**h1/h2 用 Condensed；卡片标题 h3/h4 用 Barlow**。14 个 `@font-face` 全部集中在 `global.css`。
+  - 表单控件（input/textarea/button）**不需要**写字体类：Tailwind v4 preflight 已设 `font: inherit`。contact/news 里那些 `font-[inherit]` 是冗余（无害）。
+  - 查字体合规**必须**用 Playwright 读 computed style：静态扫 `class="font-*"` 会漏掉继承链与表单控件；且探针若只取「有 textContent」的元素会**漏掉 input/textarea**（它们 textContent 为空），需单独再扫一遍控件。
 
-## 分析工具(GA4 / GSC)
-- **GA4**：测量 ID `G-HVJS1DXF00`，接在 `src/layouts/BaseLayout.astro` 的 `<head>`（两个 `is:inline` 脚本），用 `{lang !== 'zh' && (<>…</>)}` 条件渲染——**中文页(`/`)不加载**（大陆 Google 被墙 + PIPL 合规），en/es/pt/ar 四语加载同一 ID。改 ID 直接编辑该文件（或后续改 `import.meta.env.PUBLIC_GA_ID` 环境变量）。
-- **GSC**：用「网域属性」(Domain) 验证，只需在 DNS 加一条 TXT 记录（`google-site-verification=…`），**代码层无需改**（不用写 HTML meta）。验证后在 GSC 提交 `https://chitek-inno.com/sitemap-index.xml`（@astrojs/sitemap 已自动生成）。中文搜索表现另用「百度搜索资源平台」+ 百度统计。
+## 图片资产
+- 统一放 `public/assets/images/`，页面按 `/assets/images/xxx.webp` 引用。
+- **配图规格（唯一标准）**：**1200×1200 正方形**白底画布 — 整幅等比 contain、**零裁剪**（保留原白底/倒影）→ `WEBP quality 82`。
+- 图框也是 1:1（网格视图；列表视图 240×150）→ 出方形图 = **零裁切**。
+- ⚠️ **别做 4:3 / 1200×900**（2026-09-18 误做过一版被用户否：「我要的 webp 是正方形的」）。
+- 批量脚本（已固化，可重跑）：`docs\_ref\gen_webp_from_pics.py <源目录> [输出目录]`，输出 `<输出目录>/webp/` + `_contact_sheet.png` + `_manifest.json`，自带 Pillow 自愈。Pillow 只在共享 venv 里（托管 python 零第三方包）。
+
+## 文档结构（2026-09-18 起）
+- **根目录只保留 2 个 md**：`CLAUDE.md`（AI 协作规则 + 顶部「文档地图」）+ `README.md`（项目首页/快速开始/文档地图，~2.5KB）。
+- 新闻流水线文档在 **`docs/NEWS_PIPELINE.md`**（原根 README，已迁移）；不要再往根目录堆 README。
+- ⚠️ `Glob **/CLAUDE.md` 会冒出一堆**：`node_modules/*` 自带的（无关）+ 历史 `.claude/worktrees/*`（4 个陈旧 agent worktree，每个 43.7MB 整仓拷贝，已删并备份到 `F:\trash\chitek-worktrees-backup-20260918`）。判断「文件多」前先排除这两类。
+
+## 产品页筛选机制（改规格必看）
+- 筛选面板的属性与产品卡是**配对**关系，**改一处必须同步另一处**，否则筛选立刻失效：
+  - `en/products.astro`：面板 `data-filter="v|a|s|i"` + `value="…"` ⇄ 卡片 `<li class="cbp-vm-li" data-v/data-a/data-s/data-i="…, …">`
+  - `en/products/sic-ultra-ahf.astro`：面板 `data-group="v|a|c|i"` + `data-val="…"`
+- 电压档标准值：**208V / 400V / 480V / 690V**（en 还有 800V）。JS 里 `voltColorMap`/`vLabel`/`colors` 只有这四个 key
+  —— **220V 不是本站的档位**（208V 档代表 200~240V 区间）。2026-09-18 已把 en 残留的 220V 全改 208V（筛选档 + 额定电压范围 220–690V → 208–690V）。
+- **额定电压范围统一写 `208–690V`**（AHF 系列）。⚠️ 破折号两种写法并存：**页面展示用 en dash `–`**（`208–690V` / `208–690 V`），
+  **meta description / JSON-LD 用连字符 `-`**（`208-690V`）。替换时看清字符，用错 Edit 会匹配失败。
+- 同一处规格会散落在**多处**，改一处要全扫：**页面展示 + 规格表 + FAQ 正文 + meta description + JSON-LD（PropertyValue / FAQPage）**。
+  实测：`sic-ultra-ahf` 的电压范围散落 5 处、容量散落 5 处；`active-harmonic-filter` 的容量散落 4 处（**两页合计 9 处**）。
+  一次捞全的正则：`grep -E "15\s*A\s*[–-]\s*200|15-200A|15A to 200A"` 这类**同时覆盖空格/en dash/连字符/连写**的写法。
+- **AHF 系列额定参数基准值（2026-09-18 统一）**：额定电压 **208–690 V**；额定容量 **50 A – 200 A per module**（并联可扩展，标准柜到 3000 A+）。
+  ⚠️ 改数值时**保留各处的句式与括号说明**（如 `(parallel expandable, unlimited)`），只换数字；不要整串替换（会丢并联信息）。
+  ⚠️ 别误伤：新闻页 `blog-chitek-ahf-advantages` 里的 `150 A–200 A, 4U` 是**高容量型号**，不属基准值。
+
+## 跨语言待办（长期挂账）
+- **en 已删顶部吸附 Tab 栏（`#sticky-tab-bar`），zh/es/ar/pt 仍保留**：en 页无 `.tab-panel` 实体（纯装饰，删掉无损失）；
+  兄弟页有 10 个 `.tab-panel`，那根栏是 AHF↔SVG **唯一切换入口** → 想删必须另给切换 UI。详见 `PRODUCT_PAGE_SPEC.md`。
+- zh/es/ar/pt 兄弟产品页未同步 en 系列的全部产品页改动。
+- ⚠️ **反向也要查**：en 版也会落后于兄弟页（2026-09-18 实测 en products 电压档还写着 220V，而 zh/es/pt/ar 早已是 208V）。
+  改 en 前先 grep 全站同一串，判断是"en 要改"还是"en 是基准"。
+- 🐞 **en/products.astro 缺「AHF 选型矩阵」区块（既有 bug，未修）**：JS `renderMatrix()` 取 `#matrix-tbody`（L782）后 `.closest('table')`，
+  但英文页 HTML 里**没有** `#matrix-tbody` / `#matrix-title`（zh/ar/es/pt 的 `products.astro` 都有）→ 每次加载必报
+  `TypeError: Cannot read properties of null (reading 'closest')`，选型矩阵功能在英文页是缺失的。修法：补回该表格区块，或给 JS 加空值守卫。
+- en/products 侧栏（`aside.n_left`）2026-09-18 删掉了 "New Products" 卡片，现为 3 块：Product Categories / Filter / Contact Us。
+
+## 运营计划（独立站）
+- 文档：`docs/独立站运营计划.{md,html}`，当前 **v2.4**（纯结构优化，不改结论）。ASCII 副本在 `C:\Users\lenovo\WorkBuddy\00_中转站\CHITEK-website-operations-plan.{md,html}`。
+- 结构逻辑链：**§0 画像（决定服务谁/分什么词）→ §二 关键词矩阵 → §三 产品页塑造 → §五 内链/外链/社媒 → §四 数据周报 → §六 底层原理（规则依据）**。
+- v2.4 关键落点：① 词按角色分层，规范词/how-to-choose 由 **4 个 Hub 页**（AHF 选型指南 / SVG 选型指南 / 标准合规 / 行业场景）承接；② 同义词变体**不建换皮页**，用 FAQ + FAQPage Schema 接（见 §二 + §六 6.3/6.4）；③ 无甘特排期，只写验收清单（与用户"不要日期规划"一致）。

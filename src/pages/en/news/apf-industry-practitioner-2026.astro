@@ -34,7 +34,7 @@ const relatedCases = [
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="en"
@@ -42,6 +42,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
   <script type="application/ld+json" slot="head">

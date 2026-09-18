@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科普文占领搜索首位 · CHITEK 反击清单</title>
+<style>
+  body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;max-width:920px;margin:32px auto;padding:0 20px;color:#1a1a1a;line-height:1.7;background:#fff}
+  h1{font-size:22px;border-bottom:2px solid #222;padding-bottom:8px}
+  h2{font-size:18px;margin-top:32px;border-left:4px solid #222;padding-left:10px}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid #ccc;padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f2f2f2;font-weight:600}
+  code{background:#f2f2f2;padding:1px 5px;border-radius:3px;font-size:13px}
+  .note{background:#fff7e6;border:1px solid #ffd591;padding:10px 14px;margin:14px 0}
+  .red{background:#fff1f0;border:1px solid #ffa39e;padding:10px 14px;margin:14px 0}
+  ol,ul{margin:10px 0;padding-left:22px}
+  li{margin:6px 0}
+</style>
+</head>
+<body>
+<h1>科普文占领搜索首位 · CHITEK 反击清单</h1>
+<p>对应竞品分析 playbook 的「支柱二 增长来源 / 攻略记录 第2步」。本页两件事：① 对手靠科普文占首位是怎么运作的、CHITEK 怎么反击；② 一条 Google 搜索结果里「三段字体」分别来自哪。</p>
+
+<h2>一、对手靠科普文占首位，是怎么赢的</h2>
+<p>科普文 = 用「内容资产」打搜索，占领的是漏斗最顶端（触达→询盘）。陌生买家搜的是问题，不是品牌：</p>
+<ul>
+  <li>「什么是谐波 / 谐波畸变率 THD 是什么」</li>
+  <li>「有源滤波器 AHF 和 SVG 静止无功发生器 区别」</li>
+  <li>「怎么选有源滤波器容量 / 50A 还是 100A」</li>
+</ul>
+<p>为什么能排第一、还稳：</p>
+<ol>
+  <li><b>传统 10 条蓝链排第一</b>：内容定义先行、事实密集、H2 直接命中查询词 → 相关性打分高。</li>
+  <li><b>同时被 AI Overviews 引用</b>：Google AI 摘要引用 2–6 个来源，约 73% 来自自然排名前 10。一旦被引，出现「摘要 + 原文」双曝光，进一步吸走点击。</li>
+  <li><b>他们怎么做</b>：教育型长文 + FAQ schema + Article/Organization schema + 主题簇（pillar 大文 + cluster 小文）+ E-E-A-T（作者资历、认证编号、真实案例）。</li>
+</ol>
+
+<h2>二、CHITEK 可执行的反击（7 步）</h2>
+<ol>
+  <li><b>建科普内容簇</b>：一篇 pillar（《有源滤波器 AHF 完整指南》）+ 多篇 cluster（选型 / 认证 / 谐波标准 / AHF vs SVG / 行业案例）。首段直接给定义（定义先行）。</li>
+  <li><b>补结构化数据</b>：现有新闻已有 Article JSON-LD，再补 <code>FAQPage</code> + <code>BreadcrumbList</code> + <code>WebSite</code>（站点名就靠它）。让 AI Overview 更可能引你。</li>
+  <li><b>抢 AI Overview 引用</b>：事实密度高、给结构化对比表、Organization schema、附工程师资历与认证编号。</li>
+  <li><b>多语言覆盖</b>：en/es/ar 主攻 Google，zh 主攻百度（中文站不加载 GA4，但百度是主战场）。科普文四语同步产出。</li>
+  <li><b>内链接权</b>：用 <code>_internal_link_audit.py</code> 把科普文与 products / solutions / 行业页互链，把「科普流量」导向产品页（触达→询盘）。</li>
+  <li><b>真实素材优先</b>：正文来自 <code>F:/下载/web-crawler/outreach/templates/</code> 真实草稿（百家号 / linkedin），严禁编造。</li>
+  <li><b>衡量指标</b>：GSC / GA4 看科普文带来的自然流量与 <code>generate_lead</code>；不承诺排名，只承诺「持续产出 + 结构正确」。</li>
+</ol>
+
+<h2>三、一条 Google 结果里的「三段字体」从哪来</h2>
+<table>
+  <tr><th>位置</th><th>典型样式</th><th>来源</th><th>Google 是否改写</th></tr>
+  <tr>
+    <td>顶部标题链接</td>
+    <td>蓝色、字号最大</td>
+    <td>网页 <code>&lt;title&gt;</code> 标签。改写优先级：<code>title</code> → H1 → <code>og:title</code> → 锚文本 → WebSite schema → 其他页内文字。2026 起美区有 AI 生成标题实验（可能写出页面上没有的标题）。</td>
+    <td>是，约 6–7 成被改写</td>
+  </tr>
+  <tr>
+    <td>中间站点名 + 面包屑/路径</td>
+    <td>绿色或灰色</td>
+    <td>站点名来自 WebSite 结构化数据 / <code>og:site_name</code> / <code>title</code> / H1；路径来自 BreadcrumbList schema 或真实 URL。<b>基本原样显示——即你认出的「原文」。</b></td>
+    <td>基本不改写</td>
+  </tr>
+  <tr>
+    <td>底部摘要片段</td>
+    <td>黑色/灰色、字号最小</td>
+    <td><code>meta description</code>（首选）；无或不匹配查询时，回退到页面正文抓取拼接。</td>
+    <td>是，常从正文抓取</td>
+  </tr>
+</table>
+<div class="note">速记：被改写的两段是「顶部蓝标题」和「底部黑摘要」；你认出的「原文」是中间那行站点名+路径，Google 几乎不动它。另外还有 sitelinks（站点链接，全算法、无法手动设置）是额外红利，不在三段之内。</div>
+
+<h2>四、红线（对外禁用语）</h2>
+<div class="red">
+  <ul>
+    <li>不编案例（案例须真实可查）。</li>
+    <li>不承诺排名 / 不承诺效果（只承诺「持续产出 + 结构正确」）。</li>
+    <li>第三方研究数据未经我方实测，不得对外引用为事实。</li>
+  </ul>
+</div>
+
+<p style="margin-top:28px;color:#888;font-size:12px">关联交付物：docs/竞品分析拓展手册.html、docs/竞品分析-单竞品一页纸模板.md、docs/竞品分析攻略记录.html</p>
+</body>
+</html>

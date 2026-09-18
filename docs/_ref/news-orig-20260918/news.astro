@@ -1,0 +1,768 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+<BaseLayout title="新闻资讯 | CHITEK INNOPOWER" description="了解CHITEK INNOPOWER电能质量解决方案的最新动态、技术论文和行业洞察。" lang="zh">
+  <Sidebar lang="zh" />
+
+  <!-- Hero Section -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-20 md:py-28">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight mb-6">
+        新闻与<span class="text-brand-orange">洞察</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+        了解电能质量技术、行业趋势和CHITEK解决方案的最新动态。
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section id="articles" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mb-4">
+        最新文章
+      </h2>
+      <p class="text-text-mid text-lg mb-12 max-w-2xl">
+        探索我们的最新资讯、产品更新和公司动态。
+      </p>
+
+      <div class="space-y-6">
+        <!-- 2026-07-22: what-is-an-active-harmonic-filter -->
+        <a href="/news/what-is-an-active-harmonic-filter" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月22日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">什么是有源谐波滤波器？原理、i_c* 指令与 IGBT/SiC 桥</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">有源谐波滤波器（AHF）实时抵消谐波电流并校正无功功率。本文从检测到注入逐步讲解其原理，并说明为什么 IGBT→SiC 开关决定了性能上限。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-21: why-ev-charging-stations-need-ahf -->
+        <a href="/news/why-ev-charging-stations-need-ahf" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="为什么电动汽车充电站需要低压 AHF + SVG" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月21日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">为什么电动汽车充电站需要低压 AHF + SVG</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">每台直流快充都是非线性负载。充电桩在同一母线上成倍增加时，畸变会叠加。本文解释为什么低压 AHF + SVG 是充电站谐波、不平衡与无功波动的正确解决方案。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-20: ieee-519-harmonic-distortion-limits -->
+        <a href="/news/ieee-519-harmonic-distortion-limits" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月20日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">IEEE 519-2022 谐波限值：要求是什么，低压 AHF 如何满足合规</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">IEEE 519-2022 规定了公共连接点处的谐波畸变限值及各方责任。本文解释该标准要求什么，以及 CHITEK 低压 AHF 如何实时满足合规。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-19: svg-vs-traditional-capacitors -->
+        <a href="/news/svg-vs-traditional-capacitors" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="SVG 与投切电容柜：为什么低压母线动态无功更优" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月19日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">SVG 与投切电容柜：为什么低压母线动态无功更优</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">低压母线功率因数校正通常从电容柜开始——但现代工厂负载多变。本文量化 SVG 与固定电容柜的分歧点，以及为何对合规与损耗至关重要。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-18: sic-technology-redefines-ahf -->
+        <a href="/news/sic-technology-redefines-ahf" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">产品更新</span>
+              <span class="text-xs text-text-muted">2026年7月18日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">有源谐波滤波器中的碳化硅：宽禁带器件如何重新定义低压 AHF 性能</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">AHF 一直受其所用开关的制约。碳化硅（SiC）MOSFET 改变了这一上限。本文量化宽禁带材料为低压 AHF 带来什么，以及 IGBT 在何处仍有一席之地。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-18: blog-svg-technology-market-overview -->
+        <a href="/news/blog-svg-technology-market-overview" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="SVG技术市场概览：核心技术与应用场景" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月18日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">SVG技术市场概览：核心技术与应用场景</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">低压SVG市场的技术概览，涵盖IGBT/SiC核心技术、数据中心和工业关键应用场景、以及工程选型标准。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-15: blog-industrial-ahf-selection-guide -->
+        <a href="/news/blog-industrial-ahf-selection-guide" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="工业有源谐波滤波器选型指南：技术规格与最佳实践" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月15日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">工业有源谐波滤波器选型指南：技术规格与最佳实践</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">工业有源谐波滤波器选型技术指南：市场趋势、关键规格、THD降低数据和工程最佳实践。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-12: blog-hospital-ahf-solutions -->
+        <a href="/news/blog-hospital-ahf-solutions" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-8.webp" alt="工业有源谐波滤波器选型指南：技术规格与最佳实践" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月15日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">工业有源谐波滤波器选型指南：技术规格与最佳实践</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">工业有源谐波滤波器选型技术指南：市场趋势、关键规格、THD降低数据和工程最佳实践。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-10: blog-ai-data-center-power-quality -->
+        <a href="/news/blog-ai-data-center-power-quality" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="数据中心电能质量：低压 AHF + SVG 在 UPS 和冷却母线侧的应用" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月10日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">数据中心电能质量：低压 AHF + SVG 在 UPS 和冷却母线侧的应用</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">介绍低压AHF和SVG如何解决AI/HPC数据中心中UPS和VFD冷却系统带来的谐波、低功率因数和电压波动问题。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-05: blog-case-study-ahf-energy-industry -->
+        <a href="/news/blog-case-study-ahf-energy-industry" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-7.webp" alt="案例研究：低压AHF恢复油气厂电能质量" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-[#2e7d32] bg-[#e8f5e9] px-3 py-1 rounded-full">案例研究</span>
+              <span class="text-xs text-text-muted">2026年7月5日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">案例研究：低压AHF恢复油气厂电能质量</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">CHITEK低压AHF将某油气加工厂的THDi从32.5%降至3.8%，恢复可靠性并防止停机。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+                                        <!-- 2026-07-01: blog-ahf-water-treatment-plants -->
+        <a href="/news/blog-ahf-water-treatment-plants" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="水处理厂电能质量：低压 AHF + SVG 在泵母线侧的应用" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2026年7月1日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">水处理厂电能质量：低压 AHF + SVG 在泵母线侧的应用</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">介绍低压有源谐波滤波器(AHF)和静止无功发生器(SVG)如何解决水处理厂VFD控制泵和鼓风机带来的谐波、低功率因数和电压波动问题。</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-12-15: 有源 vs 无源 -->
+        <!-- NEW: SVG工厂指南 - May 31, 2026 -->
+        <a href="/news/svg-reactive-power-compensation-factory-guide" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="SVG无功补偿装置百科：从原理到靠谱厂家判定标准" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 31, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SVG无功补偿装置百科：从原理到靠谱厂家判定标准
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从核心原理、主流分类、六维厂家判定标准，到新建/改造项目的选型逻辑与实测数据，全面解析SVG无功补偿装置的技术要点与靠谱厂家甄别方法。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- NEW: 小容量APF百科 - May 16, 2026 -->
+        <a href="/news/distributed-small-capacity-apf-guide" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="分布式小容量APF百科指南：技术选型与场景适配" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 16, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              分布式小容量APF百科指南：技术选型与场景适配
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从技术原理、场景适配、核心选型参数到专利技术与合规认证，全面解析分布式小容量APF在商业建筑、数据中心、改造项目等场景中的谐波治理方案。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- NEW: SVG 全解析 - May 1, 2026 -->
+        <a href="/news/shenzhen-qidian-svg-analysis" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="深耕电能质量领域 深圳启点SVG无功补偿设备全解析" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">May 1, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              深耕电能质量领域 深圳启点SVG无功补偿设备全解析
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从研发实力、核心专利、产品规格体系到场景解决方案，全面解析深圳启点新能源的SVG无功补偿设备及其在电能质量治理中的技术优势。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 0 - Apr 28, 2026 -->
+        <a href="/news/apf-industry-practitioner-2026" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="2026年有源滤波器行业从业者从业情况自述" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">行业动态</span>
+              <span class="text-xs text-text-muted">Apr 28, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              2026年有源滤波器行业从业者从业情况自述
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从深圳启点新能源近十年的有源滤波器研发与交付实践出发，系统梳理产品矩阵、专利技术、合规实测与 2026 年行业趋势判断。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 1 - Apr 12, 2026 (NEW) -->
+        <a href="/news/blog-chitek-ahf-advantages" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="有源电力滤波器技术实力与产品优势全解析" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Apr 12, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              有源电力滤波器技术实力与产品优势全解析
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              从核心技术专利到全系列产品矩阵，深入剖析有源电力滤波器在工业制造、数据中心等场景中的关键作用与技术优势。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 2 - Mar 27, 2026 -->
+        <a href="/news/blog-active-harmonic-filter-for-vfd-systems" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="VFD系统中的有源电力滤波器：为何至关重要" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Mar 27, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              VFD系统中的有源电力滤波器：为何至关重要
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              有源电力滤波器对VFD密集型设施不可或缺。了解AHF为何是稳定电能质量的明智选择。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 2 - Mar 11, 2026 -->
+        <a href="/news/blog-ahf-vs-line-reactors" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-8.webp" alt="有源电力滤波器与进线电抗器：技术对比" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Mar 11, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              有源电力滤波器与进线电抗器：技术对比
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              有源电力滤波器与进线电抗器在工业电能质量治理中的全面技术对比。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 3 - Feb 22, 2026 -->
+        <a href="/news/blog-svg-power-electronics-daily-life" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-7.webp" alt="SVG：现代基础设施的隐形守护者" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Feb 22, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SVG：现代基础设施的隐形守护者
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              SVG是现代电网、工业园区和城市基础设施的无声电能质量守护者。了解它如何赋能日常生活。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <a href="/news/active-vs-passive-harmonic-filters" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="有源与无源谐波滤波器：各自真正的用武之地" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Dec 15, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              有源与无源谐波滤波器：各自真正的用武之地
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              对无源（调谐 LC）滤波器与有源电力滤波器（AHF）在低压母线谐波治理中的实用对比——涵盖产生根源、局限性以及 IGBT→SiC 的技术演进路径。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- 2025-11-20: 有源 PFC -->
+        <a href="/news/active-pfc-dynamic-reactive-compensation" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="低压母线上的有源功率因数校正与动态无功补偿" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Nov 20, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              低压母线上的有源功率因数校正与动态无功补偿
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              面向低压母线动态无功补偿的有源功率因数校正与静止无功发生器（SVG）技术——涵盖原理、IGBT 与 SiC 对比及部署清单。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- 2025-10-25: 三防涂覆 -->
+        <a href="/news/conformal-coating-ahf-reliability" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="低压 AHF 模块中的三防涂覆：三防保护如何延长变流器寿命" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Oct 25, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              低压 AHF 模块中的三防涂覆：三防保护如何延长变流器寿命
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              三防涂覆（防潮、防尘、防腐）如何在恶劣环境中延长低压 AHF 模块寿命——涵盖涂层类型、材料权衡以及 IGBT 与 SiC 的热预算。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 4 - Dec 15, 2024 -->
+        <!-- 2025-09-15: blog-solar-inverter-harmonics-ahf -->
+        <a href="/news/blog-solar-inverter-harmonics-ahf" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="光伏逆变器谐波治理：THDi超5%如何影响并网合规——AHF与SiC解决方案" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2025年9月15日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              光伏逆变器谐波治理：THDi超5%如何影响并网合规——AHF与SiC解决方案
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              深入分析光伏逆变器谐波的产生机制及其对变压器、电缆和电网合规性的影响，介绍有源电力滤波器与碳化硅技术在光伏场站谐波治理中的应用。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-08-01: blog-data-center-ahf-case-study -->
+        <a href="/news/blog-data-center-ahf-case-study" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="案例研究：300A低压有源电力滤波器修复数据中心电容器组失效" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">案例研究</span>
+              <span class="text-xs text-text-muted">2025年8月1日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              案例研究：300A低压有源电力滤波器修复数据中心电容器组失效
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              真实案例：300A低压有源电力滤波器如何解决数据中心严重谐波畸变（THDi 23.5%），恢复电容器组正常运行并降低维护成本。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-07-01: blog-harmonics-transformers-africa -->
+        <a href="/news/blog-harmonics-transformers-africa" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="谐波与低功率因数如何损坏变压器——低压AHF/SVG解决方案" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">2025年7月1日</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              谐波与低功率因数如何损坏变压器——低压AHF/SVG解决方案
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              在非洲工业现场，谐波和低功率因数正在无声地加速变压器老化。了解CHITEK低压AHF和SVG解决方案如何保护变压器并恢复系统容量。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="/news/sic-ahf-launch" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="全新SiC有源电力滤波器系列正式发布" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">产品更新</span>
+              <span class="text-xs text-text-muted">Dec 15, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              全新SiC有源电力滤波器系列正式发布
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              CHITEK推出新一代SiC AHF系列，实现99%谐波补偿，体积缩小20%。新系列采用先进SiC MOSFET技术，提供卓越的开关性能。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 5 - Nov 28, 2024 -->
+        <a href="/news/saudi-arabia-standards" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="沙特阿拉伯电能质量标准更新" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">行业动态</span>
+              <span class="text-xs text-text-muted">Nov 28, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              沙特阿拉伯电能质量标准更新
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              沙特阿拉伯新法规要求工业设施加强谐波滤波。CHITEK解决方案满足所有合规要求，THD可降至5%以下。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 6 - Nov 10, 2024 -->
+        <a href="/news/solar-farm-dubai" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="迪拜光伏电站电能质量优化" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">案例研究</span>
+              <span class="text-xs text-text-muted">Nov 10, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              迪拜光伏电站电能质量优化
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              CHITEK SVG解决方案如何将迪拜50MW光伏电站的功率因数从0.85提升至0.99，降低能耗15%。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 7 - Oct 22, 2024 -->
+        <a href="/news/sic-vs-igbt" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="SiC vs IGBT：电能质量设备的未来" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">技术</span>
+              <span class="text-xs text-text-muted">Oct 22, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SiC vs IGBT：电能质量设备的未来
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              碳化硅技术正以更高效率、更快开关速度和更低散热需求革新电能质量设备。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Article 8 - Oct 05, 2024 -->
+        <a href="/news/carbon-neutral-factories" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="碳中和工厂的电能质量解决方案" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">可持续发展</span>
+              <span class="text-xs text-text-muted">Oct 05, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              碳中和工厂的电能质量解决方案
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              先进的电能质量管理如何助力企业可持续发展目标，帮助制造工厂实现碳中和目标。
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-center gap-2 mt-16">
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-muted hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <path d="M15 19l-7-7 7-7"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded bg-brand-orange text-white font-semibold text-sm">1</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">2</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">3</a>
+          <span class="w-10 h-10 flex items-center justify-center text-text-muted">...</span>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-mid hover:border-brand-orange hover:text-brand-orange transition-colors text-sm">8</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded border border-border-light text-text-muted hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <path d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

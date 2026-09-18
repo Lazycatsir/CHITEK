@@ -168,12 +168,12 @@ OpenCode 的角色：<strong>网站管理员</strong>，听你的指令改代码
 [把整篇文章贴在这里]
 
 要求：
-1. 先读 README.md 和 CLAUDE.md 里的新闻发布规范
+1. 先读 CLAUDE.md（项目规则）和 docs/NEWS_PIPELINE.md（新闻发布规范）
 2. 先创建中文版（src/pages/news/xxxx.astro）
-3. 翻译成英文、西语、阿语三个版本
+3. 翻译成英文、西语、阿语三个版本（四语 slug 必须一致）
 4. 葡语（pt）不需要新闻，跳过
-5. 在 4 个语言的新闻列表页各插入一张新卡片，按日期降序放在正确位置
-6. 运行 npm run build 确认构建通过
+5. 运行 npm run news:sync 自动重写列表数据（列表页已数据驱动，不用再手插卡片）
+6. 运行 npm run news:check 和 npm run build 确认通过
 7. 推送到 GitHub</code></pre>
 
 <div class="box">

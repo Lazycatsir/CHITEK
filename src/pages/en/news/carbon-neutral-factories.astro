@@ -6,6 +6,8 @@ const article = {
   title: "Power Quality Solutions for Carbon Neutral Factories",
   category: "Sustainability",
   date: "2024-10-05",
+  dateDisplay: "Oct 05, 2024",
+  description: "How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets.",
   author: "CHITEK Sustainability Team",
   readTime: "5 min read",
   keywords: ["power quality","carbon neutral","energy efficiency","active harmonic filter","sustainability","harmonic mitigation","SVG","reactive power compensation","CHITEK"]
@@ -14,7 +16,7 @@ const article = {
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets." lang="en">
+<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets." lang="en" alternateLangs={['zh', 'en', 'es', 'ar']}>
   <Sidebar lang="en" />
 
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">

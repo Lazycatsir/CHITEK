@@ -34,7 +34,7 @@ const relatedCases = [
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="en"
@@ -42,6 +42,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
   {
@@ -114,7 +115,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </thead>
               <tbody>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Mitigation Method</td><td class="p-4 border-b border-border-light text-text-mid">Active elimination (phase cancellation)</td><td class="p-4 border-b border-border-light text-text-mid">Passive limitation (frequency opposition)</td></tr>
-                <tr><td class="p-4 border-b border-border-light text-text-mid">Target THDi Levels</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5% (IEEE 519 compliance)</td><td class="p-4 border-b border-border-light text-text-mid">30%�?0% THDi remaining</td></tr>
+                <tr><td class="p-4 border-b border-border-light text-text-mid">Target THDi Levels</td><td class="p-4 border-b border-border-light text-text-mid">&lt;5% (IEEE 519 compliance)</td><td class="p-4 border-b border-border-light text-text-mid">30%–50% THDi remaining</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Harmonic Targeting</td><td class="p-4 border-b border-border-light text-text-mid">Surgical precision (targets specific orders)</td><td class="p-4 border-b border-border-light text-text-mid">Non-selective, broadband attenuation</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Power Factor Impact</td><td class="p-4 border-b border-border-light text-text-mid">Actively improves displacement PF</td><td class="p-4 border-b border-border-light text-text-mid">Inherently degrades displacement PF</td></tr>
                 <tr><td class="p-4 border-b border-border-light text-text-mid">Voltage Stability</td><td class="p-4 border-b border-border-light text-text-mid">Maintains stable terminal voltage</td><td class="p-4 border-b border-border-light text-text-mid">Causes an inherent voltage drop</td></tr>

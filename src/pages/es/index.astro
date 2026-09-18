@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK INNOPOWER – Fabricante de Soluciones de Calidad de Energía',
-  description: 'CHITEK es un fabricante líder de soluciones de calidad de energía de baja tensión — Filtro Activo de Armónicos (AHF), Generador Estático de Reactivos (SVG) y Regulador Automático de Voltaje (AVR) para aplicaciones industriales y comerciales.',
+  title: 'CHITEK — Fabricante de AHF y SVG de Baja Tensión',
+  description: 'CHITEK fabrica equipos de calidad de energía de baja tensión: Filtro Activo de Armónicos (AHF), SVG y AVR para aplicaciones industriales y comerciales.',
 };
 
 // 本地开发/预览用语言前缀；线上（子域名承载语言）保持根相对
@@ -22,9 +22,9 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
 
     <!-- 文字面板 0：新图专属主题（第一页，仅此一句） -->
     <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
-      <h1 class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
+      <p class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
         <span class="text-white">Facilitar la convivencia armoniosa entre</span><br /><span class="text-brand-orange">energía y ecología</span>
-      </h1>
+      </p>
     </div>
 
     <!-- 文字面板 1：原首图内容（第二页，保持不变） -->

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHITEK 独立站运营计划 v2.3（3 个月）</title>
+<style>
+  :root{--bg:#0d1117;--panel:#161b22;--line:#2a313c;--text:#e6edf3;--muted:#9aa5b1;--accent:#ff6b1a;--ok:#3fb950;--warn:#d29922}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Barlow","Segoe UI","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.7}
+  .wrap{max-width:1060px;margin:0 auto;padding:40px 24px 80px}
+  h1{font-size:27px;margin:0 0 4px}
+  h2{font-size:20px;margin:52px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h3{font-size:16px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:8px 0}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:26px}
+  table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--panel);color:var(--muted);font-size:13px;font-weight:600}
+  ul{margin:8px 0 16px;padding-left:20px}
+  li{margin:4px 0}
+  code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:13px;color:#e3b341}
+  pre{background:var(--panel);padding:14px 16px;border-radius:6px;overflow-x:auto;font-size:13px;color:var(--muted);line-height:1.6}
+  .note{border-left:3px solid var(--accent);padding:10px 16px;background:var(--panel);margin:14px 0}
+  .lead{font-size:16px;border-left:3px solid var(--ok);padding:10px 16px;background:var(--panel);margin:16px 0}
+  .bad{border-left:3px solid #ff7b72;padding:10px 16px;background:var(--panel);margin:14px 0}
+  footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>CHITEK 独立站运营计划 v2</h1>
+<div class="sub">v2.4 ｜ 周期 3 个月（目标区间，只作范围参考） ｜ 前提：目标客户画像 ｜ 主线：结构·关键词·产品页·周报·内外链社媒 ｜ 附录：§六 底层原理（规则依据）</div>
+
+<div class="lead">核心判断：现在最大的问题不是内容不够，而是<strong>已有的内容没被搜索引擎看见</strong>。三个月里先把存量变成可被搜到的页面，再考虑写新的。</div>
+
+<table>
+<tr><th style="width:40%">盘点事实</th><th>证据</th></tr>
+<tr><td>solutions 里有 18 个场景 + 18 个案例（含前后数据）</td><td>硬编码在 JS 数组，<code>link:'#'</code>，抓不到</td></tr>
+<tr><td>products 里有 8 个系列完整卖点</td><td>挤在一个页面，无法单独索引</td></tr>
+<tr><td>已写 26+ 篇英文文章</td><td>有词，但缺把流量变询盘的产品页</td></tr>
+<tr><td>下载资源是假的</td><td><code>public/</code> 下无任何 pdf/dwg/zip，页面写着"2.4 MB / 2025-03"，点了没反应</td></tr>
+</table>
+
+<h2>零、目标客户画像（一切的前提）</h2>
+<p class="sub">这一节回答：我们<strong>想要谁来点这个网站</strong>、他点进来时<strong>脑子里在想什么</strong>。关键词矩阵、产品页模块顺序、周报看哪个数，全都由它决定。</p>
+
+<div class="lead"><strong>第一性：一个访客不是一个人，是一条决策链上的一个角色。</strong><br>
+ToB 工业品的访客点进来不是为了买，是为了<strong>完成自己那一步的工作</strong>——选型、比价、写规格书、找货源。所以网站的目标不是"说服他下单"，而是：<strong>帮他把那一步做完，并且留下联系方式。</strong></div>
+
+<pre>发现问题（电气工程师） → 技术评估（工程师 / 设计院选型）
+      → 商务（采购比价、谈条款） → 拍板（业主 / 项目经理） → 运维验收</pre>
+<p class="sub">这五个角色要的东西完全不同。网站必须同时给每个人一份"他能带走的东西"——少一份，中间就会卡住。</p>
+
+<h3>六类客户（按优先级）</h3>
+<table>
+<tr><th style="width:30px">#</th><th style="width:150px">客户类型</th><th style="width:50px">优先级</th><th style="width:30%">他是谁（一句话）</th><th>什么场景触发他来</th></tr>
+<tr><td>1</td><td><strong>终端业主的电气工程师</strong></td><td><strong>P0</strong></td><td>工厂里真正懂技术、也真正能影响选型的人</td><td>新上变频器/焊机/充电桩 → THD 超标、电容柜炸、功率因数罚款、保护误跳闸，被领导逼着找方案</td></tr>
+<tr><td>2</td><td><strong>海外代理商 / 经销商</strong></td><td><strong>P0</strong></td><td>想代理一个中国品牌补产品线，或手上已有客户要货</td><td>在 Google / Alibaba 找厂家；对比"哪家值得我投入精力去推"</td></tr>
+<tr><td>3</td><td>EPC 总包 / 系统集成商</td><td>P1</td><td>正在投标，招标书里写了 THD 限值和功率因数要求</td><td>需要一家<strong>能过审、能交付、能背书</strong>的供应商填进投标书</td></tr>
+<tr><td>4</td><td>设计院 / 咨询工程师</td><td>P1</td><td><strong>不买东西，但他把型号写进图纸</strong></td><td>做方案设计，要选型号写进规格书</td></tr>
+<tr><td>5</td><td>OEM / 贴牌客户</td><td>P2</td><td>自己做柜体成套，想把 AHF 做成自己的品牌一起卖</td><td>找产能 + 找可定制的模块供应商</td></tr>
+<tr><td>6</td><td>采购 / 比价型</td><td>P2</td><td>型号已定，只要报价单</td><td>拿你的报价去压现有供应商 —— <strong>不值得为他做内容</strong></td></tr>
+</table>
+
+<h3>每类人的真实心理</h3>
+
+<p><strong>① 终端电气工程师（P0）—— 最该讨好的人</strong></p>
+<table>
+<tr><th style="width:44%">他在想</th><th style="width:36%">他要点走的证据</th><th>会点的按钮</th></tr>
+<tr><td>这玩意真能降到 5% 以内？还是又一个滤波器？</td><td>原理讲透 + <strong>同类工况实测前后数据</strong></td><td>下载选型手册</td></tr>
+<tr><td>我的柜子放得下吗？要停电施工吗？</td><td>尺寸图、安装方式（壁挂 / 机架）</td><td>看参数表</td></tr>
+<tr><td>出了事谁负责？会不会影响生产？</td><td>质保、认证、故障处理</td><td>问技术工程师</td></tr>
+<tr><td>我怎么跟领导解释这笔钱？</td><td><strong>可复制进汇报材料的数字</strong>（电费 / 罚款 / 寿命）</td><td>发我的工况，帮我选型</td></tr>
+</table>
+<div class="bad"><strong>坑：</strong>他最烦"行业领先 / 品质卓越"这种话。给他<strong>公式和数据</strong>，别给他形容词。</div>
+
+<p><strong>② 海外代理商（P0）—— 出单最快，也最容易白忙</strong></p>
+<table>
+<tr><th style="width:44%">他在想</th><th style="width:36%">他要点走的证据</th><th>会点的按钮</th></tr>
+<tr><td>中国同行这么多，我为什么要多推一个牌子？</td><td>明确差异化（SiC、效率、尺寸、价格带）</td><td>看产品线</td></tr>
+<tr><td>给我的价格和保护是什么？</td><td><strong>独家区域 / 价格体系 / 样机政策</strong></td><td>Apply for distribution</td></tr>
+<tr><td>你支不支持我？</td><td>英文资料包、选型支持、售后培训、当地认证</td><td>下载渠道政策</td></tr>
+<tr><td>交期和起订量？</td><td>MOQ、交期、库存</td><td>直接问</td></tr>
+</table>
+<div class="bad"><strong>坑：</strong>现在 <code>/services</code> 页的经销部分太薄，<strong>没有一份能下载的渠道政策文件</strong>，代理商看完无法判断"值不值得投入"。这是三类客户里性价比最高的一处补强。</div>
+
+<p><strong>③ EPC / 系统集成商（P1）—— 单点金额最大</strong></p>
+<table>
+<tr><th style="width:44%">他在想</th><th>他要点走的证据</th></tr>
+<tr><td>能不能过业主 / 设计院的审核？</td><td>符合 IEEE 519 / IEC 61000 / G5-4 等标准清单</td></tr>
+<tr><td>参数能不能直接填进招标表？</td><td>完整 datasheet（含型号表）</td></tr>
+<tr><td>交期会不会拖我项目？</td><td>产能、交期承诺</td></tr>
+<tr><td>出质量问题你担不担？</td><td>质保条款、业绩清单</td></tr>
+</table>
+<p class="sub">他要的是<strong>一整包合规文件</strong>，不是一个漂亮页面。资源中心没建起来之前，这类单基本接不住。</p>
+
+<p><strong>④ 设计院 / 咨询工程师（P1）—— 不买，但他写品牌</strong></p>
+<ul>
+<li>他想：<strong>选型方法我自己要能算</strong>（容量、电压等级、接线方式）；参数要能直接抄进图纸。</li>
+<li>他要：<strong>选型指南 / 计算公式 + 完整参数 + CAD/BIM 图</strong>。</li>
+<li><strong>这类人最吃"中性技术内容"，最烦销售腔</strong> —— 技术文章要写成<strong>教程</strong>（教他怎么算），不能写成软文。</li>
+<li>他是唯一一类会<strong>主动把你的品牌写进别人招标文件</strong>的人，长期价值被严重低估。</li>
+</ul>
+
+<p><strong>⑤ OEM 贴牌（P2）</strong></p>
+<ul>
+<li>他想：能不能贴我的牌、改外观改界面？最小起订量多少？<strong>你会不会哪天自己去做终端抢我客户</strong>？通信协议对得上吗？</li>
+<li>他要：OEM 能力说明 + 定制案例（脱敏）+ 产能 + <strong>明确的"不做终端"承诺</strong>。</li>
+</ul>
+
+<p><strong>⑥ 采购比价（P2）—— 设计成低成本接待，别为他做内容</strong></p>
+<ul>
+<li>他只想拿单价、MOQ、付款方式、交期。</li>
+<li>应对：<strong>表单加两个字段</strong>（项目名称 / 预计年用量）自动分流，别让销售在比价单上耗时间。</li>
+</ul>
+
+<h3>画像 → 关键词矩阵（不同人搜的词完全不同）</h3>
+<p>这解释了为什么<strong>不能只做产品词</strong>：</p>
+<table>
+<tr><th style="width:130px">角色</th><th style="width:46%">他真的会打进 Google 的词</th><th>对应给他哪页</th></tr>
+<tr><td>终端工程师</td><td>why is my THD high / how to reduce harmonics / AHF vs passive filter / capacitor bank keeps failing</td><td>技术文章 + 产品页</td></tr>
+<tr><td>代理商</td><td>active harmonic filter <strong>manufacturer / supplier / distributor</strong> / AHF OEM china</td><td><code>/services</code> + 产品总览</td></tr>
+<tr><td>EPC</td><td>harmonic filter <strong>specification</strong> / <strong>IEC 61000-3-4 compliance</strong> / THD limit for tender</td><td>产品页（认证+参数）+ 资源中心</td></tr>
+<tr><td>设计院</td><td>harmonic filter <strong>sizing calculation</strong> / <strong>selection guide</strong> / single line diagram AHF</td><td>选型指南 Hub + 资源中心</td></tr>
+<tr><td>OEM</td><td><strong>custom</strong> AHF module / <strong>private label</strong> power quality equipment</td><td><code>/services</code> OEM</td></tr>
+<tr><td>采购</td><td>AHF <strong>price</strong> / cost per amp / AHF <strong>supplier comparison</strong></td><td>产品页（价格区间 / 询价）</td></tr>
+</table>
+<div class="note"><strong>结论：</strong>关键词矩阵要按角色分层 —— <strong>产品词</strong>（成交）+ <strong>问题词</strong>（工程师，拉流量）+ <strong>规范词</strong>（EPC / 设计院，高转化）+ <strong>渠道词</strong>（代理商 / OEM，直接出单）。</div>
+
+<h3>判别信号：怎么知道来的是哪一类人</h3>
+<p>现在表单只有 name / email / phone / message，<strong>看不出对方是谁</strong>，销售第一句话不知道怎么开口。建议加一个下拉（30 分钟能做完）：</p>
+<pre>I am a:  [ ] End-user engineer / plant owner
+         [ ] Distributor / Agent
+         [ ] EPC contractor / System integrator
+         [ ] Design institute / Consultant
+         [ ] OEM / Private label
+         [ ] Procurement / Sourcing</pre>
+<p>这一个字段带来三件事：① 周报的"有效询盘"可以按角色分层；② 销售第一句就知道该给技术资料还是渠道政策；③ GA4 里可当自定义维度，看哪类人转化率最高。</p>
+
+<div class="lead"><strong>先服务谁：P0 = 终端电气工程师 + 海外代理商。</strong><br>
+① 素材现成 —— 18 个行业案例 + 26 篇英文文章正好是喂给工程师的东西；<br>
+② 代理商最快出单量，只需要一份渠道政策 PDF 就能启动，<strong>不依赖技术部给参数</strong>；<br>
+③ EPC 和设计院强依赖"资料包"（datasheet / CAD / 证书），<strong>排在技术部给出文件之后</strong> —— 资料不到，这一块做不了。</div>
+
+<h2>一、清晰的网站结构</h2>
+
+<h3>目标结构</h3>
+<pre>/                              首页
+├── /products                  产品总览（Hub）
+│   ├── /products/ahf-standard ┐
+│   ├── /products/ahf-sic      │ 产品详情页 ×8
+│   ├── /products/svg-*        ┘
+├── /solutions                 行业总览
+│   └── /solutions/{data-centers, semiconductor, ev-charging,
+│                   renewables, rail-transit, industrial}  行业页 ×6
+├── /resources                 资源中心（依赖真实文件）
+├── /news                      新闻（改 Content Collections）
+├── /about
+└── /contact</pre>
+
+<h3>现有页面边界核对</h3>
+<table>
+<tr><th style="width:120px">页面</th><th style="width:180px">定位</th><th>结论</th></tr>
+<tr><td>products</td><td>产品是什么</td><td>保留，改造为 Hub</td></tr>
+<tr><td>solutions</td><td>用在哪（6 大行业）</td><td>保留，内容拆成子页</td></tr>
+<tr><td>services</td><td>怎么合作（OEM/ODM/经销）</td><td>独立且有必要，<strong>与 solutions 不重叠</strong></td></tr>
+<tr><td>news</td><td>技术长文</td><td>保留，改用 Content Collections</td></tr>
+</table>
+
+<h3>三条硬规则</h3>
+<ul>
+<li><strong>URL 五语同名</strong>：<code>/products/ahf-standard</code> 在五个语言下路径一致，只换子域名</li>
+<li><strong>三层必达</strong>：任意页面 3 次点击内能到产品页，3 次点击内能发出询盘</li>
+<li><strong>不留死链</strong>：现有 <code>link:'#'</code> 的案例必须指向真实页面或暂时下线</li>
+</ul>
+
+<div class="bad"><strong>立即要修：</strong>products.astro 的下载区块（规格书 2.4MB、CE 认证、CAD 图纸等 8 项）全是占位假数据，<code>public/</code> 下无任何真实文件，属于信任事故。二选一：<br>
+<strong>A（推荐）</strong>：改成「Send me the spec」按钮 → 跳 contact 表单并预填需求，立刻可上线；<br>
+<strong>B</strong>：等真实 PDF 齐了再上资源中心。</div>
+
+<h2>二、关键词矩阵</h2>
+<p>规则：<strong>一个 URL 只打一组词</strong>。现在 products 单页想同时覆盖 AHF、SVG、SiC、Distributed，结果是每个词都排不进去。</p>
+
+<h3>产品词矩阵（对应 8 个产品页）</h3>
+<table>
+<tr><th style="width:220px">落地页</th><th style="width:200px">主词</th><th>同义词群</th></tr>
+<tr><td>/products/ahf-standard</td><td>active harmonic filter</td><td>active power filter, APF, harmonic filter, AHF panel</td></tr>
+<tr><td>/products/ahf-sic</td><td>SiC active harmonic filter</td><td>silicon carbide AHF, high efficiency APF</td></tr>
+<tr><td>/products/ahf-distributed</td><td>distributed harmonic filter</td><td>wall-mounted APF, small capacity AHF</td></tr>
+<tr><td>/products/ahf-anti-pollution</td><td>anti-pollution AHF</td><td>IP54 AHF, harsh environment APF</td></tr>
+<tr><td>/products/svg-standard</td><td>static var generator</td><td>SVG, static VAR compensator, reactive power compensator</td></tr>
+<tr><td>/products/svg-sic</td><td>SiC SVG</td><td>silicon carbide SVG, high efficiency SVG</td></tr>
+<tr><td>/products/svg-distributed</td><td>distributed SVG</td><td>wall-mounted SVG, pole-mounted SVG</td></tr>
+<tr><td>/products/svg-anti-pollution</td><td>anti-pollution SVG</td><td>outdoor SVG cabinet</td></tr>
+</table>
+
+<h3>场景词矩阵（素材已存在，直接落成页面）</h3>
+<table>
+<tr><th style="width:240px">落地页</th><th style="width:280px">主词</th><th>现有素材</th></tr>
+<tr><td>/solutions/data-centers</td><td>harmonic mitigation data center</td><td>UPS 谐波、并机环流、PUE 案例 ×3</td></tr>
+<tr><td>/solutions/semiconductor</td><td>semiconductor voltage sag</td><td>光刻机 5ms 容忍度、良率 +3%</td></tr>
+<tr><td>/solutions/ev-charging</td><td>EV charging station harmonics</td><td>三相不平衡、桩端 THD 案例</td></tr>
+<tr><td>/solutions/renewables</td><td>solar inverter harmonics</td><td>光伏/风电/储能案例 ×3</td></tr>
+<tr><td>/solutions/rail-transit</td><td>metro traction harmonics</td><td>地铁/高铁案例 ×3</td></tr>
+<tr><td>/solutions/industrial</td><td>industrial harmonic mitigation</td><td>焊接/石化案例 ×3</td></tr>
+</table>
+
+<h3>语言分工（不做无效翻译）</h3>
+<table>
+<tr><th style="width:80px">语言</th><th style="width:90px">优先级</th><th>说明</th></tr>
+<tr><td>en</td><td>P0</td><td>全球通用，全部页面必须有</td></tr>
+<tr><td>ar / es</td><td>P1</td><td>中东（有沙特标准文章）／ 拉美+西班牙</td></tr>
+<tr><td>zh</td><td>P2</td><td>品牌背书 + 百度收录</td></tr>
+<tr><td>pt</td><td>P3</td><td>巴西，产品页可延后</td></tr>
+</table>
+
+<h3>同义词变体：不建换皮页，用 FAQ 承接（2026-09 实测）</h3>
+<p><strong>背景：</strong>AHF / APF / ADF 指的是同一种设备，只是叫法不同。竞品（YT 电气）的做法是——给每个叫法单建一个页面，用多个变体页去接所有可能的搜索词。</p>
+<table>
+<tr><th style="width:26%">现象</th><th>证据</th></tr>
+<tr><td>变体词确实有流量</td><td>搜 APF 相关商业词，它的 <strong>APF 独立页排到第 4</strong></td></tr>
+<tr><td>但堆卡的分类页无效</td><td>那张堆了 8 张同义词卡的<strong>分类页没排上</strong></td></tr>
+<tr><td>变体页是换皮</td><td>多个变体页描述逐字复制同一段，PQF 页里仍写着 "AHF is…" → <strong>符合 Google doorway page（换皮页）特征</strong></td></tr>
+</table>
+<p><strong>规则（照做）：</strong></p>
+<ol>
+<li><strong>同一产品不建多个同义词变体页。</strong>Google 能理解同义词，一个权威页本身就可能在 AHF / APF / active power filter 上同时拿到展现。</li>
+<li>同义词放这三个位置：详情页<strong>正文首段</strong>（"also known as APF / ADF"）+ <strong>FAQ</strong>（"AHF、APF、ADF 有什么区别？"）+ <strong>FAQPage Schema</strong>。零成本，还顺带解决顾客"这几个到底啥区别"的困惑。</li>
+<li><strong>唯一例外</strong>：某变体在你的目标市场确实是主流叫法（如部分亚洲/欧洲市场习惯说 APF），才建<strong>一个</strong>独立页——内容必须与该市场绑定（当地标准、当地案例、当地语言习惯），<strong>不许复制主页面</strong>。</li>
+<li><strong>ADF 不碰</strong>：这个词被 Comsys 官网 + 全球代理占满（ADF 是它的产品线名，不是通用词），投入产出比最差。</li>
+<li><strong>自检方法（零成本）</strong>：GSC → 效果 → 查询词，看同一条 URL 是否同时收到 AHF 和 APF 的展现。<strong>如果是，说明 Google 已经在做同义匹配，不必再建页。</strong></li>
+</ol>
+<div class="bad"><strong>为什么新站尤其不能学这套：</strong>域名权重低的时候，5 个薄页面每个权重都不够，谁也排不进前三；不如把权重集中到一个厚页面上。<strong>数量战术是高权重站才玩得起的。</strong></div>
+
+<h2>三、产品页的塑造</h2>
+<p>第一性：<strong>B2B 采购要在这一页回答 5 个问题</strong>，缺一项就丢单。</p>
+
+<table>
+<tr><th style="width:36px">#</th><th style="width:130px">访客的问题</th><th style="width:240px">页面模块</th><th>内容从哪来</th></tr>
+<tr><td>1</td><td>这是什么</td><td>一句话定位 + 原理图</td><td>现有 products 卖点</td></tr>
+<tr><td>2</td><td>参数够不够</td><td>完整参数表 + 型号表</td><td><strong>需技术部提供，当前缺失</strong></td></tr>
+<tr><td>3</td><td>适合我吗</td><td>应用场景 + 选型建议</td><td>solutions 已有 18 场景</td></tr>
+<tr><td>4</td><td>别人用过吗</td><td>相关案例（前后数据）</td><td>solutions 的 cases 数据</td></tr>
+<tr><td>5</td><td>怎么询价</td><td>Request a Quote（预填产品名）</td><td>复用 contact 表单</td></tr>
+</table>
+
+<h3>固定模板（8 页完全一致）</h3>
+<pre>Hero（产品名 + 一句话 + 主 CTA）
+→ 核心参数卡片（4 个数字：容量 / 响应时间 / 效率 / THD 目标）
+→ 技术参数表 + 型号表
+→ 应用场景 ×3 + 对应案例 ×3
+→ 系列间对比表（Standard vs SiC vs Distributed）
+→ 下载（规格书 / CAD）→ 无真文件时用「Send me the spec」
+→ FAQ 5–8 问 + FAQPage Schema
+→ Product Schema
+→ CTA 栏</pre>
+
+<h3>追踪钩子（必须与建站同步）</h3>
+<table>
+<tr><th style="width:240px">钩子</th><th style="width:200px">作用</th><th>不做的后果</th></tr>
+<tr><td><code>data-product-name</code></td><td>view_product 取到干净产品名</td><td>产品名带 "| CHITEK" 后缀</td></tr>
+<tr><td>URL 保持 <code>/products/*</code></td><td>自动触发 view_product</td><td>换规则要改配置区正则</td></tr>
+<tr><td>表单用 <code>data-lead-form</code></td><td>带 UTM 来源，发 generate_lead</td><td>退回"提交后跳走、事件丢失"</td></tr>
+<tr><td>规格书下载链接</td><td>触发 download_resource</td><td>下载不计入转化</td></tr>
+</table>
+
+<h2>四、数据分析 + 周报</h2>
+
+<h3>已具备的能力（代码已上线并验证）</h3>
+<table>
+<tr><th style="width:180px">事件</th><th style="width:180px">含义</th><th>关键参数</th></tr>
+<tr><td><code>generate_lead</code></td><td>表单询盘（主转化）</td><td>product_type, country, utm_*</td></tr>
+<tr><td><code>contact_click</code></td><td>电话/邮箱/WhatsApp</td><td>contact_method</td></tr>
+<tr><td><code>download_resource</code></td><td>资料下载</td><td>file_name</td></tr>
+<tr><td><code>view_product</code></td><td>浏览产品详情页</td><td>product_name</td></tr>
+<tr><td><code>form_start</code></td><td>开始填表</td><td>—</td></tr>
+<tr><td><code>scroll_90</code> / <code>outbound_click</code></td><td>阅读深度 / 外链</td><td>—</td></tr>
+</table>
+<p class="sub">来源分工：GA4 看 en/es/ar/pt，百度统计看中文站，Netlify Forms 看原始询盘（含 <code>attr_*</code> 来源字段，是对账基准）。</p>
+
+<h3>周报：只看 5 个数，每个数触发一个动作</h3>
+<table>
+<tr><th style="width:170px">数字</th><th style="width:240px">从哪看</th><th>低于/高于阈值时做什么</th></tr>
+<tr><td>询盘总数（周）</td><td>Netlify Forms + GA4 关键事件</td><td>持平或下降 → 检查落地页流量是否掉</td></tr>
+<tr><td>有效询盘数</td><td>人工标注（企业邮箱 + 国家 + 需求）</td><td>&lt; 50% → 收紧表单字段或调投放词</td></tr>
+<tr><td>来源 Top3</td><td>GA4 → 获客 → 流量获取</td><td>集中 → 加码；分散 → 收敛渠道</td></tr>
+<tr><td>带来询盘的 Top5 页面</td><td>GA4 → 获客 → 着陆页</td><td>榜首页面结构复制到同类产品页</td></tr>
+<tr><td>展现增长 Top10 词</td><td>GSC → 效果（对比上周）</td><td>有展现无点击 → 改 title/description</td></tr>
+</table>
+
+<div class="note"><strong>取数时机：</strong>GA4 免费版标准报告延迟 24–48 小时（当天只能看实时），GSC 延迟 2–3 天。建议<strong>固定周二</strong>取上周数据，避开延迟窗口。<br>自定义维度（product_type / country / contact_method）必须先在后台注册，<strong>不回溯历史</strong>。</div>
+
+<h3>周报表（格式固定）</h3>
+<pre>本周：询盘 X 条（有效 Y 条）｜ 主要来自 {渠道} / {国家}
+TOP 页面：1. xxx（N 条） 2. xxx …
+关键词：新增进前 100 X 个；本周涨幅最快 xxx
+做了什么：上线 xx 页面 / 改了 xx
+下周三件事：1. 2. 3.
+异常：如无则写"无"</pre>
+
+<h2>验收标准（硬性）</h2>
+<p class="sub">不看排期，只看这几件事做完没有。</p>
+<div class="lead">
+① 8 个产品详情页上线（至少 en/es/ar）；<br>
+② 6 个行业页上线，所有 <code>link:'#'</code> 案例指向真实页面；<br>
+③ 零死链，<code>public/</code> 下无假下载；<br>
+④ 周报连续产出 8 期以上；<br>
+⑤ 有效询盘达 baseline 的 2 倍。</div>
+
+<h2>五、内链与外链节奏</h2>
+
+<h3>内链实测审计（2026-09-16，扫描全部 155 个页面）</h3>
+<table>
+<tr><th style="width:60%">指标</th><th>数值</th></tr>
+<tr><td>页面总数</td><td>155</td></tr>
+<tr><td>孤儿页（无任何其他页面链向它）</td><td>10</td></tr>
+<tr><td><strong>弱内链页（入链 ≤ 1）</strong></td><td><strong>127（82%）</strong></td></tr>
+</table>
+<p class="sub">孤儿清单里 10 个<strong>全部是 Nav 假阳性</strong>（首页 ×5、services ×4、pt/contact —— 导航里都有全站链接）。120 篇新闻文章<strong>零孤儿</strong>，列表页都链到了。</p>
+
+<div class="bad"><strong>修正说明：</strong>初次审计报「5 篇英文文章无入口」是<strong>脚本 bug 导致的误报</strong>——卡片写成 <code>href="{lp('/news/slug')}"</code>（JSX 表达式包在属性里），正则没解析出来。修正后确认这 5 篇一直都有卡片。<strong>动手前先验证，避免了重复插入。</strong></div>
+
+<table>
+<tr><th style="width:34px">#</th><th style="width:46%">审计真正抓到的问题</th><th>状态</th></tr>
+<tr><td>1</td><td><strong>唯一的产品详情页 <code>/en/products/active-harmonic-filter</code> 零内链</strong>（Nav 只链到 products#ahf 锚点）</td><td>✅ 已修复</td></tr>
+<tr><td>2</td><td><strong>4 条 404 死链</strong>：products 页指向 <code>/solutions/datacenter</code>、<code>/healthcare</code>、<code>/semiconductor</code>、<code>/port</code> —— 这 4 个行业页根本不存在</td><td>✅ 已修复（暂指 /solutions）</td></tr>
+<tr><td>3</td><td>82% 的页面只有 ≤1 条入链，文章之间互不引用</td><td>⏳ 靠 Hub 页解决</td></tr>
+</table>
+
+<h3>内链修复清单</h3>
+<table>
+<tr><th style="width:110px">优先级</th><th style="width:50%">动作</th><th>状态</th></tr>
+<tr><td>~~P0~~</td><td>~~补 5 篇文章卡片~~</td><td>❌ 误报，不需要做</td></tr>
+<tr><td><strong>P0</strong></td><td>产品详情页加内链</td><td>✅ 已完成 09-16</td></tr>
+<tr><td><strong>P0</strong></td><td>修复 4 条指向不存在页面的死链</td><td>✅ 已完成 09-16</td></tr>
+<tr><td>P1</td><td>建 4 个支柱 Hub 页，每个链出 8–20 篇</td><td>⏳ 解决 82% 弱内链的唯一有效手段</td></tr>
+<tr><td>P1</td><td>行业页建成后，把临时链接改回 /solutions/datacenter 等</td><td>⏳ 待做</td></tr>
+<tr><td>P1</td><td>每篇新文正文加 3–5 条上下文内链（锚文本用关键词）</td><td>⏳ 待做</td></tr>
+<tr><td>P2</td><td>新闻改 Content Collections，相关文章按标签自动推荐</td><td>⏳ 待做</td></tr>
+</table>
+<div class="note"><strong>为什么不建议手工给 115 篇文章互相加内链：</strong>不可维护，改一篇要动多处。用 4 个 Hub 页集中链出，改一处即全通；配合 Content Collections 的标签自动推荐，内链就自动维护了。</div>
+
+<h3>外链：收录期只铺枕链</h3>
+<p>原则：<strong>外链是信任投票，不是数量竞赛</strong>。当前处于收录期，直接砸高 DA 外链会触发异常增速检测。每月 5–10 条，不爆发。</p>
+<table>
+<tr><th style="width:22%">类型</th><th style="width:44%">渠道</th><th>链接属性</th></tr>
+<tr><td>工业目录</td><td>DirectIndustry、Thomasnet、Kompass、Europages</td><td>多为 nofollow，正常</td></tr>
+<tr><td>企业资料</td><td>LinkedIn 公司页、企业档案站</td><td>混合</td></tr>
+<tr><td>行业问答</td><td>Quora、Reddit（r/ElectricalEngineering）、EEVblog</td><td>ugc / nofollow</td></tr>
+<tr><td>Web2.0</td><td>Medium 企业号、Blogger 技术笔记</td><td>混合</td></tr>
+</table>
+
+<div class="bad"><strong>四条红线：</strong><br>
+① 锚文本不能全是精准商业词，健康比例 <strong>品牌词 &gt; URL &gt; 泛词 &gt; 精准关键词</strong>；<br>
+② <strong>不做站群 / 副本站 / 卫星站</strong>（见下）；<br>
+③ 不批量买稿；付费链接必须标 sponsored；<br>
+④ <strong>nofollow 类应占 25–35%，全 dofollow 是高危信号</strong>。</div>
+
+<h3>关于"子网站 / 副本站做外链"（PBN 站群）</h3>
+<p><strong>现象：</strong>有些公司建一批看似独立、实为自己控制的小网站，全部链向主站，人为制造大量外链。<strong>短期确实有效</strong>，所以有人做。</p>
+<p><strong>为什么不能做：</strong>这是谷歌官方明文定义的外链作弊。SpamBrain 识别站群的指纹包括——同一 IP 段或服务器、相同 whois 注册信息、相同模板 / GA 统计代码、内容雷同且质量低、<strong>站内几乎所有链接都指向同一个主站</strong>。一旦识别：<strong>链接权益全部作废，且主站一并降权（连坐）</strong>。惩罚常延迟 6–18 个月，所以你会看到有些站"现在还好好的"。</p>
+<p><strong>B2B 工业品尤其不该做：</strong>客户是项目型大企业，会查供应商线上口碑，主站被降权等于自拆询盘渠道；做长期品牌，站群是短期收益 + 长期负资产；一次被罚恢复以年计。</p>
+<table>
+<tr><th style="width:16%"></th><th style="width:42%">合规的多站点</th><th>违规的站群</th></tr>
+<tr><td>目的</td><td>服务不同市场 / 产品线</td><td>单纯为制造外链</td></tr>
+<tr><td>内容</td><td>真实、独立、有访客价值</td><td>搬运、拼凑、雷同</td></tr>
+<tr><td>独立性</td><td>有独立品牌 / 定位 / 流量</td><td>无独立价值，只为主站存在</td></tr>
+<tr><td>交叉链接</td><td>少量、自然</td><td>大量、全部指向主站</td></tr>
+<tr><td>举例</td><td>本站 5 语子域；某市场独立站</td><td>20 个内容站互相链向主站</td></tr>
+</table>
+<div class="note"><strong>结论：</strong>现阶段精力放主站内容（产品页、行业页），安全且长期有效。真要做多站点，只能做真实、有独立价值的站点，不做副本。</div>
+
+<p><strong>后续顺序（不看时间，看条件是否满足）</strong></p>
+<table>
+<tr><th style="width:22%">阶段</th><th>动作</th></tr>
+<tr><td>第一步 · 收录稳定后</td><td>上下游合作互链（供应商/客户/代理商官网）—— B2B 最优白帽，行业相关性最强</td></tr>
+<tr><td>第二步 · 长尾词有排名后</td><td>High DA 客座供稿（Power Electronics News、EE Times 类），真实编辑价值、非批量</td></tr>
+<tr><td>第三步 · 品牌词有搜索量后</td><td>顶级权威媒体，1–2 条即可</td></tr>
+</table>
+<div class="note">验证闭环：Semrush 只做规划与竞品调研（估算值不作结论）；GSC 看收录与搜索信号；<strong>GA4 的引荐流量与询盘转化才是最终判据</strong>——有点击没询盘的外链就是无效投入。</div>
+
+<h3>社媒：只做能引回站内的</h3>
+<p>B2B 电力电子的现实：社媒<strong>不直接成交</strong>，作用是让客户在搜索你之前就见过你。衡量标准是 <strong>GA4 里的引荐会话与询盘</strong>，不是点赞数。</p>
+<table>
+<tr><th style="width:80px">优先级</th><th style="width:26%">平台</th><th style="width:30%">发什么</th><th style="width:14%">频率</th><th>衡量</th></tr>
+<tr><td><strong>P0</strong></td><td><strong>LinkedIn 公司页 + 销售个人号</strong></td><td>案例拆解、技术科普、现场图</td><td>周 2–3 帖</td><td>引荐会话 + 询盘</td></tr>
+<tr><td>P1</td><td>YouTube</td><td>原理 / 安装 / 案例视频，嵌回产品页</td><td>月 1–2</td><td>观看时长 + 嵌入页停留</td></tr>
+<tr><td>P2</td><td>Facebook / Instagram</td><td>工厂、发货、展会实拍（中东拉美有效）</td><td>周 1–2</td><td>互动（非获客渠道）</td></tr>
+<tr><td>P2</td><td>Quora / Reddit（r/ElectricalEngineering）/ EEVblog</td><td>专业问答</td><td>周 1</td><td>引荐 + 品牌词搜索量</td></tr>
+<tr><td>P3</td><td>X / Twitter、微信 / 视频号</td><td>动态转发 / 中文品牌背书</td><td>可选</td><td>—</td></tr>
+</table>
+
+<div class="note"><strong>销售个人号比公司页管用。</strong>B2B 决策者更信人，不信 logo。销售用个人号转发公司内容 + 加一句自己的观点，效果通常高于公司页直发。</div>
+
+<p><strong>内容配比 5:3:2</strong> — 5 技术科普（复用现有 26 篇文章，一篇拆 3–5 帖）· 3 案例拆解（复用 18 个案例）· 2 公司动态（新品 / 展会 / 发货 / 认证）。</p>
+
+<p><strong>一条帖子的固定写法</strong></p>
+<pre>钩子：一个具体数字或痛点问题（"功率因数 0.65 的电费单长什么样？"）
+现象：一句话说清场景
+原因：为什么会这样
+方案：怎么做（不吹产品，讲原理）
+数据：典型项目前后对比
+CTA：链回站内对应页面（不是首页），带 utm_source=linkedin</pre>
+
+<div class="bad"><strong>社媒红线：</strong><br>
+① 不写"保证 THD 降到 X%" —— 写"典型项目从 18% 降至 4.1%（某汽车焊装车间 2025 年实测）"；<br>
+② 不编案例、不擅自公开客户名称（除非拿到授权）；<br>
+③ 不公开报价、不承诺交期。</div>
+
+<h2>六、底层原理：权重与排名机制</h2>
+<p class="sub">这一节回答「上面那些规则为什么成立」。不是理论课，是<strong>判断依据</strong>——遇到新情况（要不要多建一页？要不要合并两页？）回来对一下就清楚。</p>
+
+<h3>6.1 权重是「流量」，不是「存量」</h3>
+<p>最常见的误解：把一个页面放着不动，权重会自己涨。<strong>不会。</strong></p>
+<p>权重本质是<strong>投票</strong>——外链、品牌搜索、用户从搜索结果点进来并停留，都是"这一页值得信任"的一票。票从外面流进来，再经站内链接分配到各页面。</p>
+<div class="lead"><strong>关键：流进来的总量，跟你有多少个页面无关。</strong>它不是乘法，是分配。</div>
+
+<h3>6.2 为什么是「分摊」——它不是被判断出来的</h3>
+<p><strong>不存在"Google 判断出你在分摊然后扣分"这一步。</strong>分摊是链接计算的算术必然。</p>
+<pre>一个页面传给下一个的分量 = 自己的分量 ÷ 自己的出链总数</pre>
+<p><strong>分母是出链数。</strong>首页有 100 分、链向 10 个页面 → 每个得 10；链向 30 个 → 每个得 3.3。这跟"两个页面是不是同义词"毫无关系，纯粹是除法。</p>
+<div class="note"><strong>可直接用的推论：内链要集中。</strong>一个页面若出现在全站侧栏（出链极多），它分给目标页面的分量极薄；正文里少数几个精准内链，传递效率反而高得多。</div>
+
+<h3>6.3 雷同为什么会被「折叠」——不是扣分</h3>
+<div class="note"><strong>应用在哪：</strong>① §二 同义词变体——不建换皮页、改用 FAQ 承接，就是怕被折叠；② §三 8 个产品页模板一致，但每个必须写透不同产品，不能互相复制。</div>
+<p>这部分才真的有检测，流程是：</p>
+<ol>
+<li><strong>生成指纹</strong>：正文切成重叠片段、哈希，得到页面指纹</li>
+<li><strong>比对相似度</strong>：两页指纹相似度超阈值 → 判定近似重复</li>
+<li><strong>聚类</strong>：互相雷同的页面聚成一组</li>
+<li><strong>选代表</strong>：组里挑一个进索引、参与排名</li>
+<li><strong>其余折叠</strong>：剩下的不进索引</li>
+</ol>
+<p><strong>它比的是「近似」，不是逐字</strong> —— 换语序、换同义词、调段落顺序都躲不掉。</p>
+<div class="bad"><strong>认知修正：</strong>雷同<strong>不会让你被扣分，是让你白做</strong>。做 3 个雷同页 = 花 3 份功夫，只有 1 份进索引。这是浪费，不是处罚。<br>
+<strong>升级成真惩罚的条件（满足其一）：</strong>① <strong>规模</strong>——雷同页到几十上百个量级 → 站点级「抓取内容 / 门户页」判定 → 整站降权；② <strong>意图</strong>——页面唯一目的是接搜索流量、对访客无独立价值 → doorway page。单产品 3–5 个变体页通常只是折叠；8 个产品 × 5 个变体 = 40 页就危险。</div>
+
+<h3>6.4 同一个查询，站内也会互相竞争</h3>
+<p>Google 对同一查询通常<strong>只给同一站点 1–2 个结果</strong>（站点多样性机制）。所以两个同义页面不是"两个都上"，而是<strong>抢同一个坑位</strong>——本来能排第 8 的页面，因为有个兄弟页面在竞争，可能双双掉到 15 开外。</p>
+<p><strong>可观察信号：</strong>GSC 查询词报告里，若多个相似 URL <strong>轮流出现</strong>、每个展现量都很低，就是系统在它们之间犹豫。这时把内容合并到一个页面上，总展现通常<strong>不降反升</strong>。</p>
+
+<h3>6.5 三类页面，各自能赢什么查询</h3>
+<table>
+<tr><th style="width:20%">页面类型</th><th style="width:40%">内容特征</th><th>能排上什么词</th></tr>
+<tr><td><strong>纯汇总页</strong></td><td>一堆卡片，每卡一两句话</td><td>只有品牌词、导航词</td></tr>
+<tr><td><strong>带长文的枢纽页</strong></td><td>卡片 + 选型正文 + 对比表 + FAQ</td><td>品类词、"how to choose" 类</td></tr>
+<tr><td><strong>产品详情页</strong></td><td>一个产品讲透：参数 + 案例 + FAQ</td><td>主词、规格词、交易词</td></tr>
+</table>
+<div class="note"><strong>关键：</strong>你搜到第一页的那些「汇总页」，其实都是后两种。<strong>它赢不是因为它是汇总页，而是因为内容量达到了详情页级别。</strong><br>
+实证：<code>pfc-engineering.com/active-harmonic-filter/</code>（分类页形态，但每个系列带几百字独立描述）排在搜索结果第 3。</div>
+
+<h3>6.6 阿里国际站 vs Google：目标一样，机制相反</h3>
+<table>
+<tr><th style="width:16%">维度</th><th style="width:42%">阿里国际站</th><th>Google 独立站</th></tr>
+<tr><td>排名靠什么</td><td>关键词匹配 + 店铺行为分</td><td>页面权威 + 全网比较</td></tr>
+<tr><td>多发几个同义链接</td><td><strong>鼓励</strong>：多一个入口多一份流量</td><td><strong>自罚</strong>：权重 ÷N + 换皮页</td></tr>
+<tr><td>反馈周期</td><td>几天到几周，改标题就见效</td><td>3–6 个月才看得出</td></tr>
+<tr><td>流量归属</td><td>租的：规则一改排名就掉</td><td>自己的：域名权重会沉淀</td></tr>
+<tr><td>做起来后怎么扩</td><td><strong>多开摊位</strong>：继续铺品铺词</td><td><strong>种树</strong>：内链带起新页</td></tr>
+</table>
+<div class="bad"><strong>最重要的一条：别用阿里的节奏考核独立站。</strong>阿里改个标题几天见效；独立站 3–6 个月才看得出。第 2 个月没动静就判定"方向错了"是最常见的死法。<br>
+一句话区分：<strong>阿里 = 流量租赁 + 即时反馈；独立站 = 资产建设 + 延迟回报。</strong></div>
+<p class="sub">两者可互相喂养：独立站的技术文章和案例搬到阿里做内容营销；<strong>阿里发品继续用变体标题（平台鼓励），独立站绝不使用同一手法。</strong></p>
+
+<h3>6.7 三个零成本自检</h3>
+<table>
+<tr><th style="width:24%">想确认什么</th><th style="width:28%">去哪看</th><th>看到什么说明什么</th></tr>
+<tr><td>页面是不是被折叠了</td><td>GSC → 索引 → 网页</td><td>状态是「已抓取，当前未编入索引」或「<strong>重复网页，Google 已选择其他规范网页</strong>」= 已被折叠</td></tr>
+<tr><td>需不需要建同义词独立页</td><td>GSC → 效果 → 查询词</td><td>同一条 URL 已同时收到 AHF 和 APF 的展现 → Google 已在做同义匹配，<strong>不必建页</strong></td></tr>
+<tr><td>有没有自相蚕食</td><td>GSC → 效果 → 查询词</td><td>同一个词下多个 URL <strong>轮流出现</strong>、每个展现都很低 = 系统在犹豫，应合并</td></tr>
+</table>
+
+<h3>6.8 诚实边界：哪些是公开原理，哪些不是</h3>
+<ul>
+<li><strong>公开</strong>：PageRank 的传递模型（有原始论文）；用近似哈希做重复检测（Google 有相关专利）。</li>
+<li><strong>不公开</strong>：相似度阈值的具体数值、当前是否仍用 PageRank、各信号占多大比重 —— <strong>Google 从不公开，没人知道确切数字</strong>。</li>
+</ul>
+<div class="note">所以这一整套是<strong>机制模型</strong>：用来判断方向（别建雷同页、内链要集中、别用阿里节奏考核）足够可靠；<strong>不要拿它当精确公式</strong>去算"我该建几个页面"。</div>
+
+<h2>需要你提供（我做不了）</h2>
+<table>
+<tr><th style="width:24%">事项</th><th>为什么卡在这里</th></tr>
+<tr><td>真实产品参数表 + 型号表</td><td>没有这个，产品页只剩营销话术，B2B 客户会流失</td></tr>
+<tr><td>可下载文件</td><td>规格书 PDF、CE/UL 证书、CAD/BIM —— 资源中心的前置条件</td></tr>
+<tr><td>案例授权</td><td>18 个案例里哪些能公开客户名，决定说服力强度</td></tr>
+</table>
+
+<footer>CHITEK INNOPOWER 独立站运营计划 v2.4 ｜ 周期 3 个月 ｜ 不做周次排期，以验收清单为准</footer>
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@ const relatedCases = [
   { name: "مركز البيانات البرازيلي", industry: "مراكز البيانات" },
 ];
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="ar"
@@ -39,6 +39,7 @@ const relatedCases = [
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/blog/sic-ahf-launch.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
   {

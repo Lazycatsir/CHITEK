@@ -17,7 +17,7 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
   search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...', zh: '搜索...' },
   activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器AHF' },
   staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن', zh: '无功静止发生器SVG' },
-  sicAhfSvg: { en: 'SiC AHF/SVG', pt: 'SiC AHF/SVG', es: 'SiC AHF/SVG', ar: 'SiC AHF/SVG', zh: '碳化硅系列 Sic AHF/SVG' },
+  sicAhfSvg: { en: 'Silicon Carbide AHF/SVG', pt: 'Silicon Carbide AHF/SVG', es: 'Silicon Carbide AHF/SVG', ar: 'Silicon Carbide AHF/SVG', zh: '碳化硅系列 Sic AHF/SVG' },
   industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي', zh: '工业制造' },
   commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية', zh: '商业及医疗建筑' },
   dataCentersTelecom: { en: 'Data Centers & Telecom', pt: 'Data Centers e Telecom', es: 'Centros de Datos y Telecomunicaciones', ar: 'مراكز البيانات والاتصالات', zh: '数据中心与通信' },
@@ -69,6 +69,18 @@ const ptHref = langHref('pt');
 const esHref = langHref('es');
 const arHref = langHref('ar');
 const zhHref = langHref('zh');
+
+// pt 站没有新闻栏目（与其他语言一致化后依然如此）。
+// 新闻路径下不再向用户提供 pt 切换项，避免指向 /pt/news/... 的 404 死链。
+// 与下方 News 导航项仅对 zh/en/es/ar 渲染的处理保持一致。
+const pathNoLang = (() => {
+  let b = Astro.url.pathname;
+  for (const p of ['/en', '/es', '/ar', '/pt']) {
+    if (b.startsWith(p)) { b = b.slice(p.length) || '/'; break; }
+  }
+  return b;
+})();
+const showPtSwitch = !/^\/news(\/|$)/.test(pathNoLang);
 // 本地（localhost）全语言用路径前缀；线上 zh/en 用根路径（子域名承载语言），es/ar/pt 需前缀
 const prefix = isLocal
   ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
@@ -130,10 +142,61 @@ const homeHref = prefix || '/';
         {_('products')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href={productsHref + '#ahf'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
-        <a href={productsHref + '#svg'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
-        <a href={productsHref + '#sic'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('sicAhfSvg')}</a>
+      <div class="absolute top-full left-0 bg-white min-w-[340px] min-h-[210px] flex flex-col justify-center shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+        <!-- AHF 项：悬停/聚焦时右侧飞出三组小卡片（图+文，占位文字） -->
+        <div class="group/ahf">
+          <a href={productsHref + '#ahf'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
+          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/ahf:opacity-100 group-hover/ahf:visible group-focus-within/ahf:opacity-100 group-focus-within/ahf:visible transition-all duration-300 z-[1002]">
+            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution AHF</div>
+            </a>
+            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC AHF</div>
+            </a>
+            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim AHF</div>
+            </a>
+          </div>
+        </div>
+        <!-- SVG 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
+        <div class="group/svg">
+          <a href={productsHref + '#svg'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
+          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/svg:opacity-100 group-hover/svg:visible group-focus-within/svg:opacity-100 group-focus-within/svg:visible transition-all duration-300 z-[1002]">
+            <a href={productsHref + '#svg'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution SVG</div>
+            </a>
+            <a href={productsHref + '#svg'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC SVG</div>
+            </a>
+            <a href={productsHref + '#svg'} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim SVG</div>
+            </a>
+          </div>
+        </div>
+        <!-- SiC 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
+        <div class="group/sic">
+          <a href={productsHref + '#sic'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('sicAhfSvg')}</a>
+          <div class="absolute left-full top-0 bottom-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/sic:opacity-100 group-hover/sic:visible group-focus-within/sic:opacity-100 group-focus-within/sic:visible transition-all duration-300 z-[1002]">
+            <a href={productsHref + '#sic'} class="group/card block no-underline">
+              <img src="/assets/images/index-product-ahf.webp" alt="Active Harmonic Filter" class="w-full h-[88px] object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC AHF</div>
+            </a>
+            <a href={productsHref + '#sic'} class="group/card block no-underline">
+              <img src="/assets/images/index-product-svg.webp" alt="Static Var Generator" class="w-full h-[88px] object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC SVG</div>
+            </a>
+            <a href={productsHref + '#sic'} class="group/card block no-underline">
+              <img src="/assets/images/index-product-avr.webp" alt="Automatic Voltage Regulator" class="w-full h-[88px] object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC Cabinet</div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -223,10 +286,12 @@ const homeHref = prefix || '/';
         <span class="text-[13px] text-text-mid font-medium">English</span>
         <img src="/assets/images/flags/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
+      {showPtSwitch && (
       <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Portugu&ecirc;s</span>
         <img src="/assets/images/flags/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
+      )}
       <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-text-mid font-medium">Espa&ntilde;ol</span>
         <img src="/assets/images/flags/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />

@@ -1,0 +1,773 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+---
+<BaseLayout title="News & Insights | CHITEK INNOPOWER" description="Stay updated with the latest news, technical papers, and industry insights from CHITEK INNOPOWER power quality solutions." lang="en">
+  <Sidebar lang="en" />
+
+  <!-- Hero Section -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-20 md:py-28">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight mb-6">
+        News & <span class="text-brand-orange">Insights</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+        Stay informed with the latest developments in power quality technology, industry trends, and CHITEK solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section id="articles" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mb-4">
+        Latest Articles
+      </h2>
+      <p class="text-text-mid text-lg mb-12 max-w-2xl">
+        Explore our latest news, product updates, and company announcements.
+      </p>
+
+      <div class="space-y-6">
+        <!-- 2026-07-22: what-is-an-active-harmonic-filter -->
+        <a data-cat="tech" href="{lp('/news/what-is-an-active-harmonic-filter')}" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="What Is an Active Harmonic Filter? Principles, the i_c* Command, and the IGBT/SiC Bridge" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 22, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">What Is an Active Harmonic Filter? Principles, the i_c* Command, and the IGBT/SiC Bridge</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">An active harmonic filter (AHF) cancels harmonic current and corrects reactive power in real time. This article walks the principle from detection to injection and explains why the IGBT→SiC switch sets the performance ceiling.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-21: why-ev-charging-stations-need-ahf -->
+        <a data-cat="tech" href="{lp('/news/why-ev-charging-stations-need-ahf')}" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="Why EV Charging Stations Need a Low-Voltage AHF + SVG" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 21, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Why EV Charging Stations Need a Low-Voltage AHF + SVG</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">Every DC fast charger is a nonlinear load. As chargers multiply on one bus the distortion compounds. This article explains why a low-voltage AHF + SVG is the right fix for harmonics, unbalance, and reactive swing at charging hubs.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-20: ieee-519-harmonic-distortion-limits -->
+        <a data-cat="tech" href="{lp('/news/ieee-519-harmonic-distortion-limits')}" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="IEEE 519-2022 Harmonic Limits: What They Require and How a Low-Voltage AHF Delivers Compliance" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 20, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">IEEE 519-2022 Harmonic Limits: What They Require and How a Low-Voltage AHF Delivers Compliance</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">IEEE 519-2022 sets the harmonic distortion limits and responsibilities at the point of common coupling. This article explains what the standard requires and how a CHITEK low-voltage AHF delivers compliance in real time.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-19: svg-vs-traditional-capacitors -->
+        <a data-cat="tech" href="{lp('/news/svg-vs-traditional-capacitors')}" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="SVG vs Switched Capacitor Banks: Why Dynamic VAR Outperforms Fixed Tuning at the Low-Voltage Bus" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 19, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">SVG vs Switched Capacitor Banks: Why Dynamic VAR Outperforms Fixed Tuning at the Low-Voltage Bus</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">Power factor correction at the LV bus starts with a capacitor bank — but modern plants run variable loads. This article quantifies where an SVG diverges from a fixed bank and why it matters for compliance and losses.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-18: sic-technology-redefines-ahf -->
+        <a data-cat="product" href="{lp('/news/sic-technology-redefines-ahf')}" class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="Silicon Carbide in Active Harmonic Filters: Why the Wide-Bandgap Switch Redefines LV AHF Performance" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Product Update</span>
+              <span class="text-xs text-text-muted">Jul 18, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Silicon Carbide in Active Harmonic Filters: Why the Wide-Bandgap Switch Redefines LV AHF Performance</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">The AHF has always been limited by the switch it is built on. Silicon carbide (SiC) MOSFETs change the ceiling. This article quantifies what the wide-bandgap material buys an LV AHF and where the IGBT still earns its place.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-18: blog-svg-technology-market-overview -->
+        <a data-cat="tech" href={lp('/news/blog-svg-technology-market-overview')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="SVG Technology Market Overview: Core Technologies and Applic" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 18, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">SVG Technology Market Overview: Core Technologies and Application Scenarios</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">A technology-focused overview of the low-voltage SVG market, covering core IGBT/SiC technologies, key application scenar</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-15: blog-industrial-ahf-selection-guide -->
+        <a data-cat="tech" href={lp('/news/blog-industrial-ahf-selection-guide')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="Industrial Active Harmonic Filter Selection Guide: Technical" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 15, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Industrial Active Harmonic Filter Selection Guide: Technical Specifications and </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">A technical guide to selecting industrial active harmonic filters: market trends, key specifications, THD reduction data</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-12: blog-hospital-ahf-solutions -->
+        <a data-cat="tech" href={lp('/news/blog-hospital-ahf-solutions')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-8.webp" alt="Industrial Active Harmonic Filter Selection Guide: Technical" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 15, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Industrial Active Harmonic Filter Selection Guide: Technical Specifications and </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">A technical guide to selecting industrial active harmonic filters: market trends, key specifications, THD reduction data</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 2026-07-10: blog-ai-data-center-power-quality -->
+        <a data-cat="tech" href={lp('/news/blog-ai-data-center-power-quality')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="Data Center Power Quality: Low-Voltage AHF + SVG at the UPS and Cooling Bus" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 10, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Data Center Power Quality: Low-Voltage AHF + SVG at the UPS and Cooling Bus</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in AI/HPC data centers with UPS and VFD cooling systems.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-07-05: blog-case-study-ahf-energy-industry -->
+        <a data-cat="case" href={lp('/news/blog-case-study-ahf-energy-industry')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-7.webp" alt="Case Study: Low-Voltage AHF Restores an Oil & Gas Plant's Power Quality" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-[#2e7d32] bg-[#e8f5e9] px-3 py-1 rounded-full">Case Study</span>
+              <span class="text-xs text-text-muted">Jul 5, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Case Study: Low-Voltage AHF Restores an Oil & Gas Plant's Power Quality</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">How a CHITEK low-voltage AHF reduced THDi from 32.5% to 3.8% in an oil and gas processing plant, restoring reliability and preventing shutdowns.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+                                        <!-- 2026-07-01: blog-ahf-water-treatment-plants -->
+        <a data-cat="tech" href={lp('/news/blog-ahf-water-treatment-plants')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 1, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus</h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in water treatment plants with VFD-controlled pumps and blowers.</p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-05-31: svg-reactive-power-compensation-factory-guide -->
+        <a data-cat="tech" href={lp('/news/svg-reactive-power-compensation-factory-guide')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="SVG Reactive Power Compensation: Principles to Factory Selection Guide" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">May 31, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SVG Reactive Power Compensation: Principles to Factory Selection Guide
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              From core principles and mainstream classifications to a six-dimension factory evaluation framework, with selection logic for new construction and retrofit projects backed by measured data.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-05-16: distributed-small-capacity-apf-guide -->
+        <a data-cat="tech" href={lp('/news/distributed-small-capacity-apf-guide')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="Distributed Small Capacity APF Guide" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">May 16, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Distributed Small Capacity APF Guide: Selection and Application
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              From technical principles and application scenarios to core selection parameters and patent technologies, a comprehensive guide to distributed small-capacity APF for commercial buildings, data centers, and retrofit projects.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-05-01: shenzhen-qidian-svg-analysis -->
+        <a data-cat="tech" href={lp('/news/shenzhen-qidian-svg-analysis')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="Deep Dive into Power Quality: CHITEK SVG Reactive Power Compensation" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">May 1, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Deep Dive into Power Quality: CHITEK SVG Reactive Power Compensation
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              A comprehensive analysis of CHITEK's SVG reactive power compensation equipment — from R&D capability, core patents, and product specifications to scenario-based solutions for power quality management.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-04-28: apf-industry-practitioner-2026 -->
+        <a data-cat="industry" href={lp('/news/apf-industry-practitioner-2026')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="A Practitioner&#x27;s Account of the Active Harmonic Filter Industry in 2026" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Industry News</span>
+              <span class="text-xs text-text-muted">Apr 28, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              A Practitioner's Account of the Active Harmonic Filter Industry in 2026
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              From nearly a decade of AHF R&D and delivery practice at Shenzhen Qidian New Energy, a systematic review of the product matrix, patents, compliance testing, and 2026 industry outlook.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-04-12: blog-chitek-ahf-advantages -->
+        <a data-cat="tech" href={lp('/news/blog-chitek-ahf-advantages')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="Active Harmonic Filter Technology: A Comprehensive Analysis of CHITEK&#x27;s Advantages" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Apr 12, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active Harmonic Filter Technology: A Comprehensive Analysis of CHITEK's Advantages
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              From core technology patents to a complete product lineup, an in-depth analysis of AHF's role in industrial manufacturing, data centers, and beyond.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-03-27: blog-active-harmonic-filter-for-vfd-systems -->
+        <a data-cat="tech" href={lp('/news/blog-active-harmonic-filter-for-vfd-systems')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="Active Harmonic Filters for VFD Systems: Why They Are Critical" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Mar 27, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active Harmonic Filters for VFD Systems: Why They Are Critical
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Active Harmonic Filters are indispensable for VFD-heavy facilities. Learn why AHFs are the smart choice for stabilizing power quality.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-03-11: blog-ahf-vs-line-reactors -->
+        <a data-cat="tech" href={lp('/news/blog-ahf-vs-line-reactors')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-8.webp" alt="Active Harmonic Filters vs Line Reactors: A Technical Comparison" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Mar 11, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active Harmonic Filters vs Line Reactors: A Technical Comparison
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              A comprehensive technical comparison between Active Harmonic Filters and Line Reactors for industrial power quality mitigation.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2026-02-22: blog-svg-power-electronics-daily-life -->
+        <a data-cat="tech" href={lp('/news/blog-svg-power-electronics-daily-life')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-7.webp" alt="Why SVG Is the Invisible Guardian of Modern Infrastructure" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Feb 22, 2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Why SVG Is the Invisible Guardian of Modern Infrastructure
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              SVG is the silent power quality bodyguard for modern grids, industrial parks, and urban infrastructure. Learn how it powers daily life.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-12-15: active-vs-passive-harmonic-filters -->
+        <a data-cat="tech" href={lp('/news/active-vs-passive-harmonic-filters')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="Active vs Passive Harmonic Filters" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Dec 15, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active vs. Passive Harmonic Filters: Where Each Actually Belongs
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              A practical comparison of passive (tuned LC) filters and active harmonic filters (AHF) for low-voltage bus harmonic mitigation — covering root causes, limitations, and the IGBT→SiC migration path.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-11-20: active-pfc-dynamic-reactive-compensation -->
+        <a data-cat="tech" href={lp('/news/active-pfc-dynamic-reactive-compensation')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="Active PFC and Dynamic Reactive Compensation" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Nov 20, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Active PFC and Dynamic Reactive Compensation on the Low-Voltage Bus
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Active Power Factor Correction and Static Var Generator (SVG) technology for dynamic reactive compensation — covering principles, IGBT vs SiC comparison, and a deployment checklist.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-10-25: conformal-coating-ahf-reliability -->
+        <a data-cat="tech" href={lp('/news/conformal-coating-ahf-reliability')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="Conformal Coating for AHF Reliability" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Oct 25, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Conformal Coating in Low-Voltage AHF Modules: Three-Proof Protection
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              How conformal coating (three-proof protection) extends low-voltage AHF module life in harsh environments — covering coating types, materials trade-offs, and the IGBT vs SiC thermal budget.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2024-12-15: sic-ahf-launch -->
+        <!-- 2025-09-15: blog-solar-inverter-harmonics-ahf -->
+        <a data-cat="tech" href={lp('/news/blog-solar-inverter-harmonics-ahf')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-4.webp" alt="Solar Inverter Harmonics: Why THDi Above 5% Fails — and How AHF + SiC Fixes It" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Sep 15, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Solar Inverter Harmonics: Why THDi Above 5% Fails — and How AHF + SiC Fixes It
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Solar inverter harmonics explained: how THDi above 5% causes transformer heating, nuisance tripping, and grid compliance failure — with AHF and SiC solutions.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-08-01: blog-data-center-ahf-case-study -->
+        <a data-cat="case" href={lp('/news/blog-data-center-ahf-case-study')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-6.webp" alt="Case Study: 300A Low-Voltage AHF Restores a Data Center's Failing Capacitor Banks" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Case Study</span>
+              <span class="text-xs text-text-muted">Aug 1, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Case Study: 300A Low-Voltage AHF Restores a Data Center's Failing Capacitor Banks
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              A real-world case study showing how a 300A low-voltage Active Harmonic Filter resolved severe harmonic distortion (THDi 23.5%) at a major data center, restoring capacitor banks to normal operation.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2025-07-01: blog-harmonics-transformers-africa -->
+        <a data-cat="tech" href={lp('/news/blog-harmonics-transformers-africa')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="How Harmonics and Poor Power Factor Damage Transformers — and the Low-Voltage AHF/SVG Fix" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Jul 1, 2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              How Harmonics and Poor Power Factor Damage Transformers — and the Low-Voltage AHF/SVG Fix
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Across African industrial sites, harmonics and poor power factor silently age transformers. Discover how CHITEK's low-voltage AHF and SVG solutions protect transformers and reclaim lost capacity.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a data-cat="product" href={lp('/news/sic-ahf-launch')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="New SiC-Based Active Harmonic Filter Series Launch" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">Product Update</span>
+              <span class="text-xs text-text-muted">Dec 15, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              New SiC-Based Active Harmonic Filter Series Launch
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              CHITEK introduces its next-generation SiC AHF series, achieving 99% harmonic compensation with 20% reduced footprint. The new series features advanced SiC MOSFET technology for superior switching performance.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2024-11-28: saudi-arabia-standards -->
+        <a data-cat="industry" href={lp('/news/saudi-arabia-standards')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-3.webp" alt="Saudi Arabia Power Quality Standards Update" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Industry News</span>
+              <span class="text-xs text-text-muted">Nov 28, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Saudi Arabia Power Quality Standards Update
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements with THD reduction to below 5%.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2024-11-10: solar-farm-dubai -->
+        <a data-cat="case" href={lp('/news/solar-farm-dubai')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-2.webp" alt="Solar Farm Power Quality Optimization in Dubai" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Case Study</span>
+              <span class="text-xs text-text-muted">Nov 10, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Solar Farm Power Quality Optimization in Dubai
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai, reducing energy losses by 15%.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2024-10-22: sic-vs-igbt -->
+        <a data-cat="tech" href={lp('/news/sic-vs-igbt')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-5.webp" alt="SiC vs IGBT: The Future of Power Quality Equipment" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Technology</span>
+              <span class="text-xs text-text-muted">Oct 22, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              SiC vs IGBT: The Future of Power Quality Equipment
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+        <!-- 2024-10-05: carbon-neutral-factories -->
+        <a data-cat="sustain" href={lp('/news/carbon-neutral-factories')} class="group bg-white rounded-xl overflow-hidden border border-border-light hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row no-underline">
+          <div class="relative w-full md:w-[320px] lg:w-[380px] h-48 md:h-64 bg-gray-50 overflow-hidden shrink-0">
+            <img src="/assets/images/news/news-img-1.webp" alt="Power Quality Solutions for Carbon Neutral Factories" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 md:p-8 flex flex-col justify-center flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Sustainability</span>
+              <span class="text-xs text-text-muted">Oct 05, 2024</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-brand-orange transition-colors">
+              Power Quality Solutions for Carbon Neutral Factories
+            </h3>
+            <p class="text-text-mid text-sm leading-relaxed mb-4">
+              How advanced power quality management contributes to corporate sustainability goals and helps manufacturing facilities achieve carbon neutrality targets.
+            </p>
+            <span class="inline-flex items-center text-brand-orange text-sm font-semibold">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Topic filter — replaces the old 1…8 numbered pager whose links were dead (#).
+           All 30 cards stay in the HTML of this single page, so crawlers still see every
+           article link; the buttons only change what a human sees. -->
+      <div class="flex flex-wrap items-center gap-2 mt-16" id="news-filter">
+        <button type="button" class="nf-btn is-active" data-filter="all">All (30)</button>
+        <button type="button" class="nf-btn" data-filter="tech">Technology (22)</button>
+        <button type="button" class="nf-btn" data-filter="case">Case Study (3)</button>
+        <button type="button" class="nf-btn" data-filter="product">Product Update (2)</button>
+        <button type="button" class="nf-btn" data-filter="industry">Industry News (2)</button>
+        <button type="button" class="nf-btn" data-filter="sustain">Sustainability (1)</button>
+      </div>
+      <p class="text-sm text-text-muted mt-3" id="news-filter-note">
+        Showing all 30 articles — one page, no pagination.
+      </p>
+      <style>
+        .nf-btn { padding: .375rem .875rem; border: 1px solid var(--color-border-light, #e5e7eb);
+          border-radius: 9999px; font-size: .8125rem; line-height: 1.25rem; background: #fff;
+          color: var(--color-text-mid, #444); cursor: pointer; transition: all .2s ease; }
+        .nf-btn:hover { color: var(--color-brand-orange, #ff6b1a);
+          border-color: var(--color-brand-orange, #ff6b1a); }
+        .nf-btn.is-active { background: var(--color-brand-orange, #ff6b1a);
+          border-color: var(--color-brand-orange, #ff6b1a); color: #fff; }
+      </style>
+      <script>
+        (function () {
+          try {
+            var bar = document.getElementById('news-filter');
+            var note = document.getElementById('news-filter-note');
+            var cards = document.querySelectorAll('a[data-cat][href*="/news/"]');
+            if (!bar || !cards.length) return;
+            bar.addEventListener('click', function (e) {
+              var btn = e.target.closest && e.target.closest('button[data-filter]');
+              if (!btn) return;
+              var v = btn.getAttribute('data-filter');
+              bar.querySelectorAll('button[data-filter]').forEach(function (b) {
+                b.classList.remove('is-active');
+              });
+              btn.classList.add('is-active');
+              var n = 0;
+              cards.forEach(function (c) {
+                var show = (v === 'all') || (c.getAttribute('data-cat') === v);
+                c.style.display = show ? '' : 'none';
+                if (show) n++;
+              });
+              if (note) note.textContent = 'Showing ' + n + (n === 1 ? ' article' : ' articles')
+                + ' — one page, no pagination.';
+            });
+          } catch (err) { /* fail open: if anything breaks, all cards stay visible */ }
+        })();
+      </script>
+    </div>
+  </section>
+</BaseLayout>

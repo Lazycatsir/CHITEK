@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+import NewsCard from '../../../components/news/NewsCard.astro';
+import NewsPager from '../../../components/news/NewsPager.astro';
+import { enNewsCards, NEWS_PER_PAGE, NEWS_TOTAL_PAGES } from '../../../data/enNewsCards.js';
+
+// Flat URL: /en/news/page_2/ ... (empty prefix for zh => /news/page_2/)
+// getStaticPaths runs before the top-level statements below, so it can only use
+// values that come from imports (NEWS_TOTAL_PAGES), never local consts.
+export function getStaticPaths() {
+  return Array.from({ length: NEWS_TOTAL_PAGES - 1 }, (_, i) => ({ params: { page: String(i + 2) } }));
+}
+
+const total = NEWS_TOTAL_PAGES;
+const current = Number(Astro.params.page);
+const start = (current - 1) * NEWS_PER_PAGE;
+const cards = enNewsCards.slice(start, start + NEWS_PER_PAGE);
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+const pageUrl = (n: number) => (n === 1 ? lp('/news/') : lp('/news/page_' + n + '/'));
+---
+<BaseLayout
+  title={`News & Insights — Page ${current} | CHITEK INNOPOWER`}
+  description={`Page ${current} of the CHITEK INNOPOWER news and insights archive: technical papers, industry trends, and power quality case studies.`}
+  lang="en"
+  alternates={false}
+>
+  <Sidebar lang="en" />
+
+  <!-- Hero Section -->
+  <section class="relative w-full overflow-hidden min-h-[33vh] mt-[72px] flex items-center bg-bg-dark text-white">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-12">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight mb-6">
+        News & <span class="text-brand-orange">Insights</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+        Stay informed with the latest developments in power quality technology, industry trends, and CHITEK solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles (page 2+) -->
+  <section id="articles" class="pt-10 md:pt-14 pb-16 md:pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12">
+      <div class="space-y-6">
+        {cards.map((card) => (
+          <NewsCard
+            href={lp(card.href)}
+            img={card.img}
+            alt={card.alt}
+            category={card.category}
+            cat={card.cat}
+            date={card.date}
+            title={card.title}
+            desc={card.desc}
+            readMore="Read More"
+          />
+        ))}
+      </div>
+
+      <NewsPager
+        current={current}
+        total={total}
+        url={pageUrl}
+        label="News pagination"
+        prevLabel="Previous page"
+        nextLabel="Next page"
+      />
+    </div>
+  </section>
+</BaseLayout>

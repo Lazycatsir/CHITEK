@@ -10,8 +10,9 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
   emailPlaceholder: { en: 'name@email.com', pt: 'nome@email.com', es: 'nombre@email.com', ar: 'name@email.com', zh: 'name@email.com' },
   subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse', ar: 'اشترك', zh: '订阅' },
   products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات', zh: '产品中心' },
-  activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器' },
-  advancedSvg: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم', zh: '静止无功发生器' },
+  activeHarmonicFilter: { en: 'Active Harmonic Filter AHF', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器' },
+  standardSvg: { en: 'Static Var Generator SVG', pt: 'Gerador Estático de Var SVG', es: 'Generador Estático de Var SVG', ar: 'مولد الفولت أمبير الساكن SVG', zh: '无功静止发生器SVG' },
+  advancedSvg: { en: 'Advanced Static Var Generator ASVG', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم', zh: '静止无功发生器' },
   sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)', es: 'SiC-AHF/SVG (Alta Eficiencia)', ar: 'SiC-AHF/SVG (كفاءة عالية)', zh: 'SiC-AHF/SVG（高效型）' },
   highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção', es: 'AHF/SVG de Alta Protección', ar: 'AHF/SVG حماية عالية', zh: '高防护 AHF/SVG' },
   solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول', zh: '解决方案' },
@@ -70,6 +71,7 @@ const newsHref = prefix + '/news';
       <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('products')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
         <li><a href={productsHref + '#ahf'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
+        <li><a href={productsHref + '#svg'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('standardSvg')}</a></li>
         <li><a href={productsHref + '#svg'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
         <li><a href={productsHref + '#sic'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
         <li><a href={productsHref + '#high-protection'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>

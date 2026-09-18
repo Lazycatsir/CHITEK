@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "news:sync": "python _extract_all_news.py",
+    "news:gen": "python _gen_news_pages.py",
+    "news:check": "python _verify_news_i18n.py"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",

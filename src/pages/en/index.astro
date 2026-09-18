@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK INNOPOWER – Power Quality Solutions Manufacturer',
-  description: 'CHITEK is a leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF), Static Var Generator (SVG), and Automatic Voltage Regulator (AVR) for industrial and commercial applications.',
+  title: 'CHITEK — Low Voltage AHF & SVG Manufacturer | Power Quality',
+  description: 'CHITEK manufactures low-voltage power quality equipment — Active Harmonic Filter (AHF), Static Var Generator (SVG) and AVR — for industrial and commercial sites.',
 };
 // 本地开发/预览用 /en 前缀；线上（子域名承载语言）保持根相对
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
@@ -20,9 +20,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
     <!-- 文字面板 0：新图专属主题（第一页，仅此一句） -->
     <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
-      <h1 class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
+      <p class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
         <span class="text-white">Facilitate harmonious coexistence of</span><br /><span class="text-brand-orange">energy and ecology</span>
-      </h1>
+      </p>
     </div>
 
     <!-- 文字面板 1：原首图内容（第二页，保持不变） -->

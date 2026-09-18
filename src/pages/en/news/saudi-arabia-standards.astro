@@ -6,6 +6,8 @@ const article = {
   title: "Saudi Arabia Power Quality Standards Update",
   category: "Industry News",
   date: "2024-11-28",
+  dateDisplay: "Nov 28, 2024",
+  description: "New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements.",
   author: "CHITEK Regulatory Team",
   readTime: "4 min read"
 ,  keywords: ["Saudi Arabia","power quality standards","harmonic filter","IEEE 519","active harmonic filter","SVG","power factor","low voltage","grid compliance","CHITEK"]
@@ -14,7 +16,7 @@ const article = {
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements." lang="en">
+<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="New regulations in Saudi Arabia require enhanced harmonic filtering for industrial facilities. CHITEK solutions meet all compliance requirements." lang="en" alternateLangs={['zh', 'en', 'es', 'ar']}>
   <Sidebar lang="en" />
 
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">

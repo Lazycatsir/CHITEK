@@ -1,0 +1,715 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'SiC MOSFET Ultra AHF | Active Harmonic Filter | CHITEK',
+  description: 'CHITEK SiC MOSFET Ultra Active Harmonic Filter (AHF) — silicon-carbide 3-level topology for higher efficiency, higher power density and lower thermal loss. THDi < 5% per IEEE 519, 208-690V, 50-200A per module.',
+};
+
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang="en" alternates={false}>
+  <script is:inline>document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data: BreadcrumbList + Product -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://en.chitek-inno.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://en.chitek-inno.com/products" },
+      { "@type": "ListItem", "position": 3, "name": "Silicon Carbide (SiC) MOSFET Ultra AHF", "item": "https://en.chitek-inno.com/products/sic-ultra-ahf" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CHITEK SiC MOSFET Ultra Active Harmonic Filter",
+    "brand": { "@type": "Brand", "name": "CHITEK INNOPOWER" },
+    "description": "Silicon-carbide (SiC) MOSFET active harmonic filter with 3-level topology, delivering higher switching efficiency, higher power density and lower thermal loss than IGBT platforms, while holding THDi below 5% per IEEE 519.",
+    "category": "Power Quality / Harmonic Mitigation",
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "208-690V" },
+      { "@type": "PropertyValue", "name": "Rated Capacity", "value": "50A-200A per module, parallel expandable" },
+      { "@type": "PropertyValue", "name": "Frequency", "value": "50/60 Hz" },
+      { "@type": "PropertyValue", "name": "Wiring", "value": "3P3W / 3P4W" },
+      { "@type": "PropertyValue", "name": "Filtering Range", "value": "2nd-51st order harmonic" },
+      { "@type": "PropertyValue", "name": "Full Response Time", "value": "<50 us" },
+      { "@type": "PropertyValue", "name": "Switching Frequency", "value": "up to 40 kHz (SiC)" },
+      { "@type": "PropertyValue", "name": "Efficiency", "value": ">=98%" },
+      { "@type": "PropertyValue", "name": "THDi", "value": "<5% (IEEE 519)" },
+      { "@type": "PropertyValue", "name": "Topology", "value": "3-level NPC, SiC MOSFET" },
+      { "@type": "PropertyValue", "name": "Standard", "value": "IEC 61000 / IEC 62477" },
+      { "@type": "PropertyValue", "name": "Communication", "value": "MODBUS / optional Ethernet" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a SiC MOSFET active harmonic filter?", "acceptedAnswer": { "@type": "Answer", "text": "A SiC MOSFET active harmonic filter replaces the conventional silicon IGBT bridge with silicon-carbide power devices. Because SiC switches faster with lower conduction and switching loss, the filter achieves higher efficiency, higher power density and lower heat rejection while still cancelling harmonics in real time and holding THDi below 5%." } },
+      { "@type": "Question", "name": "Why choose silicon carbide (SiC) instead of IGBT?", "acceptedAnswer": { "@type": "Answer", "text": "SiC MOSFETs tolerate higher switching frequencies (up to 40 kHz), which shrinks magnetics, raises efficiency to 98% or more, and reduces thermal loss by roughly a third. Practically, that means a smaller cabinet for the same capacity, lower cooling demand and longer device life — ideal for space- and efficiency-critical installations." } },
+      { "@type": "Question", "name": "How does the Ultra AHF work?", "acceptedAnswer": { "@type": "Answer", "text": "An external CT samples the load current; a DSP/FPGA runs an FFT to separate 2nd-51st order harmonics, reactive power and imbalance; the SiC inverter bridge then injects an equal and opposite-phase compensation current. The utility sees only the fundamental, with THDi below 5% and power factor corrected." } },
+      { "@type": "Question", "name": "What is the rated capacity and voltage range?", "acceptedAnswer": { "@type": "Answer", "text": "The Ultra AHF covers 208-690V, 3P3W/3P4W, with 50A to 200A per module. Modules can be paralleled without a practical limit to reach 3000A and beyond for large plants." } },
+      { "@type": "Question", "name": "Can it also correct power factor and balance loads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The unit offers a selectable priority function covering harmonic mitigation, reactive power compensation and three-phase load balancing. In 3P4W mode it also cancels the accumulated 3rd-harmonic neutral current." } },
+      { "@type": "Question", "name": "Which installations benefit most from the SiC Ultra AHF?", "acceptedAnswer": { "@type": "Answer", "text": "Data centres, semiconductor fabs, precision manufacturing and any site where switchroom space is scarce, cooling is expensive or downtime is costly. The higher power density lets you fit more compensation capacity in the same footprint." } }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumb (full width, above the sidebar so it is never overlapped) -->
+  <nav class="bg-white border-b border-border-light mt-[72px]" aria-label="Breadcrumb">
+    <div class="mx-auto max-w-7xl px-6 py-3 text-[clamp(12px,0.9vw,14px)] text-text-muted">
+      <a href={lp('/')} class="hover:text-brand-orange transition-colors">Home</a>
+      <span class="mx-2 text-border-light">/</span>
+      <a href={lp('/products')} class="hover:text-brand-orange transition-colors">Products</a>
+      <span class="mx-2 text-border-light">/</span>
+      <span class="text-text-dark font-medium">SiC MOSFET Ultra AHF</span>
+    </div>
+  </nav>
+
+  <!-- Left section navigation (desktop sticky sidebar) + content column -->
+  <div class="lg:flex">
+    <aside class="hidden lg:block lg:w-[140px] shrink-0 border-r border-border-light">
+      <nav class="sticky top-[72px] max-h-[calc(100vh-72px)] overflow-y-auto py-8 px-2" aria-label="Section navigation">
+        <p class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-text-muted">PAGE GUIDE</p>
+          <a href="#overview" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] leading-snug font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
+          <a href="#description" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
+          <a href="#parameters" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
+          <a href="#why" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
+          <a href="#faq" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
+      </nav>
+    </aside>
+    <div class="flex-1 min-w-0">
+
+  <!-- Product top: description (left) + product image (right). No background image. -->
+  <section id="overview" data-product-top class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(32px,3.5vw,56px)] scroll-mt-[72px]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(24px,4vw,56px)] items-start">
+
+        <!-- LEFT: title / meta / specs / advantages -->
+        <div>
+          <h1 class="text-[clamp(21px,2.1vw,32px)] font-bold leading-snug text-text-dark mb-6 font-barlow-condensed">SiC MOSFET Active Harmonic Filter Ultra AHF Series 3 Phase Power Quality Correction Device</h1>
+
+          <p class="text-[clamp(14px,1.1vw,16px)] text-text-mid leading-relaxed mb-7">
+            <strong class="text-text-dark font-bold">Tags</strong> SiC MOSFET AHF, active harmonic filter, active harmonic filter price, power factor correction device, power quality filter, ultra high efficiency AHF
+          </p>
+
+          <div class="text-[clamp(14px,1.1vw,16px)] text-text-mid leading-[1.9] mb-6">
+            <p>Frequency: 50/60HZ</p>
+            <p>Warranty: Standard 1 year/negotiable</p>
+          </div>
+
+          <!-- Configurator: checkable voltage / current / connection / installation -->
+          <div class="mb-7 space-y-4">
+            <div>
+              <p class="text-[13px] font-semibold text-text-dark mb-2">Voltage</p>
+              <div class="flex flex-wrap gap-2">
+                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="v" data-val="208V" /> 208V</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="v" data-val="400V" /> 400V</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="v" data-val="480V" /> 480V</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="v" data-val="690V" /> 690V</label>
+              </div>
+            </div>
+            <div>
+              <p class="text-[13px] font-semibold text-text-dark mb-2">Current</p>
+              <div class="flex flex-wrap gap-2">
+                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="a" data-val="50A" /> 50A</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="a" data-val="75A" /> 75A</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="a" data-val="100A" /> 100A</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="a" data-val="150A" /> 150A</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="a" data-val="200A" /> 200A</label>
+              </div>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-start gap-x-8 gap-y-3">
+                <div>
+                  <p class="text-[13px] font-semibold text-text-dark mb-2">Connection</p>
+                  <div class="flex flex-wrap gap-2">
+                    <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="c" data-val="3P4W" /> 3P4W</label>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-[13px] font-semibold text-text-dark mb-2">Installation</p>
+                  <div class="flex flex-wrap gap-2">
+                    <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] text-text-mid cursor-pointer"><input type="checkbox" class="accent-[#ff6b1a]" data-group="i" data-val="Rack" /> Rack</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-1">
+            <!-- SKU box / Quote and Download share ONE row: both sit at the same height, and the
+                 formerly lone Download line no longer makes the left column overhang the image card. -->
+            <div class="flex flex-col sm:flex-row sm:items-stretch gap-3">
+              <!-- Quote button: submits to Netlify Forms exactly like the contact page Send Message,
+                   and analytics.js binds it via [data-lead-form] to fire generate_lead. -->
+              <form
+                name="quote"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                data-lead-form
+                class="m-0 flex-1 min-w-0"
+              >
+                <input type="hidden" name="form-name" value="quote" />
+                <div data-utm-fields hidden></div>
+                <div hidden aria-hidden="true">
+                  <label>Don't fill this out <input name="bot-field" /></label>
+                </div>
+                <div class="relative h-full">
+                  <textarea data-inquiry-summary name="message" readonly rows="2" class="block w-full h-full rounded-lg border border-border-light bg-[#fafbfc] py-1.5 px-3 pr-[110px] text-[13px] leading-tight text-text-mid resize-none"></textarea>
+                  <button type="submit" class="absolute right-0 top-0 bottom-0 inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-r-lg px-5 text-[12px] transition-colors whitespace-nowrap cursor-pointer">Quote</button>
+                </div>
+              </form>
+              <!-- Download stays OUTSIDE the form so the post-submit form.reset() can't touch it -->
+              <button type="button" data-download-config class="shrink-0 inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-7 py-2 text-[clamp(14px,1.1vw,16px)] transition-colors whitespace-nowrap">Download</button>
+            </div>
+            <!-- Success message: picked up natively by analytics.js showSuccess()
+                 (same [data-form-success] contract and copy as the contact page) -->
+            <div data-form-success data-no-reset hidden class="mt-3 p-4 rounded-lg bg-[#e8f5e9] border border-[#c8e6c9]">
+              <p class="text-[13px] font-semibold text-[#2e7d32] mb-0.5">Thank you! Our application engineer will contact you within 24 hours.</p>
+              <p class="text-[11px] text-[#558b2f]">CHITEK INNOPOWER</p>
+            </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: 3-image carousel + thumbnails, capped to the left column height -->
+        <div data-gallery class="rounded-2xl border border-border-light bg-[#fafbfc] p-6 flex flex-col items-center">
+          <div class="w-full flex items-center justify-center overflow-hidden">
+            <img data-gallery-main src="/assets/images/index-product-ahf.webp" alt="CHITEK SiC MOSFET Ultra Active Harmonic Filter module" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-3 w-full shrink-0">
+            <button type="button" data-gallery-thumb data-src="/assets/images/index-product-ahf.webp" data-alt="CHITEK SiC MOSFET Ultra Active Harmonic Filter module" class="gallery-thumb is-active overflow-hidden rounded-lg border border-border-light bg-white p-1">
+              <img src="/assets/images/index-product-ahf.webp" alt="Ultra AHF front view" class="w-full h-[72px] object-contain" loading="lazy" />
+            </button>
+            <button type="button" data-gallery-thumb data-src="/assets/images/index-product-svg.webp" data-alt="CHITEK Static Var Generator SVG module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
+              <img src="/assets/images/index-product-svg.webp" alt="SVG module view" class="w-full h-[72px] object-contain" loading="lazy" />
+            </button>
+            <button type="button" data-gallery-thumb data-src="/assets/images/index-product-avr.webp" data-alt="CHITEK Automatic Voltage Regulator AVR module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
+              <img src="/assets/images/index-product-avr.webp" alt="AVR module view" class="w-full h-[72px] object-contain" loading="lazy" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky section sub-navigation (mobile only) -->
+  <nav class="lg:hidden sticky top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <div class="flex gap-1 overflow-x-auto">
+        <a href="#overview" class="whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
+        <a href="#description" class="whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
+        <a href="#parameters" class="whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
+        <a href="#why" class="whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
+        <a href="#faq" class="whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 00 Product Description (moved above Technical Parameters) -->
+  <section id="description" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Product Description</h2>
+      <div class="max-w-none lg:pr-[clamp(40px,8vw,160px)] mb-10 space-y-4 text-text-mid text-[clamp(13.5px,1.05vw,15.5px)] leading-relaxed">
+        <p>Lower harmonic levels on a CHITEK Active Harmonic Filter translate directly into a more dependable electrical network and lower running costs. By removing the harmonic currents that cause extra heating, the filter helps eliminate the nuisance tripping of protective devices and the unexplained fuse failures that plant teams often spend weeks tracing.</p>
+        <p>Because harmonic heating is kept in check, motors, transformers, switchgear and cables run cooler, so their service life is extended and maintenance schedules become lighter. On new-build projects, engineers can also revisit the practice of oversizing distribution equipment purely as a defence against harmonics — a smaller, better-utilised design is usually enough.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Graphical HMI</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Direct control, configuration, monitoring and harmonic analysis from the front panel — no PC required.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Comprehensive Measurements</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">RMS voltages and currents, THDu/THDi, system frequency, load factor, compensated current, PF before/after and 2nd–50th order spectrum.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Power Factor Correction</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Dynamic correction for both lagging and leading power factor without capacitor-step switching.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Load Balancing</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Balances three-phase systems and relieves neutral current in 3P4W networks.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Low Thermal Loss</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">SiC switching keeps losses under 1.8% of rated kVA and efficiency at 98% or better, cutting cooling demand.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Flexible &amp; Modular</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Modular design embedded in standard or customized cabinets, with parallel expansion and factory ODM support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 Technical Parameters -->
+  <section id="parameters" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-[clamp(40px,8vw,160px)]">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">Technical Parameters</h2>
+      <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
+        <table class="w-full border-collapse text-[clamp(12px,0.9vw,13.5px)] leading-tight text-left">
+          <tbody>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark w-1/6">Rated Voltage</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">208–690 V</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Rated Capacity</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">50 A – 200 A per module (parallel expandable, unlimited)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Frequency</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">50 / 60 Hz</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Wiring Mode</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">3P3W / 3P4W</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Filtering Range</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">2nd – 51st order harmonic</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Function</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">Harmonic mitigation, reactive compensation, imbalance phase balancing</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Full Response Time</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">&lt; 50 μs</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Switching Frequency</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">up to 40 kHz (SiC)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Efficiency</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">≥ 98%</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Power Loss</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">&lt; 1.8% of rated kVA</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">THDi (after compensation)</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">&lt; 5% (IEEE 519)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Topology</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">3-level NPC, SiC MOSFET</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">IP Class</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">IP20 (customizable)</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Installation</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">Wall mounted / floor stand cabinet</td></tr>
+            <tr class="border-b border-border-light"><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Standard</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">IEC 61000 / IEC 62477</td></tr>
+            <tr><th class="text-left py-1.5 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark">Communication</th><td class="py-1.5 px-4 pr-10 text-text-mid whitespace-nowrap">MODBUS / optional Ethernet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Why CHITEK (sits directly above the FAQ) -->
+  <section id="why" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">WHY CHITEK SiC MOSFET Active Harmonic Filter?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Performance you can specify</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">The SiC MOSFET bridge is specified for accurate, repeatable harmonic cancellation rather than best-effort filtering. THDi is driven below 5% at the point of common coupling, so the power quality written into your design is the power quality measured at commissioning.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">One module, any size of plant</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Modules parallel without a practical ceiling, so capacity is added as the site grows instead of being guessed at the outset. Enclosures follow the space you actually have — wall-mounted, rack, or floor-standing cabinet.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Already running in your industry</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">CHITEK filters are in service across data centres, manufacturing plants, commercial buildings and renewable energy projects. Equipment, spares and documentation ship worldwide, so support is never a regional afterthought.</p>
+        </div>
+        <div class="rounded-2xl border border-border-light p-6">
+          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Engineers before and after the order</h3>
+          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Sizing is done with you, from your own load data — not from a catalogue. The same application engineers stay reachable through installation and commissioning, and remain on hand to fine-tune the installation long after handover.</p>
+        </div>
+      </div>
+      <!-- Certifications: 4 个证书放置框（虚线占位，后续替换为真实证书图） -->
+      <div class="mt-8">
+        <h3 class="text-[clamp(15px,1.2vw,18px)] font-semibold text-text-dark mb-4 text-left">Certifications</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="cert-slot">
+            <div class="aspect-[4/3] rounded-xl border border-dashed border-[#d1d5db] bg-[#f9fafb] flex flex-col items-center justify-center gap-2 p-3 text-center">
+              <svg class="w-8 h-8 text-[#cbd5e1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+                <path d="M9.5 12l1.8 1.8 3.2-3.6" />
+              </svg>
+              <span class="text-[12.5px] font-medium text-text-muted leading-snug">Certificate 01</span>
+              <span class="text-[11px] text-text-muted/70">Add image</span>
+            </div>
+          </div>
+          <div class="cert-slot">
+            <div class="aspect-[4/3] rounded-xl border border-dashed border-[#d1d5db] bg-[#f9fafb] flex flex-col items-center justify-center gap-2 p-3 text-center">
+              <svg class="w-8 h-8 text-[#cbd5e1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+                <path d="M9.5 12l1.8 1.8 3.2-3.6" />
+              </svg>
+              <span class="text-[12.5px] font-medium text-text-muted leading-snug">Certificate 02</span>
+              <span class="text-[11px] text-text-muted/70">Add image</span>
+            </div>
+          </div>
+          <div class="cert-slot">
+            <div class="aspect-[4/3] rounded-xl border border-dashed border-[#d1d5db] bg-[#f9fafb] flex flex-col items-center justify-center gap-2 p-3 text-center">
+              <svg class="w-8 h-8 text-[#cbd5e1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+                <path d="M9.5 12l1.8 1.8 3.2-3.6" />
+              </svg>
+              <span class="text-[12.5px] font-medium text-text-muted leading-snug">Certificate 03</span>
+              <span class="text-[11px] text-text-muted/70">Add image</span>
+            </div>
+          </div>
+          <div class="cert-slot">
+            <div class="aspect-[4/3] rounded-xl border border-dashed border-[#d1d5db] bg-[#f9fafb] flex flex-col items-center justify-center gap-2 p-3 text-center">
+              <svg class="w-8 h-8 text-[#cbd5e1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+                <path d="M9.5 12l1.8 1.8 3.2-3.6" />
+              </svg>
+              <span class="text-[12.5px] font-medium text-text-muted leading-snug">Certificate 04</span>
+              <span class="text-[11px] text-text-muted/70">Add image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 rounded-2xl border border-border-light bg-[#fafbfc] p-6 lg:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <p class="text-text-mid text-[clamp(13.5px,1.05vw,15.5px)] leading-relaxed mb-5 lg:mb-0 lg:max-w-[64ch]">Want a network that runs cooler, trips less often and stays inside specification? Send us your load details and our engineers will propose a configuration and quote it against your actual requirements — not a catalogue guess.</p>
+        <a href={lp('/contact')} class="shrink-0 inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-7 py-2.5 text-[clamp(14px,1.1vw,16px)] transition-colors whitespace-nowrap">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 FAQ -->
+  <section id="faq" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-left">FAQs About the SiC Ultra AHF</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl border border-border-light p-5" open>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q1: What is a SiC MOSFET active harmonic filter?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">A SiC active harmonic filter replaces the conventional silicon IGBT bridge with silicon-carbide power devices. SiC switches faster with lower loss, so the filter achieves higher efficiency, higher power density and lower heat rejection while still cancelling harmonics in real time and holding THDi below 5%.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-border-light p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q2: Why choose silicon carbide instead of IGBT?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">SiC MOSFETs tolerate higher switching frequencies (up to 40 kHz), which shrinks the magnetics, raises efficiency to 98% or more and reduces thermal loss by roughly a third — a smaller cabinet for the same capacity, less cooling and longer device life.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-border-light p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q3: How does the Ultra AHF work?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">An external CT samples the load current; a DSP/FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance; the SiC bridge then injects an equal and opposite-phase compensation current so the utility sees only the fundamental.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-border-light p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q4: What capacity and voltage range is available?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">208–690V, 3P3W/3P4W, 50A to 200A per module. Modules parallel without a practical limit to reach 3000 A and beyond for large plants.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-border-light p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q5: Can it correct power factor and balance loads too?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Yes. A selectable priority function covers harmonic mitigation, reactive compensation and three-phase balancing. In 3P4W mode it also cancels the accumulated 3rd-harmonic neutral current.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-border-light p-5">
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,17px)]">Q6: How do I confirm the right model for my site?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Send us the load's harmonic spectrum, voltage class and installed nonlinear capacity. CHITEK supplies a selection matrix by voltage class, series and capacity, plus a sizing calculation on request.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Related products: 4-up carousel, arrows flanking, 6s autoplay -->
+  <section class="bg-[#fafbfc] py-[clamp(40px,4vw,72px)]">
+    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+      <h2 class="text-[clamp(20px,2vw,30px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Related Products</h2>
+      <div class="flex items-center gap-3">
+        <button type="button" data-rel-prev aria-label="Previous products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div data-rel-viewport class="overflow-hidden flex-1 min-w-0">
+          <div data-rel-track class="flex gap-10 transition-transform duration-500 ease-out">
+          <a href={lp('/products/sic-ultra-ahf')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Anti-Pollution Active Harmonic Filter AHF</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Ultra-slim Active Harmonic Filter AHF</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-distributed.webp" alt="Distributed Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Distributed Active Harmonic Filter AHF</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-rack-mounted.webp" alt="Rack mounted Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Rack mounted Active Harmonic Filter</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 Active Harmonic Filter</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
+            </div>
+          </a>
+          <a href={lp('/products')} class="rel-card group shrink-0 w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-advanced.webp" alt="Advanced Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <div class="p-5">
+              <h3 class="text-[clamp(15px,1.1vw,18px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Advanced Active Harmonic Filter</h3>
+            </div>
+          </a>
+          </div>
+        </div>
+        <button type="button" data-rel-next aria-label="Next products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+    </div>
+  </div>
+
+  <!-- PAGE GUIDE scroll spy: highlight the sidebar item of the section you are reading -->
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.js-secnav'));
+      if (!links.length) return;
+
+      // 从 DOM 顺序建立「链接 ↔ 分节」配对，缺元素的直接跳过
+      var pairs = [];
+      links.forEach(function (a) {
+        var id = (a.getAttribute('href') || '').slice(1);
+        var el = id ? document.getElementById(id) : null;
+        if (el) pairs.push({ link: a, el: el });
+      });
+      if (!pairs.length) return;
+
+      var NAV_H = 72;   // 固定顶栏高度
+      var BUFFER = 120; // 判定线再往下留一点，避免刚好压线时来回跳
+      var current = null;
+      var ticking = false;
+
+      function pick() {
+        // 判定线以下的第一个分节不算；取「顶部已越过判定线」的最后一个分节
+        var best = null;
+        for (var i = 0; i < pairs.length; i++) {
+          if (pairs[i].el.getBoundingClientRect().top - (NAV_H + BUFFER) <= 0) best = pairs[i];
+          else break;
+        }
+        // 滚到页面底部时强制选中最后一节（末节常常永远到不了判定线）
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+          best = pairs[pairs.length - 1];
+        }
+        return best;
+      }
+
+      function render() {
+        var best = pick();
+        if (best === current) return;
+        current = best;
+        pairs.forEach(function (p) { p.link.classList.toggle('is-active', p === best); });
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; render(); });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      render();
+    })();
+  </script>
+
+  <style>
+    /* 当前所在分节对应的侧栏条目高亮（scoped，特异性高于 Tailwind 单类工具）
+       用 :global 是因为 JS 是运行时加类，Astro 的编译期作用域也能匹配到，
+       但显式写 :global 可避免将来把这段样式搬到别处时失效。 */
+    :global(.js-secnav.is-active) {
+      color: var(--color-brand-orange, #ff6b1a);
+      border-left-color: var(--color-brand-orange, #ff6b1a);
+      background-color: rgba(255, 107, 26, 0.08);
+      font-weight: 600;
+    }
+    /* Product gallery: active thumbnail ring (runtime class -> :global) */
+    :global(.gallery-thumb) { cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+    :global(.gallery-thumb.is-active) {
+      border-color: var(--color-brand-orange, #ff6b1a);
+      box-shadow: 0 0 0 2px var(--color-brand-orange, #ff6b1a);
+    }
+    /* Related products carousel: autoplay wraps around, so arrows stay usable at both ends */
+  </style>
+  <!-- Configurator summary: SKU line auto-fill -->
+  <script is:inline>
+    (function () {
+      var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-inquiry-summary]'));
+      if (!boxes.length) return;
+      var inputs = document.querySelectorAll('input[type="checkbox"][data-group]');
+      // placeholder specs keyed by current rating (depth mm, weight kg); W x H fixed 500 x 550
+      var SPECS = {
+        '50A':  { d: 150, kg: 21 },
+        '75A':  { d: 142, kg: 24 },
+        '100A': { d: 135, kg: 27 },
+        '150A': { d: 100, kg: 31 },
+        '200A': { d: 118, kg: 38 }
+      };
+      var DEF = { v: '400V', a: '100A', i: 'Rack' };
+      function pick(g) {
+        var vals = [];
+        inputs.forEach(function (inp) {
+          if (inp.getAttribute('data-group') === g && inp.checked) vals.push(inp.getAttribute('data-val'));
+        });
+        return vals;
+      }
+      function build() {
+        var v = pick('v')[0] || DEF.v;
+        var a = pick('a')[0] || DEF.a;
+        var i = pick('i')[0] || DEF.i;
+        var spec = SPECS[a] || { d: 135, kg: 27 };
+        var sku = 'SKU: CHITEK-SiC-AHF-' + a + '-' + v + '-' + i + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg · 1300$(EXW)';
+        boxes.forEach(function (b) { b.value = sku; });
+      }
+      inputs.forEach(function (inp) { inp.addEventListener('change', build); });
+      build();
+      // Pre-fill the lead form's message field with the SKU line so the sales team
+      // receives the exact configuration the visitor selected.
+      var msg = document.querySelector('form[data-lead-form] [name="message"]');
+      if (msg) {
+        boxes.forEach(function (b) {
+          b.addEventListener('change', function () { /* value already synced by build() */ });
+        });
+        var origBuild = build;
+        build = function () {
+          origBuild();
+          msg.value = document.querySelector('[data-inquiry-summary]').value;
+        };
+        var boxesNow = document.querySelectorAll('[data-inquiry-summary]');
+        if (boxesNow.length) msg.value = boxesNow[0].value;
+      }
+      var dl = document.querySelector('[data-download-config]');
+      if (dl) {
+        dl.addEventListener('click', function () {
+          var t = document.querySelector('[data-inquiry-summary]');
+          var blob = new Blob([t ? t.value : ''], { type: 'text/plain;charset=utf-8' });
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'CHITEK-SiC-AHF-configuration.txt';
+          document.body.appendChild(a); a.click(); document.body.removeChild(a);
+          URL.revokeObjectURL(a.href);
+        });
+      }
+    })();
+  </script>
+
+  <!-- Quote form: analytics.js calls form.reset() on success, which would blank the
+       read-only SKU textarea. Keep re-filling it briefly so the visitor can still see
+       the configuration they just requested. Attached before analytics.js binds. -->
+  <script is:inline>
+    (function () {
+      var form = document.querySelector('form[name="quote"]');
+      var ta = form && form.querySelector('[name="message"]');
+      if (!form || !ta) return;
+      form.addEventListener('submit', function () {
+        var snapshot = ta.value;
+        if (!snapshot) return;
+        // form.reset() only runs after the POST resolves, so poll for a moment
+        // rather than trusting a single 0ms timer.
+        var tries = 0;
+        var iv = setInterval(function () {
+          if (ta.value !== snapshot) ta.value = snapshot;
+          if (++tries > 100) clearInterval(iv);   // 最多约 10 秒
+        }, 100);
+      });
+    })();
+  </script>
+
+  <!-- Product gallery: thumbnail click swaps the main image -->
+  <script is:inline>
+    (function () {
+      var main = document.querySelector('[data-gallery-main]');
+      var thumbs = Array.prototype.slice.call(document.querySelectorAll('[data-gallery-thumb]'));
+      if (!main || !thumbs.length) return;
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          main.src = t.getAttribute('data-src');
+          main.alt = t.getAttribute('data-alt') || main.alt;
+          thumbs.forEach(function (o) { o.classList.toggle('is-active', o === t); });
+        });
+      });
+    })();
+  </script>
+
+  <!-- Related products: 4-up carousel (9 slides = the same 9 products as the /products grid) -->
+  <script is:inline>
+    (function () {
+      var track = document.querySelector('[data-rel-track]');
+      var vp = document.querySelector('[data-rel-viewport]');
+      var prev = document.querySelector('[data-rel-prev]');
+      var next = document.querySelector('[data-rel-next]');
+      if (!track || !vp || !prev || !next) return;
+      var cards = Array.prototype.slice.call(track.querySelectorAll('.rel-card'));
+      var VISIBLE = 4;
+      var i = 0;
+      var max = Math.max(0, cards.length - VISIBLE);
+
+      function step() {
+        if (cards.length < 2) return cards[0].getBoundingClientRect().width;
+        return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+      }
+      function go() {
+        track.style.transform = 'translateX(' + (-i * step()) + 'px)';
+        prev.disabled = i === 0;
+        next.disabled = i >= max;
+      }
+      function sync() {
+        if (i > max) i = max;
+        go();
+      }
+      prev.addEventListener('click', function () { if (i > 0) { i--; go(); } restart(); });
+      next.addEventListener('click', function () { if (i < max) { i++; go(); } restart(); });
+
+      // drag / swipe
+      var x0 = null;
+      vp.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+      window.addEventListener('pointerup', function (e) {
+        if (x0 === null) return;
+        var dx = e.clientX - x0; x0 = null;
+        if (dx < -40 && i < max) { i++; go(); }
+        else if (dx > 40 && i > 0) { i--; go(); }
+        else return;
+        restart();
+      });
+
+      // ---- autoplay: advance every 6s, loop back to the start ----
+      var DELAY = 6000;
+      var timer = null;
+      var paused = false;
+      function tick() {
+        if (paused) return;
+        i = (i >= max) ? 0 : i + 1;   // wrap around to the first slide
+        go();
+      }
+      function restart() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(tick, DELAY);
+      }
+      // pause while the pointer is over the carousel or a slide has focus
+      var root = vp.parentNode;
+      root.addEventListener('mouseenter', function () { paused = true; });
+      root.addEventListener('mouseleave', function () { paused = false; });
+      root.addEventListener('focusin', function () { paused = true; });
+      root.addEventListener('focusout', function () { paused = false; });
+      // pause when scrolled out of view so we do not animate off-screen
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          paused = !entries[0].isIntersecting;
+        }, { threshold: 0.15 }).observe(vp);
+      } else {
+        // fallback: pause when the document is hidden
+        document.addEventListener('visibilitychange', function () {
+          paused = document.hidden;
+        });
+      }
+
+      window.addEventListener('resize', sync);
+      sync();
+      restart();
+    })();
+  </script>
+
+</BaseLayout>

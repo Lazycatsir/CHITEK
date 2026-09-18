@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>竞品分析攻略记录 — CHITEK 电能质量（AHF / SVG）</title>
+<style>
+  body{font-family:-apple-system,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;color:#1a1a1a;background:#fff;max-width:980px;margin:0 auto;padding:28px 20px 90px;line-height:1.8;font-size:15.5px;}
+  h1{font-size:24px;margin:0 0 6px;letter-spacing:.3px;}
+  .sub{color:#555;font-size:13.5px;margin:0 0 4px;}
+  h2{font-size:19px;margin:42px 0 10px;padding-bottom:6px;border-bottom:2px solid #0b4a7f;}
+  h3{font-size:16px;margin:22px 0 6px;color:#0b4a7f;}
+  p{margin:9px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13.8px;}
+  th,td{border:1px solid #cfcfcf;padding:7px 9px;vertical-align:top;text-align:left;}
+  th{background:#f1f1f1;font-weight:600;}
+  td.k{background:#fafafa;white-space:nowrap;font-weight:600;}
+  code{background:#f4f4f4;padding:1px 4px;font-size:12.5px;font-family:Consolas,monospace;}
+  .note{border-left:3px solid #0b4a7f;padding:8px 0 8px 12px;margin:14px 0;color:#333;background:#fafafa;}
+  .warn{border-left:3px solid #a33;padding:8px 0 8px 12px;margin:14px 0;color:#333;background:#fafafa;}
+  .nail{background:#fff7e6;border-left:3px solid #c97;padding:8px 0 8px 12px;margin:14px 0;color:#333;}
+  .cta{font-weight:600;color:#0b4a7f;}
+  hr{border:0;border-top:1px solid #e2e2e2;margin:34px 0;}
+  .check{list-style:none;padding-left:0;}
+  .check li{padding:4px 0 4px 26px;position:relative;}
+  .check li:before{content:"☐";position:absolute;left:0;color:#0b4a7f;font-weight:700;}
+  @media print{body{max-width:none;font-size:11.5pt;padding:0;}h2{page-break-after:avoid;}table{page-break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<h1>竞品分析攻略记录</h1>
+<p class="sub">用 4 步把对手看明白，并落到下周动作 ｜ 基于「看对手怎么赢」4 支柱框架，针对 CHITEK 电能质量（AHF / SVG）改写的可执行版</p>
+<p class="sub">版本 v1.0 ｜ 2026-09-16 ｜ 配合《竞品分析拓展手册》当词典用：本篇只讲「怎么跑」，不重复名词解释</p>
+
+<h2>0 · 这篇记录是干什么的</h2>
+<p>一句话：把一张「看对手怎么赢」的方法论图，变成我们电能质量行业里<strong>真正能跑一遍</strong>的动作。那张图本身是消费品牌 / DTC 电商的语言，套到工业设备上要改三处——漏斗、转化机制、复购逻辑（见第 1 节）。下面四步是改完之后能直接照着做的版本。</p>
+<p>用法：先选 5 个竞品，用《一页纸模板》每个填一张，再用本篇的「收口」只产出 3 个判断。不要再产出一份「竞品分析报告」，报告没人看。</p>
+
+<h2>1 · 为什么不能直接用原图（3 个失灵点，用类比讲）</h2>
+
+<h3>失灵点 1 · 漏斗：客户不是「刷到就买」</h3>
+<p>原图以为客户是<strong>刷到 → 点击 → 下单</strong>，像在电商买件衣服。实际 AHF / SVG 像<strong>装修一栋楼</strong>：要找设计院画进图、找盘柜厂接进去、找采购谈价、找业主拍板，<strong>1–6 个月才签约</strong>，中间任何一环都能否决你。所以漏斗是：</p>
+<p class="cta">触达 → 询盘 → 有效询盘 → 技术方案 → 报价 → 验厂 / 打样 → 签约 → 复购（多站点）</p>
+
+<h3>失灵点 2 · 转化：没人因为「满减」签一台滤波器</h3>
+<p>原图靠折扣、满减、bundle、赠品、订阅。工业品里这些基本是空的。客户真正反复问的是四件事：<strong>参数对得上吗、认证进得去吗、有人用过吗、交期和售后你敢写进合同吗</strong>。价格只是筛子，不是钩子。</p>
+
+<h3>失灵点 3 · 复购：设备十年不坏，没有耗材</h3>
+<p>原图靠耗材、会员、订阅。AHF / SVG 寿命 10 年以上、几乎无耗材、没有「每月续费」。真实的复购来自四个方向：<strong>同一个客户的第二个厂区、同一站点的容量扩容、SiC 换代升级、经销商与盘柜厂的下一次进货</strong>。</p>
+
+<div class="nail">
+<strong>数字钉子（记下来，对外不讲、对内当标尺）：</strong>
+有源滤波器在滤波器品类里已占 <strong>38%</strong>（2026）；低压段占 <strong>66%</strong>；<strong>50–200 A 容量段占 39%</strong>——这是我们和对手贴身肉搏的主战场。谁在主战场没站住，就不算正面竞品。
+</div>
+
+<h2>2 · 总览：4 步跑完一次竞品分析</h2>
+<table>
+  <tr><th style="width:70px">步骤</th><th style="width:170px">它在回答什么</th><th style="width:230px">跑完留下什么</th><th style="width:90px">耗时</th></tr>
+  <tr><td class="k">第 1 步<br>市场位置</td><td>它是谁、站在哪</td><td>一张定位小结（阵营 / 容量段 / 认证 / 买方 / 阶段）</td><td>0.5 天</td></tr>
+  <tr><td class="k">第 2 步<br>增长来源</td><td>它靠什么把盘子做大</td><td>增长引擎判断（主 + 次 + 是否靠资本）</td><td>0.5 天</td></tr>
+  <tr><td class="k">第 3 步<br>成交放大</td><td>它怎么把流量变订单</td><td>成交链路 + 钩子类型 + 信任补丁</td><td>1 天</td></tr>
+  <tr><td class="k">第 4 步<br>优势持续性</td><td>它为什么还能赢</td><td>真 / 半 / 表 / 伪 壁垒清单</td><td>0.5 天</td></tr>
+  <tr><td class="k">收口</td><td>我们该怎么做</td><td>3 个判断 + 本周动作（一句话决策）</td><td>0.5 天</td></tr>
+</table>
+<p>合计约 <strong>3 个工作日 / 5 个竞品</strong>。不要一次填 20 个，填 5 个就够定位。</p>
+
+<h2>第 1 步 · 市场位置：它在哪</h2>
+<p><strong>做什么：</strong>把它的「基本身份」填进一页纸——阵营（出海同价位段 / 国际平台商 / AHF 专家 / 器件组件系）、主 SKU 容量段、认证清单、主攻买方（EPC / 盘柜厂 / 终端工厂 / OEM）、品牌阶段。</p>
+<p><strong>怎么判断强 / 弱</strong>（看三个信号）：</p>
+<ul>
+  <li>官网每个系列有独立 URL + 独立参数表 + 可下载 datasheet = 强；全挤一页、参数用图片 = 弱；</li>
+  <li>认证 PDF 可下载、编号可在 UL Product iQ / TÜV 查 = 强；只写「CE certified」四个字 = 弱；</li>
+  <li>案例带行业 + 规模 + 治理前后 THD 数据 + 照片 = 强；「某工业客户」、无图 = 弱。</li>
+</ul>
+<div class="nail"><strong>数字钉子：</strong>低压 50–200 A 占 39%。先看它的主 SKU 是不是压在这个段——压在段里才算正面对手，压在别处可以错位共存。</div>
+<p class="cta">一句自检：它的主容量段和认证，覆盖我们要打的标段吗？</p>
+
+<h2>第 2 步 · 增长来源：它靠什么长大</h2>
+<p><strong>做什么：</strong>判断它靠哪个引擎长大。原图让你数它做了哪些渠道，更重要的是判「<strong>靠什么</strong>」——是被真需求拉起来的，还是被投放砸出来的。</p>
+<h3>六个引擎（看它落在哪个）</h3>
+<table>
+  <tr><th style="width:170px">引擎</th><th style="width:330px">怎么认</th><th>持续性</th></tr>
+  <tr><td class="k">① SEO / 内容拉动</td><td>50+ 技术长文 + 行业分站 + 选型计算器</td><td>最耐久，停投也不归零</td></tr>
+  <tr><td class="k">② 付费投放推动</td><td>Google / LinkedIn 广告位、B2B 平台最高等级会员</td><td>停投即停，看承接页</td></tr>
+  <tr><td class="k">③ 展会与地面</td><td>一年几场、展位面积、是否本地展</td><td>工业主渠道，强但地域性</td></tr>
+  <tr><td class="k">④ 渠道网络</td><td>代理区域 + 报备保护 + 本地库存</td><td>慢但质量高</td></tr>
+  <tr><td class="k">⑤ 贴牌 / 代工拉动</td><td>为其他品牌代工、白标政策</td><td>量大利薄，不可学</td></tr>
+  <tr><td class="k">⑥ 融资 / 补贴驱动</td><td>近期融资、产能扩张公告</td><td>现金来自资本 → 敢打价格战</td></tr>
+</table>
+<p><strong>怎么判断：</strong>看它的落地页能不能承接——有独立产品页 + 询盘表单 = 有资产；只有平台店铺、没有官网产品页 = 靠买流量。看内容资产——有分行业长文 + 工具页，说明增长停不下来。</p>
+<p class="cta">一句自检：它的产品页，能让客户拿着去报价吗？能 = 强；不能 = 我们的口子。</p>
+
+<h2>第 3 步 · 成交放大：它怎么把流量变订单（最值钱的一步）</h2>
+<p><strong>做什么：</strong>拆它的「看到广告 → 签约」全链路。原图的六步信息顺序可以直接用，只是把最后一步换掉：</p>
+<p class="cta">是什么 → 谁适合 → 为什么需要 → 为什么值得买 → 为什么信它 → 为什么现在买</p>
+<p>工业品把「为什么现在买」换成：<strong>交期承诺 + 项目报备保护 + 首台样机政策 + 电价 / 罚款压力</strong>（这一项最常被漏掉，但工业品也怕「再等等」）。</p>
+
+<h3>钩子只有三类，多了全是废话</h3>
+<table>
+  <tr><th style="width:90px">类型</th><th style="width:430px">能用什么（必须带可验证证据）</th><th>反面教材</th></tr>
+  <tr><td class="k">① 数字</td><td>响应 &lt;50 µs、效率 &gt;99%、可治理到 50 次谐波、THDi 从 28% 降到 4.6%</td><td>「高效、智能、环保」——等于没说</td></tr>
+  <tr><td class="k">② 权威</td><td>IEC 62477 / UL / 国网入围 / 第三方型式试验报告</td><td>「行业领先」——谁都这么写</td></tr>
+  <tr><td class="k">③ 场景</td><td>数据中心 UPS 并机环流、光刻机 5 ms 电压容忍、光伏电站无功</td><td>「广泛应用于各行业」——等于没指任何行业</td></tr>
+</table>
+
+<div class="nail">
+<strong>可直接背的数字话术：</strong>
+<ul>
+  <li>别写「高效」——写「THDi 从 28% 降到 4.6%，满足 IEEE 519 限值」；</li>
+  <li>别写「响应快」——写「响应 &lt;50 µs，比电网扰动快一个数量级」；</li>
+  <li>别写「可靠」——写「IEC 62477 认证，证书编号可查」。把形容词换成带单位的数字，客户才信。</li>
+</ul>
+</div>
+
+<p><strong>信任补丁（工业品最强的一道）：</strong>质保几年、响应几小时到场、第三方检测报告、带前后数据的案例——这些必须写成<strong>具体数字</strong>，写进页面也写进合同。写「我们服务很好」不如写「备件 24 小时到场」。</p>
+<p class="cta">一句自检：它的询盘表单筛客户吗？（只有姓名 + 邮箱的，一半是垃圾询盘）</p>
+
+<h2>第 4 步 · 优势持续性：它能守多久</h2>
+<p><strong>做什么：</strong>把它的每个优势往四类壁垒里塞，看落在哪一档。这一步专门用来防止把「看起来强」误判成「攻不动」。</p>
+<table>
+  <tr><th style="width:110px">档位</th><th style="width:430px">AHF / SVG 行业里的具体条目</th><th>会不会被轻易复制</th></tr>
+  <tr><td class="k">真壁垒</td><td>SiC 器件与驱动、谐波提取 / 并机均流算法、认证与准入（UL / 国网入围）、自有产线、长期运行数据</td><td>需时间 + 钱 + 人，按「季」计</td></tr>
+  <tr><td class="k">半壁垒</td><td>认证齐全度、案例数量、区域服务网点、经销商关系</td><td>要花 1–2 年</td></tr>
+  <tr><td class="k">表面壁垒</td><td>好看的渲染图、齐全目录册、标准报价模板、展位装修</td><td>一季内可平替</td></tr>
+  <tr><td class="k">伪壁垒</td><td>融资额、广告量、流量、社媒粉丝、销售人数、注册资本</td><td>和「客户为什么买你」无关</td></tr>
+</table>
+<div class="nail">
+<strong>数字钉子（用来拆伪壁垒的话术）：</strong>MTE 已公开 SyntriX AHF 的 <strong>&gt;99% 效率、&lt;50 µs 响应</strong>——这就是真壁垒的「刻度」。任何对手说「高效」时，拿这个对标；说不出具体数字的，大概率是表面壁垒。
+</div>
+<p class="cta">一句自检：它真正守得住的优势，只有一条吗？写不出一条，说明它没真壁垒——那它就是能被切进去的口子。</p>
+
+<h2>收口 · 只产出 3 个判断</h2>
+<p>竞品分析终点不是报告，是三个判断，<strong>每个必须带一条本周动作</strong>，否则判断停在口号层。</p>
+<table>
+  <tr><th style="width:150px">判断</th><th style="width:330px">必须写成的格式</th><th>本周动作</th></tr>
+  <tr><td class="k">① 它从哪赢</td><td>它靠 ____（引擎 / 壁垒 / 动作），所以拿下了 ____（客户 / 标段）</td><td>挑一条机制，评估 30 天内能否做最小版本</td></tr>
+  <tr><td class="k">② 它从哪可能输</td><td>它在 ____ 上缺（证据：____），遇到 ____ 客户会丢单</td><td>写成销售能背的一句话，真实比稿试一次</td></tr>
+  <tr><td class="k">③ 我们该从哪切</td><td>我们从 ____ 切，先在 ____（页面 / 物料 / 渠道）落地</td><td>排进本周排期，不排期等于没做</td></tr>
+</table>
+
+<h2>落到独立站：4 主线对应动作</h2>
+<p>三个判断不能停在 PPT 上，要接进现有的《独立站运营计划》4 条主线：</p>
+<table>
+  <tr><th style="width:200px">判断产出</th><th style="width:150px">对应主线</th><th>动作</th></tr>
+  <tr><td class="k">广告钩子</td><td>产品页塑造</td><td>首屏形容词换具体数字 / 认证名</td></tr>
+  <tr><td class="k">六步信息顺序</td><td>产品页塑造</td><td>逐页核对 8 个产品页，缺步补步（最低成本改造）</td></tr>
+  <tr><td class="k">容量段 / 关键词</td><td>关键词矩阵</td><td>补竞品覆盖、我未覆盖的容量段词与行业词</td></tr>
+  <tr><td class="k">它靠什么增长</td><td>网站结构</td><td>它靠行业页我们就优先建行业页；靠工具页就优先做选型计算器</td></tr>
+  <tr><td class="k">信任补丁</td><td>产品页塑造</td><td>认证 PDF + 质保 / 响应数字上页面；无真文件先用「Send me the spec」</td></tr>
+  <tr><td class="k">薄弱环节（切口）</td><td>内容 / 结构</td><td>针对它做一页可搜内容或一个行业页</td></tr>
+  <tr><td class="k">询盘筛选</td><td>数据周报</td><td>表单加 4 字段，看有效询盘率而非总询盘</td></tr>
+  <tr><td class="k">复购路径</td><td>销售</td><td>表单加固定字段「客户同时在比哪几家」——三个月后你就有比任何报告都准的名单</td></tr>
+</table>
+
+<h2>红线（极简 5 条）</h2>
+<ul>
+  <li><strong>不编数据：</strong>第三方估算只作内部判断，不得对外当事实陈述；</li>
+  <li><strong>不抄原文：</strong>不复制竞品官网文案、图片、datasheet；</li>
+  <li><strong>报价只作内部参考：</strong>渠道问到的价格、返点、报备政策不进任何对外物料；</li>
+  <li><strong>不承诺效果、不编案例：</strong>未授权不写客户名，不说未经证实的收益数字；</li>
+  <li><strong>写「待核实」比写错好：</strong>填不出的字段一律写「待核实」。</li>
+</ul>
+
+<h2>自检清单（跑完心里有数）</h2>
+<ul class="check">
+  <li>它的主容量段是 50–200 A 吗？</li>
+  <li>它的认证覆盖我们要进的市场吗？</li>
+  <li>它的产品页能让客户拿着去报价吗？</li>
+  <li>它有独立产品页 + 询盘表单吗（还是只靠平台店）？</li>
+  <li>它的钩子是数字 / 权威 / 场景里的哪一类？</li>
+  <li>它的案例带治理前后 THD 数据吗？</li>
+  <li>它的询盘表单筛客户吗？</li>
+  <li>它的复购从哪来——多站点、扩容、还是换代？</li>
+  <li>它真正守得住的优势只有一条吗？</li>
+  <li>它交付后有质保和响应时间写进合同吗？</li>
+</ul>
+
+<hr>
+<p class="sub"><strong>数据来源：</strong>本文涉及的行业数值（38% / 66% / 39%、MTE SyntriX 参数、各厂商份额）来自 2026-09 检索的第三方研究报告与厂商公开资料，<strong>未经我方实测，仅作内部判断与话术标尺，不得对外作为事实引用</strong>。完整口径与候选名单见《竞品分析拓展手册》。</p>
+
+</body>
+</html>

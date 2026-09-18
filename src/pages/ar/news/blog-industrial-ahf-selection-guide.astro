@@ -41,7 +41,7 @@ const relatedCases = [
 
 const lp = (p: string) => p;
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="ar"
@@ -49,6 +49,7 @@ const lp = (p: string) => p;
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
   <script type="application/ld+json" slot="head">

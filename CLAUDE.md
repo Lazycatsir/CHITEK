@@ -9,6 +9,20 @@ B2B 工业网站，目标：将访问者转化为询盘。已迁移到 Astro 静
 - **部署目标**：Netlify
 - **当前语言**：中文（默认）+ 英文/西语/阿语/葡语（多语言已配置）
 
+## 文档地图（本仓库的说明文件都在哪）
+
+> 根目录**只有** `README.md` + `CLAUDE.md` 两个说明文件；`.claude/worktrees/` 下的副本已于 2026-09-18 清空，别再找。
+
+| 文件 | 管什么 | 谁维护 |
+|------|--------|--------|
+| `README.md` | 项目首页 + 快速开始 + 本文档地图 | 人工 |
+| `CLAUDE.md`（本文件） | AI 助手工作规范：技术栈 / 路由 / 编码 / CSS 令牌 / 构建坑 | 人工 |
+| `docs/NEWS_PIPELINE.md` | **新闻发布全流程** + 15 条踩坑表（原 `README.md` 正文） | 人工 |
+| `docs/交接文档/` | 环境准备 / 首次启动 / 日常任务 / 工具清单 | 人工 |
+| `.workbuddy/memory/` | `MEMORY.md`（长期有效事实）+ `PRODUCT_PAGE_SPEC.md` / `NEWS_SPEC.md` / `SEO_SPEC.md`（专题规范）+ `YYYY-MM-DD.md`（每日施工日志） | AI 助手 |
+| `docs/_ref/` | 历史备份，**不要**当页面源（会被 Astro 当路由） | AI 助手 |
+| 兄弟仓库 `F:\下载\web-crawler` | 百家号 / LinkedIn 原始稿 + 内容外联（**不在本仓库内**） | 人工 |
+
 ## 目录结构
 
 ```
@@ -47,7 +61,9 @@ CHITEK/
 ├── netlify.toml                   # 部署配置 + 重定向规则
 ├── package.json
 ├── .gitignore
-└── CLAUDE.md
+├── README.md                      # 项目首页 + 文档地图
+├── CLAUDE.md                      # 本文件：AI 工作规范
+└── docs/                          # 新闻流水线 / 交接文档 / 历史备份
 ```
 
 ## 多语言路由
@@ -180,20 +196,35 @@ npm run preview # astro preview（预览生产构建）
 ## 新闻系统（News）
 
 ### 文章总数
-- zh(中文): 20 篇（含测试新增 `blog-ahf-water-treatment-plants`）
-- en(英文): 20 篇
-- es(西语): 20 篇
-- ar(阿语): 20 篇
-- pt(葡语): **无新闻页面**，导航和页脚隐藏新闻入口
+- zh / en / es / ar 各 **30 篇**，四语 slug 完全一致
+- pt(葡语)：**无新闻页面**，导航、页脚、语言切换器均不出现新闻入口
 
-### 发布流水线（完整流程 → 见 `README.md`）
+### 发布流水线（完整流程 → 见 `docs/NEWS_PIPELINE.md`）
 
 ```
-百家号 .txt ──→ zh .astro ──→ en/es/ar 翻译同步
-LinkedIn .md ──→ en .astro ──→ es/ar 翻译同步
-                                  ↓
-                         4 语列表页手工插卡片(硬编码 HTML)
+百家号 .txt ──→ zh .astro ──┐
+LinkedIn .md ──→ en .astro ─┼─→ 翻译同步（同 slug 共 4 份）
+                            ▼
+                  npm run news:sync     ← 只跑这一条
+                            ▼
+                  列表页 + 分页页自动成型
 ```
+
+### ⚠️ 列表页已是数据驱动（2026-09-18 起，旧的硬编码插卡片流程作废）
+
+| 层 | 文件 | 谁维护 |
+|----|------|--------|
+| 数据源 | 每篇文章 frontmatter 的 `article` 对象 | 人工 |
+| 卡片数据 | `src/data/{zh,en,es,ar}NewsCards.js` | `npm run news:sync` 生成，**勿手改** |
+| 页面模板 | `{lang}/news.astro` + `news/page_[page].astro` | `npm run news:gen` 生成，新增文章时**不需要**动 |
+| 组件 | `src/components/news/NewsCard.astro`、`NewsPager.astro` | 一般不动 |
+
+**新增一篇文章 =**
+1. 放 4 份同 slug 的 `.astro`（zh/en/es/ar 各一）
+2. `npm run news:sync`（= `python _extract_all_news.py`）
+3. `npm run news:check`（离线 81 项）；dev 起了就加 `-- --http http://localhost:4321`（157 项）
+
+**不需要**：手改列表页 / 手插卡片 / 比对日期降序 / 改分页 / 加 page_N。
 
 ### 输入源
 - **百家号 .txt**：`web-crawler/outreach/templates/百家号文章/`，纯文本，首行"标题: XXX"，产出中文站
@@ -201,8 +232,10 @@ LinkedIn .md ──→ en .astro ──→ es/ar 翻译同步
 
 ### 生成 .astro 文件必需字段
 
-**frontmatter (`article = { ... }` 对象)：**
-- `title` / `category` / `date`(ISO yyyy-mm-dd) / `dateDisplay`(本地化) / `author` / `readTime` / `description`(SEO ~120字) / `keywords`(数组)
+**frontmatter (`article = { ... }` 对象) —— 以下 5 个字段缺一不可（列表页卡片要用）：**
+- `title`、`category`、`date`(ISO yyyy-mm-dd)、`dateDisplay`(本地化)、`description`(SEO ~120字)
+
+**其余：** `author` / `readTime` / `keywords`(数组)
 
 **Sidebar 数据：** `otherArticles`(3篇)、`relatedProducts`(3个)、`relatedCases`(3个)，需同步翻译
 
@@ -210,67 +243,40 @@ LinkedIn .md ──→ en .astro ──→ es/ar 翻译同步
 
 **ogImage：** `https://chitek-inno.com/assets/images/index-product-{ahf,svg}.webp` 或 `blog/sic-ahf-launch.webp`
 
-### 详情页结构（参照 `conformal-coating-ahf-reliability.astro`）
+### 详情页结构（参照 `en/news/conformal-coating-ahf-reliability.astro`）
 1. `BaseLayout` + JSON-LD (slot="head") + `<Sidebar lang="X" />`（自闭合组件）
 2. Hero section：深色背景 `pt-[72px] bg-bg-dark` → 回链"Back to News" → 分类标签+日期+阅读时间 → 标题(`font-barlow-condensed`)
 3. Content section：白色背景 `py-12 md:py-16` → flex 布局 → 左侧 `article`：
    - Featured image：`h-64 md:h-96`，`/assets/images/news/news-img-N.webp`
    - 正文包在 `<div class="prose prose-lg max-w-none">` 内
+   - **SEO Keywords 标签区**：正文与 Author 之间，`article.keywords.map()`
 4. 右侧 `<aside>` inline sidebar：More Articles / Related Products / Customer Cases
 
-### 列表页更新 —— 最关键步骤
-
-**⚠️ 4 个列表文件是硬编码 HTML**，非 `Astro.glob()` 动态生成：
-
-| 语言 | 文件 |
-|------|------|
-| zh | `src/pages/news.astro` |
-| en | `src/pages/en/news.astro` |
-| es | `src/pages/es/news/index.astro` |
-| ar | `src/pages/ar/news/index.astro` |
-
-**卡片规则：**
-- `<img src="/assets/images/news/news-img-N.webp">` — 必须用真实图片，禁止 SVG 渐变装饰
-- 分类标签 CSS：`text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full`
-- 日期：`text-xs text-text-muted`
-- Read More：`inline-flex items-center text-brand-orange text-sm font-semibold`
-- 箭头 SVG：`path d="M5 12h14M12 5l7 7-7 7"`，`ml-1`
-- **日期严格降序**，新卡片必须按实际日期找到正确插入位置
-
-**分页结构（满 8 张后出现）：**
-`<div class="flex items-center justify-center gap-2 mt-16">` + 左箭头(`M15 19l-7-7 7-7`) + 页码 + 右箭头(`M9 5l7 7-7 7`)
-
-### 多语言差异
-- zh: 裸路径 `/news/slug`，无 `lp()` 包裹
-- en: `lp('/news/slug')`——本地 dev 加 `/en/` 前缀，线上裸路径
-- es: 硬编码 `/es/news/slug`
-- ar: 硬编码 `/ar/news/slug` + `dir="rtl"`
-- pt: 跳过（无新闻页）
-
-**阅读全文文本：** en"Read More" / zh"阅读全文" / es"Leer Más" / ar"اقرأ المزيد"
+### 列表页 / 分页页结构（模板，勿手改）
+- 列表页 `alternateLangs={['zh','en','es','ar']}`（pt 无新闻，不能进 hreflang）
+- 分页页 `alternates={false}`，扁平 URL `/{lang}news/page_2/`
+- hero `min-h-[33vh] mt-[72px]`、列表区 `pt-10 md:pt-14 pb-16 md:pb-20`、无 "Latest Articles" 标题、无计数行
+- 一页 10 条；`getStaticPaths` 只能用 import 的值（`NEWS_TOTAL_PAGES`），不能用本文件 const
 
 ### 构建验证
 ```bash
-# 优先 dev server 预览
 cd F:/下载/CHITEK
 node_modules/astro/bin/astro.mjs dev --host --port 4321
-# 检查 /zh/en/es/ar/news 及各详情页是否 200
-
-# 生产构建
+npm run news:check -- --http http://localhost:4321   # 离线 + 在线
 npm run build
-# 检查 dist/ 下有对应 /news/slug/index.html + sitemap 包含新页面
+# 检查 dist/ 有 /news/<slug>/index.html，sitemap 含 page_2/page_3
 ```
 
 ### 踩坑速查
-- 卡片必须插在 `space-y-6` 内（不是 Sidebar 和 Hero 之间）
-- 卡片 href 必须引号包裹：`href="/news/slug"`（非 `href=/news/slug`）
-- `article.date` 必须 ISO，`dateDisplay` 单独保留本地化
-- 所有语言必须定义 `lp()`：en 带 dev→/en/ 逻辑，非 en 用 `const lp = (p) => p;`
-- JS 模板 `${}` 与 Python f-string 冲突 → 用 `.replace()` 避开
-- 详情页 JSON-LD 中 `publisher.logo.url` 必须用 `logo.webp`（非 `Chitek-logo.png`）
-- **每篇详情页必须包含 SEO Keywords 标签区**：`<!-- SEO Keywords -->` + `<div>` 渲染 `article.keywords.map()`，位于正文与 Author 之间。`article.keywords` 必须在 frontmatter 中定义，注意 JS 对象逗号分隔
-- 新增后必须跑一次日期降序校验
-- **完整踩坑表（22 条）→ 见 `README.md`**
+- 数据文件 `src/data/*NewsCards.js` 是生成物，改文章 frontmatter 才是正路
+- data 里 href **不带语言前缀**（存 `/news/<slug>`，前缀交给页面 `lp()`）
+- 四语 slug 必须一致；`news:sync` 会硬拦
+- `article.date` 必须 ISO；`dateDisplay` 单独放本地化串
+- `article.keywords` 必须在 `article` 对象里，注意 JS 对象尾逗号
+- 详情页 JSON-LD 中 `publisher.logo.url` 必须用 `logo.webp`
+- 生成模板含 JSX 花括号 → 用 `replace()` 占位符，别用 `str.format()`
+- `src/pages/` 下**不要**放备份文件（会被当路由编译）
+- **完整踩坑表（15 条）→ 见 `docs/NEWS_PIPELINE.md` §七**
 
 ## ⚠️ 常见构建失败原因
 
@@ -288,7 +294,27 @@ npm run build
 本项目 `.astro` 文件是 CRLF 行尾。用正则匹配行尾时，`\n` 锚点匹配不到，必须写 `\r?\n`。
 
 ### 3. 阿拉伯语（ar）文件的 UTF-8 BOM
-`ar/` 目录下的 `.astro` 文件带 UTF-8 BOM 头（`\xef\xbb\xbf`）。改写时必须保持 BOM，否则文件会乱码。用 Python 处理时：`open(path, 'rb').read()[:3]` 检测 BOM，有 BOM 则 `utf-8-sig` 编解码。
+
+**仅 3 个文件带 BOM**（2026-09-18 全站扫描确认，ar 下共 38 个 `.astro`）：
+
+```
+src/pages/ar/products.astro
+src/pages/ar/services.astro
+src/pages/ar/solutions.astro
+```
+
+其余 ar 文件（含全部 30 篇新闻文章）**没有 BOM**。
+
+**正确做法是"保持原样"，不要统一加 BOM 也不要统一去 BOM**：
+
+```python
+raw = path.read_bytes()
+bom = raw.startswith(b"\xef\xbb\xbf")          # 记下来
+text = raw[3:].decode("utf-8") if bom else raw.decode("utf-8")
+# ...改 text...
+data = text.encode("utf-8")
+path.write_bytes((b"\xef\xbb\xbf" + data) if bom else data)
+```
 
 ### 4. 构建失败不致命
 Netlify 保留上次成功部署，网站不会下线。失败后修复 → 重新推送即可。构建日志在 Netlify → Deploys 页面。

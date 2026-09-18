@@ -6,6 +6,8 @@ const article = {
   title: "SiC vs IGBT: The Future of Power Quality Equipment",
   category: "Technology",
   date: "2024-10-22",
+  dateDisplay: "Oct 22, 2024",
+  description: "Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements.",
   author: "CHITEK R&D Team",
   readTime: "7 min read"
 ,  keywords: ["SiC MOSFET","IGBT","silicon carbide","active harmonic filter","power quality","wide bandgap","harmonic mitigation","efficiency","CHITEK"]
@@ -14,7 +16,7 @@ const article = {
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements." lang="en">
+<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="Silicon Carbide technology is revolutionizing power quality equipment with higher efficiency, faster switching, and reduced thermal management requirements." lang="en" alternateLangs={['zh', 'en', 'es', 'ar']}>
   <Sidebar lang="en" />
 
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">

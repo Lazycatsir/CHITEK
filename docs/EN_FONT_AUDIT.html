@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英文站字体审计 · 字族 / 字重 / 字符调整</title>
+<style>
+  :root { --line:#d0d5dd; --ink:#101828; --mut:#475467; }
+  * { box-sizing:border-box; }
+  body { font: 14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); margin:0; padding:32px; background:#fff; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  h2 { font-size:17px; margin:32px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--ink); }
+  h3.pg { font-size:14px; margin:22px 0 6px; color:var(--ink); }
+  .sub { color:var(--mut); margin:0 0 18px; }
+  .cnt { color:var(--mut); font-weight:400; font-size:12.5px; }
+  p { margin:8px 0; }
+  table { border-collapse:collapse; width:100%; margin:6px 0 4px; font-size:13px; }
+  th,td { border:1px solid var(--line); padding:6px 10px; text-align:left; vertical-align:top; }
+  th { background:#f2f4f7; font-weight:600; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  code { background:#f2f4f7; padding:1px 5px; border-radius:3px; font-size:12px; }
+  .note { background:#f8f9fb; border:1px solid var(--line); border-left:4px solid var(--ink); padding:12px 16px; margin:14px 0; }
+  .warn { border-left-color:#b42318; }
+  ul { margin:8px 0; padding-left:20px; }
+  li { margin:4px 0; }
+  .legend { font-size:12.5px; color:var(--mut); }
+</style>
+</head>
+<body>
+<h1>英文站字体审计（字族 · 字重 · 字符调整）</h1>
+<p class="sub">审计对象：<code>F:\下载\CHITEK\src\pages\en</code> 下全部 .astro 页面（核心页 + 新闻页）。生成于 2026-09-18。</p>
+
+<h2>1. 字体系统总览</h2>
+<p>全站只使用 <b>2 个字族</b>：</p>
+<ul>
+  <li><b>Barlow</b> —— 正文默认字族。<code>BaseLayout.astro</code> 的 <code>&lt;body class="font-barlow ..."&gt;</code> 让所有元素默认继承 Barlow。</li>
+  <li><b>Barlow Condensed</b> —— 标题字族，仅当某个元素显式带 <code>font-barlow-condensed</code> 类时才生效。</li>
+</ul>
+<div class="note warn">
+  <b>关键发现（"有些看起来不一样"的结构性原因）：</b><br>
+  <code>global.css</code> 只定义了 <code>--font-barlow-condensed</code> 这个 CSS 变量（第 154 行），<b>没有任何全局 CSS 规则把 h1/h2/h3/h4 强制设为 Condensed</b>。
+  标题是否用 Condensed，取决于每个元素自己有没有写 <code>font-barlow-condensed</code> 类。结果就是：同一个页面、甚至在"看起来都像标题"的位置，有的渲染成 Barlow（宽），有的渲染成 Barlow Condensed（窄）——视觉上明显不一致。
+</div>
+
+<h2>2. 全站唯一签名汇总（字族 · 字重 · 字符调整 · 次数）</h2>
+<p class="legend">下表按出现次数降序，覆盖全站所有带字体语义的元素。"字符调整"列含字距（tracking）与大小写（uppercase 等）。</p>
+<table>
+  <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+  <tbody>
+<tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>326</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>315</td></tr><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>93</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>74</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-tight（字距 -0.025em，收紧）</td><td class='num'>32</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>14</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-wide（字距 +0.025em，放宽）</td><td class='num'>13</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-[0.2em]（字距 0.2em）</td><td class='num'>11</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>10</td></tr><tr><td>Barlow Condensed</td><td>未指定（继承 400 常规）</td><td>tracking-[-0.02em]（字距 -0.02em）</td><td class='num'>10</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>tracking-[0.15em]（字距 0.15em）</td><td class='num'>9</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>uppercase（全大写）</td><td class='num'>9</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>无（不调间距/大小写）</td><td class='num'>7</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>7</td></tr><tr><td>Barlow Condensed</td><td>未指定（继承 400 常规）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>tracking-wide（字距 +0.025em，放宽）</td><td class='num'>5</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>uppercase（全大写）</td><td class='num'>5</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>4</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.06em]（字距 0.06em）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>capitalize（首字母大写）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.08em]（字距 0.08em）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.1em]（字距 0.1em）</td><td class='num'>2</td></tr><tr><td>Barlow Condensed</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-widest（字距 +0.1em，最宽）</td><td class='num'>1</td></tr>
+  </tbody>
+</table>
+
+<h2>3. 为什么"有些看起来不一样"——根因分析</h2>
+<p>字重（加粗程度）和字符调整（字距 / 大小写）是<b>逐元素、逐页面</b>手工写的，全站没有统一的"字号 / 字重 / 字距"刻度表（type scale）。三类不一致叠加，导致观感不统一：</p>
+
+<h3 class="pg">3.1 标题字族不统一（Condensed 占比对照）</h3>
+<table>
+  <thead><tr><th>核心页面</th><th>Barlow 元素数</th><th>Condensed 元素数</th><th>说明</th></tr></thead>
+  <tbody>
+<tr><td>about.astro</td><td class='num'>18</td><td class='num'>16</td><td>Condensed 占比 47%</td></tr><tr><td>contact.astro</td><td class='num'>16</td><td class='num'>3</td><td>Condensed 占比 16%</td></tr><tr><td>index.astro</td><td class='num'>27</td><td class='num'>12</td><td>Condensed 占比 31%</td></tr><tr><td>products / active-harmonic-filter.astro</td><td class='num'>57</td><td class='num'>47</td><td>Condensed 占比 45%</td></tr><tr><td>products / sic-ultra-ahf.astro</td><td class='num'>50</td><td class='num'>6</td><td>Condensed 占比 11%</td></tr><tr><td>products.astro</td><td class='num'>12</td><td class='num'>14</td><td>Condensed 占比 54%</td></tr><tr><td>services.astro</td><td class='num'>106</td><td class='num'>26</td><td>Condensed 占比 20%</td></tr><tr><td>solutions.astro</td><td class='num'>18</td><td class='num'>9</td><td>Condensed 占比 33%</td></tr>
+  </tbody>
+</table>
+<p class="legend">新闻页几乎全是 Barlow（Condensed 占比≈0%）；而 about / index / products 详情页大量使用 Condensed。跨页跳转时，标题"宽窄"会突然变化。</p>
+
+<h3 class="pg">3.2 同一逻辑位置字重不一致</h3>
+<ul>
+  <li><code>products/active-harmonic-filter.astro</code>：标题级大量用 <b>Condensed + font-bold（700）</b> 34 处，外加 <b>Condensed + font-semibold + tracking-[0.2em]</b> 11 处（超宽字距）。</li>
+  <li><code>products/sic-ultra-ahf.astro</code>：标题级几乎不用 Condensed（仅 6 处 bold），主体是 <b>Barlow + font-semibold（600）</b> 34 处 + <b>Barlow + font-medium（500）</b> 15 处——比上者"细"且"宽"。</li>
+  <li><code>services.astro</code>：用 <b>Condensed 默认字重（400）+ tracking-[-0.02em]</b> 10 处（细且收紧）+ <b>Barlow + font-medium（500）</b> 46 处，整体观感又不同。</li>
+</ul>
+
+<h3 class="pg">3.3 字符调整（字距 / 大小写）随心所欲</h3>
+<ul>
+  <li>字距跨度极大：<code>tracking-tight</code>（-0.025em，收紧，新闻正文 32 处）、<code>tracking-wide</code>（+0.025em，about/index 13 处）、<code>tracking-[0.2em]</code>（超宽，active-harmonic-filter 11 处）、<code>tracking-[0.15em]</code>（about 9 处）、<code>tracking-[-0.02em]</code>（services 10 处）、<code>tracking-[0.05/0.06/0.08/0.1em]</code> 散落在 index/contact/about。</li>
+  <li>大小写混用：<code>uppercase</code> 在 Condensed bold（14）、Barlow bold（10）、Barlow 默认（9）、Barlow semibold（5）等处反复出现，没有统一"标签用大写"的规则。</li>
+</ul>
+<div class="note">
+  <b>结论：</b>新闻页内部高度一致（Barlow + bold/semibold + tracking-tight），观感统一；<b>不一致集中在核心页（about / contact / index / products / 产品详情 / services / solutions）</b>，它们之间的字重、字距、是否用 Condensed 差异明显。若要让"看起来都一样"，需要给全站定一套统一的 type scale（字号 + 字重 + 字距 + 何时用 Condensed），再批量归一化核心页。
+</div>
+
+<h2>4. 各核心页面字体签名明细</h2>
+
+    <h3 class="pg">about.astro <span class="cnt">（共 34 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-wide（字距 +0.025em，放宽）</td><td class='num'>10</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>4</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>tracking-[0.15em]（字距 0.15em）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>1</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>5</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>tracking-wide（字距 +0.025em，放宽）</td><td class='num'>5</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">contact.astro <span class="cnt">（共 19 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>7</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>uppercase（全大写）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.06em]（字距 0.06em）</td><td class='num'>1</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>3</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">index.astro <span class="cnt">（共 39 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>4</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>uppercase（全大写）</td><td class='num'>4</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>capitalize（首字母大写）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.08em]（字距 0.08em）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.06em]（字距 0.06em）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>tracking-[0.1em]（字距 0.1em）</td><td class='num'>2</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>7</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>5</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">products / active-harmonic-filter.astro <span class="cnt">（共 104 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>39</td></tr><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>12</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>uppercase（全大写）</td><td class='num'>6</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>34</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-[0.2em]（字距 0.2em）</td><td class='num'>11</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-widest（字距 +0.1em，最宽）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">products / sic-ultra-ahf.astro <span class="cnt">（共 56 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>34</td></tr><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>15</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>uppercase（全大写）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">products.astro <span class="cnt">（共 26 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>4</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>2</td></tr><tr><td>Barlow Condensed</td><td>未指定（继承 400 常规）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>5</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>2</td></tr><tr><td>Barlow Condensed</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">services.astro <span class="cnt">（共 132 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>46</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>41</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>tracking-[0.15em]（字距 0.15em）</td><td class='num'>7</td></tr><tr><td>Barlow</td><td>未指定（继承 400 常规）</td><td>无（不调间距/大小写）</td><td class='num'>7</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-wide（字距 +0.025em，放宽）</td><td class='num'>3</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>1</td></tr><tr><td>Barlow Condensed</td><td>未指定（继承 400 常规）</td><td>tracking-[-0.02em]（字距 -0.02em）</td><td class='num'>10</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>tracking-[0.05em]（字距 0.05em）</td><td class='num'>7</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>5</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>uppercase（全大写）</td><td class='num'>4</td></tr></tbody>
+    </table>
+
+    <h3 class="pg">solutions.astro <span class="cnt">（共 27 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>7</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>6</td></tr><tr><td>Barlow</td><td>font-medium（500 中等）</td><td>无（不调间距/大小写）</td><td class='num'>5</td></tr><tr><td>Barlow Condensed</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>8</td></tr><tr><td>Barlow Condensed</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>1</td></tr></tbody>
+    </table>
+
+<h2>5. 新闻页字体签名（32 篇汇总）</h2>
+<p class="legend">全部新闻页签名高度一致，下方为合并统计。</p>
+
+    <h3 class="pg">新闻页（32 篇汇总） <span class="cnt">（共 529 处带字体语义的元素）</span></h3>
+    <table>
+      <thead><tr><th>字族</th><th>字重</th><th>字符调整（字距 / 大小写）</th><th>次数</th></tr></thead>
+      <tbody><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>无（不调间距/大小写）</td><td class='num'>275</td></tr><tr><td>Barlow</td><td>font-semibold（600 中粗）</td><td>无（不调间距/大小写）</td><td class='num'>222</td></tr><tr><td>Barlow</td><td>font-bold（700 加粗）</td><td>tracking-tight（字距 -0.025em，收紧）</td><td class='num'>32</td></tr></tbody>
+    </table>
+
+</body>
+</html>

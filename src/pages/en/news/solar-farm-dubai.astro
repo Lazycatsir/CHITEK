@@ -6,6 +6,8 @@ const article = {
   title: "Solar Farm Power Quality Optimization in Dubai",
   category: "Case Study",
   date: "2024-11-10",
+  dateDisplay: "Nov 10, 2024",
+  description: "How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai.",
   author: "CHITEK Project Team",
   readTime: "6 min read"
 ,  keywords: ["solar farm","Dubai","power quality","active harmonic filter","SVG","renewable energy","harmonic mitigation","solar power","case study","CHITEK"]
@@ -14,7 +16,7 @@ const article = {
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
-<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai." lang="en">
+<BaseLayout title={`${article.title} | CHITEK INNOPOWER`} description="How CHITEK SVG solutions improved power factor from 0.85 to 0.99 for a 50MW solar installation in Dubai." lang="en" alternateLangs={['zh', 'en', 'es', 'ar']}>
   <Sidebar lang="en" />
 
   <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
@@ -68,7 +70,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <div class="text-sm text-text-mid">Capacity</div>
             </div>
             <div class="text-center">
-              <div class="text-2xl font-bold text-green-600">0.85�?.99</div>
+              <div class="text-2xl font-bold text-green-600">0.85→0.99</div>
               <div class="text-sm text-text-mid">Power Factor</div>
             </div>
             <div class="text-center">

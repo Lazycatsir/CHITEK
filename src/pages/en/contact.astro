@@ -45,8 +45,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           data-netlify="true"
           netlify-honeypot="bot-field"
           id="contactForm"
+          data-lead-form
         >
           <input type="hidden" name="form-name" value="contact" />
+          <!-- Attribution fields injected by analytics.js -->
+          <div data-utm-fields hidden></div>
           <div hidden aria-hidden="true">
             <label>Don't fill this out <input name="bot-field" /></label>
           </div>
@@ -159,6 +162,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
+          <!-- Success message: shown by analytics.js after successful submit -->
+          <div data-form-success hidden class="mt-6 p-6 rounded-md bg-[#e8f5e9] border border-[#c8e6c9] text-center">
+            <p class="text-[clamp(14px,1.2vw,18px)] font-semibold text-[#2e7d32] mb-1">Thank you! Our application engineer will contact you within 24 hours.</p>
+            <p class="text-[12px] text-[#558b2f]">CHITEK INNOPOWER</p>
+          </div>
         </form>
       </div>
 
@@ -288,12 +296,15 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         }
       }
 
-      form.addEventListener("submit", function () {
-        // Netlify handles the submission natively;
-        // clear form after short delay so Netlify can parse fields
-        var self = this;
-        setTimeout(function () { self.reset(); }, 100);
-      });
+      // Submission is handled by /assets/js/analytics.js (AJAX + generate_lead event)
+      if (!form.hasAttribute('data-lead-form')) {
+        form.addEventListener("submit", function () {
+          // Netlify handles the submission natively;
+          // clear form after short delay so Netlify can parse fields
+          var self = this;
+          setTimeout(function () { self.reset(); }, 100);
+        });
+      }
     })();
   </script>
 

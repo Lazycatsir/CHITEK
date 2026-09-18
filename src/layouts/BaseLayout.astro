@@ -14,10 +14,18 @@ export interface Props {
   ogImage?: string;
   ogUrl?: string;
   ogType?: 'website' | 'article';
+  /** Set false on pages with no equivalent in the other languages (e.g. /en/news/page_2/) */
+  alternates?: boolean;
+  /** Set when the page exists in only some languages (e.g. news exists in zh/en/es/ar but not pt) */
+  alternateLangs?: string[];
 }
 
-const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website' } = Astro.props;
+const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website', alternates = true, alternateLangs } = Astro.props;
 const defaultOgImage = 'https://chitek-inno.com/assets/images/logo.webp';
+
+const ALL_LOCALES: Locale[] = ['zh', 'en', 'pt', 'es', 'ar'];
+const altLangs: Locale[] = alternateLangs && alternateLangs.length ? (alternateLangs as Locale[]) : ALL_LOCALES;
+const xDefault: Locale = altLangs.includes('zh') ? 'zh' : altLangs[0];
 
 const currentPath = Astro.url.pathname;
 const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
@@ -30,15 +38,24 @@ const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <!-- Bing Webmaster Tools 站点验证（全语言/全子域通用，与 public/BingSiteAuth.xml 互为备份） -->
+  <meta name="msvalidate.01" content="97E3493522EEB269E495058E6ECCE683" />
+  <!-- Favicon：主图标用 logo-head.svg（C 字标，现代浏览器原生支持）；PNG 为 Safari/iOS 兜底 -->
+  <link rel="icon" href="/assets/images/logo-head.svg" type="image/svg+xml" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
   <link rel="canonical" href={canonicalUrl} />
 
-  <!-- Alternate language links -->
-  <link rel="alternate" hreflang="zh" href={getHreflang('zh', currentPath)} />
-  <link rel="alternate" hreflang="en" href={getHreflang('en', currentPath)} />
-  <link rel="alternate" hreflang="pt" href={getHreflang('pt', currentPath)} />
-  <link rel="alternate" hreflang="es" href={getHreflang('es', currentPath)} />
-  <link rel="alternate" hreflang="ar" href={getHreflang('ar', currentPath)} />
-  <link rel="alternate" hreflang="x-default" href={getHreflang('zh', currentPath)} />
+  <!-- Alternate language links (skipped when the page has no sibling in other languages) -->
+  {alternates && (
+    <>
+      {altLangs.map((l) => (
+        <link rel="alternate" hreflang={l} href={getHreflang(l, currentPath)} />
+      ))}
+      <link rel="alternate" hreflang="x-default" href={getHreflang(xDefault, currentPath)} />
+    </>
+  )}
 
   <!-- Open Graph -->
   <meta property="og:locale" content={lang === 'pt' ? 'pt_PT' : lang === 'es' ? 'es_ES' : lang === 'ar' ? 'ar_SA' : lang === 'zh' ? 'zh_CN' : 'en_US'} />
@@ -108,6 +125,9 @@ const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
       })();
     </script>
   )}
+
+  <!-- Conversion & event tracking (GA4 for non-zh, Baidu Tongji for zh) -->
+  <script is:inline src="/assets/js/analytics.js" defer></script>
   <slot name="head" />
 </head>
 <body class="font-barlow text-text-dark bg-white overflow-x-hidden min-h-screen flex flex-col">

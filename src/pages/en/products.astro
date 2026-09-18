@@ -11,25 +11,17 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
-  <!-- Sticky Tab Bar (visible after scrolling past hero) -->
-  <div id="sticky-tab-bar" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-light shadow-[0_2px_16px_rgba(0,0,0,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <div class="flex items-center justify-center gap-0 md:gap-[clamp(8px,1.5vw,20px)] overflow-x-auto">
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-white bg-brand-orange shadow-sm" data-tab="0"><span class="font-barlow-condensed">Active Harmonic Filter</span></button>
-        <button class="sticky-hero-tab text-[clamp(12px,0.9vw,15px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative text-[#374151] hover:text-brand-orange hover:bg-orange-50" data-tab="1"><span class="font-barlow-condensed">Static Var Generator</span></button>
-              </div>
-    </div>
-  </div>
+  <!-- Sticky Tab Bar removed (2026-09-18: the AHF/SVG tab panels do not exist on the EN page, so the bar only added a floating strip on scroll) -->
 
   <!-- Hero Section -->
-  <section id="hero" class="relative w-full overflow-hidden min-h-[70vh] mt-[72px] flex items-center justify-center" style="background:url('/assets/images/products-hero-bg.webp') center/cover no-repeat">
+  <section id="hero" class="relative w-full overflow-hidden min-h-[33vh] mt-[72px] flex items-center justify-center" style="background:url('/assets/images/products-hero-bg.webp') center/cover no-repeat">
     <canvas id="hero-canvas" class="absolute inset-0 z-[1] pointer-events-none"></canvas>
     <div class="relative z-[2]">
       <div class="text-center">
         <h1 id="hero-title" class="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-tight mb-[clamp(12px,2vw,32px)] hero-fade font-barlow-condensed text-brand-orange">
           Excellent Products
         </h1>
-        <p id="hero-subtitle" class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 hero-fade max-w-2xl mx-auto">Advanced power quality solutions for industrial and commercial applications.</p>
+        <p id="hero-subtitle" class="text-[clamp(1.1rem,2vw,1.5rem)] text-white/90 hero-fade max-w-2xl mx-auto">Advanced power quality and power factor solutions for industrial and commercial applications.</p>
         <div class="flex items-center justify-center gap-[clamp(8px,1.5vw,20px)] mt-8 opacity-0 animate-[decorIn_0.8s_0.6s_ease_forwards]">
           <div class="h-px w-16 bg-gradient-to-r from-transparent to-brand-orange/60"></div>
           <div class="w-2 h-2 rotate-45 border border-brand-orange/60"></div>
@@ -39,1743 +31,400 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </section>
 
-  <!-- Section: Four Product Series -->
-  <section id="product-series" class="md:min-h-[clamp(400px,50vh,720px)] pt-12 pb-4 flex flex-col" style="background:url('/assets/images/products-series-bg.webp') top/cover no-repeat">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <!-- Tab 0: AHF -->
-      <div class="tab-panel" data-tab="0">
-        <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed reveal-x-left [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
-          <div class="max-sm:flex max-sm:transition-transform max-sm:duration-500 max-sm:gap-[clamp(20px,5vw,100px)] sm:contents" data-product-track>
-            <!-- Standard -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">Classic Choice</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Standard</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
-                  <div class="font-semibold text-text-dark">50A ~ 200A</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">35 ~ 133kVar</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Versatile mainstream solution</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Unified Design</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Mainstream Coverage</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Quick Swap</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Flagship &middot; Harmonic Compensation 2nd-50th</span>
-            </div>
-          </div>
-          <!-- SiC -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Space Optimized</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
-                  <div class="font-semibold text-text-dark">50A ~ 150A</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">35 ~ 70kVar</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 130.5 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">Industry-leading 3U height</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Slim</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cabinet-Friendly</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Widely Compatible</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Compact &middot; Best for space-constrained installs</span>
-            </div>
-          </div>
-          <!-- Distributed Series -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Flexible Deployment</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distributed</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
-                  <div class="font-semibold text-text-dark">15A ~ 50A</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">10 ~ 30kVar</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Incredibly Compact</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Side-by-Side Mount</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Full Touchscreen</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Distributed &middot; Drawer cabinet retrofit</span>
-            </div>
-          </div>
-          <!-- Anti-Pollution Series -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">Harsh Environments</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Anti-Pollution</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">AHF Current</div>
-                  <div class="font-semibold text-text-dark">50A ~ 200A</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">50 ~ 100kVar</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">Heavy-industry protection design</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Dust</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Pollution</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  </div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Reliable</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">AHF Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
-            </div>
-          </div>
-          </div>
-        </div>
-        <div class="flex max-sm:justify-center gap-2 mt-6 sm:hidden" data-product-dots>
-          <span class="w-2 h-2 rounded-full bg-brand-orange carousel-dot active" data-slide="0"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="1"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="2"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="3"></span>
-        </div>
-      </div>
+  <!-- Section: Active Harmonic Filter (AHF) Series -->
+  <!-- ytelect-style product listing: left category nav + right grid/list-switchable product grid -->
+  <section id="product-series" class="pt-12 pb-16 bg-gray-50">
+    <div class="pl-[clamp(12px,2vw,40px)] pr-[clamp(24px,8vw,160px)]">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={lp('/')} class="hover:text-brand-orange">Home</a></li>
+          <li class="text-gray-300">/</li>
+          <li><a href={lp('/products')} class="hover:text-brand-orange">Products</a></li>
+          <li class="text-gray-300">/</li>
+          <li class="text-gray-700 font-medium" aria-current="page">Active Harmonic Filter</li>
+        </ol>
+      </nav>
 
-      <!-- Tab 1: SVG -->
-      <div class="tab-panel hidden" data-tab="1">
-        <div class="text-center mb-[clamp(12px,2vw,32px)]">
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white mb-2 font-barlow-condensed reveal-x-left [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">Four Product Series, Full-Scenario Coverage</h2>
-          <p class="text-[clamp(14px,1vw,17px)] text-gray-400 max-w-2xl mx-auto">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation &mdash; find your configuration</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] overflow-x-clip">
-          <div class="max-sm:flex max-sm:transition-transform max-sm:duration-500 max-sm:gap-[clamp(20px,5vw,100px)] sm:contents" data-product-track>
-            <!-- Standard -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-blue-700 bg-blue-50 rounded-full mb-2">Classic Choice</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Standard</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">35 ~ 150kVar</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Voltage</div>
-                  <div class="font-semibold text-text-dark">400V / 690V</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-blue-600 mt-0.5">Versatile mainstream solution</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Unified Design</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Mainstream Coverage</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Quick Swap</div>
-                </div>
+      <!-- Two-column layout: left category nav + right product area -->
+      <div class="index_main flex flex-col lg:flex-row gap-8">
+
+        <!-- LEFT COLUMN -->
+        <aside class="n_left lg:w-[280px] lg:shrink-0">
+          <div class="left_nav bg-white border border-gray-200 rounded-xl p-5 mb-6">
+            <h3 class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Product Categories</h3>
+            <ul class="space-y-1">
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Active Harmonic Filter (AHF)</a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Static Var Generator (SVG)</a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Silicon Carbide AHF/SVG</a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Distributed AHF</a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Anti-Pollution AHF</a></li>
+              <li><a href="#" class="block px-3 py-2 rounded-lg text-[14px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">Advanced Static Var Generator (ASVG)</a></li>
+            </ul>
+          </div>
+          <div class="filter_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
+            <h3 class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Filter</h3>
+            <div class="mb-4">
+              <p class="text-[13px] font-semibold text-gray-800 mb-2">Voltage</p>
+              <div class="grid grid-cols-2 gap-x-2 gap-y-2">
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="v" value="208V" /> 208V</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="v" value="400V" /> 400V</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="v" value="480V" /> 480V</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="v" value="690V" /> 690V</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="v" value="800V" /> 800V</label>
               </div>
             </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Flagship &middot; Dynamic Compensation &lt;10ms</span>
+            <div class="mb-4">
+              <p class="text-[13px] font-semibold text-gray-800 mb-2">Current</p>
+              <div class="grid grid-cols-2 gap-x-2 gap-y-2">
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="8~20A" /> 8~20A</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="30~50A" /> 30~50A</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="50~200A" /> 50~200A</label>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="text-[13px] font-semibold text-gray-800 mb-2">IP Rating</p>
+              <div class="grid grid-cols-2 gap-x-2 gap-y-2">
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP20" /> IP20</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP30" /> IP30</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP40" /> IP40</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP54" /> IP54</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP55" /> IP55</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP65" /> IP65</label>
+              </div>
+            </div>
+            <div>
+              <p class="text-[13px] font-semibold text-gray-800 mb-2">Dimensions</p>
+              <div class="grid grid-cols-2 gap-x-2 gap-y-2">
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="340*410*45mm" /> 340*410*45mm</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="380*425*88mm" /> 380*425*88mm</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*130mm" /> 500*550*130mm</label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*175mm" /> 500*550*175mm</label>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <textarea data-inquiry-summary rows="4" readonly class="w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-[12px] text-gray-700 leading-relaxed resize-none mb-3" placeholder="Select voltage / current / dimensions — your selection appears here."></textarea>
+              <a href={lp('/contact')} class="my_more1 w-full justify-center">Inquire Now</a>
             </div>
           </div>
-          <!-- SiC -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-purple-700 bg-purple-50 rounded-full mb-2">Space Optimized</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">SiC</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">35 ~ 100kVar</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Voltage</div>
-                  <div class="font-semibold text-text-dark">400V / 690V</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 130.5 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-purple-600 mt-0.5">Industry-leading 3U height</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">3U Ultra-Slim</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Cabinet-Friendly</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Widely Compatible</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Compact &middot; Best for space-constrained installs</span>
+          <div class="contact_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
+            <h3 class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Contact Us</h3>
+            <div class="space-y-1 mb-3">
+              <a href="https://wa.me/8618818994346" target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>WhatsApp</span>
+              </a>
+              <a href="mailto:leo.li@chitek-inno.com" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+                <span>leo.li@chitek-inno.com</span>
+              </a>
             </div>
           </div>
-          <!-- Distributed -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-green-700 bg-green-50 rounded-full mb-2">Flexible Deployment</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Distributed</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">10 ~ 30kVar</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Voltage</div>
-                  <div class="font-semibold text-text-dark">400V</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">380 x 400 x 88 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-green-600 mt-0.5">Ultra-compact &middot; Drawer compatible</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Incredibly Compact</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Side-by-Side Mount</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Full Touchscreen</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Distributed &middot; Drawer cabinet retrofit</span>
-            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN -->
+        <div class="n_right flex-1 min-w-0">
+          <!-- Category intro -->
+          <div class="max-w-3xl mb-6">
+            <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-gray-900 mb-3 font-barlow-condensed">Active Harmonic Filter (AHF) Series</h2>
+            <p class="text-[15px] leading-relaxed text-gray-600 mb-2">Every CHITEK AHF compensates harmonics from the 2nd through the 50th order, and you decide how much of each individual order gets corrected. The compensation current tracks whatever the network is producing at that moment instead of running to a fixed curve — cleaner power, less wasted energy.</p>
+            <p class="text-[15px] leading-relaxed text-gray-600">No two loads distort the waveform the same way, and a single load keeps changing its harmonic signature as operating conditions shift. The filter reads those changes continuously and adapts its output to follow them.</p>
           </div>
-          <!-- Anti-Pollution -->
-          <div class="flex flex-col bg-white/50 backdrop-blur-sm shadow-sm border border-white/30 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300 max-w-[clamp(280px,22vw,420px)] mx-auto w-full max-sm:min-w-[80vw] max-sm:shrink-0">
-            <div class="p-[clamp(8px,1.5vw,32px)] flex-1">
-              <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-[clamp(10px,0.8vw,12px)] font-semibold text-orange-700 bg-orange-50 rounded-full mb-2">Harsh Environments</span>
-                <h3 class="text-[clamp(18px,1.4vw,24px)] font-bold text-text-dark">Anti-Pollution</h3>
-              </div>
-              <div class="grid grid-cols-2 gap-3 mb-5 text-[clamp(12px,0.9vw,15px)]">
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">SVG Capacity</div>
-                  <div class="font-semibold text-text-dark">50 ~ 100kVar</div>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Voltage</div>
-                  <div class="font-semibold text-text-dark">400V / 690V</div>
-                </div>
-                <div class="col-span-2 bg-gray-50 rounded-lg p-2.5">
-                  <div class="text-text-dark text-[clamp(10px,0.8vw,12px)] mb-0.5">Dimensions</div>
-                  <div class="font-semibold text-text-dark font-barlow-condensed text-[clamp(10px,0.8vw,12px)]">480 x 570 x 175 mm</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-orange-600 mt-0.5">Heavy-industry protection design</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2">
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Dust</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Anti-Pollution</div>
-                </div>
-                <div class="text-center">
-                  <div class="w-8 h-8 mx-auto mb-1.5 flex items-center justify-center text-text-dark/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70">Ultra-Reliable</div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-brand-orange/90 h-11 px-4 flex items-center justify-center backdrop-blur-sm">
-              <span class="text-[clamp(10px,0.8vw,12px)] font-medium text-white">SVG Heavy Industry &middot; Mining, metallurgy &amp; chemical</span>
-            </div>
+
+          <!-- View toggle (grid / list) -->
+          <div class="cbp-vm-options clearfix flex items-center gap-2 mb-5">
+            <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="Grid view" aria-label="Grid view">
+              <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M1 1h4v4H1zM6 1h4v4H6zM11 1h4v4h-4zM1 6h4v4H1zM6 6h4v4H6zM11 6h4v4h-4zM1 11h4v4H1zM6 11h4v4H6zM11 11h4v4h-4z"/></svg>
+            </a>
+            <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="List view" aria-label="List view">
+              <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M1 1h2v2H1zM4 1h12v2H4zM1 5h2v2H1zM4 5h12v2H4zM1 9h2v2H1zM4 9h12v2H4zM1 13h2v2H1zM4 13h12v2H4z"/></svg>
+            </a>
           </div>
+
+          <!-- Product grid / list -->
+          <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+            <ul class="cbp-vm-grid-ul">
+              <li class="cbp-vm-li" data-v="400V,480V,690V" data-a="50~200A" data-s="500*550*175mm" data-i="IP20,IP30">
+                <div class="cbp-vm-image"><a href={lp('/products/sic-ultra-ahf')}><img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href={lp('/products/sic-ultra-ahf')} class="hover:text-brand-orange">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">SiC MOSFET AHF</a>
+                    <a href="#" class="cbp-tag">Silicon Carbide Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Ultra High-Efficiency SiC AHF</a>
+                    <a href="#" class="cbp-tag">SiC Active Power Filter APF</a>
+                    <a href="#" class="cbp-tag">Wide-Bandgap AHF Module</a>
+                    <a href="#" class="cbp-tag">3-Phase SiC Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">High-Efficiency Power Quality Filter</a>
+                    <a href="#" class="cbp-tag">Industrial SiC Harmonic Compensation</a>
+                  </div>
+                  <a href={lp('/products/sic-ultra-ahf')} class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="50~200A" data-s="500*550*130mm" data-i="IP20,IP30">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">Anti-Pollution Active Harmonic Filter AHF</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">Anti-Pollution AHF</a>
+                    <a href="#" class="cbp-tag">Dust-Proof Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Harsh-Environment AHF Module</a>
+                    <a href="#" class="cbp-tag">Anti-Corrosion Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Dust-Resistant APF Module</a>
+                    <a href="#" class="cbp-tag">Heavy-Duty Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Pollution-Proof Power Quality Filter</a>
+                    <a href="#" class="cbp-tag">Anti-Pollution Active Dynamic Filter ADF</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="30~50A" data-s="500*550*130mm" data-i="IP20,IP30,IP40">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">Ultra-slim Active Harmonic Filter AHF</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">Ultra-Slim AHF</a>
+                    <a href="#" class="cbp-tag">Slim Active Power Filter APF</a>
+                    <a href="#" class="cbp-tag">Compact 1U AHF Module</a>
+                    <a href="#" class="cbp-tag">Low-Profile Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Space-Saving Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Slimline Active Dynamic Filter ADF</a>
+                    <a href="#" class="cbp-tag">Ultra-Thin Power Quality Filter</a>
+                    <a href="#" class="cbp-tag">Thin Rack AHF Module</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="30~50A" data-s="380*425*88mm" data-i="IP20,IP30,IP40">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-distributed.webp" alt="Distributed Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">Distributed Active Harmonic Filter AHF</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">Distributed AHF</a>
+                    <a href="#" class="cbp-tag">Active Dynamic Filter ADF</a>
+                    <a href="#" class="cbp-tag">Modular Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Distributed Harmonic Compensation Unit</a>
+                    <a href="#" class="cbp-tag">Cabinet-Mounted AHF Module</a>
+                    <a href="#" class="cbp-tag">Small-Capacity Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Distributed Power Quality Filter</a>
+                    <a href="#" class="cbp-tag">Multi-Module APF System</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="208V,400V" data-a="8~20A" data-s="340*410*45mm" data-i="IP54,IP55">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-rack-mounted.webp" alt="Rack mounted Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">Rack mounted Active Harmonic Filter</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">Rack mounted AHF</a>
+                    <a href="#" class="cbp-tag">19-Inch Rack Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Rack Type AHF Module</a>
+                    <a href="#" class="cbp-tag">Rack-Mounted Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Rack APF Module</a>
+                    <a href="#" class="cbp-tag">Rack-Mounted Active Dynamic Filter ADF</a>
+                    <a href="#" class="cbp-tag">Rack Harmonic Filter Module</a>
+                    <a href="#" class="cbp-tag">Rack-Mounted Power Quality Filter</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="8~20A" data-s="380*425*88mm" data-i="IP20,IP30,IP65">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">IP65 SiC-Fanless AHF</a>
+                    <a href="#" class="cbp-tag">Low-Noise Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Outdoor IP65 AHF Module</a>
+                    <a href="#" class="cbp-tag">IP65 Fanless Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Weatherproof SiC AHF</a>
+                    <a href="#" class="cbp-tag">Waterproof Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Silent AHF Module</a>
+                    <a href="#" class="cbp-tag">IP65 Active Dynamic Filter ADF</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="8~20A" data-s="380*425*88mm" data-i="IP20,IP30,IP65">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">IP65 Active Harmonic Filter</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">IP65 Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Weatherproof AHF Module</a>
+                    <a href="#" class="cbp-tag">IP65 Active Power Filter APF</a>
+                    <a href="#" class="cbp-tag">IP65 Harmonic Filter Cabinet</a>
+                    <a href="#" class="cbp-tag">Outdoor Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Waterproof APF Module</a>
+                    <a href="#" class="cbp-tag">IP65 Power Quality Filter</a>
+                    <a href="#" class="cbp-tag">IP65 Harmonic Compensation Unit</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="8~20A" data-s="380*425*88mm" data-i="IP20,IP30">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">SiC-Fanless &amp; Low Noise Active Harmonic Filter</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">SiC-Fanless AHF</a>
+                    <a href="#" class="cbp-tag">Fanless Active Dynamic Filter ADF</a>
+                    <a href="#" class="cbp-tag">Low-Noise SiC AHF</a>
+                    <a href="#" class="cbp-tag">Fanless Harmonic Filter Module</a>
+                    <a href="#" class="cbp-tag">Silent SiC APF Module</a>
+                    <a href="#" class="cbp-tag">Natural Cooling Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">No-Fan AHF Module</a>
+                    <a href="#" class="cbp-tag">Low-Noise Power Quality Filter</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+              <li class="cbp-vm-li" data-v="400V,480V" data-a="8~20A" data-s="380*425*88mm" data-i="IP20,IP30">
+                <div class="cbp-vm-image"><a href="#"><img src="/assets/images/products-ahf-advanced.webp" alt="Advanced Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="text">
+                  <h3 class="h4"><a href="#" class="hover:text-brand-orange">Advanced Active Harmonic Filter</a></h3>
+                                    <div class="tags_ul">
+                    <a href="#" class="cbp-tag">Advanced AHF</a>
+                    <a href="#" class="cbp-tag">Active Harmonic Filter Bank</a>
+                    <a href="#" class="cbp-tag">Advanced Active Power Filter APF</a>
+                    <a href="#" class="cbp-tag">Harmonic Filter Panel</a>
+                    <a href="#" class="cbp-tag">Advanced Harmonic Compensation Unit</a>
+                    <a href="#" class="cbp-tag">Multi-Function Active Harmonic Filter</a>
+                    <a href="#" class="cbp-tag">Active Harmonic Filter System</a>
+                    <a href="#" class="cbp-tag">Advanced Power Quality Filter</a>
+                  </div>
+                  <a href="#" class="my_more1">View More</a>
+                </div>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="flex max-sm:justify-center gap-2 mt-6 sm:hidden" data-product-dots>
-          <span class="w-2 h-2 rounded-full bg-brand-orange carousel-dot active" data-slide="0"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="1"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="2"></span>
-          <span class="w-2 h-2 rounded-full bg-[#d1d5db] carousel-dot" data-slide="3"></span>
         </div>
       </div>
     </div>
+
+    <style is:global>
+      .cbp-vm-options { display: flex; gap: .5rem; }
+      .cbp-vm-icon {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 38px; height: 38px; border: 1px solid #e5e7eb; border-radius: 8px;
+        background: #fff; color: #6b7280; cursor: pointer; transition: all .2s;
+        font-size: 18px;
+      }
+      .cbp-vm-icon:hover { border-color: #fb923c; color: #ea580c; }
+      .cbp-vm-icon.cbp-vm-selected { background: #fff7ed; border-color: #f97316; color: #ea580c; }
+
+      .cbp-vm-grid-ul { list-style: none; margin: 0; padding: 0; }
+      .cbp-vm-view-grid .cbp-vm-grid-ul { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 2.5rem; }
+      @media (min-width: 640px)  { .cbp-vm-view-grid .cbp-vm-grid-ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (min-width: 768px)  { .cbp-vm-view-grid .cbp-vm-grid-ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+      @media (min-width: 1024px) { .cbp-vm-view-grid .cbp-vm-grid-ul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+      /* Grid view: title + brief description only — hide tags and View More (shown in list view) */
+      .cbp-vm-view-grid .tags_ul,
+      .cbp-vm-view-grid .my_more1 { display: none; }
+
+      .cbp-vm-view-list .cbp-vm-grid-ul { display: flex; flex-direction: column; gap: 1rem; }
+
+      .cbp-vm-li {
+        background: #fff; border: 1px solid #e5e7eb; border-radius: .75rem;
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: box-shadow .3s, transform .3s;
+      }
+      .cbp-vm-li:hover { box-shadow: 0 10px 25px rgba(0,0,0,.10); }
+
+      .cbp-vm-view-list .cbp-vm-li { flex-direction: row; align-items: stretch; }
+
+      .cbp-vm-image { aspect-ratio: 4 / 3; background: #f3f4f6; overflow: hidden; }
+      /* Grid view: 图框改正方形（宽度占满卡宽，高度跟随宽度 → 1:1） */
+      .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 1 / 1; }
+      .cbp-vm-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .cbp-vm-image a { display: block; width: 100%; height: 100%; }
+      .cbp-vm-view-list .cbp-vm-image { width: 240px; height: 150px; flex-shrink: 0; aspect-ratio: auto; align-self: center; margin: 1rem 0; }
+
+      .cbp-vm-li .text { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+      .cbp-vm-view-list .cbp-vm-li .text { flex: 1; }
+      .cbp-vm-li .h4 { font-size: clamp(15px, 1.1vw, 18px); font-weight: 600; color: #111827; margin-bottom: .5rem; line-height: 1.3; }
+      .cbp-vm-li .h4 a { text-decoration: none; }
+      .cbp-vm-details { font-size: 13px; color: #4b5563; line-height: 1.6; margin-bottom: .75rem; flex: 1; }
+      .tags_ul { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: .75rem; }
+      .cbp-tag {
+        font-size: 11px; color: #6b7280; background: #f3f4f6;
+        border: 1px solid #e5e7eb; border-radius: 4px; padding: 2px 8px;
+        text-decoration: none; transition: all .2s;
+      }
+      .cbp-tag:hover { background: #fff7ed; color: #ea580c; border-color: #fdba74; }
+      .my_more1 {
+        display: inline-flex; align-items: center; justify-content: center; align-self: flex-start;
+        font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;
+        background: #ff6b1a; border: none; border-radius: 6px; padding: 8px 22px;
+        transition: background .2s;
+      }
+      .my_more1:hover { background: #d9550f; }
+
+      /* Filter card: checkbox styling */
+      .filter_card input[type="checkbox"] {
+        width: 16px; height: 16px; accent-color: #ff6b1a; cursor: pointer; flex-shrink: 0;
+      }
+    </style>
+
+    <script>
+      (function () {
+        var container = document.getElementById('cbp-vm');
+        if (!container) return;
+        var opts = container.parentNode.querySelectorAll('.cbp-vm-options > a');
+        opts.forEach(function (el) {
+          el.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            var view = el.getAttribute('data-view');
+            container.classList.remove('cbp-vm-view-grid', 'cbp-vm-view-list');
+            container.classList.add(view);
+            opts.forEach(function (o) { o.classList.remove('cbp-vm-selected'); });
+            el.classList.add('cbp-vm-selected');
+          });
+        });
+      })();
+
+      // ----- Filter products by voltage / current / dimensions -----
+      (function () {
+        var boxes = document.querySelectorAll('.filter_card input[type="checkbox"]');
+        var cards = document.querySelectorAll('#cbp-vm .cbp-vm-li');
+        var summary = document.querySelector('[data-inquiry-summary]');
+        if (!boxes.length || !cards.length) return;
+        var labels = { v: 'Voltage', a: 'Current', i: 'IP Rating', s: 'Dimensions' };
+        function apply() {
+          var active = { v: [], a: [], i: [], s: [] };
+          boxes.forEach(function (cb) {
+            if (cb.checked) {
+              var g = cb.getAttribute('data-filter');
+              if (active[g]) active[g].push(cb.value);
+            }
+          });
+          cards.forEach(function (card) {
+            var show = true;
+            ['v', 'a', 'i', 's'].forEach(function (g) {
+              if (active[g].length) {
+                var vals = (card.getAttribute('data-' + g) || '').split(',');
+                if (!active[g].some(function (x) { return vals.indexOf(x) > -1; })) show = false;
+              }
+            });
+            card.style.display = show ? '' : 'none';
+          });
+          if (summary) {
+            var lines = [];
+            ['v', 'a', 'i', 's'].forEach(function (g) {
+              if (active[g].length) lines.push(labels[g] + ': ' + active[g].join(', '));
+            });
+            summary.value = lines.join('\n');
+          }
+        }
+        boxes.forEach(function (cb) { cb.addEventListener('change', apply); });
+        apply();
+      })();
+    </script>
   </section>
 
-  <!-- Key Features -->
-  <section id="features" class="relative py-[clamp(48px,5vw,96px)] overflow-hidden" style="background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('/assets/images/products-key-features.jpg') center/cover no-repeat">
-    <!-- Tab 0: AHF -->
-    <div class="tab-panel" data-tab="0">
-      <div class="px-[clamp(24px,8vw,160px)]">
-        <div class="text-left mb-16 reveal-x-left">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] feat-grid">
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 15h6M15 9v6"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">SiC Technology</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="10" y="20" width="80" height="80" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.5"/>
-              <rect x="20" y="30" width="25" height="25" rx="2" fill="#ff4d00" opacity="0.6"/>
-              <rect x="55" y="30" width="25" height="25" rx="2" fill="#ff4d00" opacity="0.4"/>
-              <rect x="20" y="65" width="25" height="25" rx="2" fill="#ff4d00" opacity="0.3"/>
-              <rect x="55" y="65" width="25" height="25" rx="2" fill="#ff4d00" opacity="0.5"/>
-              <line x1="100" y1="60" x2="130" y2="60" stroke="#ff4d00" stroke-width="1" opacity="0.3"/>
-              <rect x="130" y="20" width="60" height="80" rx="4" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
-              <rect x="140" y="35" width="40" height="15" rx="2" fill="#ff4d00" opacity="0.15"/>
-              <rect x="140" y="60" width="40" height="15" rx="2" fill="#ff4d00" opacity="0.1"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">SiC vs IGBT</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Switching frequency &gt;20kHz, loss reduction 30%</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Anti-Resonance</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <path d="M10 80 Q 55 20, 100 60 T 190 40" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.6"/>
-              <path d="M10 90 Q 55 40, 100 75 T 190 55" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.3"/>
-              <rect x="75" y="15" width="50" height="55" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <path d="M85 45 L95 55 L115 35" fill="none" stroke="#ff4d00" stroke-width="2"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">5th/7th DAMPED</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Adaptive damping, prevents 5th/7th resonance amplification</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v18M16 3v18M4 8h16M4 16h16"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Ultra-Compact</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="30" y="30" width="60" height="70" rx="2" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
-              <text x="60" y="22" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow, sans-serif">100mm+</text>
-              <rect x="110" y="55" width="60" height="45" rx="2" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.7"/>
-              <text x="140" y="48" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow, sans-serif">U-Series 45mm</text>
-              <line x1="110" y1="65" x2="170" y2="65" stroke="#ff4d00" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 2"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">55% SPACE SAVED</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Space saving vs traditional 100mm+ cabinet models</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><path d="M6 10v4M9 10v4M12 10v4M15 10v4"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">99% Efficiency</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="40" y="20" width="120" height="80" rx="8" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.3"/>
-              <rect x="40" y="20" width="118.8" height="80" rx="8" fill="#ff4d00" opacity="0.15"/>
-              <rect x="46" y="26" width="108" height="68" rx="4" fill="#ff4d00" opacity="0.08"/>
-              <rect x="46" y="26" width="98" height="68" rx="4" fill="#ff4d00" opacity="0.35"/>
-              <line x1="42" y1="75" x2="170" y2="75" stroke="#ff4d00" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 2"/>
-              <text x="100" y="58" text-anchor="middle" fill="#ff4d00" font-size="28" font-family="Barlow Condensed, sans-serif" font-weight="700" opacity="0.9">99%</text>
-              <text x="100" y="72" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" opacity="0.7">EFFICIENCY</text>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow, sans-serif">ULTRA HIGH EFFICIENCY</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Ultra high efficiency, maximizing energy utilization and reducing system losses</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Tab 1: SVG -->
-    <div class="tab-panel hidden" data-tab="1">
-      <div class="px-[clamp(24px,8vw,160px)]">
-        <div class="text-left mb-16 reveal-x-left">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Key Features</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-white/90 font-barlow-condensed">Core Technology Advantages</h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)] feat-grid">
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">&lt;5ms Response</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="20" y="30" width="160" height="60" rx="4" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <path d="M20 90 L60 30 L100 90 L140 30 L180 90" fill="none" stroke="#ff4d00" stroke-width="2" opacity="0.7"/>
-              <line x1="60" y1="30" x2="60" y2="20" stroke="#ff4d00" stroke-width="1" stroke-dasharray="2 2"/>
-              <line x1="140" y1="30" x2="140" y2="20" stroke="#ff4d00" stroke-width="1" stroke-dasharray="2 2"/>
-              <text x="100" y="18" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">&lt;5ms FULL RESPONSE</text>
-              <text x="100" y="115" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">vs. capacitor banks: seconds~minutes</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Full compensation output in under 5ms, tracking load changes in real-time</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Capacitor-Free Design</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="10" y="30" width="70" height="60" rx="3" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.4"/>
-              <text x="45" y="60" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="Barlow Condensed, sans-serif">Capacitor</text>
-              <text x="45" y="72" text-anchor="middle" fill="#9ca3af" font-size="7" font-family="Barlow Condensed, sans-serif">Banks</text>
-              <line x1="85" y1="60" x2="115" y2="60" stroke="#ff4d00" stroke-width="1.5"/>
-              <polygon points="110,56 118,60 110,64" fill="#ff4d00"/>
-              <rect x="120" y="30" width="70" height="60" rx="3" fill="none" stroke="#ff4d00" stroke-width="1.5" opacity="0.7"/>
-              <text x="155" y="60" text-anchor="middle" fill="#ff4d00" font-size="8" font-family="Barlow Condensed, sans-serif" font-weight="600">IGBT SVG</text>
-              <text x="155" y="72" text-anchor="middle" fill="#ff4d00" font-size="7" font-family="Barlow Condensed, sans-serif">No capacitors</text>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">NO RESONANCE RISK</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Pure IGBT-based design eliminates capacitor resonance and maintenance issues</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Bidirectional Output</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <rect x="30" y="20" width="60" height="35" rx="2" fill="#ff4d00" opacity="0.15" stroke="#ff4d00" stroke-width="1"/>
-              <text x="60" y="42" text-anchor="middle" fill="#ff4d00" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">+Q (Inductive)</text>
-              <rect x="110" y="65" width="60" height="35" rx="2" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
-              <text x="140" y="87" text-anchor="middle" fill="#3b82f6" font-size="9" font-family="Barlow Condensed, sans-serif" font-weight="600">-Q (Capacitive)</text>
-              <line x1="90" y1="37" x2="110" y2="82" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="3 3"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">BOTH LEAD &amp; LAG</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Outputs both leading and lagging reactive power for full four-quadrant operation</p>
-          </div>
-          <div class="feat-card bg-[rgba(0,0,0,0.45)] border border-brand-orange/40 rounded-lg p-[clamp(8px,1.5vw,32px)]">
-            <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="5" y1="16" x2="12" y2="12"/><line x1="19" y1="16" x2="12" y2="12"/></svg>
-            </div>
-            <h3 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-white/90 mb-4">Multi-Unit Parallel</h3>
-            <svg viewBox="0 0 200 120" class="w-full h-24 mb-4 max-sm:hidden">
-              <circle cx="100" cy="30" r="12" fill="none" stroke="#ff4d00" stroke-width="1.5"/>
-              <circle cx="60" cy="80" r="12" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.6"/>
-              <circle cx="100" cy="80" r="12" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.6"/>
-              <circle cx="140" cy="80" r="12" fill="none" stroke="#ff4d00" stroke-width="1" opacity="0.6"/>
-              <line x1="100" y1="42" x2="60" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <line x1="100" y1="42" x2="100" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <line x1="100" y1="42" x2="140" y2="68" stroke="#ff4d00" stroke-width="1" opacity="0.4"/>
-              <text x="100" y="115" text-anchor="middle" fill="#ff4d00" font-size="10" font-family="Barlow Condensed, sans-serif" font-weight="600">MAX 16 UNITS</text>
-            </svg>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/70 leading-relaxed">Up to 16 units parallel, circulating current &lt;3%, plug-and-play</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Value Proposition -->
-  <section id="value-prop" class="relative min-h-[calc(100vh-72px)] py-[clamp(48px,5vw,96px)] overflow-hidden" style="background:url('/assets/images/products-hero.webp') center/cover no-repeat">
-    <canvas id="vp-canvas" class="absolute inset-0 z-[1] pointer-events-none"></canvas>
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0f1117]/10 via-[#161b22]/10 to-[#0d1117]/10 z-[2]"></div>
-    <!-- Tab 0: AHF -->
-    <div class="tab-panel relative z-[3]" data-tab="0">
-      <div class="px-[clamp(24px,8vw,160px)] relative">
-        <div class="text-center mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Value Proposition</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pain Points &amp; Solutions</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Voltage Fluctuation</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Unexpected equipment downtime, data loss, and production line interruptions caused by unstable grid voltage.</p>
-          </div>
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Harmonic Distortion</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Transformer overheating, additional cable losses, and precision equipment malfunction from harmonic pollution.</p>
-          </div>
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Power Factor Penalties</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Hidden costs climbing on electricity bills, with utility companies charging extra for poor power factor.</p>
-          </div>
-        </div>
-
-        <!-- Tech Roadmap -->
-        <div class="relative reveal">
-          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">Technical Process Flow</p>
-          <div class="relative flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,1.5vw,20px)] md:gap-0">
-            <div class="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-px bg-white/10"></div>
-            <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
-            <div class="hidden md:block absolute -bottom-8 left-[12%] right-[12%]">
-              <svg width="100%" height="30" viewBox="0 0 800 30" preserveAspectRatio="none"><path d="M 0 25 Q 400 5 800 25" fill="none" stroke="rgba(255,107,26,0.4)" stroke-width="1" stroke-dasharray="4 4"/><polygon points="790,22 800,28 790,28" fill="rgba(255,107,26,0.5)"/></svg>
-              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Closed-loop control, &lt;50&mu;s response</p>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">01</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Grid Sampling</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="2nd-50th harmonic detection&#10;Real-time spectrum analysis">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">02</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">FFT Analysis</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Switching frequency >20kHz&#10;Loss reduction 30%">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">03</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">SiC/IGBT Inversion</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Response &lt;50&mu;s&#10;Closed-loop real-time injection">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">04</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Harmonic Injection</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 1: SVG -->
-    <div class="tab-panel hidden relative z-[3]" data-tab="1">
-      <div class="px-[clamp(24px,8vw,160px)] relative">
-        <div class="text-center mb-16 reveal">
-          <p class="text-brand-orange text-[clamp(14px,1vw,17px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Value Proposition</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Pain Points &amp; Solutions</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(20px,5vw,100px)] mb-12">
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Reactive Power Shortage</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Low power factor causes transformer overload, line losses, and utility penalties for industrial loads.</p>
-          </div>
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:100ms">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Voltage Flicker &amp; Sag</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Sudden load changes cause voltage dips and flicker, affecting sensitive equipment and product quality.</p>
-          </div>
-          <div class="vp-card bg-[rgba(255,255,255,0.04)] border border-white/10 rounded-lg p-[clamp(16px,3vw,48px)] reveal shadow-sm backdrop-blur-sm" style="transition-delay:200ms">
-            <div class="w-12 h-12 rounded-lg bg-brand-orange/20 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h5M10 16h7"/></svg>
-            </div>
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-text-dark mb-3">Capacitor Bank Issues</h3>
-            <p class="text-text-dark text-[clamp(12px,0.9vw,15px)] leading-relaxed">Traditional capacitor banks cannot track dynamic loads, causing over/under compensation and resonance risk.</p>
-          </div>
-        </div>
-
-        <!-- SVG Compensation Flow -->
-        <div class="relative reveal">
-          <p class="text-center text-[clamp(12px,0.9vw,15px)] text-text-dark mb-[clamp(16px,2.5vw,40px)] tracking-widest uppercase font-barlow-condensed">SVG Compensation Flow</p>
-          <div class="relative flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,1.5vw,20px)] md:gap-0">
-            <div class="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-px bg-white/10"></div>
-            <div class="md:hidden absolute left-[28px] top-[12%] bottom-[12%] w-px bg-white/10"></div>
-            <div class="hidden md:block absolute -bottom-8 left-[12%] right-[12%]">
-              <svg width="100%" height="30" viewBox="0 0 800 30" preserveAspectRatio="none"><path d="M 0 25 Q 400 5 800 25" fill="none" stroke="rgba(255,107,26,0.4)" stroke-width="1" stroke-dasharray="4 4"/><polygon points="790,22 800,28 790,28" fill="rgba(255,107,26,0.5)"/></svg>
-              <p class="text-center text-[clamp(10px,0.8vw,12px)] text-brand-orange/70 mt-1 font-barlow-condensed">Full response &lt;10ms, real-time closed-loop</p>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="3-phase V/I sampling&#10;128 points/cycle">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">01</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Grid Sampling</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Reactive power calculation&#10;Real-time PF analysis">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">02</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Q/PF Analysis</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="IGBT switching >15kHz&#10;Capacitor-free design">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">03</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">IGBT Inversion</p></div>
-            </div>
-            <div class="relative flex md:flex-col items-center md:text-center gap-[clamp(8px,1.5vw,20px)] md:gap-0 w-full md:w-auto z-10">
-              <div class="w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-sm border border-brand-orange/30 flex items-center justify-center flex-shrink-0 tooltip-trigger" data-tip="Response &lt;10ms&#10;Continuous real-time output">
-                <span class="text-brand-orange font-bold text-[clamp(12px,0.9vw,15px)] font-barlow-condensed">04</span>
-              </div>
-              <div class="md:mt-4"><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Var Injection</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tooltip (shared) -->
-    <div id="roadmap-tooltip" class="fixed z-50 px-4 py-2 bg-text-dark border border-brand-orange/30 rounded text-[clamp(10px,0.8vw,12px)] text-brand-orange whitespace-pre-line pointer-events-none hidden font-barlow-condensed shadow-lg"></div>
-  </section>
-
-  
-  <!-- Product Matrix -->
-  <section id="matrix" class="relative bg-white py-[clamp(24px,2.5vw,48px)]">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <div class="text-center mb-[clamp(16px,2.5vw,40px)] reveal">
-        <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">Product Configurator</p>
-        <h2 id="matrix-title" class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-2 font-barlow-condensed">AHF Product Selection Matrix</h2>
-        <p class="text-[clamp(12px,0.9vw,15px)] flex items-center justify-center gap-2 text-red-500 font-medium">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          Click voltage class button, then choose series and capacity button from the matrix and request quote.
-        </p>
-      </div>
-
-      <!-- Voltage Selector -->
-      <div class="flex flex-wrap justify-center gap-3 mb-[clamp(20px,3vw,48px)] reveal">
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-brand-orange bg-brand-orange text-white" data-v="400V"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="font-medium">400V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Standard</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="208V"><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="font-medium">208V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Low Voltage</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="480V"><span class="w-3 h-3 rounded-full bg-orange-500"></span><span class="font-medium">480V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">High Voltage</span></button>
-        <button class="volt-btn flex items-center gap-2 px-5 py-2 rounded-full border text-[clamp(12px,0.9vw,15px)] transition-all duration-200 border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-v="690V"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="font-medium">690V/800V</span><span class="hidden sm:inline text-[clamp(10px,0.8vw,12px)] opacity-70">Industrial</span></button>
-      </div>
-
-      <!-- Desktop Matrix -->
-      <div class="hidden md:block relative overflow-x-auto reveal" id="matrix-desktop">
-        <table class="w-full border-collapse border border-border-light rounded-lg">
-          <thead>
-            <tr class="bg-[#f9fafb]">
-              <th class="p-2 text-left text-[clamp(12px,0.9vw,15px)] text-text-dim font-medium font-barlow-condensed border-b border-border-light">Capacity \ Model</th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Ultra-Slim</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">U-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Distributed</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">D-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Anti-Pollution</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">A-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">SiC</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">C-Series</span></div></th>
-              <th class="p-2 text-center border-b border-border-light"><div class="flex flex-col items-center"><span class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Standard</span><span class="text-[clamp(10px,0.8vw,12px)] text-text-muted mt-0.5">L-Series</span></div></th>
-            </tr>
-          </thead>
-          <tbody id="matrix-tbody">
-            <!-- JS fills this -->
-          </tbody>
-        </table>
-        <div id="spec-panel" class="hidden absolute left-0 top-0 bottom-0 w-80 bg-white border border-border-light rounded-l-lg p-[clamp(8px,1.5vw,32px)] overflow-y-auto z-20 shadow-lg">
-          <div id="spec-panel-content"></div>
-        </div>
-      </div>
-
-      <!-- Mobile Wizard -->
-      <div class="md:hidden reveal" id="mobile-wizard">
-        <div class="wizard-step active" id="wiz-voltage">
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 1: Select Voltage Class</p>
-          <div class="space-y-3" id="wiz-voltage-options"></div>
-        </div>
-        <div class="wizard-step" id="wiz-series">
-          <button onclick="wizardBack('voltage')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Back to Voltage</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 2: Select Series</p>
-          <div class="space-y-3" id="wiz-series-options"></div>
-        </div>
-        <div class="wizard-step" id="wiz-capacity">
-          <button onclick="wizardBack('series')" class="text-[clamp(12px,0.9vw,15px)] text-brand-orange mb-4">&larr; Back to Series</button>
-          <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Step 3: Select Capacity</p>
-          <div class="grid grid-cols-2 gap-3" id="wiz-capacity-options"></div>
-        </div>
-        <div id="mobile-spec" class="mt-6 hidden bg-bg-mid border border-white/10 rounded-lg p-5"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HMI Section -->
-  <section id="hmi" class="relative bg-[#f5f5f7] py-[clamp(64px,6vw,128px)] overflow-hidden">
-    <div class="px-[clamp(24px,8vw,160px)] relative">
-      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
-        <div class="hmi-left">
-          <p class="text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium tracking-widest uppercase mb-3 font-barlow-condensed">HMI Interface</p>
-          <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)] font-barlow-condensed">Intelligent Human-Machine Interface</h2>
-          <p class="text-text-dim mb-[clamp(20px,3vw,48px)] leading-relaxed">Equipped with a 7-inch high-resolution capacitive touchscreen providing an intuitive power quality monitoring experience. Real-time waveform display, historical data logging, remote communication, and control of up to 16 modules in one.</p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">7-inch Touchscreen</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Touch LCD &amp; system setting</p></div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Real-time Measurement</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Parameters / waveforms / spectra</p></div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Modbus / Ethernet</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">Remote monitoring & data logging</p></div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-              <div><p class="text-text-dark text-[clamp(12px,0.9vw,15px)] font-medium">Multi-Language</p><p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/70 mt-0.5">EN/ZH/ES/DE/FR and 8 more</p></div>
-            </div>
-          </div>
-          <div class="mt-6 flex items-start gap-3 bg-brand-orange/5 border border-brand-orange/15 rounded-lg px-4 py-3">
-            <svg class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim"><span class="font-medium text-text-dark">Note:</span> Capacitor bank controller, which controls up to <span class="font-medium text-text-dark">32 sets</span> of capacitor banks, is available. (7" monitor built-in or stand-alone type)</p>
-          </div>
-        </div>
-        <div class="relative hmi-right flex justify-center">
-          <img src="/assets/images/products-monitoring.webp" alt="HMI Monitoring Interface" class="w-auto max-w-[320px] lg:max-w-[380px] h-auto rounded-2xl shadow-xl">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies - Carousel -->
-  <section id="cases" class="relative bg-white overflow-hidden pt-[clamp(48px,5vw,112px)] pb-0">
-
-    <!-- Floating title -->
-    <div class="absolute top-[clamp(16px,3vw,40px)] lg:top-12 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
-      <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-brand-orange font-barlow-condensed">Success Stories</h2>
-      <div class="mx-auto mt-3 w-14 h-[3px] rounded-full bg-gradient-to-r from-brand-orange/40 via-brand-orange to-brand-orange/40 shadow-[0_0_8px_rgba(255,107,26,0.35)]"></div>
-    </div>
-
-    <!-- Carousel Content -->
-    <div class="flex flex-col">
-
-      <!-- Tab 0: AHF -->
-      <div class="tab-panel" data-tab="0">
-      <div class="case-carousel reveal relative overflow-hidden" id="case-carousel">
-        <div class="case-track flex transition-transform duration-500 ease-out" id="case-track">
-
-          <!-- Slide 1 - Data Center -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-1.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Major Data Center Operator</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS systems generated massive 5th, 7th harmonics causing transformer overheating and repeated protection trips.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-100-400 x 8 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">THDi</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">25%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">4.2%</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Annual Savings</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$120K</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Life Extended</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">3x</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 - Automotive -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-2.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Automotive</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Automotive Manufacturer</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Welding robot VFDs produced harmonic interference causing PLC misoperation and frequent line interruptions.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-A-150-400 x 4 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">THDi</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">32%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">3.8%</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Power Factor</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.82</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Downtime</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-95%</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3 - Port & Marine -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-port.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Port &amp; Marine</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Container Terminal</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Shore power systems and crane VFDs created severe 11th/13th harmonics affecting vessel grid synchronization.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-L-200-690 x 6 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">THDi</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">28%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">4.5%</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Annual Savings</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$85K</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Grid Sync</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">100%</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 4 - Semiconductor -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-semiconductor.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Semiconductor</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Wafer Fab Facility</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">EUV lithography tools required &lt;3% THDi, but existing grid delivered 18% with significant even harmonics.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">AHF-C-050-400 x 12 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">THDi</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">18%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">2.1%</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Yield Improve</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">+8.5%</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">ROI</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">14 mo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Carousel Controls (floating) -->
-        <div class="absolute bottom-4 lg:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-[clamp(8px,1.5vw,20px)] z-10">
-          <button id="case-prev" class="w-10 h-10 rounded-full border border-[#d1d5db] flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-all text-text-dim bg-white/90 backdrop-blur-sm">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <div class="flex gap-2" id="case-dots">
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer active" data-slide="0"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="1"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="2"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="3"></span>
-          </div>
-          <button id="case-next" class="w-10 h-10 rounded-full border border-[#d1d5db] flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-all text-text-dim bg-white/90 backdrop-blur-sm">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-      </div><!-- end tab-panel 0 -->
-
-      <!-- Tab 1: SVG -->
-      <div class="tab-panel hidden" data-tab="1">
-      <div class="case-carousel reveal relative overflow-hidden" id="case-carousel-svg">
-        <div class="case-track flex transition-transform duration-500 ease-out" id="case-track-svg">
-
-          <!-- SVG Slide 1 - Automotive Welding -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-1.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Welding Plant</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Automotive Welding Line</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Spot welding robots caused severe voltage flicker and PF dropped to 0.65, leading to utility penalties.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-100-400 x 6 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">PF</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.65</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.98</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Flicker (Pst)</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">&lt;0.7</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Penalty Saved</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$95K/yr</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SVG Slide 2 - Cloud Data Center -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-case-study-2.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Data Center</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Cloud Data Center Campus</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">UPS systems with poor PF caused transformer overload and 8% voltage sag during peak loads.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-C-150-400 x 8 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">PF</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.72</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Voltage Sag</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">8%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">1%</span>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Transformer Load</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-35%</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SVG Slide 3 - Container Terminal -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-port.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">Port Crane</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Container Terminal</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Crane motor starting caused severe voltage flicker, affecting other dock equipment and lighting.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-A-100-690 x 4 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">PF</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.55</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.97</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Voltage Dip</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">12%</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">2%</span>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Annual Savings</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-orange">$78K</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SVG Slide 4 - Solar Plant -->
-          <div class="case-slide flex-[0_0_100%]">
-            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg border border-border-light min-h-[70vh]">
-              <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:min-h-[70vh] bg-cover bg-center relative bg-[url(/assets/images/products-industry-semiconductor.jpg)]">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-              </div>
-              <div class="lg:w-1/2 p-[clamp(16px,3vw,48px)] lg:p-12 xl:p-14 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[clamp(10px,0.8vw,12px)] font-medium">PV Solar Farm</span>
-                  <svg class="w-4 h-4 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3 class="text-[clamp(20px,1.6vw,28px)] lg:text-[clamp(24px,2vw,36px)] font-bold text-text-dark mb-[clamp(12px,2vw,32px)]">Utility-Scale Solar Plant</h3>
-                <div class="space-y-4 mb-[clamp(12px,2vw,32px)]">
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Challenge</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-text-dim">Inverter-based generation caused leading PF during low-load periods, violating grid code.</p>
-                  </div>
-                  <div>
-                    <p class="text-[clamp(10px,0.8vw,12px)] text-text-muted uppercase tracking-wider mb-1">Solution</p>
-                    <p class="text-[clamp(12px,0.9vw,15px)] text-brand-orange font-semibold">SVG-L-200-690 x 10 units</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-[clamp(8px,1.5vw,20px)] p-4 bg-[#f9fafb] rounded-xl border border-border-light">
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">PF Range</p>
-                    <div class="flex items-center justify-center gap-1">
-                      <span class="text-[clamp(10px,0.8vw,12px)] text-text-muted line-through">0.88~1.0L</span>
-                      <span class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">0.99</span>
-                    </div>
-                  </div>
-                  <div class="text-center border-x border-border-light">
-                    <p class="text-[10px] text-text-muted mb-1">Grid Code</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-green-600">Pass</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-[10px] text-text-muted mb-1">Curtailment</p>
-                    <p class="text-[clamp(13px,1.1vw,17px)] font-bold text-text-dark">-100%</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- SVG Carousel Controls (floating) -->
-        <div class="absolute bottom-4 lg:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-[clamp(8px,1.5vw,20px)] z-10">
-          <button id="case-prev-svg" class="w-10 h-10 rounded-full border border-[#d1d5db] flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-all text-text-dim bg-white/90 backdrop-blur-sm">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <div class="flex gap-2" id="case-dots-svg">
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer active" data-slide="0"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="1"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="2"></span>
-            <span class="carousel-dot w-2 h-2 rounded-full bg-[#d1d5db] transition-all duration-300 cursor-pointer" data-slide="3"></span>
-          </div>
-          <button id="case-next-svg" class="w-10 h-10 rounded-full border border-[#d1d5db] flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-all text-text-dim bg-white/90 backdrop-blur-sm">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-      </div><!-- end tab-panel 1 -->
-
-    </div>
-  </section>
-
-  <!-- Resources -->
-  <section id="resources" class="relative bg-[#f5f5f7] py-[clamp(24px,3vw,64px)]">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <div class="text-center mb-[clamp(16px,2.5vw,40px)] reveal">
-        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Document Library</h2>
-      </div>
-      <div class="flex flex-wrap justify-center gap-2 mb-[clamp(12px,2vw,32px)] reveal">
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-brand-orange text-white border border-brand-orange" data-filter="all">All</button>
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="spec">Specs &amp; Certs</button>
-        <button class="res-filter px-4 py-2 rounded-full text-[clamp(12px,0.9vw,15px)] transition-all duration-200 bg-white border border-[#d1d5db] text-text-dim hover:border-brand-orange hover:text-brand-orange" data-filter="video">Videos</button>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal" id="resource-list">
-        <!-- JS fills this -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Industries -->
-  <section id="industries" class="relative bg-white py-[clamp(48px,5vw,96px)]">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <div class="text-center mb-[clamp(20px,3vw,48px)] reveal">
-        <h2 class="text-[clamp(24px,2.5vw,52px)] font-bold text-text-dark font-barlow-condensed">Industry Applications </h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(20px,5vw,100px)]">
-        <a href={lp('/solutions/datacenter')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]">
-          <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-datacenter.jpg)]"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
-          <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Data Center</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">UPS harmonic mitigation &amp; PF correction</p>
-            <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </a>
-        <a href={lp('/solutions/healthcare')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:120ms">
-          <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-hospital.jpg)]"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
-          <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Healthcare</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Precision medical equipment power quality</p>
-            <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </a>
-        <a href={lp('/solutions/semiconductor')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:240ms">
-          <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-semiconductor.jpg)]"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
-          <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Semiconductor</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Wafer fab ultra-precision power purification</p>
-            <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </a>
-        <a href={lp('/solutions/port')} class="ind-card group relative block overflow-hidden rounded-lg reveal aspect-[4/5] max-sm:aspect-[8/5]" style="transition-delay:360ms">
-          <div class="ind-img absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 bg-[url(/assets/images/products-industry-port.jpg)]"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/35 transition-all duration-300"></div>
-          <div class="absolute inset-0 flex flex-col justify-center p-[clamp(8px,1.5vw,32px)] pt-7">
-            <h3 class="text-[clamp(18px,1.4vw,24px)] font-semibold text-white mb-2">Port &amp; Logistics</h3>
-            <p class="text-[clamp(12px,0.9vw,15px)] text-white/90 mb-4">Large crane VFD harmonic suppression</p>
-            <div class="ind-cta flex items-center gap-2 text-brand-orange text-[clamp(12px,0.9vw,15px)] font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 mt-auto self-end">
-              <span>View Solution</span><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section - Tab 0: AHF FAQ -->
-  <section id="faq" class="relative bg-white py-16 lg:py-20 reveal">
-    <div class="tab-panel faq-flex" data-tab="0">
-      <div class="px-[clamp(24px,8vw,160px)]">
-        <!-- Divider -->
-        <div class="flex items-center justify-center gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
-          <div class="h-[2px] w-12 bg-gradient-to-r from-transparent to-brand-orange/60 rounded-full"></div>
-          <div class="h-[3px] w-24 bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60 rounded-full shadow-[0_0_12px_rgba(255,107,26,0.4)]"></div>
-          <div class="h-[2px] w-12 bg-gradient-to-r from-brand-orange/60 to-transparent rounded-full"></div>
-        </div>
-        <div class="bg-white rounded-2xl border border-border-light overflow-hidden shadow-sm reveal">
-          <div class="flex flex-col lg:flex-row">
-            <!-- FAQ Left Column -->
-            <div class="w-full lg:w-[360px] lg:flex-shrink-0 bg-white lg:border-r border-b lg:border-b-0 border-border-light flex flex-col">
-              <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light">
-                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">Frequently Asked Questions</h2>
-              </div>
-              <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavList">
-                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Impact of Harmonic Distortion</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">AHF Application Scenarios by Industry</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">What is the response time of CHITEK AHF?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">Can multiple AHF units operate in parallel?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">What communication protocols are supported?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">What is the lifespan and maintenance schedule?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">Does the AHF require a dedicated transformer?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">Can the AHF operate in harsh environments?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">What certifications does the AHF hold?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">How is the AHF commissioned and configured?</div>
-              </div>
-            </div>
-            <!-- FAQ Right Column -->
-            <div class="flex-1 flex flex-col">
-              <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Impact of Harmonic Distortion</span>
-              </div>
-              <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
-                <div class="faq-panel active" id="faqPanel1">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <div class="space-y-4">
-                      <div>
-                        <strong class="text-text-dark">Harmonic Distortion</strong>
-                        <p class="text-text-dim mt-1">Nonlinear loads such as VFDs, UPSs, LED drivers, and welding machines generate 3rd/5th/7th/11th harmonics, leading to transformer overheating, additional cable losses, sensitive equipment malfunction, and nuisance tripping.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Resonance Risk</strong>
-                        <p class="text-text-dim mt-1">Traditional passive filters form series/parallel resonance with system impedance, causing harmonic current amplification, equipment damage, and capacitor bank explosion.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">THDi Exceeds Limits</strong>
-                        <p class="text-text-dim mt-1">Total harmonic current distortion &gt; 8% (IEEE 519) or &gt; 5% (G5/4), resulting in utility fines, power supply restrictions, and commissioning failure.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Neutral Overload</strong>
-                        <p class="text-text-dim mt-1">3rd harmonics accumulate in phase in 3-phase 4-wire systems, causing neutral current to reach 1.7&times; phase current, cable insulation aging, and fire hazard.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">False PF Reading</strong>
-                        <p class="text-text-dim mt-1">Harmonics distort traditional power factor meter measurements, leading to capacitor bank over/under compensation and ongoing penalty charges.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel2">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <div class="space-y-4">
-                      <div>
-                        <strong class="text-text-dark">Arc Furnace / Refining</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Impact loads, three-phase unbalance, severe flicker</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Sub-cycle response suppressing voltage flicker, stabilizing electrode control</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Steel Rolling / Wire Drawing</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Cyclical impact loads, severe power factor fluctuation</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Real-time reactive power tracking, avoiding PF penalty charges</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Wind / Solar Power</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Intermittent output, grid-code power factor requirements</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Meeting utility interconnection standards, preventing disconnection</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Rail Transit</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Traction load impact, regenerative braking</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Stabilizing catenary voltage, reducing braking resistor energy loss</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Harbor Cranes</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Hoisting/lowering impact loads</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Dynamic reactive compensation, reducing transformer capacity requirements</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Data Centers</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> UPS light-load high capacitance, transformer light-load</p>
-                        <p class="text-text-dim"><strong>AHF Application:</strong> Preventing capacitive reverse flow, maintaining PF at 0.95-1.0</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel3">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Response Time</h4>
-                    <p class="mb-3">CHITEK AHF features a full response time of less than 50 microseconds (&lt;50&mu;s), enabling real-time harmonic compensation that responds instantly to dynamic load changes.</p>
-                    <p>This ultra-fast response ensures that even rapidly fluctuating loads such as welding machines, elevators, and variable frequency drives are effectively compensated without delay, preventing harmonic buildup that could damage sensitive equipment.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel4">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Parallel Operation</h4>
-                    <p class="mb-3">Yes, CHITEK AHF units are designed for parallel operation. Up to 10 units can be paralleled without any communication cables, using a proprietary master-slave control algorithm.</p>
-                    <p class="mb-3">Key benefits of parallel operation:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Capacity expansion from 30A to 3000A+</li>
-                      <li>N+1 redundancy for critical applications</li>
-                      <li>Automatic load sharing with droop control</li>
-                      <li>Hot-swappable modules for maintenance without downtime</li>
-                    </ul>
-                    <p>Parallel systems can be configured in less than 5 minutes through the intuitive front panel interface.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel5">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Communication Protocols</h4>
-                    <p class="mb-3">CHITEK AHF supports the following communication protocols for remote monitoring and control:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard on all models</li>
-                      <li><strong>Ethernet / Modbus TCP</strong> — optional interface module</li>
-                      <li><strong>Profibus DP</strong> — optional for industrial automation integration</li>
-                      <li><strong>Dry contact I/O</strong> — for simple start/stop and alarm signaling</li>
-                    </ul>
-                    <p>All communication parameters (baud rate, parity, slave address) are configurable via the front panel keypad and display. CHITEK also provides a free PC-based monitoring software for data logging and trend analysis.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel6">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Lifespan and Maintenance</h4>
-                    <p class="mb-3">CHITEK AHF has a design life exceeding 15 years under normal operating conditions (ambient below 40&deg;C, nominal load). Regular preventive maintenance is recommended every 12 months to ensure optimal performance.</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>DC bus capacitor replacement:</strong> every 8-10 years (recommended)</li>
-                      <li><strong>Cooling fan replacement:</strong> every 5-7 years (based on operating hours)</li>
-                      <li><strong>Air filter cleaning:</strong> every 3-6 months (dusty environments)</li>
-                      <li><strong>Firmware updates:</strong> available via CHITEK PC software tool</li>
-                    </ul>
-                    <p>All CHITEK AHF products come with a standard 2-year warranty, with extended warranty options available up to 5 years.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel7">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Transformer Requirements</h4>
-                    <p class="mb-3">No, the CHITEK AHF does not require a dedicated isolation transformer. It connects directly to the low-voltage bus (380V-480V, 50/60Hz) through the existing circuit breaker or fused disconnect.</p>
-                    <p class="mb-3">However, proper <strong>current transformer (CT)</strong> installation is critical for correct operation:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>CTs must be installed on the mains side (grid source) of the load</li>
-                      <li>CT ratio should be selected so the secondary current is 1A or 5A at full load</li>
-                      <li>CT accuracy class 0.5 or better recommended for optimal performance</li>
-                      <li>Standard CT wiring distance up to 100 meters with proper shielding</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel8">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Harsh Environment Operation</h4>
-                    <p class="mb-3">CHITEK AHF is designed for reliable operation in demanding industrial environments:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Operating temperature:</strong> 0&deg;C to +50&deg;C (standard), with automatic derating above 40&deg;C</li>
-                      <li><strong>Storage temperature:</strong> -25&deg;C to +70&deg;C</li>
-                      <li><strong>Humidity:</strong> 0-95% non-condensing</li>
-                      <li><strong>Ingress protection:</strong> IP20 standard, IP31 optional (NEMA 1 equivalent)</li>
-                      <li><strong>Altitude:</strong> up to 2000m without derating, up to 4000m with derating</li>
-                    </ul>
-                    <p>For extreme environments (high dust, corrosive gases, outdoor), CHITEK offers custom enclosure options including forced ventilation, heat exchangers, and stainless steel construction.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel9">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Certifications and Compliance</h4>
-                    <p class="mb-3">CHITEK AHF products are fully certified and comply with major international standards:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>CE (LVD + EMC)</strong> — compliance with EU directives for low voltage and electromagnetic compatibility</li>
-                      <li><strong>UL/cUL 508</strong> — listed for industrial control equipment (optional)</li>
-                      <li><strong>IEC 61642</strong> — harmonic filter application standard</li>
-                      <li><strong>IEC 61439-1/2</strong> — low-voltage switchgear and controlgear assemblies</li>
-                      <li><strong>IEEE 519-2022</strong> — recommended harmonic limits compliance</li>
-                      <li><strong>ISO 9001:2015</strong> — quality management system (manufacturing facility)</li>
-                    </ul>
-                    <p>Custom certification packages are available for specific regional or project requirements.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanel10">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Commissioning and Configuration</h4>
-                    <p class="mb-3">CHITEK AHF is designed for quick and intuitive commissioning. The standard setup process takes less than 15 minutes and involves three simple steps:</p>
-                    <ol class="list-decimal pl-5 space-y-1 mb-3">
-                      <li><strong>Auto-tuning:</strong> The AHF automatically detects line impedance and CT configuration with the press of a button</li>
-                      <li><strong>Harmonic selection:</strong> Choose from pre-configured harmonic profiles or customize individual harmonic orders (2nd-50th)</li>
-                      <li><strong>Verification:</strong> Built-in waveform display and harmonic spectrum analyzer confirm correct operation</li>
-                    </ol>
-                    <p>For advanced configurations, CHITEK provides a free PC-based software tool for parameter backup/restore, data logging, and remote monitoring setup. Multi-unit parallel systems can be configured in under 5 minutes through the intuitive front panel interface without any external tools.</p>
-                  </div>
-                </div>
-              </div>  <!-- close flex-1 content -->
-            </div>  <!-- close right column -->
-          </div>  <!-- close outer flex -->
-        </div>  <!-- close faq card -->
-      </div>
-    </div>
-
-    <!-- Tab 1: SVG FAQ -->
-    <div class="tab-panel faq-flex hidden" data-tab="1">
-      <div class="px-[clamp(24px,8vw,160px)]">
-        <!-- Divider -->
-        <div class="flex items-center justify-center gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
-          <div class="h-[2px] w-12 bg-gradient-to-r from-transparent to-brand-orange/60 rounded-full"></div>
-          <div class="h-[3px] w-24 bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60 rounded-full shadow-[0_0_12px_rgba(255,107,26,0.4)]"></div>
-          <div class="h-[2px] w-12 bg-gradient-to-r from-brand-orange/60 to-transparent rounded-full"></div>
-        </div>
-        <div class="bg-white rounded-2xl border border-border-light overflow-hidden shadow-sm reveal">
-          <div class="flex flex-col lg:flex-row">
-            <!-- FAQ Left Column -->
-            <div class="w-full lg:w-[360px] lg:flex-shrink-0 bg-white lg:border-r border-b lg:border-b-0 border-border-light flex flex-col">
-              <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light">
-                <h2 class="text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-bold text-text-dark font-barlow-condensed">Frequently Asked Questions</h2>
-              </div>
-              <div class="flex flex-col pt-4 pb-4 lg:pt-6 lg:pb-6" id="faqNavListSvg">
-                <div class="faq-nav-item active bg-[#fff5f0] border-l-brand-orange text-brand-orange font-semibold px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark" data-target="1">Key Issues SVG Solves</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="2">SVG Application Scenarios by Industry</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="3">What is the difference between SVG and capacitors?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="4">What protection features are included?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="5">What is the typical lifespan and MTBF?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="6">What are the installation requirements?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="7">Can SVG handle unbalanced loads?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="8">How does SVG integrate with renewable energy?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="9">What is the standby power consumption?</div>
-                <div class="faq-nav-item px-6 py-3.5 cursor-pointer transition-all duration-200 border-l-3 text-[clamp(12px,0.9vw,15px)] leading-relaxed text-text-dark hover:bg-[#f8f9fa] hover:text-text-dark hover:border-l-brand-orange border-l-transparent" data-target="10">What communication protocols are supported?</div>
-              </div>
-            </div>
-            <!-- FAQ Right Column -->
-            <div class="flex-1 flex flex-col">
-              <div class="px-6 lg:px-8 py-5 lg:py-6 border-b border-border-light bg-[#fafbfc] flex items-center justify-start">
-                <span class="faq-current-question text-[clamp(18px,1.4vw,24px)] lg:text-[clamp(20px,1.6vw,28px)] font-medium text-text-dark text-left font-barlow-condensed">Key Issues SVG Solves</span>
-              </div>
-              <div class="flex-1 p-[clamp(16px,3vw,48px)] lg:p-10">
-                <div class="faq-panel active" id="faqPanelSvg1">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <div class="space-y-4">
-                      <div>
-                        <strong class="text-text-dark">PF Penalty</strong>
-                        <p class="text-text-dim mt-1">cos&phi; &lt; 0.9 with high reactive power ratio, leading to 5%-20% reactive power surcharge on electricity bills.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Voltage Flicker</strong>
-                        <p class="text-text-dim mt-1">Impact loads from arc furnaces, rolling mills, and welders cause lighting flicker, motor speed fluctuation, and product quality instability.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Three-Phase Unbalance</strong>
-                        <p class="text-text-dim mt-1">Uneven distribution of single-phase high-power loads leads to transformer partial load overheating, zero-sequence current, and protection misoperation.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Capacitor Resonance</strong>
-                        <p class="text-text-dim mt-1">Traditional capacitor banks form resonance with system impedance, causing harmonic amplification, capacitor bulging/rupture, and fuse bank blowout.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Capacitive Reverse Power</strong>
-                        <p class="text-text-dim mt-1">Over-compensation during light-load conditions results in voltage rise, equipment insulation breakdown, and utility fines.</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Slow Response</strong>
-                        <p class="text-text-dim mt-1">Mechanical switched capacitor response &gt; 1 second makes it unable to track rapid load changes, leading to compensation failure.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg2">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <div class="space-y-4">
-                      <div>
-                        <strong class="text-text-dark">Arc Furnace / Refining</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Impact loads, three-phase unbalance, severe flicker</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Sub-20ms response, suppressing voltage flicker, stabilizing electrode control</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Steel Rolling / Wire Drawing</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Cyclical impact loads, severe PF fluctuation</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Real-time reactive power tracking, avoiding PF penalty charges</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Wind / Solar Power</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Intermittent output, grid-code PF requirements</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Meeting utility interconnection standards, preventing disconnection</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Rail Transit</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Traction load impact, regenerative braking</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Stabilizing catenary voltage, reducing braking resistor energy loss</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Harbor Cranes</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> Hoisting/lowering impact loads</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Dynamic reactive compensation, reducing transformer capacity requirements</p>
-                      </div>
-                      <div>
-                        <strong class="text-text-dark">Data Centers</strong>
-                        <p class="text-text-dim mt-1"><strong>Load:</strong> UPS light-load high capacitance, transformer light-load</p>
-                        <p class="text-text-dim"><strong>SVG Application:</strong> Preventing capacitive reverse flow, maintaining PF at 0.95-1.0</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg3">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">SVG vs Capacitor Banks</h4>
-                    <p>The fundamental difference is that SVG uses power electronics (IGBT/SiC) to inject or absorb reactive current in real time, while capacitor banks provide fixed-step compensation with mechanical switching.</p>
-                    <table class="w-full border-separate border-spacing-0 text-[clamp(12px,0.9vw,15px)] leading-relaxed rounded-xl overflow-hidden border border-border-light mt-4">
-                      <thead>
-                        <tr class="bg-[#f5f5f7]">
-                          <th class="p-3 text-left text-text-dark font-semibold">Feature</th>
-                          <th class="p-3 text-left text-text-dark font-semibold">CHITEK SVG</th>
-                          <th class="p-3 text-left text-text-dark font-semibold">Capacitor Bank</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Response Time</td>
-                          <td class="p-3 text-text-dim">&lt;10ms</td>
-                          <td class="p-3 text-text-dim">1-5 cycles (20-100ms)</td>
-                        </tr>
-                        <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Compensation Type</td>
-                          <td class="p-3 text-text-dim">Continuous, smooth</td>
-                          <td class="p-3 text-text-dim">Step-wise, discrete</td>
-                        </tr>
-                        <tr class="border-b border-border-light">
-                          <td class="p-3 text-text-dark">Resonance Risk</td>
-                          <td class="p-3 text-text-dim">None (active injection)</td>
-                          <td class="p-3 text-text-dim">High (LC circuit formation)</td>
-                        </tr>
-                        <tr>
-                          <td class="p-3 text-text-dark">Harmonic Filtering</td>
-                          <td class="p-3 text-text-dim">Built-in (hybrid models)</td>
-                          <td class="p-3 text-text-dim">Requires detuned reactors</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg4">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Protection Features</h4>
-                    <p class="mb-3">CHITEK SVG includes comprehensive protection features to ensure safe and reliable operation:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Over-voltage / Under-voltage protection</strong> — automatic shutdown when grid voltage exceeds safe limits</li>
-                      <li><strong>Over-current protection</strong> — instantaneous trip on output over-current</li>
-                      <li><strong>Over-temperature protection</strong> — intelligent fan control with thermal shutdown</li>
-                      <li><strong>Short-circuit protection</strong> — IGBT module desaturation detection</li>
-                      <li><strong>Phase loss protection</strong> — detection and alarm for missing phases</li>
-                      <li><strong>Surge protection</strong> — built-in MOV for transient voltage suppression</li>
-                    </ul>
-                    <p>All protection events are logged with time stamps and can be retrieved via the front panel display or remote communication interface for troubleshooting.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg5">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Lifespan and MTBF</h4>
-                    <p class="mb-3">CHITEK SVG has a design life exceeding 20 years under normal operating conditions (ambient temperature below 40&deg;C, nominal load).</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>MTBF (Mean Time Between Failures):</strong> &gt;150,000 hours</li>
-                      <li><strong>Electrolytic capacitor replacement:</strong> every 8-10 years (recommended)</li>
-                      <li><strong>Cooling fan replacement:</strong> every 5-7 years (based on operating hours)</li>
-                      <li><strong>IGBT module lifespan:</strong> &gt;15 years under rated conditions</li>
-                    </ul>
-                    <p>All CHITEK SVG products come with a standard 2-year warranty, with extended warranty options available up to 5 years. Regular preventive maintenance is recommended every 12 months for optimal performance.</p>
-                  </div>
-                </div>
-              </div>
-                <div class="faq-panel hidden" id="faqPanelSvg6">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Installation Requirements</h4>
-                    <p class="mb-3">CHITEK SVG is designed for straightforward indoor installation with the following requirements:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Mounting:</strong> Wall-mount (up to 100kvar) or floor-mount with base frame (above 100kvar)</li>
-                      <li><strong>Clearance:</strong> Minimum 200mm on all sides for ventilation and access</li>
-                      <li><strong>Ventilation:</strong> Ambient temperature 0&deg;C to +50&deg;C, forced air cooling standard</li>
-                      <li><strong>Electrical:</strong> Direct connection to LV bus via circuit breaker; CT installation on mains side</li>
-                      <li><strong>Cable entry:</strong> Bottom entry standard, top entry optional</li>
-                    </ul>
-                    <p>For outdoor or semi-outdoor installations, CHITEK offers IP54-rated enclosures with built-in climate control.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg7">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Unbalanced Load Handling</h4>
-                    <p class="mb-3">Yes, CHITEK SVG features <strong>per-phase independent control</strong>, allowing it to handle severely unbalanced loads with ease.</p>
-                    <p class="mb-3">Each phase is independently monitored and controlled, providing:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li>Individual phase-by-phase reactive power compensation</li>
-                      <li>Automatic balancing of phase currents when used in conjunction with load balancing functions</li>
-                      <li>Zero-sequence compensation for 4-wire systems (3-phase + neutral)</li>
-                      <li>Seamless performance even when one phase has drastically different loading than others</li>
-                    </ul>
-                    <p>This makes CHITEK SVG ideal for applications with unbalanced loads such as welding shops, data centers, and commercial buildings.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg8">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Renewable Energy Integration</h4>
-                    <p class="mb-3">CHITEK SVG is widely used in renewable energy applications to improve power quality and grid compliance:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Solar PV plants:</strong> Compensates reactive power fluctuations caused by cloud-induced irradiance changes</li>
-                      <li><strong>Wind farms:</strong> Provides voltage support during turbine startup and wind gusts</li>
-                      <li><strong>Energy storage systems:</strong> Maintains power factor during charge/discharge cycles</li>
-                      <li><strong>Microgrids:</strong> Stabilizes voltage in island mode operation</li>
-                    </ul>
-                    <p>SVG units can be integrated with plant SCADA systems via Modbus TCP for coordinated reactive power management across the entire renewable facility.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg9">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Standby Power Consumption</h4>
-                    <p class="mb-3">CHITEK SVG is designed for high efficiency across all operating conditions, with minimal standby losses:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>Standby power consumption:</strong> &lt;2% of rated capacity (e.g., a 100kvar SVG consumes less than 2kW in standby)</li>
-                      <li><strong>Full-load efficiency:</strong> &gt;98% at rated output</li>
-                      <li><strong>Sleep mode:</strong> When reactive power demand is below 5% of rated capacity for 10 minutes, the SVG enters sleep mode, reducing consumption to &lt;0.5%</li>
-                      <li><strong>Automatic wake-up:</strong> The SVG instantly wakes from sleep mode when reactive power demand exceeds 10% of rated capacity</li>
-                    </ul>
-                    <p>This intelligent power management ensures minimal energy costs during periods of low demand while maintaining instant readiness.</p>
-                  </div>
-                </div>
-                <div class="faq-panel hidden" id="faqPanelSvg10">
-                  <div class="bg-[#fafbfc] rounded-xl p-7 border border-border-light text-[clamp(13px,1.1vw,17px)] leading-relaxed text-text-dim">
-                    <h4 class="text-[clamp(13px,1.1vw,17px)] font-semibold text-text-dark mb-3">Communication Protocols</h4>
-                    <p class="mb-3">CHITEK SVG supports the following communication protocols for remote monitoring and control:</p>
-                    <ul class="list-disc pl-5 space-y-1 mb-3">
-                      <li><strong>RS485 / Modbus RTU</strong> — standard on all models, supports multi-drop daisy-chain topology</li>
-                      <li><strong>Ethernet / Modbus TCP</strong> — optional interface module for network integration</li>
-                      <li><strong>Profibus DP</strong> — optional for industrial automation systems</li>
-                      <li><strong>Dry contact I/O</strong> — programmable inputs/outputs for start/stop, alarm, and status signaling</li>
-                    </ul>
-                    <p>All communication parameters (baud rate, parity, slave address, IP configuration) are fully configurable via the front panel keypad and display. CHITEK also provides comprehensive PC-based monitoring software for data logging, trend analysis, and remote firmware updates.</p>
-                  </div>
-                </div>
-              </div>  <!-- close flex-1 content -->
-            </div>  <!-- close right column -->
-          </div>  <!-- close outer flex -->
-        </div>  <!-- close faq card -->
-      </div>
-    </div>
-  </section>
 
 </BaseLayout>
 
@@ -1961,25 +610,6 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       }
       vpRaf = requestAnimationFrame(drawVpWaveform);
     }
-
-    // ===== Sticky Tab Bar =====
-    const stickyBar = document.getElementById('sticky-tab-bar');
-    window.addEventListener('scroll', () => {
-      const heroBottom = window.innerHeight * 0.55;
-      if (window.scrollY > heroBottom) {
-        stickyBar.style.opacity = '1';
-        stickyBar.style.transform = 'translateY(0)';
-        stickyBar.style.pointerEvents = 'auto';
-        stickyBar.style.height = 'auto';
-        stickyBar.style.overflow = 'visible';
-      } else {
-        stickyBar.style.opacity = '0';
-        stickyBar.style.transform = 'translateY(-8px)';
-        stickyBar.style.pointerEvents = 'none';
-        stickyBar.style.height = '0';
-        stickyBar.style.overflow = 'hidden';
-      }
-    }, { passive: true });
 
     // ===== Tab Switching =====
     document.querySelectorAll('.sticky-hero-tab').forEach(btn => {

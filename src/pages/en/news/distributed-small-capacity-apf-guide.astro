@@ -34,7 +34,7 @@ const relatedCases = [
   { name: "Brazil Data Center", industry: "Data Center" },
 ];
 ---
-<BaseLayout 
+<BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
   description={article.description} 
   lang="en"
@@ -42,6 +42,7 @@ const relatedCases = [
   ogTitle={article.title}
   ogDescription={article.description}
   ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
   <script type="application/ld+json" slot="head">
