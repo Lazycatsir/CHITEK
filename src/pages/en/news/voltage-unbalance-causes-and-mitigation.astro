@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Voltage Unbalance: Causes, Costs, and How an LV SVG + AHF Restore Balance",
+  category: "Technology",
+  date: "2026-09-20",
+  dateDisplay: "Sep 20, 2026",
+  author: "CHITEK Technical Team",
+  readTime: "5 min read",
+  description: "A three-phase system is balanced only in theory. This guide explains how voltage unbalance is quantified, what it costs in negative-sequence losses, why fixed methods fall short, and how a low-voltage SVG + AHF restore balance.",
+  keywords: ["Voltage Unbalance", "Negative Sequence", "Power Quality", "SVG", "Static Var Generator", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "What Is an Active Harmonic Filter?", category: "Technology", href: "/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "What Are Harmonics?", category: "Technology", href: "/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "What Is THDi?", category: "Technology", href: "/news/what-is-thdi-and-how-does-it-happen", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+  { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
+  { name: "Anti-Resonance Harmonic Retrofit — Medical Device Manufacturer, Dongguan", industry: "Medical & Healthcare", href: "/solutions/commercial" },
+  { name: "Resonance-Free Harmonic Control at a Large Livestock Farm, Anhui", industry: "Agri & Food Production", href: "/solutions/commercial" },
+];
+
+const lp = (p: string) => '/en' + p;
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://en.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Voltage Unbalance: Causes, Costs, and How an LV SVG + AHF Restore Balance",
+    "description": "A three-phase system is balanced only in theory. This guide explains how voltage unbalance is quantified, what it costs in negative-sequence losses, why fixed methods fall short, and how a low-voltage SVG + AHF restore balance.",
+    "image": "https://en.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "CHITEK Technical Team"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-09-20",
+    "dateModified": "2026-09-20",
+    "keywords": "Voltage Unbalance, Negative Sequence, Power Quality, SVG, Static Var Generator, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="en" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to News
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-7.webp" alt="Voltage Unbalance: Causes, Costs, and How an LV SVG + AHF Restore Balance" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">A three-phase system is balanced when all phase voltages are equal in magnitude and 120&deg; apart. In real plants &mdash; large single-phase loads, arc furnaces, rectifiers, uneven feeder impedances &mdash; that ideal breaks. The result is negative-sequence current that heats motors, derates transformers, and distorts the waveform. This article covers the causes, the cost, and why a low-voltage (LV) SVG + AHF is the dynamic correction.</p>
+<h2 id="how-unbalance-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">How Unbalance Is Quantified</h2>
+<p class="text-text-mid leading-relaxed mb-6">The standard metric (NEMA MG-1 / IEC 60034) expresses voltage unbalance as a percentage:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">V_unbalance% = (maximum deviation from average phase voltage) / (average phase voltage) &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Systems are typically classified as unbalanced above about <strong>1&ndash;3%</strong>. IEC 61000-3-13 outlines the acceptable limits.</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Major Causes</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Uneven load distribution</strong> &mdash; unequal loading across the three phases.</li>
+  <li><strong>Large single-phase loads</strong> &mdash; heaters, welders, and EV chargers on one phase draw excessive current.</li>
+  <li><strong>Line asymmetry</strong> &mdash; unequal impedance or a non-symmetric line configuration, worse on long feeders.</li>
+  <li><strong>Faulty equipment</strong> &mdash; damaged transformers or poor connections.</li>
+  <li><strong>Distributed generation</strong> &mdash; asymmetrical PV or ESS injection can unbalance a weak bus.</li>
+</ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What It Costs</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Reduced motor efficiency</strong> &mdash; negative-sequence current produces a counter-rotating field; a 1% voltage unbalance can raise motor temperature by ~5&ndash;10%.</li>
+  <li><strong>Equipment overheating</strong> &mdash; extra losses accelerate aging and raise failure risk.</li>
+  <li><strong>Increased energy consumption</strong> &mdash; unbalanced voltage raises system losses and the bill.</li>
+  <li><strong>Voltage fluctuations</strong> &mdash; unbalance worsens flicker on other loads.</li>
+</ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why Fixed Methods Fall Short</h2>
+<p class="text-text-mid leading-relaxed mb-6">Load balancing (rewiring) and automatic voltage regulators (AVR) help, but they are slow or manual. A switched capacitor bank can correct average PF but cannot rebalance per phase or track a swinging load &mdash; and it risks resonance.</p>
+<h2 id="how-an-lv-svg-ahf-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">How an LV SVG + AHF Fix It</h2>
+<p class="text-text-mid leading-relaxed mb-6">A static var generator (SVG) &mdash; a voltage-source converter on high-frequency IGBTs &mdash; injects or absorbs reactive current <strong>per phase</strong>, independently, to rebalance voltages and hold PF near unity: sub-cycle (<strong>&lt; 1 ms</strong>) response, continuous <strong>&plusmn;1%</strong> regulation, PF held at <strong>0.99+</strong>. It cancels the negative-sequence component a fixed bank cannot touch.</p>
+<p class="text-text-mid leading-relaxed mb-6">An active harmonic filter (AHF) removes the 5th, 7th, 11th, and 13th distortion that nonlinear loads add on top:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(fundamental)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Synthesized by a bridge switching at 15&ndash;20 kHz, it tracks within <strong>&lt; 1 ms</strong> and pulls THDi from <strong>30%+ down to &lt; 5%</strong>. Together, AHF + SVG give continuous, adaptive phase balancing as the load varies &mdash; no fixed tuning, no resonance risk.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">Conventional LV AHF and SVG units use IGBTs capped near <strong>150 &deg;C</strong>, switching typically below <strong>20 kHz</strong>. Migrating to SiC MOSFETs (<strong>200 &deg;C</strong> junction, ~<strong>10&times;</strong> breakdown field, <strong>2&ndash;3&times;</strong> switching frequency, ~<strong>50%</strong> lower switching loss) widens control bandwidth and shrinks the cabinet. That is the direction CHITEK’s LV AHF + SVG platform is built on.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering Deployment Checklist</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>Measure phase voltages and currents at the PCC over a full duty cycle to find the worst unbalance.</li>
+  <li>Place the SVG/AHF at the unbalanced feeder, close to the offending load.</li>
+  <li>Audit capacitor banks for resonance and mistuning before commissioning.</li>
+  <li>Check weak-grid margin and size for the worst-case dip.</li>
+  <li>Leave headroom (15&ndash;25%) for added single-phase load.</li>
+</ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Typical Application Profiles</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>EV charging hubs</strong> &mdash; single-phase charger clusters unbalance the bus; the SVG rebalances per phase.</li>
+  <li><strong>Arc-furnace and steel plants</strong> &mdash; violent, unbalanced reactive swings; AHF + SVG stabilize.</li>
+  <li><strong>C&amp;I plants with mixed single/three-phase load</strong> &mdash; a combined unit cuts heating and PF penalties.</li>
+</ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom Line</h2>
+<p class="text-text-mid leading-relaxed mb-6">Voltage unbalance is a negative-sequence problem that fixed capacitors cannot solve and that silently erodes motor and transformer life. A low-voltage <strong>AHF + SVG</strong> pair restores balance and waveform quality at the source, adaptively. CHITEK’s LV AHF + SVG platforms are specified from exactly this measurement-first discipline.</p>
+<p class="text-text-mid leading-relaxed mb-6">What is your phase-voltage unbalance at the PCC &mdash; and which phase is carrying the extra load?</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Share:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              More Articles
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={lp(item.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Related Products
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={lp(product.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Customer Cases
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

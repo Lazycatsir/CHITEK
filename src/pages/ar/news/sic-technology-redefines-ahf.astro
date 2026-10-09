@@ -26,9 +26,9 @@ const otherArticles = [
     { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح الموجة النشط AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
@@ -36,7 +36,7 @@ const relatedCases = [
     { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/ar' + p;
 
 ---
 <BaseLayout
@@ -46,7 +46,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-5.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-5.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -56,9 +56,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "كربيد السيليكون في مرشحات AHF: لماذا يُعيد المفتاح ذو الفجوة العريضة تعريف أداء LV AHF",
     "description": "كان الـ AHF دائماً محدوداً بالمفتاح الذي بُني عليه. تغيّر SiC MOSFET السقف. يقدر هذا المقال ما يمنحه أشباه الموصل ذو الفجوة العريضة لـ AHF منخفض الجهد وأين لا يزال IGBT له مكانه.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-5.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-5.webp",
     "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-18",
     "dateModified": "2026-07-18",
     "keywords": "SiC كربيد السيليكون AHF IGBT فجوة عريضة كفاءة"
@@ -104,25 +104,25 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">كان مرشح الموجة النشط (AHF) دائماً محدوداً بالمفتاح الذي بُني عليه. لعقود كان ذلك المفتاح IGBT السيليكون —فعال لكن محصور بفيزياء السيليكون. يغيّر SiC MOSFET السقف. يقدر هذا المقال ما يمنحه أشباه الموصل ذو الفجوة العريضة لـ AHF منخفض الجهد وأين لا يزال IGBT له مكانه.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">سقف IGBT</h2>
+<h2 id="the-igbt-ceiling" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">سقف IGBT</h2>
 <p class="text-text-mid leading-relaxed mb-3">يستخدم AHF LV التقليدي IGBT بوصلة <strong>150°C</strong>، يبدّل عادة <strong>دون 20 kHz</strong>.</p>
 <p class="text-text-mid leading-relaxed mb-3">• <strong>حد النطاق:</strong> تُركّب تيار التعويض عند f_sw؛ الرتب العالية (13 و17 و25…) التي ينظفها محصورة بسرعة التبديل.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>التكلفة الحرارية:</strong> تزداد خسارة التبديل مع التردد؛ للبقاء تحت 150°C تُضاف مشتتات ومراوح تكبر الخزانة.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا يغيّر SiC فعلاً</h2>
+<h2 id="what-sic-actually-changes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا يغيّر SiC فعلاً</h2>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>فجوة النطاق:</strong> <strong>3.26 eV مقابل 1.12 eV</strong> للسيليكون.</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>حرارة الوصلة:</strong> حتى <strong>200°C</strong> مقابل 150°C لـ IGBT.</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>حقل الانهيار:</strong> ~<strong>10×</strong> السيليكون.</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>تردد التبديل:</strong> <strong>2–3× IGBT</strong>.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>خسارة التبديل:</strong> ~<strong>50% أقل</strong>، ترفع الكفاءة <strong>1–3%</strong>.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">عائد الـ AHF</h2>
+<h2 id="the-payoff-for-an-ahf" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">عائد الـ AHF</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>نطاق إلغاء أوسع.</strong> f_sw أعلى تعالج الرتبة 13 فما فوق —الفرق بين تنظيف جزئي وكامل.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>خزانة أصغر وأبرد.</strong> فقد أقل ووصلة 200°C تصغر النظام الحراري.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>الكفاءة.</strong> 1–3% أقل فقداً هو تكلفة تشغيل الـ AHF المزالة.</p>
 <p class="text-text-mid leading-relaxed mb-6">4. <strong>الموثوقية.</strong> تشغيل أبرد يطيل العمر ويسمح بمراوح أبطأ.</p>
 <p class="text-text-mid leading-relaxed mb-6">قانون التعويض لا يتغير: <strong>i_c* = i_L − i_s(الأساسية)</strong> —SiC ينفذه أسرع وعلى نطاق أوسع، متابعاً في <strong>&lt; 1 ms</strong> ومخفضاً THDi من <strong>30%+ إلى &lt; 5%</strong> عبر رتب أكثر.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">متى لا يزال IGBT يفوز</h2>
+<h2 id="when-the-igbt-still-wins" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">متى لا يزال IGBT يفوز</h2>
 <p class="text-text-mid leading-relaxed mb-6">ليست استبدالاً كلياً. في بيئات صناعية قياسية بطيف متوقع حيث يسود تكلفة أولية، يبقى IGBT AHF خياراً متيناً اقتصادياً. يستحق SiC تكلفته حيث يكون الفضاء والتوفير طويل الأمد والأداء العالي هم القيد —مراكز بيانات كثيفة وغرف مفاتيح مدمجة.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
 <p class="text-text-mid leading-relaxed mb-6">لا يجعل SiC الـ IGBT AHF قديمًا؛ بل يرفع السقف للحالات التي تحتاجه. بنيت منصة CHITEK LV AHF حول مسار الترقية IGBT→SiC —نفس المبدأ ونطاق أوسع وحجم أصغر وتشغيل أبرد.</p>
 <p class="text-text-mid leading-relaxed mb-6">ما أعلى رتبة توافقية يولدها ناقلك فعلاً —وهل AHF لديك مصنّف لإلغائها؟</p>
         </div>

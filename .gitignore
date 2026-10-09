@@ -10,3 +10,27 @@ dist/
 .mimocode/
 translate-*.mjs
 translate-*.js
+00_中转站/
+backups/
+
+# ===== 本地临时产物 / 调试脚本 / 内部目录（2026-10-09 起不纳入版本控制）=====
+# 临时构建产物
+/dist_sitemap_check/
+# 根目录一次性调试脚本与日志（站点构建不需要）
+/_*.log
+/_*.out
+/_*.txt
+/_*.ps1
+/_*.json
+/_*.mjs
+/_*.cmd
+/_*.py
+# 例外：package.json 里 news:sync / news:gen / news:check 引用的三个脚本
+!/_extract_all_news.py
+!/_gen_news_pages.py
+!/_verify_news_i18n.py
+/nul
+/start-site.cmd
+# 内部目录：工作记忆、审计产物
+/.workbuddy/
+/home_seo/

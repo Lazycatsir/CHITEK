@@ -31,8 +31,7 @@ const relatedCases = [
   { name: "مبنى تجاري في كينيا", industry: "تجاري" }
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/ar' + p : p;
+const lp = (p: string) => '/ar' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +40,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-4.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +49,9 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
     "@type": "Article",
     "headline": "توافقيات العاكس الشمسي: لماذا يفشل THDi فوق 5% وكيف يحلها AHF + SiC",
     "description": "شرح توافقيات العاكس الشمسي: كيف يتسبب THDi فوق 5% في ارتفاع حرارة المحولات، والتعثر المزعج، وفشل الامتثال للشبكة — مع حلول AHF و SiC.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-4.webp",
     "author": { "@type": "Organization", "name": "الفريق الفني لـ CHITEK" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://ar.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-09-15",
     "dateModified": "2025-09-15",
     "keywords": "مرشح التوافقيات النشط, عاكس شمسي, THDi, IEEE 519, SiC, IGBT, جودة الطاقة, AHF, توافقيات كهروضوئية, CHITEK"

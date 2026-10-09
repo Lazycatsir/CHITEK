@@ -30,18 +30,17 @@ const otherArticles = [
     { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
-    { name: "Brazil Data Center", industry: "Data Centers" },
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
-  ];
+  { name: "UPS Harmonic Mitigation on a Data Centre Feeder, Guangzhou", industry: "Colocation / IDC", href: "/solutions/data-center" },
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+  { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
+];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/en' + p : p;
+const lp = (p: string) => '/en' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -50,7 +49,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -60,9 +59,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "Data Center Power Quality: Low-Voltage AHF + SVG at the UPS and Cooling Bus",
     "description": "How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in AI/HPC data centers with UPS and VFD cooling systems.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://en.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-10",
     "dateModified": "2026-07-10",
     "keywords": "How, low-voltage, AHF, and, SVG, solve"
@@ -216,10 +215,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </h3>
             <div class="space-y-2">
               {relatedCases.map((c) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
                   <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

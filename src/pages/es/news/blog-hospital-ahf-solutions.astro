@@ -24,14 +24,14 @@ const article = {
 };
 
 const otherArticles = [
-    { title: "Calidad de Energía en Centros de Datos", category: "Tecnología", href: "/es/news/blog-ai-data-center-power-quality", color: "orange" },
-    { title: "Caso: AHF en Petróleo y Gas", category: "Caso de Estudio", href: "/es/news/blog-case-study-ahf-energy-industry", color: "orange" },
-    { title: "Calidad de Energía en Agua", category: "Tecnología", href: "/es/news/blog-ahf-water-treatment-plants", color: "orange" }
+    { title: "Calidad de Energía en Centros de Datos", category: "Tecnología", href: "/news/blog-ai-data-center-power-quality", color: "orange" },
+    { title: "Caso: AHF en Petróleo y Gas", category: "Caso de Estudio", href: "/news/blog-case-study-ahf-energy-industry", color: "orange" },
+    { title: "Calidad de Energía en Agua", category: "Tecnología", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "Filtro Armónico Activo AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Generador Estático de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Filtro Armónico Activo AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
     { name: "Planta Industrial Saudí", industry: "Fabricación" },
@@ -39,7 +39,7 @@ const relatedCases = [
     { name: "Centro de Datos Brasil", industry: "Centros de Datos" }
   ];
 
-const lp = (p: string) => p;
+const lp = (p: string) => '/es' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -48,7 +48,7 @@ const lp = (p: string) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -58,9 +58,9 @@ const lp = (p: string) => p;
     "@type": "Article",
     "headline": "Guía de Selección de Filtros Armónicos Activos Industriales",
     "description": "Guía técnica para seleccionar filtros armónicos activos industriales.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-12",
     "dateModified": "2026-07-12",
     "keywords": "hospital power quality, medical equipment, active harmonic filter, AHF, harmonic mitigation, MRI"

@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "¿Qué es el THDi? Cómo un AHF de baja tensión lo reduce por debajo del 5%",
+  category: "Technology",
+  date: "2026-08-19",
+  dateDisplay: "19 ago 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "5 min de lectura",
+  description: "El THDi (distorsión armónica total de corriente) es el número que decide si una barra de baja tensión cumple IEEE 519. Esta guía explica qué es, cómo se produce, cuánto cuesta y cómo un AHF de baja tensión lo reduce por debajo del 5%.",
+  keywords: ["THDi", "Distorsión armónica total", "Calidad de potencia", "Filtro armónico activo", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "¿Qué es un filtro armónico activo?", category: "Technology", href: "/es/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "¿Qué son los armónicos?", category: "Technology", href: "/es/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "Desequilibrio de tensión: causas y solución", category: "Technology", href: "/es/news/voltage-unbalance-causes-and-mitigation", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Planta Industrial de Arabia Saudí", industry: "Manufactura" },
+    { name: "Centro de Datos de Brasil", industry: "Centros de Datos" },
+    { name: "Parque Solar de Dubái 50MW", industry: "Energía Renovable" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Qué es el THDi? Cómo un AHF de baja tensión lo reduce por debajo del 5%",
+    "description": "El THDi (distorsión armónica total de corriente) es el número que decide si una barra de baja tensión cumple IEEE 519. Esta guía explica qué es, cómo se produce, cuánto cuesta y cómo un AHF de baja tensión lo reduce por debajo del 5%.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
+    "keywords": "THDi, Distorsión armónica total, Calidad de potencia, Filtro armónico activo, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="¿Qué es el THDi? Cómo un AHF de baja tensión lo reduce por debajo del 5%" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">El THDi (distorsión armónica total de corriente) cuantifica cuánto se ha alejado una forma de onda de corriente de una sinusoide pura a causa de los armónicos. Es el número que decide si una barra de baja tensión (BT) cumple IEEE 519 &mdash; y si sus transformadores y cables se están sobrecalentando en silencio. Este artículo explica qué es el THDi, de dónde viene, cuánto cuesta y cómo un filtro armónico activo (AHF) lo cancela.</p>
+<h2 id="what-thdi-is" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué es el THDi</h2>
+<p class="text-text-mid leading-relaxed mb-6">Los armónicos son componentes de corriente y tensión en múltiplos enteros de la fundamental (50 o 60 Hz). El THDi es la suma RMS de esos armónicos dividida por la fundamental RMS, expresada como porcentaje:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">THDi = &radic;(&#931; I_h&sup2;) / I_1 &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Por debajo de ~<strong>5%</strong> la onda es casi ideal; por encima de ~<strong>20%</strong> está gravemente distorsionada. IEEE 519 limita en BT <strong>THDi &lt; 5%</strong> (armónicos individuales &lt; ~3%) en el punto de acoplamiento común (PCC).</p>
+<h2 id="how-thdi-happens" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo se produce el THDi</h2>
+<p class="text-text-mid leading-relaxed mb-6">La causa son las cargas no lineales &mdash; equipos que absorben corriente en pulsos abruptos en lugar de suavemente. Fuentes comunes:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li>Variadores de frecuencia (VFD)</li>
+  <li>Iluminación LED</li>
+  <li>Ordenadores y equipos de oficina</li>
+  <li>Sistemas UPS</li>
+  <li>Fuentes de alimentación conmutadas</li>
+  <li>Cargadores de baterías y de vehículos eléctricos</li>
+</ul>
+<p class="text-text-mid leading-relaxed mb-6">Un rectificador de seis pulsos &mdash; la entrada de la mayoría de VFD y UPS &mdash; genera armónicos característicos en los órdenes <strong>n = 6k &plusmn; 1</strong>: el 5.º, 7.º, 11.º y 13.º. Sin tratamiento, el THDi en la carga suele situarse entre <strong>8% y 30%</strong>.</p>
+<h2 id="what-high-thdi-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cuesta un THDi alto</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Sobrecalentamiento</strong> &mdash; la corriente armónica eleva las pérdidas I&sup2;R en cables y transformadores con el cuadrado de la corriente, acelerando su envejecimiento.</li>
+  <li><strong>Factor de potencia reducido</strong> &mdash; la corriente distorsionada baja el FP real, elevando la potencia aparente y la factura.</li>
+  <li><strong>Mal funcionamiento de equipos</strong> &mdash; PLC, sensores y comunicaciones fallan en una barra distorsionada.</li>
+  <li><strong>Interferencia en protecciones</strong> &mdash; interruptores y fusibles operan mal ante una onda distorsionada.</li>
+  <li><strong>Resonancia</strong> &mdash; la corriente armónica puede resonar con la capacidad e inductancia del sistema y amplificar la tensión.</li>
+</ul>
+<h2 id="how-to-reduce-thdi" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo reducir el THDi</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Filtros pasivos</strong> &mdash; sintonizados para bloquear órdenes concretos; económicos para espectros fijos pero propensos a resonancia.</li>
+  <li><strong>AHF</strong> &mdash; inyecta corriente de contrafase para cancelar la distorsión en tiempo real.</li>
+  <li><strong>Transformadores K-rated y reactancias de línea</strong> &mdash; ayudan al hardware a soportar armónicos.</li>
+  <li><strong>Equilibrado de cargas</strong> &mdash; reduce la corriente de neutro y los armónicos triplen asociados.</li>
+  <li><strong>Equipos de bajo THD</strong> &mdash; que cumplen IEEE 519 e IEC 61000-3-2 en origen.</li>
+</ul>
+<h2 id="the-ahf-fix" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">La solución AHF</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un AHF muestrea la corriente de carga, separa la fundamental de la distorsión e inyecta la inversa:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(fundamental)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Sintetizada por un puente que conmuta a 15&ndash;20 kHz, sigue en <strong>&lt; 1 ms</strong> y reduce el THDi de <strong>30%+ a &lt; 5%</strong> en los órdenes 5.º a 25.º a la vez. También compensa corriente reactiva y ayuda a equilibrar fases, sin riesgo de resonancia.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT frente a SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">La mayoría de los AHF de BT usan IGBT con unión limitada cerca de <strong>150 &deg;C</strong>. Los MOSFET de SiC amplían la banda prohibida (<strong>3,26 eV frente a 1,12 eV</strong>), toleran <strong>200 &deg;C</strong>, conmutan a <strong>2&ndash;3&times;</strong> la frecuencia y recortan la pérdida de conmutación ~<strong>50%</strong> &mdash; un armario más pequeño y fresco con margen para órdenes superiores. Esa es la dirección sobre la que está construida la plataforma AHF de BT de CHITEK.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue ingenieril</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>Mida en el PCC durante un ciclo de trabajo completo con un analizador de calidad de potencia.</li>
+  <li>Instale el AHF en la fuente &mdash; en el alimentador que alimenta al conjunto no lineal.</li>
+  <li>Audite las baterías de condensadores en busca de resonancia antes de la puesta en servicio.</li>
+  <li>Dimensione según la TDD medida referida a la demanda máxima.</li>
+  <li>Deje un margen (15&ndash;25%) para cargas añadidas.</li>
+</ol>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">El THDi es el número que indica si su barra está limpia o degradándose en silencio. Un <strong>AHF</strong> de baja tensión cancela la distorsión en la fuente &mdash; de forma medible, dentro de IEEE 519. Las plataformas AHF de BT de CHITEK se especifican con exactamente esta disciplina de «medir primero».</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Qué THDi registra realmente su barra &mdash; y está por debajo del 5% en el PCC?</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Compartir">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

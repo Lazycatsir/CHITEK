@@ -31,8 +31,7 @@ const relatedCases = [
   { name: "Centro de Datos Brasil", industry: "Centros de Datos" }
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/es' + p : p;
+const lp = (p: string) => '/es' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +40,7 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-6.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/news/news-img-6.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +49,9 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
     "@type": "Article",
     "headline": "Caso de Estudio: AHF de 300A de Baja Tensión Restaura Bancos de Capacitores en un Centro de Datos",
     "description": "Un caso real que muestra cómo un Filtro Activo de Armónicos de 300A de baja tensión resolvió la distorsión armónica severa (THDi 23.5%) en un centro de datos, restaurando los bancos de capacitores a su operación normal.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-6.webp",
+    "image": "https://es.chitek-inno.com/assets/images/news/news-img-6.webp",
     "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-08-01",
     "dateModified": "2025-08-01",
     "keywords": "filtro activo de armónicos, AHF, centro de datos, banco de capacitores, THDi, THDv, resonancia armónica, calidad de energía, caso de estudio, CHITEK"

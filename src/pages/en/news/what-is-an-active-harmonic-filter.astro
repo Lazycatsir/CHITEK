@@ -27,18 +27,17 @@ const otherArticles = [
     { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/en/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/en/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/en/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
-    { name: "Brazil Data Center", industry: "Data Centers" },
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+  { name: "Centralised Harmonic Mitigation Across Five 2,000 kVA Transformers — Optical Component Manufacturer, Dongguan", industry: "Precision Optics Manufacturing", href: "/solutions/industrial" },
+  { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
 ];
 
-const isLocal = false;
-const lp = (p) => isLocal ? '/en' + p : p;
+const lp = (p) => '/en' + p;
 
 ---
 <BaseLayout
@@ -48,7 +47,7 @@ const lp = (p) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-1.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/news/news-img-1.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -58,9 +57,9 @@ const lp = (p) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "What Is an Active Harmonic Filter? Principles, the i_c* Command, and the IGBT/SiC Bridge",
     "description": "An active harmonic filter (AHF) cancels harmonic current and corrects reactive power in real time. This article walks the principle from detection to injection and explains why the IGBT→SiC switch sets the performance ceiling.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-1.webp",
+    "image": "https://en.chitek-inno.com/assets/images/news/news-img-1.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-22",
     "dateModified": "2026-07-22",
     "keywords": "Active harmonic filter AHF Harmonics Power quality IGBT SiC"
@@ -106,27 +105,27 @@ const lp = (p) => isLocal ? '/en' + p : p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">An active harmonic filter (AHF) is a parallel-connected power-electronic compensator that improves power quality by canceling harmonic current and adjusting reactive power in real time. Unlike a passive LC trap, it adapts to changing load and avoids resonance with system impedance. This article walks the principle from detection to injection, and explains why the semiconductor choice (IGBT vs SiC) sets the performance ceiling.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What an AHF does</h2>
+<h2 id="what-an-ahf-does" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What an AHF does</h2>
 <p class="text-text-mid leading-relaxed mb-6">The AHF connects in parallel to the distorted bus and continuously measures the load current. It computes the compensating current — equal in magnitude, opposite in phase to the unwanted harmonic and reactive content — and injects it, leaving the source with a near-sinusoid and a high power factor.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The working principle, step by step</h2>
+<h2 id="the-working-principle-step-by-step" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The working principle, step by step</h2>
 <p class="text-text-mid leading-relaxed mb-3"><strong>1. Harmonic detection and separation.</strong> High-precision current sensors (Hall-effect, covering up to ~50 harmonic orders) sample the load current in real time. The signal is decomposed two ways: the instantaneous reactive power theory (p–q) transforms three-phase current into real and imaginary components, while FFT extracts each harmonic's amplitude and phase. The result is a reference current command matching the harmonic current in amplitude and opposite in phase — the "reverse harmonic."</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>2. Compensation-current generation.</strong> The core is a voltage-source inverter (VSI) built on high-frequency switching devices (IGBT or SiC). It injects the compensation current, which combines with the original harmonic current and cancels it.</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>3. Reactive-power compensation.</strong> The same inverter supplies leading or lagging current to offset the load's reactive component, raising PF toward unity (CHITEK LV AHF/SVG target <strong>0.99+</strong>).</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>4. Closed-loop control and stability.</strong> The compensated grid current is monitored and compared to the reference; the inverter output is adjusted to hold accuracy.</p>
 <p class="text-text-mid leading-relaxed mb-6"><strong>5. Anti-resonance and adaptability.</strong> Active control avoids forming resonant circuits with grid impedance, handles broadband harmonics (3rd, 5th, 7th, high-order), and supports multiple parallel units for distributed compensation.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The compensation law</h2>
+<h2 id="the-compensation-law" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The compensation law</h2>
 <blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L − i_s(fundamental)</blockquote>
 <p class="text-text-mid leading-relaxed mb-6">Synthesized by a bridge switching at 15–20 kHz, the correction tracks within <strong>&lt; 1 ms</strong> and pulls THDi from <strong>30%+ down to &lt; 5%</strong> across the 5th through 25th orders simultaneously — following the load as it varies. Left untreated, THDi at a nonlinear load often sits between <strong>8% and 30%</strong>, against the IEEE 519 limit of <strong>THDi &lt; 5%</strong> at the PCC.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The semiconductor bottleneck: IGBT vs SiC</h2>
+<h2 id="the-semiconductor-bottleneck-igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The semiconductor bottleneck: IGBT vs SiC</h2>
 <p class="text-text-mid leading-relaxed mb-3">IGBT: junction capped near <strong>150°C</strong>, switching frequency typically <strong>under 20 kHz</strong>.</p>
 <p class="text-text-mid leading-relaxed mb-6">SiC MOSFET: bandgap <strong>3.26 eV vs 1.12 eV</strong>, junction <strong>200°C</strong>, <strong>~10×</strong> breakdown field, <strong>2–3×</strong> the switching frequency, <strong>~50%</strong> lower switching loss. SiC widens the cancellation bandwidth (handles 13th-order and above), shrinks the cabinet, and runs cooler — the direction CHITEK's LV AHF platform is built on.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering deployment checklist</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering deployment checklist</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Measure at the PCC</strong> with a PQ analyzer over a full duty cycle.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Place the AHF at the source</strong> — on the feeder feeding the nonlinear cluster.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Audit capacitor banks</strong> for resonance before commissioning.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>Size on measured TDD</strong> referenced to peak demand.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>Leave headroom</strong> (15–25%) for added drives.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
 <p class="text-text-mid leading-relaxed mb-6">An AHF is a measurement→computation→injection loop that cancels distortion dynamically and without resonance. The principle is constant; the switch decides the bandwidth and footprint. CHITEK's LV AHF platforms are built around this IGBT→SiC upgrade path, specified from a real measurement.</p>
 <p class="text-text-mid leading-relaxed mb-6">What harmonic orders is your AHF actually canceling — and is its switch rated for the highest one on your bus?</p>
         </div>
@@ -206,11 +205,11 @@ const lp = (p) => isLocal ? '/en' + p : p;
               Customer Cases
             </h3>
             <div class="space-y-2">
-              {relatedCases.map((item) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
-                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
-                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
-                </div>
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </a>
               ))}
             </div>
           </div>

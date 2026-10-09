@@ -26,18 +26,17 @@ const otherArticles = [
     { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/en/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/en/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/en/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
-    { name: "Brazil Data Center", industry: "Data Centers" },
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+  { name: "Centralised Harmonic Mitigation Across Five 2,000 kVA Transformers — Optical Component Manufacturer, Dongguan", industry: "Precision Optics Manufacturing", href: "/solutions/industrial" },
+  { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
 ];
 
-const isLocal = false;
-const lp = (p) => isLocal ? '/en' + p : p;
+const lp = (p) => '/en' + p;
 
 ---
 <BaseLayout
@@ -47,7 +46,7 @@ const lp = (p) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-5.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/news/news-img-5.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -57,9 +56,9 @@ const lp = (p) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "Silicon Carbide in Active Harmonic Filters: Why the Wide-Bandgap Switch Redefines LV AHF Performance",
     "description": "The AHF has always been limited by the switch it is built on. Silicon carbide (SiC) MOSFETs change the ceiling. This article quantifies what the wide-bandgap material buys an LV AHF and where the IGBT still earns its place.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-5.webp",
+    "image": "https://en.chitek-inno.com/assets/images/news/news-img-5.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-18",
     "dateModified": "2026-07-18",
     "keywords": "SiC Silicon carbide AHF IGBT Wide-bandgap Efficiency"
@@ -105,25 +104,25 @@ const lp = (p) => isLocal ? '/en' + p : p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">The active harmonic filter (AHF) has always been limited by the switch it is built on. For decades that switch was the silicon IGBT — effective, but bounded by silicon's physics. Silicon carbide (SiC) MOSFETs change the ceiling. This article quantifies what the wide-bandgap material actually buys an LV AHF, and where the conventional IGBT still earns its place.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The IGBT ceiling</h2>
+<h2 id="the-igbt-ceiling" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The IGBT ceiling</h2>
 <p class="text-text-mid leading-relaxed mb-3">A conventional LV AHF uses IGBTs rated to a <strong>150°C</strong> junction, switching typically <strong>under 20 kHz</strong>.</p>
 <p class="text-text-mid leading-relaxed mb-3">• <strong>Bandwidth limit:</strong> the canceling current is synthesized at f_sw; the higher harmonic orders (13th, 17th, 25th…) the filter can cleanly reach are bounded by how fast it switches.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>Thermal cost:</strong> switching loss rises with frequency. To stay under the 150°C cap, the designer adds heatsinks and fans, which makes the cabinet bulky and ties reliability to moving parts.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What SiC actually changes</h2>
+<h2 id="what-sic-actually-changes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What SiC actually changes</h2>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Bandgap:</strong> <strong>3.26 eV vs silicon's 1.12 eV</strong> — fundamentally higher.</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Junction temperature:</strong> rated to <strong>200°C</strong>, versus 150°C for IGBT.</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Breakdown field:</strong> roughly <strong>10×</strong> silicon, so thinner drift layers and lower R_ds(on).</p>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Switching frequency:</strong> <strong>2–3× the IGBT</strong> for the same loss budget.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>Switching loss:</strong> roughly <strong>50% lower</strong>, which also lifts efficiency by <strong>1–3%</strong>.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The payoff for an AHF</h2>
+<h2 id="the-payoff-for-an-ahf" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The payoff for an AHF</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Wider cancellation bandwidth.</strong> Higher f_sw means 13th-order and above are handled too — the difference between partial and full cleanup on a bus dense with SMPS.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Smaller, cooler cabinet.</strong> Lower loss and a 200°C junction shrink the thermal system; same kVAr in less footprint.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Efficiency.</strong> 1–3% less loss is the AHF's own operating cost removed.</p>
 <p class="text-text-mid leading-relaxed mb-6">4. <strong>Reliability.</strong> Cooler operation extends component life and lets fans run slower.</p>
 <p class="text-text-mid leading-relaxed mb-6">The correction law is unchanged: <strong>i_c* = i_L − i_s(fundamental)</strong> — SiC just lets it be executed faster and over a wider band, tracking the load within <strong>&lt; 1 ms</strong> and pulling THDi from <strong>30%+ down to &lt; 5%</strong> across more orders at once.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">When the IGBT still wins</h2>
+<h2 id="when-the-igbt-still-wins" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">When the IGBT still wins</h2>
 <p class="text-text-mid leading-relaxed mb-6">This is not a wholesale replacement. In standard industrial settings with a predictable harmonic profile and where first-cost dominates, a conventional IGBT AHF remains a robust, cost-effective choice. SiC earns its premium where space, long-term energy savings, and high-order performance are the constraint — dense data centers, compact switchrooms, and buses with fast-switching nonlinear load.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
 <p class="text-text-mid leading-relaxed mb-6">SiC does not make the IGBT AHF obsolete; it raises the performance ceiling for the cases that need it. CHITEK's LV AHF platform is built around this IGBT→SiC upgrade path — same correction principle, wider bandwidth, smaller footprint, cooler run.</p>
 <p class="text-text-mid leading-relaxed mb-6">What's the highest harmonic order your bus is actually generating — and is your AHF rated to cancel it?</p>
         </div>
@@ -203,11 +202,11 @@ const lp = (p) => isLocal ? '/en' + p : p;
               Customer Cases
             </h3>
             <div class="space-y-2">
-              {relatedCases.map((item) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
-                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
-                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
-                </div>
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </a>
               ))}
             </div>
           </div>

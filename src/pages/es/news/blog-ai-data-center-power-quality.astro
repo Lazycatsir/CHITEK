@@ -25,14 +25,14 @@ const article = {
 };
 
 const otherArticles = [
-    { title: "Mejora de fiabilidad AHF", category: "Tecnologia", href: "/es/news/conformal-coating-ahf-reliability", color: "orange" },
-    { title: "Filtros Activos vs. Reactores", category: "Tecnologia", href: "/es/news/blog-ahf-vs-line-reactors", color: "orange" },
-    { title: "AHF para Sistemas VFD", category: "Tecnologia", href: "/es/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+    { title: "Mejora de fiabilidad AHF", category: "Tecnologia", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Filtros Activos vs. Reactores", category: "Tecnologia", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF para Sistemas VFD", category: "Tecnologia", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "Filtro Armonico Activo AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Generador Estatico de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Filtro Armonico Activo AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estatico de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
     { name: "Centro de Datos Brasil", industry: "Centros de Datos" },
@@ -40,7 +40,7 @@ const relatedCases = [
     { name: "Parque Solar 50MW Dubai", industry: "Energia Renovable" }
   ];
 
-const lp = (p: string) => p;
+const lp = (p: string) => '/es' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -49,7 +49,7 @@ const lp = (p: string) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -59,9 +59,9 @@ const lp = (p: string) => p;
     "@type": "Article",
     "headline": "Calidad de Energia en Centros de Datos: AHF + SVG de Baja Tension",
     "description": "Como los AHF y SVG de baja tension resuelven armonicos en centros de datos AI/HPC.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-10",
     "dateModified": "2026-07-10",
     "keywords": "Como, los, AHF, y, SVG, de"

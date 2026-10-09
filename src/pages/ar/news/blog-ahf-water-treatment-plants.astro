@@ -26,14 +26,14 @@ const article = {
 };
 
 const otherArticles = [
-    { title: "تعزيز موثوقية AHF", category: "تكنولوجيا", href: "/ar/news/conformal-coating-ahf-reliability", color: "orange" },
-    { title: "مرشحات التوافقيات مقابل مفاعلات الخط", category: "تكنولوجيا", href: "/ar/news/blog-ahf-vs-line-reactors", color: "orange" },
-    { title: "AHF لأنظمة VFD", category: "تكنولوجيا", href: "/ar/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+    { title: "تعزيز موثوقية AHF", category: "تكنولوجيا", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "مرشحات التوافقيات مقابل مفاعلات الخط", category: "تكنولوجيا", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF لأنظمة VFD", category: "تكنولوجيا", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "مرشح توافقي نشط AHF", href: "/products#ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار ثابت SVG", href: "/products#ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG عالي الكفاءة", href: "/products#ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح توافقي نشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار ثابت SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG عالي الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
     { name: "مصنع صناعي سعودي", industry: "التصنيع" },
@@ -41,7 +41,7 @@ const relatedCases = [
     { name: "مركز بيانات البرازيل", industry: "مراكز البيانات" }
   ];
 
-const lp = (p: string) => p;
+const lp = (p: string) => '/ar' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -50,7 +50,7 @@ const lp = (p: string) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -60,7 +60,7 @@ const lp = (p: string) => p;
     "@type": "Article",
     "headline": "جودة الطاقة في محطات معالجة المياه: AHF وSVG منخفض الجهد",
     "description": "كيف يحل AHF وSVG منخفض الجهد مشاكل التوافقيات وانخفاض معامل القدرة وتقلبات الجهد في محطات معالجة المياه.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {
       "@type": "Organization",
       "name": "CHITEK Technical Team"
@@ -70,7 +70,7 @@ const lp = (p: string) => p;
       "name": "CHITEK INNOPOWER",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://chitek-inno.com/assets/images/logo.webp"
+        "url": "https://ar.chitek-inno.com/assets/images/logo.webp"
       }
     },
     "datePublished": "2026-07-01",

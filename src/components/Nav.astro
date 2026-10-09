@@ -17,6 +17,7 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
   search: { en: 'Search...', pt: 'Pesquisar...', es: 'Buscar...', ar: 'بحث...', zh: '搜索...' },
   activeHarmonicFilter: { en: 'Active Harmonic Filter', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器AHF' },
   staticVarGenerator: { en: 'Static Var Generator', pt: 'Gerador Estático de Var', es: 'Generador Estático de Var', ar: 'مولد الفولت أمبير الساكن', zh: '无功静止发生器SVG' },
+  advancedStaticVarGenerator: { en: 'Advanced Static Var Generator', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم', zh: '高级无功静止发生器ASVG' },
   sicAhfSvg: { en: 'Silicon Carbide AHF/SVG', pt: 'Silicon Carbide AHF/SVG', es: 'Silicon Carbide AHF/SVG', ar: 'Silicon Carbide AHF/SVG', zh: '碳化硅系列 Sic AHF/SVG' },
   industrialManufacturing: { en: 'Industrial Manufacturing', pt: 'Manufatura Industrial', es: 'Fabricación Industrial', ar: 'التصنيع الصناعي', zh: '工业制造' },
   commercialMedical: { en: 'Commercial & Medical Buildings', pt: 'Edifícios Comerciais e Médicos', es: 'Edificios Comerciales y Médicos', ar: 'المباني التجارية والطبية', zh: '商业及医疗建筑' },
@@ -86,7 +87,68 @@ const prefix = isLocal
   ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
   : (lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '');
 const productsHref = prefix + '/products';
+// products 页的系列锚点（#ahf / #svg / #asvg）在**全部 5 个语言版本**里都不存在实体：
+// 10-08 HTTP 实测 —— /products、/en/products、/es|/ar|/pt/products 渲染后
+// id="ahf" / id="svg" / id="asvg" 出现次数均为 0，继续用锚点只会得到死链接。
+// en / zh 有独立列表页 → 直接指向；es / ar / pt 无对应页 → 兜底到本语言 products 页（不带锚点）。
+// ⚠️ 曾据「es/ar/pt 是单页锚点结构」保留锚点，该前提已被实测证伪（2026-10-08）。
+const productsAhfHref = productsHref;   // AHF 无独立页，en/zh 的 /products 即其列表页
+const productsSvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-svg' : productsHref;
+const productsAsvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-asvg' : productsHref;
+// 产品详情页目前仅英文版存在（/en/products|products-svg|products-asvg/{slug}）；
+// 其余语言（zh/es/ar/pt）尚无详情页，回退到对应列表页，做法与下面的 solHref 一致。
+const prodDetailHref = (base, slug, fallback) => (lang === 'en' ? prefix + base + '/' + slug : fallback);
+// ── 移动端菜单 Products 三级展开数据（2026-10-08）─────────────────────────
+// 名称 = 对应汇总页（/en/products、/en/products-svg、/en/products-asvg）卡片的标题，逐字一致；
+// 同一详情页只保留首次出现的那条：AHF 的 208V/400V/480V 与 690V/800V 共用 anti-pollution-ahf、
+// IP65 SiC-Fanless 与 SiC-Fanless 共用 sic-fanless-ahf，故 AHF 8 张卡去重后为 6 条；SVG / ASVG 各 8 条。
+// ⚠️ 汇总页改卡片文案时此处须同步 —— 回归脚本 00_中转站\nav_mobile_prod\verify_nav_mobile.py 断言逐字一致。
+// 详情页目前仅英文版存在，故三级只对 lang === 'en' 渲染；其余语言沿用原来的 3 条平铺链接。
+const navProductCards: Record<string, { name: string; slug: string }[]> = {
+  ahf: [
+    { name: 'Silicon Carbide MOSFET Active Harmonic Filter SiC AHF', slug: 'sic-ultra-ahf' },
+    { name: '208V/400V/480V Anti-Pollution Active Harmonic Filter AHF', slug: 'anti-pollution-ahf' },
+    { name: 'Ultra-slim Active Harmonic Filter AHF', slug: 'ultra-slim-ahf' },
+    { name: 'Distributed Active Harmonic Filter AHF', slug: 'distributed-ahf' },
+    { name: 'IP65 SiC-Fanless & Low Noise Active Harmonic Filter', slug: 'sic-fanless-ahf' },
+    { name: 'IP65 Active Harmonic Filter', slug: 'ip65-ahf' },
+  ],
+  svg: [
+    { name: 'Silicon Carbide MOSFET Static Var Generator SiC SVG', slug: 'sic-ultra-svg' },
+    { name: '208V/400V/480V Anti-Pollution Static Var Generator SVG', slug: 'anti-pollution-svg' },
+    { name: '690V/800V Anti-Pollution Static Var Generator SVG', slug: 'anti-pollution-hv-svg' },
+    { name: 'Ultra-slim Static Var Generator SVG', slug: 'ultra-slim-svg' },
+    { name: 'Distributed Static Var Generator SVG', slug: 'distributed-svg' },
+    { name: 'IP65 SiC-Fanless & Low Noise Static Var Generator', slug: 'ip65-sic-fanless-svg' },
+    { name: 'IP65 Static Var Generator', slug: 'ip65-svg' },
+    { name: 'SiC-Fanless & Low Noise Static Var Generator', slug: 'sic-fanless-svg' },
+  ],
+  asvg: [
+    { name: 'Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG', slug: 'sic-ultra-asvg' },
+    { name: '208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG', slug: 'anti-pollution-asvg' },
+    { name: '690V/800V Anti-Pollution Advanced Static Var Generator ASVG', slug: 'anti-pollution-hv-asvg' },
+    { name: 'Ultra-slim Advanced Static Var Generator ASVG', slug: 'ultra-slim-asvg' },
+    { name: 'Distributed Advanced Static Var Generator ASVG', slug: 'distributed-asvg' },
+    { name: 'IP65 SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'ip65-sic-fanless-asvg' },
+    { name: 'IP65 Advanced Static Var Generator ASVG', slug: 'ip65-asvg' },
+    { name: 'SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'sic-fanless-asvg' },
+  ],
+};
+const navProductFamilies = [
+  { id: 'ahf',  label: _('activeHarmonicFilter'),          base: '/products',      list: productsHref,    cards: navProductCards.ahf },
+  { id: 'svg',  label: _('staticVarGenerator'),            base: '/products-svg',  list: productsSvgHref, cards: navProductCards.svg },
+  { id: 'asvg', label: _('advancedStaticVarGenerator'),    base: '/products-asvg', list: productsAsvgHref, cards: navProductCards.asvg },
+];
 const solutionsHref = prefix + '/solutions';
+// 解决方案 6 个行业子页只有英文版（/en/solutions/{slug}）；其它语言仍是单页 + 锚点，
+// 保持原样指向 hub，避免指向不存在的子页。做法与上面的 productsSvgHref 一致。
+const solHref = (slug) => (lang === 'en' ? prefix + '/solutions/' + slug : solutionsHref);
+const solIndustryHref   = solHref('industrial');
+const solCommercialHref = solHref('commercial');
+const solDatacenterHref = solHref('data-center');
+const solRenewableHref  = solHref('renewable');
+const solRailHref       = solHref('rail-transit');
+const solGridHref       = solHref('power-grid');
 const servicesHref = prefix + '/services';
 const newsHref = prefix + '/news';
 const aboutHref = prefix + '/about';
@@ -109,6 +171,14 @@ const homeHref = prefix || '/';
   }
   .mobile-submenu.open {
     display: flex;
+  }
+  /* Products 二级项右侧折叠箭头展开时翻转（aria-expanded 由脚本切换） */
+  .mobile-subtoggle[aria-expanded="true"] > span {
+    rotate: 180deg;
+  }
+  /* 三级项缩进再多一级，与二级区分 */
+  .mobile-submenu .mobile-submenu {
+    padding-left: 1rem;
   }
   [dir="rtl"] .lang-item {
     border-left: none;
@@ -145,17 +215,17 @@ const homeHref = prefix || '/';
       <div class="absolute top-full left-0 bg-white min-w-[340px] min-h-[210px] flex flex-col justify-center shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
         <!-- AHF 项：悬停/聚焦时右侧飞出三组小卡片（图+文，占位文字） -->
         <div class="group/ahf">
-          <a href={productsHref + '#ahf'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
+          <a href={productsAhfHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
           <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/ahf:opacity-100 group-hover/ahf:visible group-focus-within/ahf:opacity-100 group-focus-within/ahf:visible transition-all duration-300 z-[1002]">
-            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+            <a href={prodDetailHref('/products', 'anti-pollution-ahf', productsAhfHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution AHF</div>
             </a>
-            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+            <a href={prodDetailHref('/products', 'sic-ultra-ahf', productsAhfHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC AHF</div>
             </a>
-            <a href={productsHref + '#ahf'} class="group/card block no-underline">
+            <a href={prodDetailHref('/products', 'ultra-slim-ahf', productsAhfHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim AHF</div>
             </a>
@@ -163,37 +233,37 @@ const homeHref = prefix || '/';
         </div>
         <!-- SVG 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
         <div class="group/svg">
-          <a href={productsHref + '#svg'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
+          <a href={productsSvgHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
           <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/svg:opacity-100 group-hover/svg:visible group-focus-within/svg:opacity-100 group-focus-within/svg:visible transition-all duration-300 z-[1002]">
-            <a href={productsHref + '#svg'} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+            <a href={prodDetailHref('/products-svg', 'anti-pollution-svg', productsSvgHref)} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution SVG</div>
             </a>
-            <a href={productsHref + '#svg'} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
+            <a href={prodDetailHref('/products-svg', 'sic-ultra-svg', productsSvgHref)} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Static Var Generator SiC SVG" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC SVG</div>
             </a>
-            <a href={productsHref + '#svg'} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+            <a href={prodDetailHref('/products-svg', 'ultra-slim-svg', productsSvgHref)} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim SVG</div>
             </a>
           </div>
         </div>
-        <!-- SiC 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
+        <!-- ASVG 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
         <div class="group/sic">
-          <a href={productsHref + '#sic'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('sicAhfSvg')}</a>
-          <div class="absolute left-full top-0 bottom-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/sic:opacity-100 group-hover/sic:visible group-focus-within/sic:opacity-100 group-focus-within/sic:visible transition-all duration-300 z-[1002]">
-            <a href={productsHref + '#sic'} class="group/card block no-underline">
-              <img src="/assets/images/index-product-ahf.webp" alt="Active Harmonic Filter" class="w-full h-[88px] object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC AHF</div>
+          <a href={productsAsvgHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('advancedStaticVarGenerator')}</a>
+          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/sic:opacity-100 group-hover/sic:visible group-focus-within/sic:opacity-100 group-focus-within/sic:visible transition-all duration-300 z-[1002]">
+            <a href={prodDetailHref('/products-asvg', 'anti-pollution-asvg', productsAsvgHref)} class="group/card block no-underline">
+              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Advanced Static Var Generator ASVG" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution ASVG</div>
             </a>
-            <a href={productsHref + '#sic'} class="group/card block no-underline">
-              <img src="/assets/images/index-product-svg.webp" alt="Static Var Generator" class="w-full h-[88px] object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC SVG</div>
+            <a href={prodDetailHref('/products-asvg', 'sic-ultra-asvg', productsAsvgHref)} class="group/card block no-underline">
+              <img src="/assets/images/products-asvg-4u-din-rail.webp" alt="SiC Static Var Generator, 4U rail mounted" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC ASVG</div>
             </a>
-            <a href={productsHref + '#sic'} class="group/card block no-underline">
-              <img src="/assets/images/index-product-avr.webp" alt="Automatic Voltage Regulator" class="w-full h-[88px] object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC Cabinet</div>
+            <a href={productsAsvgHref} class="group/card block no-underline">
+              <img src="/assets/images/products-asvg-cabinet.webp" alt="Advanced Static Var Generator Cabinet" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">ASVG Cabinet</div>
             </a>
           </div>
         </div>
@@ -207,12 +277,12 @@ const homeHref = prefix || '/';
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
       <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('industrialManufacturing')}</a>
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('commercialMedical')}</a>
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('dataCentersTelecom')}</a>
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('renewableEnergy')}</a>
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('transportation')}</a>
-        <a href={solutionsHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('powerGridUtility')}</a>
+        <a href={solIndustryHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('industrialManufacturing')}</a>
+        <a href={solCommercialHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('commercialMedical')}</a>
+        <a href={solDatacenterHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('dataCentersTelecom')}</a>
+        <a href={solRenewableHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('renewableEnergy')}</a>
+        <a href={solRailHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('transportation')}</a>
+        <a href={solGridHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('powerGridUtility')}</a>
       </div>
     </div>
 
@@ -317,9 +387,28 @@ const homeHref = prefix || '/';
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-products">
-      <a href={productsHref + '#ahf'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('activeHarmonicFilter')}</a>
-      <a href={productsHref + '#svg'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('staticVarGenerator')}</a>
-      <a href={productsHref + '#sic'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('sicAhfSvg')}</a>
+      {lang === 'en' && navProductFamilies.map((f) => (
+        <div>
+          <div class="flex items-center gap-1">
+            <a href={f.list} data-list-link={'mobile-products-' + f.id} class="flex-1 py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{f.label}</a>
+            <button type="button" class="mobile-subtoggle shrink-0 flex items-center justify-center w-8 h-8 p-0 bg-transparent border-none cursor-pointer text-text-muted hover:text-brand-orange" data-subtoggle={'mobile-products-' + f.id} aria-expanded="false" aria-controls={'mobile-products-' + f.id} aria-label={f.label}>
+              <span class="block text-[10px] leading-none transition-transform duration-200">▾</span>
+            </button>
+          </div>
+          <div class="mobile-submenu hidden flex-col pl-4 pb-1" id={'mobile-products-' + f.id}>
+            {f.cards.map((c) => (
+              <a href={prodDetailHref(f.base, c.slug, f.list)} class="block py-1.5 text-[13px] leading-snug text-text-muted no-underline hover:text-brand-orange">{c.name}</a>
+            ))}
+          </div>
+        </div>
+      ))}
+      {lang !== 'en' && [
+        { href: productsAhfHref, label: _('activeHarmonicFilter') },
+        { href: productsSvgHref, label: _('staticVarGenerator') },
+        { href: productsAsvgHref, label: _('advancedStaticVarGenerator') },
+      ].map((x) => (
+        <a href={x.href} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{x.label}</a>
+      ))}
     </div>
   </div>
   <div class="border-b border-border-light">
@@ -328,12 +417,12 @@ const homeHref = prefix || '/';
       <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('industrialManufacturing')}</a>
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('commercialMedical')}</a>
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('dataCentersTelecom')}</a>
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('renewableEnergy')}</a>
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('transportation')}</a>
-      <a href={solutionsHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('powerGridUtility')}</a>
+      <a href={solIndustryHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('industrialManufacturing')}</a>
+      <a href={solCommercialHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('commercialMedical')}</a>
+      <a href={solDatacenterHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('dataCentersTelecom')}</a>
+      <a href={solRenewableHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('renewableEnergy')}</a>
+      <a href={solRailHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('transportation')}</a>
+      <a href={solGridHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('powerGridUtility')}</a>
     </div>
   </div>
   <div class="border-b border-border-light">
@@ -437,6 +526,20 @@ const homeHref = prefix || '/';
         });
       }
     }
+  }
+  // 移动端 Products 三级折叠（二级项右侧箭头）——事件委托到 document + window 守卫，
+  // 避免 HMR 重跑脚本时重复绑定（重复绑定会让 toggle 互相抵消，表现为点了没反应）。
+  if (!window.__chitekNavSubBound) {
+    window.__chitekNavSubBound = true;
+    document.addEventListener('click', function(e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.mobile-subtoggle') : null;
+      if (!btn) return;
+      var id = btn.getAttribute('data-subtoggle');
+      var sub = document.getElementById(id);
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (sub) sub.classList.toggle('open', !open);
+    });
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNav);

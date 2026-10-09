@@ -31,8 +31,7 @@ const relatedCases = [
   { name: "موقع التعدين في جنوب أفريقيا", industry: "التعدين" }
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/ar' + p : p;
+const lp = (p: string) => '/ar' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +40,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +49,9 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
     "@type": "Article",
     "headline": "كيف تتلف التوافقيات وانخفاض معامل القدرة المحولات — وحل AHF/SVG منخفض الجهد",
     "description": "في المواقع الصناعية الأفريقية، تعمل التوافقيات وانخفاض معامل القدرة على تقادم المحولات بصمت. اكتشف كيف تحمي حلول AHF و SVG منخفضة الجهد من CHITEK المحولات وتستعيد السعة المفقودة.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": { "@type": "Organization", "name": "الفريق الفني لـ CHITEK" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://ar.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-07-01",
     "dateModified": "2025-07-01",
     "keywords": "توافقيات, محول, معامل القدرة, AHF, SVG, أفريقيا, IEEE 519, IGBT, SiC, جودة الطاقة"

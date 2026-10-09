@@ -24,14 +24,14 @@ const article = {
 };
 
 const otherArticles = [
-    { title: "جودة الطاقة في مراكز البيانات", category: "تكنولوجيا", href: "/ar/news/blog-ai-data-center-power-quality", color: "orange" },
-    { title: "دراسة: AHF في النفط والغاز", category: "دراسة حالة", href: "/ar/news/blog-case-study-ahf-energy-industry", color: "orange" },
-    { title: "معالجة المياه AHF", category: "تكنولوجيا", href: "/ar/news/blog-ahf-water-treatment-plants", color: "orange" }
+    { title: "جودة الطاقة في مراكز البيانات", category: "تكنولوجيا", href: "/news/blog-ai-data-center-power-quality", color: "orange" },
+    { title: "دراسة: AHF في النفط والغاز", category: "دراسة حالة", href: "/news/blog-case-study-ahf-energy-industry", color: "orange" },
+    { title: "معالجة المياه AHF", category: "تكنولوجيا", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "مرشح توافقي نشط AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار ثابت SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG عالي الكفاءة", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح توافقي نشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار ثابت SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG عالي الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
     { name: "مصنع صناعي سعودي", industry: "التصنيع" },
@@ -39,7 +39,7 @@ const relatedCases = [
     { name: "مركز بيانات البرازيل", industry: "مراكز البيانات" }
   ];
 
-const lp = (p: string) => p;
+const lp = (p: string) => '/ar' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -48,7 +48,7 @@ const lp = (p: string) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -58,9 +58,9 @@ const lp = (p: string) => p;
     "@type": "Article",
     "headline": "دليل اختيار مرشح التوافقيات النشط الصناعي",
     "description": "دليل فني لاختيار مرشحات التوافقيات النشطة الصناعية.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-12",
     "dateModified": "2026-07-12",
     "keywords": "hospital power quality, medical equipment, active harmonic filter, AHF, harmonic mitigation, MRI"

@@ -31,8 +31,7 @@ const relatedCases = [
   { name: "Edificio Comercial Kenia", industry: "Comercial" }
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/es' + p : p;
+const lp = (p: string) => '/es' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +40,7 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/news/news-img-4.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +49,9 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
     "@type": "Article",
     "headline": "Armónicos de Inversores Solares: Por Qué un THDi Superior al 5% Falla y Cómo el AHF + SiC Lo Soluciona",
     "description": "Armónicos de inversores solares explicados: cómo un THDi superior al 5% causa sobrecalentamiento de transformadores, disparos intempestivos y fallos de cumplimiento normativo — con soluciones AHF y SiC.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "image": "https://es.chitek-inno.com/assets/images/news/news-img-4.webp",
     "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-09-15",
     "dateModified": "2025-09-15",
     "keywords": "filtro activo de armónicos, inversor solar, THDi, IEEE 519, SiC, IGBT, calidad de energía, AHF, armónicos fotovoltaicos, CHITEK"

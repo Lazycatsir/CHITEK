@@ -26,18 +26,17 @@ const otherArticles = [
     { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/en/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/en/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/en/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
-    { name: "Brazil Data Center", industry: "Data Centers" },
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
+  { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
+  { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
+  { name: "UPS Harmonic Mitigation on a Data Centre Feeder, Guangzhou", industry: "Colocation / IDC", href: "/solutions/data-center" },
 ];
 
-const isLocal = false;
-const lp = (p) => isLocal ? '/en' + p : p;
+const lp = (p) => '/en' + p;
 
 ---
 <BaseLayout
@@ -47,7 +46,7 @@ const lp = (p) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/news/news-img-4.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -57,9 +56,9 @@ const lp = (p) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "SVG vs Switched Capacitor Banks: Why Dynamic VAR Outperforms Fixed Tuning at the Low-Voltage Bus",
     "description": "Power factor correction at the LV bus starts with a capacitor bank — but modern plants run variable loads. This article quantifies where an SVG diverges from a fixed bank and why it matters for compliance and losses.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "image": "https://en.chitek-inno.com/assets/images/news/news-img-4.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-19",
     "dateModified": "2026-07-19",
     "keywords": "SVG Capacitor bank Power factor Reactive power VAR Voltage flicker"
@@ -105,23 +104,23 @@ const lp = (p) => isLocal ? '/en' + p : p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">Power factor correction at the low-voltage (LV) bus usually starts with a capacitor bank — and for a steady, predictable inductive load it works. But modern plants run variable-frequency drives, UPS rectifiers, and PV inverters whose reactive demand swings minute to minute. On those buses the fixed bank becomes the wrong tool. A static var generator (SVG) is the same job done dynamically. This article quantifies where the two diverge and why it matters for compliance and losses.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Two ways to supply reactive power</h2>
+<h2 id="two-ways-to-supply-reactive-power" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Two ways to supply reactive power</h2>
 <p class="text-text-mid leading-relaxed mb-6">A switched capacitor bank is a passive device: its VAR output is fixed by the installed capacitance, switched in discrete steps. It cannot see the bus — it delivers what it is sized for. An SVG is a voltage-source converter (VSC) built on high-frequency IGBTs. It measures the bus continuously and injects or absorbs reactive current in real time across all four quadrants. The control law is essentially <em>i_q* = f(V_bus, PF_setpoint)</em> — it drives local voltage and power factor to the setpoint every few milliseconds.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Response time: sub-cycle vs tens of milliseconds</h2>
+<h2 id="response-time-sub-cycle-vs-tens-of-milliseconds" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Response time: sub-cycle vs tens of milliseconds</h2>
 <p class="text-text-mid leading-relaxed mb-6">This is the decisive number. A capacitor bank steps in 10–20 ms and only one direction. An LV SVG responds in <strong>under 1 ms</strong> and regulates to <strong>±1%</strong>, holding PF at <strong>0.99+</strong> even as the load swings. The gap shows up as flicker: when a large motor starts or an arc process dips the bus, the SVG props up voltage before the sag propagates; the bank has barely begun to switch.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Harmonic interaction — the hidden risk</h2>
+<h2 id="harmonic-interaction-the-hidden-risk" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Harmonic interaction — the hidden risk</h2>
 <p class="text-text-mid leading-relaxed mb-6">A fixed capacitor's shunt susceptance can resonate with the grid impedance at a harmonic order, <em>amplifying</em> distortion rather than reducing it. IEEE 519 caps LV THDi at ~5% and individual harmonics at ~3%; a mistuned bank pushes you the wrong way. An SVG adds no shunt resonance point and, combined with an active harmonic filter (AHF), actively suppresses harmonics instead of amplifying them.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Power factor regulation: 0.99+ vs a swing</h2>
+<h2 id="power-factor-regulation-0-99-vs-a-swing" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Power factor regulation: 0.99+ vs a swing</h2>
 <p class="text-text-mid leading-relaxed mb-6">Capacitor banks typically hold PF in the <strong>0.80–0.95</strong> band and overshoot into overvoltage when the load lightens or under-correct when it peaks. Low PF inflates line current: dropping PF from 0.95 to 0.80 raises current ~<strong>19%</strong>, which increases I²R losses and can force a <strong>10–20%</strong> transformer derating. An SVG holds PF near unity continuously, trimming the monthly reactive penalty.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering deployment checklist</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering deployment checklist</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Measure the reactive profile</strong> at the PCC over a full duty cycle.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Place the SVG at the load bus</strong> feeding the variable-load cluster.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Audit existing capacitors</strong> for parallel-resonance risk.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>Check weak-grid margin</strong> — size for worst-case voltage dip.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>Leave headroom</strong> (15–25%) for added drives or chargers.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The upgrade path: IGBT → SiC</h2>
+<h2 id="the-upgrade-path-igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">The upgrade path: IGBT → SiC</h2>
 <p class="text-text-mid leading-relaxed mb-6">A conventional LV SVG runs IGBTs capped near 150°C, switching typically under 20 kHz. Migrating the bridge to SiC MOSFETs (200°C junction, ~10× breakdown field, 2–3× switching frequency, ~50% lower switching loss) widens the control bandwidth and shrinks the cabinet for the same kVAr — the direction CHITEK's LV SVG platform is built on.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Bottom line</h2>
 <p class="text-text-mid leading-relaxed mb-6">Where the load is steady, a capacitor bank still earns its place. Where it moves, an SVG is the only compensation fast enough to hold PF at 0.99+ without resonance risk. CHITEK's LV SVG platforms are sized from a real measurement and built around exactly this dynamic, VSC-based approach.</p>
 <p class="text-text-mid leading-relaxed mb-6">What power factor is your bus actually holding through the day — and how far does it swing between light and peak load?</p>
         </div>
@@ -201,11 +200,11 @@ const lp = (p) => isLocal ? '/en' + p : p;
               Customer Cases
             </h3>
             <div class="space-y-2">
-              {relatedCases.map((item) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
-                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
-                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
-                </div>
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </a>
               ))}
             </div>
           </div>

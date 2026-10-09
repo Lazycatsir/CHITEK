@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Qué son los armónicos — y por qué amenazan una barra de baja tensión moderna",
+  category: "Technology",
+  date: "2026-08-05",
+  dateDisplay: "05 ago 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "5 min de lectura",
+  description: "Los armónicos son corrientes y tensiones en múltiplos enteros de la fundamental. Esta guía explica de dónde vienen, por qué amenazan una barra de baja tensión moderna y cómo un AHF de baja tensión los cancela dentro de IEEE 519.",
+  keywords: ["armónicos", "calidad de potencia", "filtro armónico activo", "AHF", "THDi", "IEEE 519", "IGBT", "SiC", "potencia reactiva", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "¿Qué es un filtro armónico activo?", category: "Technology", href: "/es/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "Filtros Armónicos Activos vs Pasivos", category: "Technology", href: "/es/news/active-vs-passive-harmonic-filters", color: "orange" },
+    { title: "Límites de Distorsión Armónica IEEE 519", category: "Technology", href: "/es/news/ieee-519-harmonic-distortion-limits", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Planta Industrial de Arabia Saudí", industry: "Manufactura" },
+    { name: "Centro de Datos de Brasil", industry: "Centros de Datos" },
+    { name: "Parque Solar de Dubái 50MW", industry: "Energía Renovable" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Qué son los armónicos — y por qué amenazan una barra de baja tensión moderna",
+    "description": "Los armónicos son corrientes y tensiones en múltiplos enteros de la fundamental. Esta guía explica de dónde vienen, por qué amenazan una barra de baja tensión moderna y cómo un AHF de baja tensión los cancela dentro de IEEE 519.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "keywords": "armónicos, calidad de potencia, filtro armónico activo, AHF, THDi, IEEE 519, IGBT, SiC, potencia reactiva, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="Qué son los armónicos — y por qué amenazan una barra de baja tensión moderna" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los armónicos son corrientes y tensiones en múltiplos enteros de la fundamental de 50 o 60 Hz, superpuestas sobre la onda senoidal ideal que espera su equipo. En una barra de baja tensión (BT) moderna no son un caso límite, sino la condición por defecto &mdash; generada por el propio equipo que define una planta contemporánea: variadores de frecuencia, rectificadores, sistemas UPS, iluminación LED e inversores fotovoltaicos. Sin control, erosionan la eficiencia, envejecen los equipos y llevan la instalación más allá de IEEE 519. Este artículo explica qué son los armónicos, de dónde vienen y cómo un filtro armónico activo (AHF) de baja tensión los cancela.</p>
+
+<h2 id="where-harmonics-come-from" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">De dónde vienen los armónicos</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un armónico es simplemente una frecuencia en un múltiplo entero de la fundamental. Una carga no lineal absorbe una corriente no proporcional a la tensión aplicada, por lo que su forma de onda se distorsiona &mdash; y el análisis de Fourier resuelve esa distorsión en la fundamental más una serie de armónicos.</p>
+<p class="text-text-mid leading-relaxed mb-6">La fuente clásica es el rectificador de seis pulsos &mdash; la entrada de la mayoría de VFD y UPS. Absorbe corriente en bloques discretos, generando los órdenes característicos n = 6k &plusmn; 1: el 5.º, 7.º, 11.º y 13.º. Sin tratamiento, la distorsión total de demanda (THDi) en la carga suele situarse entre <strong>8% y 30%</strong> &mdash; muy por encima de la recomendación de IEEE 519 de <strong>THDi &lt; 5%</strong> en el punto de acoplamiento común (PCC).</p>
+
+<h2 id="why-harmonics-are-a-threat" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué los armónicos son una amenaza</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Sobrecalentamiento</strong> &mdash; la corriente armónica eleva las pérdidas en cobre con el cuadrado de la corriente RMS y las pérdidas en núcleo con los armónicos de flujo, por lo que transformadores y motores trabajan más calientes de lo que supone su placa.</li>
+  <li><strong>Disparos intempestivos y estrés de interruptores</strong> &mdash; la corriente RMS extra empuja los dispositivos de protección hacia la operación.</li>
+  <li><strong>Sobrecarga del neutro</strong> &mdash; los armónicos triplen (3.º, 9.º, 15.º) se suman en el neutro de un sistema de cuatro hilos y pueden superar la corriente de fase.</li>
+  <li><strong>Mal funcionamiento de cargas sensibles</strong> &mdash; PLC, sensores y servidores leen mal una barra distorsionada.</li>
+  <li><strong>Cumplimiento y coste</strong> &mdash; supere IEEE 519 y la compañía eléctrica puede imponer penalizaciones o negar la conexión.</li>
+</ul>
+
+<h2 id="why-an-ahf-not-a-fixed-filter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué un AHF y no un filtro fijo</h2>
+<p class="text-text-mid leading-relaxed mb-6">Una trampa LC pasiva está sintonizada a órdenes fijos y simplemente permanece ahí. En una barra cuya carga cambia cada minuto, un filtro fijo no puede seguir la carga &mdash; y su capacitancia en derivación puede resonar con la impedancia de red y <em>amplificar</em> otros armónicos.</p>
+<p class="text-text-mid leading-relaxed mb-6">Un filtro armónico activo funciona al revés: monitoriza la carga de forma continua e inyecta una corriente de contrafase que cancela la distorsión en la fuente.</p>
+
+<h2 id="the-compensation-law" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">La ley de compensación</h2>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(fundamental)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Sintetizada por un puente que conmuta a 15&ndash;20 kHz, esa corrección sigue la carga en <strong>&lt; 1 ms</strong> y reduce el THDi de <strong>30%+ a &lt; 5%</strong> en los órdenes 5.º a 25.º a la vez &mdash; siguiendo la carga mientras varía. También suministra corriente reactiva y ayuda a equilibrar las fases.</p>
+
+<h2 id="igbt-vs-sic-the-thermal-ceiling" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT frente a SiC: el techo térmico</h2>
+<p class="text-text-mid leading-relaxed mb-6">La mayoría de los AHF de BT usan IGBT con una unión limitada cerca de <strong>150 &deg;C</strong>. Los MOSFET de SiC amplían la banda prohibida (<strong>3,26 eV frente a 1,12 eV</strong>), toleran <strong>200 &deg;C</strong>, conmutan a <strong>2&ndash;3&times;</strong> la frecuencia y reducen las pérdidas de conmutación en torno al <strong>50%</strong> &mdash; un armario más pequeño y fresco con margen para cancelar órdenes superiores. Esa es la dirección sobre la que está construida la plataforma AHF de BT de CHITEK.</p>
+
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue ingenieril</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>Mida en el PCC con un analizador de calidad de potencia durante un ciclo de trabajo completo.</li>
+  <li>Instale el AHF en la fuente &mdash; en el alimentador que suministra al conjunto no lineal.</li>
+  <li>Audite las baterías de condensadores en busca de resonancia antes de la puesta en servicio.</li>
+  <li>Dimensione según la TDD medida referida a la demanda máxima.</li>
+  <li>Deje un margen (15&ndash;25%) para variadores añadidos después.</li>
+</ol>
+
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Perfiles de aplicación típicos</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Plantas industriales</strong> &mdash; dominan los VFD; el AHF restaura &lt; 5% y reduce el calentamiento del transformador.</li>
+  <li><strong>Centros de datos</strong> &mdash; los rectificadores UPS apilan el 5.º y 7.º; el AHF protege el uptime.</li>
+  <li><strong>Edificios comerciales</strong> &mdash; servidores, LED y variadores de HVAC; el AHF elimina el sobrecalentamiento del neutro.</li>
+</ul>
+
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">Los armónicos provienen de las cargas no lineales que ya opera. Un <strong>AHF</strong> de baja tensión los cancela en la fuente &mdash; de forma medible, dentro de IEEE 519. Las plataformas AHF de BT de CHITEK se especifican con exactamente esta disciplina de «medir primero».</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Qué THDi registra realmente su barra &mdash; y está por debajo del 5% en el PCC?</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Compartir">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

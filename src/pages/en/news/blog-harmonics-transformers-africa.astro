@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHreflang } from '../../../i18n/index';
 import Sidebar from '../../../components/Sidebar.astro';
 
 const article = {
@@ -20,19 +21,20 @@ const otherArticles = [
 ];
 
 const relatedProducts = [
-  { name: "Active Harmonic Filter AHF", href: "/en/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "Static Var Generator SVG", href: "/en/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { name: "SiC-AHF/SVG High Efficiency", href: "/en/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  { name: "Active Harmonic Filter AHF", href: "/en/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Static Var Generator SVG", href: "/en/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG High Efficiency", href: "/en/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 
 const relatedCases = [
-  { name: "Kenya Water Project", industry: "Water Infrastructure" },
-  { name: "Nigeria Industrial Park", industry: "Manufacturing" },
-  { name: "South Africa Mining Site", industry: "Mining" }
+  { name: "Resonance-Free Harmonic Control at a Large Livestock Farm, Anhui", industry: "Agri & Food Production", href: "/solutions/commercial" },
+  { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/en' + p : p;
+const lp = (p: string) => '/en' + p;
+// 分享按钮用本页 canonical URL（与 <link rel="canonical"> 同源；10-08 P1-3 统一 host）
+const SHARE_URL = getHreflang('en', Astro.url.pathname);
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +43,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +52,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "How Harmonics and Poor Power Factor Damage Transformers — and the Low-Voltage AHF/SVG Fix",
     "description": "Across African industrial sites, harmonics and poor power factor silently age transformers. Discover how CHITEK's low-voltage AHF and SVG solutions protect transformers and reclaim lost capacity.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://en.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://en.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-07-01",
     "dateModified": "2025-07-01",
     "keywords": "harmonics, transformer, power factor, AHF, SVG, Africa, IEEE 519, IGBT, SiC, power quality"
@@ -66,7 +68,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
-      <a href={lp('/en/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
@@ -195,10 +197,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           </div>
           <div class="flex items-center gap-3">
             <span class="text-sm text-text-muted">Share:</span>
-            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
             </a>
             <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
@@ -258,10 +260,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               Customer Cases
             </h3>
             <div class="space-y-2">
-              {relatedCases.map((caseItem) => (
-                <a href="/en/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
-                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
-                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
                 </a>
               ))}
             </div>

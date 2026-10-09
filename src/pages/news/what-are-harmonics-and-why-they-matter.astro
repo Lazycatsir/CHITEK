@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "什么是谐波——以及它为何威胁现代低压母线",
+  category: "技术",
+  date: "2026-08-05",
+  dateDisplay: "2026年8月5日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "谐波是基波整数倍频率的电流与电压。本文说明谐波的来源、为何威胁现代低压母线，以及低压有源电力滤波器（AHF）如何将其抑制到 IEEE 519 范围内。",
+  keywords: ["谐波", "电能质量", "有源电力滤波器", "AHF", "THDi", "IEEE 519", "IGBT", "SiC", "无功功率", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "什么是有源电力滤波器？", category: "技术", href: "/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "有源与无源谐波滤波器", category: "技术", href: "/news/active-vs-passive-harmonic-filters", color: "orange" },
+    { title: "IEEE 519 谐波畸变限值", category: "技术", href: "/news/ieee-519-harmonic-distortion-limits", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "有源电力滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "沙特工业工厂", industry: "制造业" },
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "什么是谐波——以及它为何威胁现代低压母线",
+    "description": "谐波是基波整数倍频率的电流与电压。本文说明谐波的来源、为何威胁现代低压母线，以及低压有源电力滤波器（AHF）如何将其抑制到 IEEE 519 范围内。",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "keywords": "谐波, 电能质量, 有源电力滤波器, AHF, THDi, IEEE 519, IGBT, SiC, 无功功率, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="什么是谐波——以及它为何威胁现代低压母线" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">谐波是基波（50 或 60 Hz）整数倍频率的电流与电压，叠加在设备所期望的理想正弦波之上。在现代低压（LV）母线上，它不是边缘情况，而是常态——由定义现代工厂的那些设备产生：变频器、整流器、UPS、LED 照明与光伏逆变器。若不加治理，它们会侵蚀效率、加速设备老化，并使设施超出 IEEE 519。本文说明谐波是什么、从何而来，以及低压有源电力滤波器（AHF）如何将其抵消。</p>
+
+<h2 id="where-harmonics-come-from" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">谐波从何而来</h2>
+<p class="text-text-mid leading-relaxed mb-6">谐波就是频率为基波整数倍的成分。非线性负载所取电流与所加电压不成比例，因此其电流波形发生畸变——傅里叶分析将这种畸变分解为基波加上一系列谐波。</p>
+<p class="text-text-mid leading-relaxed mb-6">最典型的来源是六脉波整流器——多数变频器与 UPS 的前端。它以离散的脉冲取流，产生特征次数 n = 6k &plusmn; 1：5、7、11、13 次。若不治理，负载处的总电流需求畸变率（THDi）常在 <strong>8%–30%</strong> 之间——远高于 IEEE 519 在公共耦合点（PCC）建议的 <strong>THDi &lt; 5%</strong>。</p>
+
+<h2 id="why-harmonics-are-a-threat" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">谐波为何是威胁</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>过热</strong>——谐波电流使铜损随 RMS 电流的平方上升、铁损随磁通谐波上升，变压器与电机因此比铭牌假设更热。</li>
+  <li><strong>误跳闸与断路器应力</strong>——额外的 RMS 电流推动保护装置趋向动作。</li>
+  <li><strong>中性线过载</strong>——三倍次谐波（3、9、15 次）在四线制中性线上叠加，可能超过相电流。</li>
+  <li><strong>敏感负载误动作</strong>——PLC、传感器与服务器误读畸变母线。</li>
+  <li><strong>合规与成本</strong>——超出 IEEE 519，电力公司可能罚款或拒绝接入。</li>
+</ul>
+
+<h2 id="why-an-ahf-not-a-fixed-filter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为何选 AHF，而非固定滤波器</h2>
+<p class="text-text-mid leading-relaxed mb-6">无源 LC 陷波器针对固定次数调谐，只能被动工作。在负载每分钟都在变化的母线上，固定滤波器无法跟踪负载——其并联电容还可能与电网阻抗谐振，反而<em>放大</em>其他谐波。</p>
+<p class="text-text-mid leading-relaxed mb-6">有源电力滤波器正好相反：它持续监测负载，注入在源头抵消畸变的补偿电流。</p>
+
+<h2 id="the-compensation-law" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">补偿定律</h2>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(基波)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">由 15&ndash;20 kHz 开关的桥式电路合成，该补偿在 <strong>&lt; 1 ms</strong> 内跟踪，将 THDi 从 <strong>30%+ 一次拉低到 &lt; 5%</strong>，覆盖 5 至 25 次谐波——并随负载变化而跟随。它还提供无功电流并帮助平衡三相。</p>
+
+<h2 id="igbt-vs-sic-the-thermal-ceiling" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 与 SiC：热上限</h2>
+<p class="text-text-mid leading-relaxed mb-6">多数低压 AHF 采用结温上限约 <strong>150 &deg;C</strong> 的 IGBT。碳化硅（SiC）MOSFET 拓宽禁带（<strong>3.26 eV vs 1.12 eV</strong>）、耐受 <strong>200 &deg;C</strong>、开关频率达 <strong>2&ndash;3&times;</strong>，并将开关损耗降低约 <strong>50%</strong>——更小、更凉的柜体，且对更高次谐波有裕量。这正是 CHITEK 低压 AHF 平台的构建方向。</p>
+
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>用电能质量分析仪在 PCC 处测量完整工况周期。</li>
+  <li>将 AHF 装在源头——为非线性负载群供电的馈线上。</li>
+  <li>投运前审查电容柜是否存在谐振。</li>
+  <li>依据实测 TDD（参考峰值需求）选型。</li>
+  <li>为后续新增变频器预留 15&ndash;25% 裕量。</li>
+</ol>
+
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">典型应用场景</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>工业工厂</strong>——变频器为主；AHF 恢复 &lt; 5% 并降低变压器发热。</li>
+  <li><strong>数据中心</strong>——UPS 整流器叠加 5、7 次；AHF 保障可用性。</li>
+  <li><strong>商业建筑</strong>——服务器、LED 与暖通变频器；AHF 消除中性线过热。</li>
+</ul>
+
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">谐波来自你已经在运行的非线性负载。低压 <strong>AHF</strong> 在源头将其抵消——可测量地，符合 IEEE 519。CHITEK 低压 AHF 平台正是以这种"先测量"的原则进行选型的。</p>
+<p class="text-text-mid leading-relaxed mb-6">你的母线上实测的 THDi 是多少——在 PCC 处是否低于 5%？</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="分享">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "Desequilibrio de tensión: causas, costes y cómo un SVG + AHF de BT restauran el equilibrio",
+  category: "Technology",
+  date: "2026-09-20",
+  dateDisplay: "20 sep 2026",
+  author: "Equipo Técnico CHITEK",
+  readTime: "5 min de lectura",
+  description: "Un sistema trifásico solo está equilibrado en teoría. Esta guía explica cómo se cuantifica el desequilibrio, su coste en pérdidas de secuencia negativa, por qué los métodos fijos no bastan y cómo un SVG + AHF de BT restauran el equilibrio.",
+  keywords: ["Desequilibrio de tensión", "Secuencia negativa", "Calidad de potencia", "SVG", "Generador de VAR estático", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "¿Qué es un filtro armónico activo?", category: "Technology", href: "/es/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "¿Qué son los armónicos?", category: "Technology", href: "/es/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "¿Qué es el THDi?", category: "Technology", href: "/es/news/what-is-thdi-and-how-does-it-happen", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "Planta Industrial de Arabia Saudí", industry: "Manufactura" },
+    { name: "Centro de Datos de Brasil", industry: "Centros de Datos" },
+    { name: "Parque Solar de Dubái 50MW", industry: "Energía Renovable" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Desequilibrio de tensión: causas, costes y cómo un SVG + AHF de BT restauran el equilibrio",
+    "description": "Un sistema trifásico solo está equilibrado en teoría. Esta guía explica cómo se cuantifica el desequilibrio, su coste en pérdidas de secuencia negativa, por qué los métodos fijos no bastan y cómo un SVG + AHF de BT restauran el equilibrio.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-09-20",
+    "dateModified": "2026-09-20",
+    "keywords": "Desequilibrio de tensión, Secuencia negativa, Calidad de potencia, SVG, Generador de VAR estático, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-7.webp" alt="Desequilibrio de tensión: causas, costes y cómo un SVG + AHF de BT restauran el equilibrio" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un sistema trifásico está equilibrado cuando las tres tensiones de fase son iguales en magnitud y están desfasadas 120&deg;. En plantas reales &mdash; grandes cargas monofásicas, hornos de arco, rectificadores, impedancias de alimentador desiguales &mdash; ese ideal se rompe. El resultado es una corriente de secuencia negativa que calienta motores, reduce la capacidad de los transformadores y distorsiona la onda. Este artículo cubre las causas, el coste y por qué un SVG + AHF de baja tensión (BT) es la corrección dinámica.</p>
+<h2 id="how-unbalance-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo se cuantifica el desequilibrio</h2>
+<p class="text-text-mid leading-relaxed mb-6">La métrica estándar (NEMA MG-1 / IEC 60034) expresa el desequilibrio de tensión en porcentaje:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">Desequilibrio% = (desviación máxima respecto a la tensión de fase media) / (tensión de fase media) &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Los sistemas suelen clasificarse como desequilibrados por encima de ~<strong>1&ndash;3%</strong>. La IEC 61000-3-13 define los límites aceptables.</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Causas principales</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Distribución desigual de cargas</strong> &mdash; carga dispar entre las tres fases.</li>
+  <li><strong>Grandes cargas monofásicas</strong> &mdash; calentadores, soldadoras y cargadores de VE en una fase absorben corriente excesiva.</li>
+  <li><strong>Asimetría de línea</strong> &mdash; impedancia desigual o configuración no simétrica, peor en alimentadores largos.</li>
+  <li><strong>Equipos defectuosos</strong> &mdash; transformadores dañados o conexiones deficientes.</li>
+  <li><strong>Generación distribuida</strong> &mdash; la inyección asimétrica de PV o ESS puede desequilibrar una barra débil.</li>
+</ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cuesta</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Menor eficiencia del motor</strong> &mdash; la corriente de secuencia negativa crea un campo contrarrotante; un 1% de desequilibrio puede elevar la temperatura del motor ~5&ndash;10%.</li>
+  <li><strong>Sobrecalentamiento de equipos</strong> &mdash; las pérdidas extra aceleran el envejecimiento y el riesgo de fallo.</li>
+  <li><strong>Mayor consumo energético</strong> &mdash; la tensión desequilibrada eleva las pérdidas y la factura.</li>
+  <li><strong>Fluctuaciones de tensión</strong> &mdash; el desequilibrio agrava el parpadeo en otras cargas.</li>
+</ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué los métodos fijos se quedan cortos</h2>
+<p class="text-text-mid leading-relaxed mb-6">El equilibrado de cargas (recableado) y los reguladores automáticos de tensión (AVR) ayudan, pero son lentos o manuales. Una batería de condensadores conmutada puede corregir el FP medio, pero no reequilibrar por fase ni seguir una carga oscilante &mdash; y conlleva riesgo de resonancia.</p>
+<h2 id="how-an-lv-svg-ahf-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo lo corrigen un SVG + AHF de BT</h2>
+<p class="text-text-mid leading-relaxed mb-6">Un generador de VAR estático (SVG) &mdash; un convertidor de fuente de tensión sobre IGBT de alta frecuencia &mdash; inyecta o absorbe corriente reactiva <strong>por fase</strong>, de forma independiente, para reequilibrar tensiones y mantener el FP cerca de la unidad: respuesta subcíclica (<strong>&lt; 1 ms</strong>), regulación continua de <strong>&plusmn;1%</strong>, FP mantenido en <strong>0,99+</strong>. Cancela la componente de secuencia negativa que una batería fija no puede tocar.</p>
+<p class="text-text-mid leading-relaxed mb-6">Un filtro armónico activo (AHF) elimina la distorsión de 5.º, 7.º, 11.º y 13.º que las cargas no lineales añaden encima:</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(fundamental)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">Sintetizada por un puente que conmuta a 15&ndash;20 kHz, sigue en <strong>&lt; 1 ms</strong> y reduce el THDi de <strong>30%+ a &lt; 5%</strong>. Juntos, AHF + SVG ofrecen un equilibrado de fases continuo y adaptativo a medida que varía la carga &mdash; sin sintonía fija, sin riesgo de resonancia.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT frente a SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">Los AHF y SVG de BT convencionales usan IGBT limitados cerca de <strong>150 &deg;C</strong>, con conmutación típicamente por debajo de <strong>20 kHz</strong>. Migrar a MOSFET de SiC (unión a <strong>200 &deg;C</strong>, campo de ruptura ~<strong>10&times;</strong>, frecuencia de conmutación <strong>2&ndash;3&times;</strong>, pérdida de conmutación ~<strong>50%</strong> menor) amplía el ancho de banda de control y reduce el armario. Esa es la dirección sobre la que está construida la plataforma AHF + SVG de BT de CHITEK.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue ingenieril</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>Mida tensiones y corrientes de fase en el PCC durante un ciclo de trabajo completo para hallar el peor desequilibrio.</li>
+  <li>Instale el SVG/AHF en el alimentador desequilibrado, cerca de la carga causante.</li>
+  <li>Audite las baterías de condensadores en busca de resonancia y desajuste antes de la puesta en servicio.</li>
+  <li>Compruebe el margen de red débil y dimensione para la caída más desfavorable.</li>
+  <li>Deje un margen (15&ndash;25%) para carga monofásica añadida.</li>
+</ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Perfiles de aplicación típicos</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>Hubs de carga de VE</strong> &mdash; los grupos de cargadores monofásicos desequilibran la barra; el SVG reequilibra por fase.</li>
+  <li><strong>Hornos de arco y acerías</strong> &mdash; oscilaciones reactivas violentas y desequilibradas; AHF + SVG estabilizan.</li>
+  <li><strong>Plantas C&amp;I con carga mixta</strong> &mdash; una unidad combinada reduce el calentamiento y las penalizaciones de FP.</li>
+</ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid leading-relaxed mb-6">El desequilibrio de tensión es un problema de secuencia negativa que los condensadores fijos no pueden resolver y que erosiona en silencio la vida de motores y transformadores. Un par <strong>AHF + SVG</strong> de baja tensión restaura el equilibrio y la calidad de onda en la fuente, de forma adaptativa. Las plataformas AHF + SVG de BT de CHITEK se especifican con exactamente esta disciplina de «medir primero».</p>
+<p class="text-text-mid leading-relaxed mb-6">¿Cuál es su desequilibrio de tensión de fase en el PCC &mdash; y qué fase soporta la carga extra?</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">Compartir:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Compartir">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

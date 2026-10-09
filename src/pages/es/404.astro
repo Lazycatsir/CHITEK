@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout lang="es" alternates={false} title="Página no encontrada – CHITEK INNOPOWER" description="La página que buscas no existe. Vuelve al inicio o consulta nuestros productos.">
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 mt-[72px]">
+    <h1 class="font-barlow-condensed text-[clamp(72px,12vw,160px)] font-bold text-brand-orange leading-[1] mb-4">404</h1>
+    <p class="text-[clamp(16px,1.5vw,24px)] text-text-dark font-medium mb-8">Página no encontrada</p>
+    <p class="text-text-muted max-w-md mb-10">La página que buscas pudo haber sido movida o eliminada. Te ayudamos a volver al camino.</p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="/es" class="bg-brand-orange text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline hover:bg-brand-orange-dark transition-colors duration-200">Volver al inicio</a>
+      <a href="/es/products" class="bg-white text-brand-orange border border-brand-orange text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline hover:bg-brand-orange hover:text-white transition-colors duration-200">Detalles de productos</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "ما هي التوافقيات — ولماذا تهدد ناقل جهد منخفض حديثًا",
+  category: "التكنولوجيا",
+  date: "2026-08-05",
+  dateDisplay: "05 أغسطس 2026",
+  author: "FNI CHITEK الفني",
+  readTime: "5 دقائق للقراءة",
+  description: "التوافقيات هي تيارات وفولتيات عند مضاعفات صحيحة للتردد الأساسي. يوضح هذا الدليل من أين تأتي، ولماذا تهدد ناقل جهد منخفض حديثًا، وكيف يلغيها مرشح توافقي نشط (AHF) للجهد المنخفض ضمن IEEE 519.",
+  keywords: ["التوافقيات", "جودة الطاقة", "مرشح توافقي نشط", "AHF", "THDi", "IEEE 519", "IGBT", "SiC", "القدرة التفاعلية", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "ما هو مرشح التوافقيات النشط؟", category: "التكنولوجيا", href: "/ar/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "المرشحات التوافقية النشطة مقابل السلبية", category: "التكنولوجيا", href: "/ar/news/active-vs-passive-harmonic-filters", color: "orange" },
+    { title: "حدود التشوه التوافقي IEEE 519", category: "التكنولوجيا", href: "/ar/news/ieee-519-harmonic-distortion-limits", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "المرشح النشط للتوافقيات AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد التيار المتغير الثابت SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG الكفاءة العالية", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "المنشأة الصناعية السعودية", industry: "التصنيع" },
+    { name: "مركز البيانات البرازيلي", industry: "مراكز البيانات" },
+    { name: "مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ما هي التوافقيات — ولماذا تهدد ناقل جهد منخفض حديثًا",
+    "description": "التوافقيات هي تيارات وفولتيات عند مضاعفات صحيحة للتردد الأساسي. يوضح هذا الدليل من أين تأتي، ولماذا تهدد ناقل جهد منخفض حديثًا، وكيف يلغيها مرشح توافقي نشط (AHF) للجهد المنخفض ضمن IEEE 519.",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "FNI CHITEK الفني"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "keywords": "التوافقيات, جودة الطاقة, مرشح توافقي نشط, AHF, THDi, IEEE 519, IGBT, SiC, القدرة التفاعلية, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/ar/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-3.webp" alt="ما هي التوافقيات — ولماذا تهدد ناقل جهد منخفض حديثًا" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">التوافقيات هي تيارات وفولتيات عند مضاعفات صحيحة للتردد الأساسي 50 أو 60 هرتز، متراكبة فوق الموجة الجيبية المثالية التي يتوقعها جهازك. على ناقل جهد منخفض (LV) حديث لا تُعد حالة نادرة بل الحالة الافتراضية &mdash; تنتجها المعدات نفسها التي تُعرّف المصنع المعاصر: محركات التردد المتغير، والمقومات، وأنظمة UPS، وإضاءة LED، وعواكس الطاقة الشمسية. إن لم تُعالج، فإنها تُضعف الكفاءة، وتُسرّع شيخوخة المعدات، وتدفع المنشأة لتجاوز IEEE 519. يوضح هذا المقال ما هي التوافقيات، ومن أين تأتي، وكيف يلغيها مرشح توافقي نشط (AHF) للجهد المنخفض.</p>
+
+<h2 id="where-harmonics-come-from" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">من أين تأتي التوافقيات</h2>
+<p class="text-text-mid leading-relaxed mb-6">التوافقي هو ببساطة تردد عند مضاعف صحيح للتردد الأساسي. يسحب الحمل غير الخطي تيارًا غير متناسب مع الجهد المطبق، فيتشوه شكل موجته &mdash; ويحل تحليل فورييه هذا التشوه إلى التردد الأساسي بالإضافة إلى سلسلة من التوافقيات.</p>
+<p class="text-text-mid leading-relaxed mb-6">المصدر الكلاسيكي هو المقوم سداسي النبضات &mdash; الواجهة الأمامية لمعظم محركات VFD ووحدات UPS. يسحب التيار في كتل منفصلة، مولّدًا الرتب المميزة n = 6k &plusmn; 1: الخامسة والسابعة والحادية عشرة والثالثة عشرة. إن لم تُعالج، غالبًا ما يقع إجمالي تشوه الطلب (THDi) عند الحمل بين <strong>8% و30%</strong> &mdash; أعلى بكثير من توصية IEEE 519 بـ <strong>THDi &lt; 5%</strong> عند نقطة الالتقاء المشتركة (PCC).</p>
+
+<h2 id="why-harmonics-are-a-threat" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تُعد التوافقيات تهديدًا</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>ارتفاع الحرارة</strong> &mdash; يرفع التيار التوافقي خسائر النحاس مع مربع التيار الفعال وخسائر القلب مع توافقيات الفيض، فتعمل المحولات والمحركات أسخن مما تفترضه لوحتها.</li>
+  <li><strong>الفصل غير المرغوب وإجهاد القواطع</strong> &mdash; يدفع التيار الفعال الإضافي أجهزة الحماية نحو العمل.</li>
+  <li><strong>زيادة تحميل الخط المتعادل</strong> &mdash; تتجمع التوافقيات المضاعفة للثلاثة (الثالثة والتاسعة والخامسة عشرة) في الخط المتعادل لنظام رباعي الأسلاك وقد تتجاوز تيار الطور.</li>
+  <li><strong>خلل الأحمال الحساسة</strong> &mdash; تقرأ وحدات PLC والمستشعرات والخوادم ناقلًا مشوّهًا بشكل خاطئ.</li>
+  <li><strong>الامتثال والتكلفة</strong> &mdash; بتجاوز IEEE 519 قد تفرض شركة الكهرباء غرامات أو ترفض التوصيل.</li>
+</ul>
+
+<h2 id="why-an-ahf-not-a-fixed-filter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا AHF وليس مرشحًا ثابتًا</h2>
+<p class="text-text-mid leading-relaxed mb-6">مرشح LC السلبي مضبوط على رتب ثابتة ويبقى سلبيًا. على ناقل يتغير حمله كل دقيقة، لا يستطيع المرشح الثابت متابعة الحمل &mdash; وقد تتردد سعته التوازية مع معاوقة الشبكة و<em>تضخّم</em> توافقيات أخرى.</p>
+<p class="text-text-mid leading-relaxed mb-6">يعمل المرشح التوافقي النشط بالعكس: يراقب الحمل باستمرار ويحقن تيارًا معاكسًا يلغي التشوه عند المصدر.</p>
+
+<h2 id="the-compensation-law" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قانون التعويض</h2>
+<blockquote class="border-r-4 border-brand-orange pr-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(التردد الأساسي)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">يُولّدها جسر يبدّل عند 15&ndash;20 كيلوهرتز، ويتبع هذا التصحيح الحمل خلال <strong>&lt; 1 ms</strong> ويخفض THDi من <strong>30%+ إلى &lt; 5%</strong> عبر الرتب من الخامسة إلى الخامسة والعشرين في آن واحد &mdash; مع متابعة الحمل أثناء تغيّره. كما يوفر تيارًا تفاعليًا ويساعد على موازنة الأطوار.</p>
+
+<h2 id="igbt-vs-sic-the-thermal-ceiling" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC: السقف الحراري</h2>
+<p class="text-text-mid leading-relaxed mb-6">تستخدم معظم مرشحات AHF للجهد المنخفض ترانزستورات IGBT بوصلة محدودة قرب <strong>150 &deg;C</strong>. توسّع MOSFET المصنوعة من كربيد السيليكون (SiC) فجوة النطاق (<strong>3.26 eV مقابل 1.12 eV</strong>)، وتتحمل <strong>200 &deg;C</strong>، وتبدّل بتردد أعلى بـ <strong>2&ndash;3&times;</strong>، وتخفض خسائر التبديل بنحو <strong>50%</strong> &mdash; خزانة أصغر وأبرد مع هامش لإلغاء الرتب الأعلى. هذا هو الاتجاه الذي بُنيت عليه منصة AHF للجهد المنخفض من CHITEK.</p>
+
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>قِس عند PCC بمحلل جودة القدرة خلال دورة تشغيل كاملة.</li>
+  <li>ضع AHF عند المصدر &mdash; على المغذّي الذي يغذي المجموعة غير الخطية.</li>
+  <li>راجع بنوك المكثفات بحثًا عن الرنين قبل التشغيل.</li>
+  <li>اختر السعة وفق TDD المقيسة بالرجوع إلى ذروة الطلب.</li>
+  <li>اترك هامشًا (15&ndash;25%) للوحدات المضافة لاحقًا.</li>
+</ol>
+
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ملفات التطبيق النموذجية</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>المصانع الصناعية</strong> &mdash; تسود محركات VFD؛ يعيد AHF الخفض إلى أقل من 5% ويقلل تسخين المحول.</li>
+  <li><strong>مراكز البيانات</strong> &mdash; تكدّس مقومات UPS الرتبتين الخامسة والسابعة؛ يحمي AHF الجهوزية.</li>
+  <li><strong>المباني التجارية</strong> &mdash; خوادم وإضاءة LED ومحركات HVAC؛ يزيل AHF ارتفاع حرارة الخط المتعادل.</li>
+</ul>
+
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid leading-relaxed mb-6">تأتي التوافقيات من الأحمال غير الخطية التي تشغّلها بالفعل. يلغيها <strong>AHF</strong> للجهد المنخفض عند المصدر &mdash; بشكل قابل للقياس، ضمن IEEE 519. تُحدَّد منصات AHF للجهد المنخفض من CHITEK بهذا الانضباط نفسه: القياس أولًا.</p>
+<p class="text-text-mid leading-relaxed mb-6">ما هو THDi الذي يسجله ناقلك فعليًا &mdash; وهل هو أقل من 5% عند PCC؟</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="مشاركة">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              مقالات أخرى
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              منتجات ذات صلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Sidebar from '../components/Sidebar.astro';
-import { getHreflang, type Locale } from '../i18n/index';
+import { getHreflang, LOCALE_DOMAIN, type Locale } from '../i18n/index';
 
 export interface Props {
   title: string;
@@ -21,7 +21,6 @@ export interface Props {
 }
 
 const { title, description, lang = 'en', ogTitle, ogDescription, ogImage, ogUrl, ogType = 'website', alternates = true, alternateLangs } = Astro.props;
-const defaultOgImage = 'https://chitek-inno.com/assets/images/logo.webp';
 
 const ALL_LOCALES: Locale[] = ['zh', 'en', 'pt', 'es', 'ar'];
 const altLangs: Locale[] = alternateLangs && alternateLangs.length ? (alternateLangs as Locale[]) : ALL_LOCALES;
@@ -29,6 +28,48 @@ const xDefault: Locale = altLangs.includes('zh') ? 'zh' : altLangs[0];
 
 const currentPath = Astro.url.pathname;
 const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
+
+/* ── 2026-10-08 裁定（审计 P1-3 方案 A）：全站绝对 URL 统一到「本页自己的语言域」──
+   此前 canonical 用语言子域、而 Organization / WebSite / OG 用根域，同页两个 host。
+   现在一律取 LOCALE_DOMAIN[lang]，与 <link rel="canonical"> 完全同 host。
+   （zh 的 canonical host 就是那个不带语言前缀的根域，故 zh 无变化） */
+const siteOrigin = LOCALE_DOMAIN[lang as Locale];
+
+const defaultOgImage = `${siteOrigin}/assets/images/logo.webp`;
+
+/* 社交账号 = Footer 第 1/2/3 个图标（2026-10-08 裁定的单一来源）。
+   注：contact 页的 Facebook / Twitter / Instagram 三图标当前是 data-social-temp 占位
+   （暂指 LinkedIn），真主页 URL 到位后需同时更新此数组 + Footer + contact 三处。 */
+const SOCIAL_PROFILES = [
+  'https://www.linkedin.com/in/yongkai-li/',
+  'https://www.youtube.com/@CHITEKNewEnergyTechnology',
+  'https://www.facebook.com/profile.php?id=61579260405315',
+];
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CHITEK INNOPOWER',
+  url: siteOrigin,
+  logo: `${siteOrigin}/assets/images/logo.webp`,
+  description: 'Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF) and Static Var Generator (SVG).',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+86-18818994346',
+    contactType: 'sales',
+    availableLanguage: ['English', 'Portuguese', 'Spanish', 'Arabic', 'Chinese'],
+  },
+  sameAs: SOCIAL_PROFILES,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'CHITEK INNOPOWER',
+  url: siteOrigin,
+  description: 'B2B industrial power quality solutions manufacturer — AHF and SVG for global industrial and commercial applications.',
+  inLanguage: ['en', 'pt', 'es', 'ar', 'zh'],
+};
 ---
 
 <!doctype html>
@@ -72,33 +113,8 @@ const canonicalUrl = ogUrl || getHreflang(lang as Locale, currentPath);
   <meta name="twitter:description" content={ogDescription || description} />
 
   <!-- Structured Data -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "CHITEK INNOPOWER",
-  "url": "https://chitek-inno.com",
-  "logo": "https://chitek-inno.com/assets/images/logo.webp",
-  "description": "Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF) and Static Var Generator (SVG).",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+86-18818994346",
-    "contactType": "sales",
-    "availableLanguage": ["English", "Portuguese", "Spanish", "Arabic", "Chinese"]
-  },
-  "sameAs": []
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "CHITEK INNOPOWER",
-  "url": "https://chitek-inno.com",
-  "description": "B2B industrial power quality solutions manufacturer — AHF and SVG for global industrial and commercial applications.",
-    "inLanguage": ["en", "pt", "es", "ar", "zh"]
-}
-  </script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema, null, 2)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema, null, 2)} />
 
   <!-- Google Analytics (GA4) — only on non-Chinese languages; zh is excluded (Google blocked in mainland + PIPL) -->
   {lang !== 'zh' && (

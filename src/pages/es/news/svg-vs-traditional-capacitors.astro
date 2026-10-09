@@ -26,9 +26,9 @@ const otherArticles = [
     { title: "AHF para sistemas VFD", category: "Tecnología", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Filtro Activo de Armónicos AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "Centro de datos en Brasil", industry: "Centros de datos" },
@@ -36,7 +36,7 @@ const relatedCases = [
     { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/es' + p;
 
 ---
 <BaseLayout
@@ -46,7 +46,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/news/news-img-4.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -56,9 +56,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "SVG vs bancos de condensadores conmutados: por qué el VAR dinámico supera la sintonía fija",
     "description": "La corrección de factor de potencia en el bus LV suele empezar con un banco de condensadores —pero las plantas modernas tienen cargas variables. Este artículo cuantifica dónde diverge un SVG del banco fijo y por qué importa para cumplimiento y pérdidas.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "image": "https://es.chitek-inno.com/assets/images/news/news-img-4.webp",
     "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-19",
     "dateModified": "2026-07-19",
     "keywords": "SVG Banco de condensadores Factor de potencia Potencia reactiva VAR Parpadeo de tensión"
@@ -104,23 +104,23 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">La corrección del factor de potencia en el bus de baja tensión (LV) suele empezar con un banco de condensadores —y para una carga inductiva estable y predecible funciona. Pero las plantas modernas usan variadores de frecuencia, rectificadores UPS e inversores PV cuya demanda reactiva oscila minuto a minuto. En esos buses el banco fijo se vuelve la herramienta equivocada. Un generador estático de var (SVG) es el mismo trabajo hecho dinámicamente. Este artículo cuantifica dónde divergen y por qué importa para cumplimiento y pérdidas.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Dos formas de aportar reactivo</h2>
+<h2 id="two-ways-to-supply-reactive-power" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Dos formas de aportar reactivo</h2>
 <p class="text-text-mid leading-relaxed mb-6">Un banco de condensadores conmutados es pasivo: su VAR sale fijo por la capacitancia instalada, en pasos discretos. No ve el bus. Un SVG es un convertidor de fuente de voltaje (VSC) sobre IGBT de alta frecuencia; mide el bus continuamente e inyecta o absorbe corriente reactiva en tiempo real en los cuatro cuadrantes. La ley de control es esencialmente <em>i_q* = f(V_bus, setpoint FP)</em>.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Tiempo de respuesta: sub-ciclo vs decenas de ms</h2>
+<h2 id="response-time-sub-cycle-vs-tens-of-milliseconds" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Tiempo de respuesta: sub-ciclo vs decenas de ms</h2>
 <p class="text-text-mid leading-relaxed mb-6">Este es el número decisivo. Un banco pasa en 10–20 ms y en una sola dirección. Un SVG LV responde en <strong>menos de 1 ms</strong> y regula a <strong>±1%</strong>, manteniendo FP <strong>0.99+</strong> aunque la carga oscile. La brecha aparece como parpadeo: cuando arranca un motor grande, el SVG sostiene la tensión antes de que la caída se propague.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Interacción armónica —el riesgo oculto</h2>
+<h2 id="harmonic-interaction-the-hidden-risk" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Interacción armónica —el riesgo oculto</h2>
 <p class="text-text-mid leading-relaxed mb-6">La susceptancia en derivación de un condensador fijo puede resonar con la impedancia de red en un orden armónico, <em>amplificando</em> la distorsión. IEEE 519 capa THDi LV ~5%; un banco mal sintonizado empuja al lado equivocado. Un SVG no añade punto de resonancia y, con un AHF, suprimen armónicos activamente.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Regulación de FP: 0.99+ vs oscilación</h2>
+<h2 id="power-factor-regulation-0-99-vs-a-swing" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Regulación de FP: 0.99+ vs oscilación</h2>
 <p class="text-text-mid leading-relaxed mb-6">Los bancos suelen mantener FP en <strong>0.80–0.95</strong> y sobrecorrigen a sobretensión en ligero o subcorrecto en pico. Bajar FP de 0.95 a 0.80 sube la corriente ~<strong>19%</strong>, aumenta pérdidas I²R y puede forzar una derating del transformador del <strong>10–20%</strong>. Un SVG mantiene FP cerca de la unidad, recortando la penalización mensual.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Medir el perfil reactivo</strong> en el PCC sobre un ciclo completo.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Ubicar el SVG en el bus de carga</strong> del集群 variable.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Auditar condensadores existentes</strong> por resonancia paralela.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>Revisar margen de red débil</strong> —dimensionar para la peor caída.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>Dejar margen</strong> (15–25%) para variadores o cargadores.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Ruta de mejora: IGBT → SiC</h2>
+<h2 id="the-upgrade-path-igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Ruta de mejora: IGBT → SiC</h2>
 <p class="text-text-mid leading-relaxed mb-6">Un SVG LV convencional usa IGBT limitados cerca de 150°C, conmutando bajo 20 kHz. Migrar el puente a SiC MOSFET (unión 200°C, ~10× campo, 2–3× frecuencia, ~50% menos pérdida) amplía el ancho de banda y reduce el gabinete para el mismo kVAr —la dirección de la plataforma LV SVG de CHITEK.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">En conclusión</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">En conclusión</h2>
 <p class="text-text-mid leading-relaxed mb-6">Donde la carga es estable, el banco de condensadores aún tiene su lugar. Donde se mueve, el SVG es la única compensación lo bastante rápida para mantener FP 0.99+ sin riesgo de resonancia. Las plataformas LV SVG de CHITEK se dimensionan de una medición real y se construyen sobre este enfoque VSC dinámico.</p>
 <p class="text-text-mid leading-relaxed mb-6">¿Qué factor de potencia mantiene realmente su bus durante el día —y cuánto oscila entre carga ligera y pico?</p>
         </div>

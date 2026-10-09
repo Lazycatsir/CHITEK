@@ -192,6 +192,28 @@
     });
   }
 
+  /* 产品类型未勾选时，在分组下方显示一行错误提示 */
+  function showProductTypeError(form) {
+    var first = form.querySelector('input[name="product_type"]');
+    if (!first) return;
+    var group = first.closest('.mb-4') || first.parentElement;
+    if (!group) return;
+    var err = form.querySelector('[data-product-type-error]');
+    if (!err) {
+      err = document.createElement('p');
+      err.setAttribute('data-product-type-error', '');
+      err.style.color = '#dc2626';
+      err.style.fontSize = '12px';
+      err.style.marginTop = '6px';
+      group.appendChild(err);
+    }
+    err.textContent = (LANG === 'zh')
+      ? '请至少选择一个产品类型'
+      : 'Please select at least one product type';
+    err.hidden = false;
+    try { first.focus(); } catch (e) {}
+  }
+
   function bindLeadForm(form) {
     var started = false;
 
@@ -204,6 +226,13 @@
       },
       { once: true }
     );
+
+    // 勾选产品类型后清除错误提示
+    form.addEventListener('change', function () {
+      var any = form.querySelectorAll('input[name="product_type"]:checked').length > 0;
+      var err = form.querySelector('[data-product-type-error]');
+      if (any && err) err.hidden = true;
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -222,6 +251,18 @@
       fd.set('page_url', location.href);
       fd.set('lang', LANG);
 
+      // Product Type 现在为多选：原生 required 对 checkbox 群无效，这里手动要求至少勾选一个。
+      // 只对该字段真实存在的表单生效 —— 产品页的 Quote 表单没有 product_type，
+      // 若无条件拦截会静默吞掉提交（点了按钮什么都没发生）。
+      var hasProductType = form.querySelectorAll('input[name="product_type"]').length > 0;
+      var ptAll = fd.getAll('product_type');
+      if (hasProductType && !ptAll.length) {
+        showProductTypeError(form);
+        form.dataset.submitting = '0';
+        if (btn) btn.disabled = false;
+        return;
+      }
+
       var payload = new URLSearchParams();
       fd.forEach(function (v, k) { payload.append(k, v); });
 
@@ -236,7 +277,7 @@
           if (!res.ok) throw new Error('HTTP ' + res.status);
           track('generate_lead', {
             form_type: form.getAttribute('name') || 'contact',
-            product_type: fd.get('product_type') || 'unknown',
+            product_type: (fd.getAll('product_type').join(', ') || 'unknown'),
             country: fd.get('country') || 'unknown',
             industry: fd.get('industry') || 'unknown',
             has_phone: fd.get('tel') ? 'yes' : 'no',

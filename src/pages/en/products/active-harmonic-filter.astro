@@ -35,7 +35,7 @@ const meta = {
       { "@type": "PropertyValue", "name": "Frequency", "value": "50/60 Hz" },
       { "@type": "PropertyValue", "name": "Wiring", "value": "3P3W / 3P4W" },
       { "@type": "PropertyValue", "name": "Filtering Range", "value": "2nd-51st order harmonic" },
-      { "@type": "PropertyValue", "name": "Full Response Time", "value": "<50 us" },
+      { "@type": "PropertyValue", "name": "Full Response Time", "value": "< 5 ms" },
       { "@type": "PropertyValue", "name": "Efficiency", "value": ">=97%" },
       { "@type": "PropertyValue", "name": "THDi", "value": "<5% (IEEE 519)" },
       { "@type": "PropertyValue", "name": "Topology", "value": "3-level NPC, IGBT / SiC" },
@@ -72,8 +72,8 @@ const meta = {
           <h1 class="text-[clamp(2.2rem,5vw,4.2rem)] font-bold leading-tight mb-5 font-barlow-condensed text-white">Active Harmonic Filter (AHF)</h1>
           <p class="text-[clamp(1rem,1.6vw,1.3rem)] text-white/90 max-w-xl leading-relaxed">Dynamic, IGBT / SiC-based harmonic mitigation that drives THDi below 5%, corrects power factor and balances loads for VFD, UPS and industrial applications.</p>
           <div class="mt-7 flex flex-wrap gap-3">
-            <a href="/en/contact" class="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-6 py-3 text-[clamp(14px,1.1vw,16px)] transition-colors">Request a Quote</a>
-            <a href="#overview" class="inline-block border border-white/30 text-white hover:bg-white/10 font-semibold rounded-lg px-6 py-3 text-[clamp(14px,1.1vw,16px)] transition-colors">Learn More</a>
+            <a href="/en/contact" class="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-6 py-3 text-[clamp(14px,1.25vw,20px)] transition-colors">Request a Quote</a>
+            <a href="#overview" class="inline-block border border-white/30 text-white hover:bg-white/10 font-semibold rounded-lg px-6 py-3 text-[clamp(14px,1.25vw,20px)] transition-colors">Learn More</a>
           </div>
         </div>
         <div class="relative">
@@ -85,7 +85,7 @@ const meta = {
 
   <!-- Breadcrumb (visible) -->
   <nav class="bg-[#fafbfc] border-b border-border-light" aria-label="Breadcrumb">
-    <div class="mx-auto max-w-7xl px-6 py-3 text-[clamp(12px,0.9vw,14px)] text-text-muted">
+    <div class="mx-auto max-w-7xl px-6 py-3 text-[clamp(12px,1.1vw,16px)] text-text-muted">
       <a href="/en" class="hover:text-brand-orange transition-colors">Home</a>
       <span class="mx-2 text-border-light">/</span>
       <a href="/en/products" class="hover:text-brand-orange transition-colors">Products</a>
@@ -98,17 +98,17 @@ const meta = {
   <nav class="sticky top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
     <div class="mx-auto max-w-7xl px-6">
       <div class="subnav-scroll flex gap-1 overflow-x-auto" id="subnav">
-        <a href="#overview" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
-        <a href="#how-it-works" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">How It Works</a>
-        <a href="#benefits" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Features</a>
-        <a href="#specifications" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Specifications</a>
-        <a href="#series" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Series</a>
-        <a href="#applications" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Applications</a>
-        <a href="#cases" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Case Studies</a>
-        <a href="#why" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
-        <a href="#production" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Production</a>
-        <a href="#vs-passive" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">AHF vs Passive</a>
-        <a href="#faq" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
+        <a href="#overview" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
+        <a href="#how-it-works" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">How It Works</a>
+        <a href="#benefits" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Features</a>
+        <a href="#specifications" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Specifications</a>
+        <a href="#series" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Series</a>
+        <a href="#applications" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Applications</a>
+        <a href="#cases" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Case Studies</a>
+        <a href="#why" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
+        <a href="#production" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Production</a>
+        <a href="#vs-passive" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">AHF vs Passive</a>
+        <a href="#faq" class="subnav-link whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
       </div>
     </div>
   </nav>
@@ -118,28 +118,28 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Rated Voltage</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">208–690V</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">Rated Voltage</div>
+          <div class="text-[clamp(15px,1.4vw,22px)] font-bold text-text-dark font-barlow-condensed">208–690V</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Capacity</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">15–200A/mod</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">Capacity</div>
+          <div class="text-[clamp(15px,1.4vw,22px)] font-bold text-text-dark font-barlow-condensed">15–200A/mod</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">THDi</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-brand-orange font-barlow-condensed">&lt; 5%</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">THDi</div>
+          <div class="text-[clamp(15px,1.4vw,22px)] font-bold text-brand-orange font-barlow-condensed">&lt; 5%</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Response</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">&lt; 50 μs</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">Response</div>
+          <div class="text-[clamp(15px,1.4vw,22px)] font-bold text-text-dark font-barlow-condensed">&lt; 50 μs</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Efficiency</div>
-          <div class="text-[clamp(15px,1.2vw,18px)] font-bold text-text-dark font-barlow-condensed">≥ 97%</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">Efficiency</div>
+          <div class="text-[clamp(15px,1.4vw,22px)] font-bold text-text-dark font-barlow-condensed">≥ 97%</div>
         </div>
         <div class="rounded-xl bg-[#fafbfc] border border-border-light p-4 text-center">
-          <div class="text-[11px] uppercase tracking-wider text-text-muted mb-1">Topology</div>
-          <div class="text-[clamp(13px,1vw,15px)] font-bold text-text-dark font-barlow-condensed mt-0.5">3-level IGBT/SiC</div>
+          <div class="text-[14px] uppercase tracking-wider text-text-muted mb-1">Topology</div>
+          <div class="text-[clamp(13px,1.15vw,17px)] font-bold text-text-dark font-barlow-condensed mt-0.5">3-level IGBT/SiC</div>
         </div>
       </div>
     </div>
@@ -179,35 +179,35 @@ const meta = {
   </section>
 
   <!-- How It Works -->
-  <section id="how-it-works" class="relative py-[clamp(48px,5vw,96px)] overflow-hidden scroll-mt-[150px]" style="background: linear-gradient(rgba(7,16,30,0.92), rgba(7,16,30,0.92)), url('/assets/images/products-key-features.jpg') center/cover no-repeat">
+  <section id="how-it-works" class="relative py-[clamp(48px,5vw,96px)] overflow-hidden scroll-mt-[150px]" style="background: linear-gradient(rgba(7,16,30,0.92), rgba(7,16,30,0.92)), url('/assets/images/products-key-features.webp') center/cover no-repeat">
     <div class="mx-auto max-w-7xl px-6">
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">02 / HOW IT WORKS</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-white mb-10 font-barlow-condensed text-center">How an Active Harmonic Filter Works</h2>
       <div class="grid grid-cols-1 md:grid-cols-5 gap-5">
         <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
           <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">01</div>
-          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Sense (CT)</h3>
-          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">An external current transformer samples the load current continuously at the point of common coupling.</p>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Sense (CT)</h3>
+          <p class="text-white/80 text-[clamp(13px,1.15vw,17px)] leading-relaxed">An external current transformer samples the load current continuously at the point of common coupling.</p>
         </div>
         <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
           <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">02</div>
-          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Analyze (FFT + DSP)</h3>
-          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">A DSP / FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance in microseconds.</p>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Analyze (FFT + DSP)</h3>
+          <p class="text-white/80 text-[clamp(13px,1.15vw,17px)] leading-relaxed">A DSP / FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance in microseconds.</p>
         </div>
         <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
           <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">03</div>
-          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Command (IGBT / SiC)</h3>
-          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">The inverter bridge is commanded to synthesize the required compensation current at 20 kHz switching.</p>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Command (IGBT / SiC)</h3>
+          <p class="text-white/80 text-[clamp(13px,1.15vw,17px)] leading-relaxed">The inverter bridge is commanded to synthesize the required compensation current at 20 kHz switching.</p>
         </div>
         <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
           <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">04</div>
-          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Inject</h3>
-          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">A counter-phase current is injected in parallel, cancelling the harmonic component at its source.</p>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Inject</h3>
+          <p class="text-white/80 text-[clamp(13px,1.15vw,17px)] leading-relaxed">A counter-phase current is injected in parallel, cancelling the harmonic component at its source.</p>
         </div>
         <div class="bg-white/5 backdrop-blur-sm border border-brand-orange/30 rounded-2xl p-6">
           <div class="text-brand-orange font-barlow-condensed text-2xl font-bold mb-2">05</div>
-          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Clean Grid</h3>
-          <p class="text-white/80 text-[clamp(13px,1vw,15px)] leading-relaxed">The utility sees only the fundamental — THDi &lt; 5%, improved power factor, balanced phases.</p>
+          <h3 class="text-white font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Clean Grid</h3>
+          <p class="text-white/80 text-[clamp(13px,1.15vw,17px)] leading-relaxed">The utility sees only the fundamental — THDi &lt; 5%, improved power factor, balanced phases.</p>
         </div>
       </div>
         <div class="mt-12 max-w-3xl mx-auto">
@@ -225,23 +225,23 @@ const meta = {
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">03 / KEY FEATURES</p>
       <div class="reveal-group">
         <h2 class="series-heading text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-3 font-barlow-condensed text-center">Key Features</h2>
-        <p class="series-subtitle text-center text-text-mid max-w-2xl mx-auto mb-10 text-[clamp(14px,1.1vw,16px)]">Core Technology Advantages</p>
+        <p class="series-subtitle text-center text-text-mid max-w-2xl mx-auto mb-10 text-[clamp(14px,1.25vw,20px)]">Core Technology Advantages</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div class="series-card rounded-2xl border border-border-light p-6">
-            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Harmonic Mitigation</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Suppresses 2nd–51st order harmonics, holding THDi below 5% and eliminating resonance risk.</p>
+            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Harmonic Mitigation</h3>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Suppresses 2nd–51st order harmonics, holding THDi below 5% and eliminating resonance risk.</p>
           </div>
           <div class="series-card rounded-2xl border border-border-light p-6">
-            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Power Factor Correction</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Dynamic reactive compensation keeps PF in the 0.95–1.0 range and avoids utility penalty charges.</p>
+            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Power Factor Correction</h3>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Dynamic reactive compensation keeps PF in the 0.95–1.0 range and avoids utility penalty charges.</p>
           </div>
           <div class="series-card rounded-2xl border border-border-light p-6">
-            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Neutral Current Relief</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">3P4W mode cancels accumulated 3rd-harmonic neutral current, preventing overload and fire hazard.</p>
+            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Neutral Current Relief</h3>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">3P4W mode cancels accumulated 3rd-harmonic neutral current, preventing overload and fire hazard.</p>
           </div>
           <div class="series-card rounded-2xl border border-border-light p-6">
-            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.1vw,18px)]">Load Balancing</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Redistributes phase currents to remove three-phase unbalance and stabilize voltage.</p>
+            <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Load Balancing</h3>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Redistributes phase currents to remove three-phase unbalance and stabilize voltage.</p>
           </div>
         </div>
       </div>
@@ -254,7 +254,7 @@ const meta = {
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">04 / SPECIFICATIONS</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">Technical Specifications</h2>
       <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
-        <table class="w-full border-collapse text-[clamp(13px,1vw,15px)]">
+        <table class="w-full border-collapse text-[clamp(13px,1.15vw,17px)]">
           <tbody>
             <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark w-1/2">Rated Voltage</th><td class="p-4 text-text-mid">208–690 V</td></tr>
             <tr class="border-b border-border-light"><th class="text-left p-4 bg-[#fafbfc] font-semibold text-text-dark">Rated Capacity</th><td class="p-4 text-text-mid">50 A – 200 A per module (parallel expandable to 3000 A+)</td></tr>
@@ -281,7 +281,7 @@ const meta = {
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">05 / PRODUCT SERIES</p>
       <div class="reveal-group space-y-6">
         <h2 class="series-heading text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-3 font-barlow-condensed text-center">Four Product Series, <span class="text-brand-orange">Full-Scenario Coverage</span></h2>
-        <p class="series-subtitle text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.1vw,16px)]">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation — find your configuration.</p>
+        <p class="series-subtitle text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.25vw,20px)]">From standard cabinets to extreme environments, from harmonic filtering to reactive power compensation — find your configuration.</p>
         <style>
           :global(.js) .series-heading, :global(.js) .series-subtitle, :global(.js) .series-card {
             opacity: 0;
@@ -301,11 +301,11 @@ const meta = {
         <div class="series-card rounded-2xl border border-border-light overflow-hidden">
           <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light flex flex-wrap items-center gap-x-3 gap-y-2">
             <h3 id="standard" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Standard Series (L-Series)</h3>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">50–200A/module</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Floor-standing</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Commercial / Light Industrial</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">50–200A/module</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Floor-standing</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Commercial / Light Industrial</span>
           </div>
-          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+          <div class="p-6 text-[clamp(14px,1.25vw,20px)] leading-relaxed text-text-mid">
             <p>The general-purpose cabinet AHF for commercial and light-industrial sites. Capacity 50 A – 200 A per module, parallel expandable. Best for UPS rooms, HVAC VFDs and building distribution where a floor-standing cabinet fits.</p>
           </div>
         </div>
@@ -313,11 +313,11 @@ const meta = {
         <div class="series-card rounded-2xl border border-border-light overflow-hidden">
           <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light flex flex-wrap items-center gap-x-3 gap-y-2">
             <h3 id="sic" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">SiC Series (C-Series)</h3>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Highest density</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Floor-standing</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Efficiency-critical</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Highest density</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Floor-standing</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Efficiency-critical</span>
           </div>
-          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+          <div class="p-6 text-[clamp(14px,1.25vw,20px)] leading-relaxed text-text-mid">
             <p>Silicon-carbide topology delivers higher switching efficiency, greater power density and lower thermal loss in the same footprint. Ideal for space- and efficiency-critical installations that demand the smallest cabinet for the highest capacity.</p>
           </div>
         </div>
@@ -325,11 +325,11 @@ const meta = {
         <div class="series-card rounded-2xl border border-border-light overflow-hidden">
           <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light flex flex-wrap items-center gap-x-3 gap-y-2">
             <h3 id="distributed" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Distributed Series (D-Series)</h3>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Hot-swappable</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">N+1 redundant</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Large plants</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Hot-swappable</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">N+1 redundant</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Large plants</span>
           </div>
-          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+          <div class="p-6 text-[clamp(14px,1.25vw,20px)] leading-relaxed text-text-mid">
             <p>Modular, hot-swappable units deployed close to distributed loads. N+1 redundancy and cable-saving parallel operation make it the choice for large plants with many separate feeder panels.</p>
           </div>
         </div>
@@ -337,11 +337,11 @@ const meta = {
         <div class="series-card rounded-2xl border border-border-light overflow-hidden">
           <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light flex flex-wrap items-center gap-x-3 gap-y-2">
             <h3 id="anti-pollution" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Anti-Pollution Series (A-Series)</h3>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">16-way protection</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Anti-resonance</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Arc furnace / mill</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">16-way protection</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Anti-resonance</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Arc furnace / mill</span>
           </div>
-          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+          <div class="p-6 text-[clamp(14px,1.25vw,20px)] leading-relaxed text-text-mid">
             <p>Engineered for severe harmonic environments — arc furnaces, rolling mills, welding lines and rectifier loads. Reinforced protection (16-way wide range) and anti-resonance control keep the grid stable under the dirtiest profiles.</p>
           </div>
         </div>
@@ -349,11 +349,11 @@ const meta = {
         <div class="series-card rounded-2xl border border-border-light overflow-hidden">
           <div class="bg-[#fff5f0] px-6 py-4 border-b border-border-light flex flex-wrap items-center gap-x-3 gap-y-2">
             <h3 id="ultra-slim" class="text-[clamp(18px,1.5vw,26px)] font-bold text-text-dark font-barlow-condensed">Ultra-Slim Series (U-Series)</h3>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Wall-mounted 45mm</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">≤ 100A</span>
-            <span class="text-[11px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Retrofit / small SS</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Wall-mounted 45mm</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">≤ 100A</span>
+            <span class="text-[14px] text-text-muted border border-border-light rounded-full px-2.5 py-0.5">Retrofit / small SS</span>
           </div>
-          <div class="p-6 text-[clamp(14px,1.1vw,16px)] leading-relaxed text-text-mid">
+          <div class="p-6 text-[clamp(14px,1.25vw,20px)] leading-relaxed text-text-mid">
             <p>Wall-mounted, 45 mm-class slim unit for space-constrained switchrooms up to ~100 A. Brings active filtering to retrofits and small substations where a floor-standing cabinet cannot fit.</p>
           </div>
         </div>
@@ -394,51 +394,51 @@ const meta = {
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-center">Applications by Industry</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
-          <img src="/assets/images/products-industry-datacenter.jpg" alt="Active harmonic filter for data centers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          <img src="/assets/images/products-industry-datacenter.webp" alt="Active harmonic filter for data centers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Data Centers</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Cancels UPS capacitive reverse flow, holds PF at 0.95–1.0.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Data Centers</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Cancels UPS capacitive reverse flow, holds PF at 0.95–1.0.</p>
           </div>
         </div>
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
           <img src="/assets/images/about-industry-manufacturing.webp" alt="Active harmonic filter for textile and manufacturing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Textile &amp; Manufacturing</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Tames VFD harmonics on spinning, weaving and extrusion lines.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Textile &amp; Manufacturing</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Tames VFD harmonics on spinning, weaving and extrusion lines.</p>
           </div>
         </div>
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
-          <img src="/assets/images/products-industry-semiconductor.jpg" alt="Active harmonic filter for metals and mining" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          <img src="/assets/images/products-industry-semiconductor.webp" alt="Active harmonic filter for metals and mining" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Metals &amp; Mining</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Arc-furnace flicker suppression and reactive support.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Metals &amp; Mining</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Arc-furnace flicker suppression and reactive support.</p>
           </div>
         </div>
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
-          <img src="/assets/images/products-industry-hospital.jpg" alt="Active harmonic filter for healthcare" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          <img src="/assets/images/products-industry-hospital.webp" alt="Active harmonic filter for healthcare" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Healthcare</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Protects imaging and life-support equipment from harmonic interference.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Healthcare</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Protects imaging and life-support equipment from harmonic interference.</p>
           </div>
         </div>
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
           <img src="/assets/images/about-industry-commercial-medical.webp" alt="Active harmonic filter for commercial buildings" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Commercial Buildings</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Reduces transformer heating and neutral overload in 3P4W systems.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Commercial Buildings</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Reduces transformer heating and neutral overload in 3P4W systems.</p>
           </div>
         </div>
         <div class="group relative rounded-2xl overflow-hidden border border-border-light aspect-[4/3]">
           <img src="/assets/images/about-industry-renewable.webp" alt="Active harmonic filter for renewables and storage" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5">
-            <h3 class="text-white font-semibold text-[clamp(15px,1.1vw,18px)]">Renewables &amp; Storage</h3>
-            <p class="text-white/85 text-[clamp(12px,0.95vw,14px)] leading-relaxed mt-1">Meets grid-code PF requirements for solar and BESS inverters.</p>
+            <h3 class="text-white font-semibold text-[clamp(15px,1.35vw,22px)]">Renewables &amp; Storage</h3>
+            <p class="text-white/85 text-[clamp(12px,1.1vw,16px)] leading-relaxed mt-1">Meets grid-code PF requirements for solar and BESS inverters.</p>
           </div>
         </div>
       </div>
@@ -450,20 +450,20 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">CASE STUDIES</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-3 font-barlow-condensed text-center">Proven in the Field</h2>
-      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.1vw,16px)]">From semiconductor fabs to water-treatment plants — CHITEK AHF keeps THDi compliant and equipment running.</p>
+      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.25vw,20px)]">From semiconductor fabs to water-treatment plants — CHITEK AHF keeps THDi compliant and equipment running.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <figure class="rounded-2xl overflow-hidden border border-border-light bg-white">
-          <img src="/assets/images/products-case-study-1.jpg" alt="CHITEK AHF installed at a semiconductor fabrication plant" class="w-full aspect-[16/10] object-cover" loading="lazy" />
+          <img src="/assets/images/products-case-study-1.webp" alt="CHITEK AHF installed at a semiconductor fabrication plant" class="w-full aspect-[16/10] object-cover" loading="lazy" />
           <figcaption class="p-6">
             <h3 class="font-semibold text-text-dark mb-2 text-[clamp(16px,1.2vw,20px)]">Semiconductor Fab — THDi 35% → &lt; 5%</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">A 2 × 200 A AHF rack brought the lithography line's harmonic distortion under IEEE 519 in under a day, eliminating recurring VFD trips.</p>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">A 2 × 200 A AHF rack brought the lithography line's harmonic distortion under IEEE 519 in under a day, eliminating recurring VFD trips.</p>
           </figcaption>
         </figure>
         <figure class="rounded-2xl overflow-hidden border border-border-light bg-white">
-          <img src="/assets/images/products-case-study-2.jpg" alt="CHITEK AHF at a water-treatment pumping station" class="w-full aspect-[16/10] object-cover" loading="lazy" />
+          <img src="/assets/images/products-case-study-2.webp" alt="CHITEK AHF at a water-treatment pumping station" class="w-full aspect-[16/10] object-cover" loading="lazy" />
           <figcaption class="p-6">
             <h3 class="font-semibold text-text-dark mb-2 text-[clamp(16px,1.2vw,20px)]">Water Treatment — Neutral Relief &amp; PF</h3>
-            <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">3P4W AHF cancelled accumulated 3rd-harmonic neutral current and lifted power factor to 0.98 across 12 pump VFDs.</p>
+            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">3P4W AHF cancelled accumulated 3rd-harmonic neutral current and lifted power factor to 0.98 across 12 pump VFDs.</p>
           </figcaption>
         </figure>
       </div>
@@ -475,27 +475,27 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">07 / WHY CHITEK</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-4 font-barlow-condensed text-center">Why Choose CHITEK</h2>
-      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.1vw,16px)]">A power-electronics OEM trusted across utilities, EPCs and industrial end-users — from standard cabinets to fully customized ODM programs.</p>
+      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.25vw,20px)]">A power-electronics OEM trusted across utilities, EPCs and industrial end-users — from standard cabinets to fully customized ODM programs.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div class="rounded-2xl border border-border-light p-6">
           <div class="text-brand-orange font-barlow-condensed text-3xl font-bold mb-2">2700+</div>
-          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.1vw,18px)]">Units Delivered</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">In-house R&amp;D and automated SMT line since 2019 — every AHF engineered and tested under one roof.</p>
+          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.35vw,22px)]">Units Delivered</h3>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">In-house R&amp;D and automated SMT line since 2019 — every AHF engineered and tested under one roof.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
           <div class="text-brand-orange font-barlow-condensed text-3xl font-bold mb-2">IEC</div>
-          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.1vw,18px)]">Certified Quality</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Designed to IEC 61000 / IEC 62477, with TÜV / CE-type approvals and full harmonic-compliance test reports.</p>
+          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.35vw,22px)]">Certified Quality</h3>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Designed to IEC 61000 / IEC 62477, with TÜV / CE-type approvals and full harmonic-compliance test reports.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
           <div class="text-brand-orange font-barlow-condensed text-3xl font-bold mb-2">30+</div>
-          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.1vw,18px)]">Countries Served</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Multilingual engineering support in EN / ES / PT / AR / ZH, with regional partners for commissioning.</p>
+          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.35vw,22px)]">Countries Served</h3>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Multilingual engineering support in EN / ES / PT / AR / ZH, with regional partners for commissioning.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
           <div class="text-brand-orange font-barlow-condensed text-3xl font-bold mb-2">OEM</div>
-          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.1vw,18px)]">Fast Delivery</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Stock modules for quick dispatch and flexible ODM / OEM customization on voltage, capacity and HMI.</p>
+          <h3 class="font-semibold text-text-dark mb-2 text-[clamp(15px,1.35vw,22px)]">Fast Delivery</h3>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Stock modules for quick dispatch and flexible ODM / OEM customization on voltage, capacity and HMI.</p>
         </div>
       </div>
     </div>
@@ -506,19 +506,19 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">PRODUCTION &amp; QUALITY</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-3 font-barlow-condensed text-center">Engineered and Tested In-House</h2>
-      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.1vw,16px)]">Automated SMT line, in-house harmonic-compliance test bay and a global service network — every unit ships verified.</p>
+      <p class="text-center text-text-mid max-w-2xl mx-auto mb-12 text-[clamp(14px,1.25vw,20px)]">Automated SMT line, in-house harmonic-compliance test bay and a global service network — every unit ships verified.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <figure class="rounded-2xl overflow-hidden border border-border-light bg-white">
-          <img src="/assets/images/services-process.jpg" alt="CHITEK automated SMT production line" class="w-full aspect-[4/3] object-cover" loading="lazy" />
-          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.1vw,18px)]">Automated Production</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">SMT assembly and burn-in under one roof since 2019.</p></figcaption>
+          <img src="/assets/images/services-process.webp" alt="CHITEK automated SMT production line" class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.35vw,22px)]">Automated Production</h3><p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">SMT assembly and burn-in under one roof since 2019.</p></figcaption>
         </figure>
         <figure class="rounded-2xl overflow-hidden border border-border-light bg-white">
           <img src="/assets/images/about-global.webp" alt="CHITEK global service network" class="w-full aspect-[4/3] object-cover" loading="lazy" />
-          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.1vw,18px)]">Global Support</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Multilingual engineering support across 30+ countries.</p></figcaption>
+          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.35vw,22px)]">Global Support</h3><p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Multilingual engineering support across 20+ countries.</p></figcaption>
         </figure>
         <figure class="rounded-2xl overflow-hidden border border-border-light bg-white">
           <img src="/assets/images/products-monitoring.webp" alt="CHITEK AHF test and commissioning" class="w-full aspect-[4/3] object-cover" loading="lazy" />
-          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.1vw,18px)]">Verified Quality</h3><p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Full harmonic-compliance test reports with every shipment.</p></figcaption>
+          <figcaption class="p-5"><h3 class="font-semibold text-text-dark mb-1.5 text-[clamp(15px,1.35vw,22px)]">Verified Quality</h3><p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Full harmonic-compliance test reports with every shipment.</p></figcaption>
         </figure>
       </div>
     </div>
@@ -530,7 +530,7 @@ const meta = {
       <p class="text-brand-orange font-barlow-condensed text-sm font-semibold tracking-[0.2em] mb-3 text-center">08 / AHF VS PASSIVE</p>
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">AHF vs Passive Filter &amp; Line Reactor</h2>
       <div class="overflow-x-auto rounded-2xl border border-border-light">
-        <table class="w-full border-collapse text-[clamp(13px,1vw,15px)]">
+        <table class="w-full border-collapse text-[clamp(13px,1.15vw,17px)]">
           <thead>
             <tr class="bg-[#fff5f0] text-text-dark"><th class="text-left p-4 font-semibold">Criterion</th><th class="text-left p-4 font-semibold">Active Harmonic Filter</th><th class="text-left p-4 font-semibold">Passive Filter / Line Reactor</th></tr>
           </thead>
@@ -552,40 +552,40 @@ const meta = {
       <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-center">Frequently Asked Questions</h2>
       <div class="space-y-4">
         <details class="group rounded-2xl border border-border-light bg-white p-5" open>
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">What is an Active Harmonic Filter (AHF)?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">An Active Harmonic Filter (AHF) is a power quality device that continuously measures the load current with a CT, calculates the harmonic, reactive and unbalanced components with a DSP/FPGA, and injects an equal and opposite compensation current through an IGBT or SiC inverter — cancelling harmonics in real time and keeping Total Harmonic Distortion (THDi) below 5%.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">What is an Active Harmonic Filter (AHF)?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">An Active Harmonic Filter (AHF) is a power quality device that continuously measures the load current with a CT, calculates the harmonic, reactive and unbalanced components with a DSP/FPGA, and injects an equal and opposite compensation current through an IGBT or SiC inverter — cancelling harmonics in real time and keeping Total Harmonic Distortion (THDi) below 5%.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How does an active harmonic filter work?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">The AHF samples the load current via an external CT, runs an FFT in the DSP to separate 2nd–51st order harmonics, then commands the IGBT/SiC bridge to synthesize a counter-phase current. The grid then sees only the fundamental — harmonics, reactive power and neutral current are all compensated dynamically.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">How does an active harmonic filter work?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">The AHF samples the load current via an external CT, runs an FFT in the DSP to separate 2nd–51st order harmonics, then commands the IGBT/SiC bridge to synthesize a counter-phase current. The grid then sees only the fundamental — harmonics, reactive power and neutral current are all compensated dynamically.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Active harmonic filter vs passive filter: what is the difference?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">A passive filter uses fixed LC tanks tuned to specific frequencies; it can resonate with the grid impedance and only treats known harmonics. An AHF measures and cancels any harmonic spectrum in real time, avoids resonance, and also corrects power factor and imbalance — ideal for variable and dynamic loads.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Active harmonic filter vs passive filter: what is the difference?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">A passive filter uses fixed LC tanks tuned to specific frequencies; it can resonate with the grid impedance and only treats known harmonics. An AHF measures and cancels any harmonic spectrum in real time, avoids resonance, and also corrects power factor and imbalance — ideal for variable and dynamic loads.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">When should I use an AHF instead of an SVG?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Use an AHF when harmonic distortion (THDi) is the problem — VFDs, UPS, rectifiers, welding. Use an SVG (Static Var Generator) when the priority is reactive power and voltage stability with low harmonic content. Many sites deploy AHF + SVG together for full power-quality correction.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">When should I use an AHF instead of an SVG?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">Use an AHF when harmonic distortion (THDi) is the problem — VFDs, UPS, rectifiers, welding. Use an SVG (Static Var Generator) when the priority is reactive power and voltage stability with low harmonic content. Many sites deploy AHF + SVG together for full power-quality correction.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">What THD limit must my system meet?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">IEEE 519 limits harmonic current distortion to typically 5%–8% depending on the short-circuit ratio at the point of common coupling; G5/4 and regional grids set similar thresholds. Exceeding them risks utility fines, supply restrictions and failed commissioning. A properly sized AHF holds THDi under 5%.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">What THD limit must my system meet?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">IEEE 519 limits harmonic current distortion to typically 5%–8% depending on the short-circuit ratio at the point of common coupling; G5/4 and regional grids set similar thresholds. Exceeding them risks utility fines, supply restrictions and failed commissioning. A properly sized AHF holds THDi under 5%.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How do I size and select an active harmonic filter?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%–30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (50 A–200 A per module, parallel expandable to 3000 A+).</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">How do I size and select an active harmonic filter?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">Size the AHF from the load's harmonic spectrum and total current. Rule of thumb: select 20%–30% of the nonlinear load rated current for harmonic compensation, plus reactive-power needs. CHITEK offers a selection matrix by voltage class, series and capacity (50 A–200 A per module, parallel expandable to 3000 A+).</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Can an AHF handle 3-phase 4-wire neutral current?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Yes. In 3-phase 4-wire systems the 3rd harmonic accumulates in the neutral and can reach 1.7× the phase current. CHITEK AHF in 3P4W mode injects compensating neutral current, eliminating overload, insulation aging and fire risk.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Can an AHF handle 3-phase 4-wire neutral current?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">Yes. In 3-phase 4-wire systems the 3rd harmonic accumulates in the neutral and can reach 1.7× the phase current. CHITEK AHF in 3P4W mode injects compensating neutral current, eliminating overload, insulation aging and fire risk.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">Wall-mounted or cabinet AHF — which should I choose?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">The Ultra-Slim (U-Series) wall-mounted unit fits space-constrained switchrooms up to ~100 A. For larger capacities, outdoor or parallel duty, choose a floor-standing Standard (L-Series) or Distributed (D-Series) cabinet. Selection depends on capacity, cooling and installation space.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Wall-mounted or cabinet AHF — which should I choose?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">The Ultra-Slim (U-Series) wall-mounted unit fits space-constrained switchrooms up to ~100 A. For larger capacities, outdoor or parallel duty, choose a floor-standing Standard (L-Series) or Distributed (D-Series) cabinet. Selection depends on capacity, cooling and installation space.</p>
         </details>
         <details class="group rounded-2xl border border-border-light bg-white p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.1vw,18px)]">How is the AHF installed and commissioned?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(14px,1.1vw,16px)] leading-relaxed">Install the AHF in parallel with the load downstream of the metering point, connect the CT around the incoming feeder, and power on. Configuration is done on the front HMI: set the compensation priority (harmonic / reactive / balance), and up to 10 units auto-synchronize in under 5 minutes with hot-swappable modules.</p>
+          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">How is the AHF installed and commissioned?</summary>
+          <p class="mt-3 text-text-mid text-[clamp(14px,1.25vw,20px)] leading-relaxed">Install the AHF in parallel with the load downstream of the metering point, connect the CT around the incoming feeder, and power on. Configuration is done on the front HMI: set the compensation priority (harmonic / reactive / balance), and up to 10 units auto-synchronize in under 5 minutes with hot-swappable modules.</p>
         </details>
       </div>
     </div>
@@ -596,13 +596,13 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <h2 class="text-[clamp(20px,2vw,32px)] font-bold text-text-dark mb-8 font-barlow-condensed text-center">Related Power Quality Products</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <a href="/en/products/static-var-generator/" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
+        <a href="/en/products-svg" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
           <h3 class="font-semibold text-text-dark mb-2 group-hover:text-brand-orange transition-colors">Static Var Generator (SVG)</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Dynamic reactive power compensation and voltage stabilization for flicker-prone and capacitive loads.</p>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Dynamic reactive power compensation and voltage stabilization for flicker-prone and capacitive loads.</p>
         </a>
-        <a href="/en/products/sic-ahf-svg/" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
+        <a href="/en/products/sic-ultra-ahf" class="rounded-2xl border border-border-light p-6 hover:border-brand-orange transition-colors group">
           <h3 class="font-semibold text-text-dark mb-2 group-hover:text-brand-orange transition-colors">SiC AHF &amp; SVG</h3>
-          <p class="text-text-mid text-[clamp(13px,1vw,15px)] leading-relaxed">Silicon-carbide active filter and SVG in the highest-density, lowest-loss package.</p>
+          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Silicon-carbide active filter and SVG in the highest-density, lowest-loss package.</p>
         </a>
       </div>
     </div>
@@ -613,15 +613,15 @@ const meta = {
     <div class="mx-auto max-w-7xl px-6">
       <h2 class="text-[clamp(16px,1.3vw,22px)] font-semibold text-text-dark mb-4 font-barlow-condensed">Explore Active Harmonic Filters</h2>
       <div class="flex flex-wrap gap-2">
-        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter price</a>
-        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter panel</a>
-        <a href="/en/products/active-harmonic-filter/#faq" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter cost</a>
-        <a href="/en/products/active-harmonic-filter/#applications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter for VFD</a>
-        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">3 phase active harmonic filter</a>
-        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter 50A</a>
-        <a href="/en/products/active-harmonic-filter/#vs-passive" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active power filter</a>
-        <a href="/en/products/active-harmonic-filter/#how-it-works" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">harmonic filter in power system</a>
-        <a href="/en/products/active-harmonic-filter/#benefits" class="text-[clamp(12px,0.9vw,14px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter manufacturer</a>
+        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter price</a>
+        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter panel</a>
+        <a href="/en/products/active-harmonic-filter/#faq" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter cost</a>
+        <a href="/en/products/active-harmonic-filter/#applications" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter for VFD</a>
+        <a href="/en/products/active-harmonic-filter/#specifications" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">3 phase active harmonic filter</a>
+        <a href="/en/products/active-harmonic-filter/#series" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter 50A</a>
+        <a href="/en/products/active-harmonic-filter/#vs-passive" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active power filter</a>
+        <a href="/en/products/active-harmonic-filter/#how-it-works" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">harmonic filter in power system</a>
+        <a href="/en/products/active-harmonic-filter/#benefits" class="text-[clamp(12px,1.1vw,16px)] text-text-muted border border-border-light rounded-full px-3 py-1.5 hover:text-brand-orange hover:border-brand-orange transition-colors">active harmonic filter manufacturer</a>
       </div>
     </div>
   </section>
@@ -632,11 +632,11 @@ const meta = {
       <h2 class="text-[clamp(22px,2.2vw,38px)] font-bold text-white mb-4 font-barlow-condensed">Get a Quote for Your Active Harmonic Filter</h2>
       <p class="text-white/80 mb-5 text-[clamp(14px,1.1vw,17px)]">Send us your load profile and harmonic spectrum — our engineers will size the right series and capacity.</p>
       <div class="flex flex-wrap items-center justify-center gap-2 mb-7">
-        <span class="inline-flex items-center gap-1.5 text-[13px] text-white/90 bg-white/10 border border-white/15 rounded-full px-3 py-1">
+        <span class="inline-flex items-center gap-1.5 text-[16px] text-white/90 bg-white/10 border border-white/15 rounded-full px-3 py-1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3.5 h-3.5 text-brand-orange"><path d="M20 6L9 17l-5-5"/></svg>
           In stock · Fast dispatch
         </span>
-        <span class="inline-flex items-center gap-1.5 text-[13px] text-white/90 bg-white/10 border border-white/15 rounded-full px-3 py-1">
+        <span class="inline-flex items-center gap-1.5 text-[16px] text-white/90 bg-white/10 border border-white/15 rounded-full px-3 py-1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3.5 h-3.5 text-brand-orange"><path d="M20 6L9 17l-5-5"/></svg>
           OEM / ODM customization
         </span>

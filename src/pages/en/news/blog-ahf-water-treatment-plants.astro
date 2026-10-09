@@ -26,23 +26,22 @@ const article = {
 };
 
 const otherArticles = [
-    { title: "Enhancing AHF Reliability with Conformal Coating", category: "Technology", href: "/en/news/conformal-coating-ahf-reliability", color: "orange" },
-    { title: "Active Harmonic Filters vs. Line Reactors", category: "Technology", href: "/en/news/blog-ahf-vs-line-reactors", color: "orange" },
-    { title: "AHF for VFD Systems", category: "Technology", href: "/en/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
+    { title: "Enhancing AHF Reliability with Conformal Coating", category: "Technology", href: "/news/conformal-coating-ahf-reliability", color: "orange" },
+    { title: "Active Harmonic Filters vs. Line Reactors", category: "Technology", href: "/news/blog-ahf-vs-line-reactors", color: "orange" },
+    { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
-    { name: "Brazil Data Center", industry: "Data Centers" }
-  ];
+  { name: "Resonance-Free Harmonic Control at a Large Livestock Farm, Anhui", industry: "Agri & Food Production", href: "/solutions/commercial" },
+  { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/en' + p : p;
+const lp = (p: string) => '/en' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -51,7 +50,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -61,7 +60,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "Power Quality in Water Treatment Plants: Low-Voltage AHF + SVG at the Pump Bus",
     "description": "How low-voltage AHF and SVG solve harmonics, poor power factor, and voltage fluctuation in water treatment plants with VFD-controlled pumps and blowers.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://en.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {
       "@type": "Organization",
       "name": "CHITEK Technical Team"
@@ -71,7 +70,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       "name": "CHITEK INNOPOWER",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://chitek-inno.com/assets/images/logo.webp"
+        "url": "https://en.chitek-inno.com/assets/images/logo.webp"
       }
     },
     "datePublished": "2026-07-01",
@@ -247,10 +246,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </h3>
             <div class="space-y-2">
               {relatedCases.map((c) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
                   <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

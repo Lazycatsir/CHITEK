@@ -26,9 +26,9 @@ const otherArticles = [
     { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح الموجة النشط AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
@@ -36,7 +36,7 @@ const relatedCases = [
     { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/ar' + p;
 
 ---
 <BaseLayout
@@ -46,7 +46,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-4.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-4.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -56,9 +56,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "SVG مقابل مجموعات مكثفات موصولة: لماذا يتفوق فار الديناميكي على الضبط الثابت",
     "description": "يبدأ تصحيح عامل القدرة على ناقل الجهد المنخفض بمجموعة مكثفات —لكن المصانع الحديثة أحمالها متغيرة. يقدر هذا المقال أين يتباعد SVG عن المجموعة الثابتة ولماذا يهم للامتثال والخسائر.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-4.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-4.webp",
     "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-19",
     "dateModified": "2026-07-19",
     "keywords": "SVG مجموعة مكثفات عامل القدرة القدرة غير الفاعلة فار وميض الجهد"
@@ -104,23 +104,23 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">يبدأ تصحيح عامل القدرة على ناقل الجهد المنخفض (LV) عادةً بمجموعة مكثفات —ولحمل حثي مستقر يمكن التنبؤ به تنجح. لكن المصانع الحديثة تشغّل قيادات تردد متغير ومرشحات UPS وعواكس PV يتأرجح طلبها غير الفاعل دقيقة بدقيقة. على هذه النواقل يصبح المجموعة الثابتة الأداة الخاطئة. مولد فار الساكن (SVG) هو نفس العمل بشكل ديناميكي. يقدر هذا المقال أين يتباعدان ولماذا يهم للامتثال والخسائر.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">طريقتان لتزويد القدرة غير الفاعلة</h2>
+<h2 id="two-ways-to-supply-reactive-power" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">طريقتان لتزويد القدرة غير الفاعلة</h2>
 <p class="text-text-mid leading-relaxed mb-6">مجموعة المكثفات الموصولة سلبية: مخرجها من الفار ثابت حسب السعة المركبة، بخطوات متقطعة. لا ترى الناقل. أما SVG فهو عاكس بمصدر جهد (VSC) على IGBT عالية التردد؛ يقيس الناقل باستمرار ويعوض أو يمتص تياراً غير فاعل لحظياً عبر الأرباع الأربعة. قانون التحكم جوهرياً <em>i_q* = f(V_bus, هدف PF)</em>.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">زمن الاستجابة: دون دورة مقابل عشرات الملي ثانية</h2>
+<h2 id="response-time-sub-cycle-vs-tens-of-milliseconds" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">زمن الاستجابة: دون دورة مقابل عشرات الملي ثانية</h2>
 <p class="text-text-mid leading-relaxed mb-6">هذا الرقم الحاسم. المجموعة تخطو في 10–20 ms واتجاه واحد. SVG منخفض الجهد يستجيب في <strong>أقل من 1 ms</strong> وينظّم بدقة <strong>±1%</strong> مبقياً PF <strong>0.99+</strong> رغم تذبذب الحمل. الفجوة تظهر كوميض: حين يقلع محرك كبير، يسند SVG الجهد قبل انتشار الهبوط.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تفاعل التوافقيات —الخطر المخفي</h2>
+<h2 id="harmonic-interaction-the-hidden-risk" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تفاعل التوافقيات —الخطر المخفي</h2>
 <p class="text-text-mid leading-relaxed mb-6">قد يرنّ قبول المكثف الثابت الموازي مع معاوقة الشبكة عند رتبة توافقية <em>مضخماً</em> التشوه. IEEE 519 يحد THDi LV عند ~5%؛ مجموعة سيئة الضبط تدفعك عكسياً. SVG لا يضيف نقطة رنين، ومع AHF يكبح التوافقيات فعلياً.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تنظيم عامل القدرة: 0.99+ مقابل تذبذب</h2>
+<h2 id="power-factor-regulation-0-99-vs-a-swing" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تنظيم عامل القدرة: 0.99+ مقابل تذبذب</h2>
 <p class="text-text-mid leading-relaxed mb-6">تُبقي المجموعات PF في نطاق <strong>0.80–0.95</strong> وتفرط في التعويض عند الحمل الخفيف. خفض PF من 0.95 إلى 0.80 يرفع التيار ~<strong>19%</strong>، يزيد خسائر I²R وقد يُجبر المحول على تخفيض <strong>10–20%</strong>. SVG يثبّت PF قرب الوحدة فيتقص الشهرية.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>قس المنحنى غير الفاعل</strong> عند PCC عبر دورة كاملة.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>ضع SVG على ناقل الحمل</strong> المغذي للعنقود المتغير.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>راجع المكثفات القائمة</strong> لخطر الرنين الموازي.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>افحص هامش الشبكة الضعيفة</strong> —حجّم لأسوأ هبوط.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>اترك هامشاً</strong> (15–25%) للقيادات أو الشواحن الإضافية.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">مسار الترقية: IGBT → SiC</h2>
+<h2 id="the-upgrade-path-igbt-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">مسار الترقية: IGBT → SiC</h2>
 <p class="text-text-mid leading-relaxed mb-6">يستخدم SVG LV التقليدي IGBT محدودة قرب 150°C تبديل تحت 20 kHz. نقل الجسر إلى SiC MOSFET (وصلة 200°C، حقل ~10×، تردد 2–3×، فقد ~50% أقل) يوسع النطاق ويصغر الخزانة لنفس kVAr —اتجاه منصة CHITEK LV SVG.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
 <p class="text-text-mid leading-relaxed mb-6">حيث الحمل مستقر، للمجموعة مكانها. حيث يتحرك، SVG هو التعويض الوحيد السريع الكافي لإبقاء PF 0.99+ بلا رنين. بنيت منصات CHITEK LV SVG من قياس حقيقي حول هذا النهج الديناميكي VSC.</p>
 <p class="text-text-mid leading-relaxed mb-6">ما عامل القدرة الذي يثبته ناقلك فعلاً خلال اليوم —وكم يتذبذب بين الحمل الخفيف والذروة؟</p>
         </div>

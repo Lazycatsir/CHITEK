@@ -11,8 +11,8 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
   subscribeBtn: { en: 'Subscribe', pt: 'Inscrever-se', es: 'Suscribirse', ar: 'اشترك', zh: '订阅' },
   products: { en: 'Products', pt: 'Produtos', es: 'Productos', ar: 'المنتجات', zh: '产品中心' },
   activeHarmonicFilter: { en: 'Active Harmonic Filter AHF', pt: 'Filtro Harmônico Ativo', es: 'Filtro Armónico Activo', ar: 'فلتر التوافق النشط', zh: '有源滤波器' },
-  standardSvg: { en: 'Static Var Generator SVG', pt: 'Gerador Estático de Var SVG', es: 'Generador Estático de Var SVG', ar: 'مولد الفولت أمبير الساكن SVG', zh: '无功静止发生器SVG' },
-  advancedSvg: { en: 'Advanced Static Var Generator ASVG', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم', zh: '静止无功发生器' },
+  standardSvg: { en: 'Static Var Generator SVG', pt: 'Gerador Estático de Var SVG', es: 'Generador Estático de Var SVG', ar: 'مولد الفولت أمبير الساكن SVG', zh: '无功补偿器SVG' },
+  advancedSvg: { en: 'Advanced Static Var Generator ASVG', pt: 'Gerador Estático de Var Avançado', es: 'Generador Estático de Var Avanzado', ar: 'مولد الفولت أمبير الساكن المتقدم', zh: '无功补偿器ASVG' },
   sicHighEfficiency: { en: 'SiC-AHF/SVG (High Efficiency)', pt: 'SiC-AHF/SVG (Alta Eficiência)', es: 'SiC-AHF/SVG (Alta Eficiencia)', ar: 'SiC-AHF/SVG (كفاءة عالية)', zh: 'SiC-AHF/SVG（高效型）' },
   highProtection: { en: 'High-Protection AHF/SVG', pt: 'AHF/SVG de Alta Proteção', es: 'AHF/SVG de Alta Protección', ar: 'AHF/SVG حماية عالية', zh: '高防护 AHF/SVG' },
   solutions: { en: 'Solutions', pt: 'Soluções', es: 'Soluciones', ar: 'الحلول', zh: '解决方案' },
@@ -40,7 +40,26 @@ const prefix = isLocal
   ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
   : (lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'zh' ? '/zh' : '');
 const productsHref = prefix + '/products';
+// en / zh 已有独立列表页：/products（AHF）、/products-svg、/products-asvg。
+// ⚠️ 10-08 HTTP 实测：products 页的系列锚点（#ahf / #svg / #asvg / #sic / #high-protection）
+// 在**全部 5 个语言版本**里都不存在实体（渲染 id 0 次）→ 继续用锚点会产生死链接。
+// 曾据「es/ar/pt 是单页标签页结构」保留锚点，该前提已被实测证伪；
+// es / ar / pt 无独立页 → 兜底到本语言 products 页（不带锚点）。
+const productsAhfHref   = productsHref;
+const productsSicHref   = productsHref;
+const productsHiProtHref = productsHref;
+const productsSvgHref   = (lang === 'en' || lang === 'zh') ? prefix + '/products-svg' : productsHref;
+const productsAsvgHref  = (lang === 'en' || lang === 'zh') ? prefix + '/products-asvg' : productsHref;
 const solutionsHref = prefix + '/solutions';
+// 英文站 solutions 已重构为 hub + 6 个行业子页（/solutions/{slug}），
+// hub 页内已无 #industry / #commercial 等锚点实体，继续用锚点会落在页面顶部、点不到行业。
+// 英文改指真实子页；其它语言尚无 solutions/ 子目录，保持旧锚点不变。
+const solutionIndustryHref   = lang === 'en' ? prefix + '/solutions/industrial'   : solutionsHref + '#industry';
+const solutionCommercialHref = lang === 'en' ? prefix + '/solutions/commercial'   : solutionsHref + '#commercial';
+const solutionDatacenterHref = lang === 'en' ? prefix + '/solutions/data-center'  : solutionsHref + '#datacenter';
+const solutionRenewableHref  = lang === 'en' ? prefix + '/solutions/renewable'    : solutionsHref + '#renewable';
+const solutionRailHref       = lang === 'en' ? prefix + '/solutions/rail-transit' : solutionsHref + '#rail';
+const solutionGridHref       = lang === 'en' ? prefix + '/solutions/power-grid'   : solutionsHref + '#grid';
 const servicesHref = prefix + '/services';
 const newsHref = prefix + '/news';
 ---
@@ -56,12 +75,12 @@ const newsHref = prefix + '/news';
         <button class="bg-brand-orange text-white border-none cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>
       </div>
       <div class="flex gap-[clamp(6px,1vw,12px)] mt-6">
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+        <a href="https://www.linkedin.com/in/yongkai-li/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </div>
-        <div class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+        </a>
+        <a href="https://www.youtube.com/@CHITEKNewEnergyTechnology" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-        </div>
+        </a>
         <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
@@ -70,22 +89,22 @@ const newsHref = prefix + '/news';
     <div class="footer-col">
       <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('products')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
-        <li><a href={productsHref + '#ahf'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
-        <li><a href={productsHref + '#svg'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('standardSvg')}</a></li>
-        <li><a href={productsHref + '#svg'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
-        <li><a href={productsHref + '#sic'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
-        <li><a href={productsHref + '#high-protection'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
+        <li><a href={productsAhfHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
+        <li><a href={productsSvgHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('standardSvg')}</a></li>
+        <li><a href={productsAsvgHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
+        <li><a href={productsSicHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
+        <li><a href={productsHiProtHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('solutions')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
-        <li><a href={solutionsHref + '#industry'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
-        <li><a href={solutionsHref + '#commercial'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
-        <li><a href={solutionsHref + '#datacenter'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
-        <li><a href={solutionsHref + '#renewable'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
-        <li><a href={solutionsHref + '#rail'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
-        <li><a href={solutionsHref + '#grid'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
+        <li><a href={solutionIndustryHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
+        <li><a href={solutionCommercialHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
+        <li><a href={solutionDatacenterHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
+        <li><a href={solutionRenewableHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
+        <li><a href={solutionRailHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
+        <li><a href={solutionGridHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -102,7 +121,7 @@ const newsHref = prefix + '/news';
   <div class="py-[clamp(12px,2vw,32px)] flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,2vw,28px)]">
     <p class="text-[clamp(10px,0.8vw,13px)] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
     <div class="flex gap-6">
-      <a href="#" class="text-[12px] text-white/60 no-underline hover:text-white transition-colors duration-200">{_('ipv6Served')}</a>
+      <span class="text-[12px] text-white/60">{_('ipv6Served')}</span>
     </div>
   </div>
 </div>

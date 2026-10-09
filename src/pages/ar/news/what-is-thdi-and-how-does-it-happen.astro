@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "ما هو THDi؟ كيف يخفضه مرشح AHF للجهد المنخفض إلى أقل من 5%",
+  category: "التكنولوجيا",
+  date: "2026-08-19",
+  dateDisplay: "19 أغسطس 2026",
+  author: "FNI CHITEK الفني",
+  readTime: "5 دقائق للقراءة",
+  description: "THDi (إجمالي التشوه التوافقي للتيار) هو الرقم الذي يقرر ما إذا كان ناقل الجهد المنخفض يحقق IEEE 519. يوضح هذا الدليل ما هو THDi، وكيف ينشأ، وتكلفته، وكيف يخفضه AHF للجهد المنخفض إلى أقل من 5%.",
+  keywords: ["THDi", "إجمالي التشوه التوافقي", "جودة الطاقة", "مرشح توافقي نشط", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "ما هو مرشح التوافقيات النشط؟", category: "التكنولوجيا", href: "/ar/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "ما هي التوافقيات؟", category: "التكنولوجيا", href: "/ar/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "عدم توازن الجهد: الأسباب والحل", category: "التكنولوجيا", href: "/ar/news/voltage-unbalance-causes-and-mitigation", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "المرشح النشط للتوافقيات AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد التيار المتغير الثابت SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG الكفاءة العالية", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "المنشأة الصناعية السعودية", industry: "التصنيع" },
+    { name: "مركز البيانات البرازيلي", industry: "مراكز البيانات" },
+    { name: "مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ما هو THDi؟ كيف يخفضه مرشح AHF للجهد المنخفض إلى أقل من 5%",
+    "description": "THDi (إجمالي التشوه التوافقي للتيار) هو الرقم الذي يقرر ما إذا كان ناقل الجهد المنخفض يحقق IEEE 519. يوضح هذا الدليل ما هو THDi، وكيف ينشأ، وتكلفته، وكيف يخفضه AHF للجهد المنخفض إلى أقل من 5%.",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "FNI CHITEK الفني"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
+    "keywords": "THDi, إجمالي التشوه التوافقي, جودة الطاقة, مرشح توافقي نشط, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/ar/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="ما هو THDi؟ كيف يخفضه مرشح AHF للجهد المنخفض إلى أقل من 5%" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">يحدد THDi (إجمالي التشوه التوافقي للتيار) مدى ابتعاد شكل موجة التيار عن الجيبية النقية بسبب التوافقيات. وهو الرقم الوحيد الذي يقرر ما إذا كان ناقل الجهد المنخفض (LV) يحقق IEEE 519، وما إذا كانت محولاتك وكابلاتك ترتفع حرارتها بصمت. يوضح هذا المقال ما هو THDi، ومن أين يأتي، وما تكلفته، وكيف يلغيه مرشح توافقي نشط (AHF).</p>
+<h2 id="what-thdi-is" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ما هو THDi</h2>
+<p class="text-text-mid leading-relaxed mb-6">التوافقيات هي مكوّنات تيار وفولتية عند مضاعفات صحيحة للتردد الأساسي (50 أو 60 هرتز). و THDi هو مجموعها الفعال مقسومًا على التردد الأساسي الفعال، معبّرًا عنه بالنسبة المئوية:</p>
+<blockquote class="border-r-4 border-brand-orange pr-4 italic text-text-mid my-6">THDi = &radic;(&#931; I_h&sup2;) / I_1 &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">تحت نحو <strong>5%</strong> تكون الموجة قريبة من المثالية؛ وفوق نحو <strong>20%</strong> تكون مشوهة بشدة. يحدد IEEE 519 في الجهد المنخفض <strong>THDi &lt; 5%</strong> (التوافقيات المنفردة &lt; نحو 3%) عند نقطة الالتقاء المشتركة (PCC).</p>
+<h2 id="how-thdi-happens" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف ينشأ THDi</h2>
+<p class="text-text-mid leading-relaxed mb-6">السبب هو الأحمال غير الخطية، وهي أجهزة تسحب التيار في نبضات مفاجئة بدلًا من سلاسة. من المصادر الشائعة:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li>محركات التردد المتغير (VFD)</li>
+  <li>إضاءة LED</li>
+  <li>الحواسيب ومعدات المكاتب</li>
+  <li>أنظمة UPS</li>
+  <li>مصادر القدرة بوضع التبديل</li>
+  <li>شواحن البطاريات وشواحن المركبات الكهربائية</li>
+</ul>
+<p class="text-text-mid leading-relaxed mb-6">المقوم سداسي النبضات، وهو الواجهة الأمامية لمعظم محركات VFD ووحدات UPS، يولّد توافقيات مميزة عند الرتب <strong>n = 6k &plusmn; 1</strong>: الخامسة والسابعة والحادية عشرة والثالثة عشرة. إن لم تُعالج، غالبًا ما يقع THDi عند الحمل بين <strong>8% و30%</strong>.</p>
+<h2 id="what-high-thdi-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">تكلفة ارتفاع THDi</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>ارتفاع الحرارة</strong> &mdash; يرفع التيار التوافقي خسائر I&sup2;R في الكابلات والمحولات مع مربع التيار، فيسرّع شيخوختها.</li>
+  <li><strong>انخفاض معامل القدرة</strong> &mdash; يخفض التيار المشوّه معامل القدرة الحقيقي، فيرفع القدرة الظاهرية والفاتورة.</li>
+  <li><strong>خلل المعدات</strong> &mdash; تخطئ وحدات PLC والمستشعرات والاتصالات على ناقل مشوّه.</li>
+  <li><strong>تداخل أجهزة الحماية</strong> &mdash; تعمل القواطع والمنصهرات بشكل خاطئ على موجة مشوّهة.</li>
+  <li><strong>الرنين</strong> &mdash; قد يتردد التيار التوافقي مع سعة النظام وحثّه، فيضخّم الفولتية.</li>
+</ul>
+<h2 id="how-to-reduce-thdi" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيفية خفض THDi</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>المرشحات السلبية</strong> &mdash; مضبوطة لحجب رتب محددة؛ اقتصادية للأطياف الثابتة لكنها عرضة للرنين.</li>
+  <li><strong>AHF</strong> &mdash; يحقن تيارًا معاكسًا لإلغاء التشوه في الوقت الحقيقي.</li>
+  <li><strong>محولات K-rated والمفاعلات الخطية</strong> &mdash; تساعد المعدات على تحمّل التوافقيات.</li>
+  <li><strong>موازنة الأحمال</strong> &mdash; تخفض تيار الخط المتعادل والتوافقيات الثلاثية المرتبطة.</li>
+  <li><strong>معدات منخفضة THD</strong> &mdash; تحقق IEEE 519 و IEC 61000-3-2 عند المصدر.</li>
+</ul>
+<h2 id="the-ahf-fix" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">حل AHF</h2>
+<p class="text-text-mid leading-relaxed mb-6">يعاين AHF تيار الحمل، ويفصل التردد الأساسي عن التشوه، ويحقن المعكوس:</p>
+<blockquote class="border-r-4 border-brand-orange pr-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(التردد الأساسي)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">يُولّده جسر يبدّل عند 15&ndash;20 كيلوهرتز، ويتبع خلال <strong>&lt; 1 ms</strong> ويخفض THDi من <strong>30%+ إلى &lt; 5%</strong> عبر الرتب من الخامسة إلى الخامسة والعشرين في آن واحد. كما يعوّض التيار التفاعلي ويساعد على موازنة الأطوار، دون خطر رنين.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">تستخدم معظم مرشحات AHF للجهد المنخفض ترانزستورات IGBT بوصلة محدودة قرب <strong>150 &deg;C</strong>. توسّع MOSFET المصنوعة من كربيد السيليكون (SiC) فجوة النطاق (<strong>3.26 eV مقابل 1.12 eV</strong>)، وتتحمل <strong>200 &deg;C</strong>، وتبدّل بتردد أعلى بـ <strong>2&ndash;3&times;</strong>، وتخفض خسائر التبديل بنحو <strong>50%</strong>؛ خزانة أصغر وأبرد مع هامش للرتب الأعلى. هذا هو الاتجاه الذي بُنيت عليه منصة AHF للجهد المنخفض من CHITEK.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>قِس عند PCC خلال دورة تشغيل كاملة بمحلل جودة القدرة.</li>
+  <li>ضع AHF عند المصدر، على المغذّي الذي يغذي المجموعة غير الخطية.</li>
+  <li>راجع بنوك المكثفات بحثًا عن الرنين قبل التشغيل.</li>
+  <li>اختر السعة وفق TDD المقيسة بالرجوع إلى ذروة الطلب.</li>
+  <li>اترك هامشًا (15&ndash;25%) للأحمال المضافة.</li>
+</ol>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid leading-relaxed mb-6">THDi هو الرقم الذي يخبرك ما إذا كان ناقلك نظيفًا أم يتدهور بصمت. يلغي <strong>AHF</strong> للجهد المنخفض التشوه عند المصدر، بشكل قابل للقياس وضمن IEEE 519. تُحدَّد منصات AHF للجهد المنخفض من CHITEK بهذا الانضباط نفسه: القياس أولًا.</p>
+<p class="text-text-mid leading-relaxed mb-6">ما هو THDi الذي يسجله ناقلك فعليًا، وهل هو أقل من 5% عند PCC؟</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="مشاركة">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              مقالات أخرى
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              منتجات ذات صلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

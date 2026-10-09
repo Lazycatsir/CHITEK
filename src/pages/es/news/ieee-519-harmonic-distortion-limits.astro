@@ -26,9 +26,9 @@ const otherArticles = [
     { title: "AHF para sistemas VFD", category: "Tecnología", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Filtro Activo de Armónicos AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Generador Estático de Var SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Filtro Activo de Armónicos AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Generador Estático de Var SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "Centro de datos en Brasil", industry: "Centros de datos" },
@@ -36,7 +36,7 @@ const relatedCases = [
     { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/es' + p;
 
 ---
 <BaseLayout
@@ -46,7 +46,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -56,9 +56,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "Límites armónicos IEEE 519-2022: qué exigen y cómo un AHF de baja tensión logra el cumplimiento",
     "description": "IEEE 519-2022 fija los límites y responsabilidades de distorsión armónica en el punto de acoplamiento común. Este artículo explica qué exige la norma y cómo un AHF de baja tensión CHITEK logra el cumplimiento en tiempo real.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://es.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-20",
     "dateModified": "2026-07-20",
     "keywords": "IEEE 519 Armónicos THDi Cumplimiento AHF PCC"
@@ -104,27 +104,27 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022, "IEEE Recommended Practice and Requirements for Harmonic Control in Electric Power Systems", es la referencia que usan la mayoría de las instalaciones de Norteamérica para gestionar armónicos. No dicta el diseño del producto; fija los <em>límites y responsabilidades</em> en el punto de acoplamiento común (PCC) para que tanto el usuario como la utility mantengan la distorsión acotada.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué hace la norma</h2>
+<h2 id="what-the-standard-does" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué hace la norma</h2>
 <p class="text-text-mid leading-relaxed mb-2">• Define <strong>cargas lineales</strong> (motores, resistencias) vs <strong>cargas no lineales</strong> (VFD, UPS, SMPS, LED, rectificadores —las fuentes).</p>
 <p class="text-text-mid leading-relaxed mb-2">• Define el <strong>PCC</strong> —donde su equipo encuentra la red.</p>
 <p class="text-text-mid leading-relaxed mb-2">• Fija <strong>límites de corriente</strong> que el usuario debe cumplir y <strong>límites de tensión</strong> que gestiona la utility.</p>
 <p class="text-text-mid leading-relaxed mb-6">• Guía la interacción entre fuente y carga.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué importan los armónicos</h2>
+<h2 id="why-harmonics-matter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por qué importan los armónicos</h2>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Sobrecalentamiento</strong> —cables, transformadores, motores más calientes; aislamiento envejece.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>Corrientes no deseadas</strong> —disparos intempestivos, mal funcionamiento de relés, fallas VFD/motor. Una carga no lineal de 6 pulsos produce armónicos en <strong>n = 6k ± 1</strong> (5.º, 7.º, 11.º, 13.º…). El límite de baja tensión es <strong>THDi &lt; 5%</strong> con individuales &lt; 3%.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cambió en 2022</h2>
+<h2 id="what-2022-changed" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué cambió en 2022</h2>
 <p class="text-text-mid leading-relaxed mb-6">La revisión 2022 mejora ediciones previas: mejores métodos de medición; guía estadística más clara; reglas explícitas para sistemas con cargas lineales y no lineales mezcladas.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo un AHF de baja tensión logra el cumplimiento</h2>
+<h2 id="how-a-low-voltage-ahf-delivers-compliance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo un AHF de baja tensión logra el cumplimiento</h2>
 <p class="text-text-mid leading-relaxed mb-6">Un AHF de baja tensión muestrea la corriente de carga e inyecta la compensatoria: <strong>i_c* = i_L − i_s(fundamental)</strong> en <strong>&lt; 1 ms</strong> (convertidor IGBT/SiC), bajando <strong>THDi de 30%+ a &lt; 5%</strong> y siguiendo la carga en tiempo real —a diferencia de una trampa LC pasiva, que no sigue el vaivén diurno y puede resonar. El AHF también corrige el FP de desplazamiento y equilibra la corriente trifásica.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC en el AHF</h2>
+<h2 id="igbt-vs-sic-in-the-ahf-stage" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC en el AHF</h2>
 <p class="text-text-mid leading-relaxed mb-6">Un <strong>IGBT</strong> convencional limita la unión cerca de <strong>150°C</strong> y conmuta bajo ~20 kHz. Los <strong>SiC MOSFET</strong> —banda prohibida <strong>3,26 eV</strong> vs Si <strong>1,12 eV</strong>, unión a <strong>200°C</strong>, ~10× campo de ruptura, <strong>2–3×</strong> frecuencia, <strong>~50% menos</strong> pérdida— suben eficiencia 1–3% y reducen el equipo.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de despliegue</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Medir THDi y órdenes</strong> en el PCC con carga real.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Dimensionar el AHF a la corriente medida</strong>, no a la kVA del transformador.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Instalar cerca de la fuente</strong> para que la corriente no circule por alimentadores comunes.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>Revisar resonancia de condensadores</strong> antes de la puesta en marcha.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>Dejar 20–25%</strong> de margen para crecimiento.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
 <p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 es el objetivo; un <strong>AHF de baja tensión CHITEK</strong> en etapas IGBT/SiC es el medio —cancelando armónicos en tiempo real en el PCC para mantener THDi &lt; 5% sin riesgo de resonancia.</p>
 <p class="text-text-mid leading-relaxed mb-6">¿Qué THDi y órdenes individuales mide su PCC hoy contra los límites IEEE 519?</p>
         </div>

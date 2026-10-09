@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+const article = {
+  title: "عدم توازن الجهد: الأسباب والتكلفة وكيف يعيد SVG + AHF للجهد المنخفض التوازن",
+  category: "التكنولوجيا",
+  date: "2026-09-20",
+  dateDisplay: "20 سبتمبر 2026",
+  author: "FNI CHITEK الفني",
+  readTime: "5 دقائق للقراءة",
+  description: "لا يكون النظام ثلاثي الأطوار متوازنًا إلا نظريًا. يوضح هذا الدليل كيف يُقاس عدم التوازن، وتكلفته في خسائر التسلسل السالب، ولماذا تقصر الطرق الثابتة، وكيف يعيد SVG + AHF للجهد المنخفض التوازن.",
+  keywords: ["عدم توازن الجهد", "التسلسل السالب", "جودة الطاقة", "SVG", "مولد التيار غير الفعّال الثابت", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "ما هو مرشح التوافقيات النشط؟", category: "التكنولوجيا", href: "/ar/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "ما هي التوافقيات؟", category: "التكنولوجيا", href: "/ar/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "ما هو THDi؟", category: "التكنولوجيا", href: "/ar/news/what-is-thdi-and-how-does-it-happen", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "المرشح النشط للتوافقيات AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد التيار المتغير الثابت SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG الكفاءة العالية", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "المنشأة الصناعية السعودية", industry: "التصنيع" },
+    { name: "مركز البيانات البرازيلي", industry: "مراكز البيانات" },
+    { name: "مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "عدم توازن الجهد: الأسباب والتكلفة وكيف يعيد SVG + AHF للجهد المنخفض التوازن",
+    "description": "لا يكون النظام ثلاثي الأطوار متوازنًا إلا نظريًا. يوضح هذا الدليل كيف يُقاس عدم التوازن، وتكلفته في خسائر التسلسل السالب، ولماذا تقصر الطرق الثابتة، وكيف يعيد SVG + AHF للجهد المنخفض التوازن.",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "FNI CHITEK الفني"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-09-20",
+    "dateModified": "2026-09-20",
+    "keywords": "عدم توازن الجهد, التسلسل السالب, جودة الطاقة, SVG, مولد التيار غير الفعّال الثابت, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/ar/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-7.webp" alt="عدم توازن الجهد: الأسباب والتكلفة وكيف يعيد SVG + AHF للجهد المنخفض التوازن" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">يكون النظام ثلاثي الأطوار متوازنًا عندما تتساوى مقادير فولتيات الأطوار الثلاثة وتفصل بينها 120&deg;. في المصانع الواقعية، مثل الأحمال أحادية الطور الكبيرة وأفران القوس والمقومات ومعاوقات المغذيات غير المتساوية، تتحطم هذه المثالية. والنتيجة تيار تسلسل سالب يسخّن المحركات، ويخفض سعة المحولات، ويشوّه الموجة. يتناول هذا المقال الأسباب والتكلفة، ولماذا يُعد SVG + AHF للجهد المنخفض (LV) هو التصحيح الديناميكي.</p>
+<h2 id="how-unbalance-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يُقاس عدم التوازن</h2>
+<p class="text-text-mid leading-relaxed mb-6">يعبّر المقياس القياسي (NEMA MG-1 / IEC 60034) عن عدم توازن الفولتية بالنسبة المئوية:</p>
+<blockquote class="border-r-4 border-brand-orange pr-4 italic text-text-mid my-6">عدم التوازن% = (أقصى انحراف عن متوسط فولتية الطور) / (متوسط فولتية الطور) &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">يُصنَّف النظام عادةً كغير متوازن فوق نحو <strong>1&ndash;3%</strong>. ويحدد IEC 61000-3-13 الحدود المقبولة.</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الأسباب الرئيسية</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>توزيع أحمال غير متساوٍ</strong> &mdash; تحميل متفاوت بين الأطوار الثلاثة.</li>
+  <li><strong>أحمال أحادية الطور كبيرة</strong> &mdash; السخانات واللحّامات وشواحن المركبات الكهربائية على طور واحد تسحب تيارًا مفرطًا.</li>
+  <li><strong>لا تماثل الخط</strong> &mdash; معاوقة غير متساوية أو تكوين خط غير متماثل، أسوأ على المغذيات الطويلة.</li>
+  <li><strong>معدات معطوبة</strong> &mdash; محولات تالفة أو توصيلات رديئة.</li>
+  <li><strong>التوليد الموزع</strong> &mdash; حقن غير متماثل من PV أو ESS قد يخلّ بتوازن ناقل ضعيف.</li>
+</ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">التكلفة</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>انخفاض كفاءة المحرك</strong> &mdash; يولّد تيار التسلسل السالب مجالًا معاكسًا للدوران؛ وقد يرفع عدم توازن بنسبة 1% حرارة المحرك نحو 5&ndash;10%.</li>
+  <li><strong>ارتفاع حرارة المعدات</strong> &mdash; تسرّع الخسائر الإضافية الشيخوخة وترفع خطر العطل.</li>
+  <li><strong>زيادة استهلاك الطاقة</strong> &mdash; ترفع الفولتية غير المتوازنة خسائر النظام والفاتورة.</li>
+  <li><strong>تقلبات الفولتية</strong> &mdash; يزيد عدم التوازن الوميض على الأحمال الأخرى.</li>
+</ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تقصر الطرق الثابتة</h2>
+<p class="text-text-mid leading-relaxed mb-6">تساعد موازنة الأحمال (إعادة التمديد) ومنظمات الفولتية الأوتوماتيكية (AVR)، لكنها بطيئة أو يدوية. تستطيع بطارية مكثفات مبدَّلة تصحيح معامل القدرة المتوسط، لكنها لا تستطيع إعادة التوازن لكل طور أو متابعة حمل متذبذب، وهي تنطوي على خطر الرنين.</p>
+<h2 id="how-an-lv-svg-ahf-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يعالجها SVG + AHF للجهد المنخفض</h2>
+<p class="text-text-mid leading-relaxed mb-6">مولد التيار غير الفعّال الثابت (SVG)، وهو محوّل مصدر فولتية على IGBT عالي التردد، يحقن أو يمتص تيارًا تفاعليًا <strong>لكل طور</strong>، بشكل مستقل، لإعادة موازنة الفولتيات وإبقاء معامل القدرة قرب الواحد: استجابة دون دورية (<strong>&lt; 1 ms</strong>)، وتنظيم مستمر <strong>&plusmn;1%</strong>، ومعامل قدرة عند <strong>0.99+</strong>. وهو يلغي مركّبة التسلسل السالب التي لا تلمسها البطارية الثابتة.</p>
+<p class="text-text-mid leading-relaxed mb-6">أما المرشح التوافقي النشط (AHF) فيزيل تشوه الرتب 5 و7 و11 و13 الذي تضيفه الأحمال غير الخطية فوق ذلك:</p>
+<blockquote class="border-r-4 border-brand-orange pr-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(التردد الأساسي)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">يُولّده جسر يبدّل عند 15&ndash;20 كيلوهرتز، ويتبع خلال <strong>&lt; 1 ms</strong> ويخفض THDi من <strong>30%+ إلى &lt; 5%</strong>. معًا، يوفّر AHF + SVG موازنة أطوار مستمرة ومتكيفة مع تغيّر الحمل، دون ضبط ثابت، ودون خطر رنين.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">تستخدم وحدات AHF و SVG التقليدية للجهد المنخفض ترانزستورات IGBT محدودة قرب <strong>150 &deg;C</strong>، بتبديل عادةً دون <strong>20 كيلوهرتز</strong>. والانتقال إلى MOSFET المصنوعة من كربيد السيليكون (SiC)، أي وصلة <strong>200 &deg;C</strong> ومجال انهيار نحو <strong>10&times;</strong> وتردد تبديل <strong>2&ndash;3&times;</strong> وخسارة تبديل أقل بنحو <strong>50%</strong>، يوسّع نطاق التحكم ويصغّر الخزانة. هذا هو الاتجاه الذي بُنيت عليه منصة AHF + SVG للجهد المنخفض من CHITEK.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>قِس فولتيات وتيارات الأطوار عند PCC خلال دورة تشغيل كاملة لإيجاد أسوأ عدم توازن.</li>
+  <li>ضع SVG/AHF على المغذّي غير المتوازن، قريبًا من الحمل المسبّب.</li>
+  <li>راجع بنوك المكثفات بحثًا عن الرنين وسوء الضبط قبل التشغيل.</li>
+  <li>تحقق من هامش الشبكة الضعيفة واختر السعة لأسوأ هبوط.</li>
+  <li>اترك هامشًا (15&ndash;25%) للأحمال أحادية الطور المضافة.</li>
+</ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ملفات التطبيق النموذجية</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>محطات شحن المركبات الكهربائية</strong> &mdash; مجموعات الشواحن أحادية الطور تخلّ بتوازن الناقل؛ يعيد SVG الموازنة لكل طور.</li>
+  <li><strong>أفران القوس ومصانع الصلب</strong> &mdash; تقلبات تفاعلية عنيفة وغير متوازنة؛ يثبّتها AHF + SVG.</li>
+  <li><strong>مصانع C&amp;I بأحمال مختلطة</strong> &mdash; وحدة مركّبة تخفض التسخين وغرامات معامل القدرة.</li>
+</ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid leading-relaxed mb-6">عدم توازن الفولتية مشكلة تسلسل سالب لا تستطيع المكثفات الثابتة حلّها، وهي تنخر بصمت عمر المحركات والمحولات. يعيد زوج <strong>AHF + SVG</strong> للجهد المنخفض التوازن وجودة الموجة عند المصدر، بشكل متكيف. تُحدَّد منصات AHF + SVG للجهد المنخفض من CHITEK بهذا الانضباط نفسه: القياس أولًا.</p>
+<p class="text-text-mid leading-relaxed mb-6">ما نسبة عدم توازن فولتية الأطوار لديك عند PCC، وأي طور يحمل الحمل الإضافي؟</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">مشاركة:</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="مشاركة">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              مقالات أخرى
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              منتجات ذات صلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

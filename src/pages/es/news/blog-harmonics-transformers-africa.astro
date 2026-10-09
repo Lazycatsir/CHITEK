@@ -31,8 +31,7 @@ const relatedCases = [
   { name: "Sitio Minero Sudáfrica", industry: "Minería" }
 ];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/es' + p : p;
+const lp = (p: string) => '/es' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -41,7 +40,7 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://es.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <script type="application/ld+json" slot="head">
@@ -50,9 +49,9 @@ const lp = (p: string) => isLocal ? '/es' + p : p;
     "@type": "Article",
     "headline": "Cómo los Armónicos y el Bajo Factor de Potencia Dañan los Transformadores — y la Solución AHF/SVG de Baja Tensión",
     "description": "En sitios industriales africanos, los armónicos y el bajo factor de potencia envejecen silenciosamente los transformadores. Descubra cómo las soluciones AHF y SVG de baja tensión de CHITEK protegen los transformadores y recuperan capacidad perdida.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://es.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
-    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
     "datePublished": "2025-07-01",
     "dateModified": "2025-07-01",
     "keywords": "armónicos, transformador, factor de potencia, AHF, SVG, África, IEEE 519, IGBT, SiC, calidad de energía"

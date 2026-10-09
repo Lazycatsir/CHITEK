@@ -36,6 +36,7 @@ npm run news:check   # 校验：离线 81 项；加 -- --http http://localhost:4
 | 接手 / 交接（环境准备、首次启动、日常任务、工具清单） | `docs/交接文档/` |
 | 产品页施工规范 / 新闻规范 / SEO 规范 | `.workbuddy/memory/` 下 `*_SPEC.md` |
 | 站点日常管理手册（运营向） | `docs/站点管理手册.html` |
+| **英文站管理文档**（新闻卡片+推荐链接 / 下载链接 / 产品 SKU，HTML+MD 双份） | `docs/en-site/index.html` |
 | 竞品分析 / 独立站运营计划 / 转化追踪 | `docs/` |
 | 历史备份（**不要**当页面源） | `docs/_ref/` |
 | 百家号 / LinkedIn 原始稿 + 内容外联 | 兄弟仓库 `F:\下载\web-crawler`（**不在本仓库内**） |

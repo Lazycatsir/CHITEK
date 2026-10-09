@@ -26,18 +26,17 @@ const otherArticles = [
     { title: "AHF for VFD Systems", category: "Technology", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/en/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/en/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/en/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
-    { name: "Brazil Data Center", industry: "Data Centers" },
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" }
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+  { name: "Centralised Harmonic Mitigation Across Five 2,000 kVA Transformers — Optical Component Manufacturer, Dongguan", industry: "Precision Optics Manufacturing", href: "/solutions/industrial" },
+  { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
 ];
 
-const isLocal = false;
-const lp = (p) => isLocal ? '/en' + p : p;
+const lp = (p) => '/en' + p;
 
 ---
 <BaseLayout
@@ -47,7 +46,7 @@ const lp = (p) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -57,9 +56,9 @@ const lp = (p) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "IEEE 519-2022 Harmonic Limits: What They Require and How a Low-Voltage AHF Delivers Compliance",
     "description": "IEEE 519-2022 sets the harmonic distortion limits and responsibilities at the point of common coupling. This article explains what the standard requires and how a CHITEK low-voltage AHF delivers compliance in real time.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://en.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-20",
     "dateModified": "2026-07-20",
     "keywords": "IEEE 519 Harmonics THDi Compliance AHF PCC"
@@ -105,28 +104,28 @@ const lp = (p) => isLocal ? '/en' + p : p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022, "IEEE Recommended Practice and Requirements for Harmonic Control in Electric Power Systems," is the reference most North American facilities use to manage harmonics. It does not dictate product design; it sets the <em>limits and responsibilities</em> at the point of common coupling (PCC) so that both the user and the utility keep distortion bounded.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What the Standard Does</h2>
+<h2 id="what-the-standard-does" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What the Standard Does</h2>
 <p class="text-text-mid leading-relaxed mb-2">• Defines <strong>linear loads</strong> (motors, resistive heaters) vs <strong>nonlinear loads</strong> (VFDs, UPS, SMPS, LED, rectifiers — the harmonic sources).</p>
 <p class="text-text-mid leading-relaxed mb-2">• Defines the <strong>PCC</strong> — where your equipment meets the grid.</p>
 <p class="text-text-mid leading-relaxed mb-2">• Sets <strong>current-distortion limits</strong> the user must meet and <strong>voltage-distortion limits</strong> the utility must manage.</p>
 <p class="text-text-mid leading-relaxed mb-6">• Guides interaction between source and load.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why Harmonics Matter</h2>
+<h2 id="why-harmonics-matter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Why Harmonics Matter</h2>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>Overheating</strong> — wires, transformers, motors run hotter; insulation ages, life shortens.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>Unwanted currents</strong> — breaker nuisance trips, relay misoperation, VFD/motor malfunction.</p>
 <p class="text-text-mid leading-relaxed mb-6">A 6-pulse nonlinear load produces characteristic harmonics at <strong>n = 6k ± 1</strong> (5th, 7th, 11th, 13th…). The low-voltage current limit is <strong>THDi &lt; 5%</strong> with individual harmonics &lt; 3%.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What 2022 Changed</h2>
+<h2 id="what-2022-changed" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">What 2022 Changed</h2>
 <p class="text-text-mid leading-relaxed mb-6">The 2022 revision improves earlier editions by: better harmonic measurement methods; clearer statistical/data analysis guidance; explicit rules for systems with mixed linear and nonlinear loads.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">How a Low-Voltage AHF Delivers Compliance</h2>
+<h2 id="how-a-low-voltage-ahf-delivers-compliance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">How a Low-Voltage AHF Delivers Compliance</h2>
 <p class="text-text-mid leading-relaxed mb-6">A low-voltage AHF samples the load current and injects the compensating current: <strong>i_c* = i_L − i_s(fundamental)</strong> in <strong>&lt; 1 ms</strong> (high-frequency IGBT/SiC converter), pulling <strong>THDi from 30%+ to &lt; 5%</strong> and tracking the load in real time — unlike a fixed passive LC trap, which cannot follow diurnal swing and can resonate with system capacitance. The AHF also corrects displacement PF and can balance three-phase current.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC in the AHF Stage</h2>
+<h2 id="igbt-vs-sic-in-the-ahf-stage" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC in the AHF Stage</h2>
 <p class="text-text-mid leading-relaxed mb-6">A conventional <strong>IGBT</strong> is junction-limited near <strong>150°C</strong> and switches below ~20 kHz. <strong>SiC MOSFETs</strong> — bandgap <strong>3.26 eV</strong> vs Si <strong>1.12 eV</strong>, junction to <strong>200°C</strong>, ~10× breakdown field, <strong>2–3×</strong> switching frequency, <strong>~50% lower</strong> switching loss — raise efficiency 1–3% and shrink the unit for continuous duty.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering Deployment Checklist</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Engineering Deployment Checklist</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>Measure THDi and individual orders</strong> at the PCC under real load.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>Size the AHF to measured harmonic current</strong>, not transformer kVA.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>Install close to the harmonic source</strong> so filter current does not circulate through shared feeders.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>Check capacitor-bank resonance</strong> before commissioning.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>Leave 20–25%</strong> margin for load growth.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusion</h2>
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusion</h2>
 <p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 is the compliance target; a CHITEK <strong>low-voltage AHF</strong> on IGBT/SiC stages is the means — canceling harmonics in real time at the PCC to hold THDi &lt; 5% without resonance risk.</p>
 <p class="text-text-mid leading-relaxed mb-6">What THDi and individual harmonic orders does your PCC measure against the IEEE 519 limits today?</p>
         </div>
@@ -206,11 +205,11 @@ const lp = (p) => isLocal ? '/en' + p : p;
               Customer Cases
             </h3>
             <div class="space-y-2">
-              {relatedCases.map((item) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
-                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.name}</div>
-                  <div class="text-xs text-text-muted mt-1">{item.industry}</div>
-                </div>
+              {relatedCases.map((c) => (
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </a>
               ))}
             </div>
           </div>

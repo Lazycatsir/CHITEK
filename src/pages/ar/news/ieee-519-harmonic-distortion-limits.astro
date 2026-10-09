@@ -26,9 +26,9 @@ const otherArticles = [
     { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح الموجة النشط AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
@@ -36,7 +36,7 @@ const relatedCases = [
     { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/ar' + p;
 
 ---
 <BaseLayout
@@ -46,7 +46,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-3.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-3.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -56,9 +56,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "حدود التوافقيات IEEE 519-2022: ما تتطلبه وكيف يحقق AHF منخفض الجهد الامتثال",
     "description": "يحدد IEEE 519-2022 حدود ومسؤوليات تشوه التوافقيات عند نقطة الربط المشتركة. يشرح هذا المقال ما تتطلبه المواصفة وكيف يحقق AHF منخفض الجهد من CHITEK الامتثال في الوقت الحقيقي.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-3.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-3.webp",
     "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-20",
     "dateModified": "2026-07-20",
     "keywords": "IEEE 519 التوافقيات THDi امتثال AHF PCC"
@@ -104,27 +104,27 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">IEEE 519-2022 "الممارسة والتطلبات الموصى بها للتحكم في التوافقيات في أنظمة الطاقة الكهربائية" هي المرجع الذي تستخدمه معظم المنشآت في أمريكا الشمالية لإدارة التوافقيات. لا تملي تصميم المنتج؛ بل تحدد <em>الحدود والمسؤوليات</em> عند نقطة الربط المشتركة (PCC) ليبقى التشوه محصوراً لدى المستخدم والشركة.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تفعل المواصفة</h2>
+<h2 id="what-the-standard-does" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تفعل المواصفة</h2>
 <p class="text-text-mid leading-relaxed mb-2">• تُعرّف <strong>الأحمال الخطية</strong> (محركات، سخانات) مقابل <strong>غير الخطية</strong> (VFD وUPS ومزودات الطاقة وLED والمرشحات —المصادر).</p>
 <p class="text-text-mid leading-relaxed mb-2">• تُعرّف <strong>PCC</strong> —حيث يلتقي تجهيزك بالشبكة.</p>
 <p class="text-text-mid leading-relaxed mb-2">• تضع <strong>حدود تيار</strong> يجب أن يلتزم بها المستخدم و<strong>حدود جهد</strong> تديرها الشركة.</p>
 <p class="text-text-mid leading-relaxed mb-6">• ترشد التفاعل بين المصدر والحمل.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تهم التوافقيات</h2>
+<h2 id="why-harmonics-matter" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تهم التوافقيات</h2>
 <p class="text-text-mid leading-relaxed mb-2">• <strong>احترار</strong> —كابلات ومحولات ومحركات أشد حرارة؛ عمر أقصر.</p>
 <p class="text-text-mid leading-relaxed mb-6">• <strong>تيارات غير مرغوبة</strong> —رحلات وصل عشوائية، سوء عمل المرحل، أعطال VFD/محرك. حمل غير خطي 6 نبضات يولد توافقيات <strong>n = 6k ± 1</strong> (5 و7 و11 و13…). حد التيار منخفض الجهد <strong>THDi &lt; 5%</strong> وكل رتبة &lt; 3%.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تغيّر 2022</h2>
+<h2 id="what-2022-changed" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا تغيّر 2022</h2>
 <p class="text-text-mid leading-relaxed mb-6">تحسّن الإصدار 2022 السابق: طرق قياس أفضل؛ توجيه إحصائي أوضح؛ قواعد صريحة لأنظمة بمزيج خطي وغير خطي.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يحقق AHF منخفض الجهد الامتثال</h2>
+<h2 id="how-a-low-voltage-ahf-delivers-compliance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يحقق AHF منخفض الجهد الامتثال</h2>
 <p class="text-text-mid leading-relaxed mb-6">يأخذ AHF منخفض الجهد عينة من تيار الحمل ويحقن التعويض: <strong>i_c* = i_L − i_s(الأساسية)</strong> في <strong>&lt; 1 ms</strong> (محوّل IGBT/SiC)، مخفضاً <strong>THDi من 30%+ إلى &lt; 5%</strong> متابعاً الحمل لحظياً —عكس فخ LC السلبي الذي لا يتبع التأرجح النهاري وقد يرنّ. يعالج AHF أيضاً عامل القدرة الإزاحي ويوازن التيار الثلاثي.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC في مرحلة AHF</h2>
+<h2 id="igbt-vs-sic-in-the-ahf-stage" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC في مرحلة AHF</h2>
 <p class="text-text-mid leading-relaxed mb-6"><strong>IGBT</strong> التقليدي محدود الوصلة قرب <strong>150°C</strong> ويبدّل دون ~20 kHz. <strong>SiC MOSFET</strong> —فجوة النطاق <strong>3.26 eV</strong> مقابل Si <strong>1.12 eV</strong>، وصلة <strong>200°C</strong>، حقل انهيار ~10×، تردد <strong>2–3×</strong>، فقد <strong>~50% أقل</strong>— ترفع الكفاءة 1–3% وتصغر الوحدة.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>قس THDi والرتب</strong> عند PCC تحت حمل حقيقي.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>حجّم AHF حسب التيار المقاس</strong> لا حسب kVA المحول.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>ركّب قرب مصدر التوافقيات</strong> لمنع دوران التيار في مغذيات مشتركة.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>افحص رنين المكثفات</strong> قبل التشغيل.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>اترك 20–25%</strong> هامشاً للنمو.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<h2 id="conclusion" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
 <p class="text-text-mid leading-relaxed mb-6">IEEE 519-2022 هو الهدف؛ و<strong>AHF منخفض الجهد من CHITEK</strong> على مراحل IGBT/SiC هو الوسيلة —يلغي التوافقيات لحظياً عند PCC لإبقاء THDi &lt; 5% بلا رنين.</p>
 <p class="text-text-mid leading-relaxed mb-6">ما THDi والرتب التي يقيسها PCC اليوم مقابل حدود IEEE 519؟</p>
         </div>

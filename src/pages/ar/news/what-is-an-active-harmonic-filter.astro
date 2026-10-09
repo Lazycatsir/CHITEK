@@ -27,9 +27,9 @@ const otherArticles = [
     { title: "AHF لأنظمة VFD", category: "تقنية", href: "/news/blog-active-harmonic-filter-for-vfd-systems", color: "orange" }
 ];
 const relatedProducts = [
-    { name: "مرشح الموجة النشط AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "مولد فار الساكن SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "مرشح الموجة النشط AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "مولد فار الساكن SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "سلسلة SiC-AHF/SVG عالية الكفاءة", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
     { name: "مركز بيانات في البرازيل", industry: "مراكز البيانات" },
@@ -37,7 +37,7 @@ const relatedCases = [
     { name: "مزرعة طاقة شمسية 50 ميجاواط في دبي", industry: "الطاقة المتجددة" }
 ];
 
-const lp = (p) => p;
+const lp = (p) => '/ar' + p;
 
 ---
 <BaseLayout
@@ -47,7 +47,7 @@ const lp = (p) => p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/news/news-img-1.webp"
+  ogImage="https://ar.chitek-inno.com/assets/images/news/news-img-1.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -57,9 +57,9 @@ const lp = (p) => p;
     "@type": "Article",
     "headline": "ما هو مرشح الموجة النشط؟ المبادئ وأمر i_c* وجسر IGBT/SiC",
     "description": "يُلغي مرشح الموجة النشط (AHF) التيار التوافقي ويصحح القدرة غير الفاعلة في الوقت الحقيقي. يشرح هذا المقال المبدأ من الكشف إلى الحقن ولماذا يحدد مفتاح IGBT→SiC سقف الأداء.",
-    "image": "https://chitek-inno.com/assets/images/news/news-img-1.webp",
+    "image": "https://ar.chitek-inno.com/assets/images/news/news-img-1.webp",
     "author": {"@type": "Organization","name": "فريق CHITEK الفني"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://ar.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-22",
     "dateModified": "2026-07-22",
     "keywords": "مرشح الموجة النشط AHF التوافقيات جودة الطاقة IGBT SiC"
@@ -105,27 +105,27 @@ const lp = (p) => p;
 
         <div class="prose prose-lg max-w-none">
 <p class="text-text-mid text-lg leading-relaxed mb-6">مرشح الموجة النشط (AHF) هو معوض إلكتروني للطاقة موصول بالتوازي يحسّن جودة الطاقة بإلغاء التيار التوافقي وتصحيح القدرة غير الفاعلة في الوقت الحقيقي. على عكس فخ LC السلبي، يتكيف مع الحمل المتغير ويتجنب الرنين مع معاوقة النظام. يشرح هذا المقال المبدأ من الكشف حتى الحقن ولماذا يحدد اختيار الموصل (IGBT مقابل SiC) سقف الأداء.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا يفعل الـ AHF</h2>
+<h2 id="what-an-ahf-does" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ماذا يفعل الـ AHF</h2>
 <p class="text-text-mid leading-relaxed mb-6">يتصل الـ AHF بالتوازي مع الناقل المشوّه ويقيس تيار الحمل باستمرار. يحسب تيار التعويض —مساوٍ في السعة ومعاكس في الطور للمحتوى التوافقي وغير الفاعل غير المرغوب— ويحقنه، تاركاً المصدر شبه جيبي وعامل قدرة مرتفع.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">المبدأ خطوة بخطوة</h2>
+<h2 id="the-working-principle-step-by-step" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">المبدأ خطوة بخطوة</h2>
 <p class="text-text-mid leading-relaxed mb-3"><strong>1. كشف وفصل التوافقيات.</strong> مجسات تيار عالية الدقة (تأثير هول، حتى ~50 رتبة) تأخذ عينة من تيار الحمل لحظياً. تُفكك الإشارة بطريقتين: نظرية القدرة التفاعلية اللحظية (p–q) تحوّل التيار ثلاثي الطور إلى مركبتين حقيقية وخيالية، وFFT تستخرج سعة وطور كل توافقي. النتيجة أمر تيار مرجعي مساوٍ في السعة ومعاكس في الطور —"التوافقي العكسي".</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>2. توليد تيار التعويض.</strong> النواة عاكس بمصدر جهد (VSI) مبني على عناصر تبديل عالية التردد (IGBT أو SiC). يحقن تيار التعويض الذي يلتقي مع التيار التوافقي الأصلي فيلغيه.</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>3. تعويض القدرة غير الفاعلة.</strong> نفس العاكس يوفر تياراً متقدماً أو متأخراً لموازنة مركبة الحمل غير الفاعلة، رافعاً عامل القدرة نحو الوحدة (هدف CHITEK LV AHF/SVG: <strong>0.99+</strong>).</p>
 <p class="text-text-mid leading-relaxed mb-3"><strong>4. تحكم حلقي مغلق واستقرار.</strong> تُراقب تيارات الشبكة المعوَّضة وتُقارن بالمرجع؛ يُضبط خرج العاكس للحفاظ على الدقة.</p>
 <p class="text-text-mid leading-relaxed mb-6"><strong>5. مقاومة الرنين وقابلية التكيف.</strong> يتجنب التحكم النشط تكوين دوائر رنين مع معاوقة الشبكة، ويعالج توافقيات النطاق العريض (3 و5 و7 وعالية)، ويدعم وحدات متوازية متعددة للتعويض الموزع.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قانون التعويض</h2>
+<h2 id="the-compensation-law" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قانون التعويض</h2>
 <blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L − i_s(الأساسية)</blockquote>
 <p class="text-text-mid leading-relaxed mb-6">يُركّب بجسر يبدّل عند 15–20 kHz، يتتبع التصحيح في <strong>&lt; 1 ms</strong> ويخفض THDi من <strong>30%+ إلى &lt; 5%</strong> عبر الرتب 5 إلى 25 في آن واحد —متابعاً الحمل كما يتغير. دون معالجة، يبقى THDi عند حمل غير خطي غالباً بين <strong>8% و30%</strong>، مقابل حد IEEE 519 <strong>THDi &lt; 5%</strong> عند نقطة الربط المشتركة PCC.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">عنق الزجاجة لأشباه الموصلات: IGBT مقابل SiC</h2>
+<h2 id="the-semiconductor-bottleneck-igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">عنق الزجاجة لأشباه الموصلات: IGBT مقابل SiC</h2>
 <p class="text-text-mid leading-relaxed mb-3">IGBT: وصلة محدودة قرب <strong>150°C</strong>، تردد تبديل عادة <strong>أقل من 20 kHz</strong>.</p>
 <p class="text-text-mid leading-relaxed mb-6">SiC MOSFET: فجوة النطاق <strong>3.26 eV مقابل 1.12 eV</strong>، وصلة <strong>200°C</strong>، مجال انهيار <strong>~10×</strong>، تردد تبديل <strong>2–3×</strong>، فقد تبديل <strong>~50% أقل</strong>. يوسّع SiC نطاق الإلغاء (يعالج الرتبة 13 فما فوق)، ويصغّر الخزانة، ويعمل ببرودة أكبر —وهو الاتجاه الذي بنيت عليه منصة CHITEK LV AHF.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة النشر الهندسي</h2>
 <p class="text-text-mid leading-relaxed mb-2">1. <strong>القياس عند PCC</strong> بمحلل جودة طاقة عبر دورة تشغيل كاملة.</p>
 <p class="text-text-mid leading-relaxed mb-2">2. <strong>ضع الـ AHF عند المصدر</strong> —على مغذي عنقود الحمل غير الخطي.</p>
 <p class="text-text-mid leading-relaxed mb-2">3. <strong>راجع مجموعات المكثفات</strong> للرنين قبل التشغيل.</p>
 <p class="text-text-mid leading-relaxed mb-2">4. <strong>الحجم حسب TDD المقاس</strong> بالنسبة للطلب الأقصى.</p>
 <p class="text-text-mid leading-relaxed mb-6">5. <strong>اترك هامشاً</strong> (15–25%) للقيادات الإضافية.</p>
-<h2 id="sec" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
 <p class="text-text-mid leading-relaxed mb-6">الـ AHF حلقة قياس→حساب→حقن تلغي التشويه ديناميكياً ودون رنين. المبدأ ثابت؛ والمفتاح يقرر النطاق والحجم. بنيت منصات CHITEK LV AHF حول مسار الترقية IGBT→SiC هذا، ومحددة من قياس حقيقي.</p>
 <p class="text-text-mid leading-relaxed mb-6">ما الرتب التوافقية التي يلغيها AHF فعلاً —وهل مفتاحه مصنّف لأعلاها على ناقلك؟</p>
         </div>

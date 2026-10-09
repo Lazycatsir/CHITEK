@@ -7,11 +7,11 @@ const meta = {
 };
 ---
 
-<BaseLayout lang="zh" title={meta.title} description={meta.description}>
+<BaseLayout lang="zh" title={meta.title} description={meta.description} alternateLangs={['zh', 'pt', 'es', 'ar']}>
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
     <div class="absolute inset-0 animate-fade-in">
-      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.jpg" alt="" class="object-cover w-full h-full" fetchpriority="high" />
+      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.webp" alt="" class="object-cover w-full h-full" fetchpriority="high" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
     </div>
     <div class="relative z-10 w-full px-[clamp(24px,8vw,160px)] pb-8">
@@ -166,7 +166,7 @@ const meta = {
       {
         title: '广州三甲医院门诊楼治理',
         highlight: 'THD 18.3% → 4.1%，年节电67万元',
-        image: '/assets/images/solutions-commercial-medical-case-hospital.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-hospital.webp',
         industry: '医疗建筑',
         colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
         link: '/about/cases/guangzhou-hospital',
@@ -185,7 +185,7 @@ const meta = {
       {
         title: '上海陆家嘴甲级写字楼电能质量改造',
         highlight: 'PF 0.72 → 0.95，消除罚款45万元/年',
-        image: '/assets/images/solutions-commercial-medical-case-office.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-office.webp',
         industry: '商业办公',
         colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
         link: '/about/cases/lujiazui-office',
@@ -204,7 +204,7 @@ const meta = {
       {
         title: '苏州半导体洁净室实验室电压闪烁治理',
         highlight: '闪烁Pst < 0.3，设备零停机',
-        image: '/assets/images/solutions-commercial-medical-case-lab.jpg',
+        image: '/assets/images/solutions-commercial-medical-case-lab.webp',
         industry: '实验室/洁净室',
         colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
         link: '/about/cases/suzhou-lab',
@@ -287,21 +287,21 @@ const meta = {
     ];
     const gridCases = [
       {
-        title: '省级220kV变电站电能质量综合治理', highlight: 'THD 11% → 3.5%，变压器损耗降低12%，年节电320万kWh', image: '/assets/images/solutions-grid-case-substation.jpg', industry: '电网', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '省级220kV变电站电能质量综合治理', highlight: 'THD 11% → 3.5%，变压器损耗降低12%，年节电320万kWh', image: '/assets/images/solutions-grid-case-substation.webp', industry: '电网', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '220kV/35kV/10kV省级变电站，供混合工业及居民负荷。附近钢厂谐波注入和DG渗透率上升导致35kV母线THD超过11%，引发电容器组断路器跳闸和变压器过热告警。',
         trend: 'THD趋势：11.0% → 7.8% → 5.2% → 3.5%',
         solution: [{ product: 'SVG-800V', qty: 2, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 3, use: '关键馈线谐波滤波' }],
         results: ['THD < 4%（符合GB/T 14549标准）', '变压器损耗降低12%（年节电320万kWh）', '线损改善0.8个百分点'],
       },
       {
-        title: '城市核心区配电网升级改造工程', highlight: '充电站不平衡度<3%，电压合格率99.97%', image: '/assets/images/solutions-grid-case-urban.jpg', industry: '城市配网', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '城市核心区配电网升级改造工程', highlight: '充电站不平衡度<3%，电压合格率99.97%', image: '/assets/images/solutions-grid-case-urban.webp', industry: '城市配网', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '市中心10kV配电网，含12座EV快充站及混合商业/居民负荷。晚间并发充电高峰导致严重三相不平衡和电压暂降，同时地下电缆网络在轻载时产生超前PF。',
         trend: '不平衡度趋势：12% → 8% → 5% → 2.8%',
         solution: [{ product: 'SPC-150A', qty: 4, use: '充电站三相平衡' }, { product: 'SVG-10kV', qty: 2, use: '馈线无功补偿' }],
         results: ['所有充电站三相不平衡度<3%', '电压合格率99.97%', '零电缆过补偿事故'],
       },
       {
-        title: '海岛风光储一体化微电网工程', highlight: '并离网切换暂降<5%，可靠性99.9%，柴油发电减少60%', image: '/assets/images/solutions-grid-case-microgrid.jpg', industry: '微电网', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '海岛风光储一体化微电网工程', highlight: '并离网切换暂降<5%，可靠性99.9%，柴油发电减少60%', image: '/assets/images/solutions-grid-case-microgrid.webp', industry: '微电网', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '偏远海岛微电网，含2MW光伏、1.5MW风电、4MWh储能及1MW柴油备用。PCC点多源谐波叠加及并/离网切换时电压暂降导致频繁切负荷和柴油机过早启动。',
         trend: '暂降趋势：25% → 12% → 7% → <5%',
         solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC点电能质量调节' }, { product: 'SPC-100A', qty: 1, use: '跨相负荷平衡' }],
@@ -373,21 +373,21 @@ const meta = {
     ];
     const dcCases = [
       {
-        title: '华北某大型云数据中心谐波治理', highlight: 'THD 14% → 2.8%，UPS并联环流降低80%，年节省260万元', image: '/assets/images/solutions-datacenter-case-cloud.jpg', industry: '云计算', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '华北某大型云数据中心谐波治理', highlight: 'THD 14% → 2.8%，UPS并联环流降低80%，年节省260万元', image: '/assets/images/solutions-datacenter-case-cloud.webp', industry: '云计算', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '40MW超大规模数据中心，3×2.4MW UPS并联配置。UPS输入谐波环流导致负载不均、电池热应力及PDU误告警。无功损耗年PUE罚款超过150万元。',
         trend: 'THD趋势：14.0% → 8.5% → 4.2% → 2.8%',
         solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS输入谐波抑制' }, { product: 'SVG-150kvar', qty: 3, use: '低压母线无功补偿' }],
         results: ['UPS输入THD < 3%（符合IEEE 519标准）', 'UPS并联环流降低80%', '年节电260万元'],
       },
       {
-        title: '国有银行灾备中心电能质量改造', highlight: '电压暂降<3ms，高频交易零中断，PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.jpg', industry: '金融数据中心', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '国有银行灾备中心电能质量改造', highlight: '电压暂降<3ms，高频交易零中断，PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.webp', industry: '金融数据中心', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '国有银行Tier-IV灾备中心，承载实时交易和清算。ATS月度测试产生10-15ms切换暂降，导致交易服务器PSU掉电。精密空调变频谐波使PUE在18个月内从1.48恶化至1.65。',
         trend: 'PUE趋势：1.65 → 1.58 → 1.52 → 1.48',
         solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS整流前端滤波' }, { product: 'SVG-100A', qty: 2, use: '交易大厅动态无功' }],
         results: ['电压暂降<3ms，交易零中断', 'PUE从1.65恢复至1.48', '年运营费节省120万元'],
       },
       {
-        title: '运营商5G边缘计算节点批量部署', highlight: '1U机架式，远程运维，每节点年省4.2万元，ROI < 18个月', image: '/assets/images/solutions-datacenter-case-edge.jpg', industry: '边缘计算', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '运营商5G边缘计算节点批量部署', highlight: '1U机架式，远程运维，每节点年省4.2万元，ROI < 18个月', image: '/assets/images/solutions-datacenter-case-edge.webp', industry: '边缘计算', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '电信运营商在农村/城郊部署200+个5G MEC边缘节点。电网电压不稳定（暂降>20%）、单柜UPS过载及高上门运维成本形成不可持续的规模化运营模式。',
         trend: '节点在线率：97.2% → 98.8% → 99.5% → 99.9%',
         solution: [{ product: 'AHF-15A', qty: 200, use: '每节点机柜1U机架式安装' }, { product: 'Cloud Monitor', qty: 1, use: '集中远程监控平台' }],
@@ -459,21 +459,21 @@ const meta = {
     ];
     const indCases = [
       {
-        title: '汽车车身焊装车间谐波治理', highlight: 'THD 28% → 4.2%，变压器温度降低15°C，年节省120万元', image: '/assets/images/solutions-industrial-case-welding.jpg', industry: '焊接与金属', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '汽车车身焊装车间谐波治理', highlight: 'THD 28% → 4.2%，变压器温度降低15°C，年节省120万元', image: '/assets/images/solutions-industrial-case-welding.webp', industry: '焊接与金属', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '大型汽车车身焊装车间，48台弧焊机器人和6台中频点焊机。批量焊接周期产生严重谐波浪涌（THD 28%）和电压闪烁，导致每月变压器过热告警及两次非计划停产。',
         trend: 'THD趋势：28% → 18% → 9% → 4.2%',
         solution: [{ product: 'AHF-150A', qty: 3, use: '焊机母线谐波治理' }, { product: 'SVG-100A', qty: 2, use: '电炉无功补偿' }],
         results: ['THD < 5%（符合IEEE 519标准）', '变压器温度降低15°C', '年节电120万元'],
       },
       {
-        title: '石化基地变频器群电能质量改造', highlight: 'PF 0.65 → 0.95，消除罚款380万元/年，DCS零停机', image: '/assets/images/solutions-industrial-case-petrochemical.jpg', industry: '化工与石油', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '石化基地变频器群电能质量改造', highlight: 'PF 0.65 → 0.95，消除罚款380万元/年，DCS零停机', image: '/assets/images/solutions-industrial-case-petrochemical.webp', industry: '化工与石油', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '大型石化综合体，200+台变频驱动泵和压缩机。多变频器谐波叠加导致35kV PCC点THD超过18%，触发电力公司警告及年无功罚款380万元。DCS系统在大泵启动时反复出现欠压告警。',
         trend: 'PF趋势：0.65 → 0.78 → 0.88 → 0.95',
         solution: [{ product: 'SVG-800V', qty: 4, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 6, use: '变频馈线谐波滤波' }],
         results: ['PF > 0.95，零无功罚款', 'DCS部署后零停机', '年罚款节省380万元'],
       },
       {
-        title: '12英寸晶圆厂电压暂降防护', highlight: '暂降持续时间<5ms，晶圆良率提升3%', image: '/assets/images/solutions-industrial-case-semiconductor.jpg', industry: '半导体', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '12英寸晶圆厂电压暂降防护', highlight: '暂降持续时间<5ms，晶圆良率提升3%', image: '/assets/images/solutions-industrial-case-semiconductor.webp', industry: '半导体', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '12英寸晶圆厂，浸没式光刻扫描仪要求暂降耐受<5ms。30km外电网侧故障导致扫描仪台面反复丢失，每次事件报废25片晶圆（$5K/片）。月均3次事件。',
         trend: '良率趋势（废品率）：4.2% → 2.8% → 1.5% → 1.2%',
         solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS前端双路保护' }, { product: 'SPC-100A', qty: 2, use: '测试层三相平衡' }],
@@ -545,21 +545,21 @@ const meta = {
     ];
     const railCases = [
       {
-        title: '某大城市地铁8号线牵引供电改造', highlight: 'THD 16% → 4.5%，再生制动回收率提升35%，年节电850万kWh', image: '/assets/images/solutions-rail-case-metro.jpg', industry: '地铁与轻轨', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '某大城市地铁8号线牵引供电改造', highlight: 'THD 16% → 4.5%，再生制动回收率提升35%，年节电850万kWh', image: '/assets/images/solutions-rail-case-metro.webp', industry: '地铁与轻轨', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '地铁线路，22座车站，35kV环网配电。24脉波牵引整流器产生特征谐波导致月度电力公司罚款。再生制动能量因回馈时电压升高而耗散于电阻，年浪费1200万kWh。',
         trend: 'THD趋势：16% → 10% → 6.5% → 4.5%',
         solution: [{ product: 'SVG-300A', qty: 3, use: '35kV环网无功补偿' }, { product: 'AHF-200A', qty: 6, use: '牵引变电所谐波滤波' }],
         results: ['THD < 5%，消除罚款', '再生制动回收率+35%', '年节电850万kWh'],
       },
       {
-        title: '高铁牵引变电所负序治理', highlight: '负序<2%，接触线波动<5%，动车电流稳定性改善', image: '/assets/images/solutions-rail-case-hsr.jpg', industry: '高铁', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '高铁牵引变电所负序治理', highlight: '负序<2%，接触线波动<5%，动车电流稳定性改善', image: '/assets/images/solutions-rail-case-hsr.webp', industry: '高铁', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '高铁牵引变电所，V/V接线变压器馈送单相27.5kV接触网。220kV PCC点负序>8%触发电力公司并网违规。分区所边界接触线电压波动导致动车限速和延误。',
         trend: '负序：8.5% → 5% → 3% → 1.8%',
         solution: [{ product: 'SVG-27.5kV', qty: 2, use: '牵引母线无功+平衡' }, { product: 'AHF-200A', qty: 2, use: '10kV馈线谐波滤波' }],
         results: ['负序<2%（符合GB/T 15543标准）', '接触线电压波动<5%', '动车电流稳定性全面恢复'],
       },
       {
-        title: '高速服务区120桩快充电站电能质量改造', highlight: '三相不平衡<3%，变压器负荷95% → 78%，桩THD < 5%', image: '/assets/images/solutions-rail-case-charging.jpg', industry: '充电桩', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '高速服务区120桩快充电站电能质量改造', highlight: '三相不平衡<3%，变压器负荷95% → 78%，桩THD < 5%', image: '/assets/images/solutions-rail-case-charging.webp', industry: '充电桩', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '高速服务区，120台直流快充桩（60kW-180kW）。节假日并发充电高峰导致严重三相不平衡和变压器过载至95%。12脉波充电器谐波在高峰时段于10kV PCC累积至THD > 15%。',
         trend: '不平衡度趋势：15% → 9% → 5% → 2.5%',
         solution: [{ product: 'SPC-150A', qty: 4, use: '充电区三相平衡' }, { product: 'AHF-150A', qty: 6, use: '快充桩谐波滤波' }],
@@ -631,21 +631,21 @@ const meta = {
     ];
     const reCases = [
       {
-        title: '西北500MW光伏电站谐波治理工程', highlight: 'THD 9.5% → 3.2%，通过电网验收，避免罚款+增收180万元', image: '/assets/images/solutions-renewable-case-solar.jpg', industry: '光伏', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
+        title: '西北500MW光伏电站谐波治理工程', highlight: 'THD 9.5% → 3.2%，通过电网验收，避免罚款+增收180万元', image: '/assets/images/solutions-renewable-case-solar.webp', industry: '光伏', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
         overview: '500MW集中式光伏电站，2500台组串式逆变器，35kV集电系统。多逆变器在35kV母线谐波共振导致PCC点THD超过9.5%，两次电网验收未通过。云边效应导致±10%电压摆动，触发AVC罚款。',
         trend: 'THD趋势：9.5% → 6.5% → 4.5% → 3.2%',
         solution: [{ product: 'SVG-800V', qty: 8, use: '35kV升压母线无功补偿' }, { product: 'AHF-200A', qty: 12, use: '逆变器交流馈线谐波滤波' }],
         results: ['THD < 3.5%（符合GB/T 14549标准）', '电网验收一次通过', '年避免罚款+增收180万元'],
       },
       {
-        title: '200MW海上风电场电能质量改造', highlight: 'PF 0.88 → 0.98，无功罚款达标，箱变不平衡<2%', image: '/assets/images/solutions-renewable-case-wind.jpg', industry: '风电', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
+        title: '200MW海上风电场电能质量改造', highlight: 'PF 0.88 → 0.98，无功罚款达标，箱变不平衡<2%', image: '/assets/images/solutions-renewable-case-wind.webp', industry: '风电', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
         overview: '200MW海上风电场，50×4MW全功率变流风机。35kV集电母线5次/7次低次谐波主导。阵风驱动无功摆动导致月度PF低于0.88。箱变单相辅助负荷在集电层产生5%+不平衡。',
         trend: 'PF趋势：0.88 → 0.92 → 0.95 → 0.98',
         solution: [{ product: 'SVG-690V', qty: 50, use: '每台风机无功补偿' }, { product: 'AHF-100A', qty: 25, use: '集电馈线谐波滤波' }],
         results: ['PF > 0.98，零无功罚款', '箱变不平衡<2%', '集电系统谐振消除'],
       },
       {
-        title: '100MW/200MWh电网侧储能电站', highlight: 'PCS THD < 4%，并网点闪烁Pst < 0.5，并网协议合规', image: '/assets/images/solutions-renewable-case-storage.jpg', industry: '储能', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
+        title: '100MW/200MWh电网侧储能电站', highlight: 'PCS THD < 4%，并网点闪烁Pst < 0.5，并网协议合规', image: '/assets/images/solutions-renewable-case-storage.webp', industry: '储能', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
         overview: '100MW/200MWh电网侧储能电站，40×2.5MW PCS单元。多PCS谐波交错导致35kV PCC点THD > 6%。充放电模式切换闪烁Pst超过0.8，并网合规测试未通过。',
         trend: '闪烁Pst趋势：0.85 → 0.65 → 0.50 → 0.35',
         solution: [{ product: 'SVG+AHF组合', qty: 8, use: 'PCS交流母线电能质量调节' }, { product: 'PQ-Gateway', qty: 1, use: '并网合规监测平台' }],
@@ -715,12 +715,12 @@ const meta = {
       rail: '轨道交通案例研究',
     };
     const heroImages = {
-      commercial: '/assets/images/solutions-commercial-medical-hero-bg.jpg',
-      grid: '/assets/images/solutions-grid-hero-bg.jpg',
-      datacenter: '/assets/images/solutions-datacenter-hero-bg.jpg',
-      industry: '/assets/images/solutions-industrial-hero-bg.jpg',
-      renewable: '/assets/images/solutions-renewable-hero-bg.jpg',
-      rail: '/assets/images/solutions-rail-hero-bg.jpg',
+      commercial: '/assets/images/solutions-commercial-medical-hero-bg.webp',
+      grid: '/assets/images/solutions-grid-hero-bg.webp',
+      datacenter: '/assets/images/solutions-datacenter-hero-bg.webp',
+      industry: '/assets/images/solutions-industrial-hero-bg.webp',
+      renewable: '/assets/images/solutions-renewable-hero-bg.webp',
+      rail: '/assets/images/solutions-rail-hero-bg.webp',
     };
 
     window.setIndustry = function(id) {

@@ -29,18 +29,17 @@ const otherArticles = [
     { title: "Power Quality in Water Treatment", category: "Technology", href: "/news/blog-ahf-water-treatment-plants", color: "orange" }
   ];
 const relatedProducts = [
-    { name: "Active Harmonic Filter AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "Static Var Generator SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-    { name: "SiC-AHF/SVG High Efficiency", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+    { name: "Active Harmonic Filter AHF", href: "/products", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "Static Var Generator SVG", href: "/products-svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG High Efficiency", href: "/products-asvg", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
   ];
 const relatedCases = [
-    { name: "Saudi Industrial Plant", industry: "Manufacturing" },
-    { name: "Dubai 50MW Solar Farm", industry: "Renewable Energy" },
-    { name: "Brazil Data Center", industry: "Data Centers" }
-  ];
+  { name: "Harmonic Retrofit on a 550 A Plant Feeder — Electronics Manufacturer, Guangdong", industry: "Electronics Manufacturing", href: "/solutions/industrial" },
+  { name: "Centralised Harmonic Mitigation Across Five 2,000 kVA Transformers — Optical Component Manufacturer, Dongguan", industry: "Precision Optics Manufacturing", href: "/solutions/industrial" },
+  { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
+];
 
-const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
-const lp = (p: string) => isLocal ? '/en' + p : p;
+const lp = (p: string) => '/en' + p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -49,7 +48,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   ogType="article"
   ogTitle={article.title}
   ogDescription={article.description}
-  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  ogImage="https://en.chitek-inno.com/assets/images/index-product-ahf.webp"
   alternateLangs={['zh', 'en', 'es', 'ar']}
 >
   <!-- Schema.org Article Structured Data -->
@@ -59,9 +58,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@type": "Article",
     "headline": "Industrial Active Harmonic Filter Selection Guide: Technical Specifications and Best Practices",
     "description": "A technical guide to selecting industrial active harmonic filters: market trends, key specifications, THD reduction data, and engineering best practices.",
-    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "image": "https://en.chitek-inno.com/assets/images/index-product-ahf.webp",
     "author": {"@type": "Organization","name": "CHITEK Technical Team"},
-    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://en.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-15",
     "dateModified": "2026-07-15",
     "keywords": "active harmonic filter, AHF, APF, industrial power quality, harmonic mitigation, THD reduction"
@@ -189,10 +188,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               Customer Cases</h3>
             <div class="space-y-2">
               {relatedCases.map((c) => (
-                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                <a href={lp(c.href)} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
                   <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

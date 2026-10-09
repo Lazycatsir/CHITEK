@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "三相电压不平衡：成因、代价与低压 SVG + AHF 的治理",
+  category: "技术",
+  date: "2026-09-20",
+  dateDisplay: "2026年9月20日",
+  author: "CHITEK 技术团队",
+  readTime: "5 分钟阅读",
+  description: "三相系统只在理论上平衡。本指南说明电压不平衡如何量化、负序损耗的代价、为何固定方案不够，以及低压 SVG + AHF 如何恢复平衡。",
+  keywords: ["电压不平衡", "负序", "电能质量", "SVG", "静止无功发生器", "AHF", "IEEE 519", "IGBT", "SiC", "CHITEK"]
+};
+
+const otherArticles = [
+    { title: "什么是有源电力滤波器？", category: "技术", href: "/news/what-is-an-active-harmonic-filter", color: "orange" },
+    { title: "什么是谐波？", category: "技术", href: "/news/what-are-harmonics-and-why-they-matter", color: "orange" },
+    { title: "什么是 THDi？", category: "技术", href: "/news/what-is-thdi-and-how-does-it-happen", color: "orange" }
+  ];
+const relatedProducts = [
+    { name: "有源电力滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+    { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+  ];
+const relatedCases = [
+    { name: "沙特工业工厂", industry: "制造业" },
+    { name: "巴西数据中心", industry: "数据中心" },
+    { name: "迪拜 50MW 光伏电站", industry: "可再生能源" }
+  ];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "三相电压不平衡：成因、代价与低压 SVG + AHF 的治理",
+    "description": "三相系统只在理论上平衡。本指南说明电压不平衡如何量化、负序损耗的代价、为何固定方案不够，以及低压 SVG + AHF 如何恢复平衡。",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": {"@type": "Organization","name": "CHITEK 技术团队"},
+    "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://chitek-inno.com/assets/images/logo.webp"}},
+    "datePublished": "2026-09-20",
+    "dateModified": "2026-09-20",
+    "keywords": "电压不平衡, 负序, 电能质量, SVG, 静止无功发生器, AHF, IEEE 519, IGBT, SiC, CHITEK"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <!-- Article Header -->
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">&middot;</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Article Content + Sidebar -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <!-- Featured Image -->
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-7.webp" alt="三相电压不平衡：成因、代价与低压 SVG + AHF 的治理" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+
+<p class="text-text-mid text-lg leading-relaxed mb-6">当三相电压幅值相等且互差 120&deg; 时，三相系统处于平衡。但在实际工厂中——大功率单相负载、电弧炉、整流器、馈线阻抗不均——这一理想被打破。结果是负序电流，它使电机发热、变压器降容并使波形畸变。本文讲述其成因、代价，以及为何低压（LV）SVG + AHF 是动态治理方案。</p>
+<h2 id="how-unbalance-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">不平衡如何量化</h2>
+<p class="text-text-mid leading-relaxed mb-6">标准指标（NEMA MG-1 / IEC 60034）用百分比表示电压不平衡度：</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">电压不平衡度% = (偏离平均相电压的最大值) / (平均相电压) &times; 100%</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">通常系统在高于约 <strong>1&ndash;3%</strong> 时视为不平衡。IEC 61000-3-13 给出了可接受的限值。</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">主要成因</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>负载分配不均</strong>——三相负载不平衡。</li>
+  <li><strong>大功率单相负载</strong>——单相上的加热器、焊机、电动汽车充电桩取流过大。</li>
+  <li><strong>线路不对称</strong>——阻抗不均或线路结构不对称，在长馈线上更严重。</li>
+  <li><strong>设备故障</strong>——变压器损坏或连接不良。</li>
+  <li><strong>分布式发电</strong>——光伏或储能的不对称注入会使薄弱母线不平衡。</li>
+</ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">代价何在</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>电机效率下降</strong>——负序电流产生反向旋转磁场；1% 的电压不平衡可使电机温度升高约 5&ndash;10%。</li>
+  <li><strong>设备过热</strong>——额外损耗加速老化、提高故障风险。</li>
+  <li><strong>能耗增加</strong>——不平衡电压抬高系统损耗与电费。</li>
+  <li><strong>电压波动</strong>——不平衡会加剧其它负载上的闪变。</li>
+</ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为何固定方案不够</h2>
+<p class="text-text-mid leading-relaxed mb-6">负载平衡（重新布线）与自动电压调节器（AVR）有帮助，但缓慢或依赖人工。投切电容柜能校正平均 PF，却无法逐相再平衡或跟踪摆动的负载——还存在谐振风险。</p>
+<h2 id="how-an-lv-svg-ahf-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">低压 SVG + AHF 如何治理</h2>
+<p class="text-text-mid leading-relaxed mb-6">静止无功发生器（SVG）——基于高频 IGBT 的电压源换流器——<strong>逐相</strong>独立注入或吸收无功电流，以再平衡电压并将 PF 保持在接近 1：亚周波（<strong>&lt; 1 ms</strong>）响应、连续 <strong>&plusmn;1%</strong> 调节、PF 维持 <strong>0.99+</strong>。它能抵消固定电容柜无法触及的负序分量。</p>
+<p class="text-text-mid leading-relaxed mb-6">有源电力滤波器（AHF）则消除非线性负载叠加其上的 5、7、11、13 次畸变：</p>
+<blockquote class="border-l-4 border-brand-orange pl-4 italic text-text-mid my-6">i_c* = i_L &minus; i_s(基波)</blockquote>
+<p class="text-text-mid leading-relaxed mb-6">由 15&ndash;20 kHz 开关的桥式电路合成，其在 <strong>&lt; 1 ms</strong> 内跟踪，将 THDi 从 <strong>30%+ 一次拉低到 &lt; 5%</strong>。二者结合，AHF + SVG 随负载变化提供连续、自适应的三相平衡——无需固定调谐，无谐振风险。</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 与 SiC</h2>
+<p class="text-text-mid leading-relaxed mb-6">常规低压 AHF 与 SVG 采用结温上限约 <strong>150 &deg;C</strong> 的 IGBT，开关频率通常低于 <strong>20 kHz</strong>。迁移到 SiC MOSFET（<strong>200 &deg;C</strong> 结温、击穿场强约 <strong>10&times;</strong>、开关频率 <strong>2&ndash;3&times;</strong>、开关损耗约低 <strong>50%</strong>）可拓宽控制带宽并缩小柜体。这正是 CHITEK 低压 AHF + SVG 平台的构建方向。</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<ol class="list-decimal text-text-mid leading-relaxed mb-6 pl-5 space-y-2">
+  <li>在 PCC 处测量完整工况周期的相电压与电流，找出最严重的不平衡。</li>
+  <li>将 SVG/AHF 装在不平衡的馈线上，靠近问题负载。</li>
+  <li>投运前审查电容柜是否存在谐振与失谐。</li>
+  <li>检查弱电网裕量，并按最严重跌落工况选型。</li>
+  <li>为后续新增单相负载预留 15&ndash;25% 裕量。</li>
+</ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">典型应用场景</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed">
+  <li><strong>电动汽车充电场站</strong>——单相充电桩群使母线不平衡；SVG 逐相再平衡。</li>
+  <li><strong>电弧炉与钢厂</strong>——剧烈的无功摆动且不平衡；AHF + SVG 使其稳定。</li>
+  <li><strong>单/三相混合负载的工商业工厂</strong>——组合装置降低发热与 PF 罚款。</li>
+</ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">小结</h2>
+<p class="text-text-mid leading-relaxed mb-6">电压不平衡是固定电容无法解决的负序问题，它悄悄侵蚀电机与变压器的寿命。低压 <strong>AHF + SVG</strong> 组合在源头自适应地恢复平衡与波形质量。CHITEK 低压 AHF + SVG 平台正是以这种先测量的原则进行选型的。</p>
+<p class="text-text-mid leading-relaxed mb-6">你在 PCC 处的相电压不平衡度是多少——哪一相承担了额外负载？</p>
+
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Author & Share -->
+        <div class="mt-12 pt-8 border-t border-border-light">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
+              <div>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">{article.readTime}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-text-muted">分享：</span>
+              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="分享">&#x2197;</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <!-- Other Articles -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Products -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand-orange shrink-0">
+                      <path d={product.icon}/>
+                    </svg>
+                    <span class="text-sm font-semibold text-text-dark leading-snug">{product.name}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Customer Cases -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((c) => (
+                <div class="p-2.5 bg-white rounded-lg border border-border-light">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{c.name}</div>
+                  <div class="text-xs text-text-muted mt-0.5">{c.industry}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
