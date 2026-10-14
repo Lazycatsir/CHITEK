@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
+import { getHreflang } from '../../../i18n/index';
 
 const article = {
   title: "SVG vs bancos de condensadores conmutados: por qué el VAR dinámico supera la sintonía fija",
   category: "Tecnología",
   date: "2026-07-19",
   dateDisplay: "19 jul 2026",
-  author: "Equipo Técnico CHITEK",
+  author: "Equipo Técnico de CHITEK",
   readTime: "5 min de lectura",
   description: "La corrección de factor de potencia en el bus LV suele empezar con un banco de condensadores —pero las plantas modernas tienen cargas variables. Este artículo cuantifica dónde diverge un SVG del banco fijo y por qué importa para cumplimiento y pérdidas.",
   keywords: [    "SVG",
@@ -31,13 +32,15 @@ const relatedProducts = [
     { name: "SiC-AHF/SVG Alta Eficiencia", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
 ];
 const relatedCases = [
-    { name: "Centro de datos en Brasil", industry: "Centros de datos" },
-    { name: "Planta industrial en Arabia Saudita", industry: "Manufactura" },
-    { name: "Granja solar de 50 MW en Dubái", industry: "Energía renovable" }
+  { name: "Optimización de la Calidad de Energía en Granja Solar en Dubái", industry: "Energía Renovable", href: "/es/news/solar-farm-dubai" },
+  { name: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", industry: "Fabricación", href: "/es/news/saudi-arabia-standards" },
+  { name: "Estudio de Caso: AHF de 300A Restaura Bancos de Capacitores en un Centro de Datos", industry: "Centros de Datos", href: "/es/news/blog-data-center-ahf-case-study" }
 ];
 
-const lp = (p) => '/es' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p) => isLocal ? '/es' + p : p;
 
+const SHARE_URL = getHreflang('es', Astro.url.pathname);
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`}
@@ -57,7 +60,7 @@ const lp = (p) => '/es' + p;
     "headline": "SVG vs bancos de condensadores conmutados: por qué el VAR dinámico supera la sintonía fija",
     "description": "La corrección de factor de potencia en el bus LV suele empezar con un banco de condensadores —pero las plantas modernas tienen cargas variables. Este artículo cuantifica dónde diverge un SVG del banco fijo y por qué importa para cumplimiento y pérdidas.",
     "image": "https://es.chitek-inno.com/assets/images/news/news-img-4.webp",
-    "author": {"@type": "Organization","name": "Equipo Técnico CHITEK"},
+    "author": {"@type": "Organization","name": "Equipo Técnico de CHITEK"},
     "publisher": {"@type": "Organization","name": "CHITEK INNOPOWER","logo": {"@type": "ImageObject","url": "https://es.chitek-inno.com/assets/images/logo.webp"}},
     "datePublished": "2026-07-19",
     "dateModified": "2026-07-19",
@@ -140,13 +143,21 @@ const lp = (p) => '/es' + p;
             <div class="flex items-center gap-3">
               <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-bold text-lg">C</div>
               <div>
-                <p class="font-semibold text-text-dark">Equipo Técnico CHITEK</p>
-                <p class="text-sm text-text-muted">5 min de lectura</p>
+                <p class="font-semibold text-text-dark">{article.author}</p>
+                <p class="text-sm text-text-muted">Publicado {article.dateDisplay}</p>
               </div>
             </div>
             <div class="flex items-center gap-2">
               <span class="text-sm text-text-muted">Compartir:</span>
-              <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center text-sm" aria-label="Share">&#x2197;</button>
+              <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+  <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+</a>
+<a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+  <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+</a>
+<a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+  <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
             </div>
           </div>
         </div>

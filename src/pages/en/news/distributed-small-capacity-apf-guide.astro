@@ -14,7 +14,8 @@ const article = {
   keywords: ["APF", "Active Power Filter", "Distributed", "Small Capacity", "Harmonic Mitigation", "Active Filter", "IGBT", "Silicon Carbide", "SiC", "CHITEK"]
 };
 
-const lp = (p: string) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 // 分享按钮用本页 canonical URL（与 <link rel="canonical"> 同源；10-08 P1-3 统一 host）
 const SHARE_URL = getHreflang('en', Astro.url.pathname);
 

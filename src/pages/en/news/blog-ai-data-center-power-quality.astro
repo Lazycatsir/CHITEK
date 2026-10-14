@@ -40,7 +40,8 @@ const relatedCases = [
   { name: "LED Lighting Harmonic & Neutral Overload Retrofit — Wholesale Mall, Guangzhou", industry: "Commercial Building", href: "/solutions/commercial" },
 ];
 
-const lp = (p: string) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 

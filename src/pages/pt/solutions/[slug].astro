@@ -1,0 +1,470 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { dataMap, heroImages } from '../../../data/ptSolutions.js';
+import { solutionMeta } from '../../../data/ptSolutionMeta.js';
+import { LOCALE_DOMAIN } from '../../../i18n/index';
+
+export function getStaticPaths() {
+  return solutionMeta.map((m) => ({ params: { slug: m.slug }, props: { meta: m } }));
+}
+
+const { meta } = Astro.props;
+const d = dataMap[meta.id];
+const others = solutionMeta.filter((m) => m.id !== meta.id);
+
+const LANG = 'pt';
+const HOST = LOCALE_DOMAIN[LANG]; // https://pt.chitek-inno.com
+const PREFIX = '/pt';
+const PRODUCTS_PREFIX = PREFIX;
+const canonical = `${HOST}/solutions/${meta.slug}`;
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: `${HOST}/` },
+    { '@type': 'ListItem', position: 2, name: 'Soluções', item: `${HOST}/solutions` },
+    { '@type': 'ListItem', position: 3, name: meta.navLabel, item: canonical },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: meta.faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+// GEO: freshness signal. Pages updated within 90 days are cited roughly 2.4x more often
+// than pages older than 12 months, so publish the dates as machine-readable data.
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: meta.title,
+  description: meta.description,
+  url: canonical,
+  inLanguage: 'pt',
+  datePublished: meta.published,
+  dateModified: meta.updated,
+  isPartOf: { '@type': 'WebSite', name: 'CHITEK INNOPOWER', url: `${HOST}/` },
+  about: {
+    '@type': 'Thing',
+    name: `${meta.navLabel}: soluções de qualidade de energia (AHF e SVG)`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'CHITEK INNOPOWER',
+    url: HOST,
+  },
+};
+
+const updatedLabel = new Date(meta.updated).toLocaleDateString('pt-BR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+// Equipment installed → 对应产品族（图片 + 名称 + 链接；与 Nav 一致用 /pt/ 路径）
+function deviceInfo(product) {
+  const p = String(product || '').trim();
+  const hasAHF = /\bAHF\b/i.test(p);
+  const hasSVG = /\bSVG\b/i.test(p) && !/\bASVG\b/i.test(p);
+  const hasASVG = /\bASVG\b/i.test(p);
+  if (hasAHF && hasSVG) return { href: '/pt/products', label: 'AHF + SVG combinados', img: '/assets/images/index-product-ahf.webp' };
+  if (hasASVG) return { href: '/pt/products-asvg', label: 'Gerador avançado de var estático (ASVG)', img: '/assets/images/products-asvg-4u-wall-mounted.webp' };
+  if (hasAHF) return { href: '/pt/products', label: 'Filtro ativo de harmônicos (AHF)', img: '/assets/images/index-product-ahf.webp' };
+  if (hasSVG) return { href: '/pt/products-svg', label: 'Gerador estático de var (SVG)', img: '/assets/images/index-product-svg.webp' };
+  if (/^SPC/i.test(p)) return { href: null, label: 'Compensador estático de potência (SPC)', img: null };
+  if (/cloud monitor/i.test(p)) return { href: null, label: 'Plataforma de monitoramento remoto', img: null };
+  if (/pq gateway/i.test(p)) return { href: null, label: 'Gateway de conformidade de rede', img: null };
+  return { href: null, label: null, img: null };
+}
+
+// 子页级 Related products 区（other industries 上方）：固定并列展示全产品族，作产品线导航入口
+// 命名/图片对齐产品页具体型号卡（首卡）。AHF/SVG/ASVG 共用同一外壳平台 -> 产品页三家族首卡均用 products-ahf-sic.webp，故此处三卡同图（外壳一致，非bug）
+const relatedProducts = [
+  { family: 'AHF',  href: '/pt/products',  label: 'Filtro ativo de harmônicos SiC AHF com MOSFET de carbeto de silício',       img: '/assets/images/products-ahf-sic.webp' },
+  { family: 'SVG',  href: '/pt/products-svg',  label: 'Gerador estático de var SiC SVG com MOSFET de carbeto de silício',         img: '/assets/images/products-ahf-sic.webp' },
+  { family: 'ASVG', href: '/pt/products-asvg', label: 'Gerador avançado de var estático SiC ASVG com MOSFET de carbeto de silício', img: '/assets/images/products-ahf-sic.webp' },
+];
+---
+
+<BaseLayout title={meta.title} description={meta.description} lang="pt" alternates={false}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
+
+  <main class="mt-[72px]">
+
+    <section class="relative min-h-[46vh] flex flex-col justify-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src={heroImages[meta.id]} alt="" class="object-cover w-full h-full" fetchpriority="high" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
+      </div>
+      <div class="relative z-10 w-full px-[clamp(24px,8vw,160px)] pb-10 pt-16">
+        <nav class="text-white/70 text-[13px] tracking-[0.08em] mb-3" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/pt/" class="hover:text-brand-orange">Início</a></li>
+            <li class="text-white/40" aria-hidden="true">/</li>
+            <li><a href="/pt/solutions" class="hover:text-brand-orange">Soluções</a></li>
+            <li class="text-white/40" aria-hidden="true">/</li>
+            <li class="text-white font-medium" aria-current="page">{meta.navLabel}</li>
+          </ol>
+        </nav>
+        <h1 class="text-[clamp(28px,3.5vw,56px)] font-bold leading-tight text-white font-barlow-condensed max-w-4xl">
+          {meta.h1}
+        </h1>
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14">
+      <div class="max-w-4xl">
+        <p class="text-[clamp(15px,1.15vw,19px)] text-text-primary leading-relaxed font-medium border-l-[3px] border-brand-orange pl-5">
+          {meta.answer}
+        </p>
+        <p class="mt-5 text-[clamp(14px,1.05vw,17px)] text-text-secondary leading-relaxed">
+          {meta.intro}
+        </p>
+        <p class="mt-5 text-[12px] text-text-muted">
+          Revisado pela equipe de engenharia de qualidade de energia da CHITEK &middot; Última atualização
+          <time datetime={meta.updated}>{updatedLabel}</time>
+        </p>
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] pb-10 lg:pb-14">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        {meta.comparison.heading}
+      </h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <p class="max-w-4xl text-[14px] text-text-secondary leading-relaxed mb-6">{meta.comparison.intro}</p>
+
+      <div class="overflow-x-auto max-w-5xl">
+        <table class="w-full border-collapse text-left text-[13px]">
+          <thead>
+            <tr class="bg-bg-alt-1">
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed">Critério de comparação</th>
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed">AHF (Filtro ativo de harmônicos)</th>
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed">SVG (Gerador estático de var)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {meta.comparison.rows.map((r) => (
+              <tr>
+                <th scope="row" class="border border-border-card px-4 py-3 font-medium text-text-primary align-top bg-bg-alt-1/50">{r.aspect}</th>
+                <td class="border border-border-card px-4 py-3 text-text-secondary align-top leading-relaxed">{r.ahf}</td>
+                <td class="border border-border-card px-4 py-3 text-text-secondary align-top leading-relaxed">{r.svg}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-[12px] text-text-muted max-w-4xl">{meta.comparison.note}</p>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] pb-10 lg:pb-14">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        Problemas típicos de qualidade de energia
+      </h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+
+      <div class="space-y-10">
+        {d.painPoints.map((scene) => (
+          <div>
+            <h3 class="text-[clamp(17px,1.5vw,24px)] font-bold text-brand-navy font-barlow-condensed">
+              {scene.sceneName}
+            </h3>
+            <p class="text-[13px] text-text-muted mt-1">{scene.sceneSubtitle}</p>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-[clamp(12px,2vw,32px)]">
+              {scene.cards.map((card) => (
+                <article class="bg-bg-card border border-border-card rounded-xl p-[clamp(14px,1.5vw,24px)]">
+                  <h4 class="text-[clamp(14px,1.2vw,18px)] font-semibold text-text-primary font-barlow-condensed">
+                    {card.title}
+                  </h4>
+                  <p class="mt-1.5 text-[13px] text-text-secondary leading-relaxed">{card.desc}</p>
+                  <p class="mt-3 text-[20px] font-bold text-electric-orange leading-none">{card.metric}</p>
+                  <p class="mt-1 text-[12px] text-text-muted">{card.metricLabel}</p>
+                  <ul class="mt-4 space-y-2">
+                    {card.consequences.map((c) => (
+                      <li class="flex items-start gap-2 text-[12px] text-text-secondary leading-relaxed">
+                        <span class="mt-[6px] w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
+                        <span><span class="font-semibold text-text-primary">{c.title}</span> — {c.sub}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14 bg-bg-alt-1 solution-case-section">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        Estudos de caso: {meta.navLabel}
+      </h2>
+      <div class="mt-3 mb-4 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <p class="max-w-4xl text-[14px] text-text-secondary leading-relaxed mb-6">
+        Cada caso apresentado a seguir segue o mesmo formato: o que havia no local, o que foi medido no reconhecimento antes da seleção, o que foi instalado e o que os testes de aceitação mostraram. Os projetos marcados como
+        <em class="not-italic font-semibold text-text-primary">Configuração típica</em>
+        são ilustrativos: a sua capacidade parte sempre do reconhecimento no local, não de uma tabela.
+      </p>
+
+      {d.cases.length > 1 && (
+        <div class="flex flex-wrap gap-2 mb-8" role="tablist" aria-label={`${meta.navLabel} estudos de caso`}>
+          {d.cases.map((c, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`case-tab-${i}`}
+              aria-controls={`case-panel-${i}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class:list={[
+                'case-tab inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border text-[13px] font-medium text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange',
+                i === 0 ? 'border-brand-orange bg-brand-orange text-white' : 'border-border-card bg-bg-card text-text-primary hover:border-brand-orange hover:text-brand-orange',
+                c.trend === '' && 'is-illustrative',
+              ]}
+              data-case-index={i}
+            >
+              <span class="case-tab-label">{c.tabLabel || c.industry}</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div class="max-w-[1440px] max-md:max-w-full mx-auto">
+        {d.cases.map((c, i) => (
+          <article
+            id={`case-panel-${i}`}
+            role="tabpanel"
+            aria-labelledby={`case-tab-${i}`}
+            class:list={['case-panel max-w-none mx-auto', i > 0 && 'hidden']}
+            data-case-index={i}
+          >
+            <div class="bg-bg-card border border-border-card rounded-xl overflow-hidden">
+              <div class="flex flex-col md:flex-row gap-[clamp(12px,3vw,40px)] p-[clamp(16px,2vw,32px)]">
+                <div class="w-full md:w-[45%] md:max-w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0">
+                  <img src={c.image} alt={c.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="flex-1">
+                  <p class="inline-flex px-3 py-1 rounded text-[12px] font-semibold {c.colorClass} {c.bgClass} mb-3">
+                    {c.industry}
+                  </p>
+                  <h3 class="text-[clamp(17px,1.6vw,26px)] font-semibold text-text-primary font-barlow-condensed">
+                    {c.title}
+                  </h3>
+                  <p class="mt-2 text-[14px] text-text-secondary leading-relaxed font-medium">{c.highlight}</p>
+
+                  {c.site && (
+                    <>
+                      <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Contexto</h4>
+                      <p class="mt-1.5 text-[13px] text-text-secondary leading-relaxed">{c.site}</p>
+                    </>
+                  )}
+
+                  {c.harmonics && c.harmonics.length > 0 && (
+                    <>
+                      <h4 class="mt-5 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">O que medimos</h4>
+                      <ul class="mt-2 space-y-1.5">
+                        {c.harmonics.map((h) => (
+                          <li class="flex items-start gap-2 text-[13px] text-text-secondary leading-relaxed">
+                            <span class="mt-[6px] w-1.5 h-1.5 rounded-full bg-brand-navy flex-shrink-0"></span>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Equipamentos instalados</h4>
+                  <ul class="mt-2 space-y-2">
+                    {c.solution.map((s) => {
+                      const di = deviceInfo(s.product);
+                      return (
+                      <li class="relative flex gap-3 bg-bg-alt-1 rounded-lg px-4 py-3 text-[13px] text-text-secondary hover:bg-bg-card transition-colors">
+                        {di.img && (
+                          <img src={di.img} alt={s.product} class="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-md shrink-0" />
+                        )}
+                        <div class="min-w-0">
+                          {di.href ? (
+                            <a href={di.href} class="font-bold text-electric-orange hover:underline after:absolute after:inset-0 after:content-['']">{s.product}</a>
+                          ) : (
+                            <span class="font-bold text-electric-orange">{s.product}</span>
+                          )}
+                          <span class="text-text-muted"> × {s.qty} unidades</span>
+                          {di.label && <span class="block text-[12px] text-text-muted mt-0.5">{di.label}</span>}
+                          <span class="block text-[12px] text-text-muted mt-0.5">{s.use}</span>
+                        </div>
+                      </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="px-[clamp(16px,2vw,32px)] pb-[clamp(16px,2vw,32px)]">
+                <h4 class="text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Resumo do projeto</h4>
+                <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">{c.overview}</p>
+
+                {
+                  c.trend ? (
+                    <>
+                      <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Antes / Depois</h4>
+                      <p class="mt-2 text-[22px] font-bold text-brand-orange leading-tight">{c.trend}</p>
+                    </>
+                  ) : (
+                    <>
+                      <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Por que não há dados antes/depois aqui</h4>
+                      <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">{c.note}</p>
+                    </>
+                  )
+                }
+
+                <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Resultados principais</h4>
+                <ul class="mt-2 space-y-1.5">
+                  {c.results.map((r) => (
+                    <li class="flex items-start gap-2 text-[13px] text-text-secondary leading-relaxed">
+                      <span class="mt-[6px] w-1.5 h-1.5 rounded-full bg-commercial-green flex-shrink-0"></span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {c.limitations && (
+                  <>
+                    <h4 class="mt-6 text-[12px] font-bold text-brand-navy font-barlow-condensed tracking-[0.06em] uppercase">Escopo e limitações</h4>
+                    <p class="mt-2 text-[13px] text-text-secondary leading-relaxed bg-bg-alt-1 rounded-lg px-4 py-3">{c.limitations}</p>
+                  </>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        Perguntas frequentes
+      </h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <div class="max-w-4xl space-y-6">
+        {meta.faq.map((f) => (
+          <div>
+            <h3 class="text-[clamp(15px,1.3vw,20px)] font-semibold text-text-primary font-barlow-condensed">{f.q}</h3>
+            <p class="mt-2 text-[14px] text-text-secondary leading-relaxed">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- RELATED_PRODUCTS_SECTION -->
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14">
+      <h2 class="text-[clamp(19px,1.8vw,28px)] font-bold text-brand-navy font-barlow-condensed">
+        Produtos relacionados
+      </h2>
+      <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {relatedProducts.map((p) => (
+          <a href={p.href} class="flex items-center gap-4 bg-bg-card border border-border-card rounded-xl p-4 hover:border-brand-orange transition-colors">
+            <img src={p.img} alt={p.label} class="w-16 h-16 object-contain rounded-md shrink-0" />
+            <div class="min-w-0">
+              <p class="text-[15px] font-semibold text-text-primary font-barlow-condensed">{p.label}</p>
+              <p class="mt-0.5 text-[12px] text-brand-orange font-medium">Saiba mais →</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14 bg-bg-alt-1">
+      <h2 class="text-[clamp(19px,1.8vw,28px)] font-bold text-brand-navy font-barlow-condensed">
+        Soluções para outros setores
+      </h2>
+      <div class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {others.map((o) => (
+          <a
+            href={`/pt/solutions/${o.slug}`}
+            class="block bg-bg-card border border-border-card rounded-xl p-5 hover:border-brand-orange transition-colors"
+          >
+            <p class="text-[15px] font-semibold text-text-primary font-barlow-condensed">{o.navLabel}</p>
+            <p class="mt-1 text-[13px] text-text-secondary leading-relaxed">{o.h1}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-12 lg:py-16 text-center">
+      <h2 class="text-[clamp(19px,1.8vw,28px)] font-bold text-brand-navy font-barlow-condensed">
+        Obtenha uma avaliação de qualidade de energia para sua instalação
+      </h2>
+      <p class="mt-3 text-[14px] text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        Cada projeto desta página começou com um levantamento medido. Envie-nos o seu diagrama unifilar e a sua lista de cargas e indicaremos o que mediríamos primeiro.
+      </p>
+      <a
+        href="/pt/contact"
+        class="inline-block mt-6 px-8 py-3 rounded-lg bg-brand-orange text-white font-semibold text-[15px] hover:bg-electric-orange transition-colors"
+      >
+        Fale com nossos engenheiros
+      </a>
+    </section>
+
+  </main>
+  <script>
+    // ── Case study tabs ──
+    // Progressive enhancement: with JS off every panel is in the DOM, so the page
+    // still reads end to end. Only the active panel is hidden once JS runs.
+    (function () {
+      'use strict';
+      var section = document.querySelector('.solution-case-section');
+      if (!section) return;
+      if (section.getAttribute('data-tabs-ready') === '1') return;
+      section.setAttribute('data-tabs-ready', '1');
+
+      var tabs = section.querySelectorAll('.case-tab');
+      var panels = section.querySelectorAll('.case-panel');
+      if (!tabs.length || !panels.length) return;
+
+      function activate(idx) {
+        tabs.forEach(function (t) {
+          var on = parseInt(t.getAttribute('data-case-index'), 10) === idx;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.classList.toggle('border-brand-orange', on);
+          t.classList.toggle('bg-brand-orange', on);
+          t.classList.toggle('text-white', on);
+          t.classList.toggle('border-border-card', !on);
+          t.classList.toggle('bg-bg-card', !on);
+          t.classList.toggle('text-text-primary', !on);
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle('hidden', parseInt(p.getAttribute('data-case-index'), 10) !== idx);
+        });
+      }
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          activate(parseInt(t.getAttribute('data-case-index'), 10));
+        });
+      });
+
+      // Arrow-key navigation between tabs, per the tablist pattern.
+      section.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var active = document.activeElement;
+        if (!active || !active.classList.contains('case-tab')) return;
+        var cur = parseInt(active.getAttribute('data-case-index'), 10);
+        var next = e.key === 'ArrowRight' ? cur + 1 : cur - 1;
+        if (next < 0) next = tabs.length - 1;
+        if (next >= tabs.length) next = 0;
+        e.preventDefault();
+        activate(next);
+        tabs[next].focus();
+      });
+
+      activate(0);
+    })();
+  </script>
+</BaseLayout>

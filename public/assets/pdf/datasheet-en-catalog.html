@@ -1,0 +1,3416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHITEK 产品目录 — APF/SVG 系列（英文版 · 23 页）</title>
+<!--
+  ================================================================
+  CHITEK · APF/SVG 系列产品目录（英文版 · 串联合集）
+  ----------------------------------------------------------------
+  由 12 个单页【逐字节原样串联】而成（首节 = 官方画册外封，无页码）。每页仍是一个独立的
+  section.sheet（426x291mm = 1610x1100 csspx @96dpi），打印时每页自动分页。
+
+  >>> 为什么每节的 CSS 都带 [data-cat=…] 前缀 <<<
+  这些单页有 4 套不同的 CSS，而且**同名选择器声明不同**（冲突 14 条），
+  例如 .ptitle 在 datasheet 是 42px、cover 是 71px、monitor 是 35.5px。
+  若把 4 份 CSS 直接堆在一起，后加载的会覆盖先前的，页面必崩。
+  所以每节加 data-cat 属性、该节那套 CSS 的每条选择器都加 [data-cat=…] 前缀，
+  作用域天然隔离；html / body / * 交给文件开头的全局段。
+  ⚠️ 刻意**不加 wrapper** —— 一包 wrapper，section.sheet:last-child 就失配，
+     打印末尾会多一张空白页。
+
+  >>> 维护方式 <<<
+  不要手改本文件。任一页更新后重跑：
+      python jobs\datasheet-zh\_mk_product.py     （重生成各机型页）
+      python jobs\datasheet-zh\_mk_catalog.py     （重新串联本目录）
+
+  目录顺序（页码）：
+       1. cover2         --（无页码）   ---  datasheet-en-cover-2.html
+       2. profile        01-02   ---  datasheet-en-profile.html
+       3. cover          03-04   ---  datasheet-en-cover.html
+       4. ultraslim      05-06   ---  datasheet-en-2.html
+       5. distributed    07-08   ---  datasheet-en-distributed.html
+       6. antipollution  09-10   ---  datasheet-en-antipollution.html
+       7. sic            11-12   ---  datasheet-en-sic.html
+       8. 208v           13-14   ---  datasheet-en-208v.html
+       9. 480v           15-16   ---  datasheet-en-480v.html
+      10. 800v           17-18   ---  datasheet-en-800v.html
+      11. aircooling     19-20   ---  datasheet-en-aircooling.html
+      12. monitor        21-22   ---  datasheet-en-monitor.html
+  ================================================================
+-->
+<style>
+  /* ===== 全局（所有页共用；各节私有规则一律带 [data-cat=…] 前缀）===== */
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{
+    background:#9aa0a6;
+    font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* 节外图标库（body 直接子级的 svg，承载 symbol 定义）必须显式归零尺寸：
+     没有内联 style="position:absolute" 的那种（例：monitor 的 svg.sprite）会退化成
+     inline SVG，被 line-height 撑成 150px，把**后面所有节**整体下推 154px。
+     它自己的 .sprite{position:absolute;width:0;height:0} 被作用域化成
+     [data-cat="monitor"] .sprite，而节外元素没有 data-cat 祖先 ⇒ 匹配不到（2026-10-14 实测）。 */
+  body > svg{ position:absolute; width:0; height:0; overflow:hidden; }
+  @media print{
+    html,body{ background:#fff; }
+    section.sheet{ break-after:page; page-break-after:always; }
+    section.sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+
+  /* ========== 来源：datasheet-en-cover-2.html（以下均为 [data-cat] 作用域规则） ========== */
+
+  [data-cat="cover2"]{
+    --w: 1610px;
+    --h: 1100px;
+
+    
+    --split:    805px;      
+    --photo-h:  617.25px;   
+    --band-top: 521.6px;
+    --band-h:   95.65px;
+
+    
+    --brand:     #E8531F;
+
+    
+    --ink:       #1a1a1a;
+    --ink-2:     #3d3d3d;   
+    --label:     #6a6a6a;   
+    --value:     #8c8d91;   
+    --sub-name:  #8a8a8a;   
+    --logo-sub:  #888888;   
+
+    
+    --font-ui:     "Barlow","Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --font-series: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+  [data-cat="cover2"] *{ margin:0; padding:0; box-sizing:border-box; }
+  [data-cat="cover2"].sheet, [data-cat="cover2"].sheet{-webkit-font-smoothing:antialiased}
+
+  [data-cat="cover2"].sheet{
+    width:var(--w); height:var(--h);
+    background:#fff; color:var(--ink);
+    position:relative; overflow:hidden;
+    margin:24px auto;
+  }
+
+  
+  [data-cat="cover2"] .photo{
+    position:absolute; left:var(--split); top:0;
+    width:calc(var(--w) - var(--split)); height:var(--photo-h);
+    overflow:hidden;
+  }
+  [data-cat="cover2"] .photo img{ display:block; width:100%; height:100%; object-fit:cover; }
+
+  
+  [data-cat="cover2"] .photo-ph{
+    position:absolute; inset:0; display:block;
+    background:linear-gradient(180deg,
+      #6e9ac7 0%,   #83a9cf 5.5%, #9cb8d6 10.8%, #bccadb 16.3%,
+      #cee0e1 21.7%, #e1e1e2 27.2%, #eee5de 32.6%, #f6ddc8 38.1%,
+      #f2be99 43.4%, #c3897e 48.9%, #5f667b 54.3%, #4a5169 59.8%,
+      #48546f 65.3%, #58627d 70.6%, #305475 76.1%, #243044 81.5%,
+      #1d2938 90%,  #18222e 100%);
+  }
+
+  
+  [data-cat="cover2"] .band{
+    position:absolute; left:var(--split); top:var(--band-top);
+    width:calc(var(--w) - var(--split)); height:var(--band-h);
+    background:rgba(232,83,31,.75);
+  }
+  [data-cat="cover2"] .b-rule{                      
+    position:absolute; left:249.9px; top:28.4px;
+    width:1.5px; height:48.1px; background:#fff;
+  }
+  [data-cat="cover2"] .b-tag{                       
+    position:absolute; left:286.8px; top:52.2px;
+    font-family:var(--font-series);
+    font-size:13.1px; line-height:1; font-weight:400;
+    color:#fff;
+  }
+
+  
+  [data-cat="cover2"] .lk-svg{ display:block; position:absolute; }
+  [data-cat="cover2"] .lk-mark-path{ fill:var(--lk-c1,var(--brand)); }
+  [data-cat="cover2"] .lk-sub-path{  fill:var(--lk-c2,var(--logo-sub)); }
+  
+  [data-cat="cover2"] .lk-svg--lg{ left:269.2px; top:392.4px; width:241px; height:55.27px; }
+  
+  [data-cat="cover2"] .lk-svg--sm{ left:64.6px; top:29.3px; width:158px; height:36.24px;
+               --lk-c1:#fff; --lk-c2:#fff; }
+
+  
+  [data-cat="cover2"] .chev{
+    position:absolute; left:0; top:499.8px;
+    width:var(--split); height:118px; display:block;
+  }
+
+  
+  [data-cat="cover2"] .contact{ position:absolute; left:105.5px; top:846.5px; }
+  [data-cat="cover2"] .c-name{
+    font-family:var(--font-series);
+    font-size:19.3px; line-height:1; font-weight:600;
+    color:var(--ink-2);
+  }
+  [data-cat="cover2"] .c-rows{ margin-top:14.5px; }
+  [data-cat="cover2"] .c-row{ display:flex; align-items:center; height:32.5px; }
+  [data-cat="cover2"] .c-row .ic{ flex:0 0 16px; width:16px; height:16px; margin-left:1px; }
+  [data-cat="cover2"] .c-row .ic svg{ display:block; width:100%; height:100%; }
+  [data-cat="cover2"] .c-row .tx{
+    margin-left:9.1px;
+    font-family:var(--font-series);
+    font-size:17px; line-height:1; font-weight:400;
+    color:var(--value); white-space:nowrap;
+  }
+  [data-cat="cover2"] .c-row .lb{ font-weight:600; color:var(--label); }
+
+  
+  [data-cat="cover2"] .rtitle{
+    position:absolute; left:872.8px; top:715.8px;
+    font-family:var(--font-ui);
+    font-size:52.2px; line-height:63.7px; font-weight:800;
+    letter-spacing:0; text-transform:uppercase;
+    color:var(--brand);
+  }
+  [data-cat="cover2"] .rtitle span{ display:block; }
+
+  
+  [data-cat="cover2"] .r-name{
+    position:absolute; left:873.8px; top:963.5px;
+    font-family:var(--font-series);
+    font-size:15.3px; line-height:1; font-weight:400;
+    color:var(--sub-name); white-space:nowrap;
+  }
+
+  
+  @page{ size: 426mm 291mm; margin: 0; }
+  @media print{
+    [data-cat="cover2"].sheet{ margin:0; width:426mm; height:291mm;
+            break-after:page; page-break-after:always; }
+    [data-cat="cover2"].sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+
+  /* ========== 来源：datasheet-en-profile.html（以下均为 [data-cat] 作用域规则） ========== */
+
+  [data-cat="profile"]{
+    --w: 1610px;              
+    --h: 1100px;              
+
+    
+    --pad-x: 74px;
+    --pad-y: 54px;
+    --pad-b: 74px;
+
+    --ink:      #1a1a1a;
+    --ink-2:    #3d3d3d;
+    --sub:      #7a7a7a;
+    --brand:    #E8531F;      
+    --body:     #6e6e6e;      
+    
+    --panel-bg: rgba(255,255,255,.80);
+    
+    --rule-soft:#C4C4C4;
+    --hair: 0.5pt;
+
+    --font-cn: "Microsoft YaHei","PingFang SC",sans-serif;
+    --font-en: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+  [data-cat="profile"] *{ margin:0; padding:0; box-sizing:border-box; }
+
+  [data-cat="profile"].sheet, [data-cat="profile"].sheet{font-family:var(--font-en); -webkit-font-smoothing:antialiased}
+
+  
+  [data-cat="profile"].sheet{
+    width:var(--w); height:var(--h);
+    background:#fff; color:var(--ink);
+    position:relative; overflow:hidden;
+    margin:24px auto;
+    padding:var(--pad-y) var(--pad-x) var(--pad-b);
+    display:flex; flex-direction:column;
+  }
+
+  
+  [data-cat="profile"] .bgphoto{
+    position:absolute; inset:0; z-index:0;
+    background:url("images/cover-profile.jpg") center top / cover no-repeat;
+  }
+  
+  [data-cat="profile"] .veil{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(to top,
+      rgba(0,0,0,.28) 0%, rgba(0,0,0,.10) 20%, rgba(0,0,0,0) 55%);
+  }
+  
+  [data-cat="profile"] .headveil{
+    position:absolute; left:0; right:0; top:0; height:78px; z-index:1;
+    background:#fff;
+  }
+
+  
+  [data-cat="profile"] .eyebrow{
+    position:relative; z-index:2;
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--ink-2);
+    padding-bottom:9px; border-bottom:1.5px solid var(--ink);
+    margin-bottom:34px;
+  }
+  [data-cat="profile"] .eyebrow .cn{ font-family:var(--font-cn); }
+  [data-cat="profile"] .eyebrow .en{ font-family:var(--font-en); font-weight:700;
+                letter-spacing:.14em; color:var(--sub); margin-left:7px;
+                text-transform:uppercase; }
+  [data-cat="profile"] .eyebrow .pg{ font-family:var(--font-en); font-size:11px;
+                color:var(--sub); letter-spacing:.08em; }
+
+  
+  [data-cat="profile"] .claim-sm{
+    position:absolute; z-index:2; left:96px; top:758.28px;
+    font-size:22.5px; line-height:30.18px; font-weight:400;
+    color:#fff;
+  }
+  [data-cat="profile"] .claim-lg{
+    
+    position:absolute; z-index:2; left:96px; top:852.43px;
+    font-size:28px; line-height:44.45px; font-weight:700;
+    color:#fff; letter-spacing:.005em;
+  }
+
+  
+  [data-cat="profile"] .panel{
+    position:absolute; z-index:2;
+    right:var(--pad-x); top:116px;
+    width:478.81px; height:855.31px;
+    background:var(--panel-bg);   
+    padding:0 50.31px;
+    display:flex; flex-direction:column;
+  }
+  
+
+  
+  [data-cat="profile"] .p-title{
+    padding-top:48.78px;
+    
+    font-family:var(--font-en);
+    font-size:31px; line-height:1; font-weight:800;
+    letter-spacing:0;
+    color:var(--brand);
+    white-space:nowrap;
+  }
+  [data-cat="profile"] .p-sub{
+    margin-top:12.21px;
+    
+    font-size:19.5px; line-height:22.8px; font-weight:400;
+    color:var(--ink);
+  }
+  
+  [data-cat="profile"] .title-rule{
+    margin-top:14.15px;
+    border-top:1px solid var(--brand);
+  }
+  
+  [data-cat="profile"] .p-body{
+    margin-top:15.08px;
+    font-size:13.5px; line-height:18.45px; font-weight:400;
+    color:var(--body);
+  }
+  [data-cat="profile"] .p-body + .p-body{ margin-top:22px; }
+
+  
+  [data-cat="profile"] .feats{ margin-top:40.70px; display:flex; flex-direction:column; }
+  [data-cat="profile"] .feat{ display:flex; align-items:center; gap:24px; min-height:104px; }
+  
+  [data-cat="profile"] .feat + .feat{ border-top:1px solid var(--rule-soft); }
+  
+  [data-cat="profile"] .feat .ic{
+    position:relative;
+    flex:0 0 65px; width:65px; height:65px;
+    color:var(--brand);
+    display:flex; align-items:center; justify-content:center;
+  }
+  [data-cat="profile"] .feat .ic .disc{
+    position:absolute; inset:0; width:100%; height:100%; display:block;
+  }
+  [data-cat="profile"] .feat .ic > svg:not(.disc){ position:relative; display:block; }
+  [data-cat="profile"] .feat .ic .pct{
+    position:relative;
+    color:#fff; font-size:16.5px; font-weight:700; line-height:1; letter-spacing:-.01em;
+  }
+  [data-cat="profile"] .feat .ft{ min-width:0; }
+  [data-cat="profile"] .feat .ft b{
+    display:block;
+    
+    font-size:18px; line-height:1.15; font-weight:700;
+    color:var(--brand);
+  }
+  [data-cat="profile"] .feat .ft span{
+    display:block; margin-top:4.2px;
+    
+    font-size:11.5px; line-height:15px; font-weight:400;
+    color:var(--body);
+  }
+
+  
+  @page{ size: 426mm 291mm; margin: 0; }
+  @media print{
+    [data-cat="profile"].sheet{
+      margin:0;
+      width:426mm; height:291mm;
+      break-after: page; page-break-after: always;
+    }
+    [data-cat="profile"].sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+
+  /* ========== 来源：datasheet-en-cover.html（以下均为 [data-cat] 作用域规则） ========== */
+
+  [data-cat="cover"]{
+    --w: 1610px;
+    --h: 1100px;
+    --pad-x: 74px;          
+    --pad-y: 54px;          
+    --pad-b: 74px;          
+
+    
+    --split: 808px;
+
+    --ink:      #1a1a1a;
+    --ink-2:    #3d3d3d;
+    --sub:      #7a7a7a;
+    --brand:    #E8531F;
+    --divider:  #d9d9d9;
+    --toc-num:  #E8531F;
+    --toc-txt:  #4a4a4a;
+
+    
+    --on-dark:      #ffffff;
+    --on-dark-dim:  #c8ccd4;   
+    
+    --on-dark-body: #E2E7EF;
+
+    
+    --font-ui:      "Barlow","Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --font-cond:    "Barlow Semi Condensed","Barlow Condensed","Barlow","Segoe UI",Arial,sans-serif;
+    --font-heavy:   Impact,Haettenschweiler,"Arial Narrow",sans-serif;
+    --font-series:  "Segoe UI","Helvetica Neue",Arial,sans-serif;  
+  }
+
+  [data-cat="cover"] *{ margin:0; padding:0; box-sizing:border-box; }
+
+  [data-cat="cover"].sheet, [data-cat="cover"].sheet{-webkit-font-smoothing:antialiased}
+
+  [data-cat="cover"].sheet{
+    width:var(--w); height:var(--h);
+    background:#fff; color:var(--ink);
+    position:relative; overflow:hidden;
+    margin:24px auto;
+    padding:var(--pad-y) var(--pad-x) var(--pad-b);
+    display:flex; flex-direction:column;
+    font-family:var(--font-ui);
+  }
+
+  
+  [data-cat="cover"] .hero{
+    position:absolute; left:0; top:0;
+    width:var(--split); height:var(--h);
+    z-index:0; overflow:hidden;
+  }
+  
+  [data-cat="cover"] .hero img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  
+  [data-cat="cover"] .hero-ph{
+    position:absolute; inset:0; display:block;
+    background:linear-gradient(180deg,
+      #232027 0%,
+      #0b0d19 9%,
+      #0b111f 18%,
+      #0f1628 28%,
+      #111c30 37%,
+      #1c2b48 50%,
+      #293f64 60%,
+      #4a5a8c 68%,
+      #938cae 74%,
+      #4c5165 83%,
+      #14141c 87%,
+      #080a17 92%,
+      #0f132c 100%);
+  }
+  
+  [data-cat="cover"] .hero-ph::before{
+    content:""; position:absolute; left:0; right:0;
+    top:76%; height:8%;
+    background:linear-gradient(90deg,
+      rgba(205,174,172,.90) 0%,
+      rgba(255,248,237,.95) 21%,
+      rgba(150,132,152,.62) 28%,
+      rgba(75,78,97,.72) 40%,
+      rgba(30,32,45,.80) 55%,
+      rgba(10,12,22,.90) 75%,
+      rgba(10,12,22,.95) 100%);
+  }
+
+  
+  [data-cat="cover"] .headveil{
+    position:absolute; left:0; right:0; top:0; height:78px; z-index:1;
+    background:#fff;
+  }
+
+  
+  [data-cat="cover"] .eyebrow{
+    
+    position:relative; z-index:2;
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:var(--font-series);
+    font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--ink-2);                              
+    padding-bottom:9px; border-bottom:1.5px solid var(--ink);  
+    
+    margin-bottom:0;
+  }
+  
+  [data-cat="cover"] .eyebrow .en{ font-weight:700; letter-spacing:.14em; color:var(--on-dark-dim);
+                text-transform:uppercase; }
+  [data-cat="cover"] .eyebrow .pg{ font-family:var(--font-series); font-size:11px;
+                color:var(--sub); letter-spacing:.08em; }   
+
+  
+  [data-cat="cover"] .panes{ position:relative; z-index:2; flex:1; min-height:0; display:flex; }
+  [data-cat="cover"] .paneL{ width:734px; flex:0 0 auto; }
+  [data-cat="cover"] .paneR{ flex:1; min-width:0; padding-left:319px; }
+
+  
+  
+  [data-cat="cover"] .ptitle{
+    font-family:var(--font-ui);
+    font-size:71px; line-height:67.08px; font-weight:700;
+    letter-spacing:-.005em; text-transform:uppercase;
+    color:var(--on-dark);
+    
+    margin-top:122.76px;        
+  }
+  [data-cat="cover"] .ptitle span{ display:block; }
+
+  [data-cat="cover"] .psub{
+    font-family:var(--font-ui);
+    font-size:28.2px; line-height:1; font-weight:600;   
+    letter-spacing:.06em;
+    color:var(--brand);
+    margin-top:13.06px;         
+  }
+
+  
+  [data-cat="cover"] .feats{ margin-top:62.50px; }         
+  [data-cat="cover"] .frow{ display:grid; grid-template-columns:338.77px 338.77px; height:103px; }
+  [data-cat="cover"] .frow + .frow{ margin-top:34.1px; }   
+  [data-cat="cover"] .feat{ display:flex; align-items:flex-start; min-width:0; }
+  [data-cat="cover"] .ficon{
+    flex:0 0 84px; width:84px; height:84px;
+    margin-left:-6px;                 
+  }
+  [data-cat="cover"] .ficon svg{ width:100%; height:100%; display:block; }
+  [data-cat="cover"] .fbody{ flex:1; min-width:0; margin-left:19px; }
+  [data-cat="cover"] .fh{
+    font-family:var(--font-cond);
+    font-size:19.4px; line-height:1; font-weight:600;
+    letter-spacing:.002em;
+    color:var(--on-dark);
+    margin-top:9.59px;                
+  }
+  [data-cat="cover"] .fh::after{                          
+    content:""; display:block;
+    width:38.6px; height:3.1px; background:var(--brand);
+    margin-top:8.3px;
+  }
+  [data-cat="cover"] .fb{
+    font-family:var(--font-cond);
+    font-size:12px; line-height:20.97px; font-weight:400;
+    color:var(--on-dark-body);
+    margin-top:6.56px;                
+  }
+  [data-cat="cover"] .fb div{ white-space:nowrap; }      
+
+  
+  [data-cat="cover"] .ctitle{
+    font-family:var(--font-heavy);
+    font-size:78px; line-height:1; font-weight:400;
+    letter-spacing:0;                 
+    color:#3a3a3a;
+    margin-top:82.15px;               
+  }
+  [data-cat="cover"] .cbar{
+    height:7px; width:381.5px;
+    margin-top:17.04px;               
+    background:linear-gradient(90deg,
+      #E8531F 0%, rgba(232,83,31,.72) 40%,
+      rgba(232,83,31,.45) 70%, rgba(232,83,31,0) 100%);
+  }
+
+  
+  [data-cat="cover"] .toc{ list-style:none; margin-top:25.11px; }
+  [data-cat="cover"] .toc li{
+    display:flex; align-items:center;
+    height:71.93px;
+  }
+  [data-cat="cover"] .toc .n{
+    flex:0 0 36.9px; width:36.9px;
+    font-family:var(--font-ui);
+    font-size:37px; line-height:1; font-weight:400;
+    letter-spacing:.01em; color:var(--toc-num);
+    text-align:left;
+  }
+  [data-cat="cover"] .toc .rule{
+    flex:0 0 1px; width:1px; height:36px;
+    background:var(--divider);
+    margin-left:15.93px; margin-right:35.06px;
+  }
+  [data-cat="cover"] .toc .t{
+    font-family:var(--font-ui);
+    font-size:19.2px; line-height:20.12px; font-weight:500;
+    letter-spacing:.013em; text-transform:uppercase;
+    color:var(--toc-txt);
+  }
+  [data-cat="cover"] .toc .t span{ display:block; }
+
+  
+  @page{ size: 426mm 291mm; margin: 0; }
+  @media print{
+    [data-cat="cover"].sheet{
+      margin:0; width:426mm; height:291mm;
+      break-after:page; page-break-after:always;
+    }
+    [data-cat="cover"].sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+
+  /* ========== 来源：datasheet-en-2.html（以下均为 [data-cat] 作用域规则） ========== */
+
+  [data-cat="ultraslim"]{
+    --w: 1610px;              
+    --h: 1100px;              
+    --pad-x: 74px;
+    --pad-y: 54px;
+    --pad-b: 74px;            
+
+    --ink:      #1a1a1a;
+    --ink-2:    #3d3d3d;
+    --sub:      #7a7a7a;
+    --line:     #d8d8d8;
+    --line-2:   #ebebeb;
+    --brand:    #E8531F;      
+    --brand-bg: #FDF1EB;      
+    --row-alt:  #FAFAFA;
+    --col-warm: #F2F0EE;      
+    --panel:    #ECECEE;      
+
+    --font-cn: "Segoe UI","Helvetica Neue",Arial,sans-serif;  
+    --font-en: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+  [data-cat="ultraslim"] *{ margin:0; padding:0; box-sizing:border-box; }
+
+  [data-cat="ultraslim"].sheet, [data-cat="ultraslim"].sheet{font-family:var(--font-cn); -webkit-font-smoothing:antialiased}
+
+  
+  [data-cat="ultraslim"].sheet{
+    width:var(--w); height:var(--h);
+    background:#fff; color:var(--ink);
+    position:relative; overflow:hidden;
+    margin:24px auto;
+    padding:var(--pad-y) var(--pad-x) var(--pad-b);
+    display:flex; flex-direction:column;
+  }
+
+  
+  [data-cat="ultraslim"] .eyebrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--ink-2);
+    padding-bottom:9px; border-bottom:1.5px solid var(--ink);
+    margin-bottom:34px;
+  }
+  [data-cat="ultraslim"] .eyebrow .cn{ font-family:var(--font-cn); }
+  [data-cat="ultraslim"] .eyebrow .en{ font-family:var(--font-en); font-weight:700;
+                letter-spacing:.14em; color:var(--sub); margin-left:7px;
+                text-transform:uppercase; }
+  [data-cat="ultraslim"] .eyebrow .pg{ font-family:var(--font-en); font-size:11px;
+                color:var(--sub); letter-spacing:.08em; }
+
+  
+  [data-cat="ultraslim"] .stage{ display:grid; grid-template-columns:1fr 1fr; gap:115px; flex:1; min-height:0; }
+  [data-cat="ultraslim"] .col-l{ display:flex; flex-direction:column; min-width:0; }
+  [data-cat="ultraslim"] .col-r{ display:flex; flex-direction:column; min-width:0;
+          justify-content:space-between; }
+  
+
+  
+
+  
+  [data-cat="ultraslim"] .ptitle{
+    font-family:var(--font-en);
+    font-size:42px; line-height:1.04; font-weight:800;
+    letter-spacing:-.005em; text-transform:uppercase;
+    color:var(--brand);
+  }
+  
+  [data-cat="ultraslim"] .psub{
+    font-family:var(--font-cn);
+    font-size:21px; line-height:1.4;
+    font-weight:700; color:var(--ink);
+    letter-spacing:.01em;
+    margin-top:8px;
+  }
+
+  
+  [data-cat="ultraslim"] .feats{
+    display:grid;
+    grid-template-columns:377.4px 1fr;
+    align-items:start;
+    margin-top:44px;
+    
+    border-top:1.5px solid var(--brand);
+    padding-top:13.5px;
+    
+    margin-bottom:24px;
+  }
+  [data-cat="ultraslim"] .featlist{ list-style:none; }
+  [data-cat="ultraslim"] .featlist li{
+    position:relative;
+    font-family:var(--font-cn);
+    font-size:13.5px; line-height:1.6; color:var(--ink-2);
+    padding-left:13.5px;                
+    margin-bottom:1.5px;
+  }
+  [data-cat="ultraslim"] .featlist li:last-child{ margin-bottom:0; }
+
+  
+  [data-cat="ultraslim"] .featlist li::before{
+    content:""; position:absolute; left:0; top:3.2px;
+    box-sizing:border-box;
+    width:10.71px; height:10.71px;
+    padding:1.29px;                     
+    background-image:linear-gradient(#fff,#fff), linear-gradient(var(--brand),var(--brand));
+    background-clip:content-box, border-box;
+    background-origin:content-box, border-box;
+  }
+  
+  [data-cat="ultraslim"] .featlist li::after{
+    content:""; position:absolute; left:2.64px; top:5.84px;
+    width:5.43px; height:5.43px;
+    background:var(--brand);
+  }
+
+  
+  [data-cat="ultraslim"] .panel{
+    flex:1; min-height:0;
+    background:var(--panel);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+  [data-cat="ultraslim"] .pphoto{
+    
+    --ph-top:26px;
+    flex:221 1 0; min-height:0;
+    position:relative;                 
+    display:flex; align-items:center; justify-content:center;   
+  }
+  
+  [data-cat="ultraslim"] .pphoto img{
+    position:absolute;
+    top:var(--ph-top); bottom:0; left:0; right:0;
+    width:100%; height:calc(100% - var(--ph-top));
+    object-fit:contain;
+    mix-blend-mode:multiply;
+  }
+  [data-cat="ultraslim"] .pphoto .ph{ font-size:11px; color:#9a9a9a; letter-spacing:.1em; }
+
+  
+  [data-cat="ultraslim"] .rackhead{
+    display:flex; align-items:center; gap:9px;
+    margin:43px 0 2px; padding-left:26px;   
+    flex:0 0 auto;
+  }
+  [data-cat="ultraslim"] .rackhead .bar{ width:5px; height:19px; background:var(--brand); }
+  [data-cat="ultraslim"] .rackhead .txt{
+    font-family:var(--font-cn); font-size:16px; font-weight:700;
+    color:var(--ink); letter-spacing:.02em;
+  }
+  
+  [data-cat="ultraslim"] .rackdraw{
+    flex:267 1 0; min-height:0;
+    position:relative;
+  }
+  [data-cat="ultraslim"] .rackdraw svg{ position:absolute; inset:0; width:100%; height:100%; }
+  
+  [data-cat="ultraslim"] .pspace{ flex:103 1 0; }
+
+  
+  [data-cat="ultraslim"] .sptitle{ margin-bottom:43px; }   
+  [data-cat="ultraslim"] .sptitle .en{
+    font-size:32px; font-weight:800; letter-spacing:.01em;
+    text-transform:uppercase; color:var(--brand); line-height:1.1;
+    font-family:var(--font-en);
+  }
+  
+  [data-cat="ultraslim"] .sptitle .cn{
+    font-family:var(--font-cn); font-size:15.28px;
+    font-weight:700; color:var(--ink);
+    margin-top:4px;
+  }
+
+  [data-cat="ultraslim"] .specs{ flex:1; min-height:0; display:flex; flex-direction:column;
+          position:relative; }
+  
+  
+  [data-cat="ultraslim"] table.spec{
+    width:100%; border-collapse:collapse;
+    font-size:9.2px; line-height:1.32;   
+    table-layout:fixed;
+  }
+  
+  
+  [data-cat="ultraslim"] table.spec col.k{ width:26.0%; }
+  [data-cat="ultraslim"] table.spec col.v{ width:74.0%; }
+
+  [data-cat="ultraslim"] table.spec td{
+    padding:4.0px 10px; vertical-align:middle;   
+    border-bottom:1px dotted #c9c9c9;   
+    color:var(--ink-2);
+  }
+  
+
+  
+  [data-cat="ultraslim"] table.spec tr.grp td{
+    background:var(--brand-bg);
+    border-top:1.5px solid var(--brand);
+    border-bottom:1.5px solid var(--brand);
+    font-family:var(--font-cn); font-weight:700; font-size:10.4px;
+    color:var(--brand); padding:5.0px 9px;   
+    letter-spacing:.02em;
+  }
+  
+  
+  [data-cat="ultraslim"] table.spec td.k{
+    font-family:var(--font-cn); color:var(--ink); font-weight:600;
+    border-right:1px solid #e9a88a;
+  }
+  
+  [data-cat="ultraslim"] table.spec td.v{ text-align:center; }
+
+  
+  [data-cat="ultraslim"] table.spec tr.split3 td.k{
+    text-align:left; font-family:var(--font-cn);
+    border-right:1px solid #e9a88a;
+  }
+  [data-cat="ultraslim"] table.spec tr.split3 td.vcell{
+    padding:0; border-right:none; text-align:initial;
+  }
+  [data-cat="ultraslim"] table.sub3{
+    width:100%; border-collapse:collapse; table-layout:fixed;
+  }
+  [data-cat="ultraslim"] table.sub3 td{
+    text-align:center; font-family:var(--font-en);
+    padding:4.0px 6px; border-bottom:none;       
+    font-size:9.2px; color:var(--ink-2);
+  }  [data-cat="ultraslim"] table.sub3 td.d{
+    border-left:1px dotted #c9c9c9;
+    border-right:1px dotted #c9c9c9;
+  }
+
+  
+
+  
+  [data-cat="ultraslim"] table.spec td.vspan{ text-align:center; vertical-align:middle; }
+
+  
+  [data-cat="ultraslim"] .foot{
+    margin-top:2px; padding:4px 0 0;
+    border-top:1px solid var(--line);
+    font-size:9.2px; color:#9a9a9a; line-height:1.35;
+    font-family:var(--font-cn);
+    flex:0 0 auto;
+  }
+
+  
+  @page{ size: 426mm 291mm; margin: 0; }
+  @media print{
+    [data-cat="ultraslim"].sheet{
+      margin:0;
+      width:426mm; height:291mm;
+      break-after: page; page-break-after: always;
+    }
+    [data-cat="ultraslim"].sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+
+  /* ========== 来源：datasheet-en-monitor.html（以下均为 [data-cat] 作用域规则） ========== */
+
+  [data-cat="monitor"]{
+    --w: 1610px;              
+    --h: 1100px;              
+    
+    --pad-x: 74px;            
+    --pad-y: 54px;            
+    --pad-b: 74px;            
+
+    --ink:      #1a1a1a;
+    
+    --ink-2:    #3d3d3d;
+    --sub:      #7a7a7a;
+    --line-soft:#CECECE;      
+    --brand:    #DC4F27;      
+    --box-gray: #ECECEE;      
+
+    --hair: 0.5pt;            
+
+    --font-cn: "Microsoft YaHei","PingFang SC",sans-serif;
+    --font-en: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+  [data-cat="monitor"] *{ margin:0; padding:0; box-sizing:border-box; }
+
+  
+  [data-cat="monitor"] .sprite{ position:absolute; width:0; height:0; overflow:hidden; }
+  [data-cat="monitor"] .tabhead .bar, [data-cat="monitor"] .nr .sq, [data-cat="monitor"] .vlist .bd, [data-cat="monitor"] .flist .bd{ color:var(--brand); }
+
+  [data-cat="monitor"].sheet, [data-cat="monitor"].sheet{font-family:var(--font-en); -webkit-font-smoothing:antialiased}
+
+  
+  [data-cat="monitor"].sheet{
+    width:var(--w); height:var(--h);
+    background:#fff; color:var(--ink);
+    position:relative; overflow:hidden;
+    margin:24px auto;
+    padding:var(--pad-y) var(--pad-x) var(--pad-b);
+    display:flex; flex-direction:column;
+  }
+
+  
+  [data-cat="monitor"] .eyebrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--ink-2);
+    padding-bottom:9px; border-bottom:1.5px solid var(--ink);
+    margin-bottom:34px;
+  }
+  [data-cat="monitor"] .eyebrow .cn{ font-family:var(--font-cn); }
+  [data-cat="monitor"] .eyebrow .en{ font-family:var(--font-en); font-weight:700;
+                letter-spacing:.14em; color:var(--sub); margin-left:7px;
+                text-transform:uppercase; }
+  [data-cat="monitor"] .eyebrow .pg{ font-family:var(--font-en); font-size:11px;
+                color:var(--sub); letter-spacing:.08em; }
+
+  
+  [data-cat="monitor"] .stage{ display:grid; grid-template-columns:1fr 1fr; gap:115px; flex:1; min-height:0; }
+  [data-cat="monitor"] .col-l, [data-cat="monitor"] .col-r{ display:flex; flex-direction:column; min-width:0; }
+  
+  [data-cat="monitor"] .col-l{ justify-content:flex-start; }
+  
+  [data-cat="monitor"] .col-r{ justify-content:flex-start; padding-top:3.15px; }
+
+  
+  [data-cat="monitor"] .ptitle{
+    font-family: Arial, "Helvetica Neue", "Segoe UI", sans-serif;
+    font-size:35.5px; line-height:38.05px; font-weight:700;
+    letter-spacing:-.02em; text-transform:uppercase;
+    color:var(--brand);
+    white-space:nowrap;
+    
+    margin-top:-1.08px;
+  }
+
+  
+
+  
+  [data-cat="monitor"] .lhead{ display:flex; justify-content:space-between; align-items:flex-start; }
+  
+  [data-cat="monitor"] .pimg{ width:302.5px; margin-top:5.93px; margin-right:19.76px; }
+  [data-cat="monitor"] .pimg img{ width:100%; height:auto; display:block; }
+
+  
+  [data-cat="monitor"] .tabhead{ display:flex; align-items:center; gap:8.85px; height:19.4px; }
+  [data-cat="monitor"] .tabhead .bar{ flex:0 0 auto; display:block; }
+  [data-cat="monitor"] .tabhead .txt{ font-size:20px; font-weight:700; color:var(--ink-2);
+                 line-height:1.15; }
+  [data-cat="monitor"] .tabhead.two{ height:42.57px; }
+  [data-cat="monitor"] .tabhead.two .txt{ line-height:23.75px; }   
+
+  
+  [data-cat="monitor"] .tabwrap{ position:relative; margin-top:48.28px; }
+  [data-cat="monitor"] table.pt{ width:100%; border-collapse:collapse; table-layout:fixed; }
+  [data-cat="monitor"] table.pt col.ck{ width:33.26%; }   
+  [data-cat="monitor"] table.pt col.cv{ width:66.74%; }
+  [data-cat="monitor"] table.pt td{
+    padding:0 18px;                        
+    vertical-align:middle;
+    border-bottom:var(--hair) solid var(--brand);
+    color:var(--ink-2); font-size:11px;    
+    line-height:1.3;
+  }
+  
+  [data-cat="monitor"] table.pt > tbody > tr:first-child > td{ border-top:var(--hair) solid var(--brand); }
+  
+  [data-cat="monitor"] table.pt td.ck{
+    padding-left:10px; padding-right:8px;  
+    color:var(--brand); font-weight:700; font-size:12.4px;
+    border-right:var(--hair) solid var(--brand);
+  }
+  
+  [data-cat="monitor"] table.pt tr.h-header td{ height:100.97px; }
+  [data-cat="monitor"] table.pt tr.h-a td{ height:25.14px; }
+  [data-cat="monitor"] table.pt tr.h-b td{ height:25.43px; }
+
+  
+  [data-cat="monitor"] table.pt td.vcell{ padding:0; }
+  [data-cat="monitor"] table.sub2{ width:100%; border-collapse:collapse; table-layout:fixed; }
+  [data-cat="monitor"] table.sub2 col.c1{ width:53.06%; }
+  [data-cat="monitor"] table.sub2 td{ padding:0 16px; border-bottom:none; }
+  [data-cat="monitor"] table.sub2 td.d{ border-right:var(--hair) solid var(--brand); }
+
+  
+  [data-cat="monitor"] .vlead{ font-weight:700; font-size:11px; color:var(--ink-2);
+          padding-left:15.6px; }
+  [data-cat="monitor"] ul.vlist{ list-style:none; padding-left:17.5px; }
+  [data-cat="monitor"] ul.vlist li{ position:relative; padding-left:6.6px; font-size:11.5px;
+               line-height:1.5; }
+  [data-cat="monitor"] ul.vlist .bd{ position:absolute; left:0; top:6.4px; display:block; }
+  [data-cat="monitor"] ul.vlist b{ font-weight:700; }
+
+  
+
+  
+  [data-cat="monitor"] .naming{ position:relative; height:399.42px; margin-top:65.57px; }
+  [data-cat="monitor"] .naming::before{                       
+    content:""; position:absolute; left:0; right:0; top:0;
+    border-top:0.4pt solid var(--brand);
+  }
+  [data-cat="monitor"] .nhead{
+    position:absolute; left:0; top:16.79px;
+    font-size:16.5px; font-weight:700; color:var(--brand); line-height:1;
+  }
+  
+  [data-cat="monitor"] .code{ position:absolute; left:0; right:0; top:0; height:70px; }
+  [data-cat="monitor"] .code .g{
+    position:absolute; top:42.96px; line-height:1;
+    font-size:23px; font-weight:700; color:var(--brand);
+    transform:translateX(-50%);
+    
+    padding-bottom:1.75px;
+    border-bottom:0.85pt solid var(--brand);   
+  }
+
+  
+  [data-cat="monitor"] svg.lead{ position:absolute; left:0; top:0; width:100%; height:100%;
+            overflow:visible; }
+
+  
+  [data-cat="monitor"] .nrows{ position:absolute; left:0; right:0; top:120.85px; height:278px; }
+  [data-cat="monitor"] .nr{ position:relative; }
+  
+  [data-cat="monitor"] .nr .sq{ position:absolute; bottom:3.25px; display:block; }
+  
+  [data-cat="monitor"] .nr .tx{
+    position:absolute; bottom:3.84px;
+    font-size:9.4px; line-height:1; color:var(--ink-2); white-space:pre;
+  }
+  
+  [data-cat="monitor"] .nr .l1{ position:absolute; left:56.71px; top:3.72px;
+           font-size:9.4px; line-height:1; color:var(--ink-2); white-space:pre; }
+  [data-cat="monitor"] .nr .l2{ position:absolute; left:0; right:0; bottom:0; height:14px; }
+
+  
+  [data-cat="monitor"] .example{
+    position:absolute; right:0; top:29.15px; bottom:0; width:146.28px;
+    background:var(--box-gray); padding:0 24px;
+  }
+  [data-cat="monitor"] .ex-h{ padding-top:31.7px; font-size:16px; font-weight:700;
+         color:var(--brand); line-height:1; }
+  [data-cat="monitor"] .ex-r{ width:98px; margin-top:19.9px; border-top:var(--hair) solid var(--brand); }
+  [data-cat="monitor"] .ex-p{ margin-top:15.3px; font-size:13.5px; line-height:1.3; color:var(--ink-2); }
+
+  
+  [data-cat="monitor"] .about{ margin-top:66.65px; }
+  [data-cat="monitor"] .about .ptitle{ margin-top:0; }
+  [data-cat="monitor"] .about .hr{ margin-top:32.4px; border-top:var(--hair) solid var(--brand); }
+
+  
+  [data-cat="monitor"] .banner{ position:relative; height:65.5px; margin-top:30.73px; }
+  [data-cat="monitor"] .banner .bg{ position:absolute; left:0; top:0; width:100%; height:100%;
+               display:block; }
+  [data-cat="monitor"] .banner .bt{
+    position:absolute; left:18.5px; top:8.6px;
+    color:#fff; font-size:17px; font-weight:700; line-height:1.3;
+  }
+
+  
+  [data-cat="monitor"] .feats{ margin-top:18px; }
+  [data-cat="monitor"] .feats .ft{ font-size:16.9px; font-weight:700; color:var(--ink-2); line-height:1.2; }
+  [data-cat="monitor"] ul.flist{ list-style:none; margin-top:9.5px; }
+  [data-cat="monitor"] ul.flist li{ position:relative; padding-left:11px;
+               font-size:11.1px; line-height:17.71px; color:var(--ink-2); }
+  [data-cat="monitor"] ul.flist .bd{ position:absolute; left:0; top:5.6px; display:block; }
+
+  
+  @page{ size: 426mm 291mm; margin: 0; }
+  @media print{
+    [data-cat="monitor"].sheet{
+      margin:0;
+      width:426mm; height:291mm;
+      break-after: page; page-break-after: always;
+    }
+    [data-cat="monitor"].sheet:last-child{ break-after:auto; page-break-after:auto; }
+  }
+
+</style>
+</head>
+
+<body>
+<!-- 图标库（来源：datasheet-en-profile.html）-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"
+     xmlns="http://www.w3.org/2000/svg">
+  <!-- 2. Proprietary core IP —— 六边形 + 原子结构 -->
+  <symbol id="ic-mol" viewBox="0 0 24 24">
+    <polygon points="12,3.2 19.6,7.6 19.6,16.4 12,20.8 4.4,16.4 4.4,7.6"
+             fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="12" cy="12" r="2.1" fill="#fff"/>
+    <circle cx="9.1" cy="9.6" r="1.4" fill="#fff"/>
+    <circle cx="14.9" cy="9.6" r="1.4" fill="#fff"/>
+    <circle cx="12" cy="15.3" r="1.4" fill="#fff"/>
+  </symbol>
+  <!-- 3. Product quality control —— 圆环 + 钥匙孔 -->
+  <symbol id="ic-lock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.6" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="12" cy="10.1" r="2.5" fill="#fff"/>
+    <path d="M10.4 11.6 h3.2 v2.9 a1.6 1.6 0 0 1 -3.2 0 z" fill="#fff"/>
+    <rect x="11.2" y="12.4" width="1.6" height="4.4" rx=".8" fill="#fff"/>
+  </symbol>
+  <!-- 4. Turnkey solution —— 齿轮 / 太阳 -->
+  <symbol id="ic-gear" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="2.4" fill="#fff"/>
+    <circle cx="12" cy="12" r="4.6" fill="none" stroke="#fff" stroke-width="1.4"/>
+    <g stroke="#fff" stroke-width="1.4" stroke-linecap="round">
+      <line x1="12" y1="1.6"  x2="12" y2="4.6"/>
+      <line x1="12" y1="19.4" x2="12" y2="22.4"/>
+      <line x1="1.6"  y1="12" x2="4.6"  y2="12"/>
+      <line x1="19.4" y1="12" x2="22.4" y2="12"/>
+      <line x1="4.65" y1="4.65" x2="6.77" y2="6.77"/>
+      <line x1="17.23" y1="17.23" x2="19.35" y2="19.35"/>
+      <line x1="19.35" y1="4.65" x2="17.23" y2="6.77"/>
+      <line x1="6.77" y1="17.23" x2="4.65" y2="19.35"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- 图标库（来源：datasheet-en-monitor.html）-->
+<svg class="sprite" aria-hidden="true" focusable="false"
+     xmlns="http://www.w3.org/2000/svg">
+  <symbol id="mk-bar"  viewBox="0 0 5.7 19.4"><rect width="5.7" height="19.4" rx="2" fill="currentColor"/></symbol>
+  <symbol id="mk-bar2" viewBox="0 0 5.7 42.6"><rect width="5.7" height="42.6" rx="2" fill="currentColor"/></symbol>
+  <!-- 「回」字方块：原图实测 10x10，外框 1.35 / 白衬 1.4 / 橙芯 4.5 -->
+  <symbol id="mk-sq"   viewBox="0 0 10 10">
+    <rect width="10" height="10" fill="currentColor"/>
+    <rect x="1.35" y="1.35" width="7.3" height="7.3" fill="#fff"/>
+    <rect x="2.75" y="2.75" width="4.5" height="4.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="mk-dot6" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/></symbol>
+  <symbol id="mk-dot4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></symbol>
+</svg>
+
+<section class="sheet" data-cat="cover2">
+
+  <!-- 品牌字标（CHITEK 官方 lockup 矢量化；两行分色） -->
+
+
+  <!-- ========== 右页：照片（占位渐变；有实拍图请换成 <img>） ========== -->
+  <div class="photo">
+    <span class="photo-ph" aria-hidden="true"></span>
+    <!-- <img src="images/cover2-photo.jpg" alt=""> -->
+  </div>
+
+  <!-- ========== 右页：橙色半透明带 ========== -->
+  <div class="band">
+    <svg class="lk-svg lk-svg--sm" viewBox="0 0 1199 275" aria-label="CHITEK INNOPOWER">
+      <path class="lk-mark-path" fill-rule="evenodd" d="M57 0 202 0 202 33 61 33 50 37 42 45 37 54 33 71 33 86 37 103 42 112 50 120 61 124 202 124 202 157 57 157 44 154 32 148 17 134 17 132 15 131 15 129 13 128 12 124 8 119 1 96 0 69 3 52 13 29 28 12 44 3 57 1ZM247 0 279 0 280 62 288 58 294 57 296 55 299 55 301 53 304 53 306 51 309 51 311 49 322 46 324 44 327 44 329 42 340 39 342 37 346 37 348 39 354 40 356 42 359 42 361 44 364 44 366 46 372 47 374 49 377 49 379 51 382 51 384 53 390 54 392 56 409 62 409 0 442 0 442 157 409 157 409 105 432 104 412 97 410 95 407 95 405 93 402 93 400 91 394 90 382 84 376 83 364 77 358 76 346 70 337 72 325 78 319 79 307 85 301 86 299 88 296 88 294 90 291 90 289 92 283 93 281 95 278 95 276 97 256 104 279 105 279 157 247 157 247 1ZM486 0 519 0 519 157 486 157 486 1ZM555 0 750 0 750 33 669 33 669 157 636 157 636 33 555 33 555 1ZM828 0 973 0 973 33 832 33 827 34 818 39 810 49 806 59 806 62 973 62 973 95 806 95 808 104 814 112 814 114 821 120 831 124 973 124 973 157 828 157 815 154 804 149 790 137 790 135 784 129 778 117 772 97 771 66 774 51 783 30 796 14 798 14 804 8 811 6 815 3 828 1ZM1017 1 1050 1 1050 65 1052 65 1054 62 1056 62 1058 59 1060 59 1062 56 1064 56 1066 53 1068 53 1070 50 1072 50 1074 47 1076 47 1078 44 1080 44 1082 41 1088 38 1091 34 1093 34 1095 31 1097 31 1099 28 1101 28 1103 25 1105 25 1107 22 1109 22 1111 19 1113 19 1115 16 1117 16 1119 13 1121 13 1135 1 1190 1 1177 12 1175 12 1173 15 1171 15 1169 18 1167 18 1165 21 1163 21 1161 24 1159 24 1157 27 1155 27 1152 31 1150 31 1148 34 1146 34 1144 37 1142 37 1140 40 1138 40 1136 43 1134 43 1132 46 1130 46 1128 49 1126 49 1124 52 1122 52 1120 55 1114 58 1102 69 1111 78 1113 78 1122 88 1124 88 1132 97 1134 97 1143 107 1145 107 1153 116 1155 116 1164 126 1166 126 1174 135 1176 135 1185 145 1187 145 1195 154 1199 156 1199 158 1151 158 1129 137 1127 137 1118 127 1116 127 1108 118 1106 118 1097 108 1095 108 1087 99 1085 99 1077 90 1073 89 1070 93 1068 93 1066 96 1064 96 1062 99 1060 99 1058 102 1056 102 1054 105 1050 107 1050 158 1017 158 1017 2Z"/>
+      <path class="lk-sub-path"  fill-rule="evenodd" d="M424 213 432 213 442 217 448 224 450 231 450 257 446 267 441 272 433 275 423 275 416 272 414 269 412 269 407 260 407 229 410 222 416 216 424 214ZM712 213 719 213 729 217 734 222 737 230 737 258 734 266 728 272 720 275 711 275 703 272 697 266 694 258 694 230 697 222 702 217 708 214 712 214ZM16 214 25 214 25 274 16 274 16 215ZM121 214 130 214 132 216 132 218 134 219 134 221 146 237 147 241 149 242 157 256 158 214 167 214 167 274 157 273 157 271 151 264 150 260 148 259 148 257 146 256 146 254 144 253 144 251 142 250 142 248 140 247 132 233 131 274 121 274 121 215ZM265 214 275 215 275 217 287 233 288 237 290 238 290 240 292 241 300 255 302 255 302 214 311 214 311 274 302 274 300 272 300 270 292 260 291 256 289 255 289 253 287 252 287 250 285 249 285 247 283 246 275 232 274 274 265 274 265 215ZM557 214 586 214 594 218 599 226 599 238 596 244 587 250 566 251 566 274 557 274 557 215ZM838 214 847 214 848 216 857 256 859 254 869 214 878 215 878 219 880 222 880 226 882 229 882 233 884 236 889 256 896 232 899 215 909 214 894 274 885 274 885 270 883 267 883 263 881 260 881 256 878 250 874 233 871 238 862 273 853 274 838 215ZM1007 214 1045 214 1045 222 1016 222 1016 240 1041 240 1041 248 1016 248 1016 266 1045 266 1045 274 1007 274 1007 215ZM1146 214 1175 214 1184 219 1188 227 1187 238 1185 242 1181 246 1176 247 1176 249 1189 272 1189 274 1179 274 1167 249 1155 249 1155 274 1146 274 1146 215ZM429 221 421 223 416 231 416 257 418 262 426 267 431 267 437 264 440 259 441 251 440 229 435 223 429 222ZM716 221 707 224 704 228 703 233 704 260 708 265 713 267 723 265 726 262 728 255 728 233 727 228 723 223 716 222ZM567 222 566 242 584 242 590 236 590 228 587 224 583 222 568 222ZM1156 222 1155 241 1172 241 1177 238 1179 233 1176 224 1172 222 1157 222Z"/>
+    </svg>
+    <span class="b-rule" aria-hidden="true"></span>
+    <p class="b-tag">Your best digital energy partner</p>
+  </div>
+
+  <!-- ========== 左白页 ========== -->
+  <div class="panel">
+
+    <!-- 品牌字标 -->
+    <svg class="lk-svg lk-svg--lg" viewBox="0 0 1199 275" aria-label="CHITEK INNOPOWER">
+      <path class="lk-mark-path" fill-rule="evenodd" d="M57 0 202 0 202 33 61 33 50 37 42 45 37 54 33 71 33 86 37 103 42 112 50 120 61 124 202 124 202 157 57 157 44 154 32 148 17 134 17 132 15 131 15 129 13 128 12 124 8 119 1 96 0 69 3 52 13 29 28 12 44 3 57 1ZM247 0 279 0 280 62 288 58 294 57 296 55 299 55 301 53 304 53 306 51 309 51 311 49 322 46 324 44 327 44 329 42 340 39 342 37 346 37 348 39 354 40 356 42 359 42 361 44 364 44 366 46 372 47 374 49 377 49 379 51 382 51 384 53 390 54 392 56 409 62 409 0 442 0 442 157 409 157 409 105 432 104 412 97 410 95 407 95 405 93 402 93 400 91 394 90 382 84 376 83 364 77 358 76 346 70 337 72 325 78 319 79 307 85 301 86 299 88 296 88 294 90 291 90 289 92 283 93 281 95 278 95 276 97 256 104 279 105 279 157 247 157 247 1ZM486 0 519 0 519 157 486 157 486 1ZM555 0 750 0 750 33 669 33 669 157 636 157 636 33 555 33 555 1ZM828 0 973 0 973 33 832 33 827 34 818 39 810 49 806 59 806 62 973 62 973 95 806 95 808 104 814 112 814 114 821 120 831 124 973 124 973 157 828 157 815 154 804 149 790 137 790 135 784 129 778 117 772 97 771 66 774 51 783 30 796 14 798 14 804 8 811 6 815 3 828 1ZM1017 1 1050 1 1050 65 1052 65 1054 62 1056 62 1058 59 1060 59 1062 56 1064 56 1066 53 1068 53 1070 50 1072 50 1074 47 1076 47 1078 44 1080 44 1082 41 1088 38 1091 34 1093 34 1095 31 1097 31 1099 28 1101 28 1103 25 1105 25 1107 22 1109 22 1111 19 1113 19 1115 16 1117 16 1119 13 1121 13 1135 1 1190 1 1177 12 1175 12 1173 15 1171 15 1169 18 1167 18 1165 21 1163 21 1161 24 1159 24 1157 27 1155 27 1152 31 1150 31 1148 34 1146 34 1144 37 1142 37 1140 40 1138 40 1136 43 1134 43 1132 46 1130 46 1128 49 1126 49 1124 52 1122 52 1120 55 1114 58 1102 69 1111 78 1113 78 1122 88 1124 88 1132 97 1134 97 1143 107 1145 107 1153 116 1155 116 1164 126 1166 126 1174 135 1176 135 1185 145 1187 145 1195 154 1199 156 1199 158 1151 158 1129 137 1127 137 1118 127 1116 127 1108 118 1106 118 1097 108 1095 108 1087 99 1085 99 1077 90 1073 89 1070 93 1068 93 1066 96 1064 96 1062 99 1060 99 1058 102 1056 102 1054 105 1050 107 1050 158 1017 158 1017 2Z"/>
+      <path class="lk-sub-path"  fill-rule="evenodd" d="M424 213 432 213 442 217 448 224 450 231 450 257 446 267 441 272 433 275 423 275 416 272 414 269 412 269 407 260 407 229 410 222 416 216 424 214ZM712 213 719 213 729 217 734 222 737 230 737 258 734 266 728 272 720 275 711 275 703 272 697 266 694 258 694 230 697 222 702 217 708 214 712 214ZM16 214 25 214 25 274 16 274 16 215ZM121 214 130 214 132 216 132 218 134 219 134 221 146 237 147 241 149 242 157 256 158 214 167 214 167 274 157 273 157 271 151 264 150 260 148 259 148 257 146 256 146 254 144 253 144 251 142 250 142 248 140 247 132 233 131 274 121 274 121 215ZM265 214 275 215 275 217 287 233 288 237 290 238 290 240 292 241 300 255 302 255 302 214 311 214 311 274 302 274 300 272 300 270 292 260 291 256 289 255 289 253 287 252 287 250 285 249 285 247 283 246 275 232 274 274 265 274 265 215ZM557 214 586 214 594 218 599 226 599 238 596 244 587 250 566 251 566 274 557 274 557 215ZM838 214 847 214 848 216 857 256 859 254 869 214 878 215 878 219 880 222 880 226 882 229 882 233 884 236 889 256 896 232 899 215 909 214 894 274 885 274 885 270 883 267 883 263 881 260 881 256 878 250 874 233 871 238 862 273 853 274 838 215ZM1007 214 1045 214 1045 222 1016 222 1016 240 1041 240 1041 248 1016 248 1016 266 1045 266 1045 274 1007 274 1007 215ZM1146 214 1175 214 1184 219 1188 227 1187 238 1185 242 1181 246 1176 247 1176 249 1189 272 1189 274 1179 274 1167 249 1155 249 1155 274 1146 274 1146 215ZM429 221 421 223 416 231 416 257 418 262 426 267 431 267 437 264 440 259 441 251 440 229 435 223 429 222ZM716 221 707 224 704 228 703 233 704 260 708 265 713 267 723 265 726 262 728 255 728 233 727 228 723 223 716 222ZM567 222 566 242 584 242 590 236 590 228 587 224 583 222 568 222ZM1156 222 1155 241 1172 241 1177 238 1179 233 1176 224 1172 222 1157 222Z"/>
+    </svg>
+
+    <!-- 橙色箭头
+         (0,604.6)-(394.1,499.8)-(805,608.2)-(805,617.25)-(394.1,524.1)-(0,614.7)
+         viewBox 已把 y 平移 -499.8 -->
+    <svg class="chev" viewBox="0 0 805 118" xmlns="http://www.w3.org/2000/svg"
+         preserveAspectRatio="none" aria-hidden="true">
+      <polygon points="0,104.8 394.1,0 805,108.4 805,117.45 394.1,24.3 0,114.9"
+               fill="#E8531F"/>
+    </svg>
+
+    <!-- 联系块 -->
+    <div class="contact">
+      <div class="c-name">Shenzhen CHITEK New Energy Technology Co., Ltd</div>
+      <div class="c-rows">
+
+        <div class="c-row">
+          <span class="ic">
+            <!-- 电话（橙色圆 + 白色话筒） -->
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#E8531F"/>
+              <path d="M5.15 3.9c.28-.3.77-.28.99.09l.83 1.34c.16.26.11.6-.12.81l-.66.6c.5 1.02 1.34 1.86 2.36 2.36l.6-.66c.21-.23.55-.28.81-.12l1.34.83c.37.22.39.71.09.99l-.72.72c-.34.34-.85.46-1.3.29-2.35-.89-4.2-2.74-5.09-5.09-.17-.45-.05-.96.29-1.3z"
+                    fill="#ffffff"/>
+            </svg>
+          </span>
+          <span class="tx"><span class="lb">Tel:</span>&nbsp;&nbsp;0755-23596807</span>
+        </div>
+
+        <div class="c-row">
+          <span class="ic">
+            <!-- 地址（橙色圆 + 白色定位针） -->
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#E8531F"/>
+              <path d="M8 2.55c-1.82 0-3.3 1.48-3.3 3.3 0 2.3 2.93 7.05 3.14 7.4.08.14.28.14.36 0 .21-.35 3.14-5.1 3.14-7.4 0-1.82-1.48-3.3-3.3-3.3zm0 4.53a1.23 1.23 0 1 1 0-2.46 1.23 1.23 0 0 1 0 2.46z"
+                    fill="#ffffff"/>
+              <rect x="4.85" y="12.1" width="6.3" height="1.1" rx=".55" fill="#ffffff"/>
+            </svg>
+          </span>
+          <span class="tx"><span class="lb">Add:</span> 2nd Floor, Building A, No. 375, Kejie 2nd Road, Shenzhen,China</span>
+        </div>
+
+        <div class="c-row">
+          <span class="ic">
+            <!-- 网址（橙色圆 + 白色地球） -->
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#E8531F"/>
+              <circle cx="8" cy="8" r="4.25" stroke="#ffffff" stroke-width="1" fill="none"/>
+              <ellipse cx="8" cy="8" rx="1.95" ry="4.25" stroke="#ffffff" stroke-width="1" fill="none"/>
+              <path d="M3.75 8h8.5M4.35 6h7.3M4.35 10h7.3" stroke="#ffffff" stroke-width="1" fill="none"/>
+            </svg>
+          </span>
+          <span class="tx"><span class="lb">Web:</span>en.chitek-inno.com</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /panel -->
+
+  <!-- ========== 右页：主标题 + 公司名 ========== -->
+  <h1 class="rtitle"><span>CHITEK NEW ENERGY</span><span>POWER QUALITY PRODUCTS</span></h1>
+  <p class="r-name">Shenzhen CHITEK New Energy Technology Co., Ltd</p>
+
+</section>
+
+<section class="sheet" data-cat="profile">
+
+  <div class="bgphoto" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="headveil" aria-hidden="true"></div>
+
+  <!-- 栏眉：写法与文字对齐全系列英文版
+       （datasheet-en.html / en-2 / en-cover 的左侧文字一律是 PRODUCT INTRODUCTION）
+       ⚠️ 参考图 2.png 该处是「公司介绍 COMPANY PROFILE」（中文版画册写法），
+          为与英文版其余页面保持一致，此处按用户要求改用 PRODUCT INTRODUCTION。 -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">01-02</span>
+  </div>
+
+  <!-- 左下标语（照片上压白字） -->
+  <div class="claim-sm">Focusing on low-carbon<br>transmission and distribution,<br>empowering digital energy</div>
+  <div class="claim-lg">BUILDING A HIGH ENERGY<br>EFFICIENCY GREEN FUTURE</div>
+
+  <!-- 右侧白面板 -->
+  <aside class="panel">
+
+    <h1 class="p-title">CHITEK NEW ENERGY</h1>
+
+    <div class="title-rule"></div>
+
+    <p class="p-sub">Power electronics core equipment provider</p>
+
+    <p class="p-body">Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and headquartered in Shenzhen, is a high-tech enterprise specializing in the research, development, manufacturing, and service of power electronic products. Our products are widely applied in various fields, including the power system, industrial manufacturing, transportation, healthcare, and telecommunications, serving numerous customers both at home and abroad.</p>
+
+    <p class="p-body">Relying on a globally leading R&amp;D platform, CHITEK New Energy provides digital energy equipment and solutions, and is committed to building an energy-efficient and green future.</p>
+
+    <div class="feats">
+
+      <div class="feat">
+        <div class="ic">
+          <svg class="disc" viewBox="0 0 65 65" aria-hidden="true"><circle cx="32.5" cy="32.5" r="32.5" fill="currentColor"/></svg>
+          <span class="pct">60%</span>
+        </div>
+        <div class="ft">
+          <b>Senior R&amp;D team</b>
+          <span>60% of the R&amp;D personnel come from international industry giants and domestic prestigious universities</span>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="ic">
+          <svg class="disc" viewBox="0 0 65 65" aria-hidden="true"><circle cx="32.5" cy="32.5" r="32.5" fill="currentColor"/></svg>
+          <svg width="34" height="34" aria-hidden="true"><use href="#ic-mol"/></svg>
+        </div>
+        <div class="ft">
+          <b>Proprietary core IP</b>
+          <span>Having independent intellectual property rights throughout the entire process of research and development, design, and production</span>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="ic">
+          <svg class="disc" viewBox="0 0 65 65" aria-hidden="true"><circle cx="32.5" cy="32.5" r="32.5" fill="currentColor"/></svg>
+          <svg width="34" height="34" aria-hidden="true"><use href="#ic-lock"/></svg>
+        </div>
+        <div class="ft">
+          <b>Product quality control</b>
+          <span>All products have passed CQC, CE and other standard certifications</span>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="ic">
+          <svg class="disc" viewBox="0 0 65 65" aria-hidden="true"><circle cx="32.5" cy="32.5" r="32.5" fill="currentColor"/></svg>
+          <svg width="34" height="34" aria-hidden="true"><use href="#ic-gear"/></svg>
+        </div>
+        <div class="ft">
+          <b>Turnkey solution</b>
+          <span>Provide turnkey solutions and customized solutions for the design, manufacturing, operation, and maintenance phases</span>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</section>
+
+<section class="sheet" data-cat="cover">
+
+  <!-- ========== 左幅：实拍/合成大图（铺满左半页） ========== -->
+  <div class="hero">
+    <img src="images/cover-hero.jpg" alt="">
+  </div>
+
+  <!-- ========== 页眉白顶带（让页眉横线与系列一致；hero 顶部 78px 被盖住） ========== -->
+  <div class="headveil" aria-hidden="true"></div>
+
+  <!-- ========== 页眉：与 datasheet-en.html / en-2 / en-monitor / en-profile 逐字一致 ========== -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">03-04</span>
+  </div>
+
+  <div class="panes">
+
+    <!-- ================= 左栏 ================= -->
+    <div class="paneL">
+
+      <h1 class="ptitle"><span>APF/SVG</span><span>Industrial Model</span></h1>
+      <p class="psub">High-end SiC model – Gen2</p>
+
+      <div class="feats">
+
+        <!-- 行 1 -->
+        <div class="frow">
+          <div class="feat">
+            <div class="ficon">
+
+              <!-- 图标：环形箭头 + 闪电（实测：环 r25、4 实心箭头角心 32/122/212/302、闪电 17x26） -->
+              <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="42" cy="42" r="41.3" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M58.73 60.58A25 25 0 0 1 35.11 66.03" stroke="#ffffff" stroke-width="1.3" fill="none"/>
+                <path d="M23.42 58.73A25 25 0 0 1 17.97 35.11" stroke="#ffffff" stroke-width="1.3" fill="none"/>
+                <path d="M25.27 23.42A25 25 0 0 1 48.89 17.97" stroke="#ffffff" stroke-width="1.3" fill="none"/>
+                <path d="M60.58 25.27A25 25 0 0 1 66.03 48.89" stroke="#ffffff" stroke-width="1.3" fill="none"/>
+                <path d="M61.71 47.65 L70.36 50.13 L58.73 60.58 Z" fill="#ffffff" stroke="none"/>
+                <path d="M36.35 61.71 L33.87 70.36 L23.42 58.73 Z" fill="#ffffff" stroke="none"/>
+                <path d="M22.29 36.35 L13.64 33.87 L25.27 23.42 Z" fill="#ffffff" stroke="none"/>
+                <path d="M47.65 22.29 L50.13 13.64 L60.58 25.27 Z" fill="#ffffff" stroke="none"/>
+                <path d="M50.5 29 36 45h7l-9.5 10L48 38.5h-7z" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <div class="fbody">
+              <div class="fh">Reduced Power Loss</div>
+              <div class="fb">
+                <div>Power loss reduced by at least 1 percentage point</div>
+                <div>Energy-saving payback is often under one year</div>
+              </div>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="ficon">
+
+              <!-- 图标：齿轮 + 时钟（实测：齿根 r22.5 / 齿尖 r26、表盘 r15.9、分钟点 r13.2） -->
+              <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="42" cy="42" r="41.3" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M64.31 44.94 L67.28 48.07 L64.17 55.58 L59.85 55.7 A22.5 22.5 0 0 1 55.7 59.85 L55.58 64.17 L48.07 67.28 L44.94 64.31 A22.5 22.5 0 0 1 39.06 64.31 L35.93 67.28 L28.42 64.17 L28.3 59.85 A22.5 22.5 0 0 1 24.15 55.7 L19.83 55.58 L16.72 48.07 L19.69 44.94 A22.5 22.5 0 0 1 19.69 39.06 L16.72 35.93 L19.83 28.42 L24.15 28.3 A22.5 22.5 0 0 1 28.3 24.15 L28.42 19.83 L35.93 16.72 L39.06 19.69 A22.5 22.5 0 0 1 44.94 19.69 L48.07 16.72 L55.58 19.83 L55.7 24.15 A22.5 22.5 0 0 1 59.85 28.3 L64.17 28.42 L67.28 35.93 L64.31 39.06 A22.5 22.5 0 0 1 64.31 44.94 Z" stroke="#ffffff" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+                <circle cx="42" cy="42" r="15.9" stroke="#ffffff" stroke-width="1.3"/>
+                <circle cx="42" cy="28.8" r="1.05" fill="#ffffff"/>
+                <circle cx="48.6" cy="30.57" r="1.05" fill="#ffffff"/>
+                <circle cx="53.43" cy="35.4" r="1.05" fill="#ffffff"/>
+                <circle cx="55.2" cy="42" r="1.05" fill="#ffffff"/>
+                <circle cx="53.43" cy="48.6" r="1.05" fill="#ffffff"/>
+                <circle cx="48.6" cy="53.43" r="1.05" fill="#ffffff"/>
+                <circle cx="42" cy="55.2" r="1.05" fill="#ffffff"/>
+                <circle cx="35.4" cy="53.43" r="1.05" fill="#ffffff"/>
+                <circle cx="30.57" cy="48.6" r="1.05" fill="#ffffff"/>
+                <circle cx="28.8" cy="42" r="1.05" fill="#ffffff"/>
+                <circle cx="30.57" cy="35.4" r="1.05" fill="#ffffff"/>
+                <circle cx="35.4" cy="30.57" r="1.05" fill="#ffffff"/>
+                <path d="M42 42V33.2h6.6" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="fbody">
+              <div class="fh">Longer Service Life</div>
+              <div class="fb">
+                <div>Internal temperature is 8℃ lower than IGBT models</div>
+                <div>Fault-free operating time improved by over 50%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 行 2 -->
+        <div class="frow">
+          <div class="feat">
+            <div class="ficon">
+
+              <!-- 图标：仪表盘（实测：弧 r24.85 / 圆心 y+1.3、平底弦 y+14.7、内环 10.5 & 5.5） -->
+              <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="42" cy="42" r="41.3" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M21.04 56.65A24.85 24.85 0 1 1 62.96 56.65 Z" stroke="#ffffff" stroke-width="1.3" fill="none"/>
+                <path d="M27.74 54.44L25.06 56.54" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M29.58 56.47L27.25 58.94" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M31.7 58.19L29.77 60.98" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M34.07 59.57L32.58 62.62" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M36.61 60.58L35.59 63.82" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M39.27 61.19L38.76 64.55" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M42 61.4L42 64.8" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M44.73 61.19L45.24 64.55" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M47.39 60.58L48.41 63.82" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M49.93 59.57L51.42 62.62" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M52.3 58.19L54.23 60.98" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M54.42 56.47L56.75 58.94" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M56.26 54.44L58.94 56.54" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="42" cy="42" r="10.5" stroke="#ffffff" stroke-width="1.3"/>
+                <circle cx="42" cy="42" r="5.5" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M47.66 34.75L54.01 26.63" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="fbody">
+              <div class="fh">Higher Temperature Tolerance</div>
+              <div class="fb">
+                <div>No derating below 45℃</div>
+                <div>No shutdown below 65℃</div>
+              </div>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="ficon">
+
+              <!-- 图标：闭合波形块（实测：半宽 31.5、基线 y+7.5、峰 y-10.5、中谷 y-4.2） -->
+              <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="42" cy="42" r="41.3" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M10.5 49.5L10.5 45.5C13.5 35.5 19 31.5 26 31.5C32.5 31.5 35.5 37.8 42 37.8C48.5 37.8 51.5 34.5 58 34.5C65 34.5 70.5 36.5 73.5 45.5L73.5 49.5Z" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="fbody">
+              <div class="fh">Even Harmonics</div>
+              <div class="fb">
+                <div>100% elimination of even harmonics</div>
+                <div>Filters both odd and even harmonics</div>
+                <div>simultaneously</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 行 3 -->
+        <div class="frow">
+          <div class="feat">
+            <div class="ficon">
+
+              <!-- 图标：认证勋章（实测：花环 18.5/15.6、圆心 y-8.7、内圆 r10.5、飘带至 y+26.5） -->
+              <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="42" cy="42" r="41.3" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M42 17.74 A3.53 3.53 0 0 1 48.77 19.28 A3.53 3.53 0 0 1 54.2 23.61 A3.53 3.53 0 0 1 57.21 29.87 A3.53 3.53 0 0 1 57.21 36.81 A3.53 3.53 0 0 1 54.2 43.07 A3.53 3.53 0 0 1 48.77 47.4 A3.53 3.53 0 0 1 42 48.94 A3.53 3.53 0 0 1 35.23 47.4 A3.53 3.53 0 0 1 29.8 43.07 A3.53 3.53 0 0 1 26.79 36.81 A3.53 3.53 0 0 1 26.79 29.87 A3.53 3.53 0 0 1 29.8 23.61 A3.53 3.53 0 0 1 35.23 19.28 A3.53 3.53 0 0 1 42 17.74 Z" stroke="#ffffff" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+                <circle cx="42" cy="33.34" r="10.5" stroke="#ffffff" stroke-width="1.3"/>
+                <path d="M31 44.5 14 51 19.5 69 30 60.5 38 67Z" stroke="#ffffff" stroke-width="1.3"
+                      fill="none" stroke-linejoin="round"/>
+                <path d="M53 44.5 70 51 64.5 69 54 60.5 46 67Z" stroke="#ffffff" stroke-width="1.3"
+                      fill="none" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="fbody">
+              <div class="fh">Rigorous Certifications</div>
+              <div class="fb">
+                <div>Power and telecom industry standard test reports</div>
+                <div>Salt spray test report</div>
+                <div>CQC certified / CE certified</div>
+              </div>
+            </div>
+          </div>
+          <!-- 第 6 格：原图留空 -->
+          <div class="feat"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= 右栏：目录 ================= -->
+    <div class="paneR">
+      <h2 class="ctitle">CONTENTS</h2>
+      <div class="cbar"></div>
+
+      <ul class="toc">
+        <li><span class="n">05</span><span class="rule"></span>
+            <span class="t"><span>Ultra-slim</span><span>Model</span></span></li>
+        <li><span class="n">07</span><span class="rule"></span>
+            <span class="t"><span>Distributed</span><span>Models</span></span></li>
+        <li><span class="n">09</span><span class="rule"></span>
+            <span class="t"><span>Anti-pollution</span><span>Standard Model</span></span></li>
+        <li><span class="n">11</span><span class="rule"></span>
+            <span class="t"><span>High Efficiency</span><span>Anti-pollution SiC Models</span></span></li>
+        <li><span class="n">13</span><span class="rule"></span>
+            <span class="t"><span>208V Anti-pollution</span><span>Standard Model</span></span></li>
+        <li><span class="n">15</span><span class="rule"></span>
+            <span class="t"><span>480V Anti-pollution</span><span>Standard Model</span></span></li>
+        <li><span class="n">17</span><span class="rule"></span>
+            <span class="t"><span>800V/ 690V</span><span>Models</span></span></li>
+        <li><span class="n">19</span><span class="rule"></span>
+            <span class="t"><span>Three-phase Unbalance</span><span>Regulator (SPC)</span></span></li>
+        <li><span class="n">21</span><span class="rule"></span>
+            <span class="t"><span>Power Quality Monitoring and</span><span>Capacitor Control Unit</span></span></li>
+        <li><span class="n">22</span><span class="rule"></span>
+            <span class="t"><span>Product Selection</span><span>Chart</span></span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">05-06</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG ULTRA SLIM MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-ultra-slim-rackmount.webp"
+               alt="APF/SVG ULTRA SLIM MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC (208V, 480V please contact us)</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 8A</td><td class="d">APF 15A</td><td>APF 20A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 5Kvar</td><td class="d">SVG 10Kvar</td><td>SVG 14Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">1 unit</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 97.5%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~10,000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">Mechanical buttons, LED indicators, independent touchscreen, local WiFi interface</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Rack-mounted / Wall-mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">340x410x45</td></tr>
+          <tr><td class="k">Net Weight</td><td class="vspan" rowspan="2">7.5kg</td></tr>
+          <tr><td class="k">Chassis Height</td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">07-08</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG DISTRIBUTED MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-distributed-rackmount.webp"
+               alt="APF/SVG DISTRIBUTED MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC (208V, 480V please contact us)</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 30A</td><td>APF 50A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 20Kvar</td><td>SVG 30Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">≤8 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 97.5%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~10,000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, 2.5-inch button screen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Rack-mounted / Hot-swappable</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">380x400x88</td></tr>
+          <tr><td class="k">Net Weight</td><td class="v">11.5kg</td></tr>
+          <tr><td class="k">Chassis Height</td><td class="v">2U</td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial gray (RAL7035), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">09-10</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG STANDARD ANTI-POLLUTION MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-anti-pollution.webp"
+               alt="APF/SVG STANDARD ANTI-POLLUTION MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 50A</td><td class="d">APF 75A</td><td class="d">APF 100A</td><td class="d">APF 150A</td><td>APF 200A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 35Kvar</td><td class="d">SVG 50Kvar</td><td class="d">SVG 75Kvar</td><td class="d">SVG 100Kvar</td><td>SVG 150Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 98%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~30000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted / DIN-rail mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">11-12</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG SECOND-GENERATION SILICON CARBIDE MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-sic.webp"
+               alt="APF/SVG SECOND-GENERATION SILICON CARBIDE MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC (208V, 480V please contact us)</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 50A</td><td class="d">APF 75A</td><td class="d">APF 100A</td><td class="d">APF 150A</td><td>APF 200A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 35Kvar</td><td class="d">SVG 50Kvar</td><td class="d">SVG 75Kvar</td><td class="d">SVG 100Kvar</td><td>SVG 150Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">≤16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 99%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~30000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 25μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted / DIN-rail mounted</td></tr>
+          <tr class="split3"><td class="k">Dimensions W×D×H (mm)</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">500x550x130</td><td>500x550x175</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">Type test report, CE certification, CQC certification, salt spray test report</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">13-14</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG 208V STANDARD ANTI-POLLUTION MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-anti-pollution.webp"
+               alt="APF/SVG 208V STANDARD ANTI-POLLUTION MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">208VAC</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 50A</td><td class="d">APF 75A</td><td class="d">APF 100A</td><td class="d">APF 150A</td><td>APF 200A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 18Kvar</td><td class="d">SVG 27Kvar</td><td class="d">SVG 38Kvar</td><td class="d">SVG 54Kvar</td><td>SVG 75Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">208VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 98%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~30000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted / DIN-rail mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">15-16</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG 480V STANDARD ANTI-POLLUTION MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-anti-pollution.webp"
+               alt="APF/SVG 480V STANDARD ANTI-POLLUTION MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">480VAC</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 50A</td><td class="d">APF 75A</td><td class="d">APF 100A</td><td class="d">APF 150A</td><td>APF 200A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 40Kvar</td><td class="d">SVG 60Kvar</td><td class="d">SVG 90Kvar</td><td class="d">SVG 120Kvar</td><td>SVG 180Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">480VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 98%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~30000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted / DIN-rail mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">17-18</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG 800V/690V STANDARD MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-anti-pollution-690v-800v-rackmount.webp"
+               alt="APF/SVG 800V/690V STANDARD MODEL — rack-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr class="split3"><td class="k">Rated Voltage</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">800VAC</td><td>690VAC</td>
+              </tr></table>
+            </td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 85A</td><td>APF 100A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 120Kvar</td><td>SVG 120Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">800/690VAC (-20%~+10%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">≤16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 98%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">150/5~30,000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 50μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;60dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">4.3-inch touchscreen, LED indicators, independent touchscreen</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted / DIN-rail mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">480x600x175</td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td>40kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial black (RAL7021), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+65℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP20, other IP ratings customizable</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">19-20</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG NATURAL AIRCOOLING MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-ip65-fanless.webp" style="mix-blend-mode:normal"
+               alt="APF/SVG NATURAL AIRCOOLING MODEL — IP65 wall-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
+          <!-- ===== 左：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="96" y="52" width="20" height="216"/>
+            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <!-- 顶部把手/端子 -->
+            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="100" y1="52" x2="112" y2="52"/>
+            <!-- 四角安装孔 -->
+            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- ===== 中：大俯视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="168" y="30" width="196" height="250"/>
+            <!-- 左边缘安装孔列 -->
+            <circle cx="178" cy="52" r="2" fill="#fff"/>
+            <circle cx="178" cy="118" r="2" fill="#fff"/>
+            <circle cx="178" cy="184" r="2" fill="#fff"/>
+            <circle cx="178" cy="250" r="2" fill="#fff"/>
+            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
+            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
+            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
+                  fill="none" stroke-dasharray="2 1.5"/>
+            <!-- 右下角小端子 -->
+            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
+          </g>
+
+          <!-- 底部尺寸线 345（内层） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="292" x2="364" y2="292"/>
+            <line x1="168" y1="287" x2="168" y2="297"/>
+            <line x1="364" y1="287" x2="364" y2="297"/>
+          </g>
+          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">345</text>
+
+          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="168" y1="314" x2="424" y2="314"/>
+            <line x1="168" y1="309" x2="168" y2="319"/>
+            <line x1="424" y1="309" x2="424" y2="319"/>
+          </g>
+          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">366.5</text>
+
+          <!-- 右侧竖向尺寸线 415 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="410" y1="30" x2="410" y2="280"/>
+            <line x1="405" y1="30" x2="415" y2="30"/>
+            <line x1="405" y1="280" x2="415" y2="280"/>
+          </g>
+          <text x="424" y="160" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">415</text>
+
+          <!-- ===== 右：窄侧视图 ===== -->
+          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
+            <rect x="468" y="52" width="20" height="216"/>
+            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
+            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
+            <line x1="472" y1="52" x2="484" y2="52"/>
+            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
+            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
+            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
+          </g>
+
+          <!-- 右窄视图顶部尺寸 20 -->
+          <g stroke="#2b2b2b" stroke-width=".9">
+            <line x1="468" y1="20" x2="488" y2="20"/>
+            <line x1="468" y1="15" x2="468" y2="25"/>
+            <line x1="488" y1="15" x2="488" y2="25"/>
+          </g>
+          <text x="500" y="24" font-size="12" fill="#2b2b2b"
+                font-family="Segoe UI,Arial">20</text>
+        </svg>
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC (208V, 480V please contact us)</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">APF 30A</td><td>APF 50A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d">SVG 20Kvar</td><td>SVG 35Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">≤16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 99%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~10,000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 25μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;40dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">LED indicators, independent touchscreen, local WiFi interface</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted</td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">515x500x185</td></tr>
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td>18kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial gray (RAL7035), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+55℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP65</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="monitor">
+
+  <!-- 栏眉：2026-10-14 按用户要求「按 datasheet-en.html 统一其它英文模版的页面顶部格式」
+       改为与 datasheet-en.html / en-2 / en-cover / en-profile 【逐字一致】的
+       纯英文单栏写法（裸 <span>，无中文栏眉）。
+       改前是中文版写法 `<span class="cn">产品介绍</span><span class="en">Product Introduction</span>`，
+       是 5 个英文模板里唯一还带中文的页眉。 -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">21-22</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ==================== 左栏 ==================== -->
+    <div class="col-l">
+
+      <!-- 顶部：3 行标题 + 产品实拍图 -->
+      <div class="lhead">
+        <h1 class="ptitle">POWER QUALITY<br>MONITORING UNIT<br>AND HMI</h1>
+        <div class="pimg">
+          <img src="images/monitoring-unit.png" alt="Power quality monitoring unit and HMI">
+        </div>
+      </div>
+
+      <!-- 两张参数表（共用一条贯穿键/值分隔竖线） -->
+      <div class="tabwrap">
+
+        <!-- ---------- 表 1 ---------- -->
+        <div class="tabhead">
+          <svg class="bar" width="5.7" height="19.4" aria-hidden="true"><use href="#mk-bar"/></svg>
+          <span class="txt">7&quot; / 10&quot; / 4.3&quot; monitoring unit parameters</span>
+        </div>
+
+        <table class="pt" style="margin-top:19.46px">
+          <colgroup><col class="ck"><col class="cv"></colgroup>
+
+          <tr class="h-header">
+            <td class="ck">Display interface</td>
+            <td class="cv vcell">
+              <div class="vlead">Resistive color touch LCD</div>
+              <ul class="vlist">
+                <li><svg class="bd" width="3.4" height="3.4" aria-hidden="true"><use href="#mk-dot4"/></svg><b>Measurements</b>: parameters, waveforms, spectra</li>
+                <li><svg class="bd" width="3.4" height="3.4" aria-hidden="true"><use href="#mk-dot4"/></svg><b>Event logging</b>: up to 1000 pieces of data can be logged</li>
+                <li><svg class="bd" width="3.4" height="3.4" aria-hidden="true"><use href="#mk-dot4"/></svg><b>Function setting</b>: system setting, compensation function setting &hellip;</li>
+                <li><svg class="bd" width="3.4" height="3.4" aria-hidden="true"><use href="#mk-dot4"/></svg><b>Multi-language</b>: Simplified Chinese, English, Polish &hellip;</li>
+              </ul>
+            </td>
+          </tr>
+
+          <tr class="h-a">
+            <td class="ck">(Electrical) contact</td>
+            <td class="cv vcell">
+              <table class="sub2"><colgroup><col class="c1"><col></colgroup>
+                <tr><td class="d">2 output dry contacts</td><td>2 input dry contacts</td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="h-b">
+            <td class="ck">Number of controllable modules</td>
+            <td class="cv vcell">
+              <table class="sub2"><colgroup><col class="c1"><col></colgroup>
+                <tr><td class="d">7&quot; / 10&quot; screen: control up to 16 modules</td>
+                    <td>4.3&quot; screen: control up to 1 module</td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="h-b"><td class="ck">Communication method</td>
+            <td class="cv">Serial communication, ethernet communication, 4g/Wifi communication</td></tr>
+          <tr class="h-a"><td class="ck">Communication protocols</td>
+            <td class="cv">Modbusrtu&#12289; modbus tcp/ip</td></tr>
+          <tr class="h-b"><td class="ck">Shape and mounting dimensions</td>
+            <td class="cv">See instruction manual</td></tr>
+        </table>
+
+        <!-- ---------- 表 2 ---------- -->
+        <div class="tabhead two" style="margin-top:46.51px">
+          <svg class="bar" width="5.7" height="42.6" aria-hidden="true"><use href="#mk-bar2"/></svg>
+          <span class="txt">Capacitor bank controller (7&quot; monitor built-in or stand-alone<br>type) parameters</span>
+        </div>
+
+        <table class="pt" style="margin-top:13.78px">
+          <colgroup><col class="ck"><col class="cv"></colgroup>
+          <tr class="h-b"><td class="ck">(Electrical) contact</td>
+            <td class="cv">32 dry contact, control up to 32 sets of capacitor banks</td></tr>
+          <tr class="h-a"><td class="ck">Communication method</td>
+            <td class="cv">Serial communication, ethernet communication, 4g/Wifi communication</td></tr>
+          <tr class="h-b"><td class="ck">Communication protocols</td>
+            <td class="cv">Modbusrtu&#12289; modbus tcp/ip</td></tr>
+          <tr class="h-a"><td class="ck">Shape and mounting dimensions</td>
+            <td class="cv">See instruction manual</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ==================== 右栏 ==================== -->
+    <div class="col-r">
+
+      <h2 class="ptitle">APF/SVG SELECTION TABLE</h2>
+
+      <!-- ---------- 型号命名规则 ---------- -->
+      <div class="naming">
+
+        <div class="nhead">Model naming rules</div>
+
+        <div class="code">
+          <span class="g" style="left:10.43px">M</span>
+          <span class="g" style="left:37.57px">A</span>
+          <span class="g" style="left:58.14px">F</span>
+          <span class="g" style="left:95.85px">100</span>
+          <span class="g" style="left:132.99px">3</span>
+          <span class="g" style="left:157.28px">4</span>
+          <span class="g" style="left:185.56px">R</span>
+          <span class="g" style="left:212.42px">C</span>
+        </div>
+
+        <!-- 竖向导线（自各字母组下划线垂下 + 8 条行底线）
+             颜色实测：竖线 #DAD9DA（RGB 218,217,218）、横线 #CBCBCB（RGB 200,199,200）
+             行底线右端实测 x = 485.97（不是栏宽，距 For Example 灰框左沿 20px） -->
+        <svg class="lead" viewBox="0 0 673.5 399.42" preserveAspectRatio="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- 竖线：终点 = 该组说明行的底线 -->
+          <g stroke="#DAD9DA" stroke-width="0.6">
+            <line x1="10.43"  y1="68.9" x2="10.43"  y2="398.85"/>
+            <line x1="37.57"  y1="68.9" x2="37.57"  y2="362.84"/>
+            <line x1="58.14"  y1="68.9" x2="58.14"  y2="329.98"/>
+            <line x1="95.85"  y1="68.9" x2="95.85"  y2="293.98"/>
+            <line x1="132.99" y1="68.9" x2="132.99" y2="258.27"/>
+            <line x1="157.28" y1="68.9" x2="157.28" y2="222.56"/>
+            <line x1="185.56" y1="68.9" x2="185.56" y2="186.85"/>
+            <line x1="212.42" y1="68.9" x2="212.42" y2="150.85"/>
+          </g>
+          <!-- 行底线：自本行对应导线起 → 至 x=485.97 -->
+          <g stroke="#CBCBCB" stroke-width="0.7">
+            <line x1="212.42" y1="150.85" x2="485.97" y2="150.85"/>
+            <line x1="185.56" y1="186.85" x2="485.97" y2="186.85"/>
+            <line x1="157.28" y1="222.56" x2="485.97" y2="222.56"/>
+            <line x1="132.99" y1="258.27" x2="485.97" y2="258.27"/>
+            <line x1="95.85"  y1="293.98" x2="485.97" y2="293.98"/>
+            <line x1="58.14"  y1="329.98" x2="485.97" y2="329.98"/>
+            <line x1="37.57"  y1="362.84" x2="485.97" y2="362.84"/>
+            <line x1="10.43"  y1="398.85" x2="485.97" y2="398.85"/>
+          </g>
+        </svg>
+
+        <!-- 8 条说明行：自上而下 = 自末位字母 C 到首位字母 M。
+             方块 left 与文字 left 均为原图实测（命名区局部 CSS px）。 -->
+        <div class="nrows">
+          <div class="nr" style="height:30px">
+            <svg class="sq" width="10" height="10" style="left:219.41px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:232.13px">C: no screen&#65292; L: LCD</span></div>
+
+          <div class="nr" style="height:36px">
+            <svg class="sq" width="10" height="10" style="left:192.84px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:206.13px">R: rail mounted;  W: wall mounted;  F: full cabinet;  P: plug-in</span></div>
+
+          <div class="nr" style="height:35.71px">
+            <svg class="sq" width="10" height="10" style="left:163.99px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:176.99px">3: three-phase three-wire system;  4: three-phase four-wire system</span></div>
+
+          <div class="nr" style="height:35.71px">
+            <svg class="sq" width="10" height="10" style="left:139.70px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:152.99px">Voltage Rating: 2: 208V, 3: 400V, 4: 480V, 6: 690V, 8: 800V</span></div>
+
+          <div class="nr" style="height:35.71px">
+            <svg class="sq" width="10" height="10" style="left:101.99px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:114.70px">Current/Power Capacity: 15-200A or 10-150Kvar</span></div>
+
+          <div class="nr" style="height:36px">
+            <svg class="sq" width="10" height="10" style="left:65.14px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:78.13px">F: APF, G: SVG, A: ASVG, C: SPC</span></div>
+
+          <div class="nr" style="height:32.86px">
+            <svg class="sq" width="10" height="10" style="left:44.85px" aria-hidden="true"><use href="#mk-sq"/></svg>
+            <span class="tx" style="left:58.00px">A: Anti-pollution type   C: Silicon carbide type   D: Distributed type   L: Standardtype   U: Ultra-slim type</span></div>
+
+          <div class="nr" style="height:36.01px">
+            <span class="l1">H: High performance   N: Natural convection   R: dust &amp; water Resistant</span>
+            <span class="l2">
+              <svg class="sq" width="10" height="10" style="left:17.42px" aria-hidden="true"><use href="#mk-sq"/></svg>
+              <span class="tx" style="left:30.42px">M: Chitek Series</span>
+            </span></div>
+        </div>
+
+        <!-- For Example 灰框 -->
+        <div class="example">
+          <div class="ex-h">For Example</div>
+          <div class="ex-r"></div>
+          <p class="ex-p">MAF10034RC,<br>indicating<br>Anti-pollution<br>type APF100A,<br>voltage class<br>400V,<br>three-phase<br>four-wire system,<br>rail mounting,<br>without screen</p>
+        </div>
+      </div>
+
+      <!-- ---------- ABOUT ASVG ---------- -->
+      <div class="about">
+        <h2 class="ptitle">ABOUT ASVG &ndash; ENHANCED STATIC<br>VARIABLE GENERATOR</h2>
+        <div class="hr"></div>
+      </div>
+
+      <!-- ---------- 渐变横幅 ---------- -->
+      <div class="banner">
+        <svg class="bg" viewBox="0 0 673.5 65.5" preserveAspectRatio="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="bnGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0"     stop-color="#DC4F27"/>
+              <stop offset="0.102" stop-color="#DC4F27"/>
+              <stop offset="0.250" stop-color="#E0603C"/>
+              <stop offset="0.399" stop-color="#E68265"/>
+              <stop offset="0.547" stop-color="#EDA490"/>
+              <stop offset="0.696" stop-color="#F3C6B9"/>
+              <stop offset="0.844" stop-color="#FAE8E3"/>
+              <stop offset="0.911" stop-color="#FDF8F6"/>
+              <stop offset="0.927" stop-color="#FFFFFF"/>
+              <stop offset="1"     stop-color="#FFFFFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="673.5" height="65.5" rx="6" ry="6" fill="url(#bnGrad)"/>
+        </svg>
+        <span class="bt">All SVG products from Chitek can be upgraded<br>to ASVG products</span>
+      </div>
+
+      <!-- ---------- ASVG Product Features ---------- -->
+      <div class="feats">
+        <div class="ft">ASVG Product Features:</div>
+        <ul class="flist">
+          <li><svg class="bd" width="6.5" height="6.5" aria-hidden="true"><use href="#mk-dot6"/></svg>Supports up to 13 order harmonic compensation (3, 5, 7, 9, 11, 13)</li>
+          <li><svg class="bd" width="6.5" height="6.5" aria-hidden="true"><use href="#mk-dot6"/></svg>User can set capacity split between PF correction and harmonic compensation</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+</body>
+</html>

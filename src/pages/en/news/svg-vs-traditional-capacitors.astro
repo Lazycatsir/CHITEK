@@ -36,7 +36,8 @@ const relatedCases = [
   { name: "UPS Harmonic Mitigation on a Data Centre Feeder, Guangzhou", industry: "Colocation / IDC", href: "/solutions/data-center" },
 ];
 
-const lp = (p) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p) => isLocal ? '/en' + p : p;
 
 ---
 <BaseLayout

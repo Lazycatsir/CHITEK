@@ -66,109 +66,115 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
   <!-- Breadcrumb (full width, above the sidebar so it is never overlapped) -->
   <nav class="bg-white border-b border-border-light mt-[72px]" aria-label="Breadcrumb">
-    <div class="mx-auto max-w-7xl px-6 py-3 text-[clamp(12px,1.1vw,16px)] text-text-muted">
-      <a href={lp('/')} class="hover:text-brand-orange transition-colors">Home</a>
+    <div class="max-w-none px-9 lg:px-[110px] py-3 text-[clamp(12px,1.1vw,16px)] text-text-muted">
+      <a href={lp('/')} class="hover:text-[#ea511e] transition-colors">Home</a>
       <span class="mx-2 text-border-light">/</span>
-      <a href={lp('/products')} class="hover:text-brand-orange transition-colors">Products</a>
+      <a href={lp('/products')} class="hover:text-[#ea511e] transition-colors">Products</a>
       <span class="mx-2 text-border-light">/</span>
       <span class="text-text-dark font-medium">Anti-Pollution Active Harmonic Filter AHF</span>
     </div>
   </nav>
 
-  <!-- Left section navigation (desktop sticky sidebar) + content column -->
-  <div class="lg:flex">
-    <aside class="hidden lg:block lg:w-[140px] shrink-0 border-r border-border-light">
-      <nav class="sticky top-[72px] max-h-[calc(100vh-72px)] overflow-y-auto py-8 px-2" aria-label="Section navigation">
-        <p class="px-2 mb-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-text-muted">PAGE GUIDE</p>
-          <a href="#overview" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] leading-snug font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
-          <a href="#description" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
-          <a href="#parameters" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
-          <a href="#why" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
-          <a href="#manufacturing" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Manufacturing &amp; QA</a>
-          <a href="#faq" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
-          <a href="#application" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Application</a>
-      </nav>
-    </aside>
-    <div class="flex-1 min-w-0">
+  <!-- Section navigation: horizontal bar, slides in under the fixed header only
+       after the first screen (one viewport height) has been scrolled past -->
+  <nav data-secnavbar class="fixed left-0 right-0 top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <div class="flex gap-1 overflow-x-auto" data-secnav-track>
+        <a href="#overview" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Overview</a>
+        <a href="#description" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Description</a>
+        <a href="#parameters" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Parameters</a>
+        <a href="#why" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Advantages</a>
+        <a href="#manufacturing" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Manufacturing</a>
+        <a href="#faq" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">FAQ</a>
+        <a href="#application" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Application</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content column (was beside the old left rail, now full width) -->
+  <div>
 
   <!-- Product top: description (left) + product image (right). No background image. -->
   <section id="overview" data-product-top class="bg-white pt-[clamp(14px,1.5vw,24px)] pb-[clamp(32px,3.5vw,56px)] scroll-mt-[72px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+    <div class="max-w-none px-9 lg:px-[110px]">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(24px,4vw,56px)] items-start">
 
         <!-- LEFT: title / meta / specs / advantages -->
         <div>
-          <h1 class="text-[clamp(18px,1.95vw,30px)] font-bold leading-snug text-text-dark mb-5 font-barlow-condensed">Anti-Pollution Active Harmonic Filter AHF — Harsh-Environment Power Quality Series</h1>
+          <h1 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-5 font-barlow-condensed">Anti-Pollution Active Harmonic Filter AHF — Harsh-Environment Power Quality Series</h1>
 
-          <p class="text-[clamp(12px,1.05vw,15px)] text-text-mid leading-[1.7] mb-5 uppercase">
-            <strong class="text-text-dark font-bold normal-case">Tags</strong>
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">Anti-Pollution AHF</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">active harmonic filter</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">dust-proof harmonic filter</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">harsh-environment AHF</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">anti-corrosion power quality filter</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">heavy-duty APF</a>
+          <p class="text-[clamp(12px,1.05vw,15px)] text-text-mid leading-[1.7] mb-5 lowercase">
+            <strong class="text-[#333333] font-bold normal-case">Tags</strong>
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">Anti-Pollution AHF</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">active harmonic filter</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">dust-proof harmonic filter</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">harsh-environment AHF</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">anti-corrosion power quality filter</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">heavy-duty APF</a>
           </p>
 
-          <div class="text-[clamp(14px,1.25vw,20px)] text-text-mid leading-[1.9] mb-5">
-            <p><strong class="text-text-dark font-bold">Function:</strong> Harmonic Mitigation, Reactive Compensation, Imbalance Phase Balancing</p>
-            <p><strong class="text-text-dark font-bold">Rated Voltage:</strong> 208/400/480/690/800 VAC</p>
-            <p><strong class="text-text-dark font-bold">Power Capacity:</strong> 50/75/100/150/200A single module (unlimited for parallel)</p>
-            <p><strong class="text-text-dark font-bold">Efficiency:</strong> ≥ 97%</p>
-            <p><strong class="text-text-dark font-bold">Filter Performance:</strong> up to 97%</p>
-            <p><strong class="text-text-dark font-bold">Nominal Frequency:</strong> 50/60HZ</p>
-            <p><strong class="text-text-dark font-bold">Connection Type:</strong> 3 Phase 3 Wire / 3 Phase 4 Wire</p>
-            <p><strong class="text-text-dark font-bold">Installation:</strong> Wall mounted/Rack mounted/Cabinet</p>
-            <p><strong class="text-text-dark font-bold">Warranty:</strong> Standard 2 years/negotiable</p>
+          <div class="text-[14px] font-normal text-[#333333] leading-[1.9] mb-5">
+            <p><strong class="text-[#333333] font-bold">Function:</strong> Harmonic Mitigation, Reactive Compensation, Imbalance Phase Balancing</p>
+            <p><strong class="text-[#333333] font-bold">Rated Voltage:</strong> 208/400/480/690/800 VAC</p>
+            <p><strong class="text-[#333333] font-bold">Power Capacity:</strong> 50/75/100/150/200A single module (unlimited for parallel)</p>
+            <p><strong class="text-[#333333] font-bold">Efficiency:</strong> ≥ 97%</p>
+            <p><strong class="text-[#333333] font-bold">Filter Performance:</strong> up to 97%</p>
+            <p><strong class="text-[#333333] font-bold">Nominal Frequency:</strong> 50/60HZ</p>
+            <p><strong class="text-[#333333] font-bold">Connection Type:</strong> 3 Phase 3 Wire / 3 Phase 4 Wire</p>
+            <p><strong class="text-[#333333] font-bold">Installation:</strong> Wall mounted/Rack mounted/Cabinet</p>
+            <p><strong class="text-[#333333] font-bold">Warranty:</strong> Standard 2 years/negotiable</p>
           </div>
 
           <!-- Configurator: SKU selector card (header + part-number chip / labelled chips / summary bar) -->
           <div class="mt-[clamp(20px,2vw,32px)] rounded-2xl border border-border-light bg-white overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 pb-1">
-              <p class="m-0 text-[clamp(16px,1.4vw,22px)] font-bold text-text-dark">Configure your SKU</p>
-              <span class="inline-flex items-center gap-1.5 rounded-md border border-border-light bg-[#fafbfc] px-3 py-1.5 text-[14px] whitespace-nowrap"><span class="text-text-muted">SKU:</span> <span data-sku-chip-val class="font-semibold text-brand-orange">&mdash;</span></span>
+              <p class="m-0 text-[14px] font-bold tracking-[0.08em] text-[#333333]">Configure your sku</p>
             </div>
-            <p class="m-0 px-5 pb-4 text-[14px] leading-snug text-text-muted">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
+            <p class="m-0 px-5 pb-4 text-[14px] leading-snug text-[#626469]">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
 
             <div class="px-5 pb-5 space-y-4">
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                 <div>
-                  <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Rated Voltage</p>
+                  <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Rated voltage</p>
                   <div class="flex flex-wrap gap-2">
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="400V" /> 400V</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="480V" /> 480V</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="690V" /> 690V</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="800V" /> 800V</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>
+                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="400V" /> 400V</label>
+                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="480V" /> 480V</label>
+                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="690V" /> 690V</label>
+                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="800V" /> 800V</label>
                   </div>
                 </div>
                 <div>
-                  <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Protection Rate</p>
+                  <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Protection rate</p>
                   <div class="flex flex-wrap gap-2">
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP20" /> IP20</label>
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP65" /> IP65</label>
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="other" /> other</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP20" /> IP20</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP65" /> IP65</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="other" /> other</label>
                   </div>
                 </div>
               </div>
               <div>
-                <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Power Capacity</p>
+                <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Power capacity</p>
                 <div class="flex flex-wrap gap-2">
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="50A" /> 50A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="75A" /> 75A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="100A" /> 100A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="150A" /> 150A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="200A" /> 200A</label><label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="Unlimited" /> Unlimited for parallel (up to 16 modules)</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="50A" /> 50A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="75A" /> 75A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="100A" /> 100A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="150A" /> 150A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="200A" /> 200A</label><label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="Unlimited" /> Unlimited for parallel (up to 16 modules)</label>
                 </div>
               </div>
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                   <div>
-                    <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Wiring</p>
+                    <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Wiring</p>
                     <div class="flex flex-wrap gap-2">
-                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P4W" /> 3P4W</label>
+                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P4W" /> 3P4W</label>
                     </div>
                   </div>
                   <div>
-                    <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Installation</p>
+                    <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Installation</p>
                     <div class="flex flex-wrap gap-2">
-                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Rack" /> Rack</label>
+                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Rack" /> Rack</label>
                     </div>
                   </div>
                 </div>
@@ -177,32 +183,13 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </div>
 
             <!-- Summary bar: live SKU line + Quote + Download (moved down from the left column so the page keeps ONE quote form) -->
-            <div class="border-t border-border-light bg-[#fafbfc] px-5 py-3.5">
+            <div class="border-t border-border-light bg-white px-5 py-3.5">
               <div class="flex flex-wrap items-center gap-3">
-                <form
-                  id="ahf-quote-form"
-                  name="quote"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  data-lead-form
-                  class="m-0 flex-1 min-w-[280px]"
-                >
-                  <input type="hidden" name="form-name" value="quote" />
-                  <div data-utm-fields hidden></div>
-                  <div hidden aria-hidden="true">
-                    <label>Don't fill this out <input name="bot-field" /></label>
-                  </div>
-                  <input type="hidden" data-inquiry-summary name="message" />
-                  <p data-summary-view class="m-0 text-[13.5px] leading-snug text-brand-orange"></p>
-                </form>
-                <div class="flex items-center gap-2 shrink-0 sm:ml-auto">
-                  <button type="submit" form="ahf-quote-form" class="inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-5 py-2.5 text-[14px] transition-colors whitespace-nowrap cursor-pointer">Quote this configuration &rarr;</button>
+                <p data-summary-view class="m-0 flex-1 min-w-[280px] text-[14px] leading-snug text-[#626469]"></p>
+                <div class="flex flex-wrap items-stretch gap-2 sm:ml-auto">
+                  <p data-summary-price class="m-0 flex items-center font-bold text-[24px] leading-none text-[#333333] whitespace-nowrap">Estimated 1300$(EXW)</p>
+                  <a data-wa-link href="https://wa.me/8618818994346" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#ea511e] hover:bg-[#ea511e] text-white font-semibold rounded-lg px-5 py-2.5 text-[14px] transition-colors whitespace-nowrap cursor-pointer no-underline">Inquire now &rarr;</a>
                 </div>
-              </div>
-              <div data-form-success data-no-reset hidden class="mt-3 p-4 rounded-lg bg-[#e8f5e9] border border-[#c8e6c9]">
-                <p class="text-[16px] font-semibold text-[#2e7d32] mb-0.5">Thank you! Our application engineer will contact you within 24 hours.</p>
-                <p class="text-[14px] text-[#558b2f]">CHITEK INNOPOWER</p>
               </div>
             </div>
           </div>
@@ -211,18 +198,41 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         <!-- RIGHT column: 3-image carousel, then the resources card -->
         <div>
           <div data-gallery class="rounded-2xl border border-border-light bg-[#fafbfc] px-6 pb-6 pt-2 flex flex-col items-center">
-            <div class="w-full flex items-center justify-center overflow-hidden">
-              <img data-gallery-main src="/assets/images/products-ahf-anti-pollution.webp" alt="CHITEK Anti-Pollution Active Harmonic Filter AHF" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
+            <div class="relative w-full flex items-center justify-center overflow-hidden">
+              <!-- Interactive 360 view: the first item of the gallery, shown by default.
+                   Frames: 18 turntable steps x 9 tilt rows, exported from KeyShot at
+                   1600x872 and converted to webp under /assets/spin/anti-pollution-ahf/.
+                   2026-10-14: re-rendered from the 3u.8 turntable export - the previous
+                   render was framed so tightly that tilt rows 0-2 and 7-8 ran off the
+                   frame edge, all nine rows are now fully inside it. Clicking the image
+                   (or the corner button) pins this very viewer to the full viewport -
+                   the drag logic is untouched, so it keeps rotating. -->
+              <div data-spin-viewer class="spin360" role="group" aria-label="CHITEK Anti-Pollution Active Harmonic Filter AHF 360 degree view - drag, swipe or use the arrow keys to rotate" tabindex="0">
+                <img data-spin-frame src="/assets/spin/anti-pollution-ahf/5_9.webp" width="1600" height="872" alt="CHITEK Anti-Pollution Active Harmonic Filter AHF, 360 degree rotating view" class="pointer-events-none select-none" loading="eager" decoding="async" draggable="false" />
+                <p class="spin-hint">Drag to rotate 360&deg;</p>
+                <p class="spin-tip" aria-hidden="true">Drag to rotate 360&deg; &middot; Esc or &times; to close</p>
+                <button type="button" data-spin-close class="spin-close" aria-label="Close the enlarged 360 view">&times;</button>
+              </div>
+              <img data-gallery-main src="/assets/images/products-ahf-anti-pollution.webp" alt="CHITEK Anti-Pollution Active Harmonic Filter AHF" loading="eager" hidden />
+              <button type="button" data-spin-expand class="spin-expand" aria-expanded="false" aria-label="Enlarge the 360 degree view" title="Enlarge">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6" /><path d="M9 21H3v-6" /><path d="M21 3l-7 7" /><path d="M3 21l7-7" /></svg>
+              </button>
             </div>
-            <div class="mt-4 grid grid-cols-3 gap-3 w-full shrink-0">
-              <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-anti-pollution.webp" data-alt="CHITEK Anti-Pollution Active Harmonic Filter AHF" class="gallery-thumb is-active overflow-hidden rounded-lg border border-border-light bg-white p-1">
+            <div class="mt-4 grid grid-cols-4 gap-3 w-full shrink-0">
+              <button type="button" data-spin-thumb class="gallery-thumb is-active relative overflow-hidden rounded-lg border border-border-light bg-white p-1" aria-label="Show the 360 degree view">
+                <img src="/assets/spin/anti-pollution-ahf/5_9.webp" alt="360 degree view" class="w-full h-[72px] object-contain" loading="lazy" decoding="async" />
+                <span class="thumb-360" aria-hidden="true">360&deg;</span>
+              </button>
+              <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-anti-pollution.webp" data-alt="CHITEK Anti-Pollution Active Harmonic Filter AHF" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
                 <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF front view" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
               <button type="button" data-gallery-thumb data-src="/assets/images/index-product-svg.webp" data-alt="CHITEK Static Var Generator SVG module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
                 <img src="/assets/images/index-product-svg.webp" alt="SVG module view" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
-              <button type="button" data-gallery-thumb data-src="/assets/images/index-product-avr.webp" data-alt="CHITEK Automatic Voltage Regulator AVR module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
-                <img src="/assets/images/index-product-avr.webp" alt="AVR module view" class="w-full h-[72px] object-contain" loading="lazy" />
+              <!-- slot 4 repeats the unit photo (user ruling 2026-10-14: the AVR module
+                   thumbnail is dropped, the gallery keeps four slots) -->
+              <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-anti-pollution.webp" data-alt="CHITEK Anti-Pollution Active Harmonic Filter AHF" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
+                <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
             </div>
           </div>
@@ -231,34 +241,34 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="mt-[clamp(20px,2vw,32px)] rounded-2xl border border-border-light bg-white overflow-hidden">
             <div class="px-5 pt-5 pb-4 space-y-3">
               <div class="flex items-center justify-between gap-4">
-                <p class="m-0 text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted">Product</p>
-                <p class="m-0 text-[15px] font-medium text-text-dark text-right">Anti-Pollution Active Harmonic Filter AHF</p>
+                <p class="m-0 text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Product</p>
+                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">Anti-Pollution Active Harmonic Filter AHF</p>
               </div>
               <div class="flex items-center justify-between gap-4">
-                <p class="m-0 text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted">Voltage level</p>
-                <p class="m-0 text-[15px] font-medium text-text-dark text-right">208/400/480/690/800 VAC</p>
+                <p class="m-0 text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Voltage level</p>
+                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">208/400/480/690/800 VAC</p>
               </div>
             </div>
             <ul class="m-0 p-0 list-none border-t border-border-light">
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">HMI Manual</span>
-                <a href="/assets/pdf/chitek-power-quality-monitoring-unit-user-manual-en.pdf" data-doc-link="hmi-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">HMI Manual</span>
+                <a href="/assets/pdf/chitek-power-quality-monitoring-unit-user-manual-en.pdf" data-doc-link="hmi-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Datasheet</span>
-                <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" data-doc-link="datasheet" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Datasheet</span>
+                <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" data-doc-link="datasheet" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Catalog</span>
-                <a href="/assets/pdf/chitek-power-quality-catalog.pdf" data-doc-link="catalog" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Catalog</span>
+                <a href="/assets/pdf/datasheet-en-catalog.html" data-doc-link="catalog" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Device Manual</span>
-                <a href="/assets/pdf/high-protection-series-user-manual-en.pdf" data-doc-link="device-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Device Manual</span>
+                <a href="/assets/pdf/high-protection-series-user-manual-en.pdf" data-doc-link="device-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Installation and Commission</span>
-                <span class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-text-muted whitespace-nowrap">Watch</span>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Installation and Commission</span>
+                <span class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#626469] whitespace-nowrap">Watch</span>
               </li>
             </ul>
           </div>
@@ -268,151 +278,173 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </section>
 
-  <!-- Sticky section sub-navigation (mobile only) -->
-  <nav class="lg:hidden sticky top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <div class="flex gap-1 overflow-x-auto">
-        <a href="#overview" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
-        <a href="#description" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
-        <a href="#parameters" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
-        <a href="#why" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
-        <a href="#manufacturing" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Manufacturing &amp; QA</a>
-        <a href="#faq" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
-        <a href="#application" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Application</a>
-      </div>
-    </div>
-  </nav>
-
   <!-- 00 Product Description (moved above Technical Parameters) -->
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="description" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Product Description</h2>
-      <div class="max-w-none lg:pr-[clamp(40px,8vw,160px)] mb-10 space-y-4 text-text-mid text-[clamp(13.5px,1.2vw,17.5px)] leading-relaxed">
-        <p>Lower harmonic levels on a CHITEK Active Harmonic Filter translate directly into a more dependable electrical network and lower running costs. By removing the harmonic currents that cause extra heating, the filter helps eliminate the nuisance tripping of protective devices and the unexplained fuse failures that plant teams often spend weeks tracing.</p>
-        <p>Because harmonic heating is kept in check, motors, transformers, switchgear and cables run cooler, so their service life is extended and maintenance schedules become lighter. On new-build projects, engineers can also revisit the practice of oversizing distribution equipment purely as a defence against harmonics — a smaller, better-utilised design is usually enough.</p>
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Description</h2>
+      <!-- Right column: description copy + the 6 feature cards (grid cell 2) -->
+      <div class="min-w-0">
+      <div class="max-w-none mb-10 space-y-4 text-[#626469] text-[14px] leading-relaxed">
+        <p>CHITEK Anti-Pollution Active Harmonic Filter AHF is an advanced and comprehensive power quality solution for power grids, which adopts an advanced three-level inverter topology to deliver fast and efficient real time harmonic mitigation. This CHITEK Ultra-slim active harmonic filter also provides selectable priority functions for reactive power compensation, load balancing and harmonic filtering.</p>
+        <p>Connected in parallel with the power system, the CHITEK Ultra-slim AHF collects real time grid data via externally installed sampling current transformers (CT). Its built in DSP leverages a high speed intelligent FFT algorithm to compute the required compensation current and issue control commands to the power modules. The filter dynamically tunes the switching frequency for optimized performance, enabling the AHF to generate reverse phase equal magnitude compensation current to counteract harmonic currents. This suppresses harmonic distortion across each harmonic order and achieves total harmonic distortion (THD) below 5%, in compliance with the IEEE 519,IEEE 6100-36 standard.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Graphical HMI</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Direct control, configuration, monitoring and harmonic analysis from the front panel — no PC required.</p>
+          <img src="/assets/images/sic-ahf-feature-losses.webp" alt="Halved Losses" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Halved Losses</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>At least 1 percentage point lower loss.</li>
+            <li>A 150 A / 100 kvar unit running 7&times;24 saves about 8,760 kWh a year, an outstanding return.</li>
+          </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Comprehensive Measurements</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">RMS voltages and currents, THDu/THDi, system frequency, load factor, compensated current, PF before/after and 2nd–50th order spectrum.</p>
+          <img src="/assets/images/sic-ahf-feature-life.webp" alt="Longer Service Life" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Longer Service Life</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>Module internal temperature up to 18 &deg;C lower than IGBT models (200 A, 90% load).</li>
+            <li>MTBF improved by more than 50%.</li>
+          </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Power Factor Correction</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Dynamic correction for both lagging and leading power factor without capacitor-step switching.</p>
+          <img src="/assets/images/sic-ahf-feature-temperature.webp" alt="Higher Temperature Tolerance" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Higher Temperature Tolerance</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>No derating below 45 &deg;C, 5 &deg;C higher than standard models, for high-temperature industrial sites.</li>
+            <li>Keeps running below 65 &deg;C even in extreme conditions.</li>
+          </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Load Balancing</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Balances three-phase systems and relieves neutral current in 3P4W networks.</p>
+          <img src="/assets/images/sic-ahf-feature-even-harmonic.webp" alt="Even-Order Harmonic Elimination" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Even-Order Harmonic Elimination</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>100% even-order harmonic filtering, where IGBT products are nearly ineffective.</li>
+          </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Low Thermal Loss</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">the IGBT bridge keeps losses low and efficiency at 97% or better, cutting cooling demand.</p>
+          <img src="/assets/images/sic-ahf-feature-components.webp" alt="All Components Upgraded" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">All Components Upgraded</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>Capacitors, reactors and relays upgraded together to higher-end designs.</li>
+          </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Flexible &amp; Modular</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Modular design embedded in standard or customized cabinets, with parallel expansion and factory ODM support.</p>
+          <img src="/assets/images/sic-ahf-feature-certification.webp" alt="Stricter Certification" width="96" height="96" loading="lazy" decoding="async" class="w-12 h-12 mb-4 object-contain" />
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Stricter Certification</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[#626469] text-[14px] leading-relaxed">
+            <li>Power and telecom industry standard test reports, salt spray test reports, CQC/CE certification.</li>
+          </ul>
         </div>
+      </div>
       </div>
     </div>
   </section>
 
   <!-- 01 Technical Parameters -->
-  <section id="parameters" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-[clamp(40px,8vw,160px)]">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">Technical Parameters</h2>
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section id="parameters" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Parameters</h2>
+      <!-- Right column: voltage tabs + the two spec tables (grid cell 2) -->
+      <div class="min-w-0">
       <div class="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Voltage rating">
-        <button type="button" role="tab" id="tab-lv" data-volt-tab="lv" aria-selected="true" aria-controls="panel-lv" class="text-[14px] font-semibold px-4 py-2 rounded-lg border border-brand-orange bg-brand-orange text-white">208VAC / 400VAC / 480VAC</button>
+        <button type="button" role="tab" id="tab-lv" data-volt-tab="lv" aria-selected="true" aria-controls="panel-lv" class="text-[14px] font-semibold px-4 py-2 rounded-lg border border-[#ea511e] bg-[#ea511e] text-white">208VAC / 400VAC / 480VAC</button>
         <button type="button" role="tab" id="tab-hv" data-volt-tab="hv" aria-selected="false" aria-controls="panel-hv" class="text-[14px] font-semibold px-4 py-2 rounded-lg border border-border-light bg-white text-text-mid">690VAC / 800VAC</button>
       </div>
       <div id="panel-lv" role="tabpanel" aria-labelledby="tab-lv" data-volt-panel="lv">
       <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
         <table class="w-full border-collapse text-[clamp(14px,1.1vw,16px)] leading-tight text-left">
           <tbody>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Module Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Rated Voltage</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">208VAC/400VAC/480VAC</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Rated Current</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 50A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 75A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 100A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 150A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 200A</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Power Capacity</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 35Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 50Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 75Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 100Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 150Kvar</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">System Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Rated Input Voltage</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">208VAC/400VAC/480VAC (-20%~+15%)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Grid Frequency</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Number of Parallel Connections</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">16 units</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Efficiency</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Up to 98%</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Grid Structure</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Three-phase four-wire or three-phase three-wire</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Current Transformer</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">50/5~30,000/5</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Performance Indicators</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Harmonic Compensation Range</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">2~50 times</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Harmonic Attenuation</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">&gt;95% (rated load)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Quick Response Time</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">&lt; 50&micro;s</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Full Response Time</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">&lt; 5ms</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Target Power Factor</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">-1~+1, capacitive and inductive continuously adjustable</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Compensation Mode</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Noise Indicator</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">&lt;60dB</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Communications &amp; Monitoring</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Communication Interface</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">RS485, WiFi, 4G, CAN</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Communication Protocol</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Modbus protocol (RTU or TCP/IP)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Module Display Interface</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">4.3 inch touch screen, LED indicators, independent touch screen</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Mechanical Properties</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Mounting Options</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Wall-mounted / Rail-mounted</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Dimensions W&times;D&times;H (mm)</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">500&times;550&times;130</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Net Weight</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">19kg</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">24kg</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">24kg</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">29kg</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">34kg</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Color</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Industrial black (RAL7021), customizable upon request</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">CT Connection Mode</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">Support the source side / load side</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Environmental Requirements</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Altitude</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Operating Temperature</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">-40&#8451;~+65&#8451;</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Relative Humidity</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">5%~95%, no condensation</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Protection Level</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">IP20, other IP levels customizable</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="6" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Related Qualifications and Standards</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Standards Compliance</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[20%]">Certification</th><td colspan="5" class="py-2 px-4 pr-10 text-text-mid">CE, CQC</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Module Parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated Voltage</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">208VAC/400VAC/480VAC</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated current</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]"><div class="grid grid-cols-5"><span>APF 50A</span><span>APF 75A</span><span>APF 100A</span><span>APF 150A</span><span>APF 200A</span></div></td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Power capacity</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]"><div class="grid grid-cols-5"><span>SVG 35Kvar</span><span>SVG 50Kvar</span><span>SVG 75Kvar</span><span>SVG 100Kvar</span><span>SVG 150Kvar</span></div></td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">System Parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated Input Voltage</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">208VAC/400VAC/480VAC (-20%~+15%)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Grid Frequency</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Number of Parallel Connections</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">16 units</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Efficiency</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Up to 98%</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Grid Structure</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Current Transformer</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">50/5~30,000/5</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Performance Indicators</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Harmonic Compensation Range</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">2~50 times</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Harmonic Attenuation</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">&gt;95% (rated load)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Quick Response Time</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">&lt; 50&micro;s</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Full Response Time</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">&lt; 5ms</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Target Power Factor</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">-1~+1, capacitive and inductive continuously adjustable</td></tr>
+<tr data-param-toggle-row class="border-b border-border-light"><td></td><td colspan="5" class="py-2 px-4 pr-10"><button type="button" data-param-toggle aria-expanded="false" aria-controls="parameters-more" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline cursor-pointer"><span data-param-toggle-label>Show all parameters</span><span aria-hidden="true" data-param-toggle-icon class="inline-flex items-center text-[15px] leading-none transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button></td></tr>
+          </tbody>
+          <tbody id="parameters-more" data-param-more hidden>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Compensation Mode</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Noise Indicator</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">&lt;60dB</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Communications &amp; Monitoring</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Communication Interface</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">RS485, WiFi, 4G, CAN</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Communication Protocol</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Modbus protocol (RTU or TCP/IP)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Module Display Interface</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">4.3 inch touch screen, LED indicators, independent touch screen</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Mechanical Properties</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Mounting Options</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Wall-mounted / Rail-mounted</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Dimensions W&times;D&times;H (mm)</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">500&times;550&times;130</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Net weight</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]"><div class="grid grid-cols-5"><span>19kg</span><span>24kg</span><span>24kg</span><span>29kg</span><span>34kg</span></div></td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Color</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Industrial black (RAL7021), customizable upon request</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">CT Connection Mode</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">Support the source side / load side</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Environmental Requirements</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Altitude</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Operating Temperature</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">-40&#8451;~+65&#8451;</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Relative Humidity</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">5%~95%, no condensation</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Protection Level</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">IP20, other IP levels customizable</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="6" class="text-left py-2 px-4 font-normal text-[#333333]">Related Qualifications and Standards</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Standards Compliance</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Certification</th><td colspan="5" class="py-2 px-4 pr-10 text-[#333333]">CE, CQC</td></tr>
           </tbody>
         </table>
+      </div>
       </div>
       <div id="panel-hv" role="tabpanel" aria-labelledby="tab-hv" data-volt-panel="hv" hidden>
       <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
         <table class="w-full border-collapse text-[clamp(14px,1.1vw,16px)] leading-tight text-left">
           <tbody>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Module Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Rated Voltage</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">800VAC</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">690VAC</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Rated Current</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 85A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 100A</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Power Capacity</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 120Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 120Kvar</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">System Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Rated Input Voltage</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">800/690VAC (-20%~+10%)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Grid Frequency</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Number of Parallel Connections</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&le; 16 units</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Efficiency</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Up to 98%</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Grid Structure</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Three-phase three-wire</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Current Transformer</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">150/5~30,000/5</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Performance Indicators</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Harmonic Compensation Range</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">2~50 times</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Harmonic Attenuation</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&gt;95% (rated load)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Quick Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&lt; 50&micro;s</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Full Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&lt; 5ms</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Target Power Factor</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">-1~+1, capacitive and inductive continuously adjustable</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Compensation Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Noise Indicator</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&lt;60dB</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Communications &amp; Monitoring</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Communication Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">RS485, WiFi, 4G, CAN</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Communication Protocol</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Modbus protocol (RTU or TCP/IP)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Module Display Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">4.3 inch touch screen, LED indicators, independent touch screen</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Mechanical Properties</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Mounting Options</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Wall-mounted / Rail-mounted</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Dimensions W&times;D&times;H (mm)</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">480&times;600&times;175</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Net Weight</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">40kg</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Color</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Industrial black (RAL7021), customizable upon request</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">CT Connection Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">Support the source side / load side</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Environmental Requirements</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Altitude</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Operating Temperature</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">-40&#8451;~+65&#8451;</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Relative Humidity</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">5%~95%, no condensation</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Protection Level</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">IP20, other IP levels customizable</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="3" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Related Qualifications and Standards</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Standards Compliance</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[30%]">Certification</th><td colspan="2" class="py-2 px-4 pr-10 text-text-mid">CE, CQC</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Module Parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Voltage</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">800VAC</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">690VAC</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Current</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 85A</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 100A</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Power Capacity</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 120Kvar</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 120Kvar</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">System Parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Input Voltage</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">800/690VAC (-20%~+10%)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Grid Frequency</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Number of Parallel Connections</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&le; 16 units</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Efficiency</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Up to 98%</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Grid Structure</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Three-phase three-wire</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Current Transformer</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">150/5~30,000/5</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Performance Indicators</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Harmonic Compensation Range</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">2~50 times</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Harmonic Attenuation</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&gt;95% (rated load)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Quick Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt; 50&micro;s</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Full Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt; 5ms</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Target Power Factor</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">-1~+1, capacitive and inductive continuously adjustable</td></tr>
+<tr data-param-toggle-row class="border-b border-border-light"><td></td><td colspan="2" class="py-2 px-4 pr-10"><button type="button" data-param-toggle aria-expanded="false" aria-controls="parameters-more-hv" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline cursor-pointer"><span data-param-toggle-label>Show all parameters</span><span aria-hidden="true" data-param-toggle-icon class="inline-flex items-center text-[15px] leading-none transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button></td></tr>
+          </tbody>
+          <tbody id="parameters-more-hv" data-param-more hidden>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Compensation Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Noise Indicator</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt;60dB</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Communications &amp; Monitoring</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Communication Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">RS485, WiFi, 4G, CAN</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Communication Protocol</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Modbus protocol (RTU or TCP/IP)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Module Display Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">4.3 inch touch screen, LED indicators, independent touch screen</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Mechanical Properties</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Mounting Options</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Wall-mounted / Rail-mounted</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Dimensions W&times;D&times;H (mm)</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">480&times;600&times;175</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Net Weight</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">40kg</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Color</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Industrial black (RAL7021), customizable upon request</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">CT Connection Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Support the source side / load side</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Environmental Requirements</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Altitude</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Operating Temperature</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">-40&#8451;~+65&#8451;</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Relative Humidity</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">5%~95%, no condensation</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Protection Level</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">IP20, other IP levels customizable</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Related Qualifications and Standards</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Standards Compliance</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Certification</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">CE, CQC</td></tr>
           </tbody>
         </table>
       </div>
@@ -422,9 +454,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             document.querySelectorAll('[data-volt-tab]').forEach(function (b) {
               var on = b.getAttribute("data-volt-tab") === name;
               b.setAttribute("aria-selected", on ? "true" : "false");
-              b.classList.toggle("bg-brand-orange", on);
+              b.classList.toggle("bg-[#ea511e]", on);
               b.classList.toggle("text-white", on);
-              b.classList.toggle("border-brand-orange", on);
+              b.classList.toggle("border-[#ea511e]", on);
               b.classList.toggle("bg-white", !on);
               b.classList.toggle("text-text-mid", !on);
               b.classList.toggle("border-border-light", !on);
@@ -444,40 +476,54 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           }
         })();
       </script>
+      </div>
+      </div>
     </div>
   </section>
 
 
   <!-- Why CHITEK (sits directly above the FAQ) -->
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="why" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">WHY CHITEK Anti-Pollution Active Harmonic Filter AHF?</h2>
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">WHY CHITEK Anti-Pollution Active Harmonic Filter AHF?</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div class="rounded-2xl border border-border-light p-6 sm:col-span-2">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Easy to install and commission</h3>
-          <p class="text-text-dark font-bold text-[clamp(13px,1.15vw,17px)] mt-4 mb-1">Hardware</p>
-          <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1 mb-3">
+        <div data-easy-install-row class="sm:col-span-2 lg:grid lg:grid-cols-[minmax(0,36fr)_minmax(0,64fr)] lg:gap-6 lg:items-stretch">
+          <div data-easy-install-media class="w-full mb-5 lg:mb-0">
+            <figure data-ei-shot="hardware" class="m-0">
+              <img src="/assets/images/sic-ultra-ahf-ct-terminals.webp" alt="CT wiring terminals (S1/S2), RJ45 and CAN module-paralleling ports and communication DIP switches on the CHITEK Ultra-slim AHF module" width="835" height="401" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-cover" />
+            </figure>
+            <figure data-ei-shot="software" class="m-0 mt-5">
+              <img src="/assets/images/sic-ultra-ahf-software-tri-panel.webp" alt="Tri-panel engineering diagram of the CHITEK Ultra-slim AHF control system: signal acquisition and processing, digital control algorithms, and electrical design" width="1536" height="1024" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-contain" />
+            </figure>
+          </div>
+          <div class="rounded-2xl border border-border-light p-6 lg:min-w-0">
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Easy to install and commission</h3>
+          <p data-easy-install-hw-start class="text-[#626469] font-bold text-[clamp(13px,1.15vw,17px)] mt-4 mb-1">Hardware</p>
+          <ul data-easy-install-hw-end class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1 mb-3">
             <li>CT Wiring: Isolated S1/S2 terminals; error-proof CT terminal blocks (pre-fabricated cables included as standard). Flange-locking design prevents open circuits.</li>
             <li>RJ45 ports for module paralleling and module-to-control panel connections. Ports integrate power, RS-485, and CAN communication. Pre-fabricated cables come as standard for plug-and-play, significantly reducing wiring time.</li>
           </ul>
-          <p class="text-text-dark font-bold text-[clamp(13px,1.15vw,17px)] mb-1">Software</p>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Easy software operation, and simple hardware installation. Only power cables and a set of CT to set up Anti-Pollution Active Harmonic Filter AHF. The Automatic fine-tuning function realizes intelligent and excellent compensation effects, bringing users a simple and efficient commissioning experience.</p>
+          <p data-easy-install-sw-start class="text-[#626469] font-bold text-[clamp(13px,1.15vw,17px)] mb-1">Software</p>
+          <p data-easy-install-sw-end class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Easy software operation, and simple hardware installation. Only power cables and a set of CT to set up Anti-Pollution Active Harmonic Filter AHF. The Automatic fine-tuning function realizes intelligent and excellent compensation effects, bringing users a simple and efficient commissioning experience.</p>
+          </div>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Potting Protection</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Protects electronic circuits against contamination without compromising heat dissipation</p>
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Potting Protection</h3>
+          <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Protects electronic circuits against contamination without compromising heat dissipation</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Smart Sleep Mode</h3>
-          <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Smart Sleep Mode</h3>
+          <ul class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
             <li>Load-based start/stop prevents prolonged operation under low-load conditions</li>
             <li>Duty cycling for low-load modules</li>
             <li>Enhanced energy efficiency and extended lifespan</li>
           </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6 sm:col-span-2">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Resonance suppression</h3>
-          <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Resonance suppression</h3>
+          <ul class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
             <li>Proprietary algorithm that detects line conditions and automatically adjusts parameters.</li>
             <li>Compatible with a wide range of complex load types</li>
           </ul>
@@ -485,30 +531,30 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       </div>
       <!-- Manufacturing & Quality Assurance Capabilities -->
       <div id="manufacturing" class="mt-8 scroll-mt-[120px]">
-        <h3 class="text-[clamp(15px,1.4vw,22px)] font-semibold text-text-dark mb-4 text-left">Manufacturing &amp; Quality Assurance Capabilities</h3>
-        <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-5 text-left">The Anti-Pollution Active Harmonic Filter AHF is built in our own 2,300 m² plant under an ISO 9001:2015 quality system — from incoming inspection to burn-in testing, every stage is completed and signed off under our own roof.</p>
+        <h3 class="text-[clamp(13px,1.15vw,17px)] font-bold text-[#333333] mb-4 text-left">Manufacturing &amp; Quality Assurance Capabilities</h3>
+        <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-5 text-left pl-[25px]">The Anti-Pollution Active Harmonic Filter AHF is built in our own 2,300 m² plant under an ISO 9001:2015 quality system — from incoming inspection to burn-in testing, every stage is completed and signed off under our own roof.</p>
         <div data-mfg-qa-slot class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">ISO 9001:2015 quality system</h4>
-            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">SGS-certified quality management governs design, procurement, production and final release — published parameters match actual shipped performance.</p>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">ISO 9001:2015 quality system</h4>
+            <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">SGS-certified quality management governs design, procurement, production and final release — published parameters match actual shipped performance.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Complete in-house production line</h4>
-            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Component procurement, SMT/DIP assembly, board FCT, IPQC, safety-compliance testing, ATE fixture test, potting and aging — all completed inside our own facility.</p>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Complete in-house production line</h4>
+            <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Component procurement, SMT/DIP assembly, board FCT, IPQC, safety-compliance testing, ATE fixture test, potting and aging — all completed inside our own facility.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Every unit burn-in tested</h4>
-            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">A self-developed aging cabinet with module fixture testing (patent CN22268956U) runs each unit through full burn-in, followed by a post-aging final quality check.</p>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Every unit burn-in tested</h4>
+            <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">A self-developed aging cabinet with module fixture testing (patent CN22268956U) runs each unit through full burn-in, followed by a post-aging final quality check.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Proven in the field</h4>
-            <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">CHITEK filters are in service in more than 10 countries, with multilingual interfaces and factory technical support for overseas commissioning.</p>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Proven in the field</h4>
+            <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">CHITEK filters are in service in more than 10 countries, with multilingual interfaces and factory technical support for overseas commissioning.</p>
           </div>
         </div>
       </div>
       <!-- Certifications: 4 个证书放置框（虚线占位，后续替换为真实证书图） -->
       <div class="mt-8">
-        <h3 class="text-[clamp(15px,1.4vw,22px)] font-semibold text-text-dark mb-4 text-left">Certifications</h3>
+        <h3 class="text-[clamp(13px,1.15vw,17px)] font-bold text-[#333333] mb-4 text-left">Certifications</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="cert-slot">
             <a href="/assets/images/certificate-01-eutest-ce.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the EUTEST CE certificate in full size">
@@ -516,7 +562,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <img src="/assets/images/certificate-01-eutest-ce.webp" alt="EUTEST Attestation of Conformity TD11432302.R1 for the CHITEK Active Power Filter, covering EU Low Voltage Directive 2014/35/EU and EMC Directive 2014/30/EU" width="1200" height="1696" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
-            <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">CE — LVD &amp; EMC (EUTEST, 2023)</p>
+            <p class="mt-2 text-[13px] leading-snug text-[#626469] text-center">CE — LVD &amp; EMC (EUTEST, 2023)</p>
           </div>
           <div class="cert-slot">
             <a href="/assets/images/certificate-02-tuv-sud.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the TÜV SÜD attestation in full size">
@@ -524,7 +570,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <img src="/assets/images/certificate-02-tuv-sud.webp" alt="TÜV SÜD Attestation of Conformity No. N8A 136516 0001 Rev. 00 for the CHITEK Active Power Filter, issued under EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
-            <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">LVD 2014/35/EU (TÜV SÜD, 2026)</p>
+            <p class="mt-2 text-[13px] leading-snug text-[#626469] text-center">LVD 2014/35/EU (TÜV SÜD, 2026)</p>
           </div>
           <div class="cert-slot">
             <a href="/assets/images/certificate-03-ccic-emc-report.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the EMC test report in full size">
@@ -532,7 +578,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <img src="/assets/images/certificate-03-ccic-emc-report.webp" alt="EMC test report No. SET2022-01936 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. (CNAS L1659 accredited laboratory)" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
-            <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">EMC test report (CCIC-SET, 2022)</p>
+            <p class="mt-2 text-[13px] leading-snug text-[#626469] text-center">EMC test report (CCIC-SET, 2022)</p>
           </div>
           <div class="cert-slot">
             <a href="/assets/images/certificate-04-ccic-ce-lvd.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the CE attestation of conformity in full size">
@@ -540,141 +586,155 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <img src="/assets/images/certificate-04-ccic-ce-lvd.webp" alt="CE Attestation of Conformity No. SET2022-02884 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. to EN 62477-1:2012+A11:2014 and EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
-            <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">CE / LVD 2014/35/EU (CCIC-SET, 2022)</p>
+            <p class="mt-2 text-[13px] leading-snug text-[#626469] text-center">CE / LVD 2014/35/EU (CCIC-SET, 2022)</p>
           </div>
         </div>
       </div>
       <div class="mt-10 rounded-2xl border border-border-light bg-[#fafbfc] p-6 lg:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-        <p class="text-text-mid text-[clamp(13.5px,1.2vw,17.5px)] leading-relaxed mb-5 lg:mb-0 lg:max-w-[64ch]">Want a network that runs cooler, trips less often and stays inside specification? Send us your load details and our engineers will propose a configuration and quote it against your actual requirements — not a catalogue guess.</p>
-        <a href={lp('/contact')} class="shrink-0 inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-7 py-2.5 text-[clamp(14px,1.25vw,20px)] transition-colors whitespace-nowrap">Request a Consultation</a>
+        <p class="text-[#626469] text-[clamp(13.5px,1.2vw,17.5px)] leading-relaxed mb-5 lg:mb-0 lg:max-w-[64ch]">Want a network that runs cooler, trips less often and stays inside specification? Send us your load details and our engineers will propose a configuration and quote it against your actual requirements — not a catalogue guess.</p>
+        <a href={lp('/contact')} class="shrink-0 inline-flex items-center justify-center bg-[#ea511e] hover:bg-[#ea511e] text-white font-semibold rounded-lg px-7 py-2.5 text-[clamp(14px,1.25vw,20px)] transition-colors whitespace-nowrap">Request a Consultation</a>
       </div>
     </div>
   </section>
 
-  <!-- 07 FAQ -->  <section id="faq" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-left">FAQs About the Anti-Pollution Active Harmonic Filter AHF</h2>
-      <div class="space-y-4">
+  <!-- 07 FAQ -->
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section id="faq" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">FAQs</h2>
+      <div class="space-y-4 min-w-0">
         <details class="bg-white rounded-2xl border border-border-light p-5" open>
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q1: What is an active harmonic filter (AHF)?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">An active harmonic filter is a power-electronics device that measures the load current with an external CT, isolates the harmonic, reactive and imbalance components with a DSP, and injects an equal and opposite compensation current through an IGBT inverter bridge. The utility then sees a clean fundamental waveform.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q1: What is an active harmonic filter (AHF)?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">An active harmonic filter is a power-electronics device that measures the load current with an external CT, isolates the harmonic, reactive and imbalance components with a DSP, and injects an equal and opposite compensation current through an IGBT inverter bridge. The utility then sees a clean fundamental waveform.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q2: How does the AHF work?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">An external CT samples the load current; a DSP/FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance; the IGBT inverter bridge then injects an equal and opposite-phase compensation current. The result is THDi held below 5% per IEEE 519 at the point of common coupling.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q2: How does the AHF work?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">An external CT samples the load current; a DSP/FPGA runs an FFT to separate 2nd–51st order harmonics, reactive power and imbalance; the IGBT inverter bridge then injects an equal and opposite-phase compensation current. The result is THDi held below 5% per IEEE 519 at the point of common coupling.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q3: What capacity and voltage range is available?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–690V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q3: What capacity and voltage range is available?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–690V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q4: Can it also correct power factor and balance loads?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Yes. A selectable priority function covers harmonic mitigation, reactive compensation and three-phase balancing. In 3P4W mode it also cancels the accumulated 3rd-harmonic neutral current.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q4: Can it also correct power factor and balance loads?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Yes. A selectable priority function covers harmonic mitigation, reactive compensation and three-phase balancing. In 3P4W mode it also cancels the accumulated 3rd-harmonic neutral current.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q5: How is it installed and what protection rating does it have?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Installed as wall-mounted or rack / cabinet type; rated IP20, IP30 (customizable). The enclosure is built for the duty cycle of industrial switchrooms and can be customized for harsher or outdoor sites.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q5: How is it installed and what protection rating does it have?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Installed as wall-mounted or rack / cabinet type; rated IP20, IP30 (customizable). The enclosure is built for the duty cycle of industrial switchrooms and can be customized for harsher or outdoor sites.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
-          <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q6: How do I confirm the right model for my site?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Send us the load’s harmonic spectrum, voltage class and installed nonlinear capacity. CHITEK supplies a selection matrix by voltage class, series and capacity, plus a sizing calculation on request.</p>
+          <summary class="cursor-pointer font-semibold text-[#333333] text-[clamp(13px,1.15vw,17px)]">Q6: How do I confirm the right model for my site?</summary>
+          <p class="mt-3 text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Send us the load’s harmonic spectrum, voltage class and installed nonlinear capacity. CHITEK supplies a selection matrix by voltage class, series and capacity, plus a sizing calculation on request.</p>
         </details>
       </div>
     </div>
-</section>
+  </section>
 
 
 
 
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="application" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">Application of the Anti-Pollution Active Harmonic Filter AHF</h2>
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Application of the Anti-Pollution Active Harmonic Filter AHF</h2>
       <div data-application-slot class="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <article class="flex flex-col rounded-2xl border border-border-light p-6">
-          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">Data Center</p>
-          <h3 class="text-[clamp(15px,1.35vw,21px)] font-semibold text-text-dark mb-3 text-left">40 MW Hyperscale Data Center &mdash; UPS Input Harmonics</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">Three 2.4 MW UPS modules running in parallel at a 40 MW hyperscale facility were circulating rectifier harmonics between units &mdash; unbalancing load sharing, thermally stressing the battery strings and triggering false PDU alarms. Six AHF-200A units went in at the UPS input with three SVG-150kvar units on the LV bus. Distortion at the UPS input fell from 14.0% to 2.8%, circulating current dropped by 80%, and the site recovered 2.6M CNY in annual energy cost.</p>
-          <p class="text-[13px] font-semibold text-brand-orange mb-5">THD 14.0% &rarr; 2.8% &middot; circulating current down 80% &middot; 2.6M CNY saved per year</p>
-          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-brand-orange hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#626469] mb-3">Data Center</p>
+          <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] mb-3 text-left">40 MW Hyperscale Data Center &mdash; UPS Input Harmonics</h3>
+          <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">Three 2.4 MW UPS modules running in parallel at a 40 MW hyperscale facility were circulating rectifier harmonics between units &mdash; unbalancing load sharing, thermally stressing the battery strings and triggering false PDU alarms. Six AHF-200A units went in at the UPS input with three SVG-150kvar units on the LV bus. Distortion at the UPS input fell from 14.0% to 2.8%, circulating current dropped by 80%, and the site recovered 2.6M CNY in annual energy cost.</p>
+          <p class="text-[13px] font-semibold text-[#ea511e] mb-5">THD 14.0% &rarr; 2.8% &middot; circulating current down 80% &middot; 2.6M CNY saved per year</p>
+          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-[#ea511e] hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
         </article>
         <article class="flex flex-col rounded-2xl border border-border-light p-6">
-          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">Industrial Manufacturing</p>
-          <h3 class="text-[clamp(15px,1.35vw,21px)] font-semibold text-text-dark mb-3 text-left">12-inch Wafer Fab &mdash; Sub-Cycle Sag Protection</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">An immersion-lithography fab needs voltage sags held below 5 ms, yet utility faults 30 km away kept stripping scanner stage position &mdash; about three incidents a month, each scrapping roughly 25 wafers. Four dual-feed AHF+SVG units at the UPS front end and two SPC-100A units balancing the test floor brought sag duration back inside spec. Scanner halts stopped completely, wafer yield gained three percentage points, and payback landed under eight months.</p>
-          <p class="text-[13px] font-semibold text-brand-orange mb-5">Sag under 5 ms &middot; zero scanner halts &middot; wafer yield +3 points</p>
-          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-brand-orange hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#626469] mb-3">Industrial Manufacturing</p>
+          <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] mb-3 text-left">12-inch Wafer Fab &mdash; Sub-Cycle Sag Protection</h3>
+          <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">An immersion-lithography fab needs voltage sags held below 5 ms, yet utility faults 30 km away kept stripping scanner stage position &mdash; about three incidents a month, each scrapping roughly 25 wafers. Four dual-feed AHF+SVG units at the UPS front end and two SPC-100A units balancing the test floor brought sag duration back inside spec. Scanner halts stopped completely, wafer yield gained three percentage points, and payback landed under eight months.</p>
+          <p class="text-[13px] font-semibold text-[#ea511e] mb-5">Sag under 5 ms &middot; zero scanner halts &middot; wafer yield +3 points</p>
+          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-[#ea511e] hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
         </article>
         <article class="flex flex-col rounded-2xl border border-border-light p-6">
-          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">Commercial &amp; Medical</p>
-          <h3 class="text-[clamp(15px,1.35vw,21px)] font-semibold text-text-dark mb-3 text-left">2,000-Bed Hospital &mdash; Imaging &amp; OR Power Quality</h3>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">A 2,000-bed tertiary hospital with four 1,600 kVA transformers watched main-busbar THD climb past 18% after its imaging centre was expanded &mdash; enough to produce CT and MRI image artifacts and one power-quality incident in an operating theatre. Two AHF-200A units now cover the OR and imaging feeders, with one SVG-100A on HVAC reactive duty. THD settled at 4.1% under IEEE 519, transformer temperature fell 15&deg;C and maintenance cost dropped 45%.</p>
-          <p class="text-[13px] font-semibold text-brand-orange mb-5">THD 18.3% &rarr; 4.1% &middot; transformer down 15&deg;C &middot; maintenance cost &minus;45%</p>
-          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-brand-orange hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#626469] mb-3">Commercial &amp; Medical</p>
+          <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] mb-3 text-left">2,000-Bed Hospital &mdash; Imaging &amp; OR Power Quality</h3>
+          <p class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-4">A 2,000-bed tertiary hospital with four 1,600 kVA transformers watched main-busbar THD climb past 18% after its imaging centre was expanded &mdash; enough to produce CT and MRI image artifacts and one power-quality incident in an operating theatre. Two AHF-200A units now cover the OR and imaging feeders, with one SVG-100A on HVAC reactive duty. THD settled at 4.1% under IEEE 519, transformer temperature fell 15&deg;C and maintenance cost dropped 45%.</p>
+          <p class="text-[13px] font-semibold text-[#ea511e] mb-5">THD 18.3% &rarr; 4.1% &middot; transformer down 15&deg;C &middot; maintenance cost &minus;45%</p>
+          <a href={lp('/')} class="mt-auto inline-block text-[13px] leading-snug font-semibold text-[#ea511e] hover:underline">China Active Harmonic Filter, SVG Static Var Generator Suppliers, Manufacturers, Factory - CHITEK</a>
         </article>
       </div>
     </div>
   </section>
   <!-- Related products: 4-up carousel, arrows flanking, 6s autoplay -->
-  <section class="bg-[#fafbfc] py-[clamp(40px,4vw,72px)]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(20px,2vw,30px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Related Products</h2>
+  <!-- Section divider: 8px grey band (all regions unified to white) -->
+  <div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section class="bg-white py-[clamp(40px,4vw,72px)]">
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-6 font-barlow-condensed text-left">Related Products</h2>
       <div class="flex items-center gap-3">
-        <button type="button" data-rel-prev aria-label="Previous products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+        <button type="button" data-rel-prev aria-label="Previous products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-[#ea511e] hover:border-[#ea511e] transition-colors shadow-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
         <div data-rel-viewport class="overflow-hidden flex-1 min-w-0 touch-pan-y">
           <div data-rel-track class="flex gap-4 md:gap-10 transition-transform duration-500 ease-out">          <a href={lp('/products/sic-ultra-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</h3>
             </div>
           </a>
           <a href={lp('/products/ultra-slim-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Ultra-slim Active Harmonic Filter AHF</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">Ultra-slim Active Harmonic Filter AHF</h3>
             </div>
           </a>
           <a href={lp('/products/distributed-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-distributed.webp" alt="Distributed Active Harmonic Filter AHF" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Distributed Active Harmonic Filter AHF</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">Distributed Active Harmonic Filter AHF</h3>
             </div>
           </a>
           <a href={lp('/products/ip65-sic-fanless-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
             </div>
           </a>
           <a href={lp('/products/ip65-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 Active Harmonic Filter</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">IP65 Active Harmonic Filter</h3>
             </div>
           </a>
           <a href={lp('/products/sic-fanless-ahf')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
+              <h3 class="text-[clamp(13px,1.15vw,17px)] font-semibold text-[#333333] group-hover:text-[#ea511e] transition-colors leading-[1.3]">SiC-Fanless &amp; Low Noise Active Harmonic Filter</h3>
             </div>
           </a>
                     </div>
         </div>
-        <button type="button" data-rel-next aria-label="Next products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+        <button type="button" data-rel-next aria-label="Next products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-[#ea511e] hover:border-[#ea511e] transition-colors shadow-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
     </div>
   </section>
     </div>
-  </div>
 
-  <!-- PAGE GUIDE scroll spy: highlight the sidebar item of the section you are reading -->
+  <!-- Section nav scroll spy: highlight the tab of the section you are reading -->
   <script>
     (function () {
+      var bar = document.querySelector('nav[data-secnavbar]');
       var links = Array.prototype.slice.call(document.querySelectorAll('.js-secnav'));
-      if (!links.length) return;
+      if (!links.length && !bar) return;
+
+      // 顶部栏：只有越过首屏（一屏高）才滑入；回到首屏内立即收起
+      function syncBar() {
+        if (!bar) return;
+        bar.classList.toggle('is-shown', window.scrollY > window.innerHeight);
+      }
+      syncBar();
 
       // 从 DOM 顺序建立「链接 ↔ 分节」配对，缺元素的直接跳过
       var pairs = [];
@@ -714,7 +774,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       function onScroll() {
         if (ticking) return;
         ticking = true;
-        requestAnimationFrame(function () { ticking = false; render(); });
+        requestAnimationFrame(function () {
+          ticking = false;
+          syncBar();
+          render();
+        });
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -723,40 +787,292 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     })();
   </script>
 
+  <!-- Parameters table: everything below "Target power factor" sits behind a toggle -->
+  <script>
+    (function () {
+      var btns = Array.prototype.slice.call(document.querySelectorAll('[data-param-toggle]'));
+      if (!btns.length) return;
+      btns.forEach(function (btn) {
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!panel) return;
+        var label = btn.querySelector('[data-param-toggle-label]');
+        var icon = btn.querySelector('[data-param-toggle-icon]');
+        function isOpen() { return !panel.hasAttribute('hidden'); }
+        function render() {
+          var open = isOpen();
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (label) label.textContent = open ? 'Show fewer parameters' : 'Show all parameters';
+          if (icon) icon.classList.toggle('rotate-180', open);
+        }
+        btn.addEventListener('click', function () {
+          if (isOpen()) panel.setAttribute('hidden', '');
+          else panel.removeAttribute('hidden');
+          render();
+        });
+        render();
+      });
+    })();
+  </script>
+
+  <!-- Easy to install: 左栏两张照片分别对齐 Hardware / Software 文字块
+       （脚本写入 --ei-hw-top / --ei-hw-h / --ei-hw-sw-gap） -->
+  <script>
+    (function () {
+      var row = document.querySelector('[data-easy-install-row]');
+      if (!row) return;
+      var media = row.querySelector('[data-easy-install-media]');
+      var card = row.querySelector('div[class*="rounded-2xl"]');
+      var hwStart = row.querySelector('[data-easy-install-hw-start]');
+      var hwEnd = row.querySelector('[data-easy-install-hw-end]');
+      var swStart = row.querySelector('[data-easy-install-sw-start]');
+      if (!media || !card || !hwStart || !hwEnd || !swStart) return;
+
+      function sync() {
+        var c = card.getBoundingClientRect();
+        var hwTop = hwStart.getBoundingClientRect().top;
+        var hwBottom = hwEnd.getBoundingClientRect().bottom;
+        var swTop = swStart.getBoundingClientRect().top;
+        media.style.setProperty('--ei-hw-top', Math.round(hwTop - c.top) + 'px');
+        media.style.setProperty('--ei-hw-h', Math.round(hwBottom - hwTop) + 'px');
+        media.style.setProperty('--ei-hw-sw-gap', Math.round(swTop - hwBottom) + 'px');
+      }
+      sync();
+      window.addEventListener('resize', sync);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+    })();
+  </script>
   <style>
-    /* 当前所在分节对应的侧栏条目高亮（scoped，特异性高于 Tailwind 单类工具）
+    /* 分节导航当前项高亮（scoped，特异性高于 Tailwind 单类工具）
        用 :global 是因为 JS 是运行时加类，Astro 的编译期作用域也能匹配到，
        但显式写 :global 可避免将来把这段样式搬到别处时失效。 */
-    :global(.js-secnav.is-active) {
-      color: var(--color-brand-orange, #ff6b1a);
-      border-left-color: var(--color-brand-orange, #ff6b1a);
-      background-color: rgba(255, 107, 26, 0.08);
-      font-weight: 600;
+    /* 分节导航当前项高亮：加粗深色文字 + 底部橙色横线 */
+    :global(a.js-secnav.is-active) {
+      font-weight: 700;
+      border-bottom-color: #ea511e;
+    }
+
+    /* 顶部吸附栏：默认收起，越过首屏后滑入（JS 加 .is-shown） */
+    :global(nav[data-secnavbar]) {
+      transform: translateY(-105%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+    :global(nav[data-secnavbar].is-shown) {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :global(nav[data-secnavbar]) { transition: none; }
     }
     /* Product gallery: active thumbnail ring (runtime class -> :global) */
+    /* 360 viewer: pointer drag / touch swipe / arrow keys walk the KeyShot frame
+       sequence. touch-action: pan-y keeps vertical page scrolling on phones while the
+       horizontal drag belongs to the viewer; a real page scroll fires
+       pointercancel and the drag resets.
+       The box is deliberately shorter than the 1600x872 export (ratio 1232/1000), so
+       object-fit: cover crops the empty side margins away and the product reads much
+       larger than the old object-contain letterbox did. The 3u.8 travel envelope is
+       x 474..1191 / y 80..751 of 1600x872, so its centre (832.5,415.5) is NOT the
+       frame centre (800,436). Horizontally object-position 56.2% lines the window up
+       with the product; vertically nothing can be cropped (cover is height-bound at
+       every breakpoint, so object-position has no effect there) and the transform-
+       origin carries that correction: O = (k*P - C)/(k-1) with P = 50%/47.65% gives
+       50% 38.6%. Vertical clipping only starts at 1.300x (horizontal at 1.498x), so
+       1.26x stays completely crop-free: the tallest tilt row lands at 92.6% of the box
+       height with 3.7% of margin left. Nothing is scaled up - one screen pixel always
+       covers more than one source pixel. */
+    .spin360 {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 1232 / 1000;
+      max-height: 480px;
+      overflow: hidden;
+      cursor: grab;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .spin360.is-dragging { cursor: grabbing; }
+    .spin360:focus-visible { outline: 2px solid #ea511e; outline-offset: 4px; }
+    .spin360 img { -webkit-user-drag: none; }
+    .spin360 img[data-spin-frame] {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      object-fit: cover;
+      object-position: 56.2% center;
+      /* zoom about the product centre, not the box centre - see the note above */
+      transform: scale(1.26);
+      transform-origin: 50% 38.6%;
+    }
+    /* the reference photo shares the viewer's box so the card keeps one height */
+    [data-gallery-main] {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1232 / 1000;
+      max-height: 480px;
+      object-fit: contain;
+    }
+    /* "360°" pill on the turntable thumbnail so the first thumb reads as interactive */
+    .thumb-360 {
+      position: absolute;
+      left: 6px;
+      bottom: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 7px;
+      border-radius: 9999px;
+      background: #ea511e;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+    }
+    .spin-hint {
+      position: absolute;
+      left: 50%;
+      bottom: 2px;
+      transform: translateX(-50%);
+      margin: 0;
+      padding: 3px 10px;
+      border: 1px solid #e3e4e6;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      color: #8a8d93;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .spin360.has-rotated .spin-hint { opacity: 0; }
+    /* Enlarged 360: the same node is pinned to the viewport, so the drag / arrow-key
+       code above keeps running against the bigger canvas. Nothing is cloned.
+       z-index 1200 puts it over the fixed Nav (z-1000) and the section navbar (z-999)
+       but keeps the floating contact rail (z-9999) available. */
+    .spin360.is-zoomed {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      width: auto;
+      height: auto;
+      aspect-ratio: auto;
+      max-height: none;
+      padding: 52px clamp(8px, 2vw, 24px) 84px;
+      background: #ffffff;
+      cursor: zoom-out;
+      /* the page behind is locked, so both axes may belong to the viewer now */
+      touch-action: none;
+    }
+    /* enlarged shows the untouched export: no crop at all */
+    .spin360.is-zoomed img[data-spin-frame] {
+      object-fit: contain;
+      object-position: center;
+      transform: none;
+      transform-origin: center;
+    }
+    .spin360.is-zoomed .spin-hint { display: none; }
+    .spin-tip { display: none; }
+    .spin360.is-zoomed .spin-tip {
+      display: block;
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      margin: 0;
+      padding: 4px 12px;
+      border: 1px solid #e3e4e6;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.94);
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+      color: #8a8d93;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .spin-close {
+      display: none;
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 1201;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid #e3e4e6;
+      border-radius: 9999px;
+      background: #ffffff;
+      color: #333333;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .spin-close:hover { border-color: #ea511e; color: #ea511e; }
+    .spin360.is-zoomed .spin-close { display: inline-flex; }
+    /* :global() because <html> lives in BaseLayout, not in this scoped stylesheet */
+    :global(html.spin-locked) { overflow: hidden; }
+    /* corner affordance on the image card - hidden while the viewer is enlarged */
+    .spin-expand {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid #e3e4e6;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #626469;
+      cursor: pointer;
+      transition: border-color .15s, color .15s, background-color .15s;
+    }
+    .spin-expand:hover { border-color: #ea511e; color: #ea511e; background: #ffffff; }
+    .spin-expand:focus-visible { outline: 2px solid #ea511e; outline-offset: 2px; }
+    /* while enlarged the corner button sits behind the overlay - drop it from the tab order */
+    .spin360.is-zoomed ~ .spin-expand { display: none; }
+    /* the hidden attribute must win over .spin360's own display */
+    .spin360[hidden], [data-gallery-main][hidden] { display: none !important; }
     :global(.gallery-thumb) { cursor: pointer; transition: border-color .15s, box-shadow .15s; }
     :global(.gallery-thumb.is-active) {
-      border-color: var(--color-brand-orange, #ff6b1a);
-      box-shadow: 0 0 0 2px var(--color-brand-orange, #ff6b1a);
+      border-color: #ea511e;
+      box-shadow: 0 0 0 2px #ea511e;
     }
     /* Related products carousel: autoplay wraps around, so arrows stay usable at both ends */
+    /* Parameters 表：分组标题行灰底、其余行白。
+       global.css 的斑马纹(#parameters tbody tr:nth-child(odd/even) > *) 是无层级 CSS，
+       优先级高于 Tailwind 工具类并会给 <th> 上色，会把 <tr> 的底色盖住；
+       故这里用带 :has() 的更高特异性在页面内覆盖（只影响本页）。 */
+    :global(#parameters tbody tr:not(:has(> th[colspan]))) > * { background-color: #ffffff; }
+    :global(#parameters tbody tr:has(> th[colspan])) > * { background-color: #f3f2f2; }
+
+    /* Easy to install: 桌面端左栏两张照片各自对齐 Hardware / Software 文字块
+       （脚本写入 --ei-hw-top / --ei-hw-h / --ei-hw-sw-gap；图2 铺满栏宽、保持自然比例不裁切） */
+    @media (min-width: 1024px) {
+      [data-ei-shot="hardware"] { margin-top: var(--ei-hw-top, 66px); }
+      [data-ei-shot="hardware"] img { height: var(--ei-hw-h, 167px); }
+      [data-ei-shot="software"] { margin-top: var(--ei-hw-sw-gap, 12px); }
+    }
   </style>
+  <!-- Configurator summary: SKU line auto-fill -->
   <!-- Configurator summary: SKU line auto-fill -->
   <script is:inline>
     (function () {
-      var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-inquiry-summary]'));
-      if (!boxes.length) return;
+      var WA_BASE = 'https://wa.me/8618818994346?text=';
       var inputs = document.querySelectorAll('input[type="checkbox"][data-group]');
-      // placeholder specs keyed by current rating (depth mm, weight kg); W x H fixed 500 x 550
-      var SPECS = {
-        'Unlimited': { d: 135, kg: 27 }, // parallel (up to 16 modules): base module spec as placeholder
-        '50A':  { d: 150, kg: 21 },
-        '75A':  { d: 142, kg: 24 },
-        '100A': { d: 135, kg: 27 },
-        '150A': { d: 100, kg: 31 },
-        '200A': { d: 118, kg: 38 }
-      };
-      var DEF = { v: '400V', a: '100A', i: 'Rack', p: 'IP20' };
       function pick(g) {
         var vals = [];
         inputs.forEach(function (inp) {
@@ -765,84 +1081,243 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         return vals;
       }
       function build() {
-        var v = pick('v')[0] || DEF.v;
-        var a = pick('a')[0] || DEF.a;
-        var i = pick('i')[0] || DEF.i;
-        var p = pick('p')[0] || DEF.p;
-        var spec = SPECS[a] || { d: 135, kg: 27 };
-        var partNo = 'ANTI_POLLUTION_AHF_' + a + '-' + v + '-' + i + '-' + p;
-        var sku = 'SKU: ' + partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg · 1300$(EXW)';
-        boxes.forEach(function (b) { b.value = sku; });
-        // Summary bar: the value lives in a hidden field; the visible line is rebuilt as
-        // spans so "SKU:" stays muted while the rest is orange and the price is bold.
+        var v = pick('v')[0] || '';
+        var a = pick('a')[0] || '';
+        var i = pick('i')[0] || '';
+        var p = pick('p')[0] || '';
+        var detail = [a, v, i, p].filter(Boolean).join('-');
         var view = document.querySelector('[data-summary-view]');
         if (view) {
-          var t1 = document.createElement('span'); t1.className = 'text-text-mid'; t1.textContent = 'SKU: ';
-          var t2 = document.createElement('span');
-          t2.textContent = partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg · ';
-          var t3 = document.createElement('span'); t3.className = 'font-bold'; t3.textContent = '1300$(EXW)';
-          view.textContent = '';
-          view.appendChild(t1); view.appendChild(t2); view.appendChild(t3);
+          var t1 = document.createElement('span'); t1.className = 'text-[#626469]'; t1.textContent = 'SKU: ';
+          var t2 = document.createElement('span'); t2.textContent = detail;
+          view.textContent = ''; view.appendChild(t1); view.appendChild(t2);
         }
-        // header chip shows the short part number only
-        var chip = document.querySelector('[data-sku-chip-val]');
-        // part number only (prefix differs per page) -> take the first field of the SKU line
-        if (chip) chip.textContent = sku.replace(/^SKU:\s*/, '').split('\u00b7')[0].trim();
+        var waLink = document.querySelector('[data-wa-link]');
+        if (waLink) {
+          waLink.setAttribute('href', WA_BASE + encodeURIComponent("Hi CHITEK, I'd like a quotation for: " + detail));
+        }
       }
       inputs.forEach(function (inp) { inp.addEventListener('change', build); });
       build();
-      // Pre-fill the lead form's message field with the SKU line so the sales team
-      // receives the exact configuration the visitor selected.
-      var msg = document.querySelector('form[data-lead-form] [name="message"]');
-      if (msg) {
-        boxes.forEach(function (b) {
-          b.addEventListener('change', function () { /* value already synced by build() */ });
-        });
-        var origBuild = build;
-        build = function () {
-          origBuild();
-          msg.value = document.querySelector('[data-inquiry-summary]').value;
-        };
-        var boxesNow = document.querySelectorAll('[data-inquiry-summary]');
-        if (boxesNow.length) msg.value = boxesNow[0].value;
-      }
     })();
   </script>
 
-  <!-- Quote form: analytics.js calls form.reset() on success, which would blank the
-       read-only SKU textarea. Keep re-filling it briefly so the visitor can still see
-       the configuration they just requested. Attached before analytics.js binds. -->
+  <!-- Product gallery: the 360 thumbnail shows the viewer, the others swap the main image -->
   <script is:inline>
     (function () {
-      var form = document.querySelector('form[name="quote"]');
-      var ta = form && form.querySelector('[name="message"]');
-      if (!form || !ta) return;
-      form.addEventListener('submit', function () {
-        var snapshot = ta.value;
-        if (!snapshot) return;
-        // form.reset() only runs after the POST resolves, so poll for a moment
-        // rather than trusting a single 0ms timer.
-        var tries = 0;
-        var iv = setInterval(function () {
-          if (ta.value !== snapshot) ta.value = snapshot;
-          if (++tries > 100) clearInterval(iv);   // 最多约 10 秒
-        }, 100);
+      var main = document.querySelector('[data-gallery-main]');
+      var spin = document.querySelector('[data-spin-viewer]');
+      var thumbs = Array.prototype.slice.call(document.querySelectorAll('[data-gallery-thumb], [data-spin-thumb]'));
+      if (!thumbs.length) return;
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          var isSpin = t.hasAttribute('data-spin-thumb');
+          if (spin) spin.hidden = !isSpin;
+          if (main) {
+            main.hidden = isSpin;
+            if (!isSpin) {
+              main.src = t.getAttribute('data-src');
+              main.alt = t.getAttribute('data-alt') || main.alt;
+            }
+          }
+          thumbs.forEach(function (o) { o.classList.toggle('is-active', o === t); });
+        });
       });
     })();
   </script>
 
-  <!-- Product gallery: thumbnail click swaps the main image -->
+  <!-- 360 view: pointer drag, touch swipe and arrow keys walk the KeyShot frame
+       sequence. 18 turntable steps make a full turn; the 9 tilt rows are the raw
+       KeyShot export.
+       2026-10-14: re-rendered from the 3u.8 export at 1600x872. In the old render the
+       product ran off the frame edge on rows v=0..2 and v=7..8, which is why the tilt
+       axis used to be clamped to v=3..6; all nine rows are now fully framed, so the
+       whole tilt range is usable. -->
   <script is:inline>
     (function () {
-      var main = document.querySelector('[data-gallery-main]');
-      var thumbs = Array.prototype.slice.call(document.querySelectorAll('[data-gallery-thumb]'));
-      if (!main || !thumbs.length) return;
-      thumbs.forEach(function (t) {
-        t.addEventListener('click', function () {
-          main.src = t.getAttribute('data-src');
-          main.alt = t.getAttribute('data-alt') || main.alt;
-          thumbs.forEach(function (o) { o.classList.toggle('is-active', o === t); });
+      var viewer = document.querySelector('[data-spin-viewer]');
+      if (!viewer) return;
+      var img = viewer.querySelector('[data-spin-frame]');
+      if (!img) return;
+
+      var U = 18;
+      var V_MIN = 0, V_MAX = 8;   // full tilt range - every row is framed in this export
+      var BASE = '/assets/spin/anti-pollution-ahf/';
+      var u = 9, v = 5;
+      var dragging = false, lastX = 0, lastY = 0, shown = '5_9', pending = null;
+      var warmed = {};
+
+      // --- enlarge to full screen -------------------------------------------
+      // The viewer node is not cloned or moved: it is pinned with .is-zoomed, so
+      // every handler below (drag, tilt, arrow keys, frame warm-up) keeps working.
+      var expandBtn = document.querySelector('[data-spin-expand]');
+      var closeBtn = viewer.querySelector('[data-spin-close]');
+      var zoomed = false, dragged = false;
+
+      function openZoom() {
+        if (zoomed || viewer.hidden) return;
+        zoomed = true;
+        dragged = false;
+        viewer.classList.add('is-zoomed');
+        document.documentElement.classList.add('spin-locked');
+        if (expandBtn) expandBtn.setAttribute('aria-expanded', 'true');
+        try { viewer.focus({ preventScroll: true }); } catch (err) { viewer.focus(); }
+      }
+
+      function closeZoom() {
+        if (!zoomed) return;
+        zoomed = false;
+        viewer.classList.remove('is-zoomed');
+        document.documentElement.classList.remove('spin-locked');
+        if (expandBtn) {
+          expandBtn.setAttribute('aria-expanded', 'false');
+          expandBtn.focus();
+        }
+      }
+
+      function mod(n, m) { return ((n % m) + m) % m; }
+      function file(vv, uu) { return BASE + vv + '_' + uu + '.webp'; }
+
+      // Swap the frame only once it has decoded, so a half-loaded image never shows.
+      function draw() {
+        var key = v + '_' + u;
+        if (key === shown) return;
+        var im = new Image();
+        pending = im;
+        function commit() {
+          if (pending !== im) return;
+          var old = pending;
+          pending = null;
+          shown = key;
+          img.src = im.src;
+          void old;
+        }
+        im.onload = commit;
+        im.onerror = commit;
+        im.src = file(v, u);
+      }
+
+      function warm(dir) {
+        if (!dir) return;
+        for (var k = 1; k <= 2; k++) {
+          var uu = mod(u + dir * k, U);
+          var key = v + '_' + uu;
+          if (warmed[key]) continue;
+          warmed[key] = 1;
+          var im = new Image();
+          im.src = file(v, uu);
+        }
+      }
+
+      function hintOff() { viewer.classList.add('has-rotated'); }
+
+      if (expandBtn) {
+        expandBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openZoom();
         });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeZoom();
+        });
+      }
+      // clicking the picture opens the enlargement; a drag that moved the turntable
+      // is not a click, so it must not close it again.
+      viewer.addEventListener('click', function (e) {
+        if (closeBtn && e.target === closeBtn) return;
+        if (zoomed) {
+          if (!dragged) closeZoom();
+        } else {
+          openZoom();
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && zoomed) {
+          closeZoom();
+          e.preventDefault();
+        }
+      });
+
+      viewer.addEventListener('pointerdown', function (e) {
+        if (e.button && e.button !== 0) return;
+        if (closeBtn && e.target === closeBtn) return;
+        dragging = true;
+        dragged = false;
+        lastX = e.clientX;
+        lastY = e.clientY;
+        viewer.classList.add('is-dragging');
+        if (viewer.setPointerCapture) {
+          try { viewer.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        if (e.preventDefault) e.preventDefault();
+      });
+
+      viewer.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var w = viewer.clientWidth || 800;
+        var h = viewer.clientHeight || 436;
+        var moved = false, dir = 0;
+
+        var stepX = Math.max(10, w / U);
+        var nx = Math.round((e.clientX - lastX) / stepX);
+        if (nx) {
+          u = mod(u - nx, U);
+          lastX += nx * stepX;
+          dir = nx > 0 ? -1 : 1;
+          moved = true;
+        }
+
+        var stepY = Math.max(12, h / 12);
+        var ny = Math.round((e.clientY - lastY) / stepY);
+        if (ny) {
+          var nv = Math.min(V_MAX, Math.max(V_MIN, v + ny));
+          if (nv !== v) { v = nv; dir = 0; moved = true; }
+          lastY = e.clientY;
+        }
+
+        if (moved) { dragged = true; draw(); warm(dir); hintOff(); }
+      });
+
+      function stop(e) {
+        if (!dragging) return;
+        dragging = false;
+        viewer.classList.remove('is-dragging');
+        if (e && e.pointerId != null && viewer.releasePointerCapture) {
+          try { viewer.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+      }
+      viewer.addEventListener('pointerup', stop);
+      viewer.addEventListener('pointercancel', stop);
+      viewer.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+      viewer.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          var dir = e.key === 'ArrowRight' ? 1 : -1;
+          u = mod(u + dir, U);
+          draw(); warm(dir); hintOff();
+          e.preventDefault();
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+          var nv = Math.min(V_MAX, Math.max(V_MIN, v + (e.key === 'ArrowDown' ? 1 : -1)));
+          if (nv !== v) { v = nv; draw(); hintOff(); }
+          e.preventDefault();
+        }
+      });
+
+      // Warm the starting turntable ring while the browser is idle so the very
+      // first drag is smooth (18 frames).
+      var idle = window.requestIdleCallback || function (f) { setTimeout(f, 900); };
+      idle(function () {
+        for (var i = 0; i < U; i++) {
+          if (i === u) continue;
+          var key = v + '_' + i;
+          if (warmed[key]) continue;
+          warmed[key] = 1;
+          var im = new Image();
+          im.src = file(v, i);
+        }
       });
     })();
   </script>

@@ -9,16 +9,18 @@ const meta = {
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/en' + p : p;
 
-// Featured products：8 张 AHF 系列卡。⚠️ 2026-09-24 用户要求首页单独改名（去掉 "Active Harmonic Filter"、以系列后缀收尾）→ **名称已与 /en/products 列表页不一致**，图 / 链接仍一致。2026-10-08 后缀由 AHF 改为 AHF/SVG。每面 5 张（≥1024px）；第一面固定为 SiC / 690V-800V / Ultra-Slim / IP65 SiC-Fanless。
+// Featured products：8 张 AHF 系列卡。⚠️ 2026-09-24 用户要求首页单独改名（去掉 "Active Harmonic Filter"、以系列后缀收尾）→ **名称已与 /en/products 列表页不一致**，图 / 链接仍一致。2026-10-08 后缀由 AHF 改为 AHF/SVG。每面 5 张（≥1024px）；第一面固定为 208V / 690V-800V / SiC / Ultra-Slim / IP65 SiC-Fanless。
+// 2026-10-12：8 张卡全部加电流规格后缀 spec，渲染时用 .fp-spec 与主名隔开一个 tab 的间距（样式见页面 <style>）。
+// spec 依次为：(50-200A) / (50-200A) / (50-200A) / (8-20A) / (25-50A) / (30-50A) / (100-150A) / (25-50A)
 const featuredProducts = [
-  { name: 'Silicon Carbide MOSFET SiC AHF/SVG', href: '/products/sic-ultra-ahf', img: 'products-ahf-sic' },
-  { name: '690V/800V Anti-Pollution AHF/SVG', href: '/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v' },
-  { name: 'Ultra-Slim AHF/SVG(Datacenter Cooling)', href: '/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim' },
-  { name: 'IP65 SiC-Fanless & Low Noise AHF/SVG', href: '/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
-  { name: '208V/400V/480V Anti-Pollution AHF/SVG', href: '/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution' },
-  { name: 'Distributed AHF/SVG', href: '/products/distributed-ahf', img: 'products-ahf-distributed' },
-  { name: 'IP65 AHF/SVG', href: '/products/ip65-ahf', img: 'products-ahf-ip65' },
-  { name: 'SiC-Fanless & Low Noise AHF/SVG', href: '/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
+  { name: '208V/400V/480V Anti-Pollution AHF/SVG', spec: '(50-200A)', href: '/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution' },
+  { name: '690V/800V Anti-Pollution AHF/SVG', spec: '(50-200A)', href: '/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount' },
+  { name: 'Silicon Carbide MOSFET SiC AHF/SVG', spec: '(50-200A)', href: '/products/sic-ultra-ahf', img: 'products-ahf-sic' },
+  { name: 'Ultra-Slim AHF/SVG(Datacenter Cooling)', spec: '(8-20A)', href: '/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim-rackmount' },
+  { name: 'IP65 SiC-Fanless & Low Noise AHF/SVG', spec: '(25-50A)', href: '/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
+  { name: 'Distributed AHF/SVG', spec: '(30-50A)', href: '/products/distributed-ahf', img: 'products-ahf-distributed-rackmount' },
+  { name: 'IP65 AHF/SVG', spec: '(100-150A)', href: '/products/ip65-ahf', img: 'products-ahf-ip65' },
+  { name: 'SiC-Fanless & Low Noise AHF/SVG', spec: '(25-50A)', href: '/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
 ];
 ---
 
@@ -77,7 +79,7 @@ const featuredProducts = [
        改为直接用 pt / mb 控制：pt = 标题离上边沿，mb = 标题到卡片的间距，两边独立可调。 -->
   <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(36px,4.5vw,72px)]">
     <div class="w-[clamp(320px,90vw,1800px)]">
-      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,30px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
+      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,48px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
         Customer Favorites
       </h2>
 
@@ -85,12 +87,12 @@ const featuredProducts = [
       <div class="overflow-hidden" data-fp-viewport>
         <ul class="fp-track list-none m-0 p-0" data-fp-track>
           {featuredProducts.map((p) => (
-            <li class="fp-item">
+            <li class={`fp-item${p.name.includes('Distributed') ? ' fp-item--single' : ''}`}>
               <a href={lp(p.href)} class="fp-card block no-underline">
                 <div class="fp-stage">
                   <img src={`/assets/images/${p.img}.webp`} alt={p.name} width="1200" height="1200" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
-                <h3 class="fp-name">{p.name}</h3>
+                <h3 class="fp-name">{p.name}{p.spec && <span class="fp-spec">{p.spec}</span>}</h3>
               </a>
             </li>
           ))}
@@ -133,7 +135,7 @@ const featuredProducts = [
           electronic products. Committed to building an energy-efficient and
           green future.
         </p>
-        <a href={lp('/about')} class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <a href={lp('/about')} class="inline-flex items-center gap-2.5 bg-brand-orange text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -144,14 +146,14 @@ const featuredProducts = [
       <!-- 右侧四大优势区域 -->
       <div class="flex-[1.2] grid grid-cols-1 md:grid-cols-2">
         <!-- 优势 1 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Experienced R&amp;D Team</h3>
           <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
         </div>
 
         <!-- 优势 2 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="32" r="8" />
@@ -165,7 +167,7 @@ const featuredProducts = [
         </div>
 
         <!-- 优势 3 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <path d="M20 20 L44 20 L44 44 L20 44 Z" stroke-linecap="round" />
@@ -178,7 +180,7 @@ const featuredProducts = [
         </div>
 
         <!-- 优势 4 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="16" r="8" />
@@ -217,7 +219,7 @@ const featuredProducts = [
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
     <div class="relative z-10">
       <div class="text-center mb-[clamp(16px,3vw,48px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">Product Series</h2>
+        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">Product Series</h2>
         <div class="flex justify-center gap-1 mt-[clamp(8px,2vw,32px)] relative border-b border-border-light max-w-[740px] mx-auto overflow-x-auto max-md:justify-start">
           <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">Active Harmonic Filter</div>
           <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">Static Var Generator</div>
@@ -277,8 +279,8 @@ const featuredProducts = [
           </div>
         </div>
 
-        <!-- 右侧：图片介绍 -->
-        <div class="flex items-center justify-end fade-up conv-right">
+        <!-- 右侧：图片介绍（2026-10-12 用户要求：手机端不显示 → <1024px 整块隐藏，≥1024px 保持原 flex） -->
+        <div class="hidden lg:flex items-center justify-end fade-up conv-right">
           <div class="w-[clamp(160px,25vw,340px)] h-[clamp(300px,34vw,460px)] rounded-sm relative overflow-hidden bg-contain bg-center bg-no-repeat bg-[url('/assets/images/index-product-ahf.webp')]" id="product-visual"></div>
         </div>
       </div>
@@ -437,8 +439,8 @@ const featuredProducts = [
 
   <style>
     .tab.active {
-      color: #ff6b1a;
-      border-bottom-color: #ff6b1a;
+      color: #EA511E;
+      border-bottom-color: #EA511E;
     }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -489,6 +491,30 @@ const featuredProducts = [
       transition: color 200ms ease;
     }
     .fp-card:hover .fp-name { color: var(--color-brand-orange); }
+    /* 2026-10-12：电流规格后缀（如 (50-200A)），与主名之间留一段间距。
+       8ch（= tab-size 默认 8，一个制表位）用户觉得偏大 → 14:30 收到 4ch（半个 tab）；整段不换行，避免括号内断开。 */
+    .fp-name .fp-spec {
+      margin-left: 4ch;
+      white-space: nowrap;
+    }
+    /* 2026-10-12 15:14：手机端 Customer Favorites 卡片标题**不换行**（用户要求）。
+       <768px 时 .fp-item 是 100%（每面 1 张），卡宽 = 父容器 90vw。
+       最长标题「208V/400V/480V Anti-Pollution AHF/SVG(50-200A)」@13px 需要 380px（含 spec 的 4ch 间距 34px），
+       390px 屏只有 351px → 会折 2 行。实测 need(px) ≈ 27.3 × font-size。
+       做法：① spec 间距收到 1ch（省约 25px）② 字号改为随视口线性缩放 clamp(10px,3.15vw,13px)。
+       需要 fs ≤ 0.9W/27.3 ≈ 3.3vw，取 3.15vw 留约 4% 余量；≥414px 时仍回到 13px 原值。 */
+    @media (max-width: 767px) {
+      .fp-name { font-size: clamp(10px, 3.15vw, 13px); }
+      .fp-name .fp-spec { margin-left: 1ch; }
+    }
+    /* 2026-10-13：Distributed 卡标题强制单行（用户要求）。
+       单行所需宽度（236px@13px）> 五列时卡宽（1024–1440 带宽 174–245px），
+       故把名称↔规格间距收到 1ch，并在 ≥1024 让该卡字号随 vw 略收（clamp 下限 10px）塞进卡片。 */
+    .fp-item--single .fp-name { white-space: nowrap; }
+    .fp-item--single .fp-name .fp-spec { margin-left: 1ch; }
+    @media (min-width: 1024px) {
+      .fp-item--single .fp-name { font-size: clamp(10px, 0.95vw, 15px); }
+    }
     .fp-arrow {
       width: 42px;
       height: 42px;
@@ -582,7 +608,7 @@ const featuredProducts = [
       transition: background 250ms ease, width 250ms ease;
     }
     .hero-dot.hero-dot-active {
-      background: #ff6b1a;
+      background: #EA511E;
       width: 26px;
     }
     /* Product Series: left & right columns converge toward the center */
@@ -638,7 +664,7 @@ const featuredProducts = [
   <!-- SOLUTIONS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-white flex flex-col py-12" id="solutions">
     <div class="text-center mb-[clamp(8px,1.5vw,24px)] fade-up insight-title">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">Solution Insights</h2>
+      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">Solution Insights</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">

@@ -34,34 +34,38 @@ const t: Record<string, { en: string; pt: string; es: string; ar: string; zh: st
 function _(key: string): string {
   return t[key]?.[lang] || t[key]?.en || key;
 }
-// 本地（localhost）全语言用路径前缀；线上维持原 prefix 逻辑
+// 本地（localhost）全语言用路径前缀；线上统一无前缀（子域名承载语言）
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const prefix = isLocal
   ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
-  : (lang === 'pt' ? '/pt' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'zh' ? '/zh' : '');
+  : '';
 const productsHref = prefix + '/products';
-// en / zh 已有独立列表页：/products（AHF）、/products-svg、/products-asvg。
+// 5 语言均有 3 个汇总页：/products（AHF）、/products-svg、/products-asvg（es/ar/pt 已于 10-14 核实存在）。
 // ⚠️ 10-08 HTTP 实测：products 页的系列锚点（#ahf / #svg / #asvg / #sic / #high-protection）
 // 在**全部 5 个语言版本**里都不存在实体（渲染 id 0 次）→ 继续用锚点会产生死链接。
 // 曾据「es/ar/pt 是单页标签页结构」保留锚点，该前提已被实测证伪；
-// es / ar / pt 无独立页 → 兜底到本语言 products 页（不带锚点）。
+// es / ar / pt 无产品【详情页】→ AHF / SiC / 高防护 3 条兜底本语言 /products（不带锚点）；
+// SVG / ASVG 已改指本语言独立汇总页。
 const productsAhfHref   = productsHref;
 const productsSicHref   = productsHref;
 const productsHiProtHref = productsHref;
-const productsSvgHref   = (lang === 'en' || lang === 'zh') ? prefix + '/products-svg' : productsHref;
-const productsAsvgHref  = (lang === 'en' || lang === 'zh') ? prefix + '/products-asvg' : productsHref;
-const solutionsHref = prefix + '/solutions';
-// 英文站 solutions 已重构为 hub + 6 个行业子页（/solutions/{slug}），
-// hub 页内已无 #industry / #commercial 等锚点实体，继续用锚点会落在页面顶部、点不到行业。
-// 英文改指真实子页；其它语言尚无 solutions/ 子目录，保持旧锚点不变。
-const solutionIndustryHref   = lang === 'en' ? prefix + '/solutions/industrial'   : solutionsHref + '#industry';
-const solutionCommercialHref = lang === 'en' ? prefix + '/solutions/commercial'   : solutionsHref + '#commercial';
-const solutionDatacenterHref = lang === 'en' ? prefix + '/solutions/data-center'  : solutionsHref + '#datacenter';
-const solutionRenewableHref  = lang === 'en' ? prefix + '/solutions/renewable'    : solutionsHref + '#renewable';
-const solutionRailHref       = lang === 'en' ? prefix + '/solutions/rail-transit' : solutionsHref + '#rail';
-const solutionGridHref       = lang === 'en' ? prefix + '/solutions/power-grid'   : solutionsHref + '#grid';
+const productsSvgHref = prefix + '/products-svg';
+const productsAsvgHref = prefix + '/products-asvg';
+// 10-14 定：5 个语言均有 solutions/[slug] 真实子页（共用同一套英文 slug：
+// industrial / commercial / data-center / renewable / rail-transit / power-grid）
+// → 全部语言统一指真实子页。原先仅 en 用子页、其它语言用 #industry 等锚点，
+// 实测那些锚点在所有语言的 hub 页均不存在（0 命中）→ 只会落在页面顶部。
+const solutionIndustryHref = prefix + '/solutions/industrial';
+const solutionCommercialHref = prefix + '/solutions/commercial';
+const solutionDatacenterHref = prefix + '/solutions/data-center';
+const solutionRenewableHref = prefix + '/solutions/renewable';
+const solutionRailHref = prefix + '/solutions/rail-transit';
+const solutionGridHref = prefix + '/solutions/power-grid';
 const servicesHref = prefix + '/services';
 const newsHref = prefix + '/news';
+// Subscribe 按钮改为跳转 WhatsApp（号码与 Sidebar 同源：zh 用国内号，其余语言用国际号）
+const waPhone = lang === 'zh' ? '8619020586646' : '8618818994346';
+const waHref = `https://wa.me/${waPhone}`;
 ---
 <footer class="bg-footer-bg text-white" id="footer">
   <div class="px-[clamp(24px,8vw,160px)]">
@@ -71,8 +75,8 @@ const newsHref = prefix + '/news';
       <p class="text-[clamp(11px,0.9vw,14px)] text-white/70 leading-[1.8] max-w-[260px] mb-[clamp(12px,2vw,32px)]">{_('subscribeText')}</p>
       <p class="text-[clamp(11px,0.9vw,14px)] text-white/80 font-medium mb-[clamp(12px,2vw,32px)]">{_('contactPhone')}</p>
       <div class="flex">
-        <input type="email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(11px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
-        <button class="bg-brand-orange text-white border-none cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</button>
+        <input type="email" id="footer-subscribe-email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(11px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
+        <a href={waHref} target="_blank" rel="noopener" id="footer-subscribe-link" class="bg-brand-orange text-white border-none no-underline inline-flex items-center justify-center cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</a>
       </div>
       <div class="flex gap-[clamp(6px,1vw,12px)] mt-6">
         <a href="https://www.linkedin.com/in/yongkai-li/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
@@ -125,4 +129,21 @@ const newsHref = prefix + '/news';
     </div>
   </div>
 </div>
+
+<script>
+  // Subscribe = 跳转 WhatsApp：把输入框里的邮箱拼进预填文本（与 contact 页同一套写法）
+  (function () {
+    var link = document.getElementById('footer-subscribe-link');
+    var input = document.getElementById('footer-subscribe-email');
+    if (!link || !input) return;
+    var base = link.getAttribute('href');
+    var sync = function () {
+      var v = (input.value || '').trim();
+      link.setAttribute('href', v ? base + '?text=' + encodeURIComponent('Hi CHITEK, I would like to subscribe. Email: ' + v) : base);
+    };
+    sync();
+    input.addEventListener('input', sync);
+    input.addEventListener('change', sync);
+  })();
+</script>
 </footer>

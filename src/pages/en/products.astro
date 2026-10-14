@@ -30,11 +30,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "name": "Active Harmonic Filter (AHF) Series",
     "numberOfItems": 8,
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Silicon Carbide MOSFET Active Harmonic Filter SiC AHF", "url": "https://en.chitek-inno.com/products/sic-ultra-ahf" },
-      { "@type": "ListItem", "position": 2, "name": "208V/400V/480V Anti-Pollution Active Harmonic Filter AHF", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
-      { "@type": "ListItem", "position": 3, "name": "690V/800V Anti-Pollution Active Harmonic Filter AHF", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
-      { "@type": "ListItem", "position": 4, "name": "Ultra-slim Active Harmonic Filter AHF", "url": "https://en.chitek-inno.com/products/ultra-slim-ahf" },
-      { "@type": "ListItem", "position": 5, "name": "Distributed Active Harmonic Filter AHF", "url": "https://en.chitek-inno.com/products/distributed-ahf" },
+      { "@type": "ListItem", "position": 1, "name": "Silicon Carbide MOSFET Active Harmonic Filter SiC", "url": "https://en.chitek-inno.com/products/sic-ultra-ahf" },
+      { "@type": "ListItem", "position": 2, "name": "208V/400V/480V Anti-Pollution Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
+      { "@type": "ListItem", "position": 3, "name": "690V/800V Anti-Pollution Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
+      { "@type": "ListItem", "position": 4, "name": "Ultra-slim Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/ultra-slim-ahf" },
+      { "@type": "ListItem", "position": 5, "name": "Distributed Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/distributed-ahf" },
       { "@type": "ListItem", "position": 6, "name": "IP65 SiC-Fanless & Low Noise Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/sic-fanless-ahf" },
       { "@type": "ListItem", "position": 7, "name": "IP65 Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/ip65-ahf" },
       { "@type": "ListItem", "position": 8, "name": "SiC-Fanless & Low Noise Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/sic-fanless-ahf" }
@@ -74,7 +74,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <div class="index_main flex flex-col lg:flex-row gap-8">
 
         <!-- LEFT COLUMN -->
-        <aside class="n_left lg:w-[340px] lg:shrink-0">
+        <aside class="n_left hidden lg:block lg:w-[340px] lg:shrink-0">
           <div class="filter_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
             <p class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Filter</p>
             <div class="mb-4">
@@ -153,7 +153,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             <span class="text-[14px] font-semibold text-gray-800 leading-snug">Silicon Carbide MOSFET Static Var Generator SiC SVG</span>
           </a>
           <a href={lp('/products-svg')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Static Var Generator SVG" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Static Var Generator SVG" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
             <span class="text-[14px] font-semibold text-gray-800 leading-snug">Ultra-slim Static Var Generator SVG</span>
           </a>
           <a href={lp('/products-svg')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
@@ -187,9 +187,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
             <ul class="cbp-vm-grid-ul">
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*175mm,500*550*130mm" data-i="IP20,IP30" data-t="SiC">
-                <div class="cbp-vm-image"><a href={lp('/products/sic-ultra-ahf')}><img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/sic-ultra-ahf')}><img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/sic-ultra-ahf')} class="hover:text-brand-orange">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</a></h3>
+                  <h3 class="h4"><a href={lp('/products/sic-ultra-ahf')} class="hover:text-brand-orange">Silicon Carbide MOSFET Active Harmonic Filter SiC (50-200A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">SiC MOSFET AHF</span>
                     <span class="cbp-tag">Silicon Carbide Active Harmonic Filter</span>
@@ -204,16 +204,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/sic-ultra-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/sic-ultra-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <a href="/assets/pdf/sic-module-user-manual-en.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">Device Manual</a>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*130mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V Anti-Pollution Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V Anti-Pollution Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">208V/400V/480V Anti-Pollution Active Harmonic Filter AHF</a></h3>
+                  <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">208V/400V/480V Anti-Pollution Active Harmonic Filter (50-200A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">Anti-Pollution AHF</span>
                     <span class="cbp-tag">Dust-Proof Active Harmonic Filter</span>
@@ -228,16 +228,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/anti-pollution-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <a href="/assets/pdf/high-protection-series-user-manual-en.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">Device Manual</a>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="690V,800V" data-a="50~200A" data-s="480*600*175mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution-690v-800v.webp" alt="690V/800V Anti-Pollution Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" alt="690V/800V Anti-Pollution Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">690V/800V Anti-Pollution Active Harmonic Filter AHF</a></h3>
+                  <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">690V/800V Anti-Pollution Active Harmonic Filter (50-200A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">690V/800V Anti-Pollution AHF</span>
                     <span class="cbp-tag">High-Voltage Anti-Pollution AHF</span>
@@ -252,16 +252,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/anti-pollution-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <a href="/assets/pdf/anti-pollution-hv-ahf-user-manual-en.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">Device Manual</a>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="8~20A" data-s="340*410*45mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/ultra-slim-ahf')}><img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/ultra-slim-ahf')}><img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/ultra-slim-ahf')} class="hover:text-brand-orange">Ultra-slim Active Harmonic Filter AHF</a></h3>
+                  <h3 class="h4"><a href={lp('/products/ultra-slim-ahf')} class="hover:text-brand-orange">Ultra-slim Active Harmonic Filter (8-20A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">Ultra-Slim AHF</span>
                     <span class="cbp-tag">Slim Active Power Filter APF</span>
@@ -276,16 +276,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/ultra-slim-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/ultra-slim-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <a href="/assets/pdf/ultra-slim-series-user-manual-en.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">Device Manual</a>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="380*400*88mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/distributed-ahf')}><img src="/assets/images/products-ahf-distributed.webp" alt="Distributed Active Harmonic Filter AHF" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/distributed-ahf')}><img src="/assets/images/products-ahf-distributed-rackmount.webp" alt="Distributed Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/distributed-ahf')} class="hover:text-brand-orange">Distributed Active Harmonic Filter AHF</a></h3>
+                  <h3 class="h4"><a href={lp('/products/distributed-ahf')} class="hover:text-brand-orange">Distributed Active Harmonic Filter (30-50A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">Distributed AHF</span>
                     <span class="cbp-tag">Active Dynamic Filter ADF</span>
@@ -300,7 +300,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/distributed-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/distributed-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <a href="/assets/pdf/distributed-ahf-user-manual-en.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">Device Manual</a>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP65" data-t="SiC">
                 <div class="cbp-vm-image"><a href={lp('/products/sic-fanless-ahf')}><img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</a></h3>
+                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter (25-50A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">IP65 SiC-Fanless AHF</span>
                     <span class="cbp-tag">Low-Noise Active Harmonic Filter</span>
@@ -324,7 +324,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/sic-fanless-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/ip65-sic-fanless-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <span class="cbp-dl-btn is-off" data-doc-link="device-manual" data-link-pending>Device Manual</span>
                     </div>
                   </div>
@@ -333,7 +333,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="600*500*220mm" data-i="IP65" data-t="IGBT,SiC">
                 <div class="cbp-vm-image"><a href={lp('/products/ip65-ahf')}><img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/ip65-ahf')} class="hover:text-brand-orange">IP65 Active Harmonic Filter</a></h3>
+                  <h3 class="h4"><a href={lp('/products/ip65-ahf')} class="hover:text-brand-orange">IP65 Active Harmonic Filter (100-150A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">IP65 Active Harmonic Filter</span>
                     <span class="cbp-tag">Weatherproof AHF Module</span>
@@ -348,7 +348,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/ip65-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/ip65-sic-fanless-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <span class="cbp-dl-btn is-off" data-doc-link="device-manual" data-link-pending>Device Manual</span>
                     </div>
                   </div>
@@ -357,7 +357,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP20,IP30" data-t="SiC">
                 <div class="cbp-vm-image"><a href={lp('/products/sic-fanless-ahf')}><img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">SiC-Fanless &amp; Low Noise Active Harmonic Filter</a></h3>
+                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">SiC-Fanless &amp; Low Noise Active Harmonic Filter (25-50A)</a></h3>
                                     <div class="tags_ul">
                     <span class="cbp-tag">SiC-Fanless AHF</span>
                     <span class="cbp-tag">Fanless Active Dynamic Filter ADF</span>
@@ -372,7 +372,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <a href={lp('/products/sic-fanless-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/sic-fanless-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
-                      <a href="/assets/pdf/chitek-power-quality-catalog.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
+                      <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
                       <span class="cbp-dl-btn is-off" data-doc-link="device-manual" data-link-pending>Device Manual</span>
                     </div>
                   </div>
@@ -401,7 +401,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </ul>
           </div>
 
-          <!-- Where AHF is used — 4 application segments (built from design reference, no image assets) -->
+          <!-- Where AHF is used — original 4 application segments (preserved) + 12 industry cases from 行业案例.png (2026-10-12) -->
           <div class="mt-12">
             <h2 class="text-[clamp(20px,2.2vw,32px)] font-bold text-gray-900 mb-5 font-barlow-condensed">Application of Active Harmonic Filter (AHF)</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-10">
@@ -464,6 +464,171 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 </svg>
                 <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Anyone with VFDs</p>
                 <p class="text-[14px] leading-relaxed text-gray-600">Wherever VFDs are used, our active filter helps optimize performance and power quality</p>
+              </div>
+            </div>
+            <p class="text-[clamp(20px,2.2vw,32px)] font-bold text-gray-900 mb-5 mt-12 font-barlow-condensed">Industry-Specific Applications</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8.5 21 12 3l3.5 18M6.5 21h11M9.5 15h5M10.3 10h3.4M11 6.5h2" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Petroleum</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> thyristor, inverter</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> speed fans, all kinds of pumps</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9.5 18h5M10.5 21h3M12 3.5a5.5 5.5 0 0 1 3 10.1c-.7.5-1 1-1 1.9h-4c0-.9-.3-1.4-1-1.9A5.5 5.5 0 0 1 12 3.5z" />
+                    <path d="M12 1v.5M4.5 4l.9.9M19.5 4l-.9.9M2.5 11h1M20.5 11h1" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Garbage Power Generation</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier, inverter</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> all kinds of pumps</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="6.5" y="6.5" width="11" height="11" rx="1.5" />
+                    <rect x="10" y="10" width="4" height="4" />
+                    <path d="M9.5 6.5v-3M14.5 6.5v-3M9.5 20.5v-3M14.5 20.5v-3M6.5 9.5h-3M6.5 14.5h-3M20.5 9.5h-3M20.5 14.5h-3" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Semiconductor</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> thyristor, single crystal furnace</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> quartz crucible, thyristor</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5.5 5h13l-1.6 9.2a4 4 0 0 1-3.9 3.3h-2a4 4 0 0 1-3.9-3.3L5.5 5z" />
+                    <path d="M4 5h16M12 17.5V21M8.5 21h7" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Iron &amp; Steel Smelting</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier, inverter, thyristor</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> blast furnace, converter, intermediate frequency furnace, electric arc furnace, transmission system</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="6" />
+                    <path d="M12 6c-2.2 1.7-2.2 10.3 0 12M12 6c2.2 1.7 2.2 10.3 0 12M6 12h12" />
+                    <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(-20 12 12)" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Data Center</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> UPS, rectifier</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> switching power supply, UPS, variable-frequency air conditioning, elevators, energy-saving lamps</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-.9 1.8 1.8 0 0 1 0-1.8l2.4-4.1" />
+                    <path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-.9 1.8 1.8 0 0 0 0-1.8l-1.2-2.1" />
+                    <path d="m14 16-3 3 3 3" />
+                    <path d="m8.3 13.6-1.1-4.1-4.1 1.1" />
+                    <path d="m9.3 5.8 1.1-1.9a1.8 1.8 0 0 1 3.1 0l3.9 6.8" />
+                    <path d="m13.4 9.6 4.1 1.1 1.1-4.1" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Sewage Treatment</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> inverter, rectifier</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> fans, pumps (condensate pump, circulating pump, feed pump, injection pump)</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="5" y="7.5" width="14" height="13.5" rx="1" />
+                    <path d="M2.5 21h19M12 3.5v3M10.5 5h3M12 11.5v5M9.5 14h5M9.5 21v-3h5v3" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Hospital</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier, UPS, inverter</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> precision electronic medical equipment, energy-saving lamps, elevators, escalators, UPS</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 21h18M9.5 21 12 14l2.5 7M4 9.5 19.5 8M4 9.5 3.2 6.8" />
+                    <circle cx="17" cy="11.5" r="1.7" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Drilling Platform</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier, inverter</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> AC generator set (DC power supplied via thyristor rectifier), derrick, winch, top drive, turntable, mud pump</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="5.5" y="3" width="10" height="18" rx="1.5" />
+                    <path d="M10 8.5 8.5 12h3L10 15.5M3 21h15" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">EV Charging Station</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> chargers</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5.5 12.5 7 8.2a2 2 0 0 1 1.9-1.4h6.2a2 2 0 0 1 1.9 1.4l1.5 4.3" />
+                    <rect x="4" y="12.5" width="16" height="5" rx="1.5" />
+                    <path d="M6.5 17.5V19M17.5 17.5V19M7 15h2.5M14.5 15H17" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Automobile Manufacturing</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> inverter, rectifier</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> automatic welding machines, conveyor systems, CO2 welding, punching machines</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6.5 3h8l4 4v13a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+                    <path d="M14.5 3v4h4M9.5 12h5M9.5 15.5h5" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Paper Industry</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> halogen lamps, inverters</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> pulper, frequency-conversion air conditioning, paper cutting machines, halogen lamps, overpressure machine, CNC machine tools, arc lamps</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
+                <div class="shrink-0 w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#939393" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 21h18M5.5 21V9.5h4.5V21M10 21V4h6v17M16 21v-8h3v8" />
+                    <path d="M12.5 7.5h1M12.5 10.5h1M12.5 13.5h1" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[15px] font-bold text-[#910000] mb-1.5">Modern Architecture</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic source:</span> rectifier, inverter</p>
+                  <p class="text-[13px] leading-relaxed text-gray-600"><span class="font-semibold text-gray-700">Harmonic equipment:</span> switching power supply, variable-frequency air conditioning, elevators, energy-saving lamps, thyristor dimming systems, large LED equipment</p>
+                </div>
               </div>
             </div>
           </div>
@@ -565,9 +730,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       .cbp-vm-view-list .cbp-vm-image { width: 240px; height: 150px; flex-shrink: 0; aspect-ratio: auto; align-self: center; margin: 1rem 0; }
 
       .cbp-vm-li .text { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
-      .cbp-vm-view-list .cbp-vm-li .text { flex: 1; }
+      .cbp-vm-view-list .cbp-vm-li .text { flex: 1; min-width: 0; }
       .cbp-vm-li .h4 { font-size: clamp(15px, 1.1vw, 18px); font-weight: 600; color: #111827; margin-bottom: .5rem; line-height: 1.3; }
       .cbp-vm-li .h4 a { text-decoration: none; }
+      /* Current-rating suffix (2026-10-12): phone only; 4ch gap matches en/index.astro */
+      .cbp-spec { display: none; }
       .cbp-vm-details { font-size: 13px; color: #4b5563; line-height: 1.6; margin-bottom: .75rem; flex: 1; }
       .tags_ul { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: .75rem; }
       .cbp-tag {
@@ -579,10 +746,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       .my_more1 {
         display: inline-flex; align-items: center; justify-content: center; align-self: flex-start;
         font-size: 14px; font-weight: 600; color: #fff; text-decoration: none;
-        background: #ff6b1a; border: none; border-radius: 6px; padding: 8px 22px;
+        background: #EA511E; border: none; border-radius: 6px; padding: 8px 22px;
         transition: background .2s;
       }
-      .my_more1:hover { background: #d9550f; }
+      .my_more1:hover { background: #C43B13; }
 
       /* Download button (2026-09-28) — a real control in the same group as the List view icon:
          it shares .cbp-vm-icon (reset + hover + .cbp-vm-selected highlight) and only widens for text.
@@ -598,22 +765,56 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         margin-top: auto;
       }
       .cbp-vm-dl { display: inline-flex; align-items: center; gap: .5rem; }
+      /* Wrap instead of forcing the card wider (2026-10-12): without this the
+         3-button group's inline-flex min-content width pinned the text column at
+         374px and pushed Device Manual 19px outside the card at 640px. */
+      .cbp-vm-view-list .cbp-vm-dl { flex-wrap: wrap; }
       .cbp-dl-btn {
         display: inline-flex; align-items: center; justify-content: center;
         font-size: 13px; font-weight: 600; color: #ea580c; text-decoration: none;
         background: #fff7ed; border: 1px solid #fdba74; border-radius: 6px;
         padding: 7px 14px; white-space: nowrap; transition: all .2s;
       }
-      .cbp-dl-btn:hover { background: #ff6b1a; border-color: #ff6b1a; color: #fff; }
+      .cbp-dl-btn:hover { background: #EA511E; border-color: #EA511E; color: #fff; }
       /* Device Manual 暂无文件：灰色占位（不可点 / 不可聚焦） */
       .cbp-dl-btn.is-off {
         color: #9ca3af; background: #f9fafb; border-color: #e5e7eb;
         cursor: default; pointer-events: none;
       }
 
+      /* Mobile list view (2026-10-12).
+         Measured at 390px before this block: the fixed 240x150 thumb left the text
+         column 374px wide inside a 347px card (267px overflow) and pushed the
+         Datasheet / Catalog / Device Manual buttons 248px past the right edge,
+         where overflow:hidden cut them off. Below 640px: shrink the thumb, tighten
+         padding, and let all four action buttons flow as one wrapping row
+         (.cbp-vm-dl -> display:contents so its buttons join the parent flex row). */
+      @media (max-width: 639px) {
+        .cbp-vm-view-list .cbp-vm-image {
+          width: 104px; height: 104px; margin: .75rem 0 .75rem .75rem;
+          align-self: flex-start; border-radius: .5rem;
+        }
+        .cbp-vm-view-list .cbp-vm-li .text { padding: .75rem; }
+        .cbp-vm-view-list .cbp-vm-li .h4 { font-size: 15px; margin-bottom: .375rem; }
+        .cbp-vm-view-list .tags_ul { gap: .25rem; margin-bottom: .5rem; }
+        .cbp-vm-view-list .cbp-tag { font-size: 10px; padding: 1px 6px; }
+        .cbp-vm-view-list .cbp-vm-actions { gap: .375rem; }
+        .cbp-vm-view-list .cbp-vm-dl { display: contents; }
+        .cbp-vm-view-list .my_more1 { font-size: 13px; padding: 7px 12px; }
+        .cbp-vm-view-list .cbp-dl-btn { font-size: 12px; padding: 6px 10px; }
+
+        /* Phone grid: flatter image band (345x345 -> 345x259).
+           object-fit: contain, not cover — measured product bbox spans 7%~94% of the
+           image height (distributed-ahf), so any crop cuts the chassis. #fefefe is the
+           measured plate colour of every card webp (254,254,254) => seamless. */
+        .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 4 / 3; background: #fefefe; }
+        .cbp-vm-view-grid .cbp-vm-image img { object-fit: contain; }
+        .cbp-vm-li .h4 .cbp-spec { display: inline; margin-left: 4ch; white-space: nowrap; }
+      }
+
       /* Filter card: checkbox styling */
       .filter_card input[type="checkbox"] {
-        width: 16px; height: 16px; accent-color: #ff6b1a; cursor: pointer; flex-shrink: 0;
+        width: 16px; height: 16px; accent-color: #EA511E; cursor: pointer; flex-shrink: 0;
       }
     </style>
 
@@ -1040,7 +1241,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           const avail = data[s.key] || [];
           const isAvail = avail.includes(cap);
           const isSel = selectedCell && selectedCell.series === s.key && selectedCell.capacity === cap;
-          html += '<td class="p-2 text-center"><button class="matrix-cell w-8 h-8 rounded-full flex items-center justify-center mx-auto transition-all duration-200 ' + (isAvail ? (isSel ? 'bg-brand-orange text-white scale-110 shadow-[0_0_12px_rgba(255,107,26,0.3)]' : 'border-2 hover:border-brand-orange hover:scale-105') : 'opacity-15 pointer-events-none') + '" data-series="' + s.key + '" data-cap="' + cap + '" ' + (!isAvail ? 'disabled' : '') + ' style="' + (isAvail && !isSel ? 'border-color:' + vColor + '60' : '') + '"><span class="w-3 h-3 rounded-full ' + (isSel ? 'bg-white' : '') + '" style="' + (!isSel && isAvail ? 'background-color:' + vColor : '') + '"></span></button></td>';
+          html += '<td class="p-2 text-center"><button class="matrix-cell w-8 h-8 rounded-full flex items-center justify-center mx-auto transition-all duration-200 ' + (isAvail ? (isSel ? 'bg-brand-orange text-white scale-110 shadow-[0_0_12px_rgba(234,81,30,0.3)]' : 'border-2 hover:border-brand-orange hover:scale-105') : 'opacity-15 pointer-events-none') + '" data-series="' + s.key + '" data-cap="' + cap + '" ' + (!isAvail ? 'disabled' : '') + ' style="' + (isAvail && !isSel ? 'border-color:' + vColor + '60' : '') + '"><span class="w-3 h-3 rounded-full ' + (isSel ? 'bg-white' : '') + '" style="' + (!isSel && isAvail ? 'background-color:' + vColor : '') + '"></span></button></td>';
         });
         tr.innerHTML = html;
         tbody.appendChild(tr);

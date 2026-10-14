@@ -1,1053 +1,398 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { dataMap, heroImages, industryTitles } from '../data/zhSolutions.js';
+import { solutionMeta } from '../data/zhSolutionMeta.js';
+import { SYMPTOM_ROUTES, DECISION_TREE, ROUTE_DEVICE_LABEL } from '../data/zhSolutionRouting.js';
+import { LOCALE_DOMAIN } from '../i18n/index';
+
+// 渲染设备清单为自然语言："a、b、c 和 d"
+const eqText = (arr) =>
+  arr.length < 2 ? (arr[0] || '') : arr.slice(0, -1).join('、') + ' 和 ' + arr[arr.length - 1];
+
+const LANG = 'zh';
+const PREFIX = '';
+const PRODUCTS_PREFIX = PREFIX;
 
 const meta = {
   title: '电能质量解决方案 – 工业与公用事业应用 | CHITEK',
-  description: 'CHITEK为全球工业制造、商业建筑、数据中心、新能源、交通运输和电网应用提供电能质量解决方案。',
+  description:
+    'CHITEK 为工业制造、商业建筑、数据中心、新能源、轨道交通和电网应用提供电能质量解决方案。',
+};
+
+const HOST = LOCALE_DOMAIN[LANG];
+const canonical = `${HOST}/solutions`;
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: `${HOST}/` },
+    { '@type': 'ListItem', position: 2, name: '解决方案', item: canonical },
+  ],
+};
+
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: '按行业划分的电能质量解决方案',
+  itemListElement: solutionMeta.map((m, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: m.navLabel,
+    url: `${HOST}/solutions/${m.slug}`,
+  })),
 };
 ---
 
-<BaseLayout lang="zh" title={meta.title} description={meta.description} alternateLangs={['zh', 'pt', 'es', 'ar']}>
-  <!-- ============ HERO ============ -->
-  <section class="relative min-h-[70vh] flex flex-col justify-end overflow-hidden mt-[72px]">
-    <div class="absolute inset-0 animate-fade-in">
-      <img id="hero-image" src="/assets/images/solutions-commercial-medical-hero-bg.webp" alt="" class="object-cover w-full h-full" fetchpriority="high" />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
-    </div>
-    <div class="relative z-10 w-full px-[clamp(24px,8vw,160px)] pb-8">
-      <div class="mb-12">
-        <h1 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-300">商业与医疗</h1>
-        <h2 class="text-[clamp(28px,3.5vw,64px)] font-bold leading-tight text-brand-orange drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] font-barlow-condensed animate-slide-up-450">电能质量解决方案</h2>
-        <p class="mt-6 text-[clamp(14px,1.2vw,20px)] text-white/80 max-w-xl leading-relaxed animate-slide-up-[clamp(12px,2vw,32px)]00">从精密手术室到甲级写字楼——全场景电能质量保障</p>
+<BaseLayout title={meta.title} description={meta.description} lang="zh">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(itemList)} />
+
+  <main class="mt-[72px]">
+
+    <section class="relative min-h-[46vh] flex flex-col justify-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/assets/images/solutions-commercial-medical-hero-bg.webp" alt="" class="object-cover w-full h-full" fetchpriority="high" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
       </div>
-    </div>
-  </section>
+      <div class="relative z-10 w-full px-[clamp(24px,8vw,160px)] pb-10 pt-16">
+        <nav class="text-white/70 text-[13px] tracking-[0.08em] mb-3" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/" class="hover:text-brand-orange">首页</a></li>
+            <li class="text-white/40" aria-hidden="true">/</li>
+            <li class="text-white font-medium" aria-current="page">解决方案</li>
+          </ol>
+        </nav>
+        <h1 class="text-[clamp(28px,3.5vw,56px)] font-bold leading-tight text-white font-barlow-condensed max-w-4xl">
+          按行业划分的电能质量解决方案
+        </h1>
+        <p class="mt-5 text-[clamp(14px,1.2vw,20px)] text-white/80 max-w-2xl leading-relaxed">
+          为六大应用行业提供谐波滤波与无功补偿。每个页面都指明造成问题的设备——变频器群、焊接机组、感应炉、UPS 整流器、LED 驱动、牵引负荷——以及 CHITEK 为之安装的装置。
+        </p>
+      </div>
+    </section>
 
-  <!-- ============ STICKY INDUSTRY TABS ============ -->
-  <div id="sticky-tabs" class="sticky top-[72px] z-40 transition-all duration-[400ms] bg-white border-b-2 border-border-subtle shadow-[0_2px_16px_rgba(38,70,83,0.08)] opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden">
-    <div class="px-[clamp(24px,8vw,160px)]">
-      <div class="flex items-center justify-center gap-0 md:gap-4 flex-wrap" id="sticky-industry-tabs"></div>
-    </div>
-  </div>
+    <section class="px-[clamp(24px,8vw,160px)] py-12 lg:py-16">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        选择您的行业
+      </h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
 
-  <!-- ============ SOLUTIONS CAROUSEL ============ -->
-  <section id="solutions" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out px-[clamp(24px,8vw,160px)] py-12 lg:py-16 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/images/solutions-scenario.webp')">
-    <div>
-      <div class="mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[clamp(16px,2vw,32px)]">
+        {solutionMeta.map((m) => (
+          <a
+            href={`${PREFIX}/solutions/${m.slug}`}
+            class="group bg-bg-card border border-border-card rounded-xl overflow-hidden hover:border-brand-orange transition-colors"
+          >
+            <div class="aspect-[16/10] overflow-hidden">
+              <img
+                src={heroImages[m.id]}
+                alt=""
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-[clamp(16px,1.6vw,24px)]">
+              <h3 class="text-[clamp(16px,1.4vw,22px)] font-semibold text-text-primary font-barlow-condensed">
+                {m.navLabel}
+              </h3>
+              <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+                {m.card.lead}{" "}
+                <strong class="font-semibold text-text-primary">{eqText(m.card.equipment)}</strong>。
+              </p>
+              <p class="mt-4 inline-flex items-center gap-1.5 text-electric-orange font-medium text-[13px]">
+                查看解决方案
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14 bg-bg-alt-1">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        每个项目的起点
+      </h2>
+      <div class="mt-3 mb-8 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(16px,2vw,32px)] max-w-5xl">
         <div>
-          <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-brand-navy leading-tight font-barlow-condensed">场景化电能质量解决方案</h2>
+          <h3 class="text-[16px] font-semibold text-text-primary font-barlow-condensed">1. 先测量</h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            在公共连接点做一次电能质量勘测：谐波频谱、无功剖面与负载周期。仅按变压器 kVA 定容量，是装置最终偏小的最常见原因。
+          </p>
         </div>
-        <div class="flex items-center justify-center gap-4 mt-4">
-          <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary font-medium" id="sc-counter">1 / 3</span>
-          <div class="flex gap-2" id="sc-dots"></div>
+        <div>
+          <h3 class="text-[16px] font-semibold text-text-primary font-barlow-condensed">2. 按频谱选型</h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            AHF 容量跟随实测谐波电流；SVG 容量跟随无功摆动。若现场已有电容器组，抗谐振控制与 CT 位置决定其能否保留。
+          </p>
+        </div>
+        <div>
+          <h3 class="text-[16px] font-semibold text-text-primary font-barlow-condensed">3. 现场验证</h3>
+          <p class="mt-2 text-[13px] text-text-secondary leading-relaxed">
+            验收在送电后按适用限值实测，通常以公共连接点的 GB/T 14549 或 IEEE 519 为准。
+          </p>
         </div>
       </div>
-      <div class="mb-[clamp(20px,3vw,48px)]">
-        <div class="flex items-center gap-2" id="sc-scene-label"></div>
+    </section>
+
+    <!-- ═══ A. 症状 -> 装置对照表（GEO：可提取的"哪种问题用哪种装置"） ═══ -->
+    <section class="px-[clamp(24px,8vw,160px)] py-12 lg:py-16">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        哪种装置解决哪种问题？
+      </h2>
+      <div class="mt-3 mb-4 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <p class="max-w-4xl text-[14px] text-text-secondary leading-relaxed mb-8">
+        两个产品系列，二者之分并非偏好——它取决于测量结果。AHF 消除谐波电流。SVG 发出并吸收无功功率。下表从症状出发，给出确认它的测量项，并指出解决它的装置。当站点同时出现两类问题时，二者分别定容量，而非二选一。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-[13px] min-w-[860px]">
+          <caption class="sr-only">低压电能质量问题的症状、确认测量项与推荐装置</caption>
+          <thead>
+            <tr class="bg-bg-alt-1">
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed w-[26%]">症状</th>
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed w-[26%]">先测量什么</th>
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed w-[14%]">装置</th>
+              <th scope="col" class="border border-border-card px-4 py-3 font-semibold text-text-primary font-barlow-condensed">为何有效</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SYMPTOM_ROUTES.map((r) => (
+              <tr>
+                <th scope="row" class="border border-border-card px-4 py-3 font-medium text-text-primary align-top leading-relaxed">
+                  {r.symptom}
+                </th>
+                <td class="border border-border-card px-4 py-3 text-text-secondary align-top leading-relaxed">{r.measure}</td>
+                <td class="border border-border-card px-4 py-3 align-top">
+                  <span
+                    class:list={[
+                      'route-badge',
+                      'inline-flex px-2.5 py-1 rounded text-[11px] font-bold tracking-[0.06em] whitespace-nowrap',
+                      r.device === 'ahf' && 'bg-brand-navy text-white',
+                      r.device === 'svg' && 'bg-brand-orange text-white',
+                      r.device === 'both' && 'bg-bg-alt-3 text-brand-navy border border-brand-orange',
+                    ]}
+                  >
+                    {ROUTE_DEVICE_LABEL[r.device]}
+                  </span>
+                </td>
+                <td class="border border-border-card px-4 py-3 text-text-secondary align-top leading-relaxed">
+                  {r.why}
+                  <span class="block mt-1.5 text-[12px] text-text-muted">{r.note}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div class="mb-12">
-        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">痛点</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(12px,3vw,48px)] transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-painpoints"></div>
+
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a
+          href={`${PRODUCTS_PREFIX}/products`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-card bg-bg-card text-[13px] font-semibold text-text-primary hover:border-brand-orange transition-colors"
+        >
+          浏览有源谐波滤波器（AHF）
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a
+          href={`${PRODUCTS_PREFIX}/products-svg`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-card bg-bg-card text-[13px] font-semibold text-text-primary hover:border-brand-orange transition-colors"
+        >
+          浏览静止无功发生器（SVG）
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a
+          href={`${PRODUCTS_PREFIX}/products-asvg`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-card bg-bg-card text-[13px] font-semibold text-text-primary hover:border-brand-orange transition-colors"
+        >
+          浏览先进静止无功发生器（ASVG）
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
-      <div class="mb-12">
-        <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy mb-6 pb-3 border-b-2 border-border-subtle">系统拓扑</h3>
-        <div class="bg-bg-card border border-border-card rounded-xl p-[clamp(8px,1.5vw,32px)] lg:p-10 transition-[opacity,transform,height] duration-300 ease-out carousel-content" id="sc-topology"></div>
-      </div>
-      <div class="flex items-center justify-center gap-[clamp(12px,3vw,48px)] mt-12" id="sc-indicators"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ CASES ============ -->
-  <section id="cases" class="scroll-reveal opacity-0 translate-y-10 transition-all duration-700 ease-out bg-[linear-gradient(135deg,#fff5f0,#fef0e5,#fde4d0)] px-[clamp(24px,8vw,160px)] pt-10 lg:pt-16 pb-8 lg:pb-12">
-    <div>
-      <h2 class="text-[clamp(24px,3vw,52px)] font-bold text-text-primary leading-tight font-barlow-condensed" id="cases-title">商业与医疗建筑案例研究</h2>
-      <div class="mt-3 mb-[clamp(16px,2.5vw,40px)] w-36 h-[3px] rounded-full bg-gradient-to-r from-brand-orange/60 via-brand-orange to-brand-orange/60 shadow-[0_0_8px_rgba(255,107,26,0.3)]"></div>
-      <div class="max-w-[75%] max-md:max-w-full mx-auto space-y-6 [&>:last-child]:mb-0" id="cases-list"></div>
-    </div>
-  </section>
+    <!-- ═══ B. 决策树（AHF vs SVG）— 服务端渲染，无 JS 也可读 ═══ -->
+    <section class="px-[clamp(24px,8vw,160px)] py-10 lg:py-14 bg-bg-alt-1" id="device-selector">
+      <h2 class="text-[clamp(22px,2.4vw,40px)] font-bold text-brand-navy font-barlow-condensed">
+        我需要哪种装置？
+      </h2>
+      <div class="mt-3 mb-4 w-36 h-[3px] rounded-full bg-brand-orange/70"></div>
+      <p class="max-w-4xl text-[14px] text-text-secondary leading-relaxed mb-8">
+        走完下面三个问题。整棵决策树都在页面上，因此您无需点击任何东西即可从头到尾阅读——或者如果您愿意，也可以逐步点击。
+      </p>
 
-</BaseLayout>
-
-<style>
-  .scroll-reveal {
-    opacity: 0;
-    translate: 0 10px;
-  }
-  .scroll-reveal.revealed {
-    opacity: 1;
-    translate: 0 0;
-  }
-</style>
-
-<!-- Lucide icons library -->
-<script is:inline src="/assets/js/lucide.min.js">
-</script>
-
-<script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-
-    // ===================== DATA =====================
-    const industries = [
-      { id: 'industry', label: '工业', icon: 'factory' },
-      { id: 'commercial', label: '商业与医疗', icon: 'building-2' },
-      { id: 'datacenter', label: '数据中心', icon: 'server' },
-      { id: 'renewable', label: '新能源', icon: 'zap' },
-      { id: 'rail', label: '轨道交通', icon: 'train-front' },
-      { id: 'grid', label: '电网', icon: 'globe' },
-    ];
-
-    let activeIndustry = 'commercial';
-
-    const painPointScenes = [
-      {
-        id: 'medical', label: '医疗', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '医疗场景', sceneSubtitle: '医院 / 诊所 / 康复中心',
-        cards: [
-          { icon: 'activity', title: 'CT / MRI', desc: '影像设备', metric: '15%', metricLabel: 'THD', consequences: [{ title: '图像伪影', sub: '误诊风险，需重复扫描，患者等待时间翻倍' }, { title: '设备过热', sub: '变压器降额运行，元器件寿命缩短，非计划维护' }] },
-          { icon: 'heart-pulse', title: '手术室', desc: '手术设备', metric: '毫秒级', metricLabel: '电压暂降', consequences: [{ title: '手术中断', sub: '瞬时断电，设备重启周期，手术延误' }, { title: '生命安全风险', sub: '关键支撑设备故障，备用电源切换延迟' }] },
-          { icon: 'flask-conical', title: '实验室', desc: '精密分析仪', metric: '高', metricLabel: '零序电流', consequences: [{ title: '三相不平衡', sub: '精密仪器漂移，校准失效，试剂浪费' }, { title: '中性线过载', sub: '导体过热，火灾风险，N线烧毁隐患' }] },
-        ],
-      },
-      {
-        id: 'office', label: '商业办公', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '商业办公场景', sceneSubtitle: '写字楼 / 商场 / 酒店',
-        cards: [
-          { icon: 'lightbulb', title: '照明', desc: 'LED驱动谐波', metric: '23%', metricLabel: 'THD', consequences: [{ title: '严重闪烁', sub: '视觉疲劳，生产力下降，租户投诉不适' }, { title: '中性线过热', sub: '三次谐波累积，N线烧毁，火灾隐患' }] },
-          { icon: 'arrow-up-down', title: '电梯', desc: '变频器启动浪涌', metric: '7x', metricLabel: '冲击电流', consequences: [{ title: '电压跌落', sub: '设备跳闸，控制系统复位，乘客被困风险' }, { title: '机械磨损', sub: '维护频繁，制动片更换，钢丝绳疲劳' }] },
-          { icon: 'thermometer-snowflake', title: '暖通空调', desc: '压缩机无功', metric: '0.65', metricLabel: '功率因数', consequences: [{ title: '罚款', sub: '电力公司功率因数加收，月度账单增加30%+' }, { title: '变压器过载', sub: '无功电流过大，过热，使用寿命缩短' }] },
-        ],
-      },
-      {
-        id: 'lab', label: '实验室/洁净室', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '实验室与洁净室', sceneSubtitle: '半导体 / 生物科技 / 精密制造',
-        cards: [
-          { icon: 'wind', title: '洁净室', desc: 'FFU风机变频', metric: '> 1.0', metricLabel: 'Pst闪烁', consequences: [{ title: '良率损失', sub: '晶圆缺陷密度增加，批次报废，营收影响' }, { title: '光线波动', sub: '光刻对位偏差，检测误判' }] },
-          { icon: 'cpu', title: '实验室设备', desc: '精密仪器', metric: '30%', metricLabel: '电压暂降', consequences: [{ title: '数据丢失', sub: '未保存的测量数据，实验中断，试剂浪费' }, { title: '校准漂移', sub: '暂降后需重新校准，仪器停机4-8小时' }] },
-          { icon: 'toy-brick', title: '冷却水泵', desc: '电机启动', metric: '5~8x', metricLabel: '冲击电流', consequences: [{ title: '母线电压骤降', sub: '级联跳闸风险，相邻设备欠压，批次停产' }, { title: '断路器跳闸', sub: '误过流跳闸，非计划停机，重启SOP' }] },
-        ],
-      },
-    ];
-
-    const topologyScenes = [
-      {
-        id: 'medical', sceneName: '医疗拓扑', sceneSubtitle: '医院 / 诊所 / 康复中心',
-        deviceLabel: 'AHF-200A', deviceType: '有源滤波器',
-        deviceDesc: '并联接入低压母线，为手术室/影像/实验室配电系统治理谐波',
-        branches: [
-          { label: '手术室配电', sub: '电压暂降保护' },
-          { label: '影像供电', sub: 'CT / MRI谐波' },
-          { label: '实验室配电', sub: '三相不平衡' },
-        ],
-      },
-      {
-        id: 'office', sceneName: '商业办公拓扑', sceneSubtitle: '写字楼 / 商场 / 酒店',
-        deviceLabel: 'SVG-300A', deviceType: '静止无功发生器',
-        deviceDesc: 'SVG安装于低压母线，为电梯/照明/空调回路补偿无功功率',
-        branches: [
-          { label: '照明供电', sub: '谐波源' },
-          { label: '电梯供电', sub: '变频器浪涌' },
-          { label: '暖通供电', sub: '无功负荷' },
-        ],
-      },
-      {
-        id: 'lab', sceneName: '实验室与洁净室拓扑', sceneSubtitle: '半导体 / 生物科技 / 精密制造',
-        deviceLabel: 'AHF-150A', deviceType: '有源滤波器',
-        deviceDesc: '串联于UPS前端，用于工艺冷却/实验室设备谐波抑制',
-        branches: [
-          { label: 'UPS前端', sub: '精密供电' },
-          { label: '工艺冷却', sub: '水泵冲击' },
-          { label: '实验室设备', sub: '敏感负荷' },
-        ],
-      },
-    ];
-
-    const cases = [
-      {
-        title: '广州三甲医院门诊楼治理',
-        highlight: 'THD 18.3% → 4.1%，年节电67万元',
-        image: '/assets/images/solutions-commercial-medical-case-hospital.webp',
-        industry: '医疗建筑',
-        colorClass: 'text-electric-orange', bgClass: 'bg-orange-50',
-        link: '/about/cases/guangzhou-hospital',
-        overview: '2000床位三甲医院，10kV/0.4kV配电系统，4×1600kVA变压器。影像中心扩建后，主母线THD超过18%，导致CT/MRI图像伪影频发，并发生一次手术室电能质量事故。',
-        trend: 'THD趋势：18.3% → 12.5% → 8.2% → 4.1%',
-        solution: [
-          { product: 'AHF-200A', qty: 2, use: '手术室及影像科' },
-          { product: 'SVG-100A', qty: 1, use: '暖通无功补偿' },
-        ],
-        results: [
-          'THD < 5%（符合IEEE 519标准）',
-          '变压器温度下降15°C',
-          '年维护费用降低45%',
-        ],
-      },
-      {
-        title: '上海陆家嘴甲级写字楼电能质量改造',
-        highlight: 'PF 0.72 → 0.95，消除罚款45万元/年',
-        image: '/assets/images/solutions-commercial-medical-case-office.webp',
-        industry: '商业办公',
-        colorClass: 'text-brand-orange', bgClass: 'bg-amber-50',
-        link: '/about/cases/lujiazui-office',
-        overview: '45层甲级写字楼，20kV/0.4kV配电，6×2000kVA变压器。大规模LED改造和变频电梯升级引入严重谐波和低功率因数，导致每月电力公司罚款。',
-        trend: 'PF趋势：0.72 → 0.82 → 0.91 → 0.95',
-        solution: [
-          { product: 'SVG-300A', qty: 2, use: '低压母线功率因数校正' },
-          { product: 'AHF-100A', qty: 3, use: '楼层照明谐波滤波' },
-        ],
-        results: [
-          'PF > 0.95，零罚款',
-          '变压器损耗降低22%',
-          '年节省45万元',
-        ],
-      },
-      {
-        title: '苏州半导体洁净室实验室电压闪烁治理',
-        highlight: '闪烁Pst < 0.3，设备零停机',
-        image: '/assets/images/solutions-commercial-medical-case-lab.webp',
-        industry: '实验室/洁净室',
-        colorClass: 'text-brand-navy', bgClass: 'bg-slate-100',
-        link: '/about/cases/suzhou-lab',
-        overview: '12000平方米百级洁净室，双路10kV供电，8×2500kVA变压器。工艺冷却水泵冲击电流和谐波反馈导致Pst闪烁超过1.2，造成光刻良率损失和季度性设备停机。',
-        trend: 'Pst趋势：1.2 → 0.7 → 0.4 → 0.3',
-        solution: [
-          { product: 'AHF-150A', qty: 2, use: 'UPS前端谐波抑制' },
-          { product: 'SVG-100A', qty: 2, use: '工艺冷却水泵浪涌补偿' },
-          { product: 'Smart Monitor', qty: 1, use: '全厂电能质量监测平台' },
-        ],
-        results: [
-          '闪烁Pst < 0.3（符合IEC 61000-3-3标准）',
-          '部署后设备零非计划停机',
-          '良率恢复至闪烁前基准水平',
-        ],
-      },
-    ];
-
-    // ===================== GRID DATA =====================
-    const gridPainPoints = [
-      {
-        id: 'transmission', label: '输电', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '输电与配电', sceneSubtitle: '变电站 / 配电网 / 农网升级',
-        cards: [
-          { icon: 'network', title: '非线性负荷', desc: '工业及牵引负荷谐波注入', metric: '>10%', metricLabel: 'THD', consequences: [{ title: '变压器过热', sub: '附加谐波损耗，绝缘老化，被迫降额至30%容量' }, { title: '保护误动作', sub: '继电器误跳闸，断路器误动作，电网可靠性下降' }] },
-          { icon: 'zap', title: '分布式发电', desc: 'DG并网引发的电网扰动', metric: '±10%', metricLabel: '电压波动', consequences: [{ title: '反向潮流', sub: 'DG倒送功率引起电压升高，分接头频繁调节，保护配合失灵' }, { title: '孤岛风险', sub: '非计划孤岛形成，不同步重合闸，设备损坏' }] },
-          { icon: 'git-branch', title: '线路无功', desc: '长距离传输无功损耗', metric: '< 0.9', metricLabel: '末端电压(pu)', consequences: [{ title: '线损激增', sub: 'I²R损耗指数增长，农网馈线末端电压崩溃，切负荷' }, { title: '电压崩溃风险', sub: '无功缺额级联，大面积停电隐患，N-1事故失效' }] },
-        ],
-      },
-      {
-        id: 'urban', label: '城市配网', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '城市配电网', sceneSubtitle: '市中心 / 开发区 / 老旧居民区',
-        cards: [
-          { icon: 'plug-zap', title: '充电桩', desc: '快充集群冲击浪涌', metric: '120kW+', metricLabel: '负荷阶跃', consequences: [{ title: '电网电压暂降', sub: '并发充电高峰导致15%+电压跌落，配电变压器过载跳闸' }, { title: '谐波注入', sub: 'EV整流器6脉波谐波，PCC点THD超过8%，电网污染' }] },
-          { icon: 'building-2', title: '商业负荷', desc: '单相负荷导致三相不平衡', metric: '>8%', metricLabel: '不平衡度', consequences: [{ title: '中性线过载', sub: '零序电流累积，N线烧毁，老旧居民区火灾隐患' }, { title: '电机降额', sub: '三相电机负序发热，使用寿命缩短，非计划停机' }] },
-          { icon: 'cable', title: '电缆网络', desc: '地下电缆容性无功', metric: '超前', metricLabel: 'PF > 0.95', consequences: [{ title: '过补偿', sub: '电缆电容导致轻载时PF超前，电压升高，绝缘应力' }, { title: '谐振风险', sub: '电缆电容+变压器电感并联谐振，谐波放大' }] },
-        ],
-      },
-      {
-        id: 'microgrid', label: '微电网', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '微电网与冷热电联供', sceneSubtitle: '园区 / 海岛 / 偏远地区',
-        cards: [
-          { icon: 'sun', title: '多源并网', desc: '光伏+风电+储能谐波叠加', metric: '>12%', metricLabel: 'THD', consequences: [{ title: 'PCC点超标', sub: '多逆变器谐波叠加，IEEE 519 PCC限值超标，电网运营商罚款' }, { title: '谐振不稳定', sub: 'LCL滤波器交互，宽频振荡，逆变器级联脱网' }] },
-          { icon: 'battery-charging', title: '储能充放', desc: '充放电无功波动', metric: 'PF摆动', metricLabel: '0.7~1.0', consequences: [{ title: '罚款', sub: '双向PF摆动触发电力公司无功电费，月度费用激增' }, { title: '循环寿命损失', sub: '附加无功电流加热PCS，IGBT加速老化，质保失效风险' }] },
-          { icon: 'shuffle', title: '并离网切换', desc: '并/离网切换电压暂降', metric: '>20%', metricLabel: '暂降深度', consequences: [{ title: '负荷脱扣', sub: 'STS切换>4ms导致接触器脱落，关键负荷UPS转电池' }, { title: '柴发启动失败', sub: '发电机启动过程中暂降，AVR励磁崩溃，黑启动失败' }] },
-        ],
-      },
-    ];
-    const gridTopology = [
-      {
-        id: 'transmission', sceneName: '输电拓扑', sceneSubtitle: '变电站 / 配电网 / 农网升级',
-        deviceLabel: 'SVG + AHF', deviceType: '组合系统',
-        deviceDesc: 'SVG安装于35kV/10kV母线用于无功补偿+AHF安装于关键负荷馈线用于谐波治理，DG接入点标注',
-        branches: [
-          { label: '关键负荷', sub: '敏感设备' },
-          { label: 'DG接入点', sub: '反向潮流' },
-          { label: '农网馈线', sub: '长线路压降' },
-        ],
-      },
-      {
-        id: 'urban', sceneName: '城市配网拓扑', sceneSubtitle: '市中心 / 开发区 / 老旧居民区',
-        deviceLabel: 'SPC + SVG-10kV', deviceType: '配电系统',
-        deviceDesc: 'SPC安装于10kV馈线用于平衡+SVG安装于母线用于无功补偿，标注充电站/商业/居民负荷',
-        branches: [
-          { label: '充电站', sub: '冲击负荷' },
-          { label: '商业负荷', sub: '三相不平衡' },
-          { label: '居民负荷', sub: '单相负荷' },
-        ],
-      },
-      {
-        id: 'microgrid', sceneName: '微电网拓扑', sceneSubtitle: '园区 / 海岛 / 偏远地区',
-        deviceLabel: 'SVG+AHF + SPC', deviceType: '微电网系统',
-        deviceDesc: 'SVG+AHF安装于PCC点用于电能质量+SPC用于负荷平衡，标注光伏/储能/柴油分支',
-        branches: [
-          { label: '光伏阵列', sub: '间歇性电源' },
-          { label: '储能PCS', sub: '双向流动' },
-          { label: '柴油发电机', sub: '备用电源' },
-        ],
-      },
-    ];
-    const gridCases = [
-      {
-        title: '省级220kV变电站电能质量综合治理', highlight: 'THD 11% → 3.5%，变压器损耗降低12%，年节电320万kWh', image: '/assets/images/solutions-grid-case-substation.webp', industry: '电网', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '220kV/35kV/10kV省级变电站，供混合工业及居民负荷。附近钢厂谐波注入和DG渗透率上升导致35kV母线THD超过11%，引发电容器组断路器跳闸和变压器过热告警。',
-        trend: 'THD趋势：11.0% → 7.8% → 5.2% → 3.5%',
-        solution: [{ product: 'SVG-800V', qty: 2, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 3, use: '关键馈线谐波滤波' }],
-        results: ['THD < 4%（符合GB/T 14549标准）', '变压器损耗降低12%（年节电320万kWh）', '线损改善0.8个百分点'],
-      },
-      {
-        title: '城市核心区配电网升级改造工程', highlight: '充电站不平衡度<3%，电压合格率99.97%', image: '/assets/images/solutions-grid-case-urban.webp', industry: '城市配网', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '市中心10kV配电网，含12座EV快充站及混合商业/居民负荷。晚间并发充电高峰导致严重三相不平衡和电压暂降，同时地下电缆网络在轻载时产生超前PF。',
-        trend: '不平衡度趋势：12% → 8% → 5% → 2.8%',
-        solution: [{ product: 'SPC-150A', qty: 4, use: '充电站三相平衡' }, { product: 'SVG-10kV', qty: 2, use: '馈线无功补偿' }],
-        results: ['所有充电站三相不平衡度<3%', '电压合格率99.97%', '零电缆过补偿事故'],
-      },
-      {
-        title: '海岛风光储一体化微电网工程', highlight: '并离网切换暂降<5%，可靠性99.9%，柴油发电减少60%', image: '/assets/images/solutions-grid-case-microgrid.webp', industry: '微电网', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '偏远海岛微电网，含2MW光伏、1.5MW风电、4MWh储能及1MW柴油备用。PCC点多源谐波叠加及并/离网切换时电压暂降导致频繁切负荷和柴油机过早启动。',
-        trend: '暂降趋势：25% → 12% → 7% → <5%',
-        solution: [{ product: 'SVG+AHF', qty: 2, use: 'PCC点电能质量调节' }, { product: 'SPC-100A', qty: 1, use: '跨相负荷平衡' }],
-        results: ['并/离网切换暂降<5%', '系统可靠性99.9%', '柴油机年运行时间减少60%'],
-      },
-    ];
-
-    // ===================== DATACENTER DATA =====================
-    const dcPainPoints = [
-      {
-        id: 'cloud', label: '云计算', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '大型云计算中心', sceneSubtitle: 'HPC / 云服务商 / 托管',
-        cards: [
-          { icon: 'cloud', title: 'UPS谐波', desc: 'UPS整流器反射污染', metric: '>12%', metricLabel: 'THD', consequences: [{ title: '并联环流', sub: 'UPS谐波电流在并联机组间环流，负载分配不均，热失控风险' }, { title: '电池寿命缩短', sub: '谐波纹波加速VRLA电池腐蚀，3年寿命降至18个月' }] },
-          { icon: 'server', title: '服务器集群', desc: '单相IT负荷导致三相不平衡', metric: '>15%', metricLabel: '不平衡度', consequences: [{ title: '中性线过热', sub: '三次谐波+三相不平衡叠加，零序电流>相电流，火灾风险' }, { title: 'PDU跳闸', sub: '单相过载但平均值未超额定，机架PDU断路器误跳，整排断电' }] },
-          { icon: 'fan', title: '制冷系统', desc: '变频冷水机/CRAC无功影响', metric: 'PUE', metricLabel: '恶化', consequences: [{ title: '变压器过载', sub: '无功电流消耗变压器容量，被迫升级冷却，资本支出浪费' }, { title: '能耗罚款', sub: '无功损耗导致PUE 1.6→1.8，10MW设施年运营费+80万元' }] },
-        ],
-      },
-      {
-        id: 'finance', label: '金融数据中心', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '金融数据中心', sceneSubtitle: '银行 / 证券 / 保险',
-        cards: [
-          { icon: 'landmark', title: '高频交易', desc: '暂降敏感交易基础设施', metric: '< 3ms', metricLabel: '暂降耐受', consequences: [{ title: '交易中断', sub: 'CBEMA/ITIC曲线违规，服务器PSU掉电，毫秒暂降=百万元损失' }, { title: '监管处罚', sub: '证监会交易连续性要求，中断>5分钟触发强制报告，合规罚款' }] },
-          { icon: 'power', title: '柴发切换', desc: '机组测试/停电时切换冲击', metric: '±15%', metricLabel: '电压阶跃', consequences: [{ title: 'UPS过载', sub: 'ATS切换冲击，UPS转电池，整流器爬坡过载，系统崩溃' }, { title: '发电机振荡', sub: '负荷阶跃导致调速器振荡，频率偏差>2%，PSU关机' }] },
-          { icon: 'thermometer', title: '精密空调', desc: '变频压缩机谐波源', metric: '>8%', metricLabel: 'THD', consequences: [{ title: 'PUE升高', sub: '冷却变压器谐波降额，制冷能力下降，机架热点' }, { title: '控制故障', sub: '谐波噪声干扰空调控制器PSU，传感器漂移，温度振荡' }] },
-        ],
-      },
-      {
-        id: 'edge', label: '边缘计算', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '边缘计算节点', sceneSubtitle: '5G基站 / IoT / 分布式机房',
-        cards: [
-          { icon: 'router', title: '电网质量', desc: '偏远/农村站点供电不稳定', metric: '>20%', metricLabel: '暂降深度', consequences: [{ title: '节点离线', sub: '频繁暂降触发mini-UPS电池放电，6个月内循环寿命耗尽' }, { title: '上门维护成本', sub: '每次上门800元，200+节点=月运维费16万元' }] },
-          { icon: 'hard-drive', title: '小型UPS', desc: '单柜站点过载风险', metric: '>80%', metricLabel: '负载率', consequences: [{ title: '无冗余', sub: 'N配置，单台UPS故障=节点完全中断，SLA 99.9%不达标' }, { title: '电池过热', sub: '紧凑柜体高充电倍率，热失控，无人值守站点火灾风险' }] },
-          { icon: 'radio', title: '分布式负荷', desc: '单相5G/IoT导致三相不平衡', metric: '>10%', metricLabel: '不平衡度', consequences: [{ title: '效率损失', sub: 'DER协调失败，负序电流，PCS降额15%，弃电' }, { title: '单相跳闸', sub: '单相过流，同馈线共址设备级联脱扣' }] },
-        ],
-      },
-    ];
-    const dcTopology = [
-      {
-        id: 'cloud', sceneName: '云计算拓扑', sceneSubtitle: 'HPC / 云服务商 / 托管',
-        deviceLabel: 'AHF+SVG', deviceType: '电能质量系统',
-        deviceDesc: 'AHF安装于UPS输入端用于谐波+SVG安装于低压母线用于无功补偿，标注制冷系统分支',
-        branches: [
-          { label: 'UPS输入', sub: '谐波源' },
-          { label: '服务器机架', sub: '不平衡负荷' },
-          { label: 'CRAC/HVAC', sub: '变频无功负荷' },
-        ],
-      },
-      {
-        id: 'finance', sceneName: '金融数据中心拓扑', sceneSubtitle: '银行 / 证券 / 保险',
-        deviceLabel: 'AHF-100A + SVG-150A', deviceType: '精密系统',
-        deviceDesc: 'AHF串联于UPS前端+SVG安装于低压母线，标注ATS切换/交易终端/空调负荷',
-        branches: [
-          { label: 'UPS系统', sub: '谐波源' },
-          { label: '交易终端', sub: '暂降敏感' },
-          { label: '精密空调', sub: '变频谐波' },
-        ],
-      },
-      {
-        id: 'edge', sceneName: '边缘节点拓扑', sceneSubtitle: '5G基站 / IoT / 分布式机房',
-        deviceLabel: 'AHF-Slim 15A', deviceType: '机架式单元',
-        deviceDesc: 'AHF-Slim机架式安装于配电柜，标注市电直供/mini-UPS回路',
-        branches: [
-          { label: '市电直供', sub: '农村电网供电' },
-          { label: 'Mini UPS', sub: '过载风险' },
-          { label: '5G/IoT负荷', sub: '分布式电源' },
-        ],
-      },
-    ];
-    const dcCases = [
-      {
-        title: '华北某大型云数据中心谐波治理', highlight: 'THD 14% → 2.8%，UPS并联环流降低80%，年节省260万元', image: '/assets/images/solutions-datacenter-case-cloud.webp', industry: '云计算', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '40MW超大规模数据中心，3×2.4MW UPS并联配置。UPS输入谐波环流导致负载不均、电池热应力及PDU误告警。无功损耗年PUE罚款超过150万元。',
-        trend: 'THD趋势：14.0% → 8.5% → 4.2% → 2.8%',
-        solution: [{ product: 'AHF-200A', qty: 6, use: 'UPS输入谐波抑制' }, { product: 'SVG-150kvar', qty: 3, use: '低压母线无功补偿' }],
-        results: ['UPS输入THD < 3%（符合IEEE 519标准）', 'UPS并联环流降低80%', '年节电260万元'],
-      },
-      {
-        title: '国有银行灾备中心电能质量改造', highlight: '电压暂降<3ms，高频交易零中断，PUE 1.65 → 1.48', image: '/assets/images/solutions-datacenter-case-finance.webp', industry: '金融数据中心', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '国有银行Tier-IV灾备中心，承载实时交易和清算。ATS月度测试产生10-15ms切换暂降，导致交易服务器PSU掉电。精密空调变频谐波使PUE在18个月内从1.48恶化至1.65。',
-        trend: 'PUE趋势：1.65 → 1.58 → 1.52 → 1.48',
-        solution: [{ product: 'AHF-100A', qty: 4, use: 'UPS整流前端滤波' }, { product: 'SVG-100A', qty: 2, use: '交易大厅动态无功' }],
-        results: ['电压暂降<3ms，交易零中断', 'PUE从1.65恢复至1.48', '年运营费节省120万元'],
-      },
-      {
-        title: '运营商5G边缘计算节点批量部署', highlight: '1U机架式，远程运维，每节点年省4.2万元，ROI < 18个月', image: '/assets/images/solutions-datacenter-case-edge.webp', industry: '边缘计算', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '电信运营商在农村/城郊部署200+个5G MEC边缘节点。电网电压不稳定（暂降>20%）、单柜UPS过载及高上门运维成本形成不可持续的规模化运营模式。',
-        trend: '节点在线率：97.2% → 98.8% → 99.5% → 99.9%',
-        solution: [{ product: 'AHF-15A', qty: 200, use: '每节点机柜1U机架式安装' }, { product: 'Cloud Monitor', qty: 1, use: '集中远程监控平台' }],
-        results: ['节点在线率从97.2%提升至99.9%', '每节点年运维成本降低4.2万元', 'ROI < 18个月'],
-      },
-    ];
-
-    // ===================== INDUSTRIAL DATA =====================
-    const indPainPoints = [
-      {
-        id: 'welding', label: '焊接与金属', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '焊接与金属加工', sceneSubtitle: '汽车 / 造船 / 钢结构',
-        cards: [
-          { icon: 'flame', title: '电焊机组', desc: '批量电弧焊谐波浪涌', metric: '>25%', metricLabel: 'THD', consequences: [{ title: '变压器过热', sub: '间歇性高谐波电流，绝缘老化加速3倍，被迫降额' }, { title: '保护跳闸', sub: '谐波峰值触发断路器误跳，产线停产，返工成本' }] },
-          { icon: 'factory', title: '中频炉', desc: '感应炉电压闪烁', metric: '无功', metricLabel: '波动', consequences: [{ title: '电网电压暂降', sub: '电炉周期导致Pst > 1.5，邻近设备故障，批次报废' }, { title: '罚款', sub: '电力公司闪烁违规，月度无功电费加收，合同违约' }] },
-          { icon: 'cpu', title: '数控加工中心', desc: '伺服驱动三相不平衡', metric: '高', metricLabel: '零序', consequences: [{ title: '伺服故障', sub: '三相不平衡导致位置误差，工件尺寸漂移，废品率上升' }, { title: '良率损失', sub: '频繁断刀，表面质量下降，客户退货率激增' }] },
-        ],
-      },
-      {
-        id: 'petrochemical', label: '化工与石油', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '化工与石化', sceneSubtitle: '炼化 / 精细化工 / 油气',
-        cards: [
-          { icon: 'droplets', title: '变频器群', desc: '多台变频器谐波叠加', metric: '>18%', metricLabel: 'THD', consequences: [{ title: '电网超标', sub: '多变频器谐波叠加，IEEE 519 PCC限值超标，电力公司警告' }, { title: '电容跳闸', sub: 'PFC电容器谐波放大，熔丝熔断，无功罚款升级' }] },
-          { icon: 'waves', title: '大功率泵', desc: '大型电机启动浪涌', metric: '6~10x', metricLabel: '冲击电流', consequences: [{ title: '母线电压跌落', sub: '直接启动导致20%+母线跌落，DCS I/O模块欠压，控制环路不稳定' }, { title: 'DCS告警', sub: '反复暂降触发DCS告警风暴，操作员认知超负荷，响应延迟' }] },
-          { icon: 'shield-alert', title: 'DCS系统', desc: '暂降敏感控制基础设施', metric: '>15%', metricLabel: '暂降深度', consequences: [{ title: '控制冻结', sub: '暂降导致DCS处理器复位，阀门位置丢失，放热反应风险' }, { title: '工艺停机', sub: '安全仪表系统触发ESD，批次损失，48小时重启程序' }] },
-        ],
-      },
-      {
-        id: 'semiconductor', label: '半导体', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '半导体与电子', sceneSubtitle: '晶圆厂 / 封装 / PCB',
-        cards: [
-          { icon: 'cpu', title: '晶圆厂', desc: '光刻扫描仪电压暂降', metric: '< 5ms', metricLabel: '暂降耐受', consequences: [{ title: '扫描仪停机', sub: '亚周波暂降导致扫描仪台面位置丢失，4小时重新校准，晶圆报废' }, { title: '晶圆报废', sub: '单次暂降事件=25片晶圆报废×$5K/片=每次损失$125K' }] },
-          { icon: 'wind', title: '洁净室', desc: 'FFU/变频器谐波污染', metric: '>8%', metricLabel: 'THD', consequences: [{ title: '过滤器负荷增加', sub: '谐波电流增加FFU电机温度，轴承故障率3倍，粒子计数上升' }, { title: '粒子风险', sub: 'FFU转速波动导致正压丧失，百级洁净室超标' }] },
-          { icon: 'microscope', title: '测试设备', desc: 'ATE/测试层三相不平衡', metric: '>5%', metricLabel: '不平衡度', consequences: [{ title: '数据错误', sub: 'ATE电源纹波抑制退化，DUT误判报废，良率报告错误' }, { title: '中性线过热', sub: '测试层PDU零序电流高，N线温度>90°C，火灾风险' }] },
-        ],
-      },
-    ];
-    const indTopology = [
-      {
-        id: 'welding', sceneName: '焊接与金属拓扑', sceneSubtitle: '汽车 / 造船 / 钢结构',
-        deviceLabel: 'AHF-150A', deviceType: '谐波滤波器',
-        deviceDesc: '并联至车间低压母线，针对焊机/电炉馈线进行谐波抑制',
-        branches: [
-          { label: '焊机配电', sub: '谐波浪涌' },
-          { label: '电炉配电', sub: '闪烁源' },
-          { label: '数控配电', sub: '三相不平衡' },
-        ],
-      },
-      {
-        id: 'petrochemical', sceneName: '化工与石油拓扑', sceneSubtitle: '炼化 / 精细化工 / 油气',
-        deviceLabel: 'SVG-800V', deviceType: '静止无功发生器',
-        deviceDesc: 'SVG-800V/690V安装于高压母线+AHF用于变频器谐波，标注DCS敏感负荷馈线',
-        branches: [
-          { label: '裂解配电', sub: '变频器群' },
-          { label: '蒸馏装置', sub: '电加热负荷' },
-          { label: '循环水', sub: '大功率泵' },
-        ],
-      },
-      {
-        id: 'semiconductor', sceneName: '半导体拓扑', sceneSubtitle: '晶圆厂 / 封装 / PCB',
-        deviceLabel: 'AHF+SVG', deviceType: '组合系统',
-        deviceDesc: 'AHF+SVG组合安装于UPS前端，标注双路供电晶圆厂/洁净室馈线',
-        branches: [
-          { label: 'UPS前端', sub: '精密供电' },
-          { label: '工艺冷却', sub: '水泵冲击' },
-          { label: '测试设备', sub: '敏感负荷' },
-        ],
-      },
-    ];
-    const indCases = [
-      {
-        title: '汽车车身焊装车间谐波治理', highlight: 'THD 28% → 4.2%，变压器温度降低15°C，年节省120万元', image: '/assets/images/solutions-industrial-case-welding.webp', industry: '焊接与金属', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '大型汽车车身焊装车间，48台弧焊机器人和6台中频点焊机。批量焊接周期产生严重谐波浪涌（THD 28%）和电压闪烁，导致每月变压器过热告警及两次非计划停产。',
-        trend: 'THD趋势：28% → 18% → 9% → 4.2%',
-        solution: [{ product: 'AHF-150A', qty: 3, use: '焊机母线谐波治理' }, { product: 'SVG-100A', qty: 2, use: '电炉无功补偿' }],
-        results: ['THD < 5%（符合IEEE 519标准）', '变压器温度降低15°C', '年节电120万元'],
-      },
-      {
-        title: '石化基地变频器群电能质量改造', highlight: 'PF 0.65 → 0.95，消除罚款380万元/年，DCS零停机', image: '/assets/images/solutions-industrial-case-petrochemical.webp', industry: '化工与石油', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '大型石化综合体，200+台变频驱动泵和压缩机。多变频器谐波叠加导致35kV PCC点THD超过18%，触发电力公司警告及年无功罚款380万元。DCS系统在大泵启动时反复出现欠压告警。',
-        trend: 'PF趋势：0.65 → 0.78 → 0.88 → 0.95',
-        solution: [{ product: 'SVG-800V', qty: 4, use: '35kV母线无功补偿' }, { product: 'AHF-200A', qty: 6, use: '变频馈线谐波滤波' }],
-        results: ['PF > 0.95，零无功罚款', 'DCS部署后零停机', '年罚款节省380万元'],
-      },
-      {
-        title: '12英寸晶圆厂电压暂降防护', highlight: '暂降持续时间<5ms，晶圆良率提升3%', image: '/assets/images/solutions-industrial-case-semiconductor.webp', industry: '半导体', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '12英寸晶圆厂，浸没式光刻扫描仪要求暂降耐受<5ms。30km外电网侧故障导致扫描仪台面反复丢失，每次事件报废25片晶圆（$5K/片）。月均3次事件。',
-        trend: '良率趋势（废品率）：4.2% → 2.8% → 1.5% → 1.2%',
-        solution: [{ product: 'AHF+SVG', qty: 4, use: 'UPS前端双路保护' }, { product: 'SPC-100A', qty: 2, use: '测试层三相平衡' }],
-        results: ['暂降保护<5ms，扫描仪零停机', '晶圆良率提升3个百分点', '仅废品减少即可<8个月ROI'],
-      },
-    ];
-
-    // ===================== RAIL DATA =====================
-    const railPainPoints = [
-      {
-        id: 'metro', label: '地铁与轻轨', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '地铁与轻轨', sceneSubtitle: '牵引 / 车站 / 车辆段',
-        cards: [
-          { icon: 'train-front', title: '牵引整流', desc: '24脉波整流器谐波注入', metric: '>15%', metricLabel: 'THD', consequences: [{ title: '电网罚款', sub: '24脉波特征谐波（23次/25次），IEEE 519 PCC违规，电力公司加收' }, { title: '电容器故障', sub: 'PFC柜谐波放大，电容器可能爆裂，地下变电站火灾风险' }] },
-          { icon: 'building', title: '车站机电', desc: '设备群不平衡', metric: '>10%', metricLabel: '不平衡度', consequences: [{ title: '中性线过热', sub: '电梯+空调单相负荷混合，N线电流超过相电流，绝缘融化风险' }, { title: '断路器跳闸', sub: '单相过载但平均值<额定值，车站照明中断，乘客安全隐患' }] },
-          { icon: 'battery-charging', title: '再生制动', desc: '能量回馈电压升高', metric: '电压', metricLabel: '升高', consequences: [{ title: '逆变器过压', sub: '再生能量倒送，直流母线过压，逆变器IGBT保护关机' }, { title: '保护跳闸', sub: '过压保护级联跳闸，列车延误>5分钟，运营SLA罚款' }] },
-        ],
-      },
-      {
-        id: 'hsr', label: '高铁', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '高速铁路', sceneSubtitle: '牵引变电所 / AT所 / 分区所',
-        cards: [
-          { icon: 'gauge', title: '27.5kV单相', desc: 'V/V接线负序分量', metric: '>8%', metricLabel: '不平衡度', consequences: [{ title: '电网违规', sub: '单相牵引负荷在220kV PCC产生负序，电力公司限电令' }, { title: '发电机发热', sub: '附近火电厂发电机负序电流，转子表面温度告警' }] },
-          { icon: 'zap', title: '动车变流', desc: '四象限变流器宽频谐波', metric: '>12%', metricLabel: 'THD', consequences: [{ title: '接触线发热', sub: '高频谐波电流增加接触线I²R损耗，退火加速，弛度增大' }, { title: '信号干扰', sub: '谐波EMI耦合至轨道电路，机车信号失真，ETCS可用性下降' }] },
-          { icon: 'cable', title: '馈线', desc: '长距离AT馈线电压损失', metric: '>10%', metricLabel: '压降', consequences: [{ title: '限速', sub: '末端电压低于22.5kV限制列车功率，实施限速，延误' }, { title: 'AT过饱和', sub: '首端过电压导致自耦变压器铁芯饱和，产生谐波' }] },
-        ],
-      },
-      {
-        id: 'ev', label: '充电桩', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '充电基础设施', sceneSubtitle: '高速服务区 / 城市快充 / 公交场站',
-        cards: [
-          { icon: 'plug-zap', title: '快充桩', desc: '直流快充功率冲击', metric: '120kW+', metricLabel: '负荷阶跃', consequences: [{ title: '电网暂降', sub: '多充电器同时启动，15%+电压跌落，配电变压器保护跳闸' }, { title: '需量电费', sub: '峰值需量尖峰触发电力公司需量棘轮，月度容量电费3倍基准' }] },
-          { icon: 'radio', title: '充电谐波', desc: '12脉波充电器谐波叠加', metric: '>15%', metricLabel: 'THD', consequences: [{ title: 'PF罚款', sub: '谐波+无功叠加，PCC点PF < 0.85，月度罚款+碳税附加' }, { title: 'EMI问题', sub: '传导EMI进入低压电网，附近居民电视/收音机干扰，投诉量激增' }] },
-          { icon: 'wrench', title: '配电变压器', desc: '充电站过载与不平衡', metric: '>90%', metricLabel: '负荷', consequences: [{ title: '寿命缩短', sub: '峰谷负荷循环热应力，绝缘老化5倍速，预期寿命<3年' }, { title: '三相不均', sub: '单相交流充电器主导，零序电流>40%，N线每2年更换' }] },
-        ],
-      },
-    ];
-    const railTopology = [
-      {
-        id: 'metro', sceneName: '地铁拓扑', sceneSubtitle: '牵引 / 车站 / 车辆段',
-        deviceLabel: 'SVG + AHF', deviceType: '组合系统',
-        deviceDesc: 'SVG安装于35kV环网+AHF安装于牵引变电所750V/1500V整流器，标注车站/车辆段',
-        branches: [
-          { label: '牵引变电所', sub: '整流负荷' },
-          { label: '车站配电', sub: '机电负荷' },
-          { label: '车辆段供电', sub: '辅助负荷' },
-        ],
-      },
-      {
-        id: 'hsr', sceneName: '高铁拓扑', sceneSubtitle: '牵引变电所 / AT所 / 分区所',
-        deviceLabel: 'SVG-27.5kV + AHF-200A', deviceType: '牵引系统',
-        deviceDesc: 'SVG-27.5kV安装于牵引母线+AHF安装于10kV馈线，标注AT段/接触线',
-        branches: [
-          { label: '接触线', sub: '单相负荷' },
-          { label: '馈线', sub: '谐波源' },
-          { label: '站用电源', sub: '复合负荷' },
-        ],
-      },
-      {
-        id: 'ev', sceneName: '充电桩拓扑', sceneSubtitle: '高速服务区 / 城市快充 / 公交场站',
-        deviceLabel: 'SVG + AHF-150A', deviceType: '充电系统',
-        deviceDesc: 'SVG安装于充电站10kV侧+AHF安装于直流快充桩交流侧，标注变压器/充电机组',
-        branches: [
-          { label: '10kV配电', sub: '站用馈线' },
-          { label: '快充桩', sub: '冲击负荷' },
-          { label: '公交充电', sub: '批量负荷' },
-        ],
-      },
-    ];
-    const railCases = [
-      {
-        title: '某大城市地铁8号线牵引供电改造', highlight: 'THD 16% → 4.5%，再生制动回收率提升35%，年节电850万kWh', image: '/assets/images/solutions-rail-case-metro.webp', industry: '地铁与轻轨', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '地铁线路，22座车站，35kV环网配电。24脉波牵引整流器产生特征谐波导致月度电力公司罚款。再生制动能量因回馈时电压升高而耗散于电阻，年浪费1200万kWh。',
-        trend: 'THD趋势：16% → 10% → 6.5% → 4.5%',
-        solution: [{ product: 'SVG-300A', qty: 3, use: '35kV环网无功补偿' }, { product: 'AHF-200A', qty: 6, use: '牵引变电所谐波滤波' }],
-        results: ['THD < 5%，消除罚款', '再生制动回收率+35%', '年节电850万kWh'],
-      },
-      {
-        title: '高铁牵引变电所负序治理', highlight: '负序<2%，接触线波动<5%，动车电流稳定性改善', image: '/assets/images/solutions-rail-case-hsr.webp', industry: '高铁', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '高铁牵引变电所，V/V接线变压器馈送单相27.5kV接触网。220kV PCC点负序>8%触发电力公司并网违规。分区所边界接触线电压波动导致动车限速和延误。',
-        trend: '负序：8.5% → 5% → 3% → 1.8%',
-        solution: [{ product: 'SVG-27.5kV', qty: 2, use: '牵引母线无功+平衡' }, { product: 'AHF-200A', qty: 2, use: '10kV馈线谐波滤波' }],
-        results: ['负序<2%（符合GB/T 15543标准）', '接触线电压波动<5%', '动车电流稳定性全面恢复'],
-      },
-      {
-        title: '高速服务区120桩快充电站电能质量改造', highlight: '三相不平衡<3%，变压器负荷95% → 78%，桩THD < 5%', image: '/assets/images/solutions-rail-case-charging.webp', industry: '充电桩', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '高速服务区，120台直流快充桩（60kW-180kW）。节假日并发充电高峰导致严重三相不平衡和变压器过载至95%。12脉波充电器谐波在高峰时段于10kV PCC累积至THD > 15%。',
-        trend: '不平衡度趋势：15% → 9% → 5% → 2.5%',
-        solution: [{ product: 'SPC-150A', qty: 4, use: '充电区三相平衡' }, { product: 'AHF-150A', qty: 6, use: '快充桩谐波滤波' }],
-        results: ['三相不平衡<3%', '变压器负荷从95%降至78%', '桩THD < 5%，零投诉'],
-      },
-    ];
-
-    // ===================== RENEWABLE DATA =====================
-    const rePainPoints = [
-      {
-        id: 'solar', label: '光伏', color: 'text-electric-orange', colorHex: '#e76f51',
-        sceneName: '光伏发电站', sceneSubtitle: '集中式 / 分布式 / 农光互补',
-        cards: [
-          { icon: 'sun', title: '逆变器谐波', desc: '多逆变器宽频振荡', metric: '>8%', metricLabel: 'THD', consequences: [{ title: '谐振风险', sub: 'LCL滤波器+电网阻抗谐振，宽频振荡，逆变器级联脱网' }, { title: '电网违规', sub: '谐波排放超过GB/T 14549 PCC限值，电网公司限电令' }] },
-          { icon: 'activity', title: '电网电压', desc: '辐照度变化引起波动', metric: 'PF低', metricLabel: '无功偏差', consequences: [{ title: '调度罚款', sub: '无功功率偏离调度设定值，AVC考核不合格，收入扣减' }, { title: '电压越限', sub: '云边效应，1分钟内±10%电压摆动，反向功率保护跳闸' }] },
-          { icon: 'battery-charging', title: '直流纹波', desc: '直流纹波交流侧反射', metric: '直流偏磁', metricLabel: '变压器过热', consequences: [{ title: '铁芯饱和', sub: '直流分量导致变压器铁芯半波饱和，励磁电流激增，噪声' }, { title: '效率损失', sub: '附加铁损+谐波铜损，PR（性能比）下降2-3个百分点' }] },
-        ],
-      },
-      {
-        id: 'wind', label: '风电', color: 'text-brand-orange', colorHex: '#f4a261',
-        sceneName: '风力发电场', sceneSubtitle: '陆上 / 海上 / 分布式',
-        cards: [
-          { icon: 'wind', title: '变流器谐波', desc: '全功率变流器低次畸变', metric: '>10%', metricLabel: 'THD', consequences: [{ title: '电网拒收', sub: '5次/7次谐波主导，电力公司并网测试失败，延迟并网成本' }, { title: '集电谐振', sub: '35kV电缆电容+变压器电感，并联谐振点靠近7次谐波' }] },
-          { icon: 'trending-up', title: '风速波动', desc: '阵风/湍流无功浪涌', metric: '无功', metricLabel: '摆动', consequences: [{ title: 'PF罚款', sub: '阵风引起快速无功摆动，月度PF < 0.85，电力公司无功费2倍' }, { title: 'AVC振荡', sub: 'AVC系统追逐风速变化振荡，分接头过度磨损，维护5倍' }] },
-          { icon: 'component', title: '箱式变压器', desc: '辅助负荷三相不平衡', metric: '>5%', metricLabel: '不平衡度', consequences: [{ title: '限值违规', sub: '单相辅助电源不平衡，负序超过电网规范限值' }, { title: '过热跳闸', sub: '不平衡+谐波叠加，绕组热点温度告警，被迫限电' }] },
-        ],
-      },
-      {
-        id: 'storage', label: '储能', color: 'text-brand-navy', colorHex: '#264653',
-        sceneName: '储能系统', sceneSubtitle: '电网侧 / 用户侧 / 电源侧',
-        cards: [
-          { icon: 'battery-charging', title: '充放电', desc: '多PCS谐波叠加', metric: '>6%', metricLabel: 'THD', consequences: [{ title: '电网污染', sub: '多PCS交错谐波，PCC点THD超过GB/T 34120，电网运营商警告' }, { title: '电池纹波', sub: '直流母线交流纹波电流，锂枝晶加速，循环寿命降低20%' }] },
-          { icon: 'arrow-left-right', title: 'PCS无功', desc: '低载滞后调节', metric: '< 0.9', metricLabel: 'PF', consequences: [{ title: '罚款', sub: '待机模式无功消耗触发罚款，月度费用+需量棘轮' }, { title: '调节不合格', sub: 'AGC/AVC联合调度设定值不达标，辅助服务资格取消' }] },
-          { icon: 'globe', title: '并网点', desc: '并网连接处电压闪烁', metric: '> 0.8', metricLabel: 'Pst', consequences: [{ title: '并网失败', sub: '模式切换时闪烁Pst > 0.8，并网协议不合规' }, { title: '孤岛风险', sub: '闪烁干扰电网扰动检测，非计划孤岛，安全隐患' }] },
-        ],
-      },
-    ];
-    const reTopology = [
-      {
-        id: 'solar', sceneName: '光伏拓扑', sceneSubtitle: '集中式 / 分布式 / 农光互补',
-        deviceLabel: 'SVG+AHF', deviceType: '光伏电能质量系统',
-        deviceDesc: 'SVG安装于35kV升压母线+AHF安装于逆变器交流侧，标注汇流箱',
-        branches: [
-          { label: '汇流箱', sub: '直流汇集' },
-          { label: '逆变器交流', sub: '谐波源' },
-          { label: '35kV升压', sub: '并网连接' },
-        ],
-      },
-      {
-        id: 'wind', sceneName: '风电拓扑', sceneSubtitle: '陆上 / 海上 / 分布式',
-        deviceLabel: 'SVG-690V + AHF-100A', deviceType: '风电电能质量系统',
-        deviceDesc: 'SVG-690V安装于风机侧+AHF安装于箱变低压侧，标注35kV集电线路',
-        branches: [
-          { label: '风机变流', sub: '谐波源' },
-          { label: '箱式变压器', sub: '不平衡负荷' },
-          { label: '35kV集电', sub: '并网连接' },
-        ],
-      },
-      {
-        id: 'storage', sceneName: '储能拓扑', sceneSubtitle: '电网侧 / 用户侧 / 电源侧',
-        deviceLabel: 'AHF+SVG组合', deviceType: '储能电能质量系统',
-        deviceDesc: 'SVG+AHF组合安装于PCS交流侧，标注电池簇/PCS/变压器/并网点',
-        branches: [
-          { label: '电池簇', sub: '直流源' },
-          { label: 'PCS交流侧', sub: '双向流动' },
-          { label: '并网点', sub: '并网连接' },
-        ],
-      },
-    ];
-    const reCases = [
-      {
-        title: '西北500MW光伏电站谐波治理工程', highlight: 'THD 9.5% → 3.2%，通过电网验收，避免罚款+增收180万元', image: '/assets/images/solutions-renewable-case-solar.webp', industry: '光伏', colorClass: 'text-electric-orange', bgClass: 'bg-orange-50', link: '#',
-        overview: '500MW集中式光伏电站，2500台组串式逆变器，35kV集电系统。多逆变器在35kV母线谐波共振导致PCC点THD超过9.5%，两次电网验收未通过。云边效应导致±10%电压摆动，触发AVC罚款。',
-        trend: 'THD趋势：9.5% → 6.5% → 4.5% → 3.2%',
-        solution: [{ product: 'SVG-800V', qty: 8, use: '35kV升压母线无功补偿' }, { product: 'AHF-200A', qty: 12, use: '逆变器交流馈线谐波滤波' }],
-        results: ['THD < 3.5%（符合GB/T 14549标准）', '电网验收一次通过', '年避免罚款+增收180万元'],
-      },
-      {
-        title: '200MW海上风电场电能质量改造', highlight: 'PF 0.88 → 0.98，无功罚款达标，箱变不平衡<2%', image: '/assets/images/solutions-renewable-case-wind.webp', industry: '风电', colorClass: 'text-brand-orange', bgClass: 'bg-amber-50', link: '#',
-        overview: '200MW海上风电场，50×4MW全功率变流风机。35kV集电母线5次/7次低次谐波主导。阵风驱动无功摆动导致月度PF低于0.88。箱变单相辅助负荷在集电层产生5%+不平衡。',
-        trend: 'PF趋势：0.88 → 0.92 → 0.95 → 0.98',
-        solution: [{ product: 'SVG-690V', qty: 50, use: '每台风机无功补偿' }, { product: 'AHF-100A', qty: 25, use: '集电馈线谐波滤波' }],
-        results: ['PF > 0.98，零无功罚款', '箱变不平衡<2%', '集电系统谐振消除'],
-      },
-      {
-        title: '100MW/200MWh电网侧储能电站', highlight: 'PCS THD < 4%，并网点闪烁Pst < 0.5，并网协议合规', image: '/assets/images/solutions-renewable-case-storage.webp', industry: '储能', colorClass: 'text-brand-navy', bgClass: 'bg-slate-100', link: '#',
-        overview: '100MW/200MWh电网侧储能电站，40×2.5MW PCS单元。多PCS谐波交错导致35kV PCC点THD > 6%。充放电模式切换闪烁Pst超过0.8，并网合规测试未通过。',
-        trend: '闪烁Pst趋势：0.85 → 0.65 → 0.50 → 0.35',
-        solution: [{ product: 'SVG+AHF组合', qty: 8, use: 'PCS交流母线电能质量调节' }, { product: 'PQ-Gateway', qty: 1, use: '并网合规监测平台' }],
-        results: ['PCS THD < 4%（符合IEEE 519标准）', '并网点闪烁Pst < 0.5', '并网协议完全合规'],
-      },
-    ];
-
-    // ===================== DATA MAP =====================
-    const dataMap = {
-      commercial: { painPoints: painPointScenes, topology: topologyScenes, cases: cases },
-      grid:       { painPoints: gridPainPoints, topology: gridTopology, cases: gridCases },
-      datacenter: { painPoints: dcPainPoints, topology: dcTopology, cases: dcCases },
-      industry:   { painPoints: indPainPoints, topology: indTopology, cases: indCases },
-      rail:       { painPoints: railPainPoints, topology: railTopology, cases: railCases },
-      renewable:  { painPoints: rePainPoints, topology: reTopology, cases: reCases },
-    };
-
-    // ===================== STATE =====================
-    let sceneIndex = 0;
-    let sceneTimer;
-
-    // ===================== UTILITIES =====================
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    function animatingSwap(element, callback) {
-      const prevHeight = element.getBoundingClientRect().height;
-      element.style.height = prevHeight + 'px';
-      element.classList.add('animating');
-      setTimeout(() => {
-        callback();
-        const newHeight = element.scrollHeight;
-        element.style.height = newHeight + 'px';
-        element.classList.remove('animating');
-        lucide.createIcons();
-        setTimeout(() => {
-          element.style.height = '';
-        }, 350);
-      }, 300);
-    }
-
-    // ===================== INDUSTRY TABS =====================
-    function renderIndustryTabs(containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = industries.map(ind => {
-        const isActive = activeIndustry === ind.id;
-        return `<button onclick="setIndustry('${ind.id}')" class="flex items-center gap-2.5 text-[clamp(11px,0.9vw,14px)] font-semibold whitespace-nowrap px-5 py-3 rounded-lg transition-all duration-200 relative ${
-          isActive
-            ? 'text-white bg-electric-orange shadow-sm'
-            : 'text-[#374151] hover:text-electric-orange hover:bg-orange-50'
-        }">
-          <i data-lucide="${ind.icon}" class="w-4 h-4"></i>
-          <span>${escapeHtml(ind.label)}</span>
-        </button>`;
-      }).join('');
-    }
-
-    const industryTitles = {
-      commercial: '商业与医疗建筑案例研究',
-      grid: '电网案例研究',
-      datacenter: '数据中心案例研究',
-      industry: '工业制造案例研究',
-      renewable: '新能源案例研究',
-      rail: '轨道交通案例研究',
-    };
-    const heroImages = {
-      commercial: '/assets/images/solutions-commercial-medical-hero-bg.webp',
-      grid: '/assets/images/solutions-grid-hero-bg.webp',
-      datacenter: '/assets/images/solutions-datacenter-hero-bg.webp',
-      industry: '/assets/images/solutions-industrial-hero-bg.webp',
-      renewable: '/assets/images/solutions-renewable-hero-bg.webp',
-      rail: '/assets/images/solutions-rail-hero-bg.webp',
-    };
-
-    window.setIndustry = function(id) {
-      if (!dataMap[id]) return;
-      activeIndustry = id;
-      sceneIndex = 0;
-      expandedCaseIndex = null;
-      document.getElementById('hero-image').src = heroImages[id] || heroImages['commercial'];
-      document.getElementById('cases-title').textContent = industryTitles[id] || '案例研究';
-      renderIndustryTabs('sticky-industry-tabs');
-      renderScene();
-      renderCases();
-      resetSceneTimer();
-      lucide.createIcons();
-    }
-
-    // ===================== UNIFIED SCENE RENDER =====================
-    function renderTopologySVGHorizontal(scene) {
-      const branches = scene.branches;
-      const svgW = 860, svgH = 200, centerY = 65;
-
-      const gridW = 80, trafoW = 100, devW = 170;
-      const gridX = 20, trafoX = 145, devX = 290;
-
-      const arrowColor = '#a8a6a1';
-      const accentColor = '#f4a261';
-
-      const branchStartX = 510;
-      const branchGap = 42;
-      const branchW = 210;
-
-      return `<svg viewBox="0 0 ${svgW} ${svgH}" class="w-full max-w-[860px] h-auto mx-auto" style="overflow:visible">
-        <defs>
-          <marker id="ah-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="${arrowColor}"/></marker>
-          <marker id="ah-o-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="${accentColor}"/></marker>
-        </defs>
-
-        <!-- Utility Grid -->
-        <rect x="${gridX}" y="${centerY - 22}" width="${gridW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
-        <text x="${gridX + gridW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="14" font-weight="600">电网</text>
-
-        <!-- Grid → Transformer -->
-        <line x1="${gridX + gridW}" y1="${centerY}" x2="${trafoX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
-
-        <!-- Transformer -->
-        <rect x="${trafoX}" y="${centerY - 22}" width="${trafoW}" height="44" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1.5"/>
-        <text x="${trafoX + trafoW/2}" y="${centerY + 5}" text-anchor="middle" fill="#4B5058" font-size="13" font-weight="600">变压器</text>
-
-        <!-- Transformer → Device -->
-        <line x1="${trafoX + trafoW}" y1="${centerY}" x2="${devX}" y2="${centerY}" stroke="${arrowColor}" stroke-width="2" marker-end="url(#ah-t)"/>
-
-        <!-- Device (highlighted) -->
-        <rect x="${devX}" y="${centerY - 28}" width="${devW}" height="56" rx="10" fill="rgba(244,162,97,0.06)" stroke="${accentColor}" stroke-width="2"/>
-        <text x="${devX + devW/2}" y="${centerY - 6}" text-anchor="middle" fill="${accentColor}" font-size="15" font-weight="700">${escapeHtml(scene.deviceLabel)}</text>
-        <text x="${devX + devW/2}" y="${centerY + 14}" text-anchor="middle" fill="${accentColor}" font-size="12" font-weight="500">${escapeHtml(scene.deviceType)}</text>
-
-        <!-- Device → Branches (horizontal distribution) -->
-        ${branches.map((b, i) => {
-          const by = 30 + i * branchGap;
-          const bx = branchStartX;
-          return `
-            <line x1="${devX + devW}" y1="${centerY}" x2="${bx}" y2="${by + 20}" stroke="${accentColor}" stroke-width="1.5" marker-end="url(#ah-o-t)"/>
-            <rect x="${bx}" y="${by}" width="${branchW}" height="40" rx="8" fill="#F5F6F8" stroke="#D0D5DD" stroke-width="1"/>
-            <text x="${bx + 14}" y="${by + 24}" text-anchor="start" fill="#4B5058" font-size="13" font-weight="500">${escapeHtml(b.label)}</text>
-            <text x="${bx + branchW - 14}" y="${by + 24}" text-anchor="end" fill="#8B919A" font-size="11">${escapeHtml(b.sub)}</text>
-          `;
-        }).join('')}
-
-        <!-- LV Busbar label -->
-        <text x="${devX + devW/2}" y="${svgH - 8}" text-anchor="middle" fill="#8B919A" font-size="11">低压母线</text>
-      </svg>`;
-    }
-
-    function renderScene() {
-      const pts = dataMap[activeIndustry].painPoints;
-      const tps = dataMap[activeIndustry].topology;
-      const ppScene = pts[sceneIndex];
-      const tpScene = tps[sceneIndex];
-
-      document.getElementById('sc-counter').textContent = `${sceneIndex + 1} / ${pts.length}`;
-
-      // Dots
-      document.getElementById('sc-dots').innerHTML = pts.map((_, i) =>
-        `<button onclick="sceneGo(${i})" class="w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === sceneIndex ? 'bg-brand-orange' : 'bg-gray-300'}"></button>`
-      ).join('');
-
-      // Scene label
-      document.getElementById('sc-scene-label').innerHTML =
-        `<i data-lucide="building-2" class="w-5 h-5 text-brand-orange"></i>` +
-        `<span class="text-[clamp(13px,1.1vw,17px)] font-semibold text-brand-navy">${escapeHtml(ppScene.sceneName)} — ${escapeHtml(ppScene.sceneSubtitle)}</span>`;
-
-      // Pain Points
-      document.getElementById('sc-painpoints').innerHTML = ppScene.cards.map(card => `
-        <div class="bg-bg-card border border-border-card rounded-xl p-[clamp(8px,1.5vw,32px)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric-orange hover:shadow-[0_8px_30px_rgba(230,111,81,0.15)]">
-          <div class="flex items-center gap-2.5 mb-4">
-            <i data-lucide="${card.icon}" class="w-6 h-6 text-electric-orange"></i>
-            <h3 class="text-[clamp(18px,1.6vw,28px)] font-bold text-brand-navy font-barlow-condensed">${escapeHtml(card.title)}</h3>
-          </div>
-          <p class="text-[clamp(11px,0.9vw,14px)] text-brand-gray mb-5 leading-relaxed">${escapeHtml(card.desc)}</p>
-          <div class="border-t border-border-card pt-4 mb-4 flex items-baseline gap-2">
-            <span class="text-[40px] font-bold text-brand-orange leading-none">${escapeHtml(card.metric)}</span>
-            <span class="text-[22px] font-bold text-brand-orange">${escapeHtml(card.metricLabel)}</span>
-          </div>
-          <div class="border-t border-border-card pt-4 space-y-3">
-            ${card.consequences.map(c => `
-              <div>
-                <p class="text-[clamp(11px,0.9vw,14px)] font-semibold text-brand-navy">${escapeHtml(c.title)}</p>
-                <p class="text-[clamp(11px,0.9vw,14px)] text-brand-gray leading-relaxed mt-0.5">${escapeHtml(c.sub)}</p>
+      <div class="max-w-5xl" id="dq-widget" role="group" aria-label="AHF 或 SVG 装置选择器">
+        <div class="space-y-6">
+          {Object.entries(DECISION_TREE).filter(([, node]) => node.options).map(([nodeId, node]) => (
+            <div class="bg-bg-card border border-border-card rounded-xl p-[clamp(16px,2vw,28px)] dq-panel" data-node={nodeId}>
+              <p class="text-[11px] font-bold tracking-[0.1em] text-text-muted uppercase">步骤</p>
+              <h3 class="mt-1 text-[clamp(16px,1.5vw,22px)] font-semibold text-text-primary font-barlow-condensed">
+                {node.question}
+              </h3>
+              <div class="mt-4 flex flex-wrap gap-2.5">
+                {node.options.map((o) => (
+                  <button
+                    type="button"
+                    class="dq-btn inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border-card bg-bg-alt-1 text-[13px] font-medium text-text-primary text-left hover:border-brand-orange hover:text-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
+                    data-next={o.next}
+                  >
+                    {o.label}
+                    <span aria-hidden="true">&rarr;</span>
+                  </button>
+                ))}
               </div>
-            `).join('')}
-          </div>
+            </div>
+          ))}
         </div>
-      `).join('');
 
-      // Topology
-      document.getElementById('sc-topology').innerHTML =
-        renderTopologySVGHorizontal(tpScene) +
-        `<p class="text-[clamp(11px,0.9vw,14px)] text-brand-orange text-center font-semibold bg-orange-50 px-4 py-2 rounded-lg mx-auto mt-6 inline-block">${escapeHtml(tpScene.deviceDesc)}</p>
-        <div class="flex items-center justify-center gap-4 mt-6">
-          <button class="flex items-center gap-2 px-6 py-3 border border-border-card rounded-lg text-[clamp(11px,0.9vw,14px)] font-medium text-text-secondary hover:border-brand-orange hover:text-brand-orange transition-all duration-200">
-            <i data-lucide="download" class="w-4 h-4"></i>下载PDF
-          </button>
-          <button class="flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-lg text-[clamp(11px,0.9vw,14px)] font-semibold hover:brightness-110 transition-all duration-200">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>技术咨询
-          </button>
-        </div>`;
+        <div class="mt-6 space-y-4">
+          {Object.entries(DECISION_TREE).filter(([, node]) => node.device).map(([nodeId, node]) => (
+            <div class="dq-result hidden bg-bg-card border-l-[3px] border-brand-orange rounded-r-xl p-[clamp(16px,2vw,28px)]" data-result={nodeId} role="group" aria-live="polite" aria-label="装置推荐">
+              <p class="text-[11px] font-bold tracking-[0.1em] uppercase text-electric-orange">
+                推荐 — {ROUTE_DEVICE_LABEL[node.device]}
+              </p>
+              <h3 class="mt-1.5 text-[clamp(17px,1.6vw,24px)] font-bold text-brand-navy font-barlow-condensed">
+                {node.heading}
+              </h3>
+              <p class="mt-2.5 text-[14px] text-text-secondary leading-relaxed max-w-3xl">{node.body}</p>
 
-      // Bottom indicators
-      document.getElementById('sc-indicators').innerHTML = pts.map((s, i) =>
-        `<button onclick="sceneGo(${i})" class="flex items-center gap-2 text-[clamp(11px,0.9vw,14px)] font-medium transition-colors duration-200 ${i === sceneIndex ? 'text-brand-orange' : 'text-text-muted hover:text-text-secondary'}">
-          <span class="w-2.5 h-2.5 rounded-full ${i === sceneIndex ? 'bg-brand-orange' : 'bg-gray-300'}"></span>
-          <span>${escapeHtml(s.label)}</span>
-        </button>`
-      ).join('');
+              <h4 class="mt-5 text-[13px] font-bold text-brand-navy font-barlow-condensed tracking-[0.04em] uppercase">
+                下一步做什么
+              </h4>
+              <ul class="mt-2 space-y-1.5">
+                {node.nextSteps.map((s) => (
+                  <li class="flex items-start gap-2 text-[13px] text-text-secondary leading-relaxed">
+                    <span class="mt-[6px] w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
 
-      lucide.createIcons();
-    }
+              <div class="mt-5 flex flex-wrap gap-3">
+                {
+                  node.device === 'ahf' && (
+                    <a href={`${PRODUCTS_PREFIX}/products`} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-orange text-white text-[13px] font-semibold no-underline hover:bg-electric-orange transition-colors">
+                      查看 AHF 机型
+                    </a>
+                  )
+                }
+                {
+                  node.device === 'svg' && (
+                    <a href={`${PRODUCTS_PREFIX}/products-svg`} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-orange text-white text-[13px] font-semibold no-underline hover:bg-electric-orange transition-colors">
+                      查看 SVG 机型
+                    </a>
+                  )
+                }
+                {
+                  node.device === 'both' && (
+                    <>
+                      <a href={`${PRODUCTS_PREFIX}/products`} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-orange text-white text-[13px] font-semibold no-underline hover:bg-electric-orange transition-colors">
+                        查看 AHF 机型
+                      </a>
+                      <a href={`${PRODUCTS_PREFIX}/products-svg`} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-orange text-white text-[13px] font-semibold no-underline hover:bg-electric-orange transition-colors">
+                        查看 SVG 机型
+                      </a>
+                    </>
+                  )
+                }
+                <button type="button" class="dq-reset px-5 py-2.5 rounded-lg border border-border-card bg-bg-card text-[13px] font-semibold text-text-primary hover:border-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange">
+                  重新开始
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-    window.sceneGo = function(index) {
-      if (index === sceneIndex) return;
-      const els = [
-        document.getElementById('sc-painpoints'),
-        document.getElementById('sc-topology')
-      ];
-      els.forEach(el => {
-        el.style.height = el.getBoundingClientRect().height + 'px';
-        el.classList.add('animating');
-      });
-      setTimeout(() => {
-        sceneIndex = index;
-        renderScene();
-        els.forEach(el => {
-          const nh = el.scrollHeight;
-          el.style.height = nh + 'px';
-          el.classList.remove('animating');
+      <details class="mt-8 max-w-5xl group">
+        <summary class="cursor-pointer text-[14px] font-semibold text-text-primary hover:text-brand-orange">
+          以列表形式查看完整决策路径
+        </summary>
+        <ol class="mt-4 space-y-4 text-[13px] text-text-secondary leading-relaxed list-decimal pl-5">
+          {Object.entries(DECISION_TREE).filter(([, node]) => node.options).map(([nodeId, node]) => (
+            <li>
+              <span class="font-semibold text-text-primary">{node.question}</span>
+              <ul class="mt-1.5 space-y-1 list-none pl-0">
+                {node.options.map((o) => (
+                  <li>
+                    &middot; {o.label} &rarr;{' '}
+                    <span class="text-text-primary">
+                      {DECISION_TREE[o.next].heading || DECISION_TREE[o.next].question}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </details>
+    </section>
+
+    <section class="px-[clamp(24px,8vw,160px)] py-12 lg:py-16 text-center">
+      <h2 class="text-[clamp(19px,1.8vw,28px)] font-bold text-brand-navy font-barlow-condensed">
+        为您的站点获取电能质量评估
+      </h2>
+      <p class="mt-3 text-[14px] text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        把您的单线图与负荷清单发给我们，我们会告诉您我们第一步会测量什么。
+      </p>
+      <a
+        href="/contact"
+        class="inline-block mt-6 px-8 py-3 rounded-lg bg-brand-orange text-white font-semibold text-[15px] hover:bg-electric-orange transition-colors"
+      >
+        联系我们的工程师
+      </a>
+    </section>
+
+  </main>
+  <script>
+    (function () {
+      'use strict';
+      var root = document.getElementById('dq-widget');
+      if (!root) return;
+      if (root.getAttribute('data-dq-ready') === '1') return;
+      root.setAttribute('data-dq-ready', '1');
+
+      var panels = root.querySelectorAll('.dq-panel');
+      var results = root.querySelectorAll('.dq-result');
+      var resets = root.querySelectorAll('.dq-reset');
+
+      function show(nodeId) {
+        panels.forEach(function (p) {
+          var match = p.getAttribute('data-node') === nodeId;
+          p.classList.toggle('hidden', !match);
+          if (match) p.closest('.space-y-6').style.setProperty('--dq-top', '0');
         });
-        lucide.createIcons();
-        setTimeout(() => {
-          els.forEach(el => { el.style.height = ''; });
-        }, 350);
-      }, 300);
-      resetSceneTimer();
-    }
-    window.sceneNext = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex + 1) % len); }
-    window.scenePrev = function() { const len = dataMap[activeIndustry].painPoints.length; window.sceneGo((sceneIndex - 1 + len) % len); }
-    function resetSceneTimer() { clearInterval(sceneTimer); sceneTimer = setInterval(window.sceneNext, 8000); }
-
-    // ===================== CASES (ACCORDION) =====================
-    let expandedCaseIndex = null;
-
-    window.toggleCase = function(index) {
-      if (expandedCaseIndex === index) {
-        expandedCaseIndex = null;
-      } else {
-        expandedCaseIndex = index;
-      }
-      renderCases();
-    }
-
-    function renderCases() {
-      const cs = dataMap[activeIndustry].cases;
-      document.getElementById('cases-list').innerHTML = cs.map((c, i) => {
-        const isExpanded = expandedCaseIndex === i;
-        return `
-        <div class="bg-bg-card border border-border-card rounded-xl overflow-hidden transition-all duration-300 ease-out hover:bg-[#F9FAFB] hover:border-[#D0D5DD] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
-          <!-- Header (always visible) -->
-          <div onclick="toggleCase(${i})" class="flex flex-col ${i === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-[clamp(12px,3vw,48px)] p-[clamp(8px,1.5vw,32px)] lg:p-[clamp(16px,3vw,40px)] cursor-pointer">
-            <div class="w-full md:w-[45%] md:max-w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0">
-              <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" class="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-105" loading="lazy">
-            </div>
-            <div class="flex-1 flex flex-col justify-center">
-              <span class="inline-flex self-start px-3 py-1 rounded text-[clamp(11px,0.9vw,14px)] font-semibold ${c.colorClass} ${c.bgClass} mb-4">${escapeHtml(c.industry)}</span>
-              <h3 class="text-[clamp(18px,1.6vw,28px)] font-semibold text-text-primary mb-3 font-barlow-condensed">${escapeHtml(c.title)}</h3>
-              <p class="text-[clamp(11px,0.9vw,14px)] text-text-secondary mb-4 leading-relaxed">${escapeHtml(c.highlight)}</p>
-              ${c.solution && c.solution.length > 0 ? `
-              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[clamp(11px,0.9vw,14px)] text-text-muted">
-                ${c.solution.map(s => `<span class="font-medium text-text-secondary">${escapeHtml(s.product)} <span class="text-electric-orange">×</span> ${s.qty} 台</span>`).join('')}
-              </div>` : ''}
-              <span class="inline-flex items-center gap-1.5 text-electric-orange font-medium text-[clamp(11px,0.9vw,14px)]">
-                ${isExpanded ? '收起' : '查看详情'}
-                <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
-              </span>
-            </div>
-          </div>
-
-          <!-- Expanded Content -->
-          <div class="transition-all duration-300" style="${isExpanded ? '' : 'height:0;overflow:hidden;'}">
-            <div class="px-6 lg:px-8 pb-8 border-t border-border-card">
-              <!-- Project Overview -->
-              <div class="pt-6 pb-4">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">项目概述</h4>
-                <p class="text-[clamp(11px,0.9vw,14px)] text-text-secondary leading-relaxed">${escapeHtml(c.overview)}</p>
-              </div>
-
-              <!-- Trend -->
-              <div class="bg-bg-alt-1 rounded-xl p-[clamp(8px,1.5vw,32px)] mb-6">
-                <h4 class="text-[clamp(11px,0.9vw,14px)] font-semibold text-brand-navy mb-3">改造前后</h4>
-                <p class="text-[28px] font-bold text-brand-orange leading-tight mb-1">${escapeHtml(c.trend)}</p>
-                <div class="flex items-center gap-3 mt-3">
-                  <span class="h-2 flex-1 rounded-full bg-electric-orange/20"></span>
-                  <span class="h-2 flex-1 rounded-full bg-brand-orange/30"></span>
-                  <span class="h-2 flex-1 rounded-full bg-brand-orange/50"></span>
-                  <span class="h-2 w-16 rounded-full bg-brand-orange"></span>
-                </div>
-              </div>
-
-              <!-- Solution Deployed -->
-              <div class="mb-6">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">实施方案</h4>
-                <div class="space-y-3">
-                  ${c.solution.map(s => `
-                    <div class="flex items-center gap-4 bg-bg-alt-1 rounded-lg px-5 py-3">
-                      <span class="text-[clamp(11px,0.9vw,14px)] font-bold text-electric-orange w-[90px]">${escapeHtml(s.product)}</span>
-                      <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary">× ${s.qty} 台</span>
-                      <span class="text-xs text-text-muted">${escapeHtml(s.use)}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-
-              <!-- Key Results -->
-              <div class="mb-6">
-                <h4 class="text-[clamp(13px,1.1vw,17px)] font-bold text-brand-navy mb-3 font-barlow-condensed">核心成果</h4>
-                <div class="space-y-2">
-                  ${c.results.map(r => `
-                    <div class="flex items-start gap-2.5">
-                      <i data-lucide="check-circle" class="w-5 h-5 text-commercial-green flex-shrink-0 mt-0.5"></i>
-                      <span class="text-[clamp(11px,0.9vw,14px)] text-text-secondary">${escapeHtml(r)}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>`;
-      }).join('');
-      lucide.createIcons();
-    }
-
-    // ===================== SCROLL EFFECTS =====================
-    function handleScroll() {
-      // Sticky tabs: hidden on hero, revealed after scrolling past
-      const stickyTabs = document.getElementById('sticky-tabs');
-      if (stickyTabs) {
-        const heroBottom = window.innerHeight * 0.55;
-        if (window.scrollY > heroBottom) {
-          stickyTabs.style.opacity = '1';
-          stickyTabs.style.transform = 'translateY(0)';
-          stickyTabs.style.pointerEvents = 'auto';
-          stickyTabs.style.height = 'auto';
-          stickyTabs.style.overflow = 'visible';
-        } else {
-          stickyTabs.style.opacity = '0';
-          stickyTabs.style.transform = 'translateY(-8px)';
-          stickyTabs.style.pointerEvents = 'none';
-          stickyTabs.style.height = '0';
-          stickyTabs.style.overflow = 'hidden';
-        }
+        results.forEach(function (r) {
+          r.classList.toggle('hidden', r.getAttribute('data-result') !== nodeId);
+        });
+        panels.forEach(function (p) {
+          if (p.getAttribute('data-node') !== nodeId) p.classList.add('hidden');
+        });
       }
 
-      // Scroll reveal
-      document.querySelectorAll('.scroll-reveal').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.85) {
-          el.classList.add('revealed');
-        }
+      function showPanelsOnly() {
+        panels.forEach(function (p) { p.classList.remove('hidden'); });
+        results.forEach(function (r) { r.classList.add('hidden'); });
+      }
+
+      root.querySelectorAll('.dq-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var next = btn.getAttribute('data-next');
+          show(next);
+        });
       });
-    }
 
-    // ===================== HASH-BASED NAVIGATION =====================
-    const industryHashMap = {
-      'industry': 'industry',
-      'commercial': 'commercial',
-      'datacenter': 'datacenter',
-      'renewable': 'renewable',
-      'rail': 'rail',
-      'grid': 'grid',
-    };
+      resets.forEach(function (b) {
+        b.addEventListener('click', function () {
+          showPanelsOnly();
+          var first = root.querySelector('.dq-panel');
+          if (first) first.querySelector('.dq-btn').focus();
+        });
+      });
 
-    function navigateToIndustryFromHash() {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && industryHashMap[hash]) {
-        window.setIndustry(hash);
-        setTimeout(() => {
-          document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
-    }
-
-    window.addEventListener('hashchange', navigateToIndustryFromHash);
-
-    // ===================== INIT =====================
-    document.addEventListener('DOMContentLoaded', function() {
-      renderIndustryTabs('sticky-industry-tabs');
-      renderScene();
-      renderCases();
-      lucide.createIcons();
-
-      // Check initial hash
-      navigateToIndustryFromHash();
-
-      // Start timer
-      sceneTimer = setInterval(window.sceneNext, 8000);
-
-      // Scroll listener
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Initial check
-    });
-</script>
+      showPanelsOnly();
+    })();
+  </script>
+</BaseLayout>

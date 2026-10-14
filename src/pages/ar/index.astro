@@ -2,66 +2,134 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const meta = {
-  title: 'CHITEK — الشركة المصنعة لمرشحات AHF ومولدات SVG منخفضة الجهد',
-  description: 'تصنع CHITEK معدات جودة الطاقة منخفضة الجهد: مرشح التوافقيات النشط AHF، ومولد الفار الثابت SVG، ومنظم الجهد AVR للتطبيقات الصناعية والتجارية.',
+  title: 'CHITEK — مصنع AHF و SVG منخفض الجهد | جودة الطاقة',
+  description: 'تصنع CHITEK معدات جودة الطاقة منخفضة الجهد — مرشح التوافقيات النشط (AHF) ومولد فار الساكن (SVG) و AVR — للمواقع الصناعية والتجارية.',
 };
-
-// 本地开发/预览用语言前缀；线上（子域名承载语言）保持根相对
+// 本地开发/预览用 /en 前缀；线上（子域名承载语言）保持根相对
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/ar' + p : p;
 
+// Featured products：8 张 AHF 系列卡。⚠️ 2026-09-24 用户要求首页单独改名（去掉 "Active Harmonic Filter"、以系列后缀收尾）→ **名称已与 /en/products 列表页不一致**，图 / 链接仍一致。2026-10-08 后缀由 AHF 改为 AHF/SVG。每面 5 张（≥1024px）；第一面固定为 208V / 690V-800V / SiC / Ultra-Slim / IP65 SiC-Fanless。
+// 2026-10-12：8 张卡全部加电流规格后缀 spec，渲染时用 .fp-spec 与主名隔开一个 tab 的间距（样式见页面 <style>）。
+// spec 依次为：(50-200A) / (50-200A) / (50-200A) / (8-20A) / (25-50A) / (30-50A) / (100-150A) / (25-50A)
+const featuredProducts = [
+  { name: '208V/400V/480V مرشح التوافقيات النشط المضاد للتلوث', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution' },
+  { name: '690V/800V مرشح التوافقيات النشط المضاد للتلوث', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount' },
+  { name: 'موسفت كربيد السيليكون مرشح التوافقيات النشط SiC', spec: '(50-200A)', href: '/en/products/sic-ultra-ahf', img: 'products-ahf-sic' },
+  { name: 'مرشح التوافقيات النشط فائق النحافة', spec: '(8-20A)', href: '/en/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim-rackmount' },
+  { name: 'IP65 مرشح التوافقيات النشط SiC خالٍ من المروحة ومنخفض الضجيج', spec: '(25-50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
+  { name: 'مرشح التوافقيات النشط الموزع', spec: '(30-50A)', href: '/en/products/distributed-ahf', img: 'products-ahf-distributed-rackmount', single: true },
+  { name: 'IP65 مرشح التوافقيات النشط', spec: '(100-150A)', href: '/en/products/ip65-ahf', img: 'products-ahf-ip65' },
+  { name: 'مرشح التوافقيات النشط SiC خالٍ من المروحة ومنخفض الضجيج', spec: '(25-50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
+];
 ---
 
-<BaseLayout title={meta.title} description={meta.description} lang="ar">
+<BaseLayout lang="ar" title={meta.title} description={meta.description}>
   <!-- HERO -->
-  <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc(100vh-72px)] max-lg:min-h-[550px] max-md:min-h-[480px] flex items-center">
+  <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc((100vh-72px)*2/5)] max-lg:min-h-[560px] max-md:min-h-[600px] flex items-center">
     <div class="hero-carousel absolute inset-0 z-0 pointer-events-none">
-      <img src="/assets/images/index-hero-bg1.webp" alt="تسهيل التعايش المتناغم بين الطاقة والبيئة" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
-      <img src="/assets/images/index-hero-bg.webp" alt="خلفية الصفحة الرئيسية" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <img src="/assets/images/index-hero-product-family.webp" alt="أوسع مجموعة منتجات — AHF و SVG و ASVG، 208V إلى 800V، IP20 إلى IP65" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <img src="/assets/images/index-hero-bg.webp" alt="مهندس يوصل معدات جودة الطاقة المثبتة على الحامل في غرفة خوادم" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <img src="/assets/images/products-key-features.webp" alt="بحث وتطوير وتصنيع داخليان — معدات جودة طاقة CHITEK فوق خط إنتاج" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
     </div>
 
-    <!-- 文字面板 0：新图专属主题（第一页，仅此一句） -->
-    <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)] text-right">
-      <p class="font-barlow-condensed text-[clamp(40px,5vw,76px)] font-bold leading-[1.1] max-w-[1200px] [word-break:keep-all]">
-        <span class="text-white">تسهيل التعايش المتناغم بين</span><br /><span class="text-brand-orange">الطاقة والبيئة</span>
-      </p>
-    </div>
-
-    <!-- 文字面板 1：原首图内容（第二页，保持不变） -->
-    <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)] text-right">
-      <h1 class="font-barlow-condensed text-[clamp(38px,4.5vw,72px)] font-bold leading-[1.1] text-white mb-5">
-        <span class="text-brand-orange">مزود رائد OEM</span> لحلول AHF<br />و SVG منخفضة الجهد
+    <!-- 文字面板 0：产品主题（第 1 页，2026-09-28 与能源面板对调后升为首屏） -->
+    <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
+      <h1 class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
+        جهد منخفض <span class="text-brand-orange">AHF و SVG و ASVG</span> مصنع<br />
+        لجودة الطاقة الصناعية والتجارية
       </h1>
-      <p class="text-[clamp(13px,1.2vw,19px)] font-normal text-white/85 leading-[1.75] max-w-[560px] mb-9">
-        حسّن جودة الطاقة لزيادة الإنتاجية. نخدم أكثر من 30 دولة حول العالم.
+      <p class="font-normal text-white/85 leading-[1.55] max-w-[620px]">
+        208V to 800V, IP20 to IP65, IGBT and SiC — engineered and manufactured
+        in our own plant. One focus, the widest range.
       </p>
-      <div class="flex gap-3.5 items-center">
-        <a href="#products" class="bg-brand-orange text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-brand-orange hover:bg-brand-orange-dark hover:border-brand-orange-dark transition-[background,border-color] duration-200">استكشف المنتجات</a>
-        <a href="#about" class="text-white text-[13px] font-semibold tracking-[0.06em] uppercase px-7 py-3.5 rounded-sm no-underline border-2 border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200">اعرف المزيد</a>
-      </div>
+    </div>
+
+    <!-- 文字面板 1：Easy Installation & Wiring（第 2 页，2026-09-30 由 Fullest Product Range 换入） -->
+    <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
+      <p class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
+        سهل <span class="text-brand-orange">التثبيت</span> والأسلاك
+      </p>
+      <p class="font-normal text-white/85 leading-[1.55] max-w-[620px] mb-5">
+        Plug-and-play · أطراف مقاومة للأخطاء · ضبط تلقائي
+      </p>
+    </div>
+
+    <!-- 文字面板 2：In-house R&D & Manufacturing（第 3 页，2026-09-30 新增，主题=研发生产实力） -->
+    <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
+      <p class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
+        بحث وتطوير <span class="text-brand-orange">داخلي</span> وتصنيع
+      </p>
+      <p class="font-normal text-white/85 leading-[1.55] max-w-[620px] mb-5">
+        فريق بحث وتطوير ذو خبرة · 30+ براءة اختراع · جميع الشهادات المطلوبة تم الحصول عليها
+      </p>
     </div>
 
     <!-- HERO 轮播指示点 -->
-    <div class="hero-dots absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
-      <button type="button" class="hero-dot hero-dot-active" data-slide="0" aria-label="切换到第 1 张"></button>
-      <button type="button" class="hero-dot" data-slide="1" aria-label="切换到第 2 张"></button>
+    <div class="hero-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
+      <button type="button" class="hero-dot hero-dot-active" data-slide="0" aria-label="عرض الشريحة 1 — جودة الطاقة"></button>
+      <button type="button" class="hero-dot" data-slide="1" aria-label="عرض الشريحة 2 — التثبيت والأسلاك السهلة"></button>
+      <button type="button" class="hero-dot" data-slide="2" aria-label="عرض الشريحة 3 — البحث والتطوير الداخلي والتصنيع"></button>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS
+       2026-09-28 间距调整（用户要求变紧凑）：
+       原来 h2 用 `relative` + 负 top 硬拽出 padding → 上间距恒等于 32px、下间距被 padding 放大（1440 下 61px）。
+       改为直接用 pt / mb 控制：pt = 标题离上边沿，mb = 标题到卡片的间距，两边独立可调。 -->
+  <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(36px,4.5vw,72px)]">
+    <div class="w-[clamp(320px,90vw,1800px)]">
+      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,48px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
+        المفضلة لدى العملاء
+      </h2>
+
+      <!-- 滑动视窗 -->
+      <div class="overflow-hidden" data-fp-viewport>
+        <ul class="fp-track list-none m-0 p-0" data-fp-track>
+          {featuredProducts.map((p) => (
+            <li class={`fp-item${p.single ? ' fp-item--single' : ''}`}>
+              <a href={p.href} class="fp-card block no-underline">
+                <div class="fp-stage">
+                  <img src={`/assets/images/${p.img}.webp`} alt={p.name} width="1200" height="1200" loading="lazy" class="max-w-full max-h-full object-contain" />
+                </div>
+                <h3 class="fp-name">{p.name}{p.spec && <span class="fp-spec">{p.spec}</span>}</h3>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- 翻页控制 + 全部产品（2026-09-30：All Products 移到「右箭头」右侧；左右箭头仍保持居中不动）
+           ≥768px：grid 三列 1fr/auto/1fr，箭头落中列（严格居中），All Products 放第三列左对齐 → 紧贴右箭头右侧。
+           <768px：回落成上下两行居中，避免窄屏被挤出容器。 -->
+      <div class="fp-nav mt-[clamp(16px,2vw,32px)]">
+        <div class="fp-nav-arrows">
+          <button type="button" class="fp-arrow" data-fp-prev aria-label="Previous products">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <button type="button" class="fp-arrow" data-fp-next aria-label="Next products">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+        </div>
+        <a href={lp('/products')} class="fp-all"جميع المنتجات
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="relative overflow-hidden bg-bg-mid text-white min-h-[calc(100vh-72px)] flex flex-col justify-center py-10" id="about">
+  <section class="relative overflow-hidden bg-bg-mid text-white min-h-[calc(100vh-72px)] flex flex-col justify-center py-14" id="about">
     <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
     <div class="absolute inset-0 bg-[rgba(7,16,30,0.7)] z-[1]"></div>
 
 
+    <!-- 主体大框 -->
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-      <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-l border-white/10">
-        <h2 class="font-barlow-condensed text-[32px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">عن <span class="text-brand-orange">تشيتكتك</span></h2>
+      <!-- 左侧 About CHITEK 区域 -->
+      <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
+        <h2 class="font-barlow-condensed text-[45px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">حول <span class="text-brand-orange">CHITEK</span></h2>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
-        <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
-          شركة شنجن تشيتكتك لتكنولوجيا الطاقة الجديدة المحدودة، تأسست في عام 2019 ومقرها في شنجن، وهي مؤسسة عالية التكنولوجيا متخصصة في البحث والتطوير والتصنيع وخدمة منتجات إلكترونيات الطاقة. ملتزمة ببناء مستقبل موفر للطاقة وصديق للبيئة.
-        </p>
-        <a href="/ar/about" class="inline-flex items-center gap-2.5 bg-brand-orange-light text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+        <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">شركة شنتشن CHITEK لتقنية الطاقة الجديدة المحدودة، تأسست عام 2019 ومقرها شنتشن، هي مؤسسة تكنولوجية متقدمة متخصصة في البحث والتطوير والتصنيع وخدمة منتجات الإلكترونيات الطاقية. ملتزمة ببناء مستقبل فعال وكفؤ في الطاقة وأخضر.</p>
+        <a href={lp('/about')} class="inline-flex items-center gap-2.5 bg-brand-orange text-[#0f2040] text-[13px] font-bold tracking-[0.05em] uppercase px-7 py-3.5 rounded-sm no-underline transition-all duration-300 w-fit border-none hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
           <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] fill-current stroke-none">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
@@ -69,14 +137,17 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
         </a>
       </div>
 
+      <!-- 右侧四大优势区域 -->
       <div class="flex-[1.2] grid grid-cols-1 md:grid-cols-2">
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-l border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <!-- 优势 1 -->
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">فريق بحث وتطوير ذو خبرة</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">قدرات قوية مدعومة بفريق مؤهل تعليمياً وذات خبرة عالية</p>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">قدرة قوية مدعومة بفريق متعلم جيداً وذي خبرة عالية</p>
         </div>
 
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <!-- 优势 2 -->
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="32" r="8" />
@@ -85,11 +156,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
               <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(120 32 32)" />
             </svg>
           </div>
-          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">تصميم ذاتي</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">أكثر من 20 براءة اختراع تغطي تطوير المنتجات والتصنيع</p>
+          <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">تصميم ملكي</h3>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">أكثر من 30 ملكية فكرية تغطي تطوير المنتجات وتصنيعها</p>
         </div>
 
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-l border-b border-white/10 md:border-b-0 hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <!-- 优势 3 -->
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <path d="M20 20 L44 20 L44 44 L20 44 Z" stroke-linecap="round" />
@@ -101,7 +173,8 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
           <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">مجموعة كاملة من المنتجات تغطي تطبيقات العملاء المختلفة</p>
         </div>
 
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(255,107,26,0.05)] transition-colors duration-300 relative">
+        <!-- 优势 4 -->
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <circle cx="32" cy="16" r="8" />
@@ -110,11 +183,11 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
             </svg>
           </div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">جودة مضمونة</h3>
-          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">تصنيع معتمد من ISO يضمن أعلى معايير الجودة</p>
+          <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">تصنيع حاصل على شهادة ISO يضمن أعلى معايير الجودة</p>
         </div>
       </div>
     </div>
-  
+
     <!-- 统计数字：整合进 Company Intro 区域，不再单独成区 -->
     <div class="relative z-10 w-[clamp(320px,90vw,1800px)] mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-4 text-center pt-[clamp(20px,3vw,48px)]">
       <div class="flex flex-col items-center">
@@ -127,86 +200,85 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       </div>
       <div class="flex flex-col items-center">
         <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="30" data-duration="2600">0</span><span class="text-[clamp(28px,3vw,40px)]">+</span></div>
-        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">الملكية الفكرية</div>
+        <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">الملكيات الفكرية</div>
       </div>
       <div class="flex flex-col items-center">
         <div class="font-barlow-condensed text-[clamp(40px,5vw,64px)] font-bold leading-[1] text-brand-orange"><span class="stat-number" data-target="20" data-duration="2600">0</span><span class="text-[clamp(28px,3vw,40px)]">+</span></div>
         <div class="mt-3 text-[clamp(12px,1vw,15px)] font-semibold uppercase tracking-[0.08em] text-white/85">دول التصدير</div>
       </div>
     </div>
-</section>
+  </section>
 
   <!-- PRODUCTS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
     <div class="relative z-10">
       <div class="text-center mb-[clamp(16px,3vw,48px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">سلسلة المنتجات</h2>
+        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">سلاسل المنتجات</h2>
         <div class="flex justify-center gap-1 mt-[clamp(8px,2vw,32px)] relative border-b border-border-light max-w-[740px] mx-auto overflow-x-auto max-md:justify-start">
-          <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">فلتر التوافق النشط</div>
-          <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">مولد الفولت أمبير الساكن</div>
+          <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">مرشح التوافقيات النشط</div>
+          <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">مولد فار الساكن</div>
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-[clamp(12px,3vw,48px)] items-start">
+        <!-- 左侧：文字介绍 -->
         <div class="min-h-[240px] relative fade-up conv-left">
           <div class="product-info-item active" id="info-ahf">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">AHF</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
             <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
-              فلاتر توافقيات نشطة (AHF) تغطي من 208 فولت إلى 800 فولت، بكفاءة تصل إلى 99%. فلتر AHF هو مرشح نشط في الوقت الفعلي يعتمد على IGBT أو SiC، يكشف التيارات التوافقية التي تسحبها الأحمال غير الخطية ويحقن تيارات متساوية ومعاكسة لإلغائها عند المصدر — استعادة شكل موجة جيبية نقية وتصحيح معامل القدرة. يُستخدم في المنشآت الصناعية والمباني التجارية ومراكز البيانات والمستشفيات ومحطات شحن المركبات الكهربائية ومواقع الطاقة المتجددة حيث تكون التشوهات التوافقية أو غرامات معامل القدرة أو عدم استقرار الشبكة مصدر قلق.
-            </p>
-            <a href="/ar/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
+              تغطي مرشحات التوافقيات النشطة (AHF) من 208V إلى 800V، بكفاءة تصل إلى 99%. يعد الـ AHF مرشحاً نشطاً في الوقت الفعلي يعتمد على IGBT أو SiC، يكشف التيارات التوافقية التي تسحبها الأحمال غير الخطية ويحقن تيارات مساوية ومعاكسة لإلغائها عند المصدر — مستعيداً شكلاً موجياً جيبياً نظيفاً ويصحح معامل القدرة. يُستخدم في المصانع الصناعية والمباني التجارية ومراكز البيانات والمستشفيات وشحن المركبات الكهربائية ومواقع الطاقة المتجددة حيث تكون التشوه التوافقي أو غرامات معامل القدرة أو عدم استقرار الشبكة مصدر قلق.</p>
+            <a href={lp('/products')} class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">سلسلة مرشحات التوافقيات النشطة &rarr;</a>
           </div>
           <div class="product-info-item" id="info-svg">
             <h3 class="font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2">SVG</h3>
             <div class="w-8 h-[3px] bg-brand-orange mb-4"></div>
-            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">
-              يستخدم مولد الفولت أمبير الساكن (SVG) من تشيتكتك تقنية تبديل متقدمة IGBT أو SiC تصل إلى 25.6 كيلوهرتز لتنظيم دقيق لحجم وجهد العاكس. فلتر SVG هو معوّض قدرة تفاعلية في الوقت الفعلي يحقن أو يمتص التيار التفاعلي لتصحيح معامل القدرة واستقرار الجهد ديناميكياً — مما يلغي الغرامات والهبوط والوميض. يُستخدم في المنشآت الصناعية والمباني التجارية ومراكز البيانات ومزارع الطاقة المتجددة ومراكز شحن المركبات الكهربائية والشبكات الكهربائية حيث تكون القدرة التفاعلية أو تذبذب الجهد أو عدم توازن الحمل مصدر قلق.
-            </p>
-            <a href="/ar/products" class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">&larr; مركز المنتجات</a>
+            <p class="text-[13px] text-text-muted leading-[1.7] mb-6">يستخدم مولد فار الساكن (SVG) من CHITEK تبديلاً متقدماً لـ IGBT أو SiC يصل إلى 25.6kHz لضبط مقدار وج phase جهد العاكس بدقة. يعد الـ SVG معوضاً للقدرة التفاعلية في الوقت الفعلي يحقن أو يمتص التيار التفاعلي لتصحيح معامل القدرة واستقرار الجهد ديناميكياً — مما يلغي الغرامات والهبوط والوميض. يُستخدم في المصانع الصناعية والمباني التجارية ومراكز البيانات ومزارع الطاقة المتجددة ومراكز شحن المركبات الكهربائية وشبكات المرافق حيث تكون القدرة التفاعلية أو تذبذب الجهد أو اختلال الحمل مصدر قلق.</p>
+            <a href={lp('/products-svg')} class="text-[11px] font-semibold tracking-[0.1em] uppercase text-text-muted no-underline flex items-center gap-1.5 hover:text-brand-orange transition-colors duration-200">سلسلة مولدات فار الساكنة &rarr;</a>
           </div>
         </div>
 
+        <!-- 中间：功能特征网格 -->
         <div class="grid grid-cols-2 gap-px bg-border-light h-full">
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">ذكي ومريح</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">تصميم معياري</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">تحريك الحمل الذروي، قص الذروة وتعديل التردد، زيادة القدرة الافتراضية ووضع غير متصل بالشبكة.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">وحدات حاملة وجدارية وخزانة — اضبط الوحدة على غرفة المفاتيح والسعة المتوفرة لديك.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">كفاءة عالية</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">قيمة حرارية منخفضة للغاية، طاقة في وضع الانتظار منخفضة، كفاءة تصل إلى 98.5-99.2%. تقنية SiC.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">قيمة حرارية منخفضة جداً، استهلاك منخفض في وضع الاستعداد، كفاءة تصل إلى 98.5–99.2%. تقنية SiC.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">توافق متعدد</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">توافق متعدد الاستخدامات</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">متوافق مع معايير الجهد العالمية ثلاثية الأطر 3 أسلاك / 4 أسلاك. يدعم الفلترة النشطة للتوافقيات.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">3 أطوار 3 أسلاك و4 أسلاك، مطابقة للمعايير العالمية منخفضة الجهد.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
-            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">صديق للبطارية</div>
+            <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">قابل للتوسعة بالتوازي</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">مجموعات البطارية المختلفة تعمل بشكل مستقل، مما يتجنب تيار الدوران المتوازي.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">وحدات متوازية بلا حد عملي — وسّع سعة التعويض مع نمو الحمل.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">صيانة سهلة</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">عند عطل الوحدة، لا يتأثر بالدوائر الأخرى. صيانة سريعة خلال 5 دقائق.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">عند تعطل وحدة، لا يؤثر ذلك على الدوائر الأخرى. صيانة سريعة في أقل من 5 دقائق.</div>
           </div>
           <div class="bg-white p-[clamp(8px,1.5vw,32px)] cursor-pointer flex flex-col justify-start hover:bg-[#fff9f6] transition-colors duration-200 ps-card">
             <div class="text-[clamp(11px,1vw,15px)] font-semibold text-brand-orange mb-2">آمن وموثوق</div>
             <div class="w-6 h-0.5 bg-brand-orange mb-3"></div>
-            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">وظائف حماية عطل كاملة، بدون تيار دوران في البطارية، تصنيف مستوى التلوث III.</div>
+            <div class="text-[clamp(10px,0.9vw,14px)] text-text-muted leading-[1.6]">وظائف حماية كاملة من الأعطال، مصنف درجة التلوث III للبيئات الصناعية القاسية.</div>
           </div>
         </div>
 
-        <div class="flex items-center justify-end fade-up conv-right">
+        <!-- 右侧：图片介绍（2026-10-12 用户要求：手机端不显示 → <1024px 整块隐藏，≥1024px 保持原 flex） -->
+        <div class="hidden lg:flex items-center justify-end fade-up conv-right">
           <div class="w-[clamp(160px,25vw,340px)] h-[clamp(300px,34vw,460px)] rounded-sm relative overflow-hidden bg-contain bg-center bg-no-repeat bg-[url('/assets/images/index-product-ahf.webp')]" id="product-visual"></div>
         </div>
       </div>
     </div>
   </section>
-
   <script>
     const productData = {
       ahf: { visual: '/assets/images/index-product-ahf.webp', infoId: 'info-ahf' },
@@ -298,6 +370,37 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       heroStart();
     }
 
+    // FEATURED PRODUCTS 轮播：每次滑动一张卡，到边界禁用对应箭头
+    const fpViewport = document.querySelector('[data-fp-viewport]');
+    const fpTrack = document.querySelector('[data-fp-track]');
+    if (fpViewport && fpTrack) {
+      const fpItems = Array.from(fpTrack.children);
+      const fpPrev = document.querySelector('[data-fp-prev]');
+      const fpNext = document.querySelector('[data-fp-next]');
+      let fpIndex = 0;
+
+      const fpStep = () => {
+        if (fpItems.length < 2) return fpViewport.clientWidth;
+        return fpItems[1].getBoundingClientRect().left - fpItems[0].getBoundingClientRect().left;
+      };
+      const fpVisible = () => {
+        const step = fpStep();
+        return step > 0 ? Math.max(1, Math.round(fpViewport.clientWidth / step)) : 1;
+      };
+      const fpMax = () => Math.max(0, fpItems.length - fpVisible());
+      const fpUpdate = () => {
+        fpIndex = Math.min(Math.max(fpIndex, 0), fpMax());
+        fpTrack.style.transform = `translateX(${-fpIndex * fpStep()}px)`;
+        if (fpPrev) fpPrev.disabled = fpIndex <= 0;
+        if (fpNext) fpNext.disabled = fpIndex >= fpMax();
+      };
+
+      fpPrev?.addEventListener('click', () => { fpIndex -= 1; fpUpdate(); });
+      fpNext?.addEventListener('click', () => { fpIndex += 1; fpUpdate(); });
+      window.addEventListener('resize', fpUpdate);
+      fpUpdate();
+    }
+
     // 可反复触发入场：进视口加 .visible，出视口移除；滚动回来重新播放
     // 作用对象：Product Series 左右两栏 + Solution Insights 标题与三张卡片
     const revealEls = document.querySelectorAll('.conv-left, .conv-right, .insight-title, .insight-card, .ps-card');
@@ -328,8 +431,8 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
 
   <style>
     .tab.active {
-      color: #ff6b1a;
-      border-bottom-color: #ff6b1a;
+      color: #EA511E;
+      border-bottom-color: #EA511E;
     }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -341,6 +444,134 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
     }
     .stat-number {
       font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Featured products 推荐区 ── */
+    .fp-track {
+      --fp-gap: clamp(10px, 1.2vw, 22px);
+      display: flex;
+      gap: var(--fp-gap);
+      transition: transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .fp-item { flex: 0 0 100%; }
+    @media (min-width: 768px) {
+      .fp-item { flex: 0 0 calc((100% - var(--fp-gap)) / 2); }
+    }
+    @media (min-width: 1024px) {
+      .fp-item { flex: 0 0 calc((100% - 4 * var(--fp-gap)) / 5); }
+    }
+    .fp-stage {
+      background: #ffffff;
+      border: 1px solid var(--color-border-light);
+      height: clamp(160px, 17vw, 236px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(12px, 1.6vw, 26px);
+      transition: border-color 250ms ease, box-shadow 250ms ease;
+    }
+    .fp-card:hover .fp-stage {
+      border-color: var(--color-brand-orange);
+      box-shadow: 0 8px 22px rgba(15, 32, 64, 0.07);
+    }
+    .fp-name {
+      margin-top: clamp(10px, 1.1vw, 16px);
+      font-size: clamp(13px, 0.95vw, 15px);
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--color-text-dark);
+      transition: color 200ms ease;
+    }
+    .fp-card:hover .fp-name { color: var(--color-brand-orange); }
+    /* 2026-10-12：电流规格后缀（如 (50-200A)），与主名之间留一段间距。
+       8ch（= tab-size 默认 8，一个制表位）用户觉得偏大 → 14:30 收到 4ch（半个 tab）；整段不换行，避免括号内断开。 */
+    .fp-name .fp-spec {
+      margin-left: 4ch;
+      white-space: nowrap;
+    }
+    /* 2026-10-12 15:14：手机端 Customer Favorites 卡片标题**不换行**（用户要求）。
+       <768px 时 .fp-item 是 100%（每面 1 张），卡宽 = 父容器 90vw。
+       最长标题「208V/400V/480V Anti-Pollution AHF/SVG(50-200A)」@13px 需要 380px（含 spec 的 4ch 间距 34px），
+       390px 屏只有 351px → 会折 2 行。实测 need(px) ≈ 27.3 × font-size。
+       做法：① spec 间距收到 1ch（省约 25px）② 字号改为随视口线性缩放 clamp(10px,3.15vw,13px)。
+       需要 fs ≤ 0.9W/27.3 ≈ 3.3vw，取 3.15vw 留约 4% 余量；≥414px 时仍回到 13px 原值。 */
+    @media (max-width: 767px) {
+      .fp-name { font-size: clamp(10px, 3.15vw, 13px); }
+      .fp-name .fp-spec { margin-left: 1ch; }
+    }
+    /* 2026-10-13：Distributed 卡标题强制单行（用户要求）。
+       单行所需宽度（236px@13px）> 五列时卡宽（1024–1440 带宽 174–245px），
+       故把名称↔规格间距收到 1ch，并在 ≥1024 让该卡字号随 vw 略收（clamp 下限 10px）塞进卡片。 */
+    .fp-item--single .fp-name { white-space: nowrap; }
+    .fp-item--single .fp-name .fp-spec { margin-left: 1ch; }
+    @media (min-width: 1024px) {
+      .fp-item--single .fp-name { font-size: clamp(10px, 0.95vw, 15px); }
+    }
+    .fp-arrow {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: #ffffff;
+      border: 1px solid var(--color-text-dark);
+      border-radius: 2px;
+      color: var(--color-text-dark);
+      cursor: pointer;
+      transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    }
+    .fp-arrow:hover:not(:disabled) {
+      background: var(--color-brand-orange);
+      border-color: var(--color-brand-orange);
+      color: #ffffff;
+    }
+    .fp-arrow:disabled { opacity: 0.3; cursor: default; }
+    /* 翻页控制区：<768px 上下两行居中；≥768px 箭头居中 + All Products 贴右箭头右侧 */
+    .fp-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(14px, 1.6vw, 26px);
+    }
+    .fp-nav-arrows {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    @media (min-width: 768px) {
+      /* minmax(0,1fr) 保证左右两列等宽 → 箭头严格居中，位置与改版前一致 */
+      .fp-nav {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 0;
+      }
+      .fp-nav-arrows { grid-area: 1 / 2; justify-content: center; }
+      .fp-nav .fp-all {
+        grid-area: 1 / 3;
+        justify-self: start;
+        margin-left: 16px;
+        white-space: nowrap;
+      }
+    }
+    .fp-all {
+      display: inline-block;
+      padding: 12px 36px;
+      border: 1px solid var(--color-text-dark);
+      border-radius: 2px;
+      color: var(--color-text-dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    }
+    .fp-all:hover {
+      background: var(--color-brand-orange);
+      border-color: var(--color-brand-orange);
+      color: #ffffff;
     }
     .hero-slide {
       opacity: 0;
@@ -369,7 +600,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       transition: background 250ms ease, width 250ms ease;
     }
     .hero-dot.hero-dot-active {
-      background: #ff6b1a;
+      background: #EA511E;
       width: 26px;
     }
     /* Product Series: left & right columns converge toward the center */
@@ -394,6 +625,27 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
     .insight-card { opacity: 0; transform: translateY(64px); }
     .insight-card.visible { opacity: 1; transform: translateY(0); }
 
+    /* Hero 字号 = 唯一来源（2026-09-30 用户要求「标题大小统一、小描述增大」）
+       - 标题：删掉原 @media (max-height:940px) 放大到 4vw 的跳档规则 ——
+         它让同一页在 900px 高时标题 57.6px、1000px 高时 48.96px，看起来「不统一」。
+         现在所有帧、所有视口高度同一档 clamp(30px,3.4vw,50px)。
+       - 描述：2026-10-08 用户要求「hero 小字再增大些」→ clamp(16px,1.3vw,19px)；矮屏档同步 15px → 17px（上一版 clamp(14px,1.2vw,17px)）。
+       - ≤820px 高（矮屏笔记本）保留一档等比缩小，三帧一致生效。 */
+    .hero-text .hero-title {
+      font-size: clamp(30px, 3.4vw, 50px);
+    }
+    .hero-text .hero-title + p {
+      font-size: clamp(16px, 1.3vw, 19px);
+    }
+    @media (min-width: 1024px) and (max-height: 820px) {
+      .hero-text .hero-title {
+        font-size: clamp(28px, 3vw, 46px);
+      }
+      .hero-text .hero-title + p {
+        font-size: 17px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .conv-left, .conv-right,
       .insight-title, .insight-card,
@@ -404,59 +656,62 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
   <!-- SOLUTIONS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-white flex flex-col py-12" id="solutions">
     <div class="text-center mb-[clamp(8px,1.5vw,24px)] fade-up insight-title">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">رؤية الحلول</h2>
+      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">رؤى الحلول</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto ">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
+      <!-- Hospital -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-hospital.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">إزالة التوافقيات في المستشفيات</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">ضمان جودة طاقة دون انقطاع للمعدات الطبية الحيوية وأنظمة إنقاذ الأرواح مع فلترة التوافقيات المتقدمة وثبات الجهد.</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">توافقيات إضاءة LED والحمل الزائد على النيوترال — مركز تسوق، قوانغتشو</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">تشويه التيار 49% &rarr; 2.75% · تيار النيوترال 365.76 A &rarr; 25.19 A. محول مركز تسوق 2,500 kVA عند حمل 90%، إضاءة LED وشاشات فيديو LED. 2 &times; 200 A AHF.</p>
           </div>
-          <a href={lp('/solutions#commercial')} class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              اعرف المزيد
+          <a href={lp('/solutions/commercial')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+              اقرأ حالة تخفيف التوافقيات
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
-                <line x1="17" y1="7" x2="7" y2="17"/>
-                <polyline points="17 17 7 17 7 7"/>
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
               </svg>
             </a>
         </div>
       </div>
 
+      <!-- Data Center -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-datacenter.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">تجنب غرامات عامل القدرة في مراكز البيانات</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">مستدامة وذاتية ومنتشرة في كل مكان، تدعم الذكاء الاصطناعي لمساعدة حل مشاكل اليوم مع بنية تحتية موثوقة لجودة الطاقة.</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">توافقيات UPS في مغذي مركز البيانات — قوانغتشو IDC</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">تيار التوافقيات 204.96 A &rarr; 19.18 A · تشويه 26.94% &rarr; 3.12% عند حمل 814 A. المغذي TR1 من قاعة IDC؛ مرشح نشط 2 &times; 200 A + 100 A مدمج في الخزانة الحالية.</p>
           </div>
-          <a href={lp('/solutions#datacenter')} class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              اعرف المزيد
+          <a href={lp('/solutions/data-center')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+              اقرأ حالة مركز البيانات
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
-                <line x1="17" y1="7" x2="7" y2="17"/>
-                <polyline points="17 17 7 17 7 7"/>
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
               </svg>
             </a>
         </div>
       </div>
 
+      <!-- Manufacturing -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
         <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-manufacturing.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">تثبيت الجهد في الصناعات</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">ذكية وذاتية وقادرة على التكيف الفوري مع التغييرات مع حلول جودة الطاقة الذكية التي تحسين كفاءة الإنتاج.</p>
+            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">تجديد مغذي VFD والضاغط — مصنع إلكترونيات، قوانغدونغ</h3>
+            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">تشويه التيار 20.06% &rarr; 2.58% على مغذي VFD وضاغط ومضخة. تيار تشغيل 800&ndash;1,000 A، 780 kvar تعويض مكثفات؛ 2 &times; 200 A + 150 A AHF.</p>
           </div>
-          <a href={lp('/solutions#industry')} class="text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
-              اعرف المزيد
+          <a href={lp('/solutions/industrial')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
+              اقرأ حالة التجديد الصناعي
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1">
-                <line x1="17" y1="7" x2="7" y2="17"/>
-                <polyline points="17 17 7 17 7 7"/>
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
               </svg>
             </a>
         </div>

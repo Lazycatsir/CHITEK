@@ -76,102 +76,105 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </nav>
 
+  <!-- Section navigation: horizontal bar, slides in under the fixed header only
+       after the first screen (one viewport height) has been scrolled past -->
+  <nav data-secnavbar class="fixed left-0 right-0 top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <div class="flex gap-1 overflow-x-auto" data-secnav-track>
+        <a href="#overview" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Overview</a>
+        <a href="#description" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Description</a>
+        <a href="#parameters" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Parameters</a>
+        <a href="#why" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Advantages</a>
+        <a href="#manufacturing" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Manufacturing</a>
+        <a href="#faq" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">FAQ</a>
+        <a href="#application" class="js-secnav whitespace-nowrap px-3.5 py-3 text-[15px] font-medium text-[#333333] border-b-2 border-transparent hover:text-[#ea511e] hover:border-[#ea511e] transition-colors">Application</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Left section navigation (desktop sticky sidebar) + content column -->
   <div class="lg:flex">
-    <aside class="hidden lg:block lg:w-[140px] shrink-0 border-r border-border-light">
-      <nav class="sticky top-[72px] max-h-[calc(100vh-72px)] overflow-y-auto py-8 px-2" aria-label="Section navigation">
-        <p class="px-2 mb-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-text-muted">PAGE GUIDE</p>
-          <a href="#overview" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] leading-snug font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
-          <a href="#description" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
-          <a href="#parameters" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
-          <a href="#why" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
-          <a href="#manufacturing" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Manufacturing &amp; QA</a>
-          <a href="#faq" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
-          <a href="#application" class="js-secnav block px-2 py-2 mb-0.5 rounded-md text-[13px] font-medium text-text-muted border-l-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Application</a>
-      </nav>
-    </aside>
     <div class="flex-1 min-w-0">
 
   <!-- Product top: description (left) + product image (right). No background image. -->
   <section id="overview" data-product-top class="bg-white pt-[clamp(14px,1.5vw,24px)] pb-[clamp(32px,3.5vw,56px)] scroll-mt-[72px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
+    <div class="max-w-none px-9 lg:px-[110px]">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(24px,4vw,56px)] items-start">
 
         <!-- LEFT: title / meta / specs / advantages -->
         <div>
-          <h1 class="text-[clamp(18px,1.95vw,30px)] font-bold leading-snug text-text-dark mb-5 font-barlow-condensed">Ultra-slim Advanced Static Var Generator ASVG — Compact 1U Power Quality Series</h1>
+          <h1 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-5 font-barlow-condensed">Ultra-slim Advanced Static Var Generator ASVG — Compact 1U Power Quality Series</h1>
 
-          <p class="text-[clamp(12px,1.05vw,15px)] text-text-mid leading-[1.7] mb-5 uppercase">
-            <strong class="text-text-dark font-bold normal-case">Tags</strong>
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">Ultra-Slim ASVG</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">slim advanced static var generator ASVG</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">compact 1U ASVG module</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">low-profile advanced static var generator</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">space-saving advanced static var generator</a>,
-            <a href={lp('/')} class="text-[#0000EE] hover:underline">slimline ASVG</a>
+          <p class="text-[clamp(12px,1.05vw,15px)] text-text-mid leading-[1.7] mb-5 lowercase">
+            <strong class="text-[#333333] font-bold normal-case">Tags</strong>
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">Ultra-Slim ASVG</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">slim advanced static var generator ASVG</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">compact 1U ASVG module</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">low-profile advanced static var generator</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">space-saving advanced static var generator</a>,
+            <a href={lp('/')} class="text-[13px] text-[#0075a3] hover:underline">slimline ASVG</a>
           </p>
 
-          <div class="text-[clamp(14px,1.25vw,20px)] text-text-mid leading-[1.9] mb-5">
-            <p><strong class="text-text-dark font-bold">Function:</strong> Reactive Power Compensation, Power Factor Correction, Imbalance Phase Balancing</p>
-            <p><strong class="text-text-dark font-bold">Rated Voltage:</strong> 208/400/480 VAC</p>
-            <p><strong class="text-text-dark font-bold">Power Capacity:</strong> 8/15/20A single module (unlimited for parallel)</p>
-            <p><strong class="text-text-dark font-bold">Efficiency:</strong> ≥ 97%</p>
-            <p><strong class="text-text-dark font-bold">Compensation Performance:</strong> up to 97%</p>
-            <p><strong class="text-text-dark font-bold">Nominal Frequency:</strong> 50/60HZ</p>
-            <p><strong class="text-text-dark font-bold">Connection Type:</strong> 3 Phase 3 Wire / 3 Phase 4 Wire</p>
-            <p><strong class="text-text-dark font-bold">Installation:</strong> Wall mounted/Rack mounted/Cabinet</p>
-            <p><strong class="text-text-dark font-bold">Warranty:</strong> Standard 2 years/negotiable</p>
+          <div class="text-[14px] font-normal text-[#333333] leading-[1.9] mb-5">
+            <p><strong class="text-[#333333] font-bold">Function:</strong> Reactive Power Compensation, Power Factor Correction, Imbalance Phase Balancing</p>
+            <p><strong class="text-[#333333] font-bold">Rated Voltage:</strong> 208/400/480 VAC</p>
+            <p><strong class="text-[#333333] font-bold">Power Capacity:</strong> 8/15/20A single module (unlimited for parallel)</p>
+            <p><strong class="text-[#333333] font-bold">Efficiency:</strong> ≥ 97%</p>
+            <p><strong class="text-[#333333] font-bold">Compensation Performance:</strong> up to 97%</p>
+            <p><strong class="text-[#333333] font-bold">Nominal Frequency:</strong> 50/60HZ</p>
+            <p><strong class="text-[#333333] font-bold">Connection Type:</strong> 3 Phase 3 Wire / 3 Phase 4 Wire</p>
+            <p><strong class="text-[#333333] font-bold">Installation:</strong> Wall mounted/Rack mounted/Cabinet</p>
+            <p><strong class="text-[#333333] font-bold">Warranty:</strong> Standard 2 years/negotiable</p>
           </div>
 
           <!-- Configurator: SKU selector card (header + part-number chip / labelled chips / summary bar) -->
           <div class="mt-[clamp(20px,2vw,32px)] rounded-2xl border border-border-light bg-white overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 pb-1">
-              <p class="m-0 text-[clamp(16px,1.4vw,22px)] font-bold text-text-dark">Configure your SKU</p>
-              <span class="inline-flex items-center gap-1.5 rounded-md border border-border-light bg-[#fafbfc] px-3 py-1.5 text-[14px] whitespace-nowrap"><span class="text-text-muted">SKU:</span> <span data-sku-chip-val class="font-semibold text-brand-orange">&mdash;</span></span>
+              <p class="m-0 text-[14px] font-bold tracking-[0.08em] text-[#333333]">Configure your sku</p>
             </div>
-            <p class="m-0 px-5 pb-4 text-[14px] leading-snug text-text-muted">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
+            <p class="m-0 px-5 pb-4 text-[14px] leading-snug text-[#626469]">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
 
             <div class="px-5 pb-5 space-y-4">
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                 <div>
-                  <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Rated Voltage</p>
+                  <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Rated Voltage</p>
                   <div class="flex flex-wrap gap-2">
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>
 
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="400V" /> 400V</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="400V" /> 400V</label>
 
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="480V" /> 480V</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="480V" /> 480V</label>
                   </div>
                 </div>
                 <div>
-                  <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Protection Rate</p>
+                  <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Protection Rate</p>
                   <div class="flex flex-wrap gap-2">
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP20" /> IP20</label>
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP65" /> IP65</label>
-                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="other" /> other</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP20" /> IP20</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP65" /> IP65</label>
+                    <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="other" /> other</label>
                   </div>
                 </div>
               </div>
               <div>
-                <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Power Capacity</p>
+                <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Power Capacity</p>
                 <div class="flex flex-wrap gap-2">
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="8A" /> 8A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="15A" /> 15A</label>
-                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="20A" /> 20A</label><label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="Unlimited" /> Unlimited for parallel (up to 16 modules)</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="8A" /> 8A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="15A" /> 15A</label>
+                  <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="20A" /> 20A</label><label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="Unlimited" /> Unlimited for parallel (up to 16 modules)</label>
                 </div>
               </div>
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                   <div>
-                    <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Wiring</p>
+                    <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Wiring</p>
                     <div class="flex flex-wrap gap-2">
-                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P4W" /> 3P4W</label>
+                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P4W" /> 3P4W</label>
                     </div>
                   </div>
                   <div>
-                    <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-2">Installation</p>
+                    <p class="text-[14px] font-semibold tracking-[0.08em] text-[#626469] mb-2">Installation</p>
                     <div class="flex flex-wrap gap-2">
-                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[16px] font-medium text-text-mid cursor-pointer transition-colors hover:border-brand-orange has-[:checked]:border-brand-orange has-[:checked]:bg-brand-orange has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Rack" /> Rack</label>
+                      <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Rack" /> Rack</label>
                     </div>
                   </div>
                 </div>
@@ -179,33 +182,14 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           
             </div>
 
-            <!-- Summary bar: live SKU line + Quote + Download (moved down from the left column so the page keeps ONE quote form) -->
-            <div class="border-t border-border-light bg-[#fafbfc] px-5 py-3.5">
+            <!-- Summary bar: live SKU line + price + WhatsApp CTA (no email form; the CTA opens WhatsApp with the selected SKU pre-filled) -->
+            <div class="border-t border-border-light bg-white px-5 py-3.5">
               <div class="flex flex-wrap items-center gap-3">
-                <form
-                  id="asvg-quote-form"
-                  name="quote"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  data-lead-form
-                  class="m-0 flex-1 min-w-[280px]"
-                >
-                  <input type="hidden" name="form-name" value="quote" />
-                  <div data-utm-fields hidden></div>
-                  <div hidden aria-hidden="true">
-                    <label>Don't fill this out <input name="bot-field" /></label>
-                  </div>
-                  <input type="hidden" data-inquiry-summary name="message" />
-                  <p data-summary-view class="m-0 text-[13.5px] leading-snug text-brand-orange"></p>
-                </form>
-                <div class="flex items-center gap-2 shrink-0 sm:ml-auto">
-                  <button type="submit" form="asvg-quote-form" class="inline-flex items-center justify-center bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-5 py-2.5 text-[14px] transition-colors whitespace-nowrap cursor-pointer">Quote this configuration &rarr;</button>
+                <p data-summary-view class="m-0 flex-1 min-w-[280px] text-[14px] leading-snug text-[#626469]"></p>
+                <div class="flex flex-wrap items-stretch gap-2 sm:ml-auto">
+                  <p data-summary-price class="m-0 flex items-center font-bold text-[24px] leading-none text-[#333333] whitespace-nowrap">Estimated 1300$(EXW)</p>
+                  <a data-wa-link href="https://wa.me/8618818994346" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#ea511e] hover:bg-[#ea511e] text-white font-semibold rounded-lg px-5 py-2.5 text-[14px] transition-colors whitespace-nowrap cursor-pointer no-underline">Inquire now &rarr;</a>
                 </div>
-              </div>
-              <div data-form-success data-no-reset hidden class="mt-3 p-4 rounded-lg bg-[#e8f5e9] border border-[#c8e6c9]">
-                <p class="text-[16px] font-semibold text-[#2e7d32] mb-0.5">Thank you! Our application engineer will contact you within 24 hours.</p>
-                <p class="text-[14px] text-[#558b2f]">CHITEK INNOPOWER</p>
               </div>
             </div>
           </div>
@@ -215,11 +199,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         <div>
           <div data-gallery class="rounded-2xl border border-border-light bg-[#fafbfc] px-6 pb-6 pt-2 flex flex-col items-center">
             <div class="w-full flex items-center justify-center overflow-hidden">
-              <img data-gallery-main src="/assets/images/products-ahf-ultra-slim.webp" alt="CHITEK Ultra-slim Advanced Static Var Generator ASVG" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
+              <img data-gallery-main src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="CHITEK Ultra-slim Advanced Static Var Generator ASVG" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
             </div>
             <div class="mt-4 grid grid-cols-3 gap-3 w-full shrink-0">
-              <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-ultra-slim.webp" data-alt="CHITEK Ultra-slim Advanced Static Var Generator ASVG" class="gallery-thumb is-active overflow-hidden rounded-lg border border-border-light bg-white p-1">
-                <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Advanced Static Var Generator ASVG front view" class="w-full h-[72px] object-contain" loading="lazy" />
+              <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-ultra-slim-rackmount.webp" data-alt="CHITEK Ultra-slim Advanced Static Var Generator ASVG" class="gallery-thumb is-active overflow-hidden rounded-lg border border-border-light bg-white p-1">
+                <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Advanced Static Var Generator ASVG front view" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
               <button type="button" data-gallery-thumb data-src="/assets/images/index-product-svg.webp" data-alt="CHITEK Advanced Static Var Generator ASVG module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
                 <img src="/assets/images/index-product-svg.webp" alt="ASVG module view" class="w-full h-[72px] object-contain" loading="lazy" />
@@ -234,34 +218,34 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="mt-[clamp(20px,2vw,32px)] rounded-2xl border border-border-light bg-white overflow-hidden">
             <div class="px-5 pt-5 pb-4 space-y-3">
               <div class="flex items-center justify-between gap-4">
-                <p class="m-0 text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted">Product</p>
-                <p class="m-0 text-[15px] font-medium text-text-dark text-right">Ultra-slim Advanced Static Var Generator ASVG</p>
+                <p class="m-0 text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Product</p>
+                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">Ultra-slim Advanced Static Var Generator ASVG</p>
               </div>
               <div class="flex items-center justify-between gap-4">
-                <p class="m-0 text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted">Voltage level</p>
-                <p class="m-0 text-[15px] font-medium text-text-dark text-right">208/400/480 VAC</p>
+                <p class="m-0 text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Voltage level</p>
+                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">208/400/480 VAC</p>
               </div>
             </div>
             <ul class="m-0 p-0 list-none border-t border-border-light">
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">HMI Manual</span>
-                <a href="/assets/pdf/chitek-power-quality-monitoring-unit-user-manual-en.pdf" data-doc-link="hmi-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">HMI Manual</span>
+                <a href="/assets/pdf/chitek-power-quality-monitoring-unit-user-manual-en.pdf" data-doc-link="hmi-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Datasheet</span>
-                <a href="/assets/pdf/ultra-slim-ahf-datasheet.pdf" data-doc-link="datasheet" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Datasheet</span>
+                <a href="/assets/pdf/ultra-slim-ahf-datasheet.pdf" data-doc-link="datasheet" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Catalog</span>
-                <a href="/assets/pdf/chitek-power-quality-catalog.pdf" data-doc-link="catalog" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Catalog</span>
+                <a href="/assets/pdf/datasheet-en-catalog.html" data-doc-link="catalog" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Device Manual</span>
-                <a href="/assets/pdf/ultra-slim-series-user-manual-en.pdf" data-doc-link="device-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange hover:underline whitespace-nowrap">Download</a>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Device Manual</span>
+                <a href="/assets/pdf/ultra-slim-series-user-manual-en.pdf" data-doc-link="device-manual" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline whitespace-nowrap">Download</a>
               </li>
               <li class="flex items-center justify-between gap-4 px-5 py-3 border-b border-border-light">
-                <span class="text-[15px] text-text-dark">Installation and Commission</span>
-                <span class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-text-muted whitespace-nowrap">Watch</span>
+                <span class="text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Installation and Commission</span>
+                <span class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#626469] whitespace-nowrap">Watch</span>
               </li>
             </ul>
           </div>
@@ -271,103 +255,96 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </section>
 
-  <!-- Sticky section sub-navigation (mobile only) -->
-  <nav class="lg:hidden sticky top-[72px] z-[999] bg-white/95 backdrop-blur border-b border-border-light" aria-label="Section navigation">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <div class="flex gap-1 overflow-x-auto">
-        <a href="#overview" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Overview</a>
-        <a href="#description" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Product Description</a>
-        <a href="#parameters" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Technical Parameters</a>
-        <a href="#why" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Why CHITEK</a>
-        <a href="#manufacturing" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Manufacturing &amp; QA</a>
-        <a href="#faq" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">FAQ</a>
-        <a href="#application" class="whitespace-nowrap px-3.5 py-3 text-[16px] font-medium text-text-muted border-b-2 border-transparent hover:text-brand-orange hover:border-brand-orange transition-colors">Application</a>
-      </div>
-    </div>
-  </nav>
 
   <!-- 00 Product Description (moved above Technical Parameters) -->
+<div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="description" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Product Description</h2>
-      <div class="max-w-none lg:pr-[clamp(40px,8vw,160px)] mb-10 space-y-4 text-text-mid text-[clamp(13.5px,1.2vw,17.5px)] leading-relaxed">
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Description</h2>
+      <div class="min-w-0">
+      <div class="max-w-none mb-10 space-y-4 text-text-mid text-[clamp(13.5px,1.2vw,17.5px)] leading-relaxed">
         <p>A power factor that stays on target on a CHITEK Advanced Static Var Generator translates directly into a more dependable electrical network and lower running costs. By supplying the reactive current locally instead of drawing it from the utility, the generator relieves the extra loading that makes cables, transformers and switchgear run hot, and it removes the reactive penalty charges that plant teams otherwise pay month after month.</p>
         <p>Because the reactive demand is met at the point of use, motors, transformers, switchgear and cables carry less current for the same useful work, so their service life is extended and maintenance schedules become lighter. On new-build projects, engineers can also revisit the practice of oversizing distribution equipment purely as a defence against poor power factor — a smaller, better-utilised design is usually enough.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Graphical HMI</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Graphical HMI</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Direct control, configuration, monitoring and power-quality analysis from the front panel — no PC required.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Comprehensive Measurements</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Comprehensive Measurements</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">RMS voltages and currents, power factor before/after, system frequency, load factor and the compensation current the unit is delivering right now.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Power Factor Correction</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Power Factor Correction</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Dynamic correction for both lagging and leading power factor without capacitor-step switching.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Load Balancing</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Load Balancing</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Balances three-phase systems and relieves neutral current in 3P4W networks.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Low Thermal Loss</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Low Thermal Loss</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">the IGBT bridge keeps losses low and efficiency at 97% or better, cutting cooling demand.</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Flexible &amp; Modular</h3>
+          <h3 class="text-[#626469] font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Flexible &amp; Modular</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Modular design embedded in standard or customized cabinets, with parallel expansion and factory ODM support.</p>
         </div>
+      </div>
       </div>
     </div>
   </section>
 
   <!-- 01 Technical Parameters -->
-  <section id="parameters" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-[clamp(40px,8vw,160px)]">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">Technical Parameters</h2>
-      <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
+<div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section id="parameters" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Parameters</h2>
+      <div class="min-w-0 overflow-x-auto rounded-2xl border border-border-light bg-white">
         <table class="w-full border-collapse text-[clamp(14px,1.1vw,16px)] leading-tight text-left">
           <tbody>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Module Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Rated Voltage</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">400VAC (208V, 480V please contact us)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Rated Current</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 8A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 15A</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">APF 20A</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Power Capacity</th><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 5Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 10Kvar</td><td class="py-2 px-3 text-text-mid border-l border-border-light whitespace-nowrap">SVG 14Kvar</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">System Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Rated Input Voltage</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">400VAC (-20%~+15%)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Grid Frequency</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Number of Parallel Connections</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">1 unit</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Efficiency</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Up to 97.5%</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Grid Structure</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Three-phase four-wire or three-phase three-wire</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Current Transformer</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">50/5~10,000/5</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Performance Indicators</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Harmonic Compensation Range</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">2~50 times</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Harmonic Attenuation</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&gt;95% (rated load)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Quick Response Time</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&lt; 50&micro;s</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Full Response Time</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&lt; 5ms</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Target Power Factor</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">-1~+1, capacitive and inductive continuously adjustable</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Compensation Mode</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Noise Indicator</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&lt;60dB</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Communications &amp; Monitoring</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Communication Interface</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">RS485, WiFi, 4G, CAN</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Communication Protocol</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Modbus protocol (RTU or TCP/IP)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Module Display Interface</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Mechanical keys, LED indicators, independent touch screen, local WiFi operation interface</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Mechanical Properties</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Mounting Options</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Rack-mounted / Wall-mounted</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Dimensions W&times;D&times;H (mm)</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">340&times;410&times;45</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Net Weight</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">7.5kg</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Chassis Height</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&mdash;</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Color</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Industrial black (RAL7021), customizable upon request</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">CT Connection Mode</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">Support the source side / load side</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Environmental Requirements</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Altitude</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Operating Temperature</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">-40&#8451;~+65&#8451;</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Relative Humidity</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">5%~95%, no condensation</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Protection Level</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">IP20, other IP levels customizable</td></tr>
-          <tr class="border-b border-border-light bg-[#fbdcd3]"><th colspan="4" class="text-left py-2 px-4 text-[15px] font-bold uppercase tracking-[0.06em] text-[#a8401e]">Related Qualifications and Standards</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Standards Compliance</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-text-dark whitespace-nowrap w-[28%]">Certification</th><td colspan="3" class="py-2 px-4 pr-10 text-text-mid">CE, CQC</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Module parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated Voltage</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">400VAC (208V, 480V please contact us)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated Current</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 8A</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 15A</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 20A</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Power Capacity</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 5Kvar</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 10Kvar</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 14Kvar</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">System parameters</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Rated Input Voltage</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">400VAC (-20%~+15%)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Grid Frequency</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Number of Parallel Connections</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">1 unit</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Efficiency</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Up to 97.5%</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Grid Structure</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Current Transformer</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">50/5~10,000/5</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Performance indicators</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Harmonic Compensation Range</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">2~50 times</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Harmonic Attenuation</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&gt;95% (rated load)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Quick Response Time</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&lt; 50&micro;s</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Full Response Time</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&lt; 5ms</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Target Power Factor</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">-1~+1, capacitive and inductive continuously adjustable</td></tr>
+          <tr data-param-toggle-row class="border-b border-border-light"><td></td><td colspan="3" class="py-2 px-4 pr-10"><button type="button" data-param-toggle aria-expanded="false" aria-controls="parameters-more" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline cursor-pointer"><span data-param-toggle-label>Show all parameters</span><span aria-hidden="true" data-param-toggle-icon class="inline-flex items-center text-[15px] leading-none transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button></td></tr>
+          </tbody>
+          <tbody id="parameters-more" data-param-more hidden>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Compensation Mode</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Noise Indicator</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&lt;60dB</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Communications &amp; monitoring</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Communication Interface</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">RS485, WiFi, 4G, CAN</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Communication Protocol</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Modbus protocol (RTU or TCP/IP)</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Module Display Interface</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Mechanical keys, LED indicators, independent touch screen, local WiFi operation interface</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Mechanical properties</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Mounting Options</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Rack-mounted / Wall-mounted</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Dimensions W&times;D&times;H (mm)</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">340&times;410&times;45</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Net Weight</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">7.5kg</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Chassis Height</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&mdash;</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Color</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Industrial black (RAL7021), customizable upon request</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">CT Connection Mode</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">Support the source side / load side</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Environmental requirements</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Altitude</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Operating Temperature</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">-40&#8451;~+65&#8451;</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Relative Humidity</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">5%~95%, no condensation</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Protection Level</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">IP20, other IP levels customizable</td></tr>
+          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="4" class="text-left py-2 px-4 font-normal text-[#333333]">Related qualifications and standards</th></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Standards Compliance</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-10 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[20%]">Certification</th><td colspan="3" class="py-2 px-4 pr-10 text-[#333333]">CE, CQC</td></tr>
           </tbody>
         </table>
       </div>
@@ -376,26 +353,37 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
 
   <!-- Why CHITEK (sits directly above the FAQ) -->
+<div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="why" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">WHY CHITEK Ultra-slim Advanced Static Var Generator ASVG?</h2>
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">WHY CHITEK Ultra-slim Advanced Static Var Generator ASVG?</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div class="rounded-2xl border border-border-light p-6 sm:col-span-2">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Easy to install and commission</h3>
-          <p class="text-text-dark font-bold text-[clamp(13px,1.15vw,17px)] mt-4 mb-1">Hardware</p>
-          <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1 mb-3">
+        <div data-easy-install-row class="sm:col-span-2 lg:grid lg:grid-cols-[minmax(0,36fr)_minmax(0,64fr)] lg:gap-6 lg:items-stretch">
+          <div data-easy-install-media class="w-full mb-5 lg:mb-0">
+            <figure data-ei-shot="hardware" class="m-0">
+              <img src="/assets/images/sic-ultra-ahf-ct-terminals.webp" alt="CT wiring terminals (S1/S2), RJ45 and CAN module-paralleling ports and communication DIP switches on the CHITEK SiC module" width="835" height="401" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-cover" />
+            </figure>
+            <figure data-ei-shot="software" class="m-0 mt-5">
+              <img src="/assets/images/sic-ultra-ahf-software-tri-panel.webp" alt="Tri-panel engineering diagram of the CHITEK SiC control system: signal acquisition and processing, digital control algorithms, and electrical design" width="1536" height="1024" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-contain" />
+            </figure>
+          </div>
+          <div class="rounded-2xl border border-border-light p-6 lg:min-w-0">
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Easy to install and commission</h3>
+          <p data-easy-install-hw-start class="text-[#626469] font-bold text-[clamp(13px,1.15vw,17px)] mt-4 mb-1">Hardware</p>
+          <ul data-easy-install-hw-end class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1 mb-3">
             <li>CT Wiring: Isolated S1/S2 terminals; error-proof CT terminal blocks (pre-fabricated cables included as standard). Flange-locking design prevents open circuits.</li>
             <li>RJ45 ports for module paralleling and module-to-control panel connections. Ports integrate power, RS-485, and CAN communication. Pre-fabricated cables come as standard for plug-and-play, significantly reducing wiring time.</li>
           </ul>
-          <p class="text-text-dark font-bold text-[clamp(13px,1.15vw,17px)] mb-1">Software</p>
-          <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Easy software operation, and simple hardware installation. Only power cables and a set of CT to set up Ultra-slim Advanced Static Var Generator ASVG. The Automatic fine-tuning function realizes intelligent and excellent compensation effects, bringing users a simple and efficient commissioning experience.</p>
+          <p data-easy-install-sw-start class="text-[#626469] font-bold text-[clamp(13px,1.15vw,17px)] mb-1">Software</p>
+          <p data-easy-install-sw-end class="text-[#626469] text-[clamp(13px,1.15vw,17px)] leading-relaxed">Easy software operation, and simple hardware installation. Only power cables and a set of CT to set up Ultra-slim Advanced Static Var Generator ASVG. The Automatic fine-tuning function realizes intelligent and excellent compensation effects, bringing users a simple and efficient commissioning experience.</p>
+          </div>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Potting Protection</h3>
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Potting Protection</h3>
           <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Protects electronic circuits against contamination without compromising heat dissipation</p>
         </div>
         <div class="rounded-2xl border border-border-light p-6">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Smart Sleep Mode</h3>
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Smart Sleep Mode</h3>
           <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
             <li>Load-based start/stop prevents prolonged operation under low-load conditions</li>
             <li>Duty cycling for low-load modules</li>
@@ -403,7 +391,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           </ul>
         </div>
         <div class="rounded-2xl border border-border-light p-6 sm:col-span-2">
-          <h3 class="text-brand-orange font-semibold mb-2 text-[clamp(15px,1.35vw,22px)]">Resonance suppression</h3>
+          <h3 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Resonance suppression</h3>
           <ul class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed list-disc pl-5 space-y-1">
             <li>Proprietary algorithm that detects line conditions and automatically adjusts parameters.</li>
             <li>Compatible with a wide range of complex load types</li>
@@ -412,30 +400,30 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       </div>
       <!-- Manufacturing & Quality Assurance Capabilities -->
       <div id="manufacturing" class="mt-8 scroll-mt-[120px]">
-        <h3 class="text-[clamp(15px,1.4vw,22px)] font-semibold text-text-dark mb-4 text-left">Manufacturing &amp; Quality Assurance Capabilities</h3>
+        <h3 class="text-[clamp(13px,1.15vw,17px)] font-bold text-[#333333] mb-4 text-left">Manufacturing &amp; Quality Assurance Capabilities</h3>
         <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed mb-5 text-left">The Ultra-slim Advanced Static Var Generator ASVG is built in our own 2,300 m² plant under an ISO 9001:2015 quality system — from incoming inspection to burn-in testing, every stage is completed and signed off under our own roof.</p>
         <div data-mfg-qa-slot class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">ISO 9001:2015 quality system</h4>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">ISO 9001:2015 quality system</h4>
             <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">SGS-certified quality management governs design, procurement, production and final release — published parameters match actual shipped performance.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Complete in-house production line</h4>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Complete in-house production line</h4>
             <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">Component procurement, SMT/DIP assembly, board FCT, IPQC, safety-compliance testing, ATE fixture test, potting and aging — all completed inside our own facility.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Every unit burn-in tested</h4>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Every unit burn-in tested</h4>
             <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">A self-developed aging cabinet with module fixture testing (patent CN22268956U) runs each unit through full burn-in, followed by a post-aging final quality check.</p>
           </div>
           <div class="rounded-2xl border border-border-light p-6">
-            <h4 class="text-brand-orange font-semibold mb-2 text-[clamp(14px,1.25vw,20px)]">Proven in the field</h4>
+            <h4 class="text-[#333333] font-bold mb-2 text-[clamp(13px,1.15vw,17px)]">Proven in the field</h4>
             <p class="text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">CHITEK filters are in service in more than 10 countries, with multilingual interfaces and factory technical support for overseas commissioning.</p>
           </div>
         </div>
       </div>
       <!-- Certifications: 4 个证书放置框（虚线占位，后续替换为真实证书图） -->
       <div class="mt-8">
-        <h3 class="text-[clamp(15px,1.4vw,22px)] font-semibold text-text-dark mb-4 text-left">Certifications</h3>
+        <h3 class="text-[clamp(13px,1.15vw,17px)] font-bold text-[#333333] mb-4 text-left">Certifications</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="cert-slot">
             <a href="/assets/images/certificate-01-eutest-ce.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the EUTEST CE certificate in full size">
@@ -478,10 +466,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </section>
 
-  <!-- 07 FAQ -->  <section id="faq" class="bg-[#fafbfc] pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-10 font-barlow-condensed text-left">FAQs About the Ultra-slim Advanced Static Var Generator ASVG</h2>
-      <div class="space-y-4">
+  <!-- 07 FAQ --><div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section id="faq" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
+    <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">FAQs</h2>
+      <div class="space-y-4 min-w-0">
         <details class="bg-white rounded-2xl border border-border-light p-5" open>
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q1: What is an advanced static var generator (ASVG)?</summary>
           <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">A advanced static var generator is a power-electronics device that measures the load current with an external CT, separates the reactive component from the active current with a DSP, and injects or absorbs the compensation current through a fast inverter bridge. The utility then sees only the fundamental, with the power factor at the level you set.</p>
@@ -513,9 +502,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
 
 
+<div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="application" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(24px,2.5vw,44px)] font-bold text-text-dark mb-8 font-barlow-condensed text-left">Application of the Ultra-slim Advanced Static Var Generator ASVG</h2>
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Application of the Ultra-slim Advanced Static Var Generator ASVG</h2>
       <div data-application-slot class="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <article class="flex flex-col rounded-2xl border border-border-light p-6">
           <p class="text-[12px] font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">Data Center</p>
@@ -542,11 +532,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </section>
   <!-- Related products: 4-up carousel, arrows flanking, 6s autoplay -->
-  <section class="bg-[#fafbfc] py-[clamp(40px,4vw,72px)]">
-    <div class="max-w-none px-3 lg:pl-6 lg:pr-10">
-      <h2 class="text-[clamp(20px,2vw,30px)] font-bold text-text-dark mb-6 font-barlow-condensed text-left">Related Products</h2>
+<div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
+  <section class="bg-white py-[clamp(40px,4vw,72px)]">
+    <div class="max-w-none px-9 lg:px-[110px]">
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-6 font-barlow-condensed text-left">Related Products</h2>
       <div class="flex items-center gap-3">
-        <button type="button" data-rel-prev aria-label="Previous products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+        <button type="button" data-rel-prev aria-label="Previous products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-[#ea511e] transition-colors shadow-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
         <div data-rel-viewport class="overflow-hidden flex-1 min-w-0 touch-pan-y">
@@ -562,14 +553,14 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG</h3>
             </div>
           </a>
-          <a href={lp('/products-asvg/anti-pollution-hv-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-anti-pollution-690v-800v.webp" alt="690V/800V Anti-Pollution Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+          <a href={lp('/products-asvg/anti-pollution-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" alt="690V/800V Anti-Pollution Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
               <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">690V/800V Anti-Pollution Advanced Static Var Generator ASVG</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/ultra-slim-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
               <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Ultra-slim Advanced Static Var Generator ASVG</h3>
             </div>
@@ -580,7 +571,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Distributed Advanced Static Var Generator ASVG</h3>
             </div>
           </a>
-          <a href={lp('/products-asvg/ip65-sic-fanless-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+          <a href={lp('/products-asvg/sic-fanless-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
             <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Advanced Static Var Generator" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
               <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Fanless &amp; Low Noise Advanced Static Var Generator</h3>
@@ -600,7 +591,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           </a>
                     </div>
         </div>
-        <button type="button" data-rel-next aria-label="Next products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-brand-orange transition-colors shadow-sm">
+        <button type="button" data-rel-next aria-label="Next products" class="rel-nav shrink-0 w-10 h-10 rounded-full border border-border-light bg-white flex items-center justify-center text-text-muted hover:text-brand-orange hover:border-[#ea511e] transition-colors shadow-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
@@ -609,11 +600,19 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
   </div>
 
-  <!-- PAGE GUIDE scroll spy: highlight the sidebar item of the section you are reading -->
+  <!-- Section nav scroll spy: highlight the tab of the section you are reading -->
   <script>
     (function () {
+      var bar = document.querySelector('nav[data-secnavbar]');
       var links = Array.prototype.slice.call(document.querySelectorAll('.js-secnav'));
-      if (!links.length) return;
+      if (!links.length && !bar) return;
+
+      // 顶部栏：只有越过首屏（一屏高）才滑入；回到首屏内立即收起
+      function syncBar() {
+        if (!bar) return;
+        bar.classList.toggle('is-shown', window.scrollY > window.innerHeight);
+      }
+      syncBar();
 
       // 从 DOM 顺序建立「链接 ↔ 分节」配对，缺元素的直接跳过
       var pairs = [];
@@ -653,7 +652,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       function onScroll() {
         if (ticking) return;
         ticking = true;
-        requestAnimationFrame(function () { ticking = false; render(); });
+        requestAnimationFrame(function () {
+          ticking = false;
+          syncBar();
+          render();
+        });
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -663,28 +666,84 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   </script>
 
   <style>
-    /* 当前所在分节对应的侧栏条目高亮（scoped，特异性高于 Tailwind 单类工具）
-       用 :global 是因为 JS 是运行时加类，Astro 的编译期作用域也能匹配到，
-       但显式写 :global 可避免将来把这段样式搬到别处时失效。 */
-    :global(.js-secnav.is-active) {
-      color: var(--color-brand-orange, #ff6b1a);
-      border-left-color: var(--color-brand-orange, #ff6b1a);
-      background-color: rgba(255, 107, 26, 0.08);
-      font-weight: 600;
+    /* 分节导航当前项高亮：加粗深色文字 + 底部橙色横线 */
+    :global(a.js-secnav.is-active) {
+      font-weight: 700;
+      border-bottom-color: #ea511e;
+    }
+
+    /* 顶部吸附栏：默认收起，越过首屏后滑入（JS 加 .is-shown） */
+    :global(nav[data-secnavbar]) {
+      transform: translateY(-105%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+    :global(nav[data-secnavbar].is-shown) {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :global(nav[data-secnavbar]) { transition: none; }
+    }
+
+    /* 参数表行底色：覆盖 global.css 的斑马纹（奇偶行底色），
+       分组标题行保持 #f3f2f2，数据行统一 #ffffff。
+       global.css 的斑马纹(#parameters tbody tr:nth-child(odd/even) > *) 是无层级 CSS，
+       Astro 给本页样式加了 data-astro-cid 作用域属性，特异性更高，可直接压过。 */
+    :global(#parameters tbody tr:not(:has(> th[colspan]))) > * { background-color: #ffffff; }
+    :global(#parameters tbody tr:has(> th[colspan])) > * { background-color: #f3f2f2; }
+
+    /* Easy to install: 桌面端左栏两张照片各自对齐 Hardware / Software 文字块
+       （脚本写入 --ei-hw-top / --ei-hw-h / --ei-hw-sw-gap；图2 铺满栏宽、保持自然比例不裁切） */
+    @media (min-width: 1024px) {
+      [data-ei-shot="hardware"] { margin-top: var(--ei-hw-top, 66px); }
+      [data-ei-shot="hardware"] img { height: var(--ei-hw-h, 167px); }
+      [data-ei-shot="software"] { margin-top: var(--ei-hw-sw-gap, 12px); }
     }
     /* Product gallery: active thumbnail ring (runtime class -> :global) */
     :global(.gallery-thumb) { cursor: pointer; transition: border-color .15s, box-shadow .15s; }
     :global(.gallery-thumb.is-active) {
-      border-color: var(--color-brand-orange, #ff6b1a);
-      box-shadow: 0 0 0 2px var(--color-brand-orange, #ff6b1a);
+      border-color: var(--color-brand-orange, #EA511E);
+      box-shadow: 0 0 0 2px var(--color-brand-orange, #EA511E);
     }
     /* Related products carousel: autoplay wraps around, so arrows stay usable at both ends */
   </style>
+  <!-- Easy to install: 左栏两张照片分别对齐 Hardware / Software 文字块
+       （脚本写入 --ei-hw-top / --ei-hw-h / --ei-hw-sw-gap） -->
+  <script>
+    (function () {
+      var row = document.querySelector('[data-easy-install-row]');
+      if (!row) return;
+      var media = row.querySelector('[data-easy-install-media]');
+      var card = row.querySelector('div[class*="rounded-2xl"]');
+      var hwStart = row.querySelector('[data-easy-install-hw-start]');
+      var hwEnd = row.querySelector('[data-easy-install-hw-end]');
+      var swStart = row.querySelector('[data-easy-install-sw-start]');
+      if (!media || !card || !hwStart || !hwEnd || !swStart) return;
+
+      function sync() {
+        var c = card.getBoundingClientRect();
+        var hwTop = hwStart.getBoundingClientRect().top;
+        var hwBottom = hwEnd.getBoundingClientRect().bottom;
+        var swTop = swStart.getBoundingClientRect().top;
+        media.style.setProperty('--ei-hw-top', Math.round(hwTop - c.top) + 'px');
+        media.style.setProperty('--ei-hw-h', Math.round(hwBottom - hwTop) + 'px');
+        media.style.setProperty('--ei-hw-sw-gap', Math.round(swTop - hwBottom) + 'px');
+      }
+      sync();
+      window.addEventListener('resize', sync);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+    })();
+  </script>
   <!-- Configurator summary: SKU line auto-fill -->
   <script is:inline>
     (function () {
-      var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-inquiry-summary]'));
-      if (!boxes.length) return;
+      var view = document.querySelector('[data-summary-view]');
+      var waLink = document.querySelector('[data-wa-link]');
+      var WA_BASE = 'https://wa.me/8618818994346?text=';
+      if (!view) return;
       var inputs = document.querySelectorAll('input[type="checkbox"][data-group]');
       // placeholder specs keyed by current rating (depth mm, weight kg); W x H fixed 500 x 550
       var SPECS = {
@@ -710,63 +769,22 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         var p = pick('p')[0] || DEF.p;
         var spec = SPECS[a] || { d: 135, kg: 27 };
         var partNo = 'ULTRA_SLIM_ASVG_' + a + '-' + v + '-' + i + '-' + p;
-        var sku = 'SKU: ' + partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg · 1300$(EXW)';
-        boxes.forEach(function (b) { b.value = sku; });
-        // Summary bar: the value lives in a hidden field; the visible line is rebuilt as
-        // spans so "SKU:" stays muted while the rest is orange and the price is bold.
-        var view = document.querySelector('[data-summary-view]');
+        var detail = partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg';
+        // Summary bar: the visible line is rebuilt as spans (no hidden field; the CTA is a plain link)
         if (view) {
-          var t1 = document.createElement('span'); t1.className = 'text-text-mid'; t1.textContent = 'SKU: ';
+          var t1 = document.createElement('span'); t1.className = 'text-[#626469]'; t1.textContent = 'SKU: ';
           var t2 = document.createElement('span');
-          t2.textContent = partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg · ';
-          var t3 = document.createElement('span'); t3.className = 'font-bold'; t3.textContent = '1300$(EXW)';
+          t2.textContent = detail;
           view.textContent = '';
-          view.appendChild(t1); view.appendChild(t2); view.appendChild(t3);
+          view.appendChild(t1); view.appendChild(t2);
         }
-        // header chip shows the short part number only
-        var chip = document.querySelector('[data-sku-chip-val]');
-        // part number only (prefix differs per page) -> take the first field of the SKU line
-        if (chip) chip.textContent = sku.replace(/^SKU:\s*/, '').split('\u00b7')[0].trim();
+        // WhatsApp CTA: carry the selected SKU so the sales team sees the configuration
+        if (waLink) {
+          waLink.setAttribute('href', WA_BASE + encodeURIComponent("Hi CHITEK, I'd like a quotation for: " + detail));
+        }
       }
       inputs.forEach(function (inp) { inp.addEventListener('change', build); });
       build();
-      // Pre-fill the lead form's message field with the SKU line so the sales team
-      // receives the exact configuration the visitor selected.
-      var msg = document.querySelector('form[data-lead-form] [name="message"]');
-      if (msg) {
-        boxes.forEach(function (b) {
-          b.addEventListener('change', function () { /* value already synced by build() */ });
-        });
-        var origBuild = build;
-        build = function () {
-          origBuild();
-          msg.value = document.querySelector('[data-inquiry-summary]').value;
-        };
-        var boxesNow = document.querySelectorAll('[data-inquiry-summary]');
-        if (boxesNow.length) msg.value = boxesNow[0].value;
-      }
-    })();
-  </script>
-
-  <!-- Quote form: analytics.js calls form.reset() on success, which would blank the
-       read-only SKU textarea. Keep re-filling it briefly so the visitor can still see
-       the configuration they just requested. Attached before analytics.js binds. -->
-  <script is:inline>
-    (function () {
-      var form = document.querySelector('form[name="quote"]');
-      var ta = form && form.querySelector('[name="message"]');
-      if (!form || !ta) return;
-      form.addEventListener('submit', function () {
-        var snapshot = ta.value;
-        if (!snapshot) return;
-        // form.reset() only runs after the POST resolves, so poll for a moment
-        // rather than trusting a single 0ms timer.
-        var tries = 0;
-        var iv = setInterval(function () {
-          if (ta.value !== snapshot) ta.value = snapshot;
-          if (++tries > 100) clearInterval(iv);   // 最多约 10 秒
-        }, 100);
-      });
     })();
   </script>
 
@@ -875,4 +893,30 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     })();
   </script>
 
+  <!-- Parameters table: everything below "Target power factor" sits behind a toggle -->
+  <script>
+    (function () {
+      var btns = Array.prototype.slice.call(document.querySelectorAll('[data-param-toggle]'));
+      if (!btns.length) return;
+      btns.forEach(function (btn) {
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!panel) return;
+        var label = btn.querySelector('[data-param-toggle-label]');
+        var icon = btn.querySelector('[data-param-toggle-icon]');
+        function isOpen() { return !panel.hasAttribute('hidden'); }
+        function render() {
+          var open = isOpen();
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if (label) label.textContent = open ? 'Show fewer parameters' : 'Show all parameters';
+          if (icon) icon.classList.toggle('rotate-180', open);
+        }
+        btn.addEventListener('click', function () {
+          if (isOpen()) panel.setAttribute('hidden', '');
+          else panel.removeAttribute('hidden');
+          render();
+        });
+        render();
+      });
+    })();
+  </script>
 </BaseLayout>

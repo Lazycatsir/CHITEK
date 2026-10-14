@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
+import { getHreflang } from '../../../i18n/index';
 
 const article = {
   title: "دراسة حالة: مرشح AHF نشط 300 أمبير منخفض الجهد يعيد تشغيل بنوك المكثفات الفاشلة في مركز بيانات",
@@ -26,12 +27,14 @@ const relatedProducts = [
 ];
 
 const relatedCases = [
-  { name: "مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة" },
-  { name: "المنشأة الصناعية السعودية", industry: "التصنيع" },
-  { name: "مركز البيانات البرازيلي", industry: "مراكز البيانات" }
+  { name: "تحسين جودة الطاقة في مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة", href: "/ar/news/solar-farm-dubai" },
+  { name: "تحديث معايير جودة الطاقة السعودية", industry: "التصنيع", href: "/ar/news/saudi-arabia-standards" },
+  { name: "دراسة حالة: AHF بقدرة 300 أمبير يستعيد بنوك المكثفات في مركز بيانات", industry: "مراكز البيانات", href: "/ar/news/blog-data-center-ahf-case-study" }
 ];
 
-const lp = (p: string) => '/ar' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/ar' + p : p;
+const SHARE_URL = getHreflang('ar', Astro.url.pathname);
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
@@ -65,7 +68,7 @@ const lp = (p: string) => '/ar' + p;
       <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
-      <a href={lp('/ar/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+      <a href={lp('/news')} class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
@@ -185,16 +188,16 @@ const lp = (p: string) => '/ar' + p;
               </svg>
             </div>
             <div>
-              <div class="font-semibold text-text-dark">الفريق الفني لـ CHITEK</div>
+              <div class="font-semibold text-text-dark">{article.author}</div>
               <div class="text-sm text-text-muted">نُشر {article.dateDisplay}</div>
             </div>
           </div>
           <div class="flex items-center gap-3">
             <span class="text-sm text-text-muted">مشاركة:</span>
-            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="#" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
               <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
             </a>
             <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
@@ -255,7 +258,7 @@ const lp = (p: string) => '/ar' + p;
             </h3>
             <div class="space-y-2">
               {relatedCases.map((caseItem) => (
-                <a href="/ar/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                <a href={caseItem.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
                   <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
                   <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
                 </a>

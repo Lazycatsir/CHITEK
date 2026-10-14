@@ -36,7 +36,8 @@ const relatedCases = [
   { name: "Resonance-Free Harmonic Control on an Induction Melting Furnace", industry: "Metals & Induction Heating", href: "/solutions/industrial" },
 ];
 
-const lp = (p) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p) => isLocal ? '/en' + p : p;
 
 ---
 <BaseLayout

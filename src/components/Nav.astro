@@ -49,6 +49,18 @@ function langHref(targetLang: string): string {
       break;
     }
   }
+  // 详情页（/products|products-svg|products-asvg/{slug}）仅英文版存在。
+  // 从英文详情页切到 es/ar/pt → 仍指向英文详情页（避免 404）；切到 zh → 回退本语言系列汇总页。
+  const detailMatch = base.match(/^\/products(-svg|-asvg)?\/[^/]+\/?$/);
+  if (detailMatch) {
+    if (targetLang === 'es' || targetLang === 'ar' || targetLang === 'pt') {
+      return isLocal ? '/en' + base : 'https://en.chitek-inno.com' + base;
+    }
+    if (targetLang === 'zh') {
+      const series = detailMatch[1] ? '/products' + detailMatch[1] : '/products';
+      return isLocal ? series : 'https://chitek-inno.com' + series;
+    }
+  }
   // 本地开发/预览（localhost）用路径前缀相对链接，避免跳到线上子域名；线上维持绝对子域名
   if (isLocal) {
     const localPrefix: Record<string, string> = { zh: '', en: '/en', es: '/es', ar: '/ar', pt: '/pt' };
@@ -82,10 +94,10 @@ const pathNoLang = (() => {
   return b;
 })();
 const showPtSwitch = !/^\/news(\/|$)/.test(pathNoLang);
-// 本地（localhost）全语言用路径前缀；线上 zh/en 用根路径（子域名承载语言），es/ar/pt 需前缀
+// 本地（localhost）全语言用路径前缀；线上统一无前缀（子域名承载语言）
 const prefix = isLocal
   ? (lang === 'en' ? '/en' : lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '')
-  : (lang === 'es' ? '/es' : lang === 'ar' ? '/ar' : lang === 'pt' ? '/pt' : '');
+  : '';
 const productsHref = prefix + '/products';
 // products 页的系列锚点（#ahf / #svg / #asvg）在**全部 5 个语言版本**里都不存在实体：
 // 10-08 HTTP 实测 —— /products、/en/products、/es|/ar|/pt/products 渲染后
@@ -95,13 +107,18 @@ const productsHref = prefix + '/products';
 const productsAhfHref = productsHref;   // AHF 无独立页，en/zh 的 /products 即其列表页
 const productsSvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-svg' : productsHref;
 const productsAsvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-asvg' : productsHref;
-// 产品详情页目前仅英文版存在（/en/products|products-svg|products-asvg/{slug}）；
-// 其余语言（zh/es/ar/pt）尚无详情页，回退到对应列表页，做法与下面的 solHref 一致。
-const prodDetailHref = (base, slug, fallback) => (lang === 'en' ? prefix + base + '/' + slug : fallback);
+// 产品详情页目前仅英文版存在（/en/products|products-svg|products-asvg/{slug}）。
+// en：指向英文详情页；zh：暂无详情页，回退本语言列表（用户未要求改中文）；
+// es/ar/pt：英文详情页是唯一存在的详情页，深链到英文（与「卡片链接导向英文详情页」一致）。
+const prodDetailHref = (base, slug, fallback) => {
+  if (lang === 'en') return prefix + base + '/' + slug;
+  if (lang === 'zh') return fallback;
+  return isLocal ? '/en' + base + '/' + slug : 'https://en.chitek-inno.com' + base + '/' + slug;
+};
 // ── 移动端菜单 Products 三级展开数据（2026-10-08）─────────────────────────
 // 名称 = 对应汇总页（/en/products、/en/products-svg、/en/products-asvg）卡片的标题，逐字一致；
-// 同一详情页只保留首次出现的那条：AHF 的 208V/400V/480V 与 690V/800V 共用 anti-pollution-ahf、
-// IP65 SiC-Fanless 与 SiC-Fanless 共用 sic-fanless-ahf，故 AHF 8 张卡去重后为 6 条；SVG / ASVG 各 8 条。
+// 同一详情页只保留首次出现的那条：208V/400V/480V 与 690V/800V 共用 anti-pollution-*、
+// IP65 SiC-Fanless 与 SiC-Fanless 共用 sic-fanless-*，故 AHF / SVG / ASVG 各有 8 张卡、去重后均为 6 条。
 // ⚠️ 汇总页改卡片文案时此处须同步 —— 回归脚本 00_中转站\nav_mobile_prod\verify_nav_mobile.py 断言逐字一致。
 // 详情页目前仅英文版存在，故三级只对 lang === 'en' 渲染；其余语言沿用原来的 3 条平铺链接。
 const navProductCards: Record<string, { name: string; slug: string }[]> = {
@@ -116,22 +133,18 @@ const navProductCards: Record<string, { name: string; slug: string }[]> = {
   svg: [
     { name: 'Silicon Carbide MOSFET Static Var Generator SiC SVG', slug: 'sic-ultra-svg' },
     { name: '208V/400V/480V Anti-Pollution Static Var Generator SVG', slug: 'anti-pollution-svg' },
-    { name: '690V/800V Anti-Pollution Static Var Generator SVG', slug: 'anti-pollution-hv-svg' },
     { name: 'Ultra-slim Static Var Generator SVG', slug: 'ultra-slim-svg' },
     { name: 'Distributed Static Var Generator SVG', slug: 'distributed-svg' },
-    { name: 'IP65 SiC-Fanless & Low Noise Static Var Generator', slug: 'ip65-sic-fanless-svg' },
+    { name: 'IP65 SiC-Fanless & Low Noise Static Var Generator', slug: 'sic-fanless-svg' },
     { name: 'IP65 Static Var Generator', slug: 'ip65-svg' },
-    { name: 'SiC-Fanless & Low Noise Static Var Generator', slug: 'sic-fanless-svg' },
   ],
   asvg: [
     { name: 'Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG', slug: 'sic-ultra-asvg' },
     { name: '208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG', slug: 'anti-pollution-asvg' },
-    { name: '690V/800V Anti-Pollution Advanced Static Var Generator ASVG', slug: 'anti-pollution-hv-asvg' },
     { name: 'Ultra-slim Advanced Static Var Generator ASVG', slug: 'ultra-slim-asvg' },
     { name: 'Distributed Advanced Static Var Generator ASVG', slug: 'distributed-asvg' },
-    { name: 'IP65 SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'ip65-sic-fanless-asvg' },
+    { name: 'IP65 SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'sic-fanless-asvg' },
     { name: 'IP65 Advanced Static Var Generator ASVG', slug: 'ip65-asvg' },
-    { name: 'SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'sic-fanless-asvg' },
   ],
 };
 const navProductFamilies = [
@@ -187,10 +200,10 @@ const homeHref = prefix || '/';
   }
   [dir="rtl"] .lang-item:hover,
   [dir="rtl"] .lang-item.border-l-brand-orange {
-    border-right-color: #ff6b1a;
+    border-right-color: #EA511E;
   }
   [dir="rtl"] .lang-item.border-l-brand-orange {
-    border-right-color: #ff6b1a;
+    border-right-color: #EA511E;
   }
 </style>
 <nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light shadow-sm">
@@ -208,62 +221,74 @@ const homeHref = prefix || '/';
   <div class="hidden lg:flex gap-1 items-center">
     <!-- Products Dropdown -->
     <div class="group relative flex items-center">
-      <a href={productsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+      <a href={productsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
         {_('products')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
-      <div class="absolute top-full left-0 bg-white min-w-[340px] min-h-[210px] flex flex-col justify-center shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
+      <div class:list={[
+        "absolute top-full bg-white min-w-[340px] min-h-[210px] flex flex-col justify-center shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:w-3 before:h-3 before:bg-white before:border-t before:border-border-light before:rotate-45",
+        isRtl ? "right-0 before:right-6 before:border-r before:border-l-0" : "left-0 before:left-6 before:border-l"
+      ]}>
         <!-- AHF 项：悬停/聚焦时右侧飞出三组小卡片（图+文，占位文字） -->
         <div class="group/ahf">
-          <a href={productsAhfHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
-          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/ahf:opacity-100 group-hover/ahf:visible group-focus-within/ahf:opacity-100 group-focus-within/ahf:visible transition-all duration-300 z-[1002]">
+          <a href={productsAhfHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('activeHarmonicFilter')}</a>
+          <div class:list={[
+            "absolute top-0 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/ahf:opacity-100 group-hover/ahf:visible group-focus-within/ahf:opacity-100 group-focus-within/ahf:visible transition-all duration-300 z-[1002]",
+            isRtl ? "right-full mr-2" : "left-full ml-2"
+          ]}>
             <a href={prodDetailHref('/products', 'anti-pollution-ahf', productsAhfHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution AHF</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution AHF</div>
             </a>
             <a href={prodDetailHref('/products', 'sic-ultra-ahf', productsAhfHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC AHF</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC AHF</div>
             </a>
             <a href={prodDetailHref('/products', 'ultra-slim-ahf', productsAhfHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim AHF</div>
+              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Ultra-Slim AHF</div>
             </a>
           </div>
         </div>
         <!-- SVG 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
         <div class="group/svg">
-          <a href={productsSvgHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
-          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/svg:opacity-100 group-hover/svg:visible group-focus-within/svg:opacity-100 group-focus-within/svg:visible transition-all duration-300 z-[1002]">
+          <a href={productsSvgHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('staticVarGenerator')}</a>
+          <div class:list={[
+            "absolute top-0 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/svg:opacity-100 group-hover/svg:visible group-focus-within/svg:opacity-100 group-focus-within/svg:visible transition-all duration-300 z-[1002]",
+            isRtl ? "right-full mr-2" : "left-full ml-2"
+          ]}>
             <a href={prodDetailHref('/products-svg', 'anti-pollution-svg', productsSvgHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution SVG</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution SVG</div>
             </a>
             <a href={prodDetailHref('/products-svg', 'sic-ultra-svg', productsSvgHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Static Var Generator SiC SVG" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC SVG</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC SVG</div>
             </a>
             <a href={prodDetailHref('/products-svg', 'ultra-slim-svg', productsSvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-ultra-slim.webp" alt="Ultra-slim Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Ultra-Slim SVG</div>
+              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Ultra-Slim SVG</div>
             </a>
           </div>
         </div>
         <!-- ASVG 项：悬停/聚焦时右侧飞出三组小卡片（占位，内容后补） -->
         <div class="group/sic">
-          <a href={productsAsvgHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('advancedStaticVarGenerator')}</a>
-          <div class="absolute left-full top-0 ml-2 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/sic:opacity-100 group-hover/sic:visible group-focus-within/sic:opacity-100 group-focus-within/sic:visible transition-all duration-300 z-[1002]">
+          <a href={productsAsvgHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('advancedStaticVarGenerator')}</a>
+          <div class:list={[
+            "absolute top-0 hidden lg:grid grid-cols-3 gap-3 bg-white shadow-xl border border-border-light rounded-lg p-4 w-[540px] opacity-0 invisible group-hover/sic:opacity-100 group-hover/sic:visible group-focus-within/sic:opacity-100 group-focus-within/sic:visible transition-all duration-300 z-[1002]",
+            isRtl ? "right-full mr-2" : "left-full ml-2"
+          ]}>
             <a href={prodDetailHref('/products-asvg', 'anti-pollution-asvg', productsAsvgHref)} class="group/card block no-underline">
               <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Advanced Static Var Generator ASVG" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">Anti-Pollution ASVG</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution ASVG</div>
             </a>
             <a href={prodDetailHref('/products-asvg', 'sic-ultra-asvg', productsAsvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-asvg-4u-din-rail.webp" alt="SiC Static Var Generator, 4U rail mounted" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">SiC ASVG</div>
+              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG" class="w-full aspect-square object-cover rounded-md" />
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC ASVG</div>
             </a>
             <a href={productsAsvgHref} class="group/card block no-underline">
               <img src="/assets/images/products-asvg-cabinet.webp" alt="Advanced Static Var Generator Cabinet" class="w-full aspect-square object-cover rounded-md" />
-              <div class="mt-2 text-[12px] font-semibold text-text-dark group-hover/card:text-brand-orange">ASVG Cabinet</div>
+              <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">ASVG Cabinet</div>
             </a>
           </div>
         </div>
@@ -272,50 +297,50 @@ const homeHref = prefix || '/';
 
     <!-- Solutions Dropdown -->
     <div class="group relative flex items-center">
-      <a href={solutionsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+      <a href={solutionsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
         {_('solutions')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
       <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href={solIndustryHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('industrialManufacturing')}</a>
-        <a href={solCommercialHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('commercialMedical')}</a>
-        <a href={solDatacenterHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('dataCentersTelecom')}</a>
-        <a href={solRenewableHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('renewableEnergy')}</a>
-        <a href={solRailHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('transportation')}</a>
-        <a href={solGridHref} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('powerGridUtility')}</a>
+        <a href={solIndustryHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('industrialManufacturing')}</a>
+        <a href={solCommercialHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('commercialMedical')}</a>
+        <a href={solDatacenterHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('dataCentersTelecom')}</a>
+        <a href={solRenewableHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('renewableEnergy')}</a>
+        <a href={solRailHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('transportation')}</a>
+        <a href={solGridHref} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('powerGridUtility')}</a>
       </div>
     </div>
 
     <!-- Services Dropdown -->
     <div class="group relative flex items-center">
-      <a href={servicesHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+      <a href={servicesHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
         {_('services')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
       <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href={servicesHref + '#oem'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('oemOdm')}</a>
-        <a href={servicesHref + '#tech-support'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('technicalSupport')}</a>
-        <a href={servicesHref + '#distributor'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('distributorProgram')}</a>
+        <a href={servicesHref + '#oem'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('oemOdm')}</a>
+        <a href={servicesHref + '#tech-support'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('technicalSupport')}</a>
+        <a href={servicesHref + '#distributor'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('distributorProgram')}</a>
       </div>
     </div>
 
     <!-- About Dropdown -->
     <div class="group relative flex items-center">
-      <a href={aboutHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+      <a href={aboutHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
         {_('about')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
       <div class="absolute top-full left-0 bg-white min-w-[340px] shadow-lg border border-border-light rounded py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-2.5 group-hover:translate-y-0 transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:left-6 before:w-3 before:h-3 before:bg-white before:border-t before:border-l before:border-border-light before:rotate-45">
-        <a href={aboutHref + '#about'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('companyProfile')}</a>
-        <a href={aboutHref + '#industry'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('caseStudies')}</a>
-        <a href={aboutHref + '#certifications'} class="block px-6 py-3 text-text-mid whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('certifications')}</a>
+        <a href={aboutHref + '#about'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('companyProfile')}</a>
+        <a href={aboutHref + '#industry'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('caseStudies')}</a>
+        <a href={aboutHref + '#certifications'} class="block px-6 py-3 text-[#333333] whitespace-nowrap no-underline text-[13px] font-medium tracking-[0.02em] transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:text-brand-orange hover:border-l-brand-orange hover:pl-7">{_('certifications')}</a>
       </div>
     </div>
 
     <!-- News (top-level tab, between About and Contact) -->
     {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && (
       <div class="group relative flex items-center">
-        <a href={newsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+        <a href={newsHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
           {_('news')}
           <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
         </a>
@@ -324,7 +349,7 @@ const homeHref = prefix || '/';
 
     <!-- Contact (no dropdown) -->
     <div class="group relative flex items-center">
-      <a href={contactHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-text-mid px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
+      <a href={contactHref} class="nav-link-base relative text-[14px] font-semibold tracking-[0.08em] no-underline text-[#333333] px-5 py-2 rounded-sm inline-flex items-center whitespace-nowrap hover:text-brand-orange">
         {_('contact')}
         <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 origin-left transition-transform duration-200 group-hover:scale-x-100"></span>
       </a>
@@ -332,9 +357,9 @@ const homeHref = prefix || '/';
   </div>
 
   <!-- Search box -->
-  <div class="hidden lg:flex items-center gap-2.5 border border-border-light rounded-full py-1.5 px-3.5 text-[13px] text-text-muted bg-[#f9f9f9] cursor-pointer">
-    <input type="text" placeholder={_('search')} class="border-none bg-transparent outline-none text-[13px] text-text-dark w-[120px]" />
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-text-muted">
+  <div class="hidden lg:flex items-center gap-2.5 border border-border-light rounded-full py-1.5 px-3.5 text-[13px] text-[#333333] bg-[#f9f9f9] cursor-pointer">
+    <input type="text" placeholder={_('search')} class="border-none bg-transparent outline-none text-[13px] text-[#333333] w-[120px]" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#333333]">
       <circle cx="11" cy="11" r="8" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
     </svg>
@@ -342,7 +367,7 @@ const homeHref = prefix || '/';
 
   <!-- Language dropdown -->
   <div class="lang-group relative">
-    <div class="flex items-center gap-1.5 px-3 py-1.5 border border-border-light rounded text-[12px] font-semibold tracking-[0.06em] text-text-mid cursor-pointer transition-all duration-200 bg-white hover:border-brand-orange hover:text-brand-orange">
+    <div class="flex items-center gap-1.5 px-3 py-1.5 border border-border-light rounded text-[12px] font-semibold tracking-[0.06em] text-[#333333] cursor-pointer transition-all duration-200 bg-white hover:border-brand-orange hover:text-brand-orange">
       <span>{activeLangLabel}</span>
       <img src={"/assets/images/flags/" + activeLangFlag + ".png"} alt={activeLangLabel} class="w-5 h-3.5 object-cover rounded-sm shadow-sm" />
       <span class="lang-arrow text-[10px] transition-transform duration-300">▾</span>
@@ -352,26 +377,26 @@ const homeHref = prefix || '/';
       "lang-dropdown absolute top-full bg-white min-w-[220px] shadow-lg border border-border-light rounded-lg py-2 opacity-0 invisible transition-all duration-300 z-[1001] mt-2 before:content-[''] before:absolute before:top-[-6px] before:w-3 before:h-3 before:bg-white before:border-t before:border-border-light before:rotate-45",
       isRtl ? "left-0 before:right-auto before:left-5 before:border-r before:border-l-0" : "right-0 before:right-5 before:border-l"
     ]}>
-      <a href={enHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'en' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
-        <span class="text-[13px] text-text-mid font-medium">English</span>
+      <a href={enHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'en' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-[#333333] font-medium">English</span>
         <img src="/assets/images/flags/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       {showPtSwitch && (
-      <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
-        <span class="text-[13px] text-text-mid font-medium">Portugu&ecirc;s</span>
+      <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-[#333333] font-medium">Portugu&ecirc;s</span>
         <img src="/assets/images/flags/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       )}
-      <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
-        <span class="text-[13px] text-text-mid font-medium">Espa&ntilde;ol</span>
+      <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-[#333333] font-medium">Espa&ntilde;ol</span>
         <img src="/assets/images/flags/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
-      <a href={arHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'ar' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
-        <span class="text-[13px] text-text-mid font-medium">العربية</span>
+      <a href={arHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'ar' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-[#333333] font-medium">العربية</span>
         <img src="/assets/images/flags/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
-      <a href={zhHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(255,107,26,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'zh' ? 'bg-[rgba(255,107,26,0.08)] border-l-brand-orange' : ''}">
-        <span class="text-[13px] text-text-mid font-medium">中文</span>
+      <a href={zhHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'zh' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
+        <span class="text-[13px] text-[#333333] font-medium">中文</span>
         <img src="/assets/images/flags/cn.png" alt="China" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
@@ -382,22 +407,22 @@ const homeHref = prefix || '/';
 <!-- Mobile Menu -->
 <div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-[999] flex-col px-5 py-4 pb-8 overflow-y-auto border-t border-border-light" id="mobileMenu">
   <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-products">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-products">
       {_('products')}
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+      <span class="text-[10px] text-[#333333] transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-products">
       {lang === 'en' && navProductFamilies.map((f) => (
         <div>
           <div class="flex items-center gap-1">
-            <a href={f.list} data-list-link={'mobile-products-' + f.id} class="flex-1 py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{f.label}</a>
-            <button type="button" class="mobile-subtoggle shrink-0 flex items-center justify-center w-8 h-8 p-0 bg-transparent border-none cursor-pointer text-text-muted hover:text-brand-orange" data-subtoggle={'mobile-products-' + f.id} aria-expanded="false" aria-controls={'mobile-products-' + f.id} aria-label={f.label}>
+            <a href={f.list} data-list-link={'mobile-products-' + f.id} class="flex-1 py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{f.label}</a>
+            <button type="button" class="mobile-subtoggle shrink-0 flex items-center justify-center w-8 h-8 p-0 bg-transparent border-none cursor-pointer text-[#333333] hover:text-brand-orange" data-subtoggle={'mobile-products-' + f.id} aria-expanded="false" aria-controls={'mobile-products-' + f.id} aria-label={f.label}>
               <span class="block text-[10px] leading-none transition-transform duration-200">▾</span>
             </button>
           </div>
           <div class="mobile-submenu hidden flex-col pl-4 pb-1" id={'mobile-products-' + f.id}>
             {f.cards.map((c) => (
-              <a href={prodDetailHref(f.base, c.slug, f.list)} class="block py-1.5 text-[13px] leading-snug text-text-muted no-underline hover:text-brand-orange">{c.name}</a>
+              <a href={prodDetailHref(f.base, c.slug, f.list)} class="block py-1.5 text-[13px] leading-snug text-[#333333] no-underline hover:text-brand-orange">{c.name}</a>
             ))}
           </div>
         </div>
@@ -407,57 +432,57 @@ const homeHref = prefix || '/';
         { href: productsSvgHref, label: _('staticVarGenerator') },
         { href: productsAsvgHref, label: _('advancedStaticVarGenerator') },
       ].map((x) => (
-        <a href={x.href} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{x.label}</a>
+        <a href={x.href} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{x.label}</a>
       ))}
     </div>
   </div>
   <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-solutions">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-solutions">
       {_('solutions')}
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+      <span class="text-[10px] text-[#333333] transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-solutions">
-      <a href={solIndustryHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('industrialManufacturing')}</a>
-      <a href={solCommercialHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('commercialMedical')}</a>
-      <a href={solDatacenterHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('dataCentersTelecom')}</a>
-      <a href={solRenewableHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('renewableEnergy')}</a>
-      <a href={solRailHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('transportation')}</a>
-      <a href={solGridHref} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('powerGridUtility')}</a>
+      <a href={solIndustryHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('industrialManufacturing')}</a>
+      <a href={solCommercialHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('commercialMedical')}</a>
+      <a href={solDatacenterHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('dataCentersTelecom')}</a>
+      <a href={solRenewableHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('renewableEnergy')}</a>
+      <a href={solRailHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('transportation')}</a>
+      <a href={solGridHref} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('powerGridUtility')}</a>
     </div>
   </div>
   <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-services">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-services">
       {_('services')}
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+      <span class="text-[10px] text-[#333333] transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-services">
-      <a href={servicesHref + '#oem'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('oemOdm')}</a>
-      <a href={servicesHref + '#tech-support'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('technicalSupport')}</a>
-      <a href={servicesHref + '#distributor'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('distributorProgram')}</a>
+      <a href={servicesHref + '#oem'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('oemOdm')}</a>
+      <a href={servicesHref + '#tech-support'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('technicalSupport')}</a>
+      <a href={servicesHref + '#distributor'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('distributorProgram')}</a>
     </div>
   </div>
   <div class="border-b border-border-light">
-    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-about">
+    <div class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em]" data-submenu="mobile-about">
       {_('about')}
-      <span class="text-[10px] text-text-muted transition-transform duration-200">▾</span>
+      <span class="text-[10px] text-[#333333] transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-about">
-      <a href={aboutHref + '#about'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('companyProfile')}</a>
-      <a href={aboutHref + '#industry'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('caseStudies')}</a>
-      <a href={aboutHref + '#certifications'} class="block py-2 text-[14px] text-text-muted no-underline hover:text-brand-orange">{_('certifications')}</a>
+      <a href={aboutHref + '#about'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('companyProfile')}</a>
+      <a href={aboutHref + '#industry'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('caseStudies')}</a>
+      <a href={aboutHref + '#certifications'} class="block py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{_('certifications')}</a>
     </div>
   </div>
   {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && (
   <div class="border-b border-border-light">
-    <a href={newsHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em]">{_('news')}</a>
+    <a href={newsHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em]">{_('news')}</a>
   </div>
   )}
   <div class="border-b-0">
-    <a href={contactHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-text-dark cursor-pointer no-underline tracking-[0.02em] border-b-0">{_('contact')}</a>
+    <a href={contactHref} class="mobile-menu-parent flex items-center justify-between py-4 text-[15px] font-semibold text-[#333333] cursor-pointer no-underline tracking-[0.02em] border-b-0">{_('contact')}</a>
   </div>
   <div class="mt-4 flex items-center gap-2.5 border border-border-light rounded-full px-4 py-2.5 bg-[#f9f9f9]">
-    <input type="text" placeholder={_('search')} class="border-none bg-transparent outline-none text-[14px] text-text-dark flex-1" />
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 shrink-0">
+    <input type="text" placeholder={_('search')} class="border-none bg-transparent outline-none text-[14px] text-[#333333] flex-1" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 shrink-0 text-[#333333]">
       <circle cx="11" cy="11" r="8" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
     </svg>

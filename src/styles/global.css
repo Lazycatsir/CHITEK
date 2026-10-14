@@ -138,13 +138,112 @@
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* ─── OPPO Sans - English site only (Latin subset, 2026-10-09) ─── */
+/* 源：OPPO Sans（MasterGo CDN：OPPOSans Light/Regular/Medium/Bold/Heavy），
+   用 pyftsubset 裁出「拉丁 + 标点 + 符号」子集，单档约 16KB 自托管。
+   仅英文站（html[lang="en"]）使用；zh/es/ar/pt 四语维持 Barlow。
+   字重映射：300←Light 400←Regular 500←Medium 600,700←Bold 800←Heavy
+   （OPPO Sans 只有 5 档，故 600 与 700 同用 Bold；字体不含 μ / ≤ / ≥ 等
+     希腊与数学符号，这些字符仍由后备字体渲染，与现状一致）。 */
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/assets/fonts/OPPOSans-300.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/OPPOSans-400.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/assets/fonts/OPPOSans-500.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/assets/fonts/OPPOSans-600.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/OPPOSans-700.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "OPPO Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/assets/fonts/OPPOSans-800.woff2") format("woff2");
+  unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
+}
+
+/* ─── OPPO Sans SC - 中文站专用（含中文字形，2026-10） ─── */
+/* 中文版：含 CJK 字形；仅 <html lang="zh"> 使用（见下方 html[lang="zh"] 变量覆盖）。
+   由用户提供的 OPPO Sans SC 源文件经 pyftsubset 转 woff2 + 裁 CJK 子集得到。
+   Latin 字符仍由上面的 Latin 子集（OPPO Sans）覆盖，故本块 unicode-range 仅含 CJK，
+   避免重复下载拉丁字形、保持英文/数字走轻量 Latin 面。
+   文件名约定：OPPOSansSC-<weight>.woff2（权重 300/400/500/600/700/800）。 */
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/assets/fonts/OPPOSansSC-300.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/OPPOSansSC-400.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/assets/fonts/OPPOSansSC-500.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/assets/fonts/OPPOSansSC-600.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/OPPOSansSC-700.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+@font-face {
+  font-family: "OPPO Sans SC";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/assets/fonts/OPPOSansSC-800.woff2") format("woff2");
+  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
+}
+
 /* ─── Design tokens ─── */
 
 @theme {
   /* Brand colors */
-  --color-brand-orange: #ff6b1a;
-  --color-brand-orange-dark: #d9550f;
-  --color-brand-orange-light: #ff8c4a;
+  --color-brand-orange: #EA511E;
+  --color-brand-orange-dark: #C43B13;
+  --color-brand-orange-light: #EA724E;
 
   /* Dark backgrounds */
   --color-bg-dark: #07101e;
@@ -171,9 +270,9 @@
   --color-text-secondary: #6d6875;
   --color-border-subtle: #e8d5c8;
   --color-border-card: #fef3e8;
-  --color-electric-orange: #ff6b1a;
-  --color-electric-orange-hover: #d9550f;
-  --color-electric-orange-light: #ff8c4a;
+  --color-electric-orange: #EA511E;
+  --color-electric-orange-hover: #C43B13;
+  --color-electric-orange-light: #EA724E;
   --color-commercial-green: #e9c46a;
   --color-bg-alt-1: #fef3e8;
   --color-bg-alt-2: #fdf0e5;
@@ -287,10 +386,39 @@
    两者最终都是 font-family: var(--font-barlow-condensed)，改变量即可一次全拦住，
    英文站不会再渲染出任何窄体字。 */
 html[lang="en"] {
+  /* 2026-10-09：英文站正文字体换成 OPPO Sans；Barlow 保留为后备字体。
+     仅 en 生效，zh/es/ar/pt 仍走 @theme 里的 Barlow。 */
+  --font-barlow: "OPPO Sans", "Barlow", sans-serif;
   --font-barlow-condensed: var(--font-barlow, "Barlow", sans-serif);
 }
 
 html[lang="en"] .font-barlow-condensed {
+  font-family: var(--font-barlow, "Barlow", sans-serif);
+}
+
+/* ④ 中文站正文字体换成 OPPO Sans SC（含中文字形）；Latin 由上面的 OPPO Sans 覆盖。
+   仅 zh 生效：en 维持 OPPO Sans Latin，es/ar/pt 维持 Barlow。
+   zh 页面 <html lang="zh"> 已由各中文页 BaseLayout lang="zh" 正确输出（已核对 index/about/products/news 等）。 */
+html[lang="zh"] {
+  --font-barlow: "OPPO Sans SC", "OPPO Sans", "Barlow", sans-serif;
+  --font-barlow-condensed: var(--font-barlow, "Barlow", sans-serif);
+}
+
+html[lang="zh"] .font-barlow-condensed {
+  font-family: var(--font-barlow, "Barlow", sans-serif);
+}
+
+/* ⑤ 西班牙(es)/葡萄牙(pt)站正文字体换成 OPPO Sans（Latin 面，含西/葡重音字符）；
+   仅 es/pt 生效。阿拉伯(ar)不换：OPPO Sans 不含阿拉伯文字形，无法覆盖。
+   西/葡均为拉丁脚本，重音字符（ñ/ã/õ/ç 等）已由 Latin 子集覆盖（已核对 cmap）。 */
+html[lang="es"],
+html[lang="pt"] {
+  --font-barlow: "OPPO Sans", "Barlow", sans-serif;
+  --font-barlow-condensed: var(--font-barlow, "Barlow", sans-serif);
+}
+
+html[lang="es"] .font-barlow-condensed,
+html[lang="pt"] .font-barlow-condensed {
   font-family: var(--font-barlow, "Barlow", sans-serif);
 }
 

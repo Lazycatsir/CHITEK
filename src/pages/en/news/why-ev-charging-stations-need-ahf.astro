@@ -36,7 +36,8 @@ const relatedCases = [
   { name: "Anti-Resonance Harmonic Retrofit — Medical Device Manufacturer, Dongguan", industry: "Medical & Healthcare", href: "/solutions/commercial" },
 ];
 
-const lp = (p) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p) => isLocal ? '/en' + p : p;
 
 ---
 <BaseLayout

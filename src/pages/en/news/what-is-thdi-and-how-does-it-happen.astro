@@ -29,7 +29,8 @@ const relatedCases = [
   { name: "Centralised Harmonic Mitigation Across Five 2,000 kVA Transformers — Optical Component Manufacturer, Dongguan", industry: "Precision Optics Manufacturing", href: "/solutions/industrial" },
 ];
 
-const lp = (p: string) => '/en' + p;
+const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
+const lp = (p: string) => isLocal ? '/en' + p : p;
 ---
 <BaseLayout
   title={`${article.title} | CHITEK INNOPOWER`} 
