@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const meta = {
   title: '208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG | Advanced Static Var Generator | CHITEK',
-  description: 'CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG — IGBT advanced static var generator (ASVG). Power factor held at your target, 208-690V, 50 A – 200 A per module (parallel expandable, unlimited).',
+  description: 'CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG — IGBT advanced static var generator (ASVG). Power factor held at your target, 208-480V, 50 A – 200 A per module (parallel expandable, unlimited).',
 };
 
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
@@ -32,10 +32,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@type": "Product",
     "name": "CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG",
     "brand": { "@type": "Brand", "name": "CHITEK INNOPOWER" },
-    "description": "CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG (IGBT advanced static var generator (ASVG)) delivering real-time reactive power compensation, power factor correction and load balancing with power factor held at your target across a 208–690V, 50 A – 200 A per module (parallel expandable, unlimited) range.",
+    "description": "CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG (IGBT advanced static var generator (ASVG)) delivering real-time reactive power compensation, power factor correction and load balancing with power factor held at your target across a 208–480V, 50 A – 200 A per module (parallel expandable, unlimited) range.",
     "category": "Power Quality / Reactive Power Compensation",
     "additionalProperty": [
-      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "208-690V" },
+      { "@type": "PropertyValue", "name": "Rated Voltage", "value": "208-480V" },
       { "@type": "PropertyValue", "name": "Rated Capacity", "value": "50 A – 200 A per module (parallel expandable, unlimited)" },
       { "@type": "PropertyValue", "name": "Frequency", "value": "50/60 Hz" },
       { "@type": "PropertyValue", "name": "Wiring", "value": "3P3W / 3P4W" },
@@ -57,7 +57,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "mainEntity": [
       { "@type": "Question", "name": "What is an advanced static var generator (ASVG)?", "acceptedAnswer": { "@type": "Answer", "text": "A advanced static var generator is a power-electronics device that measures the load current with an external CT, separates the reactive component from the active current with a DSP, and injects or absorbs the compensation current through a fast inverter bridge. The utility then sees only the fundamental, with the power factor at the level you set." } },
       { "@type": "Question", "name": "How does the ASVG work?", "acceptedAnswer": { "@type": "Answer", "text": "An external CT samples the load current; a DSP/FPGA separates the reactive component and the phase imbalance in real time; the inverter bridge then injects or absorbs the compensation current continuously rather than in switched steps. The result is a stepless correction that holds power factor at target at the point of common coupling." } },
-      { "@type": "Question", "name": "What capacity and voltage range is available?", "acceptedAnswer": { "@type": "Answer", "text": "50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–690V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants." } },
+      { "@type": "Question", "name": "What capacity and voltage range is available?", "acceptedAnswer": { "@type": "Answer", "text": "50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–480V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants." } },
       { "@type": "Question", "name": "Can it hold power factor and balance loads at the same time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A selectable priority function covers reactive power compensation, power factor correction and three-phase balancing. In 3P4W mode it also cancels the accumulated neutral current." } },
       { "@type": "Question", "name": "How is it installed and what protection rating does it have?", "acceptedAnswer": { "@type": "Answer", "text": "Installed as wall-mounted or rack / cabinet type; rated IP20, IP30 (customizable). The enclosure is built for the duty cycle of industrial switchrooms and can be customized for harsher or outdoor sites." } },
       { "@type": "Question", "name": "How do I confirm the right model for my site?", "acceptedAnswer": { "@type": "Answer", "text": "Send us the load profile, voltage class and your target power factor. CHITEK supplies a selection matrix by voltage class, series and capacity, plus a sizing calculation on request." } }
@@ -117,7 +117,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
           <div class="text-[14px] font-normal text-[#333333] leading-[1.9] mb-5">
             <p><strong class="text-[#333333] font-bold">Function:</strong> Reactive Power Compensation, Power Factor Correction, Imbalance Phase Balancing</p>
-            <p><strong class="text-[#333333] font-bold">Rated Voltage:</strong> 208/400/480/690/800 VAC</p>
+            <p><strong class="text-[#333333] font-bold">Rated Voltage:</strong> 208/400/480 VAC</p>
             <p><strong class="text-[#333333] font-bold">Power Capacity:</strong> 50/75/100/150/200A single module (unlimited for parallel)</p>
             <p><strong class="text-[#333333] font-bold">Efficiency:</strong> ≥ 97%</p>
             <p><strong class="text-[#333333] font-bold">Compensation Performance:</strong> up to 97%</p>
@@ -142,8 +142,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>
                 <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="400V" /> 400V</label>
                 <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="480V" /> 480V</label>
-                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="690V" /> 690V</label>
-                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-3.5 py-2.5 text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="800V" /> 800V</label>
+                
+                
                   </div>
                 </div>
                 <div>
@@ -201,17 +201,17 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         <div>
           <div data-gallery class="rounded-2xl border border-border-light bg-[#fafbfc] px-6 pb-6 pt-2 flex flex-col items-center">
             <div class="w-full flex items-center justify-center overflow-hidden">
-              <img data-gallery-main src="/assets/images/products-ahf-anti-pollution.webp" alt="CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
+              <img data-gallery-main src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG" width="1200" height="1200" class="w-auto h-auto max-w-full max-h-[400px] object-contain" loading="eager" />
             </div>
             <div class="mt-4 grid grid-cols-3 gap-3 w-full shrink-0">
               <button type="button" data-gallery-thumb data-src="/assets/images/products-ahf-anti-pollution.webp" data-alt="CHITEK 208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG" class="gallery-thumb is-active overflow-hidden rounded-lg border border-border-light bg-white p-1">
-                <img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG front view" class="w-full h-[72px] object-contain" loading="lazy" />
+                <img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG front view" width="1200" height="1200" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
               <button type="button" data-gallery-thumb data-src="/assets/images/index-product-svg.webp" data-alt="CHITEK Advanced Static Var Generator ASVG module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
-                <img src="/assets/images/index-product-svg.webp" alt="ASVG module view" class="w-full h-[72px] object-contain" loading="lazy" />
+                <img src="/assets/images/index-product-svg.webp" srcset="/assets/images/index-product-svg-480w.webp 480w, /assets/images/index-product-svg.webp 709w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="ASVG module view" width="709" height="1155" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
               <button type="button" data-gallery-thumb data-src="/assets/images/index-product-avr.webp" data-alt="CHITEK Automatic Voltage Regulator AVR module" class="gallery-thumb overflow-hidden rounded-lg border border-border-light bg-white p-1">
-                <img src="/assets/images/index-product-avr.webp" alt="AVR module view" class="w-full h-[72px] object-contain" loading="lazy" />
+                <img src="/assets/images/index-product-avr.webp" srcset="/assets/images/index-product-avr-480w.webp 480w, /assets/images/index-product-avr.webp 709w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="AVR module view" width="709" height="1155" class="w-full h-[72px] object-contain" loading="lazy" />
               </button>
             </div>
           </div>
@@ -225,7 +225,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </div>
               <div class="flex items-center justify-between gap-4">
                 <p class="m-0 text-[14px] font-semibold tracking-[0.08em] text-[#626469]">Voltage level</p>
-                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">208/400/480/690/800 VAC</p>
+                <p class="m-0 text-[14px] font-medium text-[#626469] text-right">208/400/480 VAC</p>
               </div>
             </div>
             <ul class="m-0 p-0 list-none border-t border-border-light">
@@ -305,11 +305,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">Parameters</h2>
       <!-- Right column: voltage tabs + the two spec tables (grid cell 2) -->
       <div class="min-w-0">
-      <div class="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Voltage rating">
-        <button type="button" role="tab" id="tab-lv" data-volt-tab="lv" aria-selected="true" aria-controls="panel-lv" class="text-[14px] font-semibold px-4 py-2 rounded-lg border border-[#ea511e] bg-[#ea511e] text-white">208VAC / 400VAC / 480VAC</button>
-        <button type="button" role="tab" id="tab-hv" data-volt-tab="hv" aria-selected="false" aria-controls="panel-hv" class="text-[14px] font-semibold px-4 py-2 rounded-lg border border-border-light bg-white text-text-mid">690VAC / 800VAC</button>
-      </div>
-      <div id="panel-lv" role="tabpanel" aria-labelledby="tab-lv" data-volt-panel="lv">
+      
+      <div id="spec-table" data-volt-panel="lv">
       <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
         <table class="w-full border-collapse text-[clamp(14px,1.1vw,16px)] leading-tight text-left">
           <tbody>
@@ -357,82 +354,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         </table>
       </div>
       </div>
-      <div id="panel-hv" role="tabpanel" aria-labelledby="tab-hv" data-volt-panel="hv" hidden>
-      <div class="overflow-x-auto rounded-2xl border border-border-light bg-white">
-        <table class="w-full border-collapse text-[clamp(14px,1.1vw,16px)] leading-tight text-left">
-          <tbody>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Module Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Voltage</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">800VAC</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">690VAC</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Current</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 85A</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">APF 100A</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Power Capacity</th><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 120Kvar</td><td class="py-2 px-3 text-[#333333] border-l border-border-light whitespace-nowrap">SVG 120Kvar</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">System Parameters</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Rated Input Voltage</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">800/690VAC (-20%~+10%)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Grid Frequency</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">50Hz (range: 47Hz~53Hz), 60Hz (range: 57Hz~63Hz)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Number of Parallel Connections</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&le; 16 units</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Efficiency</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Up to 98%</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Grid Structure</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Three-phase three-wire</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Current Transformer</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">150/5~30,000/5</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Performance Indicators</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Harmonic Compensation Range</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">2~50 times</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Harmonic Attenuation</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&gt;95% (rated load)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Quick Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt; 50&micro;s</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Full Response Time</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt; 5ms</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Target Power Factor</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">-1~+1, capacitive and inductive continuously adjustable</td></tr>
-<tr data-param-toggle-row class="border-b border-border-light"><td></td><td colspan="2" class="py-2 px-4 pr-10"><button type="button" data-param-toggle aria-expanded="false" aria-controls="parameters-more-hv" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#ea511e] hover:underline cursor-pointer"><span data-param-toggle-label>Show all parameters</span><span aria-hidden="true" data-param-toggle-icon class="inline-flex items-center text-[15px] leading-none transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button></td></tr>
-          </tbody>
-          <tbody id="parameters-more-hv" data-param-more hidden>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Compensation Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Harmonic suppression / reactive power compensation / unbalance compensation, any combination of 11 modes</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Noise Indicator</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&lt;60dB</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Communications &amp; Monitoring</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Communication Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">RS485, WiFi, 4G, CAN</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Communication Protocol</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Modbus protocol (RTU or TCP/IP)</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Module Display Interface</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">4.3 inch touch screen, LED indicators, independent touch screen</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Mechanical Properties</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Mounting Options</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Wall-mounted / Rail-mounted</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Dimensions W&times;D&times;H (mm)</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">480&times;600&times;175</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Net Weight</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">40kg</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Color</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Industrial black (RAL7021), customizable upon request</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">CT Connection Mode</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">Support the source side / load side</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Environmental Requirements</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Altitude</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">&le;1500m; between 1500m and 4000m, according to GB/T3859.2, power decreases by 1% for every 100m increase</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Operating Temperature</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">-40&#8451;~+65&#8451;</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Relative Humidity</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">5%~95%, no condensation</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Protection Level</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">IP20, other IP levels customizable</td></tr>
-          <tr class="border-b border-border-light bg-[#f3f2f2]"><th colspan="3" class="text-left py-2 px-4 font-normal text-[#333333]">Related Qualifications and Standards</th></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Standards Compliance</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
-          <tr class="border-b border-border-light"><th class="text-left py-2 px-4 pr-8 bg-[#fafbfc] font-semibold text-[#333333] whitespace-nowrap w-[30%]">Certification</th><td colspan="2" class="py-2 px-4 pr-10 text-[#333333]">CE, CQC</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <script is:inline>
-        (function () {
-          function setVoltTab(name) {
-            document.querySelectorAll('[data-volt-tab]').forEach(function (b) {
-              var on = b.getAttribute("data-volt-tab") === name;
-              b.setAttribute("aria-selected", on ? "true" : "false");
-              b.classList.toggle("bg-[#ea511e]", on);
-              b.classList.toggle("text-white", on);
-              b.classList.toggle("border-[#ea511e]", on);
-              b.classList.toggle("bg-white", !on);
-              b.classList.toggle("text-text-mid", !on);
-              b.classList.toggle("border-border-light", !on);
-            });
-            document.querySelectorAll('[data-volt-panel]').forEach(function (p) {
-              p.hidden = p.getAttribute("data-volt-panel") !== name;
-            });
-          }
-          function onVoltClick(e) {
-            var t = e.target.closest('[data-volt-tab]');
-            if (!t) return;
-            setVoltTab(t.getAttribute('data-volt-tab'));
-          }
-          if (!window.__voltToggleBound) {
-            document.addEventListener('click', onVoltClick);
-            window.__voltToggleBound = true;
-          }
-        })();
-      </script>
-      </div>
+      
       </div>
     </div>
   </section>
@@ -447,10 +369,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         <div data-easy-install-row class="sm:col-span-2 lg:grid lg:grid-cols-[minmax(0,36fr)_minmax(0,64fr)] lg:gap-6 lg:items-stretch">
           <div data-easy-install-media class="w-full mb-5 lg:mb-0">
             <figure data-ei-shot="hardware" class="m-0">
-              <img src="/assets/images/sic-ultra-ahf-ct-terminals.webp" alt="CT wiring terminals (S1/S2), RJ45 and CAN module-paralleling ports and communication DIP switches on the CHITEK SiC module" width="835" height="401" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-cover" />
+              <img src="/assets/images/sic-ultra-ahf-ct-terminals.webp" srcset="/assets/images/sic-ultra-ahf-ct-terminals-480w.webp 480w, /assets/images/sic-ultra-ahf-ct-terminals.webp 835w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="CT wiring terminals (S1/S2), RJ45 and CAN module-paralleling ports and communication DIP switches on the CHITEK SiC module" width="835" height="401" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-cover" />
             </figure>
             <figure data-ei-shot="software" class="m-0 mt-5">
-              <img src="/assets/images/sic-ultra-ahf-software-tri-panel.webp" alt="Tri-panel engineering diagram of the CHITEK SiC control system: signal acquisition and processing, digital control algorithms, and electrical design" width="1536" height="1024" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-contain" />
+              <img src="/assets/images/sic-ultra-ahf-software-tri-panel.webp" srcset="/assets/images/sic-ultra-ahf-software-tri-panel-480w.webp 480w, /assets/images/sic-ultra-ahf-software-tri-panel-960w.webp 960w, /assets/images/sic-ultra-ahf-software-tri-panel.webp 1536w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Tri-panel engineering diagram of the CHITEK SiC control system: signal acquisition and processing, digital control algorithms, and electrical design" width="1536" height="1024" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-border-light object-contain" />
             </figure>
           </div>
           <div class="rounded-2xl border border-border-light p-6 lg:min-w-0">
@@ -514,7 +436,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="cert-slot">
             <a href="/assets/images/certificate-01-eutest-ce.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the EUTEST CE certificate in full size">
               <div class="aspect-[3/4] rounded-xl border border-border-light bg-white overflow-hidden flex items-center justify-center p-2 transition-shadow group-hover:shadow-md">
-                <img src="/assets/images/certificate-01-eutest-ce.webp" alt="EUTEST Attestation of Conformity TD11432302.R1 for the CHITEK Active Power Filter, covering EU Low Voltage Directive 2014/35/EU and EMC Directive 2014/30/EU" width="1200" height="1696" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+                <img src="/assets/images/certificate-01-eutest-ce.webp" srcset="/assets/images/certificate-01-eutest-ce-480w.webp 480w, /assets/images/certificate-01-eutest-ce-960w.webp 960w, /assets/images/certificate-01-eutest-ce.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="EUTEST Attestation of Conformity TD11432302.R1 for the CHITEK Active Power Filter, covering EU Low Voltage Directive 2014/35/EU and EMC Directive 2014/30/EU" width="1200" height="1696" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
             <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">CE — LVD &amp; EMC (EUTEST, 2023)</p>
@@ -522,7 +444,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="cert-slot">
             <a href="/assets/images/certificate-02-tuv-sud.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the TÜV SÜD attestation in full size">
               <div class="aspect-[3/4] rounded-xl border border-border-light bg-white overflow-hidden flex items-center justify-center p-2 transition-shadow group-hover:shadow-md">
-                <img src="/assets/images/certificate-02-tuv-sud.webp" alt="TÜV SÜD Attestation of Conformity No. N8A 136516 0001 Rev. 00 for the CHITEK Active Power Filter, issued under EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+                <img src="/assets/images/certificate-02-tuv-sud.webp" srcset="/assets/images/certificate-02-tuv-sud-480w.webp 480w, /assets/images/certificate-02-tuv-sud-960w.webp 960w, /assets/images/certificate-02-tuv-sud.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="TÜV SÜD Attestation of Conformity No. N8A 136516 0001 Rev. 00 for the CHITEK Active Power Filter, issued under EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
             <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">LVD 2014/35/EU (TÜV SÜD, 2026)</p>
@@ -530,7 +452,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="cert-slot">
             <a href="/assets/images/certificate-03-ccic-emc-report.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the EMC test report in full size">
               <div class="aspect-[3/4] rounded-xl border border-border-light bg-white overflow-hidden flex items-center justify-center p-2 transition-shadow group-hover:shadow-md">
-                <img src="/assets/images/certificate-03-ccic-emc-report.webp" alt="EMC test report No. SET2022-01936 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. (CNAS L1659 accredited laboratory)" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+                <img src="/assets/images/certificate-03-ccic-emc-report.webp" srcset="/assets/images/certificate-03-ccic-emc-report-480w.webp 480w, /assets/images/certificate-03-ccic-emc-report-960w.webp 960w, /assets/images/certificate-03-ccic-emc-report.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="EMC test report No. SET2022-01936 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. (CNAS L1659 accredited laboratory)" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
             <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">EMC test report (CCIC-SET, 2022)</p>
@@ -538,7 +460,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           <div class="cert-slot">
             <a href="/assets/images/certificate-04-ccic-ce-lvd.webp" target="_blank" rel="noopener noreferrer" class="group block" aria-label="Open the CE attestation of conformity in full size">
               <div class="aspect-[3/4] rounded-xl border border-border-light bg-white overflow-hidden flex items-center justify-center p-2 transition-shadow group-hover:shadow-md">
-                <img src="/assets/images/certificate-04-ccic-ce-lvd.webp" alt="CE Attestation of Conformity No. SET2022-02884 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. to EN 62477-1:2012+A11:2014 and EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+                <img src="/assets/images/certificate-04-ccic-ce-lvd.webp" srcset="/assets/images/certificate-04-ccic-ce-lvd-480w.webp 480w, /assets/images/certificate-04-ccic-ce-lvd-960w.webp 960w, /assets/images/certificate-04-ccic-ce-lvd.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="CE Attestation of Conformity No. SET2022-02884 for the Active Power Filter, issued by CCIC Southern Testing Co., Ltd. to EN 62477-1:2012+A11:2014 and EU Low Voltage Directive 2014/35/EU" width="1200" height="1697" loading="lazy" decoding="async" class="w-full h-full object-contain" />
               </div>
             </a>
             <p class="mt-2 text-[13px] leading-snug text-text-muted text-center">CE / LVD 2014/35/EU (CCIC-SET, 2022)</p>
@@ -567,7 +489,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q3: What capacity and voltage range is available?</summary>
-          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–690V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants.</p>
+          <p class="mt-3 text-text-mid text-[clamp(13px,1.15vw,17px)] leading-relaxed">50 A – 200 A per module (parallel expandable, unlimited), 3P3W/3P4W, covering 208–480V. Modules parallel without a practical limit to reach 3000 A and beyond for large plants.</p>
         </details>
         <details class="bg-white rounded-2xl border border-border-light p-5">
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q4: Can it hold power factor and balance loads at the same time?</summary>
@@ -628,51 +550,51 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         </button>
         <div data-rel-viewport class="overflow-hidden flex-1 min-w-0 touch-pan-y">
           <div data-rel-track class="flex gap-4 md:gap-10 transition-transform duration-500 ease-out">                    <a href={lp('/products-asvg/sic-ultra-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Silicon Carbide MOSFET Advanced Static Var Generator SiC (50-200A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Silicon Carbide MOSFET Advanced Static Var Generator SiC (50-200A)</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/anti-pollution-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="208V/400V/480V Anti-Pollution Advanced Static Var Generator (50-200A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">208V/400V/480V Anti-Pollution Advanced Static Var Generator (50-200A)</h3>
             </div>
           </a>
-          <a href={lp('/products-asvg/anti-pollution-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" alt="690V/800V Anti-Pollution Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+          <a href={lp('/products-asvg/anti-pollution-hv-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" srcset="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount-480w.webp 480w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount-960w.webp 960w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="690V/800V Anti-Pollution Advanced Static Var Generator (85-100A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">690V/800V Anti-Pollution Advanced Static Var Generator ASVG</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">690V/800V Anti-Pollution Advanced Static Var Generator (85-100A)</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/ultra-slim-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Ultra-slim Advanced Static Var Generator (8-20A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Ultra-slim Advanced Static Var Generator ASVG</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Ultra-slim Advanced Static Var Generator (8-20A)</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/distributed-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-distributed.webp" alt="Distributed Advanced Static Var Generator ASVG" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-distributed.webp" srcset="/assets/images/products-ahf-distributed-480w.webp 480w, /assets/images/products-ahf-distributed-960w.webp 960w, /assets/images/products-ahf-distributed.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Distributed Advanced Static Var Generator (30-50A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Distributed Advanced Static Var Generator ASVG</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">Distributed Advanced Static Var Generator (30-50A)</h3>
             </div>
           </a>
-          <a href={lp('/products-asvg/sic-fanless-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Advanced Static Var Generator" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+          <a href={lp('/products-asvg/ip65-sic-fanless-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
+            <img src="/assets/images/products-ahf-ip65-fanless.webp" srcset="/assets/images/products-ahf-ip65-fanless-480w.webp 480w, /assets/images/products-ahf-ip65-fanless-960w.webp 960w, /assets/images/products-ahf-ip65-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Fanless Advanced Static Var Generator 25A" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Fanless &amp; Low Noise Advanced Static Var Generator</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Fanless Advanced Static Var Generator 25A</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/ip65-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Advanced Static Var Generator" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-ip65.webp" srcset="/assets/images/products-ahf-ip65-480w.webp 480w, /assets/images/products-ahf-ip65-960w.webp 960w, /assets/images/products-ahf-ip65.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 Advanced Static Var Generator (100-150A)" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 Advanced Static Var Generator</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 Advanced Static Var Generator (100-150A)</h3>
             </div>
           </a>
           <a href={lp('/products-asvg/sic-fanless-asvg')} class="rel-card group shrink-0 w-full md:w-[calc((100%-7.5rem)/4)] rounded-xl overflow-hidden border border-[#e5e7eb] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.10)] transition-shadow">
-            <img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Advanced Static Var Generator" loading="lazy" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
+            <img src="/assets/images/products-ahf-sic-fanless.webp" srcset="/assets/images/products-ahf-sic-fanless-480w.webp 480w, /assets/images/products-ahf-sic-fanless-960w.webp 960w, /assets/images/products-ahf-sic-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Low Noise Fan Advanced Static Var Generator 50A" loading="lazy" width="1200" height="1200" class="w-full aspect-square object-cover bg-[#f3f4f6]" />
             <div class="p-5">
-              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">SiC-Fanless &amp; Low Noise Advanced Static Var Generator</h3>
+              <h3 class="text-[clamp(15px,1.35vw,22px)] font-semibold text-[#111827] group-hover:text-brand-orange transition-colors leading-[1.3]">IP65 SiC-Low Noise Fan Advanced Static Var Generator 50A</h3>
             </div>
           </a>
                     </div>
@@ -833,12 +755,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       var inputs = document.querySelectorAll('input[type="checkbox"][data-group]');
       // placeholder specs keyed by current rating (depth mm, weight kg); W x H fixed 500 x 550
       var SPECS = {
-        'Unlimited': { d: 135, kg: 27 }, // parallel (up to 16 modules): base module spec as placeholder
-        '50A':  { d: 150, kg: 21 },
-        '75A':  { d: 142, kg: 24 },
-        '100A': { d: 135, kg: 27 },
-        '150A': { d: 100, kg: 31 },
-        '200A': { d: 118, kg: 38 }
+        'Unlimited': { d: 175, kg: 27 }, // parallel (up to 16 modules): base module spec as placeholder (d follows 200A)
+        '50A':  { d: 130, kg: 21 },
+        '75A':  { d: 130, kg: 24 },
+        '100A': { d: 130, kg: 27 },
+        '150A': { d: 130, kg: 31 },
+        '200A': { d: 175, kg: 38 }
       };
       var DEF = { v: '400V', a: '100A', i: 'Rack', p: 'IP20' };
       function pick(g) {
@@ -853,7 +775,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         var a = pick('a')[0] || DEF.a;
         var i = pick('i')[0] || DEF.i;
         var p = pick('p')[0] || DEF.p;
-        var spec = SPECS[a] || { d: 135, kg: 27 };
+        var spec = SPECS[a] || { d: 130, kg: 27 };
         var partNo = 'ANTI_POLLUTION_ASVG_' + a + '-' + v + '-' + i + '-' + p;
         var detail = partNo + ' · 500 × 550 × ' + spec.d + ' mm · ' + spec.kg + ' kg';
         // Summary bar: the visible line is rebuilt as spans (no hidden field; the CTA is a plain link)

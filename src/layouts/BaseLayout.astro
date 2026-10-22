@@ -37,6 +37,15 @@ const siteOrigin = LOCALE_DOMAIN[lang as Locale];
 
 const defaultOgImage = `${siteOrigin}/assets/images/logo.webp`;
 
+/* ── 2026-10-15 Phase1-1.3：关键字体 preload ──
+   只 preload「拉丁/Barlow」这类小文件（~16-20KB）。
+   刻意不 preload OPPO Sans SC：单个 CJK 字重 1.06-1.09MB，zh 站 preload 它
+   会和 LCP 图抢移动端带宽，反而拖慢首屏。zh 站的 CJK 字体交给
+   font-display:swap 的正常按需加载（见 global.css）。 */
+const preloadFont = lang === 'ar'
+  ? '/assets/fonts/Barlow-400.woff2'
+  : (lang === 'zh' ? null : '/assets/fonts/OPPOSans-400.woff2');
+
 /* 社交账号 = Footer 第 1/2/3 个图标（2026-10-08 裁定的单一来源）。
    注：contact 页的 Facebook / Twitter / Instagram 三图标当前是 data-social-temp 占位
    （暂指 LinkedIn），真主页 URL 到位后需同时更新此数组 + Footer + contact 三处。 */
@@ -79,6 +88,10 @@ const websiteSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <!-- Phase1-1.3：关键字体 preload（仅小体积拉丁字体，zh 的 CJK 字体不 preload） -->
+  {preloadFont && (
+    <link rel="preload" href={preloadFont} as="font" type="font/woff2" crossorigin />
+  )}
   <!-- Bing Webmaster Tools 站点验证（全语言/全子域通用，与 public/BingSiteAuth.xml 互为备份） -->
   <meta name="msvalidate.01" content="97E3493522EEB269E495058E6ECCE683" />
   <!-- Favicon：主图标用 logo-head.svg（C 字标，现代浏览器原生支持）；PNG 为 Safari/iOS 兜底 -->

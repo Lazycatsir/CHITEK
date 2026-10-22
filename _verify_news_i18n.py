@@ -18,7 +18,7 @@ import sys
 import urllib.error
 import urllib.request
 
-ROOT = pathlib.Path(r"F:\下载\CHITEK")
+ROOT = pathlib.Path(__file__).resolve().parent
 PAGES = ROOT / "src" / "pages"
 DATA = ROOT / "src" / "data"
 

@@ -11,34 +11,38 @@ const lp = (p: string) => isLocal ? '/pt' + p : p;
 
 // Featured products：8 张 AHF 系列卡。⚠️ 2026-09-24 用户要求首页单独改名（去掉 "Active Harmonic Filter"、以系列后缀收尾）→ **名称已与 /en/products 列表页不一致**，图 / 链接仍一致。2026-10-08 后缀由 AHF 改为 AHF/SVG。每面 5 张（≥1024px）；第一面固定为 208V / 690V-800V / SiC / Ultra-Slim / IP65 SiC-Fanless。
 // 2026-10-12：8 张卡全部加电流规格后缀 spec，渲染时用 .fp-spec 与主名隔开一个 tab 的间距（样式见页面 <style>）。
-// spec 依次为：(50-200A) / (50-200A) / (50-200A) / (8-20A) / (25-50A) / (30-50A) / (100-150A) / (25-50A)
+// spec 依次为：(50-200A) / (50-200A) / (50-200A) / (8-20A) / (25A) / (30-50A) / (100-150A) / (50A)
 const featuredProducts = [
   { name: '208V/400V/480V Anti-contaminação Filtro Ativo de Harmônicos', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution' },
-  { name: '690V/800V Anti-contaminação Filtro Ativo de Harmônicos', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount' },
+  { name: '690V/800V Anti-contaminação Filtro Ativo de Harmônicos', spec: '(50-150A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount' },
   { name: 'MOSFET de Carbeto de Silício Filtro Ativo de Harmônicos SiC', spec: '(50-200A)', href: '/en/products/sic-ultra-ahf', img: 'products-ahf-sic' },
   { name: 'Ultrafino Filtro Ativo de Harmônicos', spec: '(8-20A)', href: '/en/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim-rackmount' },
-  { name: 'IP65 SiC-Fanless e Baixo Ruído Filtro Ativo de Harmônicos', spec: '(25-50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
+  { name: 'IP65 SiC-Fanless Filtro Harmônico AHF/SVG', spec: '(25A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
   { name: 'Distribuído Filtro Ativo de Harmônicos', spec: '(30-50A)', href: '/en/products/distributed-ahf', img: 'products-ahf-distributed-rackmount', single: true },
   { name: 'IP65 Filtro Ativo de Harmônicos', spec: '(100-150A)', href: '/en/products/ip65-ahf', img: 'products-ahf-ip65' },
-  { name: 'SiC-Fanless e Baixo Ruído Filtro Ativo de Harmônicos', spec: '(25-50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
+  { name: 'SiC- Low Noise Fan Filtro Harmônico AHF/SVG', spec: '(50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
 ];
 ---
 
 <BaseLayout lang="pt" title={meta.title} description={meta.description}>
   <!-- HERO -->
-  <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc((100vh-72px)*2/5)] max-lg:min-h-[560px] max-md:min-h-[600px] flex items-center">
+  <section id="hero-section" class="hero relative overflow-hidden mt-[72px] min-h-[calc((100vh-72px)*2/5)] max-lg:min-h-[560px] max-md:min-h-[300px] flex items-center">
     <div class="hero-carousel absolute inset-0 z-0 pointer-events-none">
-      <img src="/assets/images/index-hero-product-family.webp" alt="Gama de Produtos mais Completa — AHF, SVG e ASVG, 208V a 800V, IP20 a IP65" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
-      <img src="/assets/images/index-hero-bg.webp" alt="Engenheiro a cablar equipamento de qualidade de energia montado em rack numa sala de servidores" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
-      <img src="/assets/images/products-key-features.webp" alt="I&D e fabrico internos — equipamento de qualidade de energia CHITEK numa planta de produção" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <picture class="contents">
+        <source media="(min-width:1024px)" srcset="/assets/images/index-hero-lineup-wide-1440w.webp 1440w, /assets/images/index-hero-lineup-wide.webp 3924w" sizes="100vw" />
+        <img src="/assets/images/index-hero-lineup.webp" srcset="/assets/images/index-hero-lineup-480w.webp 480w, /assets/images/index-hero-lineup-960w.webp 960w, /assets/images/index-hero-lineup.webp 2172w" sizes="100vw" alt="Gama de Produtos mais Completa — AHF, SVG e ASVG, 208V a 800V, IP20 a IP65" width="2172" height="654" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" fetchpriority="high" />
+      </picture>
+      <img data-hero-src="/assets/images/index-hero-bg.webp" data-hero-srcset="/assets/images/index-hero-bg-480w.webp 480w, /assets/images/index-hero-bg-960w.webp 960w, /assets/images/index-hero-bg.webp 2000w" sizes="100vw" alt="Engenheiro a cablar equipamento de qualidade de energia montado em rack numa sala de servidores" width="2000" height="655" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
+      <img data-hero-src="/assets/images/products-key-features.webp" data-hero-srcset="/assets/images/products-key-features-480w.webp 480w, /assets/images/products-key-features-960w.webp 960w, /assets/images/products-key-features.webp 1920w" sizes="100vw" alt="I&D e fabrico internos — equipamento de qualidade de energia CHITEK numa planta de produção" width="1920" height="1025" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
     </div>
 
     <!-- 文字面板 0：产品主题（第 1 页，2026-09-28 与能源面板对调后升为首屏） -->
     <div class="hero-text hero-text-active absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
       <h1 class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
-        Baixa Tensão <span class="text-brand-orange">AHF, SVG e ASVG</span> Fabricante<br />
+        Baixa Tensão AHF, SVG e ASVG Fabricante<br />
         para Qualidade de Energia Industrial e Comercial
       </h1>
+      <div class="w-14 h-[3px] bg-brand-orange mt-1 mb-4" aria-hidden="true"></div>
       <p class="font-normal text-white/85 leading-[1.55] max-w-[620px]">
         208V to 800V, IP20 to IP65, IGBT and SiC — engineered and manufactured
         in our own plant. One focus, the widest range.
@@ -48,8 +52,9 @@ const featuredProducts = [
     <!-- 文字面板 1：Easy Installation & Wiring（第 2 页，2026-09-30 由 Fullest Product Range 换入） -->
     <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
       <p class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
-        Fácil <span class="text-brand-orange">Instalação</span> e Cablagem
+        Fácil Instalação e Cablagem
       </p>
+      <div class="w-14 h-[3px] bg-brand-orange mt-1 mb-4" aria-hidden="true"></div>
       <p class="font-normal text-white/85 leading-[1.55] max-w-[620px] mb-5">
         Plug-and-play · terminais à prova de erros · afinação automática
       </p>
@@ -58,8 +63,9 @@ const featuredProducts = [
     <!-- 文字面板 2：In-house R&D & Manufacturing（第 3 页，2026-09-30 新增，主题=研发生产实力） -->
     <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]">
       <p class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
-        I&amp;D <span class="text-brand-orange">Interna</span> e Fabrico
+        I&amp;D Interna e Fabrico
       </p>
+      <div class="w-14 h-[3px] bg-brand-orange mt-1 mb-4" aria-hidden="true"></div>
       <p class="font-normal text-white/85 leading-[1.55] max-w-[620px] mb-5">
         Equipa de I&D experiente · 30+ patentes · Todas as certificações necessárias obtidas
       </p>
@@ -90,7 +96,7 @@ const featuredProducts = [
             <li class={`fp-item${p.single ? ' fp-item--single' : ''}`}>
               <a href={p.href} class="fp-card block no-underline">
                 <div class="fp-stage">
-                  <img src={`/assets/images/${p.img}.webp`} alt={p.name} width="1200" height="1200" loading="lazy" class="max-w-full max-h-full object-contain" />
+                  <img src={`/assets/images/${p.img}.webp`} srcset={`/assets/images/${p.img}-480w.webp 480w, /assets/images/${p.img}-960w.webp 960w, /assets/images/${p.img}.webp 1200w`} sizes="(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 300px" alt={p.name} width="1200" height="1200" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
                 <h3 class="fp-name">{p.name}{p.spec && <span class="fp-spec">{p.spec}</span>}</h3>
               </a>
@@ -353,15 +359,41 @@ const featuredProducts = [
     if (heroSlides.length > 1) {
       let heroIdx = 0;
       let heroTimer = null;
+      /* 2026-10-21 性能 P0-2：首屏只加载第 1 张轮播图（LCP），其余两张延迟注入。
+         这 3 张是 absolute inset-0 叠在首屏里，始终在视口内 → loading="lazy" 不生效，
+         只能用 data-hero-src + 手动注入。省首屏约 228KB（第 2 张 64KB + 第 3 张 164KB）。
+         无 JS 时第 1 张仍正常显示，轮播本身也依赖 JS，属渐进增强。 */
+      const heroEnsure = (img) => {
+        if (img && img.dataset.heroSrc && !img.hasAttribute('src')) {
+          /* 一并注入 srcset：手机轮播时不再下 2000px 原图 */
+          if (img.dataset.heroSrcset) img.setAttribute('srcset', img.dataset.heroSrcset);
+          img.src = img.dataset.heroSrc;
+        }
+      };
       const heroShow = (i) => {
         heroSlides[heroIdx].classList.remove('hero-slide-active');
         if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.remove('hero-text-active');
         if (heroDots[heroIdx]) heroDots[heroIdx].classList.remove('hero-dot-active');
         heroIdx = (i + heroSlides.length) % heroSlides.length;
+        heroEnsure(heroSlides[heroIdx]);
         heroSlides[heroIdx].classList.add('hero-slide-active');
         if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.add('hero-text-active');
         if (heroDots[heroIdx]) heroDots[heroIdx].classList.add('hero-dot-active');
+        heroEnsure(heroSlides[(heroIdx + 1) % heroSlides.length]);
       };
+      /* 首屏（load）完成后再预热第 2 张，不和 LCP 抢带宽，也避免首次切换出现空白 */
+      const heroWarm = () => {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(() => heroEnsure(heroSlides[1]), { timeout: 2000 });
+        } else {
+          setTimeout(() => heroEnsure(heroSlides[1]), 600);
+        }
+      };
+      if (document.readyState === 'complete') {
+        heroWarm();
+      } else {
+        window.addEventListener('load', heroWarm, { once: true });
+      }
       const heroStart = () => { heroTimer = setInterval(() => heroShow(heroIdx + 1), 5000); };
       const heroStop = () => { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } };
       heroDots.forEach((dot, i) => {
@@ -590,8 +622,9 @@ const featuredProducts = [
       pointer-events: auto;
     }
     .hero-dot {
-      width: 10px;
-      height: 10px;
+      position: relative;
+      width: 12px;
+      height: 12px;
       border-radius: 9999px;
       background: rgba(255,255,255,0.45);
       border: none;
@@ -599,9 +632,17 @@ const featuredProducts = [
       padding: 0;
       transition: background 250ms ease, width 250ms ease;
     }
+    /* 2026-10-21 移动端：原视觉 10×10 且无热区，手机上几乎点不中。
+       视觉略放大到 12px，用伪元素把可点区域扩到 30×30（不改变布局与间距）。 */
+    .hero-dot::after {
+      content: '';
+      position: absolute;
+      inset: -9px;
+      border-radius: 9999px;
+    }
     .hero-dot.hero-dot-active {
       background: #EA511E;
-      width: 26px;
+      width: 28px;
     }
     /* Product Series: left & right columns converge toward the center */
     @media (min-width: 1024px) {
@@ -634,14 +675,23 @@ const featuredProducts = [
     .hero-text .hero-title {
       font-size: clamp(30px, 3.4vw, 50px);
     }
-    .hero-text .hero-title + p {
+    .hero-text .hero-title ~ p {
       font-size: clamp(16px, 1.3vw, 19px);
+    }
+    /* 手机端 hero 高度减半（600 -> 300，2026-10-21）：文字必须同步压小。
+       未压缩前实测 390x844 文字块 298px（贴死 300），320x568 高达 352px 会被裁掉 26px。
+       标题 22px、描述 13px、左右内边距 20px、橙色分隔线上下收紧，三帧一致。 */
+    @media (max-width: 767px) {
+      #hero-section .hero-text { padding-left: 20px; padding-right: 20px; }
+      .hero-text .hero-title { font-size: 22px; }
+      .hero-text .hero-title ~ p { font-size: 13px; }
+      #hero-section .hero-text > div[aria-hidden="true"] { margin-top: 2px; margin-bottom: 10px; }
     }
     @media (min-width: 1024px) and (max-height: 820px) {
       .hero-text .hero-title {
         font-size: clamp(28px, 3vw, 46px);
       }
-      .hero-text .hero-title + p {
+      .hero-text .hero-title ~ p {
         font-size: 17px;
       }
     }

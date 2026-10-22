@@ -31,12 +31,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "موسفت كربيد السيليكون مولد الفولت أمبير الساكن SiC", "url": "https://en.chitek-inno.com/products-svg/sic-ultra-svg" },
       { "@type": "ListItem", "position": 2, "name": "208V/400V/480V مولد الفولت أمبير الساكن مضاد للتلوث", "url": "https://en.chitek-inno.com/products-svg/anti-pollution-svg" },
-      { "@type": "ListItem", "position": 3, "name": "690V/800V مولد الفولت أمبير الساكن مضاد للتلوث", "url": "https://en.chitek-inno.com/products-svg/anti-pollution-svg" },
+      { "@type": "ListItem", "position": 3, "name": "690V/800V مولد الفولت أمبير الساكن مضاد للتلوث", "url": "https://en.chitek-inno.com/products-svg/anti-pollution-hv-svg" },
       { "@type": "ListItem", "position": 4, "name": "مولد الفولت أمبير الساكن فائق النحافة", "url": "https://en.chitek-inno.com/products-svg/ultra-slim-svg" },
       { "@type": "ListItem", "position": 5, "name": "مولد الفولت أمبير الساكن الموزع", "url": "https://en.chitek-inno.com/products-svg/distributed-svg" },
-      { "@type": "ListItem", "position": 6, "name": "IP65 مولد الفولت أمبير الساكن SiC بلا مروحة ومنخفض الضوضاء", "url": "https://en.chitek-inno.com/products-svg/sic-fanless-svg" },
+      { "@type": "ListItem", "position": 6, "name": "IP65 SiC-Fanless مولد الفولت أمبير الساكن 25A", "url": "https://en.chitek-inno.com/products-svg/ip65-sic-fanless-svg" },
       { "@type": "ListItem", "position": 7, "name": "IP65 مولد الفولت أمبير الساكن", "url": "https://en.chitek-inno.com/products-svg/ip65-svg" },
-      { "@type": "ListItem", "position": 8, "name": "مولد الفولت أمبير الساكن SiC بلا مروحة ومنخفض الضوضاء", "url": "https://en.chitek-inno.com/products-svg/sic-fanless-svg" }
+      { "@type": "ListItem", "position": 8, "name": "IP65 SiC-Low Noise Fan مولد الفولت أمبير الساكن 50A", "url": "https://en.chitek-inno.com/products-svg/sic-fanless-svg" }
     ]
   }
   </script>
@@ -73,8 +73,13 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       <!-- Two-column layout: left category nav + right product area -->
       <div class="index_main flex flex-col lg:flex-row gap-8">
 
-        <!-- LEFT COLUMN -->
-        <aside class="n_left hidden lg:block lg:w-[340px] lg:shrink-0">
+        <div class="pc-left-col">
+        <aside id="pc-filter" class="n_left pc-filter-panel" aria-label="تصفية المنتجات">
+
+          <div class="pc-filter-head">
+            <span>تصفية</span>
+            <button type="button" class="pc-filter-close" data-pc-filter-close aria-label="إغلاق التصفية">&times;</button>
+          </div>
           <div class="filter_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
             <p class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">تصفية</p>
             <div class="mb-4">
@@ -99,7 +104,8 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
               <div class="grid grid-cols-2 gap-x-2 gap-y-2">
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="8~20A" /> 8~20A <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="30~50A" /> 30~50A <span class="text-gray-400" data-count>(3)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="50~200A" /> 50~200A <span class="text-gray-400" data-count>(4)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="50~150A" /> 50~150A <span class="text-gray-400" data-count>(4)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="200A" /> 200A <span class="text-gray-400" data-count>(3)</span></label>
               </div>
             </div>
             <div class="mb-4">
@@ -107,7 +113,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
               <div class="grid grid-cols-2 gap-x-2 gap-y-2">
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP20" /> IP20 (قياسي) <span class="text-gray-400" data-count>(6)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP30|IP40" /> أخرى/قابل للتفاوض <span class="text-gray-400" data-count>(6)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP65" /> IP65 <span class="text-gray-400" data-count>(2)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP65" /> IP65 <span class="text-gray-400" data-count>(3)</span></label>
               </div>
             </div>
             <div>
@@ -116,7 +122,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="340*410*45mm" /> 340*410*45mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="380*400*88mm" /> 380*400*88mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*130mm" /> 500*550*130mm <span class="text-gray-400" data-count>(2)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*175mm" /> 500*550*175mm <span class="text-gray-400" data-count>(1)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*175mm" /> 500*550*175mm <span class="text-gray-400" data-count>(2)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="480*600*175mm" /> 480*600*175mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="515*500*185mm" /> 515*500*185mm <span class="text-gray-400" data-count>(2)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="600*500*220mm" /> 600*500*220mm <span class="text-gray-400" data-count>(1)</span></label>
@@ -127,11 +133,14 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
               <a href={lp('/contact')} id="inquire-now-btn" class="my_more1 w-full justify-center">اطلب عرض سعر</a>
             </div>
           </div>
+        </aside>
+
+        <div class="pc-side-extra">
           <div class="contact_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
             <p class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">اتصل بنا</p>
             <div class="space-y-1 mb-3">
               <a href="https://wa.me/8618818994346" target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
-                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 <span>WhatsApp</span>
               </a>
               <a href="mailto:leo.li@chitek-inno.com" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
@@ -142,31 +151,38 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
           </div>
           <!-- Company card (2026-09-24) -->
           <div class="company_card bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
-            <img src="/assets/images/about-bg.webp" alt="Shenzhen CHITEK New Energy التقنية Co., Ltd." class="w-full aspect-[3/2] object-cover" loading="lazy" width="1155" height="770" />
+            <img src="/assets/images/about-bg.webp" srcset="/assets/images/about-bg-480w.webp 480w, /assets/images/about-bg-960w.webp 960w, /assets/images/about-bg.webp 1155w" sizes="100vw" alt="Shenzhen CHITEK New Energy التقنية Co., Ltd." class="w-full aspect-[3/2] object-cover" loading="lazy" width="1155" height="770" />
             <div class="p-5">
               <p class="text-[13px] leading-relaxed text-gray-600">شركة شنتشن تشايتك لتكنولوجيا الطاقة الجديدة المحدودة، تأسست عام 2019 ومقرها شنتشن، هي مؤسسة تكنولوجية متخصصة في البحث والتطوير والتصنيع وخدمة منتجات الإلكترونيات الكهربائية. ملتزمون ببناء مستقبل كفء وصديق للبيئة.</p>
             </div>
           </div>
 <!-- Cross-series cards (2026-09-24) -->
           <a href={lp('/products')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-sic.webp" alt="موسفت كربيد السيليكون فلتر التوافق النشط SiC AHF" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">موسفت كربيد السيليكون مرشح التوافقيات النشطة SiC AHF</span>
+            <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="160px" alt="موسفت كربيد السيليكون فلتر التوافق النشط SiC (50-200A)" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">موسفت كربيد السيليكون فلتر التوافق النشط SiC (50-200A)</span>
           </a>
           <a href={lp('/products')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="فائق النحافة فلتر التوافق النشط AHF" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">مرشح التوافقيات النشطة فائق النحافة AHF</span>
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="160px" alt="فائق النحافة فلتر التوافق النشط (8-20A)" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">فائق النحافة فلتر التوافق النشط (8-20A)</span>
           </a>
           <a href={lp('/products')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless ومنخفض الضوضاء فلتر التوافق النشط" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">IP65 مرشح التوافقيات النشطة SiC بلا مروحة ومنخفض الضوضاء</span>
+            <img src="/assets/images/products-ahf-ip65-fanless.webp" srcset="/assets/images/products-ahf-ip65-fanless-480w.webp 480w, /assets/images/products-ahf-ip65-fanless-960w.webp 960w, /assets/images/products-ahf-ip65-fanless.webp 1200w" sizes="160px" alt="IP65 SiC-Fanless فلتر التوافق النشط 25A" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">IP65 SiC-Fanless فلتر التوافق النشط 25A</span>
           </a>
-        </aside>
+        </div>
+        </div><!-- /pc-left-col -->
+        <!-- 移动端筛选遮罩：必须在抽屉元素之外（aside 带 transform 会成为 fixed 的包含块） -->
+        <div id="pc-filter-mask" class="pc-filter-mask" aria-hidden="true"></div>
 
         <!-- RIGHT COLUMN -->
         <div class="n_right flex-1 min-w-0">
 
           <!-- View toggle (grid / list) -->
           <div class="cbp-vm-options">
+            <button type="button" id="pc-filter-open" class="pc-filter-btn" aria-controls="pc-filter" aria-expanded="false">
+              <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M1 2.1h14v2.4H1zM3.2 6.8h9.6v2.4H3.2zM5.8 11.5h4.4v2.4H5.8z"/></svg>
+              <span>تصفية</span>
+            </button>
             <button type="button" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="Grid view" aria-label="Grid view">
               <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M1 1h4v4H1zM6 1h4v4H6zM11 1h4v4h-4zM1 6h4v4H1zM6 6h4v4H6zM11 6h4v4h-4zM1 11h4v4H1zM6 11h4v4H6zM11 11h4v4h-4z"/></svg>
             </button>
@@ -174,23 +190,24 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
               <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M1 1h2v2H1zM4 1h12v2H4zM1 5h2v2H1zM4 5h12v2H4zM1 9h2v2H1zM4 9h12v2H4zM1 13h2v2H1zM4 13h12v2H4z"/></svg>
             </button>
             <!-- Download = same control group as List view: clicking it switches to list view (2026-09-28) -->
-            <button type="button" class="cbp-vm-icon cbp-vm-dl-hint" data-view="cbp-vm-view-list" title="List view" aria-label="Switch to list view to download files">Download</button>
+            <button type="button" class="cbp-vm-icon cbp-vm-dl-hint" data-view="cbp-vm-view-list" title="عرض القائمة" aria-label="التبديل إلى عرض القائمة لتنزيل الملفات">تحميل</button>
             <!-- Series quick-switch (2026-09-24) -->
             <nav class="ml-2 flex items-center gap-2 flex-wrap" aria-label="Product series">
-              <a href={lp('/products')} class="cbp-vm-tab">Active Harmonic تصفية</a>
-              <a href={lp('/products-svg')} class="cbp-vm-tab cbp-vm-tab-active" aria-current="page">مولد فار الثابت</a>
-              <a href={lp('/products-asvg')} class="cbp-vm-tab">Advanced مولد فار الثابت</a>
+              <a href={lp('/products')} class="cbp-vm-tab">فلتر التوافق النشط AHF</a>
+              <a href={lp('/products-svg')} class="cbp-vm-tab cbp-vm-tab-active" aria-current="page">مولد الفولت أمبير الساكن SVG</a>
+              <a href={lp('/products-asvg')} class="cbp-vm-tab">مولد الفولت أمبير الساكن المتقدم ASVG</a>
             </nav>
           </div>
 
           <!-- Product grid / list -->
           <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
             <ul class="cbp-vm-grid-ul">
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*175mm,500*550*130mm" data-i="IP20,IP30" data-t="SiC">
-                <div class="cbp-vm-image"><a href="/en/products-svg/sic-ultra-svg"><img src="/assets/images/products-ahf-sic.webp" alt="موسفت كربيد السيليكون مولد الفولت أمبير الساكن SiC" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A,200A" data-s="500*550*175mm,500*550*130mm" data-i="IP20,IP30" data-t="SiC">
+                <div class="cbp-vm-image"><a href="/en/products-svg/sic-ultra-svg"><img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="موسفت كربيد السيليكون مولد الفولت أمبير الساكن SiC" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href="/en/products-svg/sic-ultra-svg">موسفت كربيد السيليكون مولد الفولت أمبير الساكن SiC (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-sic-ultra-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">SiC MOSFET SVG</span>
                     <span class="cbp-tag">Silicon Carbide مولد فار الثابت</span>
                     <span class="cbp-tag">Silicon Carbide Reactive Power Compensator</span>
@@ -200,6 +217,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Industrial SiC مولد فار الثابت</span>
                     <span class="cbp-tag">Ultra High-Efficiency SVG</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-sic-ultra-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/sic-ultra-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -210,11 +228,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*130mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href="/en/products-svg/anti-pollution-svg"><img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V مضاد للتلوث مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A,200A" data-s="500*550*130mm,500*550*175mm" data-i="IP20,IP30" data-t="IGBT">
+                <div class="cbp-vm-image"><a href="/en/products-svg/anti-pollution-svg"><img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="208V/400V/480V مضاد للتلوث مولد الفولت أمبير الساكن" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href="/en/products-svg/anti-pollution-svg">208V/400V/480V مضاد للتلوث مولد الفولت أمبير الساكن (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-anti-pollution-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Anti-Pollution SVG</span>
                     <span class="cbp-tag">Dust-Proof مولد فار الثابت</span>
                     <span class="cbp-tag">Harsh-Environment SVG Module</span>
@@ -224,6 +243,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Pollution-Proof Power Factor Unit</span>
                     <span class="cbp-tag">Conformal-Coated SVG</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-anti-pollution-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/anti-pollution-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -234,11 +254,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="690V,800V" data-a="50~200A" data-s="480*600*175mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href="/en/products-svg/anti-pollution-svg"><img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" alt="690V/800V مضاد للتلوث مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="690V,800V" data-a="50~150A,200A" data-s="480*600*175mm" data-i="IP20,IP30" data-t="IGBT">
+                <div class="cbp-vm-image"><a href="/en/products-svg/anti-pollution-hv-svg"><img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" srcset="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount-480w.webp 480w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount-960w.webp 960w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="690V/800V مضاد للتلوث مولد الفولت أمبير الساكن" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href="/en/products-svg/anti-pollution-svg">690V/800V مضاد للتلوث مولد الفولت أمبير الساكن (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href="/en/products-svg/anti-pollution-hv-svg">690V/800V مضاد للتلوث مولد الفولت أمبير الساكن (50-150A)</a></h3>
+                                    <input type="checkbox" id="tg-anti-pollution-hv-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">690V/800V Anti-Pollution SVG</span>
                     <span class="cbp-tag">High-الجهد Anti-Pollution SVG</span>
                     <span class="cbp-tag">Dust-Proof مولد فار الثابت</span>
@@ -248,8 +269,9 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Heavy-Duty مولد فار الثابت</span>
                     <span class="cbp-tag">Pollution-Proof Power Factor Unit</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-anti-pollution-hv-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
-                    <a href="/en/products-svg/anti-pollution-svg" class="my_more1">عرض المزيد</a>
+                    <a href="/en/products-svg/anti-pollution-hv-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">ورقة بيانات</a>
                       <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">كتالوج</a>
@@ -259,10 +281,11 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="8~20A" data-s="340*410*45mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href="/en/products-svg/ultra-slim-svg"><img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="فائق النحافة مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href="/en/products-svg/ultra-slim-svg"><img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="فائق النحافة مولد الفولت أمبير الساكن" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href="/en/products-svg/ultra-slim-svg">فائق النحافة مولد الفولت أمبير الساكن (8-20A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-ultra-slim-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Ultra-Slim SVG</span>
                     <span class="cbp-tag">Slim Reactive Power Compensator</span>
                     <span class="cbp-tag">Compact 1U SVG Module</span>
@@ -272,6 +295,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Thin Wall-Mount SVG</span>
                     <span class="cbp-tag">Compact Power Factor Module</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ultra-slim-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/ultra-slim-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -283,10 +307,11 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="380*400*88mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href="/en/products-svg/distributed-svg"><img src="/assets/images/products-ahf-distributed-rackmount.webp" alt="موزع مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href="/en/products-svg/distributed-svg"><img src="/assets/images/products-ahf-distributed-rackmount.webp" srcset="/assets/images/products-ahf-distributed-rackmount-480w.webp 480w, /assets/images/products-ahf-distributed-rackmount-960w.webp 960w, /assets/images/products-ahf-distributed-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="موزع مولد الفولت أمبير الساكن" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href="/en/products-svg/distributed-svg">موزع مولد الفولت أمبير الساكن (30-50A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-distributed-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Distributed SVG</span>
                     <span class="cbp-tag">Distributed Reactive Compensation</span>
                     <span class="cbp-tag">Modular SVG Module</span>
@@ -296,6 +321,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Modular STATCOM</span>
                     <span class="cbp-tag">Point-of-Load Reactive Compensation</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-distributed-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/distributed-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -307,10 +333,11 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP65" data-t="SiC">
-                <div class="cbp-vm-image"><a href="/en/products-svg/sic-fanless-svg"><img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless ومنخفض الضوضاء مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href="/en/products-svg/ip65-sic-fanless-svg"><img src="/assets/images/products-ahf-ip65-fanless.webp" srcset="/assets/images/products-ahf-ip65-fanless-480w.webp 480w, /assets/images/products-ahf-ip65-fanless-960w.webp 960w, /assets/images/products-ahf-ip65-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Fanless مولد الفولت أمبير الساكن 25A" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href="/en/products-svg/sic-fanless-svg">IP65 SiC-Fanless ومنخفض الضوضاء مولد الفولت أمبير الساكن (25-50A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href="/en/products-svg/ip65-sic-fanless-svg">IP65 SiC-Fanless مولد الفولت أمبير الساكن 25A</a></h3>
+                                    <input type="checkbox" id="tg-ip65-sic-fanless-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">IP65 SiC-Fanless SVG</span>
                     <span class="cbp-tag">Fanless مولد فار الثابت</span>
                     <span class="cbp-tag">Silent Reactive Power Compensation</span>
@@ -320,8 +347,9 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">IP65 SiC STATCOM</span>
                     <span class="cbp-tag">Outdoor Silent Power Factor Unit</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ip65-sic-fanless-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
-                    <a href="/en/products-svg/sic-fanless-svg" class="my_more1">عرض المزيد</a>
+                    <a href="/en/products-svg/ip65-sic-fanless-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/ip65-sic-fanless-ahf-datasheet.pdf" target="_blank" rel="noopener" class="cbp-dl-btn">ورقة بيانات</a>
                       <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">كتالوج</a>
@@ -330,11 +358,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="600*500*220mm" data-i="IP65" data-t="IGBT,SiC">
-                <div class="cbp-vm-image"><a href="/en/products-svg/ip65-svg"><img src="/assets/images/products-ahf-ip65.webp" alt="IP65 مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A" data-s="600*500*220mm" data-i="IP65" data-t="IGBT,SiC">
+                <div class="cbp-vm-image"><a href="/en/products-svg/ip65-svg"><img src="/assets/images/products-ahf-ip65.webp" srcset="/assets/images/products-ahf-ip65-480w.webp 480w, /assets/images/products-ahf-ip65-960w.webp 960w, /assets/images/products-ahf-ip65.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 مولد الفولت أمبير الساكن" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href="/en/products-svg/ip65-svg">IP65 مولد الفولت أمبير الساكن (100-150A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-ip65-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">IP65 SVG</span>
                     <span class="cbp-tag">Outdoor مولد فار الثابت</span>
                     <span class="cbp-tag">Weatherproof Reactive Compensation</span>
@@ -344,6 +373,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Outdoor Reactive Power Compensator</span>
                     <span class="cbp-tag">Dustproof Waterproof SVG</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ip65-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/ip65-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -354,11 +384,12 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP20,IP30" data-t="SiC">
-                <div class="cbp-vm-image"><a href="/en/products-svg/sic-fanless-svg"><img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless ومنخفض الضوضاء مولد الفولت أمبير الساكن" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP20,IP30,IP65" data-t="SiC">
+                <div class="cbp-vm-image"><a href="/en/products-svg/sic-fanless-svg"><img src="/assets/images/products-ahf-sic-fanless.webp" srcset="/assets/images/products-ahf-sic-fanless-480w.webp 480w, /assets/images/products-ahf-sic-fanless-960w.webp 960w, /assets/images/products-ahf-sic-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Low Noise Fan مولد الفولت أمبير الساكن 50A" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href="/en/products-svg/sic-fanless-svg">SiC-Fanless ومنخفض الضوضاء مولد الفولت أمبير الساكن (25-50A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href="/en/products-svg/sic-fanless-svg">IP65 SiC-Low Noise Fan مولد الفولت أمبير الساكن 50A</a></h3>
+                                    <input type="checkbox" id="tg-sic-fanless-svg" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">SiC-Fanless SVG</span>
                     <span class="cbp-tag">Natural-Cooled مولد فار الثابت</span>
                     <span class="cbp-tag">Silent SVG Module</span>
@@ -368,6 +399,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
                     <span class="cbp-tag">Fanless SiC STATCOM</span>
                     <span class="cbp-tag">Quiet Power Factor Correction</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-sic-fanless-svg"><span class="lbl-more">المزيد من الوسوم</span><span class="lbl-mobile">الوسوم</span><span class="lbl-less">عرض أقل</span></label>
                   <div class="cbp-vm-actions">
                     <a href="/en/products-svg/sic-fanless-svg" class="my_more1">عرض المزيد</a>
                     <div class="cbp-vm-dl">
@@ -473,7 +505,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
             <div class="max-w-3xl">
               <p class="text-[15px] leading-relaxed text-gray-600 mb-2">داخل كل مولد SVG من تشايتك، تأخذ محولات التيار عينات من تيار الحمل بينما ينفذ المعالج الرقمي في النواة خوارزمية التحكم. يفصل المركبة التفاعلية عن التيار الفعال، يتتبع حركة الطلب دورة بدورة، ويحسب مقدار التيار المتقدم أو المتأخر الذي تحتاجه الشبكة في تلك اللحظة.</p>
               <p class="text-[15px] leading-relaxed text-gray-600">ثم يقود المعالج الرقمي جسر IGBT عبر PWM. يحقن العاكس تيار تعويض في تربيع مع الجهد، فيُلبّى الطلب التفاعلي محليًا بدل سحبه من الشبكة. وتقرأ محولات التيار أيضًا تيار الخرج وتعيده إلى المعالج الرقمي كتغذية راجعة سالبة — هذه الحلقة المغلقة هي ما يحافظ على التعويض بلا خطوات ومستمر، بلا خطوات قواطع وبلا رنين مع الشبكة.</p>
-              <img src="/assets/images/working-principle-svg.webp" alt="مبدأ عمل مولد فار الثابت من تشايتك" class="mt-6 w-full rounded-xl" width="1748" height="900" loading="lazy" />
+              <img src="/assets/images/working-principle-svg.webp" srcset="/assets/images/working-principle-svg-480w.webp 480w, /assets/images/working-principle-svg-960w.webp 960w, /assets/images/working-principle-svg.webp 1748w" sizes="100vw" alt="مبدأ عمل مولد فار الثابت من تشايتك" class="mt-6 w-full rounded-xl" width="1748" height="900" loading="lazy" />
             </div>
           </div>
 
@@ -647,6 +679,75 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
 
     <style is:global>
       .cbp-vm-options { display: flex; gap: .5rem; }
+      @media (max-width: 1023px) {
+        .pc-left-col { order: 1; width: 100%; }
+        .pc-side-extra { width: 100%; }
+        .pc-side-extra > *:last-child { margin-bottom: 0; }
+      }
+      @media (min-width: 1024px) {
+        .pc-left-col { width: 340px; flex-shrink: 0; }
+      }
+      /* ── 2026-10-21 移动端筛选抽屉（与英文汇总页同一套）──
+         ≥1024 沿用左侧固定栏；<1024 左栏脱离文档流，工具条出现「Filter」按钮，点开滑出抽屉。
+         抽屉复用同一批 .filter_card checkbox，筛选逻辑未改动。 */
+      .pc-filter-head {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .pc-filter-head > span { font-size: 15px; font-weight: 700; color: #111827; }
+      .pc-filter-close {
+        width: 36px; height: 36px; padding: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #4b5563;
+        font-size: 20px; line-height: 1; cursor: pointer; appearance: none;
+      }
+      .pc-filter-close:hover { border-color: #fb923c; color: #ea580c; }
+      .pc-filter-mask {
+        position: fixed; inset: 0; z-index: 1190;
+        background: rgba(0, 0, 0, .45);
+        opacity: 0; visibility: hidden;
+        transition: opacity .28s ease, visibility .28s ease;
+      }
+      .pc-filter-mask.is-open { opacity: 1; visibility: visible; }
+      .pc-filter-btn {
+        display: none;
+        align-items: center; justify-content: center; gap: 6px;
+        height: 38px; padding: 0 12px; flex-shrink: 0;
+        border: 1px solid #e5e7eb; border-radius: 8px;
+        background: #fff; color: #374151;
+        font-size: 13px; font-weight: 600; font-family: inherit;
+        cursor: pointer; appearance: none; -webkit-appearance: none;
+      }
+      .pc-filter-btn:hover { border-color: #fb923c; color: #ea580c; }
+      .pc-filter-btn svg { width: 18px; height: 18px; }
+      @media (max-width: 1023px) {
+        .pc-filter-panel {
+          position: fixed; top: 0; bottom: 0; left: 0;
+          width: 86vw; max-width: 360px;
+          z-index: 1200;
+          overflow-y: auto; -webkit-overflow-scrolling: touch;
+          background: #f3f4f6;
+          padding: 12px 12px 16px;
+          transform: translateX(-100%);
+          visibility: hidden;
+          transition: transform .28s ease, visibility .28s ease;
+        }
+        [dir="rtl"] .pc-filter-panel { left: auto; right: 0; transform: translateX(100%); }
+        .pc-filter-panel.is-open { transform: translateX(0); visibility: visible; }
+        .pc-filter-panel .filter_card { padding: 14px; }
+        .pc-filter-panel .filter_card > .mb-4 { margin-bottom: 12px; }
+        .pc-filter-btn { display: inline-flex; }
+      }
+      html.pc-filter-locked, html.pc-filter-locked body { overflow: hidden; }
+      @media (max-width: 767px) {
+        .cbp-vm-options { flex-wrap: wrap; }
+        .cbp-vm-options > nav { flex-basis: 100%; margin-left: 0; }
+      }
+      @media (min-width: 1024px) {
+        .pc-filter-head, .pc-filter-mask, .pc-filter-btn { display: none !important; }
+        .pc-filter-panel { position: static; transform: none; visibility: visible; }
+      }
+
       .cbp-vm-icon {
         display: inline-flex; align-items: center; justify-content: center;
         /* button 标签必须显式压掉 UA 默认样式，否则宽度/盒模型/字体会顶掉 38×38 布局 */
@@ -714,6 +815,35 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       .cbp-spec { display: none; }
       .cbp-vm-details { font-size: 13px; color: #4b5563; line-height: 1.6; margin-bottom: .75rem; flex: 1; }
       .tags_ul { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: .75rem; }
+      /* Tag 折叠（2026-10-21 与英文站统一）：只在 Download / list 视图折叠，纯 CSS + label，
+         页面不需要 JS。8 个 tag 全部 SSR 在 HTML 里，爬虫 / 不执行 JS 的 AI 爬虫直接可读。
+         桌面 list 显示前 3 个、<640px 显示前 2 个，其余点「More tags」展开。 */
+      .tags-toggle {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+      }
+      .cbp-tag-more-btn { display: none; }
+      .cbp-vm-view-list .tags-toggle:not(:checked) ~ .tags_ul .cbp-tag:nth-child(n+4) { display: none; }
+      .cbp-vm-view-list .cbp-tag-more-btn {
+        display: inline-flex; align-items: center; align-self: flex-start;
+        cursor: pointer; user-select: none;
+        font-size: 11px; line-height: 1.1; color: #ea580c;
+        background: #fff7ed; border: 1px solid #fdba74; border-radius: 4px;
+        padding: 2px 8px; margin-bottom: .75rem; transition: all .2s;
+      }
+      .cbp-vm-view-list .cbp-tag-more-btn:hover { background: #EA511E; border-color: #EA511E; color: #fff; }
+      .cbp-tag-more-btn .lbl-less { display: none; }
+      .cbp-tag-more-btn .lbl-mobile { display: none; }
+      .tags-toggle:checked ~ .cbp-tag-more-btn .lbl-more { display: none; }
+      .tags-toggle:checked ~ .cbp-tag-more-btn .lbl-less { display: inline; }
+      .tags-toggle:focus-visible ~ .cbp-tag-more-btn { outline: 2px solid #EA511E; outline-offset: 2px; }
+      @media (max-width: 639px) {
+        /* 手机 list（Download）视图：tag 默认全部收起（8 个 tag 仍在 HTML 里，只是 CSS 隐藏），
+          点「الوسوم」整行展开。桌面仍保留前 3 个。 */
+        .cbp-vm-view-list .tags-toggle:not(:checked) ~ .tags_ul { display: none; }
+        .tags-toggle:not(:checked) ~ .cbp-tag-more-btn .lbl-more { display: none; }
+        .tags-toggle:not(:checked) ~ .cbp-tag-more-btn .lbl-mobile { display: inline; }
+      }
       .cbp-tag {
         font-size: 11px; color: #6b7280; background: #f3f4f6;
         border: 1px solid #e5e7eb; border-radius: 4px; padding: 2px 8px;
@@ -779,12 +909,13 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
         .cbp-vm-view-list .my_more1 { font-size: 13px; padding: 7px 12px; }
         .cbp-vm-view-list .cbp-dl-btn { font-size: 12px; padding: 6px 10px; }
 
-        /* Phone grid: flatter image band (345x345 -> 345x259).
-           object-fit: contain, not cover — measured product bbox spans 7%~94% of the
-           image height (distributed-ahf), so any crop cuts the chassis. #fefefe is the
-           measured plate colour of every card webp (254,254,254) => seamless. */
-        .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 4 / 3; background: #fefefe; }
-        .cbp-vm-view-grid .cbp-vm-image img { object-fit: contain; }
+        /* Phone grid: 4:3 -> 3:2 + cover，只裁掉图框上下的纯白（2026-10-21 与英文站统一）。
+           实测 8 张卡图（1:1 / 1200px 白底）非白像素：水平 3.3%~96.2%，竖直 24.3%~90.3%
+           （顶最上 ip65，底最下 ip65-fanless）。cover 把图片放大到 345x345，3:2 图框的
+           可视窗口是 [83,313]，正好包住上述范围（最紧两张各留 0.7px / 1.5px）=> 不切机身。
+           #fefefe 是实测卡片底色 (254,254,254)，与白底图无缝。 */
+        .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 3 / 2; background: #fefefe; }
+        .cbp-vm-view-grid .cbp-vm-image img { object-fit: cover; object-position: center 72%; }
         .cbp-vm-li .h4 .cbp-spec { display: inline; margin-left: 4ch; white-space: nowrap; }
       }
 
@@ -792,6 +923,7 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       .filter_card input[type="checkbox"] {
         width: 16px; height: 16px; accent-color: #EA511E; cursor: pointer; flex-shrink: 0;
       }
+
     </style>
 
     <script>
@@ -895,5 +1027,44 @@ const lp = (p: string) => isLocal ? '/ar' + p : p;
       })();
     </script>
   </section>
+
+  <script>
+    // 移动端筛选抽屉（2026-10-21，与英文汇总页同一套）。只做开合与滚动锁定，不碰筛选逻辑。
+    (function () {
+      var panel = document.getElementById('pc-filter');
+      var mask = document.getElementById('pc-filter-mask');
+      var openBtn = document.getElementById('pc-filter-open');
+      if (!panel || !openBtn) return;
+      var closeBtn = panel.querySelector('[data-pc-filter-close]');
+      var lastFocus = null;
+
+      function isOpen() { return panel.classList.contains('is-open'); }
+      function open() {
+        lastFocus = document.activeElement;
+        panel.classList.add('is-open');
+        if (mask) mask.classList.add('is-open');
+        openBtn.setAttribute('aria-expanded', 'true');
+        document.documentElement.classList.add('pc-filter-locked');
+        var first = panel.querySelector('input[type="checkbox"]');
+        if (first) setTimeout(function () { try { first.focus({ preventScroll: true }); } catch (e) {} }, 300);
+      }
+      function close() {
+        panel.classList.remove('is-open');
+        if (mask) mask.classList.remove('is-open');
+        openBtn.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('pc-filter-locked');
+        if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
+      }
+      openBtn.addEventListener('click', function () { isOpen() ? close() : open(); });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (mask) mask.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) close();
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024 && isOpen()) close();
+      });
+    })();
+  </script>
 
 </BaseLayout>

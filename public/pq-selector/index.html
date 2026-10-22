@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHITEK Power Quality Solution Selector</title>
+  <meta name="description" content="Get a preliminary recommendation for AHF, SVG, or hybrid compensation systems in under 2 minutes.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo-head.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="page-shell">
+      <header class="hero-section">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="brand-lockup">
+              <img class="brand-logo" src="../assets/images/logo.webp" alt="CHITEK logo">
+            </div>
+            <div class="hero-chip">
+              <span class="hero-chip-dot"></span>
+              CHITEK Assessment Platform
+            </div>
+            <h1>Power Quality Solution Selector</h1>
+            <p class="hero-subtitle">
+              Get a preliminary recommendation for AHF, SVG, or hybrid compensation systems in under 2 minutes.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#assessment">Start Assessment</a>
+              <button class="secondary-btn" id="load-sample-btn" type="button">Load Sample Facility</button>
+              <a class="secondary-btn text-link-btn" href="./sizing-guide.html">How Sizing Works</a>
+            </div>
+            <section class="quick-guide">
+              <h2>How it works</h2>
+              <p>
+                Answer a few questions about your voltage, load type, power factor, and harmonic condition. The selector estimates harmonic current for AHF sizing, reactive power demand for SVG sizing, then recommends the nearest CHITEK product configuration.
+              </p>
+            </section>
+            <div class="hero-tags">
+              <span>AHF / APF Selection</span>
+              <span>SVG Sizing Guidance</span>
+              <span>Hybrid Architecture</span>
+              <span>RFQ Conversion Flow</span>
+            </div>
+          </div>
+
+          <section class="hero-panel compact-hero-panel summary-panel">
+            <article class="hero-summary-card">
+              <p class="eyebrow">Sizing logic</p>
+              <h2>What the selector calculates</h2>
+              <ul class="summary-list">
+                <li>AHF sizing from estimated harmonic current and THDi severity</li>
+                <li>SVG sizing from the power factor correction gap in kvar</li>
+                <li>Hybrid recommendation when harmonic and reactive issues are both significant</li>
+                <li>Nearest CHITEK model match from the loaded datasheets</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </header>
+
+      <main class="main-layout" id="assessment">
+        <section class="left-column">
+          <section class="panel form-panel primary-form-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Guided Assessment</p>
+                <h2 id="step-title">Step 1: Main power quality issue</h2>
+                <p class="panel-copy" id="step-description">Select the main issue first, then the tool will narrow the likely AHF, SVG, or hybrid direction.</p>
+              </div>
+            </div>
+
+            <div id="step-content"><div class="card-grid two">
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Low power factor penalties" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Low power factor penalties</h3>
+            <p>Utility penalties or poor power factor trends are driving the project.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Harmonic distortion alarms" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Harmonic distortion alarms</h3>
+            <p>Meters, analyzers, or protection devices indicate elevated THDi risk.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Capacitor bank failures" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Capacitor bank failures</h3>
+            <p>Existing capacitor stages are unstable, aging early, or failing outright.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Transformer overheating" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Transformer overheating</h3>
+            <p>Thermal stress suggests distortion, overload, or reactive demand issues.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Frequent breaker trips" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Frequent breaker trips</h3>
+            <p>Protection nuisance trips can be linked to current distortion and peak loading.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="VFD-related issues" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>VFD-related issues</h3>
+            <p>The site has known drive-heavy loads affecting power quality.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="UPS/data center issues" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>UPS/data center issues</h3>
+            <p>Sensitive digital loads need cleaner power and tighter control.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    
+      <button class="step-card " data-type="single" data-field="mainProblem" data-value="Not sure / need assessment" type="button">
+        <div class="step-card-top">
+          <div>
+            <h3>Not sure / need assessment</h3>
+            <p>Use the broader assessment path when symptoms are mixed or unclear.</p>
+          </div>
+          <span class="selection-mark">•</span>
+        </div>
+      </button>
+    </div></div>
+
+            <div class="form-footer">
+              <div class="error-box hidden" id="error-box"></div>
+              <div class="footer-actions">
+                <button class="back-btn" id="back-btn" type="button" disabled="">Back</button>
+                <button class="primary-btn" id="next-btn" type="button">Continue</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel progress-panel compact-progress-panel">
+            <div class="panel-head compact">
+              <div>
+                <p class="eyebrow">Assessment Progress</p>
+                <h2 id="progress-title">Step 1 of 6</h2>
+              </div>
+              <div class="progress-pill">
+                <span>Completion</span>
+                <strong id="progress-percent">17%</strong>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill" style="width: 17%;"></div>
+            </div>
+            <div class="step-grid" id="step-grid">
+        <div class="step-badge active">
+          <strong>01</strong>
+          <span>Problem</span>
+        </div>
+      
+        <div class="step-badge">
+          <strong>02</strong>
+          <span>Electrical</span>
+        </div>
+      
+        <div class="step-badge">
+          <strong>03</strong>
+          <span>Loads</span>
+        </div>
+      
+        <div class="step-badge">
+          <strong>04</strong>
+          <span>Power Factor</span>
+        </div>
+      
+        <div class="step-badge">
+          <strong>05</strong>
+          <span>Harmonics</span>
+        </div>
+      
+        <div class="step-badge">
+          <strong>06</strong>
+          <span>Installation</span>
+        </div>
+      </div>
+          </section>
+        </section>
+
+        <aside class="right-column compact-right-column">
+          <section class="panel preview-panel dark-panel compact-side-panel hidden" id="preview-panel">
+            <p class="eyebrow blue">Engineering Preview</p>
+            <h2>Live recommendation preview</h2>
+            <p class="panel-copy dark-copy">
+              The assistant updates this preview as your inputs become more specific.
+            </p>
+            <div class="dark-metric-list" id="preview-metrics"></div>
+          </section>
+
+          <section class="panel signal-panel compact-side-panel">
+            <p class="eyebrow">Project Signal Board</p>
+            <h2>What the assistant is watching</h2>
+            <div class="signal-list" id="signal-list">
+        <article class="signal-card">
+          <p>Main issue</p>
+          <strong>Waiting for input</strong>
+        </article>
+      
+        <article class="signal-card">
+          <p>Voltage</p>
+          <strong>Waiting for input</strong>
+        </article>
+      
+        <article class="signal-card">
+          <p>Load profile</p>
+          <strong>Waiting for input</strong>
+        </article>
+      
+        <article class="signal-card">
+          <p>Power quality data</p>
+          <strong>PF pending / THDi pending</strong>
+        </article>
+      </div>
+          </section>
+        </aside>
+      </main>
+
+      <section class="results-section hidden" id="results-section">
+        <section class="panel recommendation-panel">
+          <div class="recommendation-top">
+            <div>
+              <p class="eyebrow">Preliminary Recommendation</p>
+              <h2 id="result-solution-title">Hybrid AHF + SVG</h2>
+              <p class="panel-copy" id="result-why">
+                Your inputs show both harmonic distortion and reactive power instability, so a hybrid architecture offers the best first-pass fit.
+              </p>
+            </div>
+            <div class="confidence-box" id="result-confidence">Preliminary confidence: high</div>
+          </div>
+
+          <div class="summary-grid">
+            <article class="summary-card">
+              <p>Recommended solution type</p>
+              <strong id="result-solution-type"></strong>
+            </article>
+            <article class="summary-card">
+              <p>Suggested system size</p>
+              <strong id="result-size"></strong>
+            </article>
+            <article class="summary-card">
+              <p>Suggested installation type</p>
+              <strong id="result-installation"></strong>
+            </article>
+          </div>
+        </section>
+
+        <div class="results-grid">
+          <section class="panel dashboard-panel">
+            <p class="eyebrow">Engineering Dashboard</p>
+            <h2>Expected performance window</h2>
+            <div class="metric-stack" id="result-metrics"></div>
+          </section>
+
+          <section class="panel topology-panel dark-panel">
+            <p class="eyebrow blue">Recommended Topology</p>
+            <h2 id="result-topology"></h2>
+            <div class="topology-metrics" id="topology-metrics"></div>
+          </section>
+
+          <section class="panel reasons-panel">
+            <p class="eyebrow">Why this solution was selected</p>
+            <div class="reason-stack" id="reason-stack"></div>
+          </section>
+
+          <section class="panel notes-panel">
+            <p class="eyebrow">Engineering Notes</p>
+            <div class="reason-stack" id="note-stack"></div>
+          </section>
+        </div>
+
+        <section class="panel product-panel">
+          <div class="panel-head compact">
+            <div>
+              <p class="eyebrow">Matched CHITEK Products</p>
+              <h2>Recommended models and datasheets</h2>
+            </div>
+            <p class="panel-copy short">
+              Matched against the official CHITEK AHF and ASVG datasheets currently loaded into this tool.
+            </p>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <section class="panel disclaimer-panel">
+          <p class="eyebrow amber">Preliminary recommendation disclaimer</p>
+          <p>
+            This recommendation is a preliminary engineering estimate intended to speed up solution selection and RFQ qualification. Final equipment sizing and topology should be confirmed by CHITEK after reviewing the single-line diagram, load profile, harmonics report, and site installation conditions.
+          </p>
+          <p class="disclaimer-link-row">
+            <a class="inline-link-btn secondary" href="./sizing-guide.html">View AHF / SVG sizing methodology</a>
+          </p>
+        </section>
+
+        <section class="panel lead-panel">
+          <div class="lead-grid">
+            <div>
+              <p class="eyebrow">Receive Full Engineering Recommendation</p>
+              <h2>Receive full engineering recommendation and quotation.</h2>
+              <p class="panel-copy">
+                Share your project details and CHITEK can follow up with an application-specific recommendation, quotation, and next-step engineering checklist.
+              </p>
+              <div class="lead-list-box">
+                <p>Typical follow-up package:</p>
+                <ul>
+                  <li>Recommended model family and modular arrangement</li>
+                  <li>Suggested cabinet count or rack expansion path</li>
+                  <li>Input checklist for single-line diagram and harmonic report</li>
+                  <li>Commercial quotation workflow with CHITEK sales engineering</li>
+                </ul>
+              </div>
+            </div>
+
+            <form class="lead-form" id="lead-form">
+              <label>
+                <span>Name</span>
+                <input id="lead-name" name="name" type="text">
+              </label>
+              <label>
+                <span>Company</span>
+                <input id="lead-company" name="company" type="text">
+              </label>
+              <label>
+                <span>Email</span>
+                <input id="lead-email" name="email" type="email">
+              </label>
+              <label>
+                <span>WhatsApp</span>
+                <input id="lead-whatsapp" name="whatsapp" type="text">
+              </label>
+              <label>
+                <span>RFQ project summary</span>
+                <textarea id="lead-summary" name="summary" rows="10"></textarea>
+              </label>
+              <div class="lead-form-actions">
+                <button class="secondary-btn" id="copy-summary-btn" type="button">Copy RFQ Summary</button>
+                <a class="secondary-btn text-link-btn" id="rfq-mailto-btn" href="mailto:leo.li@chitek-inno.com">Open RFQ Email</a>
+              </div>
+              <button class="primary-btn full-width" type="submit">Send My Project for Review</button>
+              <p class="lead-status" id="lead-status">
+                This demo stores the lead in your browser only. In production, connect this form to CRM or RFQ routing.
+              </p>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel roadmap-panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">Roadmap Placeholders</p>
+            <h2>Future engineering workflow modules</h2>
+          </div>
+          <p class="panel-copy short">
+            These blocks are intentionally staged as placeholders and not fully implemented yet.
+          </p>
+        </div>
+        <div class="roadmap-grid" id="roadmap-grid">
+        <article class="roadmap-card">
+          <div class="roadmap-icon">+</div>
+          <h3>Upload SLD</h3>
+          <p>Attach single-line diagrams for more accurate feeder-level topology guidance.</p>
+          <span class="roadmap-tag">Coming next</span>
+        </article>
+      
+        <article class="roadmap-card">
+          <div class="roadmap-icon">+</div>
+          <h3>Upload harmonic report</h3>
+          <p>Use measured THDi and spectrum data to refine filter sizing and confidence.</p>
+          <span class="roadmap-tag">Coming next</span>
+        </article>
+      
+        <article class="roadmap-card">
+          <div class="roadmap-icon">+</div>
+          <h3>AI engineering analysis</h3>
+          <p>Future module for project-specific engineering reasoning and risk flags.</p>
+          <span class="roadmap-tag">Coming next</span>
+        </article>
+      
+        <article class="roadmap-card">
+          <div class="roadmap-icon">+</div>
+          <h3>ROI calculator</h3>
+          <p>Estimate utility penalty reduction, loss reduction, and payback period.</p>
+          <span class="roadmap-tag">Coming next</span>
+        </article>
+      
+        <article class="roadmap-card">
+          <div class="roadmap-icon">+</div>
+          <h3>Automatic quotation generation</h3>
+          <p>Convert approved recommendations directly into structured quotation drafts.</p>
+          <span class="roadmap-tag">Coming next</span>
+        </article>
+      </div>
+      </section>
+    </div>
+
+    
+  
+
+<script src="./app.js"></script>
+</body>
+</html>

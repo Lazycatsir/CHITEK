@@ -31,6 +31,9 @@ backups/
 !/_verify_news_i18n.py
 /nul
 /start-site.cmd
+# 本地拆分/调试备份，禁止进入版本控制（2026-10-22 补充）
+*.bak_*
+news_i18n_data*.py
 # 内部目录：工作记忆、审计产物
 /.workbuddy/
 /home_seo/

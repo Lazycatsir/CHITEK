@@ -107,44 +107,55 @@ const productsHref = prefix + '/products';
 const productsAhfHref = productsHref;   // AHF 无独立页，en/zh 的 /products 即其列表页
 const productsSvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-svg' : productsHref;
 const productsAsvgHref = (lang === 'en' || lang === 'zh') ? prefix + '/products-asvg' : productsHref;
-// 产品详情页目前仅英文版存在（/en/products|products-svg|products-asvg/{slug}）。
-// en：指向英文详情页；zh：暂无详情页，回退本语言列表（用户未要求改中文）；
-// es/ar/pt：英文详情页是唯一存在的详情页，深链到英文（与「卡片链接导向英文详情页」一致）。
-const prodDetailHref = (base, slug, fallback) => {
+// 产品详情页目前只有英文版（/en/products|products-svg|products-asvg/{slug}），五个语言都没有本语言详情页。
+// en：指向英文详情页；zh/es/ar/pt：深链英文详情页 —— 与各语言汇总页卡片的落点一致
+// （2026-10-21 复核：zh 汇总页卡片直接写死 /en/products/{slug}）。
+// ⚠️ 曾对 zh 走「回退本语言列表页」，一旦中文移动端也开三级菜单，8 条会全部落到同一个 /products，
+//    点哪条都没区别，故取消该分支（第 3 个参数 _fallback 保留只为不改动 10 处调用点）。
+const prodDetailHref = (base, slug, _fallback) => {
   if (lang === 'en') return prefix + base + '/' + slug;
-  if (lang === 'zh') return fallback;
   return isLocal ? '/en' + base + '/' + slug : 'https://en.chitek-inno.com' + base + '/' + slug;
 };
-// ── 移动端菜单 Products 三级展开数据（2026-10-08）─────────────────────────
-// 名称 = 对应汇总页（/en/products、/en/products-svg、/en/products-asvg）卡片的标题，逐字一致；
-// 同一详情页只保留首次出现的那条：208V/400V/480V 与 690V/800V 共用 anti-pollution-*、
-// IP65 SiC-Fanless 与 SiC-Fanless 共用 sic-fanless-*，故 AHF / SVG / ASVG 各有 8 张卡、去重后均为 6 条。
-// ⚠️ 汇总页改卡片文案时此处须同步 —— 回归脚本 00_中转站\nav_mobile_prod\verify_nav_mobile.py 断言逐字一致。
-// 详情页目前仅英文版存在，故三级只对 lang === 'en' 渲染；其余语言沿用原来的 3 条平铺链接。
+// ── 移动端菜单 Products 三级展开数据 ────────────────────────────────────
+// 名称与顺序 = 对应汇总页（/en/products、/en/products-svg、/en/products-asvg）卡片 h3，
+// **逐字一致、每线 8 条**（2026-10-21 全量对齐：原先 6 条且后缀写死 AHF/SVG/ASVG，与汇总页的
+// "(50-200A)" 规格写法不一致，并漏掉 690V/800V 与 SiC-Fanless 50A 两个独立详情页）。
+// ⚠️ 汇总页改卡片文案时必须同步这里 —— 回归：`_cmp_nav_cards.py`（静态比对 en+zh 六页 h3 与本文数组）
+//    与 `_check_nav_zh_3level.js`（浏览器端比对导航条目 / 链接 / 展开行为）。
+// 详情页只有英文版 → 三级条目深链英文详情页（与汇总页卡片落点一致）。
+// 2026-10-21：中文（lang === 'zh'）也开三级，条目名用汇总页卡片原文（中文站卡片名本身是英文型号名）；
+// es/pt/ar 仍走原来的 3 条平铺链接。
 const navProductCards: Record<string, { name: string; slug: string }[]> = {
+
   ahf: [
-    { name: 'Silicon Carbide MOSFET Active Harmonic Filter SiC AHF', slug: 'sic-ultra-ahf' },
-    { name: '208V/400V/480V Anti-Pollution Active Harmonic Filter AHF', slug: 'anti-pollution-ahf' },
-    { name: 'Ultra-slim Active Harmonic Filter AHF', slug: 'ultra-slim-ahf' },
-    { name: 'Distributed Active Harmonic Filter AHF', slug: 'distributed-ahf' },
-    { name: 'IP65 SiC-Fanless & Low Noise Active Harmonic Filter', slug: 'sic-fanless-ahf' },
-    { name: 'IP65 Active Harmonic Filter', slug: 'ip65-ahf' },
+    { name: 'Silicon Carbide MOSFET Active Harmonic Filter SiC (50-200A)', slug: 'sic-ultra-ahf' },
+    { name: '208V/400V/480V Anti-Pollution Active Harmonic Filter (50-200A)', slug: 'anti-pollution-ahf' },
+    { name: '690V/800V Anti-Pollution Active Harmonic Filter (50-150A)', slug: 'anti-pollution-hv-ahf' },
+    { name: 'Ultra-slim Active Harmonic Filter (8-20A)', slug: 'ultra-slim-ahf' },
+    { name: 'Distributed Active Harmonic Filter (30-50A)', slug: 'distributed-ahf' },
+    { name: 'IP65 SiC-Fanless Active Harmonic Filter 25A', slug: 'ip65-sic-fanless-ahf' },
+    { name: 'IP65 Active Harmonic Filter (100-150A)', slug: 'ip65-ahf' },
+    { name: 'IP65 SiC-Low Noise Fan Active Harmonic Filter 50A', slug: 'sic-fanless-ahf' },
   ],
   svg: [
-    { name: 'Silicon Carbide MOSFET Static Var Generator SiC SVG', slug: 'sic-ultra-svg' },
-    { name: '208V/400V/480V Anti-Pollution Static Var Generator SVG', slug: 'anti-pollution-svg' },
-    { name: 'Ultra-slim Static Var Generator SVG', slug: 'ultra-slim-svg' },
-    { name: 'Distributed Static Var Generator SVG', slug: 'distributed-svg' },
-    { name: 'IP65 SiC-Fanless & Low Noise Static Var Generator', slug: 'sic-fanless-svg' },
-    { name: 'IP65 Static Var Generator', slug: 'ip65-svg' },
+    { name: 'Silicon Carbide MOSFET Static Var Generator SiC (50-200A)', slug: 'sic-ultra-svg' },
+    { name: '208V/400V/480V Anti-Pollution Static Var Generator (50-200A)', slug: 'anti-pollution-svg' },
+    { name: '690V/800V Anti-Pollution Static Var Generator (50-150A)', slug: 'anti-pollution-hv-svg' },
+    { name: 'Ultra-slim Static Var Generator (8-20A)', slug: 'ultra-slim-svg' },
+    { name: 'Distributed Static Var Generator (30-50A)', slug: 'distributed-svg' },
+    { name: 'IP65 SiC-Fanless Static Var Generator 25A', slug: 'ip65-sic-fanless-svg' },
+    { name: 'IP65 Static Var Generator (100-150A)', slug: 'ip65-svg' },
+    { name: 'IP65 SiC-Low Noise Fan Static Var Generator 50A', slug: 'sic-fanless-svg' },
   ],
   asvg: [
-    { name: 'Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG', slug: 'sic-ultra-asvg' },
-    { name: '208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG', slug: 'anti-pollution-asvg' },
-    { name: 'Ultra-slim Advanced Static Var Generator ASVG', slug: 'ultra-slim-asvg' },
-    { name: 'Distributed Advanced Static Var Generator ASVG', slug: 'distributed-asvg' },
-    { name: 'IP65 SiC-Fanless & Low Noise Advanced Static Var Generator ASVG', slug: 'sic-fanless-asvg' },
-    { name: 'IP65 Advanced Static Var Generator ASVG', slug: 'ip65-asvg' },
+    { name: 'Silicon Carbide MOSFET Advanced Static Var Generator SiC (50-200A)', slug: 'sic-ultra-asvg' },
+    { name: '208V/400V/480V Anti-Pollution Advanced Static Var Generator (50-200A)', slug: 'anti-pollution-asvg' },
+    { name: '690V/800V Anti-Pollution Advanced Static Var Generator (85-100A)', slug: 'anti-pollution-hv-asvg' },
+    { name: 'Ultra-slim Advanced Static Var Generator (8-20A)', slug: 'ultra-slim-asvg' },
+    { name: 'Distributed Advanced Static Var Generator (30-50A)', slug: 'distributed-asvg' },
+    { name: 'IP65 SiC-Fanless Advanced Static Var Generator 25A', slug: 'ip65-sic-fanless-asvg' },
+    { name: 'IP65 Advanced Static Var Generator (100-150A)', slug: 'ip65-asvg' },
+    { name: 'IP65 SiC-Low Noise Fan Advanced Static Var Generator 50A', slug: 'sic-fanless-asvg' },
   ],
 };
 const navProductFamilies = [
@@ -209,7 +220,7 @@ const homeHref = prefix || '/';
 <nav class="fixed top-0 left-0 right-0 z-[1000] h-[72px] bg-white/[0.97] backdrop-blur-md border-b border-border-light shadow-sm">
   <div class="w-full h-full flex items-center px-5 md:px-12 gap-6 lg:gap-10">
 	  <a href={homeHref} class:list={["flex items-center no-underline", isRtl ? "ml-auto" : "mr-auto"]}>
-    <img src="/assets/images/logo.webp" alt="CHITEK Logo" class="w-[140px] h-auto object-contain" />
+    <img src="/assets/images/logo.webp" srcset="/assets/images/logo-480w.webp 480w, /assets/images/logo-960w.webp 960w, /assets/images/logo.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="CHITEK Logo" width="1200" height="275" class="w-[140px] h-auto object-contain" />
   </a>
 
   <button class="flex lg:hidden flex-col justify-center items-center w-10 h-10 cursor-pointer bg-transparent border-none p-0 gap-1.5 shrink-0" id="hamburgerBtn" aria-label={lang === 'pt' ? 'Alternar menu' : 'Toggle menu'}>
@@ -237,15 +248,15 @@ const homeHref = prefix || '/';
             isRtl ? "right-full mr-2" : "left-full ml-2"
           ]}>
             <a href={prodDetailHref('/products', 'anti-pollution-ahf', productsAhfHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Anti-Pollution Active Harmonic Filter AHF" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution AHF</div>
             </a>
             <a href={prodDetailHref('/products', 'sic-ultra-ahf', productsAhfHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC AHF" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC AHF</div>
             </a>
             <a href={prodDetailHref('/products', 'ultra-slim-ahf', productsAhfHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Active Harmonic Filter AHF" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Ultra-slim Active Harmonic Filter AHF" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Ultra-Slim AHF</div>
             </a>
           </div>
@@ -258,15 +269,15 @@ const homeHref = prefix || '/';
             isRtl ? "right-full mr-2" : "left-full ml-2"
           ]}>
             <a href={prodDetailHref('/products-svg', 'anti-pollution-svg', productsSvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Anti-Pollution Static Var Generator SVG" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution SVG</div>
             </a>
             <a href={prodDetailHref('/products-svg', 'sic-ultra-svg', productsSvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Static Var Generator SiC SVG" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Silicon Carbide MOSFET Static Var Generator SiC SVG" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC SVG</div>
             </a>
             <a href={prodDetailHref('/products-svg', 'ultra-slim-svg', productsSvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Static Var Generator SVG" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Ultra-slim Static Var Generator SVG" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Ultra-Slim SVG</div>
             </a>
           </div>
@@ -279,15 +290,15 @@ const homeHref = prefix || '/';
             isRtl ? "right-full mr-2" : "left-full ml-2"
           ]}>
             <a href={prodDetailHref('/products-asvg', 'anti-pollution-asvg', productsAsvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-anti-pollution.webp" alt="Anti-Pollution Advanced Static Var Generator ASVG" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Anti-Pollution Advanced Static Var Generator ASVG" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">Anti-Pollution ASVG</div>
             </a>
             <a href={prodDetailHref('/products-asvg', 'sic-ultra-asvg', productsAsvgHref)} class="group/card block no-underline">
-              <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">SiC ASVG</div>
             </a>
             <a href={productsAsvgHref} class="group/card block no-underline">
-              <img src="/assets/images/products-asvg-cabinet.webp" alt="Advanced Static Var Generator Cabinet" class="w-full aspect-square object-cover rounded-md" />
+              <img src="/assets/images/products-asvg-cabinet.webp" srcset="/assets/images/products-asvg-cabinet-480w.webp 480w, /assets/images/products-asvg-cabinet-960w.webp 960w, /assets/images/products-asvg-cabinet.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Advanced Static Var Generator Cabinet" width="1200" height="1200" class="w-full aspect-square object-cover rounded-md" />
               <div class="mt-2 text-[12px] font-semibold text-[#333333] group-hover/card:text-brand-orange">ASVG Cabinet</div>
             </a>
           </div>
@@ -379,25 +390,25 @@ const homeHref = prefix || '/';
     ]}>
       <a href={enHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'en' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-[#333333] font-medium">English</span>
-        <img src="/assets/images/flags/gb.png" alt="UK" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/gb.png" alt="UK" width="40" height="20" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       {showPtSwitch && (
       <a href={ptHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'pt' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-[#333333] font-medium">Portugu&ecirc;s</span>
-        <img src="/assets/images/flags/pt.png" alt="Portugal" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/pt.png" alt="Portugal" width="40" height="27" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       )}
       <a href={esHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'es' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-[#333333] font-medium">Espa&ntilde;ol</span>
-        <img src="/assets/images/flags/es.png" alt="Spain" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/es.png" alt="Spain" width="40" height="27" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       <a href={arHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'ar' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-[#333333] font-medium">العربية</span>
-        <img src="/assets/images/flags/sa.png" alt="Saudi Arabia" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/sa.png" alt="Saudi Arabia" width="60" height="40" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
       <a href={zhHref} class="lang-item flex items-center justify-between px-5 py-2.5 cursor-pointer transition-all duration-200 border-l-3 border-transparent hover:bg-[rgba(234,81,30,0.05)] hover:border-l-brand-orange hover:pl-6 no-underline {lang === 'zh' ? 'bg-[rgba(234,81,30,0.08)] border-l-brand-orange' : ''}">
         <span class="text-[13px] text-[#333333] font-medium">中文</span>
-        <img src="/assets/images/flags/cn.png" alt="China" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
+        <img src="/assets/images/flags/cn.png" alt="China" width="90" height="60" class="w-6 h-4 object-cover rounded-sm ml-3 shadow-sm" />
       </a>
     </div>
   </div>
@@ -412,7 +423,7 @@ const homeHref = prefix || '/';
       <span class="text-[10px] text-[#333333] transition-transform duration-200">▾</span>
     </div>
     <div class="mobile-submenu hidden flex-col gap-1 pl-4 pb-4" id="mobile-products">
-      {lang === 'en' && navProductFamilies.map((f) => (
+      {(lang === 'en' || lang === 'zh') && navProductFamilies.map((f) => (
         <div>
           <div class="flex items-center gap-1">
             <a href={f.list} data-list-link={'mobile-products-' + f.id} class="flex-1 py-2 text-[14px] text-[#333333] no-underline hover:text-brand-orange">{f.label}</a>
@@ -427,7 +438,7 @@ const homeHref = prefix || '/';
           </div>
         </div>
       ))}
-      {lang !== 'en' && [
+      {lang !== 'en' && lang !== 'zh' && [
         { href: productsAhfHref, label: _('activeHarmonicFilter') },
         { href: productsSvgHref, label: _('staticVarGenerator') },
         { href: productsAsvgHref, label: _('advancedStaticVarGenerator') },

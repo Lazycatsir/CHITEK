@@ -25,8 +25,9 @@ import re
 import sys
 from collections import Counter
 
-ROOT = pathlib.Path(r"F:\下载\CHITEK\src\pages")
-OUT = pathlib.Path(r"F:\下载\CHITEK\src\data")
+BASE = pathlib.Path(__file__).resolve().parent
+ROOT = BASE / "src" / "pages"
+OUT = BASE / "src" / "data"
 
 LANGS = [
     ("zh", "news"),

@@ -25,18 +25,18 @@
       python jobs\datasheet-zh\_mk_catalog.py     （重新串联本目录）
 
   目录顺序（页码）：
-       1. cover2         --（无页码）   ---  datasheet-en-cover-2.html
-       2. profile        01-02   ---  datasheet-en-profile.html
-       3. cover          03-04   ---  datasheet-en-cover.html
-       4. ultraslim      05-06   ---  datasheet-en-2.html
-       5. distributed    07-08   ---  datasheet-en-distributed.html
-       6. antipollution  09-10   ---  datasheet-en-antipollution.html
-       7. sic            11-12   ---  datasheet-en-sic.html
-       8. 208v           13-14   ---  datasheet-en-208v.html
-       9. 480v           15-16   ---  datasheet-en-480v.html
-      10. 800v           17-18   ---  datasheet-en-800v.html
-      11. aircooling     19-20   ---  datasheet-en-aircooling.html
-      12. monitor        21-22   ---  datasheet-en-monitor.html
+       1. cover2         --（无页码）   ---  00-datasheet-en-cover-2.html
+       2. profile        01-02   ---  01-02-datasheet-en-profile.html
+       3. cover          03-04   ---  03-04-datasheet-en-cover.html
+       4. ultraslim      05-06   ---  05-06-datasheet-en-2.html
+       5. distributed    07-08   ---  07-08-datasheet-en-distributed.html
+       6. antipollution  09-10   ---  09-10-datasheet-en-antipollution.html
+       7. sic            11-12   ---  11-12-datasheet-en-sic.html
+       8. 208v           13-14   ---  13-14-datasheet-en-208v.html
+       9. 480v           15-16   ---  15-16-datasheet-en-480v.html
+      10. 800v           17-18   ---  17-18-datasheet-en-800v.html
+      11. aircooling     19-20   ---  19-20-datasheet-en-aircooling.html
+      12. monitor        21-22   ---  21-22-datasheet-en-monitor.html
   ================================================================
 -->
 <style>
@@ -60,7 +60,7 @@
   }
 
 
-  /* ========== 来源：datasheet-en-cover-2.html（以下均为 [data-cat] 作用域规则） ========== */
+  /* ========== 来源：00-datasheet-en-cover-2.html（以下均为 [data-cat] 作用域规则） ========== */
 
   [data-cat="cover2"]{
     --w: 1610px;
@@ -196,7 +196,7 @@
   }
 
 
-  /* ========== 来源：datasheet-en-profile.html（以下均为 [data-cat] 作用域规则） ========== */
+  /* ========== 来源：01-02-datasheet-en-profile.html（以下均为 [data-cat] 作用域规则） ========== */
 
   [data-cat="profile"]{
     --w: 1610px;              
@@ -368,7 +368,7 @@
   }
 
 
-  /* ========== 来源：datasheet-en-cover.html（以下均为 [data-cat] 作用域规则） ========== */
+  /* ========== 来源：03-04-datasheet-en-cover.html（以下均为 [data-cat] 作用域规则） ========== */
 
   [data-cat="cover"]{
     --w: 1610px;
@@ -488,7 +488,8 @@
   
   [data-cat="cover"] .ptitle{
     font-family:var(--font-ui);
-    font-size:71px; line-height:67.08px; font-weight:700;
+    
+    font-size:60px; line-height:67.08px; font-weight:700;
     letter-spacing:-.005em; text-transform:uppercase;
     color:var(--on-dark);
     
@@ -588,7 +589,7 @@
   }
 
 
-  /* ========== 来源：datasheet-en-2.html（以下均为 [data-cat] 作用域规则） ========== */
+  /* ========== 来源：05-06-datasheet-en-2.html（以下均为 [data-cat] 作用域规则） ========== */
 
   [data-cat="ultraslim"]{
     --w: 1610px;              
@@ -747,6 +748,12 @@
   }
   [data-cat="ultraslim"] .rackdraw svg{ position:absolute; inset:0; width:100%; height:100%; }
   
+  [data-cat="ultraslim"] .rackdraw img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:contain;
+    mix-blend-mode:multiply;
+  }
+  
   [data-cat="ultraslim"] .pspace{ flex:103 1 0; }
 
   
@@ -848,7 +855,7 @@
   }
 
 
-  /* ========== 来源：datasheet-en-monitor.html（以下均为 [data-cat] 作用域规则） ========== */
+  /* ========== 来源：21-22-datasheet-en-monitor.html（以下均为 [data-cat] 作用域规则） ========== */
 
   [data-cat="monitor"]{
     --w: 1610px;              
@@ -1070,7 +1077,7 @@
 </head>
 
 <body>
-<!-- 图标库（来源：datasheet-en-profile.html）-->
+<!-- 图标库（来源：01-02-datasheet-en-profile.html）-->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"
      xmlns="http://www.w3.org/2000/svg">
   <!-- 2. Proprietary core IP —— 六边形 + 原子结构 -->
@@ -1106,7 +1113,7 @@
   </symbol>
 </svg>
 
-<!-- 图标库（来源：datasheet-en-monitor.html）-->
+<!-- 图标库（来源：21-22-datasheet-en-monitor.html）-->
 <svg class="sprite" aria-hidden="true" focusable="false"
      xmlns="http://www.w3.org/2000/svg">
   <symbol id="mk-bar"  viewBox="0 0 5.7 19.4"><rect width="5.7" height="19.4" rx="2" fill="currentColor"/></symbol>
@@ -1542,86 +1549,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-ultra-slim-dims.webp"
+               alt="APF/SVG ULTRA SLIM MODEL — rack-mount outline drawing (W345 × D20 × H415 mm)">
         </div>
 
         <div class="pspace"></div>
@@ -1747,86 +1676,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-distributed-dims.webp"
+               alt="APF/SVG DISTRIBUTED MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -1952,86 +1803,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-anti-pollution-dims.webp"
+               alt="APF/SVG STANDARD ANTI-POLLUTION MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -2161,86 +1934,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-sic-dims.webp"
+               alt="APF/SVG SECOND-GENERATION SILICON CARBIDE MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -2375,86 +2070,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-208v-dims.webp"
+               alt="APF/SVG 208V STANDARD ANTI-POLLUTION MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -2584,86 +2201,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-480v-dims.webp"
+               alt="APF/SVG 480V STANDARD ANTI-POLLUTION MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -2793,86 +2332,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-800v-dims.webp"
+               alt="APF/SVG 800V/690V STANDARD MODEL — rack-mount outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -3007,86 +2468,8 @@
         </div>
 
         <div class="rackdraw">
-<svg viewBox="94.5 10 420 310" xmlns="http://www.w3.org/2000/svg">
-          <!-- ===== 左：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="96" y="52" width="20" height="216"/>
-            <rect x="101" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <!-- 顶部把手/端子 -->
-            <rect x="102" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="100" y1="52" x2="112" y2="52"/>
-            <!-- 四角安装孔 -->
-            <circle cx="102" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="102" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="110" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- ===== 中：大俯视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="168" y="30" width="196" height="250"/>
-            <!-- 左边缘安装孔列 -->
-            <circle cx="178" cy="52" r="2" fill="#fff"/>
-            <circle cx="178" cy="118" r="2" fill="#fff"/>
-            <circle cx="178" cy="184" r="2" fill="#fff"/>
-            <circle cx="178" cy="250" r="2" fill="#fff"/>
-            <!-- 内部接线端子排（右侧竖向小方块阵列） -->
-            <rect x="336" y="86" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="104" width="18" height="16" stroke-width=".8"/>
-            <rect x="336" y="126" width="14" height="52" stroke-width=".7"
-                  fill="none" stroke-dasharray="2 1.5"/>
-            <!-- 右下角小端子 -->
-            <rect x="336" y="238" width="12" height="10" stroke-width=".8"/>
-          </g>
-
-          <!-- 底部尺寸线 345（内层） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="292" x2="364" y2="292"/>
-            <line x1="168" y1="287" x2="168" y2="297"/>
-            <line x1="364" y1="287" x2="364" y2="297"/>
-          </g>
-          <text x="266" y="288" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">345</text>
-
-          <!-- 底部尺寸线 366.5（外层，跨到右窄视图） -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="168" y1="314" x2="424" y2="314"/>
-            <line x1="168" y1="309" x2="168" y2="319"/>
-            <line x1="424" y1="309" x2="424" y2="319"/>
-          </g>
-          <text x="296" y="310" font-size="12" text-anchor="middle" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">366.5</text>
-
-          <!-- 右侧竖向尺寸线 415 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="410" y1="30" x2="410" y2="280"/>
-            <line x1="405" y1="30" x2="415" y2="30"/>
-            <line x1="405" y1="280" x2="415" y2="280"/>
-          </g>
-          <text x="424" y="160" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">415</text>
-
-          <!-- ===== 右：窄侧视图 ===== -->
-          <g stroke="#2b2b2b" stroke-width="1.1" fill="none">
-            <rect x="468" y="52" width="20" height="216"/>
-            <rect x="473" y="62" width="10" height="196" fill="#f2f0ee"/>
-            <rect x="474" y="38" width="8" height="14" fill="#e2e0de"/>
-            <line x1="472" y1="52" x2="484" y2="52"/>
-            <circle cx="474" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="60" r="1.8" fill="#fff"/>
-            <circle cx="474" cy="260" r="1.8" fill="#fff"/>
-            <circle cx="482" cy="260" r="1.8" fill="#fff"/>
-          </g>
-
-          <!-- 右窄视图顶部尺寸 20 -->
-          <g stroke="#2b2b2b" stroke-width=".9">
-            <line x1="468" y1="20" x2="488" y2="20"/>
-            <line x1="468" y1="15" x2="468" y2="25"/>
-            <line x1="488" y1="15" x2="488" y2="25"/>
-          </g>
-          <text x="500" y="24" font-size="12" fill="#2b2b2b"
-                font-family="Segoe UI,Arial">20</text>
-        </svg>
+          <img src="images/products-ahf-aircooling-dims.webp"
+               alt="APF/SVG NATURAL AIRCOOLING MODEL — outline drawing">
         </div>
 
         <div class="pspace"></div>

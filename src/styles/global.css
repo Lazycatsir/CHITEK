@@ -8,6 +8,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   src: url("/assets/fonts/Barlow-300.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -15,6 +16,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   src: url("/assets/fonts/Barlow-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -22,6 +24,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   src: url("/assets/fonts/Barlow-500.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -29,6 +32,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
   src: url("/assets/fonts/Barlow-600.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -36,6 +40,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/Barlow-700.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -43,6 +48,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 800;
   src: url("/assets/fonts/Barlow-800.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -52,6 +58,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   src: url("/assets/fonts/Barlow-300-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -59,6 +66,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   src: url("/assets/fonts/Barlow-400-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -66,6 +74,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   src: url("/assets/fonts/Barlow-500-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -73,6 +82,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
   src: url("/assets/fonts/Barlow-600-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -80,6 +90,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/Barlow-700-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -87,6 +98,7 @@
 @font-face {
   font-family: "Barlow";
   font-style: normal;
+  font-display: swap;
   font-weight: 800;
   src: url("/assets/fonts/Barlow-800-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -96,6 +108,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   src: url("/assets/fonts/BarlowCondensed-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -103,6 +116,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
   src: url("/assets/fonts/BarlowCondensed-600.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -110,6 +124,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/BarlowCondensed-700.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -119,6 +134,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   src: url("/assets/fonts/BarlowCondensed-400-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -126,6 +142,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
   src: url("/assets/fonts/BarlowCondensed-600-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -133,6 +150,7 @@
 @font-face {
   font-family: "Barlow Condensed";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/BarlowCondensed-700-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -148,6 +166,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   src: url("/assets/fonts/OPPOSans-300.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -155,6 +174,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   src: url("/assets/fonts/OPPOSans-400.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -162,6 +182,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   src: url("/assets/fonts/OPPOSans-500.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -169,6 +190,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
   src: url("/assets/fonts/OPPOSans-600.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -176,6 +198,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: url("/assets/fonts/OPPOSans-700.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -183,6 +206,7 @@
 @font-face {
   font-family: "OPPO Sans";
   font-style: normal;
+  font-display: swap;
   font-weight: 800;
   src: url("/assets/fonts/OPPOSans-800.woff2") format("woff2");
   unicode-range: U+0000-036F, U+1E00-1EFF, U+2000-22FF, U+25A0-26FF, U+2C60-2C7F, U+A720-A7FF, U+FB00-FB4F, U+FEFF, U+FFFD;
@@ -191,49 +215,65 @@
 /* ─── OPPO Sans SC - 中文站专用（含中文字形，2026-10） ─── */
 /* 中文版：含 CJK 字形；仅 <html lang="zh"> 使用（见下方 html[lang="zh"] 变量覆盖）。
    由用户提供的 OPPO Sans SC 源文件经 pyftsubset 转 woff2 + 裁 CJK 子集得到。
-   Latin 字符仍由上面的 Latin 子集（OPPO Sans）覆盖，故本块 unicode-range 仅含 CJK，
-   避免重复下载拉丁字形、保持英文/数字走轻量 Latin 面。
-   文件名约定：OPPOSansSC-<weight>.woff2（权重 300/400/500/600/700/800）。 */
+   Latin 字符由上面的 Latin 子集（OPPO Sans）覆盖，故本块 unicode-range 仅含 CJK。
+
+   ── 2026-10-21 子集化（性能 P0-1）──
+   原文件按 U+4E00-9FFF 全量 2 万字生成，单字重 1.03-1.07MB，页面上出现一个汉字
+   就整包下载 → 中文站首访 4 个字重约 4.2MB。现由 _font_subset.py 按「全站实用字
+   1351 + 300 常见扩展字（GB2312 一级字表均匀采样）+ 34 标点」= 1679 字重新子集化，
+   单字重 236-242KB（省 77%）。校验：汉字丢失 0；°±·×÷—…≤≥℃％ 等原字体本就没有，
+   照旧走 Latin 面 / 系统字体 fallback（与改动前一致）。
+   ⚠️ 文件名里的 -sub 不能去掉：/assets/* 配了 immutable 一年缓存，覆盖同名文件
+      老访客永远拿不到新文件。改字体必须换名 + 改这里。
+   ⚠️ 新增文案出现子集外的字会回退到系统中文黑体（见 html[lang="zh"] 字体族），
+      大面积改文案后重跑 python _font_subset.py。
+   文件名约定：OPPOSansSC-<weight>-sub.woff2（权重 300/400/500/600/700/800）。 */
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
-  src: url("/assets/fonts/OPPOSansSC-300.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-300-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
-  src: url("/assets/fonts/OPPOSansSC-400.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-400-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
-  src: url("/assets/fonts/OPPOSansSC-500.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-500-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 600;
-  src: url("/assets/fonts/OPPOSansSC-600.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-600-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
-  src: url("/assets/fonts/OPPOSansSC-700.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-700-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
+  font-display: swap;
   font-weight: 800;
-  src: url("/assets/fonts/OPPOSansSC-800.woff2") format("woff2");
+  src: url("/assets/fonts/OPPOSansSC-800-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 
@@ -400,7 +440,7 @@ html[lang="en"] .font-barlow-condensed {
    仅 zh 生效：en 维持 OPPO Sans Latin，es/ar/pt 维持 Barlow。
    zh 页面 <html lang="zh"> 已由各中文页 BaseLayout lang="zh" 正确输出（已核对 index/about/products/news 等）。 */
 html[lang="zh"] {
-  --font-barlow: "OPPO Sans SC", "OPPO Sans", "Barlow", sans-serif;
+  --font-barlow: "OPPO Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "OPPO Sans", "Barlow", sans-serif;
   --font-barlow-condensed: var(--font-barlow, "Barlow", sans-serif);
 }
 

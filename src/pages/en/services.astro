@@ -15,7 +15,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- ========== HERO ========== -->
     <section class="relative w-full overflow-hidden min-h-[70vh] mt-[72px] flex items-center justify-center">
       <div class="absolute inset-0">
-        <img src="/assets/images/services-hero-bg.webp" alt="Industrial Power Equipment" class="w-full h-full object-cover opacity-40" />
+        <img src="/assets/images/services-hero-bg.webp" srcset="/assets/images/services-hero-bg-480w.webp 480w, /assets/images/services-hero-bg-960w.webp 960w, /assets/images/services-hero-bg.webp 2000w" sizes="100vw" alt="Industrial Power Equipment" width="2000" height="909" class="w-full h-full object-cover opacity-40" />
         <div class="absolute inset-0" style="background-image:linear-gradient(rgba(255,255,255,0.03)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03)1px,transparent 1px);background-size:50px 50px;opacity:0.3"></div>
       </div>
       <div class="relative z-10 text-center px-6 max-w-[80rem] mx-auto">
@@ -52,21 +52,21 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </div>
               <div>
                 <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Appearance Customization</h3>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Standard Service</p>
+                <p class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Standard Service</p>
               </div>
             </div>
             <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Enclosure Color</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">RAL color chart specified</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Enclosure Color</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">RAL color chart specified</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Brand Silk-Screening</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Logo placement customized</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Brand Silk-Screening</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Logo placement customized</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Nameplate Information</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Client-specified content</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Nameplate Information</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Client-specified content</div></div>
               </div>
             </div>
             <div class="border-t border-gray-200 pt-4">
@@ -88,25 +88,25 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </div>
               <div>
                 <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Feature Configuration</h3>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Selection Service</p>
+                <p class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Selection Service</p>
               </div>
             </div>
             <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Capacity Range</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">15A — 200A；10KVar — 180KVar</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Capacity Range</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">15A — 200A；10KVar — 180KVar</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Communication Protocol</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Modbus / Profinet / Ethernet</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Communication Protocol</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Modbus / Profinet / Ethernet</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Harmonic Order</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">2nd — 50th</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Harmonic Order</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">2nd — 50th</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Parallel Units</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">1 — 16 units</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Parallel Units</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">1 — 16 units</div></div>
               </div>
             </div>
             <div class="border-t border-gray-200 pt-4">
@@ -128,21 +128,21 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </div>
               <div>
                 <h3 class="text-[clamp(16px,1.2vw,20px)] font-bold text-text-dark">Deep Customization</h3>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Project-Based</p>
+                <p class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Project-Based</p>
               </div>
             </div>
             <div class="flex flex-col gap-[clamp(8px,1.5vw,20px)] mb-[clamp(16px,2.5vw,40px)]">
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Voltage Level Customization</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Requires assessment</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Voltage Level Customization</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Requires assessment</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Cabinet Size Adjustment</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">Subject to thermal limits</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Cabinet Size Adjustment</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">Subject to thermal limits</div></div>
               </div>
               <div class="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light mt-0.5 flex-shrink-0"><path d="m9 18 6-6-6-6"/></svg>
-                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Special Environment Protection</div><div class="text-[clamp(10px,0.8vw,12px)] text-text-dark/60">High altitude / Coastal</div></div>
+                <div><div class="text-[clamp(12px,0.9vw,15px)] font-medium text-text-dark">Special Environment Protection</div><div class="text-[clamp(11px,0.8vw,12px)] text-text-dark/60">High altitude / Coastal</div></div>
               </div>
             </div>
             <div class="border-t border-gray-200 pt-4">
@@ -167,7 +167,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- ========== SUPPORTED BY A COMMITTED TEAM ========== -->
     <section class="w-full min-h-[calc(100vh-72px)] py-6 px-[clamp(24px,8vw,160px)] bg-bg-dark relative fade-up overflow-hidden flex flex-col justify-center">
       <div class="absolute inset-0">
-        <img src="/assets/images/services-services-team.webp" alt="" class="w-full h-full object-cover opacity-30" loading="lazy" />
+        <img src="/assets/images/services-services-team.webp" srcset="/assets/images/services-services-team-480w.webp 480w, /assets/images/services-services-team-960w.webp 960w, /assets/images/services-services-team.webp 2000w" sizes="100vw" alt="" width="2000" height="1000" class="w-full h-full object-cover opacity-30" loading="lazy" />
       </div>
       <div class="flex flex-col gap-[clamp(12px,3vw,48px)]">
         <div class="flex items-end justify-between mb-[clamp(12px,2vw,32px)]">
@@ -201,7 +201,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">On-site Testing</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Assisting customers with on-site testing, system design, and power quality assessment.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">01</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">01</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -213,7 +213,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">Design Consulting</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Providing blueprint design consultation and optimization advice for new infrastructure projects.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">02</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">02</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -225,7 +225,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">Custom Solutions</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Delivering optimal power quality compensation solutions tailored to specific client needs.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">03</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">03</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -252,7 +252,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">Tech Support</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">24/7 remote technical consultation and troubleshooting assistance.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">01</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">01</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -264,7 +264,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">Regular Inspection</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Scheduled maintenance visits to ensure long-term system stability.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">02</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">02</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -276,7 +276,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">Maintenance</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Professional equipment repair and firmware upgrades.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">03</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">03</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -288,7 +288,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <h4 class="font-barlow text-[clamp(14px,1vw,17px)] font-bold text-[#f5f5f5] mb-2">System Upgrade</h4>
                 <p class="font-barlow text-[clamp(12px,0.9vw,15px)] text-white/75 leading-relaxed">Scalability analysis and capacity expansion services.</p>
               </div>
-              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(10px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">04</div>
+              <div class="absolute bottom-4 right-5 font-barlow-condensed text-[clamp(11px,0.8vw,12px)] font-semibold text-electric-orange-light tracking-[0.05em]">04</div>
               <div class="absolute top-[-1px] left-[-1px] w-5 h-5 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
               <div class="absolute bottom-[-1px] right-[-1px] w-5 h-5 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
             </div>
@@ -365,7 +365,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- ========== MANUFACTURING PROCESS ========== -->
     <section class="w-full py-16 px-[clamp(24px,8vw,160px)] bg-bg-dark relative overflow-x-auto fade-up">
       <div class="absolute inset-0 overflow-hidden">
-        <img src="/assets/images/services-process.webp" alt="" class="w-full h-full object-cover opacity-30" />
+        <img src="/assets/images/services-process.webp" srcset="/assets/images/services-process-480w.webp 480w, /assets/images/services-process-960w.webp 960w, /assets/images/services-process.webp 1920w" sizes="100vw" alt="" width="1920" height="1024" class="w-full h-full object-cover opacity-30" />
       </div>
         <div class="text-left mb-[60px]">
           <div class="inline-flex items-center gap-3 mb-4">
@@ -580,7 +580,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               </tbody>
             </table>
           </div>
-          <p class="mt-3 text-[clamp(10px,0.8vw,12px)] text-white/60">Device &amp; HMI manuals combined in one download. Need a document not listed? Contact us.</p>
+          <p class="mt-3 text-[clamp(11px,0.8vw,12px)] text-white/60">Device &amp; HMI manuals combined in one download. Need a document not listed? Contact us.</p>
           <div class="absolute top-[-1px] left-[-1px] w-4 h-4 border-t-2 border-l-2 border-[rgba(194,94,0,0.5)]"></div>
           <div class="absolute bottom-[-1px] right-[-1px] w-4 h-4 border-b-2 border-r-2 border-[rgba(194,94,0,0.5)]"></div>
         </div>
@@ -600,7 +600,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>What is your MOQ (Minimum Order Quantity)?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> Our standard MOQ is 10 units per model for standard products. For OEM/ODM projects, MOQ is negotiable based on customization scope. Sample orders (1-2 units) are welcome for qualification testing.
                 </p>
               </div>
@@ -609,7 +609,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>What payment terms do you accept?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> We accept T/T (30% deposit + 70% balance before shipment), L/C at sight for larger orders, and Western Union for sample orders. Long-term credit terms available for qualified partners.
                 </p>
               </div>
@@ -618,7 +618,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>What is the typical lead time?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> Standard products: 15-20 working days. Custom/OEM orders: 30-45 working days depending on complexity. Urgent orders can be expedited to 7-10 working days for an express fee.
                 </p>
               </div>
@@ -627,7 +627,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>What shipping methods do you offer?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> We ship FOB Shenzhen, CIF, or DDP per your preference. Express (DHL/FedEx/UPS) for samples and small orders; sea freight for bulk orders; air freight available for urgent shipments.
                 </p>
               </div>
@@ -648,7 +648,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>Can you put my brand logo on the product?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> Yes, we offer full OEM services including custom branding (logo, nameplate), color schemes, and packaging design. Minimum 50 units per model for custom branding.
                 </p>
               </div>
@@ -657,7 +657,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>Can you customize technical specifications?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> Absolutely. Our R&amp;D team can customize voltage ratings, frequency (50/60Hz), communication protocols (Modbus, Profibus), and enclosure types (IP20, IP31, IP54) per your market requirements.
                 </p>
               </div>
@@ -666,7 +666,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>What is the OEM development process?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> Requirements review &rarr; technical proposal &rarr; prototype sample &rarr; testing/validation &rarr; mass production &rarr; QC inspection &rarr; delivery. Typical timeline: 30-45 days for first article.
                 </p>
               </div>
@@ -675,7 +675,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <span class="text-brand-orange mt-0.5 shrink-0">Q:</span>
                   <span>How do you protect my design/IP?</span>
                 </p>
-                <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-5">
+                <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-5">
                   <span class="text-accent-blue font-medium">A:</span> We sign strict NDA and OEM agreements. Your designs, specifications, and proprietary information are kept strictly confidential and never shared with third parties.
                 </p>
               </div>
@@ -713,7 +713,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <div class="faq-panel active" id="afterSalesPanel1">
                       <div class="text-[clamp(12px,0.9vw,15px)] leading-relaxed text-white/80">
                         <p class="mb-2"><span class="text-accent-blue font-medium">A:</span> Standard warranty is <strong class="text-white/90">24 months from date of shipment</strong>. Extended warranty up to 60 months is available. Warranty covers manufacturing defects and premature component failure under normal operating conditions.</p>
-                        <p class="text-white/80 text-[clamp(10px,0.8vw,12px)] mt-3 flex items-center gap-2">
+                        <p class="text-white/80 text-[clamp(11px,0.8vw,12px)] mt-3 flex items-center gap-2">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-accent-blue shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                           Typical response within 24 hours for warranty claims.
                         </p>
@@ -722,7 +722,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <div class="faq-panel hidden" id="afterSalesPanel2">
                       <div class="text-[clamp(12px,0.9vw,15px)] leading-relaxed text-white/80">
                         <p class="mb-2"><span class="text-accent-blue font-medium">A:</span> All products carry <strong class="text-white/90">CE (LVD+EMC)</strong> certification. UL/cUL, CB, and other regional certifications available on request. Manufacturing facility is <strong class="text-white/90">ISO 9001:2015</strong> certified.</p>
-                        <p class="text-white/80 text-[clamp(10px,0.8vw,12px)] mt-3 flex items-center gap-2">
+                        <p class="text-white/80 text-[clamp(11px,0.8vw,12px)] mt-3 flex items-center gap-2">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-accent-blue shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                           Full certification documentation provided with every shipment.
                         </p>
@@ -731,7 +731,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <div class="faq-panel hidden" id="afterSalesPanel3">
                       <div class="text-[clamp(12px,0.9vw,15px)] leading-relaxed text-white/80">
                         <p class="mb-2"><span class="text-accent-blue font-medium">A:</span> We provide <strong class="text-white/90">24/7 technical support</strong> via email and WhatsApp. Replacement units shipped within <strong class="text-white/90">48 hours</strong> for confirmed defects. Local service partners in <strong class="text-white/90">15+ countries</strong> for on-site assistance.</p>
-                        <p class="text-white/80 text-[clamp(10px,0.8vw,12px)] mt-3 flex items-center gap-2">
+                        <p class="text-white/80 text-[clamp(11px,0.8vw,12px)] mt-3 flex items-center gap-2">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-accent-blue shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                           Hotline: +86-755-XXXX-XXXX | WhatsApp: +86-184-XXXX-XXXX
                         </p>
@@ -740,7 +740,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <div class="faq-panel hidden" id="afterSalesPanel4">
                       <div class="text-[clamp(12px,0.9vw,15px)] leading-relaxed text-white/80">
                         <p class="mb-2"><span class="text-accent-blue font-medium">A:</span> Yes, we provide <strong class="text-white/90">remote commissioning support</strong> via video call. On-site support is available for large projects (travel costs at buyer's expense). Detailed installation manuals and video tutorials are included with every product.</p>
-                        <p class="text-white/80 text-[clamp(10px,0.8vw,12px)] mt-3 flex items-center gap-2">
+                        <p class="text-white/80 text-[clamp(11px,0.8vw,12px)] mt-3 flex items-center gap-2">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-accent-blue shrink-0"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                           Step-by-step video guides available in English, Spanish &amp; Arabic.
                         </p>
@@ -761,15 +761,15 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 text-electric-orange-light"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
               <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Tech Hotline</div>
-              <div class="text-[clamp(10px,0.8vw,12px)] text-white/80">0755-23596807 (Mon–Fri 9:00–18:00)</div>
-              <a href="https://wa.me/8618818994346" target="_blank" rel="noopener" class="text-[clamp(10px,0.8vw,12px)] text-white/80 underline hover:text-electric-orange-light transition-colors">WhatsApp: +86 188 1899 4346</a>
+              <div class="text-[clamp(11px,0.8vw,12px)] text-white/80">0755-23596807 (Mon–Fri 9:00–18:00)</div>
+              <a href="https://wa.me/8618818994346" target="_blank" rel="noopener" class="text-[clamp(11px,0.8vw,12px)] text-white/80 underline hover:text-electric-orange-light transition-colors">WhatsApp: +86 188 1899 4346</a>
             </div>
           </div>
           <div class="flex items-center gap-[clamp(8px,1.5vw,20px)] p-4 border border-border-dark bg-[rgba(17,17,17,0.5)]">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 text-electric-orange-light"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>
             <div>
               <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Emergency Fault</div>
-              <div class="text-[clamp(10px,0.8vw,12px)] text-white/80">2-hour response (maintenance contract clients only)</div>
+              <div class="text-[clamp(11px,0.8vw,12px)] text-white/80">2-hour response (maintenance contract clients only)</div>
             </div>
           </div>
         </div>
@@ -779,7 +779,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <!-- ========== DISTRIBUTOR ========== -->
     <section id="distributor" class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] py-12 relative fade-up overflow-hidden flex flex-col justify-center">
       <div class="absolute inset-0">
-        <img src="/assets/images/services-distributor.webp" alt="" class="w-full h-full object-cover opacity-30" loading="lazy" />
+        <img src="/assets/images/services-distributor.webp" srcset="/assets/images/services-distributor-480w.webp 480w, /assets/images/services-distributor-960w.webp 960w, /assets/images/services-distributor.webp 2000w" sizes="100vw" alt="" width="2000" height="1331" class="w-full h-full object-cover opacity-30" loading="lazy" />
       </div>
       <div class="relative z-10">
         <div class="text-center mb-16">
@@ -806,43 +806,43 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             <h3 class="flex items-center gap-3 text-[clamp(18px,1.4vw,24px)] font-bold text-white mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               Training Support
-              <span class="text-[clamp(10px,0.8vw,12px)] text-white/80 ml-2">Free, online + offline hybrid</span>
+              <span class="text-[clamp(11px,0.8vw,12px)] text-white/80 ml-2">Free, online + offline hybrid</span>
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-[clamp(8px,1.5vw,20px)]">
               <div class="flex items-start gap-3 p-4 border border-border-dark bg-bg-dark">
                 <div class="w-8 h-8 border border-[rgba(194,94,0,0.3)] flex items-center justify-center flex-shrink-0">
-                  <span class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light">01</span>
+                  <span class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light">01</span>
                 </div>
                 <div>
                   <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Product Knowledge</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Product architecture &amp; selling points</div>
+                  <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Product architecture &amp; selling points</div>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-4 border border-border-dark bg-bg-dark">
                 <div class="w-8 h-8 border border-[rgba(194,94,0,0.3)] flex items-center justify-center flex-shrink-0">
-                  <span class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light">02</span>
+                  <span class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light">02</span>
                 </div>
                 <div>
                   <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Selection Practice</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">4 sessions · Cross-reference tables &amp; scheme matching</div>
+                  <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">4 sessions · Cross-reference tables &amp; scheme matching</div>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-4 border border-border-dark bg-bg-dark">
                 <div class="w-8 h-8 border border-[rgba(194,94,0,0.3)] flex items-center justify-center flex-shrink-0">
-                  <span class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light">03</span>
+                  <span class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light">03</span>
                 </div>
                 <div>
                   <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Installation Guidance</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Video library, watch anytime</div>
+                  <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Video library, watch anytime</div>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-4 border border-border-dark bg-bg-dark">
                 <div class="w-8 h-8 border border-[rgba(194,94,0,0.3)] flex items-center justify-center flex-shrink-0">
-                  <span class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light">04</span>
+                  <span class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light">04</span>
                 </div>
                 <div>
                   <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Fault Pre-Diagnosis</div>
-                  <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Self-service troubleshooting system</div>
+                  <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">2 sessions · Self-service troubleshooting system</div>
                 </div>
               </div>
             </div>
@@ -854,7 +854,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-electric-orange-light"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></svg>
               Three Fit Types — Who You Sell To
             </h3>
-            <p class="text-[clamp(10px,0.8vw,12px)] text-white/80 mb-6">Match every lead to one of these three modes, then lead with the line that fits.</p>
+            <p class="text-[clamp(11px,0.8vw,12px)] text-white/80 mb-6">Match every lead to one of these three modes, then lead with the line that fits.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[clamp(12px,2vw,24px)]">
 
               <!-- A: Panel-Embedded -->
@@ -863,17 +863,17 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
                   <div class="text-[clamp(13px,1vw,16px)] font-bold text-white">Panel-Embedded Modules</div>
                 </div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light mb-3">For panel &amp; switchgear builders who resell our units inside their own cabinets.</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light mb-3">For panel &amp; switchgear builders who resell our units inside their own cabinets.</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">Who fits</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Builds LV switchgear / capacitor banks (MNS, GCK, GGD…) and bids harmonics or reactive compensation into tenders</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. traditional panel builders, cabinet assemblers</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Builds LV switchgear / capacitor banks (MNS, GCK, GGD…) and bids harmonics or reactive compensation into tenders</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. traditional panel builders, cabinet assemblers</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">What we provide</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Standard-footprint AHF / SVG / ASVG modules — drop-in, with dimension drawings</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• OEM / private-label: your brand on our module</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Reference BOM + co-design to package as a standard option</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Volume tier pricing + territory protection</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Standard-footprint AHF / SVG / ASVG modules — drop-in, with dimension drawings</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• OEM / private-label: your brand on our module</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Reference BOM + co-design to package as a standard option</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Volume tier pricing + territory protection</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">How to open</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 italic leading-relaxed">"Tender asks for harmonics control? We give you the module + drawings, labeled with your brand."</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 italic leading-relaxed">"Tender asks for harmonics control? We give you the module + drawings, labeled with your brand."</div>
               </div>
 
               <!-- B: Equipment Built-In -->
@@ -882,17 +882,17 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
                   <div class="text-[clamp(13px,1vw,16px)] font-bold text-white">Equipment Built-In (OEM)</div>
                 </div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light mb-3">For equipment makers whose machines need power-quality compliance as a built-in part.</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light mb-3">For equipment makers whose machines need power-quality compliance as a built-in part.</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">Who fits</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Builds VFD / rectifier / grid-tied equipment that injects harmonics or needs reactive support</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. compressor makers, energy-storage (PCS) manufacturers</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Builds VFD / rectifier / grid-tied equipment that injects harmonics or needs reactive support</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. compressor makers, energy-storage (PCS) manufacturers</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">What we provide</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Compact AHF / SVG modules that drop into your machine BOM</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Co-engineered sizing — we spec the filter to your load profile</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Compliance support for grid-code / export harmonic limits</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Private-label or CHITEK-branded</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Compact AHF / SVG modules that drop into your machine BOM</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Co-engineered sizing — we spec the filter to your load profile</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Compliance support for grid-code / export harmonic limits</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Private-label or CHITEK-branded</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">How to open</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 italic leading-relaxed">"Your machine has VFD / grid-tie — it must clear the harmonics gate. We put a small module in your BOM so you pass and don't lose the order."</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 italic leading-relaxed">"Your machine has VFD / grid-tie — it must clear the harmonics gate. We put a small module in your BOM so you pass and don't lose the order."</div>
               </div>
 
               <!-- C: Project Procurement -->
@@ -901,17 +901,17 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-electric-orange-light"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v8h20v-8a2 2 0 0 0-2-2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>
                   <div class="text-[clamp(13px,1vw,16px)] font-bold text-white">Project Procurement</div>
                 </div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-electric-orange-light mb-3">For renovation &amp; new-build projects bought through owners, EPCs and design institutes.</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-electric-orange-light mb-3">For renovation &amp; new-build projects bought through owners, EPCs and design institutes.</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">Who fits</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Buys per project, not per unit — power quality is a design / acceptance item</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. local renovation programs, new-build plants &amp; buildings</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Buys per project, not per unit — power quality is a design / acceptance item</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• e.g. local renovation programs, new-build plants &amp; buildings</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">What we provide</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Scheme-in support: dynamic reactive written into the spec from day one</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Retrofit assessment: evaluate adding modules to existing cabinets</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Project-based pricing + framework agreements</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Bulk delivery + local service partners</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Scheme-in support: dynamic reactive written into the spec from day one</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Retrofit assessment: evaluate adding modules to existing cabinets</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-1">• Project-based pricing + framework agreements</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 leading-relaxed mb-3">• Bulk delivery + local service partners</div>
                 <div class="text-[clamp(11px,0.85vw,13px)] font-medium text-white/90 mb-1">How to open</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 italic leading-relaxed">"New build? Put dynamic reactive in the design once. Retrofit? We assess your existing cabinet and add the module."</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 italic leading-relaxed">"New build? Put dynamic reactive in the design once. Retrofit? We assess your existing cabinet and add the module."</div>
               </div>
 
             </div>
@@ -923,14 +923,14 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               <div>
                 <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Territory Protection</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">City-exclusive for signed partners. No sales quota in year one.</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">City-exclusive for signed partners. No sales quota in year one.</div>
               </div>
             </div>
             <div class="flex items-start gap-[clamp(8px,1.5vw,20px)]">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
               <div>
                 <div class="text-[clamp(12px,0.9vw,15px)] font-medium text-white">Pricing Structure</div>
-                <div class="text-[clamp(10px,0.8vw,12px)] text-white/80 mt-1">Unified ex-factory price. Tiered rebate fully transparent.</div>
+                <div class="text-[clamp(11px,0.8vw,12px)] text-white/80 mt-1">Unified ex-factory price. Tiered rebate fully transparent.</div>
               </div>
             </div>
           </div>
@@ -950,7 +950,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 max-md:px-4 fade-up bg-[radial-gradient(ellipse_at_center,#1e3a5f,#0c1628)]">
       <div class="absolute inset-0 bg-[url('/assets/images/services-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
       <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
-        <img src="/assets/images/services-global.webp" alt="Global Reach" class="w-full h-full object-contain" />
+        <img src="/assets/images/services-global.webp" srcset="/assets/images/services-global-480w.webp 480w, /assets/images/services-global-960w.webp 960w, /assets/images/services-global.webp 1683w" sizes="100vw" alt="Global Reach" width="1683" height="935" class="w-full h-full object-contain" />
       </div>
       <div class="relative z-10 text-center px-12 py-5 max-md:hidden bg-[rgba(7,16,30,0.7)] backdrop-blur-[4px] border border-white/15 inline-block shadow-sm">
         <div class="inline-flex items-center gap-3 mb-4 justify-center">
@@ -1002,11 +1002,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               '<div class="border border-border-dark bg-bg-dark p-4 mt-4">' +
                 '<h4 class="text-[clamp(12px,0.9vw,15px)] font-medium text-white/80 mb-3">Step 2: Auto-Match</h4>' +
                 '<div>' +
-                  '<div class="text-[clamp(10px,0.8vw,12px)] mb-1 text-electric-orange-light">Common Cause</div>' +
+                  '<div class="text-[clamp(11px,0.8vw,12px)] mb-1 text-electric-orange-light">Common Cause</div>' +
                   '<div class="text-[clamp(12px,0.9vw,15px)] mb-4 text-white">' + data.cause + '</div>' +
                 '</div>' +
                 '<div>' +
-                  '<div class="text-[clamp(10px,0.8vw,12px)] mb-1 text-accent-blue">Action Steps</div>' +
+                  '<div class="text-[clamp(11px,0.8vw,12px)] mb-1 text-accent-blue">Action Steps</div>' +
                   '<div class="flex flex-col gap-1">' +
                     data.steps.map(function(s, i) {
                       return '<div class="flex items-start gap-2 text-[clamp(12px,0.9vw,15px)] text-white/80"><span class="text-electric-orange-light flex-shrink-0">' + (i + 1) + '.</span>' + s + '</div>';
@@ -1025,7 +1025,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           if (!isVisible) {
             ticketForm.innerHTML =
               '<div class="mt-4 p-4 border border-border-dark bg-bg-dark">' +
-                '<p class="text-[clamp(10px,0.8vw,12px)] text-white/80 mb-3">Ticket Form (Demo)</p>' +
+                '<p class="text-[clamp(11px,0.8vw,12px)] text-white/80 mb-3">Ticket Form (Demo)</p>' +
                 '<input type="text" placeholder="Equipment Model" class="w-full p-2 px-3 mb-2 bg-bg-dark border border-border-dark text-white text-[clamp(12px,0.9vw,15px)] outline-none focus:border-[rgba(194,94,0,0.5)]" />' +
                 '<textarea placeholder="Problem Description" rows="3" class="w-full p-2 px-3 mb-2 bg-bg-dark border border-border-dark text-white text-[clamp(12px,0.9vw,15px)] outline-none focus:border-[rgba(194,94,0,0.5)] resize-none min-h-[5rem]"></textarea>' +
                 '<button id="ticketSubmitBtn" class="w-full p-2 bg-[rgba(194,94,0,0.8)] border-none text-white text-[clamp(12px,0.9vw,15px)] font-medium cursor-pointer transition-colors duration-200 hover:bg-electric-orange">Submit Ticket</button>' +

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHITEK AHF &amp; SVG Sizing Guide</title>
+  <meta name="description" content="AHF and SVG sizing methodology: harmonic current, kvar requirement, CT strategy, wiring, commissioning and monitoring.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo-head.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="page-shell">
+      <header class="hero-section guide-hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="brand-lockup">
+              <img class="brand-logo" src="../assets/images/logo.webp" alt="CHITEK logo">
+            </div>
+            <div class="hero-chip">
+              <span class="hero-chip-dot"></span>
+              CHITEK Engineering Methodology
+            </div>
+            <h1>AHF &amp; SVG Sizing Guide</h1>
+            <p class="hero-subtitle">
+              Understand the field checks, formulas, safety margins, and installation logic behind preliminary power quality recommendations.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="./index.html">Back to Selector</a>
+              <a class="secondary-btn text-link-btn" href="./sizing-guide.html#ahf-math">View Sizing Math</a>
+            </div>
+          </div>
+
+          <section class="hero-panel">
+            <article class="hero-tile">
+              <div class="tile-icon">THD</div>
+              <p class="tile-label">Field Measurement</p>
+              <h2>Measure before sizing</h2>
+              <p>AHF and SVG recommendations should start from real current, PF, and voltage behavior.</p>
+            </article>
+            <article class="hero-tile">
+              <div class="tile-icon">Q</div>
+              <p class="tile-label">Reactive Math</p>
+              <h2>Use kvar formula</h2>
+              <p>SVG sizing is based on the reactive power gap between present and target power factor.</p>
+            </article>
+            <article class="hero-tile">
+              <div class="tile-icon">CT</div>
+              <p class="tile-label">Sensor Placement</p>
+              <h2>CT strategy matters</h2>
+              <p>Placement affects whether the system protects one load or the entire electrical network.</p>
+            </article>
+            <article class="hero-tile">
+              <div class="tile-icon">24h</div>
+              <p class="tile-label">Verification</p>
+              <h2>Test and monitor</h2>
+              <p>Confirm temperature, THDi, and compensation stability after commissioning.</p>
+            </article>
+          </section>
+        </div>
+      </header>
+
+      <main class="guide-layout">
+        <section class="panel guide-panel">
+          <p class="eyebrow">Step 1</p>
+          <h2>Check Power Quality First</h2>
+          <p class="panel-copy">
+            Before installing an AHF, you need to understand the actual system problem. The most useful first step is a 24-48 hour power quality measurement on the main feeder or the dominant nonlinear load group.
+          </p>
+          <div class="guide-card-grid">
+            <article class="guide-card">
+              <h3>Harmonics</h3>
+              <p>Use a power quality analyzer and watch Total Harmonic Distortion values. A THD level above 5% is already a sign that harmonic mitigation should be reviewed.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Voltage changes</h3>
+              <p>Check whether the system voltage fluctuates more than ±5% from normal operating conditions.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Operational symptoms</h3>
+              <p>Frequent circuit breaker trips, overheated transformers, or cable overheating usually indicate deeper power quality issues.</p>
+            </article>
+          </div>
+          <div class="formula-box">
+            <p class="eyebrow">Example</p>
+            <strong>A factory measured 12% THD on the production line, which was contributing to motor overheating and thermal stress.</strong>
+          </div>
+        </section>
+
+        <section class="panel guide-panel" id="ahf-math">
+          <p class="eyebrow">Step 2A</p>
+          <h2>AHF Sizing Math</h2>
+          <p class="panel-copy">
+            AHF sizing is based on harmonic current, not just on total load current. The key goal is to calculate how much distorted current the filter must cancel.
+          </p>
+          <div class="math-grid">
+            <article class="math-card">
+              <h3>Formula 1: Harmonic current</h3>
+              <code>Harmonic Current = Total Current × THDi</code>
+              <p>If a feeder draws 500A total current and THDi is 20%, the harmonic current is:</p>
+              <strong>500 × 0.20 = 100A</strong>
+            </article>
+            <article class="math-card">
+              <h3>Formula 2: Safety margin</h3>
+              <code>Recommended AHF = Harmonic Current × 1.2 to 1.3</code>
+              <p>For a 100A harmonic current, a practical recommendation is about 120A to 130A.</p>
+              <strong>Choose 130A if future expansion is expected.</strong>
+            </article>
+            <article class="math-card">
+              <h3>Voltage match</h3>
+              <code>AHF Voltage Rating = System Voltage</code>
+              <p>Always align the AHF voltage class with the site voltage, such as 220V, 400V, 440V, or 480V.</p>
+            </article>
+            <article class="math-card">
+              <h3>Extra margin rule</h3>
+              <code>+10% for dynamic converter loads</code>
+              <p>For solar inverters, variable-speed drives, or other rapidly changing loads, add extra capacity for transient operating conditions.</p>
+            </article>
+          </div>
+          <div class="formula-box">
+            <p class="eyebrow">Practical Rule</p>
+            <strong>AHF size should be large enough to handle present harmonic current and still leave room for future development.</strong>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Step 2B</p>
+          <h2>SVG Sizing Math</h2>
+          <p class="panel-copy">
+            SVG sizing is based on reactive power correction. The purpose is to close the gap between the present power factor and the target power factor.
+          </p>
+          <div class="math-grid">
+            <article class="math-card">
+              <h3>Formula 1: Reactive compensation</h3>
+              <code>Qc = P × (tan arccos PF1 − tan arccos PF2)</code>
+              <p>Where <strong>P</strong> is active power in kW, <strong>PF1</strong> is current power factor, and <strong>PF2</strong> is target power factor.</p>
+            </article>
+            <article class="math-card">
+              <h3>Example</h3>
+              <p>If a site runs at 800 kW, with PF improving from 0.78 to 0.98:</p>
+              <strong>Qc ≈ 800 × (tan arccos 0.78 − tan arccos 0.98)</strong>
+              <p>This gives the approximate kvar rating needed from the SVG.</p>
+            </article>
+            <article class="math-card">
+              <h3>If only kVA is known</h3>
+              <code>P ≈ kVA × PF</code>
+              <p>When no kW data is available, active power can be approximated from transformer or feeder kVA and existing power factor.</p>
+            </article>
+            <article class="math-card">
+              <h3>Margin guidance</h3>
+              <code>Recommended SVG = Calculated kvar × 1.05 to 1.15</code>
+              <p>Apply a practical design margin for system changes and fluctuating load demand.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Step 3</p>
+          <h2>Set Up Wiring &amp; Controls</h2>
+          <div class="guide-card-grid two-col">
+            <article class="guide-card">
+              <h3>Power connections</h3>
+              <p>Use copper cables sized to match the unit current. Cable routing, ventilation, and breaker sizing should follow local electrical standards.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Control wiring</h3>
+              <p>Connect communication cables such as RS485 where monitoring or external supervision is required.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Recommended initial setting</h3>
+              <p>Set harmonic compensation to Auto mode during startup unless the project requires a custom compensation profile.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">CT Placement</p>
+          <h2>Where to Place Current Sensors</h2>
+          <div class="guide-card-grid two-col">
+            <article class="guide-card">
+              <h3>Option 1: Load-side (open-loop)</h3>
+              <p>Place CTs close to noisy equipment such as VFD groups. This is useful when you want to target specific machines or process lines.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Option 2: Grid-side (closed-loop)</h3>
+              <p>Install CTs at the main incoming power point. This protects the full system, though it may be less focused on smaller branch issues.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Multiple AHF systems</h3>
+              <p>For parallel units, CT strategy should be coordinated. Shared CTs or extra output CTs may be needed for accurate compensation control.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Step 4</p>
+          <h2>Install &amp; Test</h2>
+          <div class="guide-card-grid two-col">
+            <article class="guide-card">
+              <h3>Mounting</h3>
+              <p>Install the unit in a cool, dry location with at least 30 cm of ventilation clearance around the equipment.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Power-on check</h3>
+              <p>Close the breaker, confirm normal startup, and verify that there are no alarm or error indicators.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Performance check</h3>
+              <p>Compare harmonic levels before and after startup with a clamp meter or power quality analyzer. Run for 24 hours and confirm ambient temperature stays below 55°C.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Safety first</h3>
+              <p>Use insulated gloves and follow site lockout and energization procedures when working around live equipment.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Step 5</p>
+          <h2>Monitor Results</h2>
+          <div class="guide-card-grid two-col">
+            <article class="guide-card">
+              <h3>Daily checks</h3>
+              <p>Review the display for compensation current, operating temperature, and any error or warning codes.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Weekly reports</h3>
+              <p>Track THDi trends and verify whether the system remains below the target threshold.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Rapid troubleshooting</h3>
+              <p>If THDi rises again above 5%, inspect nearby equipment and confirm whether new nonlinear loads have been added.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Why This Matters</p>
+          <h2>Engineering Value of Correct Sizing</h2>
+          <div class="guide-card-grid two-col">
+            <article class="guide-card">
+              <h3>Lower utility penalties</h3>
+              <p>Improved power quality and power factor can reduce avoidable electricity charges.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Longer equipment life</h3>
+              <p>Cleaner power reduces overheating stress on motors, transformers, and sensitive equipment.</p>
+            </article>
+            <article class="guide-card">
+              <h3>System protection</h3>
+              <p>Good compensation can help prevent nuisance trips and damage caused by harmonic and reactive power issues.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Advanced operating mode</h3>
+              <p>Modern systems can automatically switch between harmonic compensation, reactive power correction, and load balancing depending on the site condition.</p>
+            </article>
+          </div>
+          <div class="formula-box">
+            <p class="eyebrow">Technical Reminder</p>
+            <strong>For higher-performance applications, the system should cover at least up to the 50th harmonic, approximately 2.5 kHz.</strong>
+          </div>
+        </section>
+
+        <section class="panel guide-panel">
+          <p class="eyebrow">Need Help?</p>
+          <h2>Work With CHITEK Engineering</h2>
+          <p class="panel-copy">
+            CHITEK supports low-voltage AHF and SVG solution design for industrial, commercial, renewable, and data-driven facilities. Products are supported by recognized certifications and type test documentation. For final equipment selection, the best next step is to review the single-line diagram, load schedule, and power quality measurements together with sales engineering.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="./index.html">Open the Selector</a>
+            <a class="secondary-btn text-link-btn" href="mailto:johnbiruk@yt-electric.com">Contact John Biruk</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  
+
+</body>
+</html>

@@ -32,12 +32,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Silicon Carbide MOSFET Active Harmonic Filter SiC", "url": "https://en.chitek-inno.com/products/sic-ultra-ahf" },
       { "@type": "ListItem", "position": 2, "name": "208V/400V/480V Anti-Pollution Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
-      { "@type": "ListItem", "position": 3, "name": "690V/800V Anti-Pollution Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/anti-pollution-ahf" },
+      { "@type": "ListItem", "position": 3, "name": "690V/800V Anti-Pollution Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/anti-pollution-hv-ahf" },
       { "@type": "ListItem", "position": 4, "name": "Ultra-slim Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/ultra-slim-ahf" },
       { "@type": "ListItem", "position": 5, "name": "Distributed Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/distributed-ahf" },
-      { "@type": "ListItem", "position": 6, "name": "IP65 SiC-Fanless & Low Noise Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/sic-fanless-ahf" },
+      { "@type": "ListItem", "position": 6, "name": "IP65 SiC-Fanless Active Harmonic Filter 25A", "url": "https://en.chitek-inno.com/products/ip65-sic-fanless-ahf" },
       { "@type": "ListItem", "position": 7, "name": "IP65 Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/ip65-ahf" },
-      { "@type": "ListItem", "position": 8, "name": "SiC-Fanless & Low Noise Active Harmonic Filter", "url": "https://en.chitek-inno.com/products/sic-fanless-ahf" }
+      { "@type": "ListItem", "position": 8, "name": "IP65 SiC-Low Noise Fan Active Harmonic Filter 50A", "url": "https://en.chitek-inno.com/products/sic-fanless-ahf" }
     ]
   }
   </script>
@@ -74,7 +74,13 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       <div class="index_main flex flex-col lg:flex-row gap-8">
 
         <!-- LEFT COLUMN -->
-        <aside class="n_left hidden lg:block lg:w-[340px] lg:shrink-0">
+        <div class="pc-left-col">
+        <aside id="pc-filter" class="n_left pc-filter-panel" aria-label="Product filters">
+          <!-- 抽屉头（桌面隐藏） -->
+          <div class="pc-filter-head">
+            <span>Filter</span>
+            <button type="button" class="pc-filter-close" data-pc-filter-close aria-label="Close filters">&times;</button>
+          </div>
           <div class="filter_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
             <p class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Filter</p>
             <div class="mb-4">
@@ -99,7 +105,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <div class="grid grid-cols-2 gap-x-2 gap-y-2">
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="8~20A" /> 8~20A <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="30~50A" /> 30~50A <span class="text-gray-400" data-count>(3)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="50~200A" /> 50~200A <span class="text-gray-400" data-count>(4)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="50~150A" /> 50~150A <span class="text-gray-400" data-count>(4)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="a" value="200A" /> 200A <span class="text-gray-400" data-count>(3)</span></label>
               </div>
             </div>
             <div class="mb-4">
@@ -107,7 +114,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <div class="grid grid-cols-2 gap-x-2 gap-y-2">
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP20" /> IP20(standard) <span class="text-gray-400" data-count>(6)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP30|IP40" /> other/negotiable <span class="text-gray-400" data-count>(6)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP65" /> IP65 <span class="text-gray-400" data-count>(2)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="i" value="IP65" /> IP65 <span class="text-gray-400" data-count>(3)</span></label>
               </div>
             </div>
             <div>
@@ -116,7 +123,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="340*410*45mm" /> 340*410*45mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="380*400*88mm" /> 380*400*88mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*130mm" /> 500*550*130mm <span class="text-gray-400" data-count>(2)</span></label>
-                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*175mm" /> 500*550*175mm <span class="text-gray-400" data-count>(1)</span></label>
+                <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="500*550*175mm" /> 500*550*175mm <span class="text-gray-400" data-count>(2)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="480*600*175mm" /> 480*600*175mm <span class="text-gray-400" data-count>(1)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="515*500*185mm" /> 515*500*185mm <span class="text-gray-400" data-count>(2)</span></label>
                 <label class="flex items-center gap-2 text-[13px] text-gray-700 cursor-pointer"><input type="checkbox" data-filter="s" value="600*500*220mm" /> 600*500*220mm <span class="text-gray-400" data-count>(1)</span></label>
@@ -127,11 +134,14 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <a href={lp('/contact')} id="inquire-now-btn" class="my_more1 w-full justify-center">Inquire Now</a>
             </div>
           </div>
+        </aside>
+
+        <div class="pc-side-extra">
           <div class="contact_card bg-white border border-gray-200 rounded-xl p-5 mb-6">
             <p class="left_h_bar h-[38px] flex items-center px-3 rounded-lg bg-gray-50 border border-gray-200 text-[15px] font-bold text-gray-900 mb-3 font-barlow-condensed">Contact Us</p>
             <div class="space-y-1 mb-3">
               <a href="https://wa.me/8618818994346" target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
-                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 <span>WhatsApp</span>
               </a>
               <a href="mailto:leo.li@chitek-inno.com" class="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors">
@@ -142,31 +152,40 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           </div>
           <!-- Company card (2026-09-24) -->
           <div class="company_card bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
-            <img src="/assets/images/about-bg.webp" alt="Shenzhen CHITEK New Energy Technology Co., Ltd." class="w-full aspect-[3/2] object-cover" loading="lazy" width="1155" height="770" />
+            <img src="/assets/images/about-bg.webp" srcset="/assets/images/about-bg-480w.webp 480w, /assets/images/about-bg-960w.webp 960w, /assets/images/about-bg.webp 1155w" sizes="100vw" alt="Shenzhen CHITEK New Energy Technology Co., Ltd." class="w-full aspect-[3/2] object-cover" loading="lazy" width="1155" height="770" />
             <div class="p-5">
               <p class="text-[13px] leading-relaxed text-gray-600">Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and headquartered in Shenzhen, is a high-tech enterprise specializing in the research, development, manufacturing, and service of power electronic products. Committed to building an energy-efficient and green future.</p>
             </div>
           </div>
 <!-- Cross-series cards (2026-09-24) -->
           <a href={lp('/products-svg')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Static Var Generator SiC SVG" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">Silicon Carbide MOSFET Static Var Generator SiC SVG</span>
+            <img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="160px" alt="Silicon Carbide MOSFET Static Var Generator SiC (50-200A)" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">Silicon Carbide MOSFET Static Var Generator SiC (50-200A)</span>
           </a>
           <a href={lp('/products-svg')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Static Var Generator SVG" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">Ultra-slim Static Var Generator SVG</span>
+            <img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="160px" alt="Ultra-slim Static Var Generator (8-20A)" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">Ultra-slim Static Var Generator (8-20A)</span>
           </a>
           <a href={lp('/products-svg')} class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 mb-3 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-            <img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Static Var Generator" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
-            <span class="text-[14px] font-semibold text-gray-800 leading-snug">IP65 SiC-Fanless &amp; Low Noise Static Var Generator</span>
+            <img src="/assets/images/products-ahf-ip65-fanless.webp" srcset="/assets/images/products-ahf-ip65-fanless-480w.webp 480w, /assets/images/products-ahf-ip65-fanless-960w.webp 960w, /assets/images/products-ahf-ip65-fanless.webp 1200w" sizes="160px" alt="IP65 SiC-Fanless Static Var Generator 25A" class="w-20 h-20 shrink-0 object-contain" loading="lazy" width="1200" height="1200" />
+            <span class="text-[14px] font-semibold text-gray-800 leading-snug">IP65 SiC-Fanless Static Var Generator 25A</span>
           </a>
-        </aside>
+        </div><!-- /pc-side-extra -->
+        </div><!-- /pc-left-col -->
+
+        <!-- 移动端筛选遮罩：必须放在抽屉元素之外（aside 带 transform 会成为 fixed 的包含块） -->
+        <div id="pc-filter-mask" class="pc-filter-mask" aria-hidden="true"></div>
 
         <!-- RIGHT COLUMN -->
         <div class="n_right flex-1 min-w-0">
 
           <!-- View toggle (grid / list) -->
           <div class="cbp-vm-options">
+            <!-- 2026-10-21 移动端筛选入口：左侧栏在 <1024 收起，这里补抽屉开关 -->
+            <button type="button" id="pc-filter-open" class="pc-filter-btn" aria-controls="pc-filter" aria-expanded="false">
+              <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M1 2.1h14v2.4H1zM3.2 6.8h9.6v2.4H3.2zM5.8 11.5h4.4v2.4H5.8z"/></svg>
+              <span>Filter</span>
+            </button>
             <button type="button" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="Grid view" aria-label="Grid view">
               <svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor"><path d="M1 1h4v4H1zM6 1h4v4H6zM11 1h4v4h-4zM1 6h4v4H1zM6 6h4v4H6zM11 6h4v4h-4zM1 11h4v4H1zM6 11h4v4H6zM11 11h4v4h-4z"/></svg>
             </button>
@@ -177,20 +196,21 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             <button type="button" class="cbp-vm-icon cbp-vm-dl-hint" data-view="cbp-vm-view-list" title="List view" aria-label="Switch to list view to download files">Download</button>
             <!-- Series quick-switch (2026-09-24) -->
             <nav class="ml-2 flex items-center gap-2 flex-wrap" aria-label="Product series">
-              <a href={lp('/products')} class="cbp-vm-tab cbp-vm-tab-active" aria-current="page">Active Harmonic Filter</a>
-              <a href={lp('/products-svg')} class="cbp-vm-tab">Static Var Generator</a>
-              <a href={lp('/products-asvg')} class="cbp-vm-tab">Advanced Static Var Generator</a>
+              <a href={lp('/products')} class="cbp-vm-tab cbp-vm-tab-active" aria-current="page">Active Harmonic Filter AHF</a>
+              <a href={lp('/products-svg')} class="cbp-vm-tab">Static Var Generator SVG</a>
+              <a href={lp('/products-asvg')} class="cbp-vm-tab">Advanced Static Var Generator ASVG</a>
             </nav>
           </div>
 
           <!-- Product grid / list -->
           <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
             <ul class="cbp-vm-grid-ul">
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*175mm,500*550*130mm" data-i="IP20,IP30" data-t="SiC">
-                <div class="cbp-vm-image"><a href={lp('/products/sic-ultra-ahf')}><img src="/assets/images/products-ahf-sic.webp" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A,200A" data-s="500*550*175mm,500*550*130mm" data-i="IP20,IP30" data-t="SiC">
+                <div class="cbp-vm-image"><a href={lp('/products/sic-ultra-ahf')}><img src="/assets/images/products-ahf-sic.webp" srcset="/assets/images/products-ahf-sic-480w.webp 480w, /assets/images/products-ahf-sic-960w.webp 960w, /assets/images/products-ahf-sic.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Silicon Carbide MOSFET Active Harmonic Filter SiC (50-200A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href={lp('/products/sic-ultra-ahf')} class="hover:text-brand-orange">Silicon Carbide MOSFET Active Harmonic Filter SiC (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-sic-ultra-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">SiC MOSFET AHF</span>
                     <span class="cbp-tag">Silicon Carbide Active Harmonic Filter</span>
                     <span class="cbp-tag">Ultra High-Efficiency SiC AHF</span>
@@ -200,6 +220,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">High-Efficiency Power Quality Filter</span>
                     <span class="cbp-tag">Industrial SiC Harmonic Compensation</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-sic-ultra-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/sic-ultra-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -210,11 +231,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="500*550*130mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution.webp" alt="208V/400V/480V Anti-Pollution Active Harmonic Filter" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A,200A" data-s="500*550*130mm,500*550*175mm" data-i="IP20,IP30" data-t="IGBT">
+                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution.webp" srcset="/assets/images/products-ahf-anti-pollution-480w.webp 480w, /assets/images/products-ahf-anti-pollution-960w.webp 960w, /assets/images/products-ahf-anti-pollution.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="208V/400V/480V Anti-Pollution Active Harmonic Filter (50-200A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">208V/400V/480V Anti-Pollution Active Harmonic Filter (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-anti-pollution-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Anti-Pollution AHF</span>
                     <span class="cbp-tag">Dust-Proof Active Harmonic Filter</span>
                     <span class="cbp-tag">Harsh-Environment AHF Module</span>
@@ -224,6 +246,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">Pollution-Proof Power Quality Filter</span>
                     <span class="cbp-tag">Anti-Pollution Active Dynamic Filter ADF</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-anti-pollution-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/anti-pollution-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -234,11 +257,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="690V,800V" data-a="50~200A" data-s="480*600*175mm" data-i="IP20,IP30" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-ahf')}><img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" alt="690V/800V Anti-Pollution Active Harmonic Filter" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="690V,800V" data-a="50~150A,200A" data-s="480*600*175mm" data-i="IP20,IP30" data-t="IGBT">
+                <div class="cbp-vm-image"><a href={lp('/products/anti-pollution-hv-ahf')}><img src="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp" srcset="/assets/images/products-ahf-anti-pollution-690v-800v-rackmount-480w.webp 480w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount-960w.webp 960w, /assets/images/products-ahf-anti-pollution-690v-800v-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="690V/800V Anti-Pollution Active Harmonic Filter (50-150A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/anti-pollution-ahf')} class="hover:text-brand-orange">690V/800V Anti-Pollution Active Harmonic Filter (50-200A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href={lp('/products/anti-pollution-hv-ahf')} class="hover:text-brand-orange">690V/800V Anti-Pollution Active Harmonic Filter (50-150A)</a></h3>
+                                    <input type="checkbox" id="tg-anti-pollution-hv-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">690V/800V Anti-Pollution AHF</span>
                     <span class="cbp-tag">High-Voltage Anti-Pollution AHF</span>
                     <span class="cbp-tag">Dust-Proof Active Harmonic Filter</span>
@@ -248,8 +272,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">Heavy-Duty Active Harmonic Filter</span>
                     <span class="cbp-tag">Pollution-Proof Power Quality Filter</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-anti-pollution-hv-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
-                    <a href={lp('/products/anti-pollution-ahf')} class="my_more1">View More</a>
+                    <a href={lp('/products/anti-pollution-hv-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/anti-pollution-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
                       <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
@@ -259,10 +284,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="8~20A" data-s="340*410*45mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/ultra-slim-ahf')}><img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" alt="Ultra-slim Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/ultra-slim-ahf')}><img src="/assets/images/products-ahf-ultra-slim-rackmount.webp" srcset="/assets/images/products-ahf-ultra-slim-rackmount-480w.webp 480w, /assets/images/products-ahf-ultra-slim-rackmount-960w.webp 960w, /assets/images/products-ahf-ultra-slim-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Ultra-slim Active Harmonic Filter (8-20A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href={lp('/products/ultra-slim-ahf')} class="hover:text-brand-orange">Ultra-slim Active Harmonic Filter (8-20A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-ultra-slim-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Ultra-Slim AHF</span>
                     <span class="cbp-tag">Slim Active Power Filter APF</span>
                     <span class="cbp-tag">Compact 1U AHF Module</span>
@@ -272,6 +298,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">Ultra-Thin Power Quality Filter</span>
                     <span class="cbp-tag">Thin Rack AHF Module</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ultra-slim-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/ultra-slim-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -283,10 +310,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="380*400*88mm" data-i="IP20,IP30,IP40" data-t="IGBT">
-                <div class="cbp-vm-image"><a href={lp('/products/distributed-ahf')}><img src="/assets/images/products-ahf-distributed-rackmount.webp" alt="Distributed Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/distributed-ahf')}><img src="/assets/images/products-ahf-distributed-rackmount.webp" srcset="/assets/images/products-ahf-distributed-rackmount-480w.webp 480w, /assets/images/products-ahf-distributed-rackmount-960w.webp 960w, /assets/images/products-ahf-distributed-rackmount.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Distributed Active Harmonic Filter (30-50A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href={lp('/products/distributed-ahf')} class="hover:text-brand-orange">Distributed Active Harmonic Filter (30-50A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-distributed-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">Distributed AHF</span>
                     <span class="cbp-tag">Active Dynamic Filter ADF</span>
                     <span class="cbp-tag">Modular Active Harmonic Filter</span>
@@ -296,6 +324,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">Distributed Power Quality Filter</span>
                     <span class="cbp-tag">Multi-Module APF System</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-distributed-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/distributed-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -307,10 +336,11 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 </div>
               </li>
               <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP65" data-t="SiC">
-                <div class="cbp-vm-image"><a href={lp('/products/sic-fanless-ahf')}><img src="/assets/images/products-ahf-ip65-fanless.webp" alt="IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
+                <div class="cbp-vm-image"><a href={lp('/products/ip65-sic-fanless-ahf')}><img src="/assets/images/products-ahf-ip65-fanless.webp" srcset="/assets/images/products-ahf-ip65-fanless-480w.webp 480w, /assets/images/products-ahf-ip65-fanless-960w.webp 960w, /assets/images/products-ahf-ip65-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Fanless Active Harmonic Filter 25A" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter (25-50A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href={lp('/products/ip65-sic-fanless-ahf')} class="hover:text-brand-orange">IP65 SiC-Fanless Active Harmonic Filter 25A</a></h3>
+                                    <input type="checkbox" id="tg-ip65-sic-fanless-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">IP65 SiC-Fanless AHF</span>
                     <span class="cbp-tag">Low-Noise Active Harmonic Filter</span>
                     <span class="cbp-tag">Outdoor IP65 AHF Module</span>
@@ -320,8 +350,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">Silent AHF Module</span>
                     <span class="cbp-tag">IP65 Active Dynamic Filter ADF</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ip65-sic-fanless-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
-                    <a href={lp('/products/sic-fanless-ahf')} class="my_more1">View More</a>
+                    <a href={lp('/products/ip65-sic-fanless-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
                       <a href="/assets/pdf/ip65-sic-fanless-ahf-datasheet.pdf" class="cbp-dl-btn" target="_blank" rel="noopener">Datasheet</a>
                       <a href="/assets/pdf/datasheet-en-catalog.html" class="cbp-dl-btn" target="_blank" rel="noopener">Catalog</a>
@@ -330,11 +361,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~200A" data-s="600*500*220mm" data-i="IP65" data-t="IGBT,SiC">
-                <div class="cbp-vm-image"><a href={lp('/products/ip65-ahf')}><img src="/assets/images/products-ahf-ip65.webp" alt="IP65 Active Harmonic Filter" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="50~150A" data-s="600*500*220mm" data-i="IP65" data-t="IGBT,SiC">
+                <div class="cbp-vm-image"><a href={lp('/products/ip65-ahf')}><img src="/assets/images/products-ahf-ip65.webp" srcset="/assets/images/products-ahf-ip65-480w.webp 480w, /assets/images/products-ahf-ip65-960w.webp 960w, /assets/images/products-ahf-ip65.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 Active Harmonic Filter (100-150A)" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
                   <h3 class="h4"><a href={lp('/products/ip65-ahf')} class="hover:text-brand-orange">IP65 Active Harmonic Filter (100-150A)</a></h3>
-                                    <div class="tags_ul">
+                                    <input type="checkbox" id="tg-ip65-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">IP65 Active Harmonic Filter</span>
                     <span class="cbp-tag">Weatherproof AHF Module</span>
                     <span class="cbp-tag">IP65 Active Power Filter APF</span>
@@ -344,6 +376,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">IP65 Power Quality Filter</span>
                     <span class="cbp-tag">IP65 Harmonic Compensation Unit</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-ip65-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/ip65-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -354,11 +387,12 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   </div>
                 </div>
               </li>
-              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP20,IP30" data-t="SiC">
-                <div class="cbp-vm-image"><a href={lp('/products/sic-fanless-ahf')}><img src="/assets/images/products-ahf-sic-fanless.webp" alt="SiC-Fanless &amp; Low Noise Active Harmonic Filter" loading="lazy" /></a></div>
+              <li class="cbp-vm-li" data-v="208V,400V,480V" data-a="30~50A" data-s="515*500*185mm" data-i="IP20,IP30,IP65" data-t="SiC">
+                <div class="cbp-vm-image"><a href={lp('/products/sic-fanless-ahf')}><img src="/assets/images/products-ahf-sic-fanless.webp" srcset="/assets/images/products-ahf-sic-fanless-480w.webp 480w, /assets/images/products-ahf-sic-fanless-960w.webp 960w, /assets/images/products-ahf-sic-fanless.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="IP65 SiC-Low Noise Fan Active Harmonic Filter 50A" loading="lazy"  width="1200" height="1200" /></a></div>
                 <div class="text">
-                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">SiC-Fanless &amp; Low Noise Active Harmonic Filter (25-50A)</a></h3>
-                                    <div class="tags_ul">
+                  <h3 class="h4"><a href={lp('/products/sic-fanless-ahf')} class="hover:text-brand-orange">IP65 SiC-Low Noise Fan Active Harmonic Filter 50A</a></h3>
+                                    <input type="checkbox" id="tg-sic-fanless-ahf" class="tags-toggle">
+                  <div class="tags_ul">
                     <span class="cbp-tag">SiC-Fanless AHF</span>
                     <span class="cbp-tag">Fanless Active Dynamic Filter ADF</span>
                     <span class="cbp-tag">Low-Noise SiC AHF</span>
@@ -368,6 +402,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <span class="cbp-tag">No-Fan AHF Module</span>
                     <span class="cbp-tag">Low-Noise Power Quality Filter</span>
                   </div>
+                  <label class="cbp-tag-more-btn" for="tg-sic-fanless-ahf"><span class="lbl-more">More tags</span><span class="lbl-mobile">tag</span><span class="lbl-less">Show less</span></label>
                   <div class="cbp-vm-actions">
                     <a href={lp('/products/sic-fanless-ahf')} class="my_more1">View More</a>
                     <div class="cbp-vm-dl">
@@ -639,7 +674,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             <div class="max-w-3xl">
               <p class="text-[15px] leading-relaxed text-gray-600 mb-2">Inside every CHITEK AHF, an external CT keeps sampling the load current while the DSP at the core runs an advanced control algorithm. It tracks the demanded current as it shifts, splits the measured load current into active and reactive components with an intelligent FFT, and derives the harmonic content quickly and precisely.</p>
               <p class="text-[15px] leading-relaxed text-gray-600">The DSP then feeds a PWM signal to the internal IGBT driver board, switching the IGBTs at 20 kHz. The inverter stage outputs a compensation current in opposite phase to the harmonics — and as it does, the CT reads the output current too and returns it to the DSP as negative feedback. That closed loop drives the next control cycle, which is what keeps the correction accurate and the system stable.</p>
-              <img src="/assets/images/working-principle-ahf.webp" alt="Working principle of CHITEK active harmonic filter" class="mt-6 w-full rounded-xl" width="1672" height="941" loading="lazy" />
+              <img src="/assets/images/working-principle-ahf.webp" srcset="/assets/images/working-principle-ahf-480w.webp 480w, /assets/images/working-principle-ahf-960w.webp 960w, /assets/images/working-principle-ahf.webp 1672w" sizes="100vw" alt="Working principle of CHITEK active harmonic filter" class="mt-6 w-full rounded-xl" width="1672" height="941" loading="lazy" />
             </div>
           </div>
           <!-- FAQs (2026-09-27) — category-level Q&A, deliberately non-overlapping with the per-model detail-page FAQs -->
@@ -669,7 +704,77 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     </div>
 
     <style is:global>
-      .cbp-vm-options { display: flex; gap: .5rem; }
+      .cbp-vm-options { display: flex; gap: .5rem; flex-wrap: wrap; }
+      /* 2026-10-21 移动端修复：本行原为不换行 flex，38×2 图标 + Download + 3 个 nowrap tab
+         合计 444px，在 390 视口下把整页撑到 456px（页面整体缩小、右侧留白）。
+         允许换行，并让小屏下 tab 组独占一行。 */
+      @media (max-width: 767px) {
+        .cbp-vm-options > nav { flex-basis: 100%; margin-left: 0; }
+      }
+
+      /* ── 2026-10-21 移动端筛选抽屉 ──
+         ≥1024 沿用左侧固定栏；<1024 左列变成“网格 + 下方信息卡”，筛选面板滑出抽屉。
+         抽屉复用同一批 .filter_card checkbox，data-filter 逻辑未改动。 */
+      @media (max-width: 1023px) {
+        .pc-left-col { order: 1; width: 100%; }
+        .pc-side-extra { width: 100%; }
+        .pc-side-extra > *:last-child { margin-bottom: 0; }
+        .pc-filter-panel {
+          position: fixed; top: 0; bottom: 0; left: 0;
+          width: 86vw; max-width: 360px;
+          z-index: 1200;
+          overflow-y: auto; -webkit-overflow-scrolling: touch;
+          background: #f3f4f6;
+          padding: 12px 12px 16px;
+          transform: translateX(-100%);
+          visibility: hidden;
+          transition: transform .28s ease, visibility .28s ease;
+        }
+        .pc-filter-panel.is-open { transform: translateX(0); visibility: visible; }
+        .pc-filter-panel .filter_card { padding: 14px; }
+        .pc-filter-panel .filter_card > .mb-4 { margin-bottom: 12px; }
+      }
+      @media (min-width: 1024px) {
+        .pc-left-col { width: 340px; flex-shrink: 0; }
+      }
+      .pc-filter-head {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .pc-filter-head > span { font-size: 15px; font-weight: 700; color: #111827; }
+      .pc-filter-close {
+        width: 36px; height: 36px; padding: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #4b5563;
+        font-size: 20px; line-height: 1; cursor: pointer; appearance: none;
+      }
+      .pc-filter-close:hover { border-color: #fb923c; color: #ea580c; }
+      .pc-filter-mask {
+        position: fixed; inset: 0; z-index: 1190;
+        background: rgba(0, 0, 0, .45);
+        opacity: 0; visibility: hidden;
+        transition: opacity .28s ease, visibility .28s ease;
+      }
+      .pc-filter-mask.is-open { opacity: 1; visibility: visible; }
+      .pc-filter-btn {
+        display: none;
+        align-items: center; justify-content: center; gap: 6px;
+        height: 38px; padding: 0 12px; flex-shrink: 0;
+        border: 1px solid #e5e7eb; border-radius: 8px;
+        background: #fff; color: #374151;
+        font-size: 13px; font-weight: 600; font-family: inherit;
+        cursor: pointer; appearance: none; -webkit-appearance: none;
+      }
+      .pc-filter-btn:hover { border-color: #fb923c; color: #ea580c; }
+      .pc-filter-btn svg { width: 18px; height: 18px; }
+      @media (max-width: 1023px) {
+        .pc-filter-btn { display: inline-flex; }
+      }
+      html.pc-filter-locked, html.pc-filter-locked body { overflow: hidden; }
+      @media (min-width: 1024px) {
+        .pc-filter-head, .pc-filter-mask, .pc-filter-btn { display: none !important; }
+        .pc-filter-panel { position: static; transform: none; visibility: visible; }
+      }
       .cbp-vm-icon {
         display: inline-flex; align-items: center; justify-content: center;
         /* button 标签必须显式压掉 UA 默认样式，否则宽度/盒模型/字体会顶掉 38×38 布局 */
@@ -737,6 +842,36 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       .cbp-spec { display: none; }
       .cbp-vm-details { font-size: 13px; color: #4b5563; line-height: 1.6; margin-bottom: .75rem; flex: 1; }
       .tags_ul { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: .75rem; }
+      /* Tag 折叠（2026-10-21）：只在 Download / list 视图折叠，纯 CSS + label，
+         页面不需要 JS。8 个 tag 全部 SSR 在 HTML 里，爬虫/不执行 JS 的 AI 爬虫直接可读。
+         桌面 list 显示前 3 个、<640px 显示前 2 个，其余点「More tags」展开。
+         checkbox 用 visually-hidden 而非 display:none —— 键盘 Tab 仍可聚焦。 */
+      .tags-toggle {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+      }
+      .cbp-tag-more-btn { display: none; }
+      .cbp-vm-view-list .tags-toggle:not(:checked) ~ .tags_ul .cbp-tag:nth-child(n+4) { display: none; }
+      .cbp-vm-view-list .cbp-tag-more-btn {
+        display: inline-flex; align-items: center; align-self: flex-start;
+        cursor: pointer; user-select: none;
+        font-size: 11px; line-height: 1.1; color: #ea580c;
+        background: #fff7ed; border: 1px solid #fdba74; border-radius: 4px;
+        padding: 2px 8px; margin-bottom: .75rem; transition: all .2s;
+      }
+      .cbp-vm-view-list .cbp-tag-more-btn:hover { background: #EA511E; border-color: #EA511E; color: #fff; }
+      .cbp-tag-more-btn .lbl-less { display: none; }
+      .cbp-tag-more-btn .lbl-mobile { display: none; }
+      .tags-toggle:checked ~ .cbp-tag-more-btn .lbl-more { display: none; }
+      .tags-toggle:checked ~ .cbp-tag-more-btn .lbl-less { display: inline; }
+      .tags-toggle:focus-visible ~ .cbp-tag-more-btn { outline: 2px solid #EA511E; outline-offset: 2px; }
+      @media (max-width: 639px) {
+        /* 手机 list（Download）视图：tag 默认全部收起（8 个 tag 仍在 HTML 里，只是 CSS 隐藏），
+          点「tag」整行展开。桌面仍保留前 3 个。 */
+        .cbp-vm-view-list .tags-toggle:not(:checked) ~ .tags_ul { display: none; }
+        .tags-toggle:not(:checked) ~ .cbp-tag-more-btn .lbl-more { display: none; }
+        .tags-toggle:not(:checked) ~ .cbp-tag-more-btn .lbl-mobile { display: inline; }
+      }
       .cbp-tag {
         font-size: 11px; color: #6b7280; background: #f3f4f6;
         border: 1px solid #e5e7eb; border-radius: 4px; padding: 2px 8px;
@@ -803,12 +938,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         .cbp-vm-view-list .my_more1 { font-size: 13px; padding: 7px 12px; }
         .cbp-vm-view-list .cbp-dl-btn { font-size: 12px; padding: 6px 10px; }
 
-        /* Phone grid: flatter image band (345x345 -> 345x259).
-           object-fit: contain, not cover — measured product bbox spans 7%~94% of the
-           image height (distributed-ahf), so any crop cuts the chassis. #fefefe is the
-           measured plate colour of every card webp (254,254,254) => seamless. */
-        .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 4 / 3; background: #fefefe; }
-        .cbp-vm-view-grid .cbp-vm-image img { object-fit: contain; }
+        /* Phone grid: 4:3 -> 3:2 + cover，吃掉图框上下那圈纯白（2026-10-21）。
+           实测三页共用的 8 张卡图（1:1 / 1200px 白底 webp）非白像素范围：
+           水平 3.3%~96.2%，竖直 24.3%~90.3%（顶最上是 ip65，底最下是 ip65-fanless）。
+           cover 把图片放大到 345x345，3:2 图框的可视窗口是 [83,313]，正好包住
+           上述范围（最紧的两张各留 0.7px / 1.5px）=> 只裁白边，不切机身。
+           对比旧版 4:3 + contain：图片只有 259 见方，上下白边合计约 88px，
+           图框白高 259px。改后图框 230px，卡片矮 29px，产品反而放大 1.33 倍。
+           #fefefe 是实测的卡片底色 (254,254,254)，与白底图无缝。 */
+        .cbp-vm-view-grid .cbp-vm-image { aspect-ratio: 3 / 2; background: #fefefe; }
+        .cbp-vm-view-grid .cbp-vm-image img { object-fit: cover; object-position: center 72%; }
         .cbp-vm-li .h4 .cbp-spec { display: inline; margin-left: 4ch; white-space: nowrap; }
       }
 
@@ -816,6 +955,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       .filter_card input[type="checkbox"] {
         width: 16px; height: 16px; accent-color: #EA511E; cursor: pointer; flex-shrink: 0;
       }
+
     </style>
 
     <script>
@@ -921,6 +1061,45 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   </section>
 
 
+
+  <script>
+    // 移动端筛选抽屉（2026-10-21）。只做开合与滚动锁定，不碰筛选逻辑本身。
+    (function () {
+      var panel = document.getElementById('pc-filter');
+      var mask = document.getElementById('pc-filter-mask');
+      var openBtn = document.getElementById('pc-filter-open');
+      if (!panel || !openBtn) return;
+      var closeBtn = panel.querySelector('[data-pc-filter-close]');
+      var lastFocus = null;
+
+      function isOpen() { return panel.classList.contains('is-open'); }
+      function open() {
+        lastFocus = document.activeElement;
+        panel.classList.add('is-open');
+        if (mask) mask.classList.add('is-open');
+        openBtn.setAttribute('aria-expanded', 'true');
+        document.documentElement.classList.add('pc-filter-locked');
+        var first = panel.querySelector('input[type="checkbox"]');
+        if (first) setTimeout(function () { try { first.focus({ preventScroll: true }); } catch (e) {} }, 300);
+      }
+      function close() {
+        panel.classList.remove('is-open');
+        if (mask) mask.classList.remove('is-open');
+        openBtn.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('pc-filter-locked');
+        if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
+      }
+      openBtn.addEventListener('click', function () { isOpen() ? close() : open(); });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (mask) mask.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) close();
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024 && isOpen()) close();
+      });
+    })();
+  </script>
 
 </BaseLayout>
 

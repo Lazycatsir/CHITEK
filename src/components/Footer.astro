@@ -62,6 +62,8 @@ const solutionRenewableHref = prefix + '/solutions/renewable';
 const solutionRailHref = prefix + '/solutions/rail-transit';
 const solutionGridHref = prefix + '/solutions/power-grid';
 const servicesHref = prefix + '/services';
+// 解决方案汇总页（5 语言均有：/solutions、/en/solutions …）
+const solutionsHref = prefix + '/solutions';
 const newsHref = prefix + '/news';
 // Subscribe 按钮改为跳转 WhatsApp（号码与 Sidebar 同源：zh 用国内号，其余语言用国际号）
 const waPhone = lang === 'zh' ? '8619020586646' : '8618818994346';
@@ -71,59 +73,63 @@ const waHref = `https://wa.me/${waPhone}`;
   <div class="px-[clamp(24px,8vw,160px)]">
     <div class="pt-[clamp(32px,6vw,80px)] pb-[clamp(24px,4vw,56px)] border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[clamp(16px,3vw,48px)]">
     <div class="flex flex-col">
-      <img src="/assets/images/logo.webp" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[clamp(100px,10vw,160px)] h-auto object-contain mb-[clamp(8px,1.5vw,20px)]" />
-      <p class="text-[clamp(11px,0.9vw,14px)] text-white/70 leading-[1.8] max-w-[260px] mb-[clamp(12px,2vw,32px)]">{_('subscribeText')}</p>
-      <p class="text-[clamp(11px,0.9vw,14px)] text-white/80 font-medium mb-[clamp(12px,2vw,32px)]">{_('contactPhone')}</p>
+      <img src="/assets/images/logo.webp" srcset="/assets/images/logo-480w.webp 480w, /assets/images/logo-960w.webp 960w, /assets/images/logo.webp 1200w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="CHITEK Logo" width="140" height="48" loading="lazy" class="w-[clamp(100px,10vw,160px)] h-auto object-contain mb-[clamp(8px,1.5vw,20px)]" />
+      <p class="text-[clamp(13px,0.9vw,14px)] text-white/70 leading-[1.8] max-w-[260px] mb-[clamp(12px,2vw,32px)]">{_('subscribeText')}</p>
+      <p class="text-[clamp(13px,0.9vw,14px)] text-white/80 font-medium mb-[clamp(12px,2vw,32px)]">{_('contactPhone')}</p>
       <div class="flex">
-        <input type="email" id="footer-subscribe-email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(11px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
-        <a href={waHref} target="_blank" rel="noopener" id="footer-subscribe-link" class="bg-brand-orange text-white border-none no-underline inline-flex items-center justify-center cursor-pointer text-[clamp(10px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</a>
+        <input type="email" id="footer-subscribe-email" placeholder={_('emailPlaceholder')} class="flex-1 bg-white/10 border border-white/20 border-r-0 text-white text-[clamp(13px,0.9vw,14px)] px-3.5 py-[11px] rounded-l-sm outline-none placeholder:text-white/50" />
+        <a href={waHref} target="_blank" rel="noopener" id="footer-subscribe-link" class="bg-brand-orange text-white border-none no-underline inline-flex items-center justify-center cursor-pointer text-[clamp(12px,0.8vw,13px)] font-semibold tracking-[0.08em] uppercase px-[18px] py-[11px] rounded-r-sm hover:bg-brand-orange-dark transition-colors duration-200">{_('subscribeBtn')}</a>
       </div>
       <div class="flex gap-[clamp(6px,1vw,12px)] mt-6">
-        <a href="https://www.linkedin.com/in/yongkai-li/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+        <a href="https://www.linkedin.com/in/yongkai-li/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <a href="https://www.youtube.com/@CHITEKNewEnergyTechnology" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+        <a href="https://www.youtube.com/@CHITEKNewEnergyTechnology" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-10 h-10 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+        <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
           <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- 第 4 个：WhatsApp（2026-10-21 用户要求与其余三个社交图标并列） -->
+        <a href={waHref} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-10 h-10 rounded-sm border border-white/20 flex items-center justify-center cursor-pointer hover:border-brand-orange hover:bg-brand-orange/10 transition-all duration-200">
+          <svg viewBox="0 0 24 24" class="w-[15px] h-[15px] fill-white/70" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
       </div>
     </div>
     <div class="footer-col">
-      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('products')}</h4>
+      <h4 class="text-[clamp(13px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('products')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
-        <li><a href={productsAhfHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
-        <li><a href={productsSvgHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('standardSvg')}</a></li>
-        <li><a href={productsAsvgHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
-        <li><a href={productsSicHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
-        <li><a href={productsHiProtHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
+        <li><a href={productsAhfHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('activeHarmonicFilter')}</a></li>
+        <li><a href={productsSvgHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('standardSvg')}</a></li>
+        <li><a href={productsAsvgHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('advancedSvg')}</a></li>
+        <li><a href={productsSicHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('sicHighEfficiency')}</a></li>
+        <li><a href={productsHiProtHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('highProtection')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('solutions')}</h4>
+      <h4 class="text-[clamp(13px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('solutions')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
-        <li><a href={solutionIndustryHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
-        <li><a href={solutionCommercialHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
-        <li><a href={solutionDatacenterHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
-        <li><a href={solutionRenewableHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
-        <li><a href={solutionRailHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
-        <li><a href={solutionGridHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
+        <li><a href={solutionIndustryHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('industrialManufacturing')}</a></li>
+        <li><a href={solutionCommercialHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('commercialMedical')}</a></li>
+        <li><a href={solutionDatacenterHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('dataCentersTelecom')}</a></li>
+        <li><a href={solutionRenewableHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('renewableEnergy')}</a></li>
+        <li><a href={solutionRailHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('transportation')}</a></li>
+        <li><a href={solutionGridHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('powerGridUtility')}</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('resourcesPartnership')}</h4>
+      <h4 class="text-[clamp(13px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]">{_('resourcesPartnership')}</h4>
       <ul class="list-none flex flex-col gap-[clamp(6px,1vw,14px)]">
-        <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('technicalLibrary')}</a></li>
-        <li><a href={servicesHref + '#tech-support'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
-        <li><a href={servicesHref + '#oem'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
-        <li><a href={servicesHref + '#distributor'} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
-        {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <li><a href={newsHref} class="text-[clamp(11px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('news')}</a></li>}
+        <li><a href={servicesHref + '#tech-support'} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('technicalLibrary')}</a></li>
+        <li><a href={solutionsHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('globalReferences')}</a></li>
+        <li><a href={servicesHref + '#oem'} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('oemOdmServices')}</a></li>
+        <li><a href={servicesHref + '#distributor'} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('becomeDistributor')}</a></li>
+        {(lang === 'zh' || lang === 'en' || lang === 'es' || lang === 'ar') && <li><a href={newsHref} class="text-[clamp(13px,0.9vw,14px)] text-white/70 no-underline hover:text-brand-orange transition-colors duration-200">{_('news')}</a></li>}
       </ul>
     </div>
   </div>
   <div class="py-[clamp(12px,2vw,32px)] flex flex-col md:flex-row items-center justify-between gap-[clamp(8px,2vw,28px)]">
-    <p class="text-[clamp(10px,0.8vw,13px)] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
+    <p class="text-[clamp(11px,0.8vw,13px)] text-white/60 tracking-[0.04em]">{_('copyright')}</p>
     <div class="flex gap-6">
       <span class="text-[12px] text-white/60">{_('ipv6Served')}</span>
     </div>
