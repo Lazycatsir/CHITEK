@@ -112,37 +112,106 @@ const datasheetLibrary = {
   ahf: {
     name: "CHITEK SiC Ultra AHF Datasheet",
     file: "/assets/pdf/sic-ultra-ahf-datasheet.pdf",
-    preview: "/assets/images/products-ahf-sic.webp",
+    preview: "/assets/images/products-ahf-sic-r2.webp",
     family: "Active Harmonic Filter",
     voltage: "220~480V / 50(60)Hz"
   },
   svg: {
-    name: "CHITEK ASVG 400V Datasheet",
+    name: "CHITEK Distributed SVG User Manual",
     file: "/assets/pdf/distributed-svg-user-manual-en.pdf",
     preview: "/assets/images/products-asvg-cabinet.webp",
-    family: "Advanced Static Var Generator",
+    family: "Static Var Generator",
     voltage: "400V / 50(60)Hz"
   }
 };
 
-const ahfCatalog = [
-  { current: 15, model: "CHITEK AHF-15", orderCode: "CHITEK-AHF-15-4-4L", ratedVoltage: "220/400/440 VAC", size: "320×400×125 mm", weight: "11 kg" },
-  { current: 25, model: "CHITEK AHF-25", orderCode: "CHITEK-AHF-25-4-4L", ratedVoltage: "220/400/440 VAC", size: "320×400×160 mm", weight: "15 kg" },
-  { current: 50, model: "CHITEK AHF-50", orderCode: "CHITEK-AHF-50-4-4L", ratedVoltage: "220/400/440/480 VAC", size: "505×600×220 mm", weight: "33 kg" },
-  { current: 75, model: "CHITEK AHF-75", orderCode: "CHITEK-AHF-75-4-4L", ratedVoltage: "220/400/440/480 VAC", size: "505×600×220 mm", weight: "35 kg" },
-  { current: 100, model: "CHITEK AHF-100", orderCode: "CHITEK-AHF-100-4-4L", ratedVoltage: "220/400/440/480 VAC", size: "505×600×220 mm", weight: "43 kg" },
-  { current: 150, model: "CHITEK AHF-150", orderCode: "CHITEK-AHF-150-4-4L", ratedVoltage: "220/400/440/480 VAC", size: "505×600×220 mm", weight: "45 kg" },
-  { current: 200, model: "CHITEK AHF-200", orderCode: "CHITEK-AHF-200-4-4L", ratedVoltage: "220/400/440/480 VAC", size: "525×710×250 mm", weight: "70 kg" }
+/* ============================================================
+ * 真实机型口径 —— 本文件唯一的型号来源，改这里不要改别处
+ * ------------------------------------------------------------
+ * AHF 容量档 / 电压档 / 型号写法：src/pages/en/products.astro
+ *   AHF Selection Matrix，型号 = AHF-<Series>-<NNN>A-<VVV>
+ * AHF 尺寸 / 重量：各详情页 Module Parameters 表（src/data/ahfSku.js）
+ * SVG 容量档 / 电压档：src/pages/en/products-svg/ 八个系列页
+ * 并联上限：官方参数表 "Number of Parallel Connections ≤ 16 units"
+ * 详情页没列尺寸的系列一律写 "Refer to datasheet"，不编数字。
+ * ============================================================ */
+
+const PARALLEL_LIMIT = 16;
+
+const VOLT_BANDS = {
+  208: { label: "200~240 V", tag: "208V" },
+  400: { label: "380~415 V", tag: "400V" },
+  480: { label: "460~500 V", tag: "480V" },
+  690: { label: "660~800 V", tag: "690V" }
+};
+
+const UNKNOWN_DIM = "Refer to datasheet";
+
+const AHF_SERIES = [
+  {
+    code: "U",
+    name: "Ultra-Slim",
+    desc: "Thinnest wall-mount module (45 mm deep) for tight switchboard bays.",
+    caps: { 400: [15] },
+    dims: { 15: "340 × 410 × 45 mm" },
+    weight: { 15: "7.5 kg" }
+  },
+  {
+    code: "D",
+    name: "Distributed",
+    desc: "Bay-level module for installation next to the dominant feeders.",
+    caps: { 400: [30, 50] },
+    dims: { 30: "380 × 400 × 88 mm", 50: "380 × 400 × 88 mm" },
+    weight: { 30: "11.5 kg", 50: "11.5 kg" }
+  },
+  {
+    code: "C",
+    name: "SiC",
+    desc: "SiC-based module with the highest switching frequency of the range.",
+    caps: { 400: [50, 75, 100, 150], 208: [50, 75, 100, 150], 480: [50, 75, 100, 150] },
+    dims: {
+      50: "500 × 550 × 130 mm", 75: "500 × 550 × 130 mm",
+      100: "500 × 550 × 130 mm", 150: "500 × 550 × 175 mm"
+    },
+    weight: { 50: "19 kg", 75: "24 kg", 100: "24 kg", 150: "29 kg" }
+  },
+  {
+    code: "A",
+    name: "Anti-Pollution",
+    desc: "Sealed air path for dusty, corrosive or high-humidity plants.",
+    caps: {
+      400: [50, 75, 100, 150, 200],
+      208: [50, 75, 100, 150, 200],
+      480: [50, 75, 100, 150, 200],
+      690: [85, 100]
+    },
+    dims: {
+      50: "500 × 550 × 130 mm", 75: "500 × 550 × 130 mm",
+      100: "500 × 550 × 130 mm", 150: "500 × 550 × 175 mm", 200: "500 × 550 × 175 mm"
+    },
+    weight: { 50: "19 kg", 75: "24 kg", 100: "24 kg", 150: "29 kg", 200: "34 kg" }
+  },
+  {
+    code: "L",
+    name: "Standard",
+    desc: "Standard rack module with the widest capacity coverage.",
+    caps: {
+      400: [50, 75, 100, 150, 200],
+      208: [50, 75, 100, 150, 200],
+      480: [50, 75, 100, 150, 200],
+      690: [85, 100]
+    },
+    dims: {},
+    weight: {}
+  }
 ];
 
-const svgCatalog = [
-  { kvar: 10, current: 15, model: "CHITEK ASVG-10", ratedVoltage: "400 VAC", size: "320×400×160 mm", weight: "11 kg" },
-  { kvar: 15, current: 25, model: "CHITEK ASVG-15", ratedVoltage: "400 VAC", size: "320×400×160 mm", weight: "15 kg" },
-  { kvar: 30, current: 50, model: "CHITEK ASVG-30", ratedVoltage: "400 VAC", size: "505×600×220 mm", weight: "33 kg" },
-  { kvar: 50, current: 75, model: "CHITEK ASVG-50", ratedVoltage: "400 VAC", size: "450×514×180 mm", weight: "35 kg" },
-  { kvar: 75, current: 100, model: "CHITEK ASVG-75", ratedVoltage: "400 VAC", size: "505×600×220 mm", weight: "43 kg" },
-  { kvar: 100, current: 150, model: "CHITEK ASVG-100", ratedVoltage: "400 VAC", size: "505×600×220 mm", weight: "45 kg" },
-  { kvar: 135, current: 200, model: "CHITEK ASVG-135", ratedVoltage: "400 VAC", size: "575×710×250 mm", weight: "70 kg" }
+const SVG_SERIES = [
+  { code: "U", name: "Ultra-Slim", desc: "Slim module for space-constrained LV panels.", caps: { 400: [5, 10, 14], 208: [5, 10, 14], 480: [5, 10, 14] } },
+  { code: "D", name: "Distributed", desc: "Feeder-level compensation close to inductive loads.", caps: { 400: [20, 30], 208: [20, 30], 480: [20, 30] } },
+  { code: "C", name: "SiC", desc: "SiC-based module with fast dynamic response.", caps: { 400: [20, 35, 50, 75, 100, 150], 208: [20, 35, 50, 75, 100, 150], 480: [20, 35, 50, 75, 100, 150] } },
+  { code: "A", name: "Anti-Pollution", desc: "Sealed air path for harsh plant environments.", caps: { 400: [35, 50, 75, 100, 150], 208: [35, 50, 75, 100, 150], 480: [35, 50, 75, 100, 150] } },
+  { code: "H", name: "Anti-Pollution HV", desc: "Medium-voltage class cabinet for 690/800 V systems.", caps: { 690: [120, 150], 800: [120, 150] } }
 ];
 
 const sampleData = {
@@ -250,7 +319,7 @@ nextBtn.addEventListener("click", () => {
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const lead = Object.fromEntries(new FormData(leadForm).entries());
-  localStorage.setItem("ytSelectorLead", JSON.stringify(lead));
+  localStorage.setItem("chitekSelectorLead", JSON.stringify(lead));
   leadStatus.textContent =
     "Thanks. Your project details were saved in this browser for demo purposes and are ready for a production CRM handoff.";
 });
@@ -319,7 +388,7 @@ function renderStep() {
             <span>System voltage</span>
             <select id="voltage-select">
               <option value="">Select voltage</option>
-              ${["400V", "480V", "525V", "690V", "Other"]
+              ${["208V", "400V", "480V", "690V", "Other"]
                 .map((option) => `<option value="${option}" ${state.form.voltage === option ? "selected" : ""}>${option}</option>`)
                 .join("")}
             </select>
@@ -581,12 +650,16 @@ function renderResults() {
 
   document.getElementById("topology-metrics").innerHTML = [
     {
-      label: "AHF current rating",
-      value: state.result.ahfCurrentRating ? `${state.result.ahfCurrentRating} A` : "Not primary"
+      label: "AHF installed / target",
+      value: state.result.ahfInstalledRating
+        ? `${state.result.ahfInstalledRating} A / ${state.result.ahfTargetRating} A`
+        : "Not primary"
     },
     {
-      label: "SVG kvar rating",
-      value: state.result.svgKvarRating ? `${state.result.svgKvarRating} kvar` : "Not primary"
+      label: "SVG installed / target",
+      value: state.result.svgInstalledRating
+        ? `${state.result.svgInstalledRating} kvar / ${state.result.svgTargetRating} kvar`
+        : "Not primary"
     },
     { label: "Estimated THDi after", value: `${state.result.estimatedThdiAfter}%` },
     { label: "Inferred system size", value: `${state.result.inferredSystemKva} kVA` }
@@ -767,131 +840,406 @@ function buildRecommendation(data) {
         ? "The dominant issue appears to be dynamic reactive power demand and poor power factor, making SVG the most direct correction method."
         : "Your inputs show both harmonic distortion and reactive power instability, so a hybrid architecture offers the best first-pass fit.";
 
-  const products = buildMatchedProducts(solutionType, ahfCurrentRating, svgKvarRating);
+  // 建议容量与匹配机型必须出自同一次解析，否则页面会自相矛盾
+  const buildVoltage = Number.isFinite(voltage) ? voltage : 400;
+  const buildVoltClass = voltageClass(buildVoltage);
+  const ahfSelection =
+    solutionType === "AHF" || solutionType === "Hybrid"
+      ? resolveModules(AHF_SERIES, ahfSeriesOrder(data.installPreference), ahfCurrentRating, buildVoltClass)
+      : null;
+  const svgSelection =
+    solutionType === "SVG" || solutionType === "Hybrid"
+      ? resolveModules(SVG_SERIES, svgSeriesOrder(data.installPreference), svgKvarRating, buildVoltClass)
+      : null;
+
+  const selectionLabel = (selection, unit, target) => {
+    if (!selection || !selection.available) return null;
+    return selection.modules > 1
+      ? `${selection.total} ${unit} (${selection.modules} × ${selection.cap} ${unit} modules, target ${Math.round(target)} ${unit})`
+      : `${selection.cap} ${unit}`;
+  };
+
+  const ahfInstalledLabel = selectionLabel(ahfSelection, "A", ahfCurrentRating);
+  const svgInstalledLabel = selectionLabel(svgSelection, "kvar", svgKvarRating);
+
+  const installedCapacityLabel = (() => {
+    if (solutionType === "AHF") {
+      return ahfInstalledLabel
+        ? `${ahfInstalledLabel} harmonic compensation`
+        : "Custom AHF — no standard module at this voltage";
+    }
+    if (solutionType === "SVG") {
+      return svgInstalledLabel
+        ? `${svgInstalledLabel} dynamic reactive compensation`
+        : "Custom SVG — no standard module at this voltage";
+    }
+    if (!ahfInstalledLabel && !svgInstalledLabel) {
+      return "Custom AHF + SVG — no standard module at this voltage";
+    }
+    return `${ahfInstalledLabel || "Custom AHF"} + ${svgInstalledLabel || "Custom SVG"} combined compensation`;
+  })();
+
+  const voltageNotice = voltageBandNotice(buildVoltage, buildVoltClass);
+  const needsParallel =
+    (ahfSelection && ahfSelection.modules > 1) || (svgSelection && svgSelection.modules > 1);
+  const needsCustom =
+    (ahfSelection && !ahfSelection.available) || (svgSelection && !svgSelection.available);
+
+  const confidenceLabel =
+    needsCustom || voltageNotice
+      ? "Preliminary confidence: low — engineering review required"
+      : needsParallel || data.harmonicInfo === "Not measured" || data.powerFactor === "Not sure"
+        ? "Preliminary confidence: medium"
+        : "Preliminary confidence: high";
+
+  const products = buildMatchedProducts(
+    solutionType,
+    ahfCurrentRating,
+    svgKvarRating,
+    buildVoltage,
+    data.installPreference
+  );
+
+  const dynamicNotes = [
+    "Final sizing should be confirmed against a single-line diagram, transformer impedance, and feeder diversity.",
+    "Harmonic current spectrum and kvar demand should be validated with a site measurement or power quality analyzer.",
+    solutionType === "Hybrid"
+      ? "Hybrid systems are especially useful where capacitor banks have already shown instability near variable-speed loads."
+      : "Centralized vs distributed placement should be finalized after reviewing load distribution and switchboard space."
+  ];
+
+  if (needsParallel) {
+    dynamicNotes.push(
+      `The target exceeds the largest single module at this voltage class, so the result is split into parallel modules (official link limit: ${PARALLEL_LIMIT} units). Confirm the parallel busbar and CT arrangement with CHITEK.`
+    );
+  }
+
+  if (voltageNotice) dynamicNotes.push(voltageNotice);
 
   return {
     solutionType,
     solutionLabel,
     ahfCurrentRating,
     svgKvarRating,
+    ahfTargetRating: Math.round(ahfCurrentRating),
+    svgTargetRating: Math.round(svgKvarRating),
+    ahfInstalledRating: ahfSelection && ahfSelection.available ? ahfSelection.total : null,
+    svgInstalledRating: svgSelection && svgSelection.available ? svgSelection.total : null,
+    ahfModules: ahfSelection && ahfSelection.available ? ahfSelection.modules : 0,
+    svgModules: svgSelection && svgSelection.available ? svgSelection.modules : 0,
+    voltClass: buildVoltClass,
     topology,
     installationType,
     estimatedPfAfter,
     estimatedThdiAfter,
     estimatedThdiReduction,
     whySelected,
-    compensationCapacityLabel,
+    compensationCapacityLabel: installedCapacityLabel,
+    targetCapacityLabel: compensationCapacityLabel,
     inferredSystemKva,
-    confidenceLabel:
-      data.harmonicInfo === "Not measured" || data.powerFactor === "Not sure"
-        ? "Preliminary confidence: medium"
-        : "Preliminary confidence: high",
+    confidenceLabel,
     reasonSummary,
-    engineeringNotes: [
-      "Final sizing should be confirmed against a single-line diagram, transformer impedance, and feeder diversity.",
-      "Harmonic current spectrum and kvar demand should be validated with a site measurement or power quality analyzer.",
-      solutionType === "Hybrid"
-        ? "Hybrid systems are especially useful where capacitor banks have already shown instability near variable-speed loads."
-        : "Centralized vs distributed placement should be finalized after reviewing load distribution and switchboard space."
-    ],
+    engineeringNotes: dynamicNotes,
     products
   };
 }
 
-function buildMatchedProducts(solutionType, ahfCurrentRating, svgKvarRating) {
-  const matches = [];
-
-  if (solutionType === "AHF" || solutionType === "Hybrid") {
-    const ahfMatch = findCatalogOptions(ahfCatalog, ahfCurrentRating, "current");
-    const ahf = ahfMatch.primary;
-    matches.push({
-      category: "AHF",
-      heading: "Matched AHF model",
-      model: ahf.model,
-      description: `Matched from the official CHITEK SiC Ultra AHF datasheet for a target of ${ahfCurrentRating} A harmonic compensation.`,
-      capacityLabel: `${ahf.current} A rated current`,
-      voltageLabel: ahf.ratedVoltage,
-      sizeLabel: ahf.size,
-      weightLabel: ahf.weight,
-      orderCode: ahf.orderCode,
-      matchLabel: `Primary recommendation for ${ahfCurrentRating} A target`,
-      alternatives: buildAlternativeEntries(ahfMatch, "current", "A"),
-      datasheetName: datasheetLibrary.ahf.name,
-      datasheetFile: datasheetLibrary.ahf.file,
-      datasheetPreview: datasheetLibrary.ahf.preview,
-      previewClass: "preview-focus-ahf"
-    });
-  }
-
-  if (solutionType === "SVG" || solutionType === "Hybrid") {
-    const svgMatch = findCatalogOptions(svgCatalog, svgKvarRating, "kvar");
-    const svg = svgMatch.primary;
-    matches.push({
-      category: "SVG",
-      heading: "Matched SVG model",
-      model: svg.model,
-      description: `Matched from the official CHITEK ASVG datasheet for a target of ${svgKvarRating} kvar dynamic correction.`,
-      capacityLabel: `${svg.kvar} kvar (${svg.current} A)`,
-      voltageLabel: svg.ratedVoltage,
-      sizeLabel: svg.size,
-      weightLabel: svg.weight,
-      orderCode: svg.model,
-      matchLabel: `Primary recommendation for ${svgKvarRating} kvar target`,
-      alternatives: buildAlternativeEntries(svgMatch, "kvar", "kvar"),
-      datasheetName: datasheetLibrary.svg.name,
-      datasheetFile: datasheetLibrary.svg.file,
-      datasheetPreview: datasheetLibrary.svg.preview,
-      previewClass: "preview-focus-svg"
-    });
-  }
-
-  return matches;
+/** 额定电压 → 站内机型电压档（矩阵里只有 208 / 400 / 480 / 690 四档）。
+ *  超出 200~800 V 一律返回 null —— 没有标准机型，不能硬套邻近档。 */
+function voltageClass(voltage) {
+  const v = Number(voltage);
+  if (!Number.isFinite(v) || v < 200 || v > 800) return null;
+  if (v <= 240) return 208;
+  if (v <= 415) return 400;
+  if (v <= 500) return 480;
+  return 690;
 }
 
-function findCatalogOptions(catalog, targetValue, key) {
-  const minimum = catalog[0][key];
-  const safeTarget = Math.max(targetValue, minimum);
-  let primaryIndex = catalog.findIndex((item) => item[key] >= safeTarget);
+function bandLabel(voltClass) {
+  return VOLT_BANDS[voltClass] ? VOLT_BANDS[voltClass].label : "Non-standard system voltage";
+}
 
-  if (primaryIndex === -1) {
-    primaryIndex = catalog.length - 1;
+function bandTag(voltClass) {
+  return VOLT_BANDS[voltClass] ? VOLT_BANDS[voltClass].tag : "custom";
+}
+
+function bandRange(voltClass) {
+  const nums = VOLT_BANDS[voltClass].label.match(/\d+/g).map(Number);
+  return [nums[0], nums[1]];
+}
+
+/** 不在标称带内（如 525 V）时给一句提示，不静默套用。 */
+function voltageBandNotice(voltage, voltClass) {
+  const v = Number(voltage);
+  if (!Number.isFinite(v) || v < 100) return "";
+  if (!voltClass) {
+    return `${Math.round(v)} V is outside the 200~800 V range of the standard CHITEK low-voltage range. A custom or medium-voltage solution has to be quoted individually.`;
+  }
+  const range = bandRange(voltClass);
+  if (v >= range[0] && v <= range[1]) return "";
+  return `${Math.round(v)} V falls outside the standard ${VOLT_BANDS[voltClass].label} band of the ${VOLT_BANDS[voltClass].tag} class. Confirm the actual winding voltage with CHITEK before ordering.`;
+}
+
+function ahfPartNo(seriesCode, cap, voltClass) {
+  return "AHF-" + seriesCode + "-" + String(cap).padStart(3, "0") + "A-" + voltClass;
+}
+
+function ahfSeriesOrder(installPref) {
+  if (installPref === "Rack modules") return ["C", "D", "U", "A", "L"];
+  if (installPref === "Cabinet solution") return ["A", "C", "L", "D", "U"];
+  return ["C", "A", "L", "D", "U"];
+}
+
+function svgSeriesOrder(installPref) {
+  if (installPref === "Rack modules") return ["C", "D", "U", "A", "H"];
+  return ["A", "C", "H", "D", "U"];
+}
+
+/**
+ * 先找单机能覆盖的档位，找不到才并联——绝不再"越界后静默取最大一档"。
+ * 并联上限取官方参数表的 "Number of Parallel Connections ≤ 16 units"。
+ */
+function resolveModules(catalog, order, target, voltClass) {
+  const candidates = order
+    .map((code) => catalog.find((series) => series.code === code))
+    .filter((series) => series && (series.caps[voltClass] || []).length);
+
+  if (!candidates.length) return { available: false, voltClass };
+
+  const safeTarget = Math.max(Number(target) || 0, 1);
+
+  for (const series of candidates) {
+    const caps = series.caps[voltClass];
+    const cap = caps.find((value) => value >= safeTarget);
+    if (cap !== undefined) {
+      return { available: true, series, cap, modules: 1, voltClass, total: cap, capped: false };
+    }
   }
 
+  // 并联：模块数与余量综合最优，且每档都参与比较（不只看最大档）
+  let bestPlan = null;
+  candidates.forEach((series, index) => {
+    series.caps[voltClass].forEach((unit) => {
+      const needed = Math.ceil(safeTarget / unit);
+      const modules = Math.min(needed, PARALLEL_LIMIT);
+      const total = unit * modules;
+      const overshoot = total / safeTarget;
+      const score = modules + overshoot + index * 0.01;
+      if (!bestPlan || score < bestPlan.score) {
+        bestPlan = { series, unit, modules, total, overshoot, score, needed };
+      }
+    });
+  });
+
   return {
-    primary: catalog[primaryIndex],
-    lower: primaryIndex > 0 ? catalog[primaryIndex - 1] : null,
-    higher: primaryIndex < catalog.length - 1 ? catalog[primaryIndex + 1] : null
+    available: true,
+    series: bestPlan.series,
+    cap: bestPlan.unit,
+    modules: bestPlan.modules,
+    voltClass,
+    total: bestPlan.total,
+    capped: bestPlan.needed > PARALLEL_LIMIT
   };
 }
 
-function buildAlternativeEntries(match, key, unit) {
+function buildAlternatives(series, voltClass, cap, unit, target, formatModel) {
+  const caps = (series.caps[voltClass] || []).slice().sort((a, b) => a - b);
+  const index = caps.indexOf(cap);
   const alternatives = [];
 
-  if (match.lower) {
+  if (index > 0) {
+    const lower = caps[index - 1];
     alternatives.push({
-      label: "Alternative smaller option",
-      model: match.lower.model || match.lower.orderCode,
-      value: `${match.lower[key]} ${unit}`
+      label: "Smaller module, same series",
+      model: formatModel(lower),
+      value:
+        lower >= target
+          ? `${lower} ${unit} still covers the target alone`
+          : `${lower} ${unit} would need more parallel units`
     });
   }
 
-  if (match.higher) {
+  if (index >= 0 && index < caps.length - 1) {
+    const higher = caps[index + 1];
     alternatives.push({
-      label: "Alternative larger option",
-      model: match.higher.model || match.higher.orderCode,
-      value: `${match.higher[key]} ${unit}`
+      label: "Larger module, same series",
+      model: formatModel(higher),
+      value: `${higher} ${unit} — fewer parallel units, more headroom`
     });
   }
 
   if (!alternatives.length) {
     alternatives.push({
-      label: "Alternative sizing note",
+      label: "Only one capacity in this series",
       model: "Custom engineering review",
-      value: "Nearest standard catalog point already selected"
+      value: "Confirm frame size with CHITEK sales engineering"
     });
   }
 
   return alternatives;
+}
+
+function svgLineCurrent(totalKvar, voltage) {  const v = Number(voltage) > 100 ? Number(voltage) : 400;
+  return Math.round((totalKvar * 1000) / (Math.sqrt(3) * v));
+}
+
+function buildAhfProduct(selection, target, voltage) {
+  if (!selection.available) {
+    return {
+      category: "AHF",
+      heading: "No standard AHF at this voltage class",
+      model: "Custom engineering review",
+      description: `CHITEK does not list a standard AHF module in the ${bandLabel(selection.voltClass)} class. A medium-voltage or custom cabinet solution has to be engineered.`,
+      capacityLabel: `${Math.round(target)} A target — not standard`,
+      voltageLabel: bandLabel(selection.voltClass),
+      orderCode: "Custom",
+      matchLabel: "Outside the standard range",
+      facts: [
+        { label: "Requested target", value: `${Math.round(target)} A` },
+        { label: "Voltage class", value: `${bandLabel(selection.voltClass)} · ${bandTag(selection.voltClass)}` },
+        { label: "Standard range", value: "No standard module" }
+      ],
+      alternatives: [
+        {
+          label: "Next step",
+          model: "Custom MV / HV engineering study",
+          value: "Send the single-line diagram for a tailored design"
+        }
+      ],
+      datasheetName: datasheetLibrary.ahf.name,
+      datasheetFile: datasheetLibrary.ahf.file,
+      datasheetPreview: datasheetLibrary.ahf.preview,
+      previewClass: "preview-focus-ahf"
+    };
+  }
+
+  const band = bandLabel(selection.voltClass);
+  const tag = bandTag(selection.voltClass);
+  const partNo = ahfPartNo(selection.series.code, selection.cap, selection.voltClass);
+  const parallel = selection.modules > 1;
+  const dims = selection.series.dims[selection.cap] || UNKNOWN_DIM;
+  const weight = selection.series.weight[selection.cap] || UNKNOWN_DIM;
+
+  return {
+    category: "AHF",
+    heading: parallel ? "Matched AHF module bank" : "Matched AHF model",
+    model: parallel ? `${selection.modules} × ${partNo}` : partNo,
+    description: `Selected from the CHITEK AHF selection matrix: ${selection.series.name} series, ${selection.cap} A module${parallel ? `, ${selection.modules} units in parallel` : ""}. ${selection.series.desc}`,
+    capacityLabel: parallel
+      ? `${selection.total} A installed (${selection.modules} × ${selection.cap} A)`
+      : `${selection.cap} A rated current`,
+    voltageLabel: `${band} · ${tag} class`,
+    orderCode: partNo,
+    matchLabel: `Target ${Math.round(target)} A → ${selection.total} A selected`,
+    facts: [
+      { label: "Installed capacity", value: parallel ? `${selection.total} A (${selection.modules} × ${selection.cap} A)` : `${selection.cap} A` },
+      { label: "Rated voltage", value: `${band} · ${tag}` },
+      { label: "Order code", value: partNo },
+      { label: "Module frame / weight", value: `${dims} / ${weight}` }
+    ],
+    alternatives: buildAlternatives(
+      selection.series,
+      selection.voltClass,
+      selection.cap,
+      "A",
+      target,
+      (cap) => ahfPartNo(selection.series.code, cap, selection.voltClass)
+    ),
+    datasheetName: datasheetLibrary.ahf.name,
+    datasheetFile: datasheetLibrary.ahf.file,
+    datasheetPreview: datasheetLibrary.ahf.preview,
+    previewClass: "preview-focus-ahf"
+  };
+}
+
+function buildSvgProduct(selection, target, voltage) {
+  if (!selection.available) {
+    return {
+      category: "SVG",
+      heading: "No standard SVG at this voltage class",
+      model: "Custom engineering review",
+      description: `CHITEK does not list a standard SVG module in the ${bandLabel(selection.voltClass)} class. A medium-voltage or custom cabinet solution has to be engineered.`,
+      capacityLabel: `${Math.round(target)} kvar target — not standard`,
+      voltageLabel: bandLabel(selection.voltClass),
+      orderCode: "Custom",
+      matchLabel: "Outside the standard range",
+      facts: [
+        { label: "Requested target", value: `${Math.round(target)} kvar` },
+        { label: "Voltage class", value: `${bandLabel(selection.voltClass)} · ${bandTag(selection.voltClass)}` },
+        { label: "Standard range", value: "No standard module" }
+      ],
+      alternatives: [
+        {
+          label: "Next step",
+          model: "Custom MV / HV engineering study",
+          value: "Send the single-line diagram for a tailored design"
+        }
+      ],
+      datasheetName: datasheetLibrary.svg.name,
+      datasheetFile: datasheetLibrary.svg.file,
+      datasheetPreview: datasheetLibrary.svg.preview,
+      previewClass: "preview-focus-svg"
+    };
+  }
+
+  const band = bandLabel(selection.voltClass);
+  const tag = bandTag(selection.voltClass);
+  const parallel = selection.modules > 1;
+  const lineCurrent = svgLineCurrent(selection.total, voltage);
+
+  return {
+    category: "SVG",
+    heading: parallel ? "Matched SVG module bank" : "Matched SVG model",
+    model: parallel
+      ? `${selection.modules} × SVG-${selection.series.code}-${selection.cap}K`
+      : `SVG-${selection.series.code}-${selection.cap}K`,
+    description: `Selected from the CHITEK SVG range: ${selection.series.name} series, ${selection.cap} kvar module${parallel ? `, ${selection.modules} units in parallel` : ""}. ${selection.series.desc}`,
+    capacityLabel: parallel
+      ? `${selection.total} kvar installed (${selection.modules} × ${selection.cap} kvar)`
+      : `${selection.cap} kvar per module`,
+    voltageLabel: `${band} · ${tag} class`,
+    orderCode: `${selection.series.code}-${selection.cap}K`,
+    matchLabel: `Target ${Math.round(target)} kvar → ${selection.total} kvar selected`,
+    facts: [
+      { label: "Installed capacity", value: parallel ? `${selection.total} kvar (${selection.modules} × ${selection.cap})` : `${selection.cap} kvar` },
+      { label: "Rated voltage", value: `${band} · ${tag}` },
+      { label: "Configuration", value: `${selection.series.name} series, ${selection.cap} kvar module` },
+      { label: "Line current", value: `≈ ${lineCurrent.toLocaleString("en-US")} A at ${Math.round(voltage)} V` }
+    ],
+    alternatives: buildAlternatives(
+      selection.series,
+      selection.voltClass,
+      selection.cap,
+      "kvar",
+      target,
+      (kvar) => `${selection.series.name} SVG ${kvar} kvar`
+    ),
+    datasheetName: datasheetLibrary.svg.name,
+    datasheetFile: datasheetLibrary.svg.file,
+    datasheetPreview: datasheetLibrary.svg.preview,
+    previewClass: "preview-focus-svg"
+  };
+}
+
+function buildMatchedProducts(solutionType, ahfTarget, svgTarget, voltage, installPref) {
+  const voltClass = voltageClass(voltage);
+  const matches = [];
+
+  if (solutionType === "AHF" || solutionType === "Hybrid") {
+    const ahfSelection = resolveModules(AHF_SERIES, ahfSeriesOrder(installPref), ahfTarget, voltClass);
+    const product = buildAhfProduct(ahfSelection, ahfTarget, voltage);
+    product.selection = ahfSelection;
+    matches.push(product);
+  }
+
+  if (solutionType === "SVG" || solutionType === "Hybrid") {
+    const svgSelection = resolveModules(SVG_SERIES, svgSeriesOrder(installPref), svgTarget, voltClass);
+    const product = buildSvgProduct(svgSelection, svgTarget, voltage);
+    product.selection = svgSelection;
+    matches.push(product);
+  }
+
+  return matches;
 }
 
 function renderProductCard(product) {
@@ -903,22 +1251,15 @@ function renderProductCard(product) {
       <span class="product-badge">${product.matchLabel}</span>
       <p class="product-copy">${product.description}</p>
       <div class="product-facts">
+        ${product.facts
+          .map(
+            (fact) => `
         <div>
-          <p>Matched capacity</p>
-          <strong>${product.capacityLabel}</strong>
-        </div>
-        <div>
-          <p>Rated voltage</p>
-          <strong>${product.voltageLabel}</strong>
-        </div>
-        <div>
-          <p>Order code</p>
-          <strong>${product.orderCode}</strong>
-        </div>
-        <div>
-          <p>Package size</p>
-          <strong>${product.sizeLabel} / ${product.weightLabel}</strong>
-        </div>
+          <p>${fact.label}</p>
+          <strong>${fact.value}</strong>
+        </div>`
+          )
+          .join("")}
       </div>
       <div class="alternative-block">
         <p>Alternative model options</p>
@@ -1170,13 +1511,12 @@ function inferSolutionType(data, harmonicScore, reactiveScore) {
 }
 
 function inferAhfSizing(data, solutionType, harmonicScore) {
-  const standards = [30, 50, 60, 75, 100, 120, 150, 200, 250, 300, 400, 500, 600];
   const voltage = parseVoltage(data);
   const sizingCurrent = inferSizingCurrent(data, voltage);
 
   if (!Number.isFinite(sizingCurrent) || sizingCurrent <= 0) {
-    if (solutionType === "AHF") return roundToStandard(120 + harmonicScore * 18, standards);
-    if (solutionType === "Hybrid") return roundToStandard(80 + harmonicScore * 16, standards);
+    if (solutionType === "AHF") return Math.round(120 + harmonicScore * 18);
+    if (solutionType === "Hybrid") return Math.round(80 + harmonicScore * 16);
     return 0;
   }
 
@@ -1190,17 +1530,17 @@ function inferAhfSizing(data, solutionType, harmonicScore) {
   if (data.loadTypes.includes("Welding machines")) ratio += 0.04;
   if (data.loadTypes.includes("UPS systems") || data.loadTypes.includes("Data center")) ratio += 0.03;
 
-  return ratio > 0 ? roundToStandard(sizingCurrent * ratio, standards) : 0;
+  // 不再四舍五入到"虚构标准档"——交给 resolveModules 按真实模块档位对齐
+  return ratio > 0 ? Math.round(sizingCurrent * ratio) : 0;
 }
 
 function inferSvgSizing(data, solutionType, systemKva, existingPf, targetPf) {
-  const standards = [30, 50, 75, 100, 120, 150, 200, 250, 300, 400, 500, 600, 800];
   if (solutionType === "AHF") return 0;
 
   let kvar = computeReactiveCompensation(systemKva, existingPf, targetPf);
   if (solutionType === "Hybrid") kvar *= 0.7;
   if (data.mainProblem === "Low power factor penalties") kvar *= 1.1;
-  return roundToStandard(kvar, standards);
+  return Math.round(kvar);
 }
 
 function inferInstallationType(data, ahfCurrent, svgKvar) {
@@ -1239,11 +1579,6 @@ function baselineHarmonicPercent(label) {
   if (label === "THDi 10–20%") return 15;
   if (label === "THDi below 10%") return 8;
   return 18;
-}
-
-function roundToStandard(value, standards) {
-  const positive = Math.max(value, standards[0]);
-  return standards.find((item) => item >= positive) || standards[standards.length - 1];
 }
 
 render();

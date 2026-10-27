@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHreflang } from '../../../i18n/index';
+import Sidebar from '../../../components/Sidebar.astro';
+const SHARE_URL = getHreflang('es', Astro.url.pathname);
+const article = {
+  title: "Mitigación de Armónicos de UPS en Centros de Datos de IA: AHF de 300 A",
+  category: "Tecnología",
+  date: "2026-10-21",
+  dateDisplay: "Oct 21, 2026",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "8 min de lectura",
+  description: "Mitigación de armónicos de UPS en centros de datos de IA con un filtro activo de armónicos de 300 A: reducir THDi, cumplir IEEE 519, proteger la carga IT y la capacidad del transformador.",
+  keywords: ["mitigación armónicos ups", "filtro activo armónicos centro datos", "ahf centro datos", "filtro armónicos 300a centro datos", "armónicos centro datos ia", "calidad energía centro datos ieee 519", "ups causa armónicos", "filtro activo ups centro datos"],
+};
+
+const otherArticles = [
+  { title: "Filtros Armónicos Activos vs Pasivos", category: "Tecnología", href: "/es/news/active-vs-passive-harmonic-filters", color: "orange" },
+  { title: "Recubrimiento Conformal y Fiabilidad de los Módulos AHF", category: "Tecnología", href: "/es/news/conformal-coating-ahf-reliability", color: "purple" },
+  { title: "Guía Enciclopédica de APF Distribuido de Baja Capacidad", category: "Tecnología", href: "/es/news/distributed-small-capacity-apf-guide", color: "orange" },
+];
+const relatedProducts = [
+  { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+const relatedCases = [
+  { name: "Optimización de la Calidad de Energía en Granja Solar en Dubái", industry: "Energía Renovable", href: "/es/news/solar-farm-dubai" },
+  { name: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", industry: "Fabricación", href: "/es/news/saudi-arabia-standards" },
+  { name: "Estudio de Caso: AHF de 300A Restaura Bancos de Capacitores en un Centro de Datos", industry: "Centros de Datos", href: "/es/news/blog-data-center-ahf-case-study" }
+];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mitigación de Armónicos de UPS en Centros de Datos de IA: AHF de 300 A",
+    "description": "Mitigación de armónicos de UPS en centros de datos de IA con un filtro activo de armónicos de 300 A: reducir THDi, cumplir IEEE 519, proteger la carga IT y la capacidad del transformador.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "keywords": "mitigación armónicos ups, filtro activo armónicos centro datos, ahf centro datos, filtro armónicos 300a centro datos, armónicos centro datos ia, calidad energía centro datos ieee 519, ups causa armónicos, filtro activo ups centro datos"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="Mitigación de Armónicos de UPS en Centros de Datos de IA: AHF de 300 A" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un UPS de doble conversión no extrae la corriente como una sinusoide. Toma pulsos cortos y empinados en la cresta de la tensión, y la serie de Fourier de ese tren de pulsos es el fundamental más los órdenes 5, 7, 11, 13 y superiores. En un centro de datos de IA, el front-end rectificador funciona cerca de plena carga de forma continua, así que ese tren de pulsos se convierte en una corriente armónica permanente en el bus. El resultado es un <strong class="font-semibold text-text-dark">THDi</strong> muy por encima del límite de planificación de <strong class="font-semibold text-text-dark">IEEE 519</strong>, calentamiento extra del transformador y una corriente de neutro que nadie dimensionó. Este artículo explica por qué los sistemas UPS causan armónicos, qué cuestan en el PCC y cómo un <strong class="font-semibold text-text-dark">filtro activo de armónicos de 300 A</strong> logra la mitigación de armónicos de UPS en el origen.</p>
+<h2 id="how-ups-harmonics-are-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo Se Cuantifican los Armónicos de UPS</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un rectificador de seis pulsos produce órdenes características en 6n ± 1 —los órdenes 5, 7, 11, 13, etc.— con amplitud que cae aproximadamente como 1/h. Un rectificador de doce pulsos o de front-end activo desplaza el espectro pero no lo elimina.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">THDi% = √(Σ I_h²) / I_1 × 100%</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">THDv% = √(Σ V_h²) / V_1 × 100%</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6"><strong class="font-semibold text-text-dark">IEEE 519</strong> fija el límite de distorsión de corriente en el PCC según la relación entre la corriente de cortocircuito y la corriente de carga (I_SC/I_L). En un bus típico de centro de datos con I_SC/I_L entre 20 y 50, el límite para órdenes inferiores a 11 es <strong class="font-semibold text-text-dark">7,0%</strong>, para el rango 11.º–16.º es <strong class="font-semibold text-text-dark">3,5%</strong>, y la distorsión total de demanda <strong class="font-semibold text-text-dark">8,0%</strong>. Un UPS moderno al 40–50% de carga suele medir <strong class="font-semibold text-text-dark">25–35% de THDi</strong> sin filtrado.</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Causas Principales</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Front-ends rectificadores</strong> — la fuente dominante; un puente de tiristores o diodos de seis pulsos es el peor caso.</li><li><strong class="font-semibold text-text-dark">Módulos UPS poco cargados</strong> — el porcentaje de distorsión sube al descargarse el módulo, porque el fundamental cae mientras el pulso se mantiene empinado.</li><li><strong class="font-semibold text-text-dark">Carga IT de modo conmutado</strong> — las fuentes y PDU de servidor añaden su propio contenido 3.º y 5.º, y los órdenes triplos se acumulan en el neutro.</li><li><strong class="font-semibold text-text-dark">Configuraciones UPS en paralelo</strong> — la corriente circulante entre módulos añade contenido interarmónico.</li><li><strong class="font-semibold text-text-dark">VFD de refrigeración y auxiliares</strong> — enfriadoras y ventiladores CRAH aportan distorsión 5/7 en el mismo bus.</li><li><strong class="font-semibold text-text-dark">Impedancia de fuente débil</strong> — un bus respaldado por generador o de larga alimentación amplifica la distorsión de tensión para el mismo espectro de corriente.</li></ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué Cuesta</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Derating del transformador</strong> — la corriente armónica eleva las pérdidas por corrientes parásitas y dispersas; una unidad K-rated o sobredimensionada es a menudo la única respuesta pasiva, y es cara.</li><li><strong class="font-semibold text-text-dark">Sobrecalentamiento del neutro</strong> — los órdenes triplos se suman en lugar de cancelarse; un neutro dimensionado para carga equilibrada lleva corriente real.</li><li><strong class="font-semibold text-text-dark">Pérdida de eficiencia del UPS</strong> — la distorsión eleva la corriente rms para el mismo kW, así las pérdidas I²R suben en cables y cuadros.</li><li><strong class="font-semibold text-text-dark">Interacción con el generador</strong> — la corriente armónica hacia un generador de reserva eleva la distorsión de tensión y puede disparar la secuencia de transferencia durante una prueba.</li><li><strong class="font-semibold text-text-dark">Capacidad ociosa</strong> — la potencia aparente consumida por la distorsión no se puede vender a la carga IT, así la instalación se queda sin margen antes de agotar los kW.</li></ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por Qué los Métodos Fijos Resultan Insuficientes</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un filtro pasivo desintonizado se afina a un solo orden y es ciego al resto. Una reactancia de línea reduce la distorsión en el terminal del variador pero no en el PCC. Un banco de condensadores corrige el FP de desplazamiento medio, pero no puede seguir a un UPS cuya carga salta del 30% al 90% en segundos — y corre riesgo de resonancia con el transformador aguas arriba.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Ninguno de estos métodos responde a los verdaderos <strong class="font-semibold text-text-dark">problemas de calidad de energía del centro de datos</strong>: una carga que cambia de forma en cada refresco de rack, y un espectro armónico que se desplaza con el firmware del UPS y el número de módulos.</p>
+<h2 id="how-a-300-a-ahf-fixes-ups-harmonic-mitigation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo un AHF de 300 A Resuelve la Mitigación de Armónicos de UPS</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un <strong class="font-semibold text-text-dark">CHITEK AHF</strong> muestrea la corriente de carga por TC, calcula el contenido armónico cada ciclo e inyecta una corriente de compensación de fase opuesta por un inversor de fuente de tensión.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">i_c* = i_L − i_s(fundamental)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El inversor conmuta a alta frecuencia en IGBT y sigue la referencia en <strong class="font-semibold text-text-dark">&lt; 1 ms</strong>, llevando el <strong class="font-semibold text-text-dark">THDi del 30%+ a &lt; 5%</strong> en el punto de inyección. Filtrado, compensación reactiva y equilibrado de fase pueden compartir un mismo armario.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El dimensionado sigue la carga medida, no la placa del transformador. Un ejemplo práctico, con supuestos declarados:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>Corriente de entrada UPS medida a plena carga IT: <strong class="font-semibold text-text-dark">400 A rms</strong>.</li><li>THDi medido: <strong class="font-semibold text-text-dark">30%</strong>, lo que da una corriente armónica de unos <strong class="font-semibold text-text-dark">120 A rms</strong>.</li><li>THDi objetivo en el PCC: <strong class="font-semibold text-text-dark">5%</strong>, dejando unos <strong class="font-semibold text-text-dark">20 A</strong> de armónico residual.</li><li>Compensación requerida: 120 − 20 = <strong class="font-semibold text-text-dark">100 A</strong>, más <strong class="font-semibold text-text-dark">15–25%</strong> de margen para crecimiento de carga y desplazamiento espectral.</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Eso entra en un armario de <strong class="font-semibold text-text-dark">300 A</strong> con margen para un segundo módulo UPS o una futura fila de racks de IA. La clasificación <strong class="font-semibold text-text-dark">filtro de armónicos 300a centro de datos</strong> se elige para la peor carga, no para la media.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">La ubicación de los TC decide si el equipo funciona. Los TC deben sentir la corriente de carga en el lado de carga del punto de corrección; si ven corriente ya corregida, el controlador lee error cero y se queda inactivo.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Las unidades LV AHF convencionales usan IGBT limitados cerca de <strong class="font-semibold text-text-dark">150 °C</strong>, conmutando típicamente por debajo de <strong class="font-semibold text-text-dark">20 kHz</strong>. Los MOSFET SiC elevan el límite de unión a <strong class="font-semibold text-text-dark">200 °C</strong>, llevan aproximadamente <strong class="font-semibold text-text-dark">10×</strong> el campo de ruptura, conmutan a <strong class="font-semibold text-text-dark">2–3×</strong> la frecuencia y reducen la pérdida de conmutación en cerca de <strong class="font-semibold text-text-dark">50%</strong>. El ancho de banda de control más amplio sigue los escalones de carga rápida de una sala de IA con más limpieza y reduce el tamaño del armario — la dirección sobre la que se construye la plataforma LV AHF de CHITEK.</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Aspecto</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">IGBT AHF</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">SiC AHF</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Límite de unión</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~150 °C</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~200 °C</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Frecuencia de conmutación</td><td class="p-4 border-b border-border-light text-text-mid font-medium">&lt; 20 kHz</td><td class="p-4 border-b border-border-light text-text-mid font-medium">2–3× mayor</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Pérdida de conmutación</td><td class="p-4 border-b border-border-light text-text-mid font-medium">base</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~50% menor</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Ancho de banda de control</td><td class="p-4 border-b border-border-light text-text-mid font-medium">adecuado</td><td class="p-4 border-b border-border-light text-text-mid font-medium">más amplio</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Tamaño del armario</td><td class="p-4 border-b border-border-light text-text-mid font-medium">mayor</td><td class="p-4 border-b border-border-light text-text-mid font-medium">menor</td></tr></tbody></table></div>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de Verificación de Despliegue</h2>
+<ol class="list-decimal list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>Medir corrientes de fase, THDi, órdenes individuales y THDv en el PCC durante un ciclo de trabajo completo, incluyendo transiciones de módulos UPS.</li><li>Registrar I_SC en el PCC para confirmar el límite <strong class="font-semibold text-text-dark">IEEE 519</strong> aplicable.</li><li>Colocar el AHF en el cuadro de entrada UPS, cerca del clúster rectificador.</li><li>Verificar orientación y ubicación de los TC antes de energizar; confirmar que el controlador ve la corriente de carga.</li><li>Auditar los bancos de condensadores existentes por resonancia y desafine.</li><li>Dimensionar desde la corriente armónica medida más <strong class="font-semibold text-text-dark">15–25%</strong> de margen.</li><li>Volver a medir tras la puesta en marcha frente al límite IEEE 519 y registrar el espectro residual.</li></ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Perfiles Típicos de Aplicación</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Salas de entrenamiento IA</strong> — racks GPU densos con carga UPS alta y estable; un AHF de 300 A mantiene THDi por debajo del 5% en el cuadro de entrada.</li><li><strong class="font-semibold text-text-dark">Sitios de colocación y multinquilino</strong> — UPS y carga IT de distintas generaciones; el AHF se adapta según cambian los inquilinos.</li><li><strong class="font-semibold text-text-dark">Centros de datos edge y modulares</strong> — un solo armario AHF protege un bus compartido con espacio limitado.</li><li><strong class="font-semibold text-text-dark">Instalaciones respaldadas por generador</strong> — filtrar antes del punto de transferencia reduce la distorsión de tensión durante las pruebas del generador.</li></ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">La mitigación de armónicos de UPS es un problema de cancelación de corriente, no de condensadores, y en un centro de datos de IA la carga es demasiado dinámica para métodos fijos. Un <strong class="font-semibold text-text-dark">filtro activo de armónicos de 300 A</strong> en el cuadro de entrada UPS restaura el cumplimiento de <strong class="font-semibold text-text-dark">IEEE 519</strong> y libera capacidad del transformador. Las plataformas AHF y SVG de CHITEK se especifican desde la corriente armónica medida, no desde la placa. ¿Cuál es su THDi medido en la entrada del UPS — y cuánto margen le queda al transformador?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href={caseItem.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

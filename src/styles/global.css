@@ -228,6 +228,12 @@
    ⚠️ 新增文案出现子集外的字会回退到系统中文黑体（见 html[lang="zh"] 字体族），
       大面积改文案后重跑 python _font_subset.py。
    文件名约定：OPPOSansSC-<weight>-sub.woff2（权重 300/400/500/600/700/800）。 */
+
+/* ── 2026-10-26 性能：去掉 500 这一档（用户裁定）──
+   400 声明为 `font-weight: 400 500`，即 500 也用 400 的文件渲染（不做合成加粗）。
+   站内实测 500 只占中文字符数 ~7%（其余 400:74% / 600:19% / 700:10%），肉眼看不出差别。
+   收益：每个中文页少下一个 240KB 字体文件（958KB → 718KB）。
+   ⚠️ OPPOSansSC-500-sub.woff2 已移到 backups/assets_prune_20261026_211459/，需要回滚时拷回 public 即可。 */
 @font-face {
   font-family: "OPPO Sans SC";
   font-style: normal;
@@ -240,16 +246,8 @@
   font-family: "OPPO Sans SC";
   font-style: normal;
   font-display: swap;
-  font-weight: 400;
+  font-weight: 400 500;
   src: url("/assets/fonts/OPPOSansSC-400-sub.woff2") format("woff2");
-  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
-}
-@font-face {
-  font-family: "OPPO Sans SC";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: url("/assets/fonts/OPPOSansSC-500-sub.woff2") format("woff2");
   unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF, U+FE30-FE4F;
 }
 @font-face {
@@ -475,4 +473,28 @@ html[lang="pt"] .font-barlow-condensed {
 
 #parameters tbody tr:nth-child(even) > * {
   background-color: #f2f5f8;
+}
+
+/* ─── 详情页参数表：电流/容量/净重/尺寸 四行的分列短竖线 ───
+   这四个「多值行」（Rated Current / Rated Capacity / Net Weight /
+   Dimensions W×D×H）每个值包一层 .pcol：左侧统一 16px 内距（= 其它行的 px-4），
+   再用 ::before 画一条细竖线：上下各补到行分割线（top:-8px / bottom:-1px），
+   四行连起来正好组成格子。四行共用同一套内距与列宽，文案才会左对齐到同一个 x。 */
+#parameters .pcol {
+  position: relative;
+  display: block;
+  padding-left: 14px;
+  text-align: left;
+}
+
+#parameters .pcol::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  /* 竖线要「顶到」上下两条行分割线：上下各补 8px（单元格 py-2）+ 1px（行线），
+     四行连起来正好是一格一格的网格线。改 py-2 的话这三个数要跟着改。 */
+  top: -9px;
+  bottom: -9px;
+  width: 1px;
+  background-color: var(--color-border-light, #e5e7eb);
 }

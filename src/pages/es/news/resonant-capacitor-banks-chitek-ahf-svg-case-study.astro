@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHreflang } from '../../../i18n/index';
+import Sidebar from '../../../components/Sidebar.astro';
+const SHARE_URL = getHreflang('es', Astro.url.pathname);
+const article = {
+  title: "Bancos de Condensadores Resonantes: Caso de Estudio CHITEK AHF + SVG",
+  category: "Caso de Estudio",
+  date: "2026-10-09",
+  dateDisplay: "Oct 9, 2026",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "8 min de lectura",
+  description: "Cómo CHITEK AHF y SVG resolvieron las fallas de bancos de condensadores resonantes en una planta de cobre — FP 0,61 a >0,95, THDi 28,5% a <5%.",
+  keywords: ["filtro activo de armónicos", "generador estático de var", "bancos de condensadores resonantes", "CHITEK AHF", "CHITEK SVG", "THDi", "IEEE 519", "reactores desintonizados"],
+};
+
+const otherArticles = [
+  { title: "Filtros Armónicos Activos vs Pasivos", category: "Tecnología", href: "/es/news/active-vs-passive-harmonic-filters", color: "orange" },
+  { title: "Recubrimiento Conformal y Fiabilidad de los Módulos AHF", category: "Tecnología", href: "/es/news/conformal-coating-ahf-reliability", color: "purple" },
+  { title: "Guía Enciclopédica de APF Distribuido de Baja Capacidad", category: "Tecnología", href: "/es/news/distributed-small-capacity-apf-guide", color: "orange" },
+];
+const relatedProducts = [
+  { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+const relatedCases = [
+  { name: "Optimización de la Calidad de Energía en Granja Solar en Dubái", industry: "Energía Renovable", href: "/es/news/solar-farm-dubai" },
+  { name: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", industry: "Fabricación", href: "/es/news/saudi-arabia-standards" },
+  { name: "Estudio de Caso: AHF de 300A Restaura Bancos de Capacitores en un Centro de Datos", industry: "Centros de Datos", href: "/es/news/blog-data-center-ahf-case-study" }
+];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Bancos de Condensadores Resonantes: Caso de Estudio CHITEK AHF + SVG",
+    "description": "Cómo CHITEK AHF y SVG resolvieron las fallas de bancos de condensadores resonantes en una planta de cobre — FP 0,61 a >0,95, THDi 28,5% a <5%.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-10-09",
+    "dateModified": "2026-10-09",
+    "keywords": "filtro activo de armónicos, generador estático de var, bancos de condensadores resonantes, CHITEK AHF, CHITEK SVG, THDi, IEEE 519, reactores desintonizados"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-6.webp" alt="Bancos de Condensadores Resonantes: Caso de Estudio CHITEK AHF + SVG" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los bancos de condensadores se instalan para corregir el factor de potencia. En una planta rica en armónicos hacen lo contrario: la capacitancia del banco y la inductancia del sistema forman un circuito resonante en paralelo que amplifica los propios armónicos que debería ignorar. En una instalación de procesamiento de cobre en Zhejiang, ese mecanismo hizo disparar cada banco de condensadores al energizarse, arrastró el factor de potencia a 0,61 y dejó la corriente de 5º armónico en 254 A. Este caso de estudio traza la medición, el diagnóstico de resonancia y la arquitectura de filtro activo de armónicos (AHF) + generador estático de var (SVG) que restauró la red.</p>
+<h2 id="the-plant-and-the-3-transformer" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">La Planta y el Transformador #3</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Zhejiang Jinjia Special-Shaped Copper Co., Ltd. (condado de Changxing, Huzhou) produce barras de cobre sin oxígeno, barras colectoras y productos de cobre especiales. Sus líneas funcionan con hornos de inducción y convertidores de frecuencia — cargas no lineales que inyectan corrientes armónicas de forma continua.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El <strong class="font-semibold text-text-dark">transformador #3 de 1600 kVA</strong> llevaba los síntomas:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Los bancos de condensadores se disparaban o fallaban al energizarse</strong>.</li><li><strong class="font-semibold text-text-dark">Los condensadores se dañaban repetidamente por sobrecorriente y sobrecalentamiento</strong>.</li><li><strong class="font-semibold text-text-dark">Los convertidores de frecuencia tenían dificultades para arrancar a alta carga</strong>.</li><li><strong class="font-semibold text-text-dark">El factor de potencia cayó a 0,61</strong>.</li><li><strong class="font-semibold text-text-dark">La distorsión armónica alcanzó niveles que amenazaban la vida útil del equipo y la seguridad</strong>.</li></ul>
+<h2 id="how-the-problem-was-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo Se Cuantificó el Problema</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Las mediciones de base en el transformador establecieron la escala antes de especificar cualquier equipo:</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parámetro</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Valor Medido</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">THDv</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">hasta 7,72%</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">THDi</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">hasta 28,5%</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">Armónicos dominantes</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">5º, 11º, 13º</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">Demanda reactiva</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">781 kvar</td></tr></tbody></table></div>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El alimentador 3-1# (rama izquierda) estaba peor: THDi hasta 31,77%, THDv hasta 7,92%, de nuevo dominado por el 5º y el 11º. La corriente del 5º armónico por sí sola medía 254 A; el 11º alcanzaba los 139 A — ambos muy por encima de los límites IEEE y GB.</p>
+<h2 id="root-cause-parallel-resonance" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Causa Raíz: Resonancia en Paralelo</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El espectro armónico apuntaba a los VFD y rectificadores como fuente. El mecanismo de fallo era más sutil.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un banco de condensadores presenta reactancia capacitiva que cae con la frecuencia. La inductancia del sistema aumenta con la frecuencia. En una frecuencia — la frecuencia resonante en paralelo — ambas se cancelan y la impedancia vista por las corrientes armónicas se dispara:</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">f_res = (1 / 2π) × √(L_system × C_bank)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Cuando una corriente armónica cae cerca de f_res, el banco se convierte en una trampa: la corriente armónica circula entre el condensador y la inductancia, el banco lleva mucho más corriente de su nominal, y la temperatura dieléctrica sube hasta que la unidad falla. Esta es la razón por la que los bancos se disparaban al energizarse en lugar de degradarse lentamente — la resonancia se excitaba en el instante en que se cerraba el contactor.</p>
+<h2 id="what-resonant-banks-cost" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué Coste Tienen los Bancos Resonantes</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Fallo de condensadores</strong> — la sobrecorriente y el sobrecalentamiento destruyen las unidades; el reemplazo es recurrente, no único.</li><li><strong class="font-semibold text-text-dark">Colapso del factor de potencia</strong> — con los bancos fuera de línea, el FP se quedó en 0,61, generando sanciones de la utility.</li><li><strong class="font-semibold text-text-dark">Arranque poco fiable de VFD</strong> — la tensión distorsionada altera el control del convertidor y dispara los variadores a alta carga.</li><li><strong class="font-semibold text-text-dark">Estrés térmico en los activos</strong> — las pérdidas armónicas aceleran el envejecimiento de transformador y cables.</li><li><strong class="font-semibold text-text-dark">Exposición de seguridad</strong> — los neutros sobrecalentados y las latas de condensadores fallidas son un riesgo de incendio.</li></ul>
+<h2 id="why-fixed-correction-falls-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por Qué la Corrección Fija Resulta Insuficiente</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Había dos remedios convencionales sobre la mesa. Ninguno resolvió el problema por completo.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los reactores desintonizados más condensadores (7%) desplazan la frecuencia resonante por debajo del 5º armónico, lo que evita la amplificación del 5º. Es una retrofit válida — pero es fija, afinada a un espectro supuesto, y no hace nada con el 11º y 13º. Tampoco puede suministrar potencia reactiva continuamente variable a medida que oscila la carga del horno.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los bancos de condensadores simples solo corrigen el factor de potencia medio. No pueden seguir una carga oscilante, no pueden reequilibrar por fase, y en una red rica en armónicos son la propia fuente de resonancia.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Lo que la planta necesitaba era una fuente que se adapte: cancelación de armónicos en tiempo real más soporte reactivo continuamente variable, sin elementos sintonizados que puedan resonar.</p>
+<h2 id="how-chitek-ahf-svg-fix-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo lo Arreglan CHITEK AHF + SVG</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">CHITEK especificó una arquitectura de compensación activa híbrida dimensionada al espectro medido y a la demanda reactiva del transformador #3.</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Dispositivo</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Cantidad</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Función</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">CHITEK SVG</strong> (100 kvar por unidad)</td><td class="p-4 border-b border-border-light text-text-mid font-medium">8 unidades</td><td class="p-4 border-b border-border-light text-text-mid font-medium">Compensación reactiva dinámica, 800 kvar total</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">CHITEK AHF</strong> (150 A por unidad)</td><td class="p-4 border-b border-border-light text-text-mid font-medium">3 unidades</td><td class="p-4 border-b border-border-light text-text-mid font-medium">Filtrado de armónicos impares del 2º al 50º</td></tr></tbody></table></div>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El generador estático de var es un convertidor de fuente de tensión que inyecta o absorbe corriente reactiva de forma continua, de +300 kvar a –800 kvar, manteniendo el FP cerca de la unidad a medida que se mueve la carga del horno. El filtro activo de armónicos mide la corriente de carga, extrae el componente armónico y sintetiza una corriente de cancelación:</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">i_c* = i_L − i_s(fundamental)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Ambos responden en <strong class="font-semibold text-text-dark">&lt; 5 ms</strong>, por lo que la corrección sigue a la carga en lugar de retrasarse. Como no hay elemento LC sintonizado, no hay frecuencia resonante que excitar — el modo de fallo que destruyó los bancos originales se elimina estructuralmente. El AHF también lleva capacidad de neutro 3× para el filtrado de armónicos triplos.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Las unidades convencionales LV AHF y SVG usan IGBT limitados cerca de <strong class="font-semibold text-text-dark">150 °C</strong> y conmutables típicamente por debajo de <strong class="font-semibold text-text-dark">20 kHz</strong>. Migrar a SiC MOSFET (unión <strong class="font-semibold text-text-dark">200 °C</strong>, ~<strong class="font-semibold text-text-dark">10×</strong> campo de ruptura, <strong class="font-semibold text-text-dark">2–3×</strong> frecuencia de conmutación, ~<strong class="font-semibold text-text-dark">50%</strong> menos pérdida de conmutación) ensancha el ancho de banda de control y reduce el armario. Una frecuencia de conmutación más alta empuja el rizado más allá de los armónicos que se cancelan y acorta el lazo de corrección — la dirección sobre la que se construye la plataforma LV AHF + SVG de CHITEK.</p>
+<h2 id="results-after-commissioning" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Resultados Tras la Puesta en Marcha</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Las mediciones tras la puesta en marcha confirmaron el cambio en cada parámetro:</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parámetro</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Antes</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Después</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">Factor de potencia</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">0,61</td><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">&gt; 0,95</strong></td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">THDv</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">7,72%</td><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">&lt; 3%</strong></td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">THDi</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">28,5%</td><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">&lt; 5%</strong></td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">Operación de condensadores</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">fallaba</td><td class="p-4 border-b border-border-light text-text-mid font-medium">estable y funcional</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">Arranque VFD</strong></td><td class="p-4 border-b border-border-light text-text-mid font-medium">poco fiable</td><td class="p-4 border-b border-border-light text-text-mid font-medium"><strong class="font-semibold text-text-dark">100% éxito</strong></td></tr></tbody></table></div>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los bancos de condensadores existentes ahora pueden energizarse con seguridad porque las corrientes armónicas que excitaban la resonancia han sido canceladas. Los convertidores de frecuencia arrancan de forma fiable a plena carga, y el menor estrés térmico extiende la vida útil del equipo. La instalación cumple <strong class="font-semibold text-text-dark">GB/T 14549</strong> e <strong class="font-semibold text-text-dark">IEEE 519</strong>.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de Verificación de Despliegue</h2>
+<ol class="list-decimal list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>Mida THDv, THDi y el espectro armónico individual en el PCC durante un ciclo de trabajo completo — el peor caso, no el promedio.</li><li>Calcule la frecuencia resonante en paralelo de cada banco existente frente a la inductancia del sistema antes de energizar nada.</li><li>Dimensione el SVG para el balanceo reactivo (aquí demanda de 781 kvar frente a 800 kvar de capacidad instalada), no para el FP promedio.</li><li>Dimensione el AHF para las corrientes armónicas dominantes (5º a 254 A, 11º a 139 A) más margen para crecimiento de carga.</li><li>Verifique la capacidad de neutro si hay armónicos triplos presentes.</li><li>Vuelva a medir tras la puesta en marcha frente a los límites IEEE 519 y confirme que los bancos de condensadores se energizan sin disparo.</li></ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Perfiles Típicos de Aplicación</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Procesamiento de cobre y acero</strong> — hornos de inducción y VFD; AHF + SVG estabilizan un bus rico en armónicos y restauran la operación de los condensadores.</li><li><strong class="font-semibold text-text-dark">Plantas con bancos de condensadores fallidos</strong> — el fallo repetido de condensadores es un síntoma de resonancia, no un problema de calidad del condensador; mida antes de reemplazar.</li><li><strong class="font-semibold text-text-dark">Instalaciones con sanciones por FP y THDi alto</strong> — los bancos fijos no pueden corregir el FP en este régimen; la compensación activa sí.</li><li><strong class="font-semibold text-text-dark">Sitios de carga no lineal mixta</strong> — rectificadores, variadores y soldadores en un solo transformador; el AHF + SVG combinado maneja tanto la distorsión como el balanceo reactivo.</li></ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Los condensadores no pueden corregir el factor de potencia en un sistema rico en armónicos — amplifican el problema y fallan. Un par CHITEK AHF + SVG elimina los armónicos que excitan la resonancia y suministra potencia reactiva limpia de forma continua, para que los bancos existentes funcionen como se pretende. ¿Cuál es el THDi de su planta en el PCC — y sus bancos de condensadores se han disparado alguna vez al energizarse?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href={caseItem.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

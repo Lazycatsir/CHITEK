@@ -13,7 +13,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 <BaseLayout title={meta.title} description={meta.description}>
   <!-- ABOUT -->
   <section class="about relative overflow-hidden bg-bg-mid text-white mt-[72px] min-h-[calc(100vh-72px)] flex flex-col justify-center py-10 scroll-mt-[72px]" id="about">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center opacity-30 z-0"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/about-bg-480w.webp')] md:bg-[url('/assets/images/about-bg-960w.webp')] xl:bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center opacity-30 z-0"></div>
     <div class="absolute inset-0 bg-[rgba(7,16,30,0.7)] z-[1]"></div>
 
     <!-- 顶部标题区域 -->
@@ -43,9 +43,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
       </div>
 
       <!-- 右侧四大优势区域 -->
-      <div class="flex-[1.2] grid grid-cols-1 md:grid-cols-2">
+      <div class="flex-[1.2] grid grid-cols-2">
         <!-- 优势 1 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">Experienced R&amp;D Team</h3>
           <p class="text-[clamp(11px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">Strong Capability Backed by Well-educated, Highly Experienced Team</p>
@@ -66,7 +66,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         </div>
 
         <!-- 优势 3 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(16px,3vw,56px)] flex flex-col items-center justify-center text-center border-r border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange text-left">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <path d="M20 20 L44 20 L44 44 L20 44 Z" stroke-linecap="round" />
@@ -145,7 +145,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
   <!-- CORE ADVANTAGES -->
   <section class="core-advantages relative w-full min-h-[calc(100vh-72px)] flex items-center justify-center py-16 px-[clamp(24px,8vw,160px)] overflow-hidden" id="core-advantages">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-key-features.webp')] bg-cover bg-center z-0"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/about-key-features-480w.webp')] md:bg-[url('/assets/images/about-key-features-960w.webp')] xl:bg-[url('/assets/images/about-key-features.webp')] bg-cover bg-center z-0"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-[rgba(10,20,40,0.65)] to-[rgba(10,20,40,0.82)] z-[1]"></div>
 
     <div class="relative z-10 w-full text-center">
@@ -301,7 +301,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
 
   <!-- GLOBAL REACH -->
   <section class="relative overflow-hidden max-md:overflow-x-auto min-h-[70vh] max-md:min-h-[50vh] flex items-start justify-center pt-12 max-md:pt-16 px-[clamp(24px,8vw,160px)] bg-gray-100">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/about-global-480w.webp')] md:bg-[url('/assets/images/about-global-960w.webp')] xl:bg-[url('/assets/images/about-global.webp')] bg-contain bg-center bg-no-repeat opacity-100 z-0 max-md:hidden"></div>
     <div class="absolute inset-0 hidden max-md:flex items-center z-0" style="min-width:150vw">
       <img src="/assets/images/about-global.webp" srcset="/assets/images/about-global-480w.webp 480w, /assets/images/about-global-960w.webp 960w, /assets/images/about-global.webp 1392w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 620px" alt="Global Reach" width="1392" height="768" class="w-full h-full object-contain" />
     </div>

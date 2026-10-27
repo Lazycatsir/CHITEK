@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHreflang } from '../../../i18n/index';
+import Sidebar from '../../../components/Sidebar.astro';
+const SHARE_URL = getHreflang('ar', Astro.url.pathname);
+const article = {
+  title: "تخفيف توافقات UPS في مراكز بيانات الذكاء الاصطناعي: مرشح نشط 300 أمبير",
+  category: "التكنولوجيا",
+  date: "2026-10-21",
+  dateDisplay: "21 أكتوبر 2026",
+  author: "الفريق الفني لـ CHITEK",
+  readTime: "8 دقائق للقراءة",
+  description: "تخفيف توافقات UPS في مراكز بيانات الذكاء الاصطناعي بمرشح نشط للتوافقيات 300 أمبير: خفض THDi، الامتثال لـ IEEE 519، حماية حمل تكنولوجيا المعلومات وسعة المحول.",
+  keywords: ["تخفيف توافقات ups", "مرشح نشط للتوافقيات مركز بيانات", "ahf مركز بيانات", "مرشح توافقيات 300a مركز بيانات", "توافقات مركز بيانات ai", "جودة طاقة مركز بيانات ieee 519", "ups يسبب توافقات", "مرشح نشط ups مركز بيانات"],
+};
+
+const otherArticles = [
+  { title: "المرشحات التوافقية النشطة مقابل السلبية", category: "التكنولوجيا", href: "/ar/news/active-vs-passive-harmonic-filters", color: "orange" },
+  { title: "الطلاء المطابق وموثوقية وحدات AHF", category: "التكنولوجيا", href: "/ar/news/conformal-coating-ahf-reliability", color: "purple" },
+  { title: "الدليل الموسوعي لـ APF الموزع صغير السعة", category: "التكنولوجيا", href: "/ar/news/distributed-small-capacity-apf-guide", color: "orange" },
+];
+const relatedProducts = [
+  { name: "مولد التيار المتغير الثابت SVG", href: "/ar/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "المرشح النشط للتوافقيات AHF", href: "/ar/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG الكفاءة العالية", href: "/ar/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+const relatedCases = [
+  { name: "تحسين جودة الطاقة في مزرعة دبي الشمسية 50 ميجاوات", industry: "الطاقة المتجددة", href: "/ar/news/solar-farm-dubai" },
+  { name: "تحديث معايير جودة الطاقة السعودية", industry: "التصنيع", href: "/ar/news/saudi-arabia-standards" },
+  { name: "دراسة حالة: AHF بقدرة 300 أمبير يستعيد بنوك المكثفات في مركز بيانات", industry: "مراكز البيانات", href: "/ar/news/blog-data-center-ahf-case-study" }
+];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="ar"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://ar.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "تخفيف توافقات UPS في مراكز بيانات الذكاء الاصطناعي: مرشح نشط 300 أمبير",
+    "description": "تخفيف توافقات UPS في مراكز بيانات الذكاء الاصطناعي بمرشح نشط للتوافقيات 300 أمبير: خفض THDi، الامتثال لـ IEEE 519، حماية حمل تكنولوجيا المعلومات وسعة المحول.",
+    "image": "https://ar.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": { "@type": "Organization", "name": "الفريق الفني لـ CHITEK" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://ar.chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "keywords": "تخفيف توافقات ups, مرشح نشط للتوافقيات مركز بيانات, ahf مركز بيانات, مرشح توافقيات 300a مركز بيانات, توافقات مركز بيانات ai, جودة طاقة مركز بيانات ieee 519, ups يسبب توافقات, مرشح نشط ups مركز بيانات"
+  }
+  </script>
+
+  <Sidebar lang="ar" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/ar/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        العودة إلى الأخبار
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-2.webp" alt="تخفيف توافقات UPS في مراكز بيانات الذكاء الاصطناعي: مرشح نشط 300 أمبير" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">لا يسحب مزود الطاقة غير المنقطع (UPS) ذو التحويل المزدوج التيار على هيئة موجة جيبية. فهو يسحب نبضات قصيرة وحادة عند قمة الجهد، وسلسلة فورييه لتلك النبضات هي الأساس زائد الرتب 5 و7 و11 و13 وما فوق. وفي مركز بيانات الذكاء الاصطناعي، يعمل الطرف الأمامي للتشويه القارئ (rectifier) قرب الحمل الكامل باستمرار، فتتحول سلسلة النبضات إلى تيار توافقي دائم على القضيب (bus). والنتيجة هي <strong class="font-semibold text-text-dark">THDi</strong> أعلى بكثير من حد تخطيط <strong class="font-semibold text-text-dark">IEEE 519</strong>، وحرارة إضافية في المحول، وتيار في السلك المحايد لم يُراعَ في التصميم. يتناول هذا المقال سبب تسبب أنظمة UPS في التوافقيات، وتكلفتها عند نقطة الربط المشتركة (PCC)، وكيف يوفر <strong class="font-semibold text-text-dark">مرشح نشط للتوافقيات 300 أمبير</strong> تخفيف توافقات UPS عند المنبع.</p>
+<h2 id="how-ups-harmonics-are-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف تُقاس توافقات UPS</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">ينتج مشوّه ستة نبضات رتبًا مميزة عند 6n ± 1 — أي الرتب 5 و7 و11 و13 وما فوق — بسعة تهبط تقريبًا كـ 1/h. أمّا مشوّه اثني عشر نبضة أو ذو طرف أمامي نشط فيزيح الطيف لكنه لا يلغيه.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">THDi% = √(Σ I_h²) / I_1 × 100%</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">THDv% = √(Σ V_h²) / V_1 × 100%</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">يحدد <strong class="font-semibold text-text-dark">IEEE 519</strong> حد تشويه التيار عند PCC بنسبة تيار القصر إلى تيار الحمل (I_SC/I_L). وفي قضيب نموذجي لمركز بيانات تتراوح فيه I_SC/I_L بين 20 و50، يكون الحد للرتب دون 11 هو <strong class="font-semibold text-text-dark">7.0%</strong>، ولنطاق الرتب 11–16 هو <strong class="font-semibold text-text-dark">3.5%</strong>، وإجمالي تشويه الطلب <strong class="font-semibold text-text-dark">8.0%</strong>. ويزيد UPS حديث عند حمل 40–50% عادةً <strong class="font-semibold text-text-dark">25–35% THDi</strong> دون ترشيح.</p>
+<h2 id="major-causes" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الأسباب الرئيسية</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">أطراف التشويه الأمامية</strong> — المصدر المهيمن؛ جسر ثايرستور أو ثنائي من ستة نبضات هو الأسوأ.</li><li><strong class="font-semibold text-text-dark">وحدات UPS خفيفة الحمل</strong> — ترتفع نسبة التشويه المئوية كلما أُفرغت الوحدة، لأن الأساس يهبط بينما يبقى النبض حادًا.</li><li><strong class="font-semibold text-text-dark">حمل تكنولوجيا المعلومات بنمط التبديل</strong> — تضخ مصادر خادم ووحدات التوزيع (PDU) محتواها من الرتب 3 و5، وتتراكم الرتب الثلاثية في السلك المحايد.</li><li><strong class="font-semibold text-text-dark">تشكيلات UPS الموازية</strong> — يضيف التيار الدائر بين الوحدات محتوى توافقيًا بينيًا.</li><li><strong class="font-semibold text-text-dark">أنظمة التبريد والـ VFD المساعدة</strong> — تساهم المبردات ومراوح CRAH بتشويه 5/7 على نفس القضيب.</li><li><strong class="font-semibold text-text-dark">معاوقة مصدر ضعيفة</strong> — قضيب مدعوم بمولد أو مغذّى لمسافة طويلة يضخم تشويه الجهد لنفس طيف التيار.</li></ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">التكلفة</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">خفض تصنيف المحول</strong> — يرفع تيار التوافقيات الخسائر الدوامية والمشتتة؛ وحدة K-rated أو أكبر هي غالبًا الرد السلبي الوحيد، وهي مكلفة.</li><li><strong class="font-semibold text-text-dark">احترار السلك المحايد</strong> — تتراكم الرتب الثلاثية بدل أن تلغي بعضها، فيحمل السلك المحايد تيارًا حقيقيًا صُمم لحمل متوازن.</li><li><strong class="font-semibold text-text-dark">فقد كفاءة UPS</strong> — يرفع التشويه تيار القيمة الفعالة لنفس القدرة الكيلوواطية، فترتفع خسائر I²R في الكابلات ولوحات التوزيع.</li><li><strong class="font-semibold text-text-dark">تفاعل مع المولد</strong> — يرفع تيار التوافقيات المُحقن في مولد احتياطي تشويه الجهد وقد يفصل تسلسل النقل أثناء الاختبار.</li><li><strong class="font-semibold text-text-dark">سعة معطّلة</strong> — القدرة الظاهرية التي يستهلكها التشويه لا يمكن بيعها لحمل تكنولوجيا المعلومات، فتنفد حواف التسهيلات قبل نفاد الكيلوواط.</li></ul>
+<h2 id="why-fixed-methods-fall-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">لماذا تعجز الأساليب الثابتة</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">مُرشح سلبي غير مضبوط يُضبط على رتبة واحدة وهو أعمى عن الباقي. تُخفّض قاطعة خط التشويه عند أطراف المحرك لا عند PCC. يصحح بنك المكثفات معامل القدرة الإزاحي المتوسط لكنه لا يتبع UPS تقفز حمله من 30% إلى 90% في ثوانٍ — ويخاطر بالرنين مع المحول الأعلى.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">لا تستجيب أي من هذه الطرق لـ<strong class="font-semibold text-text-dark">مشاكل جودة الطاقة الفعلية في مركز البيانات</strong>: حمل يتغير شكله مع كل تحديث لرفّ، وطيف توافقي ينزاح مع برنامج UPS وعدد الوحدات.</p>
+<h2 id="how-a-300-a-ahf-fixes-ups-harmonic-mitigation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">كيف يحل مرشح AHF 300 أمبير تخفيف توافقات UPS</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">يأخذ <strong class="font-semibold text-text-dark">CHITEK AHF</strong> عيّنة من تيار الحمل عبر محوّلات التيار (CT)، ويحسب محتوى التوافقيات كل دورة، ويحقن تيار تعويض عكس الطور عبر عاكس بمصدر جهد.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">i_c* = i_L − i_s(fundamental)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">يعمل العاكس بتردد عالٍ على IGBT ويتبع المرجع في <strong class="font-semibold text-text-dark">&lt; 1 ms</strong>، مخفضًا <strong class="font-semibold text-text-dark">THDi من 30%+ إلى &lt; 5%</strong> عند نقطة الحقن. يمكن للترشيح والتعويض التفاعلي وموازنة الطور مشاركة نفس الخزانة.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">يتبع التصميم الحمل المقاس لا اللوحة الاسمية للمحول. مثال عملي بافتراضات مُعلنة:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>تيار دخل UPS المقاس عند حمل IT كامل: <strong class="font-semibold text-text-dark">400 A rms</strong>.</li><li>THDi المقاس: <strong class="font-semibold text-text-dark">30%</strong>، ما يعطي تيار توافقي بنحو <strong class="font-semibold text-text-dark">120 A rms</strong>.</li><li>THDi المستهدف عند PCC: <strong class="font-semibold text-text-dark">5%</strong>، باقٍ نحو <strong class="font-semibold text-text-dark">20 A</strong> من التوافقيات.</li><li>التعويض المطلوب: 120 − 20 = <strong class="font-semibold text-text-dark">100 A</strong>، زائد <strong class="font-semibold text-text-dark">15–25%</strong> هامش لنمو الحمل وانزياح الطيف.</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">هذا يدخل في خزانة <strong class="font-semibold text-text-dark">300 A</strong> مع هامش لوحدة UPS ثانية أو صف رفوف AI مستقبلي. تُختار فئة <strong class="font-semibold text-text-dark">مرشح توافقيات 300a لمركز البيانات</strong> لأسوأ حمل لا للمتوسط.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">يُحدد موقع الـ CT ما إذا كان الجهاز يعمل أصلًا. يجب أن تحسّ المحوّلات تيار الحمل على جانب الحمل من نقطة التصحيح؛ فإن رأت تيارًا مُصححًا مسبقًا، يقرأ المتحكّم خطأ صفرًا ويبقى خاملًا.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT مقابل SiC</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">تستخدم وحدات LV AHF التقليدية IGBT محدودة قرب <strong class="font-semibold text-text-dark">150 °C</strong>، بتردد تبديل عادة دون <strong class="font-semibold text-text-dark">20 kHz</strong>. ترفع MOSFET SiC حد الوصلة إلى <strong class="font-semibold text-text-dark">200 °C</strong>، وتحمل نحو <strong class="font-semibold text-text-dark">10×</strong> من مجال الانهيار، وتُبدّل بـ <strong class="font-semibold text-text-dark">2–3×</strong> التردد، وتخفض خسارة التبديل بنحو <strong class="font-semibold text-text-dark">50%</strong>. يتبع النطاق الترددي الأوسع للتحكم خطوات الحمل السريعة في قاعة AI بأنظف ويقلّص حجم الخزانة — وهو الاتجاه الذي بُني عليه منصّة CHITEK LV AHF.</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">المعيار</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">IGBT AHF</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">SiC AHF</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">حد الوصلة</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~150 °C</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~200 °C</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">تردد التبديل</td><td class="p-4 border-b border-border-light text-text-mid font-medium">&lt; 20 kHz</td><td class="p-4 border-b border-border-light text-text-mid font-medium">2–3× أعلى</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">خسارة التبديل</td><td class="p-4 border-b border-border-light text-text-mid font-medium">الأساس</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~50% أقل</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">عرض النطاق الترددي للتحكم</td><td class="p-4 border-b border-border-light text-text-mid font-medium">كافٍ</td><td class="p-4 border-b border-border-light text-text-mid font-medium">أوسع</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">حجم الخزانة</td><td class="p-4 border-b border-border-light text-text-mid font-medium">أكبر</td><td class="p-4 border-b border-border-light text-text-mid font-medium">أصغر</td></tr></tbody></table></div>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">قائمة نشر هندسية</h2>
+<ol class="list-decimal list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>قس تيارات الطور وTHDi والرتب الفردية وTHDv عند PCC عبر دورة عمل كاملة بما يشمل انتقالات وحدات UPS.</li><li>سجّل I_SC عند PCC لتأكيد حد <strong class="font-semibold text-text-dark">IEEE 519</strong> المطبَّق.</li><li>ضع AHF في لوحة دخل UPS قرب عنقود المشوّه.</li><li>تحقق من اتجاه وموقع الـ CT قبل التشغيل؛ أكّد أن المتحكّم يرى تيار الحمل.</li><li>افحص بنوك المكثفات القائمة للرنين وسوء الضبط.</li><li>صمّم من تيار التوافقيات المقاس زائد <strong class="font-semibold text-text-dark">15–25%</strong> هامشًا.</li><li>أعد القياس بعد التشغيل مقابل حد IEEE 519 وسجّل الطيف المتبقي.</li></ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">ملامح تطبيق نموذجية</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">قاعات تدريب الذكاء الاصطناعي</strong> — رفوف GPU كثيفة بحمل UPS مرتفع ومستقر؛ يثبّت AHF 300 A قيمة THDi دون 5% عند لوحة الدخل.</li><li><strong class="font-semibold text-text-dark">مواقع الاستضافة والتعددية</strong> — أجيال مت mixed من UPS وحمل IT؛ يتكيّف AHF مع تغيّر المستأجرين.</li><li><strong class="font-semibold text-text-dark">مراكز بيانات الحافة والمعيارية</strong> — خزانة AHF واحدة تحمي قضيبًا مشتركًا بمساحة محدودة.</li><li><strong class="font-semibold text-text-dark">منشآت مدعومة بمولد</strong> — الترشيح قبل نقطة النقل يخفّض تشويه الجهد أثناء اختبارات المولد.</li></ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">الخلاصة</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">تخفيف توافقات UPS هو مشكلة إلغاء تيار لا مشكلة مكثّفات، وفي مركز بيانات الذكاء الاصطناعي يكون الحمل ديناميكيًا أكثر مما تستوعبه الأساليب الثابتة. يؤدي <strong class="font-semibold text-text-dark">مرشح نشط للتوافقيات 300 أمبير</strong> عند لوحة دخل UPS إلى استعادة الامتثال لـ <strong class="font-semibold text-text-dark">IEEE 519</strong> وتحرير سعة المحول. تُحدَّد منصّات CHITEK AHF وSVG من تيار التوافقيات المقاس لا من اللوحة الاسمية. ما قيمة THDi المقاسة لديك عند دخل UPS — وكم هامشًا بقي للمحول؟</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">الفريق الفني لـ CHITEK</div>
+              <div class="text-sm text-text-muted">نُشر {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">مشاركة:</span>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              مقالات أخرى
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              منتجات ذات صلة
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              حالات العملاء
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href={caseItem.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

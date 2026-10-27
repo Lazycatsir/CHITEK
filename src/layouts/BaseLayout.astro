@@ -130,14 +130,28 @@ const websiteSchema = {
   <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema, null, 2)} />
 
   <!-- Google Analytics (GA4) — only on non-Chinese languages; zh is excluded (Google blocked in mainland + PIPL) -->
+  <!-- 2026-10-26 性能：gtag.js 本体（~528KB 解析量）推迟到 load 之后加载。
+       dataLayer + gtag 队列仍同步建立，analytics.js 的 typeof gtag 判断与事件入队不受影响；
+       队列在脚本到位后一次性冲刷，事件不丢，只是 page_view 时间戳后移到 load 后。 -->
   {lang !== 'zh' && (
     <>
-      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HVJS1DXF00"></script>
+      <link rel="preconnect" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <script is:inline>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-HVJS1DXF00');
+        (function(){
+          function boot(){
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HVJS1DXF00';
+            document.head.appendChild(s);
+          }
+          if (document.readyState === 'complete') { boot(); }
+          else { window.addEventListener('load', function(){ (window.requestIdleCallback || function(f){ setTimeout(f, 1); })(boot); }, { once: true }); }
+        })();
       </script>
     </>
   )}

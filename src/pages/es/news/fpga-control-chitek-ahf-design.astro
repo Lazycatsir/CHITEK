@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHreflang } from '../../../i18n/index';
+import Sidebar from '../../../components/Sidebar.astro';
+const SHARE_URL = getHreflang('es', Astro.url.pathname);
+const article = {
+  title: "Control FPGA en el Diseño del Filtro Activo de Armónicos CHITEK",
+  category: "Tecnología",
+  date: "2026-10-12",
+  dateDisplay: "Oct 12, 2026",
+  author: "Equipo Técnico de CHITEK",
+  readTime: "9 min de lectura",
+  description: "Cómo el control FPGA da forma al diseño del filtro activo de armónicos CHITEK: detección de armónicos en microsegundos, temporización PWM y el estadio SiC tras el CHITEK AHF.",
+  keywords: ["filtro activo de armónicos", "CHITEK AHF", "generador estático de var", "control FPGA", "SiC MOSFET", "THDi", "IEEE 519"],
+};
+
+const otherArticles = [
+  { title: "Filtros Armónicos Activos vs Pasivos", category: "Tecnología", href: "/es/news/active-vs-passive-harmonic-filters", color: "orange" },
+  { title: "Recubrimiento Conformal y Fiabilidad de los Módulos AHF", category: "Tecnología", href: "/es/news/conformal-coating-ahf-reliability", color: "purple" },
+  { title: "Guía Enciclopédica de APF Distribuido de Baja Capacidad", category: "Tecnología", href: "/es/news/distributed-small-capacity-apf-guide", color: "orange" },
+];
+const relatedProducts = [
+  { name: "Static Var Generator SVG", href: "/es/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "Active Harmonic Filter AHF", href: "/es/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG High Efficiency", href: "/es/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+const relatedCases = [
+  { name: "Optimización de la Calidad de Energía en Granja Solar en Dubái", industry: "Energía Renovable", href: "/es/news/solar-farm-dubai" },
+  { name: "Actualización de los Estándares de Calidad de Energía de Arabia Saudita", industry: "Fabricación", href: "/es/news/saudi-arabia-standards" },
+  { name: "Estudio de Caso: AHF de 300A Restaura Bancos de Capacitores en un Centro de Datos", industry: "Centros de Datos", href: "/es/news/blog-data-center-ahf-case-study" }
+];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="es"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://es.chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Control FPGA en el Diseño del Filtro Activo de Armónicos CHITEK",
+    "description": "Cómo el control FPGA da forma al diseño del filtro activo de armónicos CHITEK: detección de armónicos en microsegundos, temporización PWM y el estadio SiC tras el CHITEK AHF.",
+    "image": "https://es.chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": { "@type": "Organization", "name": "Equipo Técnico de CHITEK" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://es.chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-10-12",
+    "dateModified": "2026-10-12",
+    "keywords": "filtro activo de armónicos, CHITEK AHF, generador estático de var, control FPGA, SiC MOSFET, THDi, IEEE 519"
+  }
+  </script>
+
+  <Sidebar lang="es" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/es/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a Noticias
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-5.webp" alt="Control FPGA en el Diseño del Filtro Activo de Armónicos CHITEK" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un filtro activo de armónicos solo es tan bueno como su lazo de control. El filtro debe detectar la corriente armónica, calcular una referencia en contrafase y conmutar los IGBT o SiC MOSFET antes de que la corriente de carga haya avanzado — todo dentro de una fracción del ciclo de red. En el diseño del filtro activo de armónicos CHITEK, ese lazo se ejecuta en una FPGA, y la elección del silicio fija el techo de lo que el lazo puede hacer. Este artículo cubre la cadena de control, el presupuesto de temporización, por qué los diseños basados en DSP resultan insuficientes, y cómo especificar y poner en marcha un AHF controlado por FPGA junto con un generador estático de var.</p>
+<h2 id="what-the-control-loop-must-do" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué Debe Hacer el Lazo de Control</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Cada AHF ejecuta tres tareas en secuencia, y cada una consume tiempo del mismo presupuesto:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Detección de armónicos</strong> — extraer el contenido armónico de la corriente de carga medida usando FFT o la teoría de potencia instantánea (teoría pq).</li><li><strong class="font-semibold text-text-dark">Generación de referencia</strong> — invertir ese contenido para producir el comando de corriente de compensación i_c*.</li><li><strong class="font-semibold text-text-dark">Síntesis PWM</strong> — conmutar el puente de potencia para que la corriente de salida siga a i_c* dentro de la banda de rizado.</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El comando en sí es simple de enunciar:</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">i_c* = i_L − i_s(fundamental)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">La dificultad es que i_L cambia continuamente. Un front-end rectificador en un variador de velocidad variable produce un escalón de corriente en cada conmutación, y el filtro tiene aproximadamente <strong class="font-semibold text-text-dark">un periodo de conmutación</strong> para responder antes de que el error se integre en una distorsión visible.</p>
+<h2 id="how-fpga-control-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo Se Cuantifica el Control FPGA</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">La métrica que importa es la latencia del lazo: el tiempo desde un cambio en la corriente de carga hasta un cambio correspondiente en la corriente de salida del filtro. En un diseño basado en DSP, la muestreo, la entrada a la interrupción, el cálculo secuencial y la actualización PWM normalmente se apilan en decenas de microsegundos. Una FPGA ejecuta la detección y la matemática de referencia en hardware paralelo, por lo que la latencia cae al rango del <strong class="font-semibold text-text-dark">microsegundo</strong>.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Ese margen es lo que permite al filtro seguir los armónicos 5, 7, 11 y 13 — los órdenes dominantes de un rectificador de seis pulsos — sin retardo de fase a la frecuencia de conmutación. La latencia también fija el ancho de banda de control alcanzable, y el ancho de banda fija qué tan rápido el lazo puede rechazar una perturbación.</p>
+<h2 id="major-causes-of-poor-harmonic-compensation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Principales Causas de una Mala Compensación Armónica</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Cuando un AHF rinde por debajo de lo esperado en sitio, la causa suele ser una de estas:</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Latencia de control</strong> — un lazo lento deja un error residual que se manifiesta como un THDi elevado en el PCC.</li><li><strong class="font-semibold text-text-dark">Error de detección</strong> — un PLL que pierde el enganche durante la distorsión de tensión identifica mal el fundamental y mal asigna el contenido armónico.</li><li><strong class="font-semibold text-text-dark">Jitter de temporización PWM</strong> — una temporización de compuerta imprecisa ensancha el rizado de corriente de salida y desperdicia el margen de conmutación.</li><li><strong class="font-semibold text-text-dark">Saturación</strong> — el filtro se queda sin capacidad de corriente durante los picos de carga y deja de compensar.</li><li><strong class="font-semibold text-text-dark">Resonancia con condensadores existentes</strong> — el filtro y un banco cercano interactúan, produciendo amplificación en lugar de cancelación.</li></ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Qué Coste Tiene</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Sanciones de la utility</strong> — IEEE 519 y GB/T limitan la distorsión de tensión y corriente en el PCC; un THDi residual sobre el límite es un cargo recurrente.</li><li><strong class="font-semibold text-text-dark">Calentamiento de transformador y cable</strong> — la corriente armónica eleva las pérdidas I²R y reduce la capacidad.</li><li><strong class="font-semibold text-text-dark">Fallo de condensadores</strong> — la tensión rica en armónicos acelera el envejecimiento dieléctrico en los bancos de corrección de factor de potencia.</li><li><strong class="font-semibold text-text-dark">Disparos intempestivos</strong> — la tensión distorsionada confunde a los relés de protección y a los variadores.</li></ul>
+<h2 id="why-dsp-based-control-falls-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Por Qué el Control Basado en DSP Resulta Insuficiente</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Un DSP ejecuta el algoritmo de detección, el cálculo de referencia y la actualización PWM en secuencia. Cada paso espera al anterior, y cada interrupción añade sobrecarga. El resultado es un lazo lo bastante rápido para cargas de variación lenta, pero que se retrasa tras un variador que conmuta cada pocos cientos de microsegundos.</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">Subir el reloj del DSP solo ayuda marginalmente, porque el cuello de botella es arquitectónico, no de frecuencia de reloj. Un procesador más rápido aún ejecuta una instrucción a la vez. Mover la misma matemática al silicio de la FPGA elimina la serialización por completo.</p>
+<h2 id="how-fpga-control-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Cómo el Control FPGA lo Repara</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">La FPGA divide la cadena de control en bloques de hardware paralelos que se ejecutan en el mismo ciclo de reloj. La detección, la generación de referencia y la comparación PWM avanzan simultáneamente en lugar de por turnos.</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Detección paralela</strong> — los bloques FFT o de teoría pq procesan todas las fases a la vez, sin recurso de ejecución compartido.</li><li><strong class="font-semibold text-text-dark">PWM determinista</strong> — las señales de compuerta se generan en hardware, por lo que el jitter de temporización está acotado por el reloj, no por la planificación de software.</li><li><strong class="font-semibold text-text-dark">Realimentación de lazo cerrado</strong> — la corriente de salida medida se compara con i_c* en cada periodo de conmutación, y el error se corrige antes de acumularse.</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">En el diseño del filtro activo de armónicos CHITEK, esta arquitectura baja el THDi del <strong class="font-semibold text-text-dark">30%+ a &lt; 5%</strong> en el PCC, con la compensación siguiendo la carga en <strong class="font-semibold text-text-dark">&lt; 1 ms</strong>. La misma plataforma de control impulsa el CHITEK SVG, donde la inyección de corriente reactiva por fase mantiene el factor de potencia en <strong class="font-semibold text-text-dark">0,99+</strong> y reequilibra la corriente de secuencia negativa que un banco fijo no puede tocar.</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT vs SiC</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El lazo de control solo puede explotar la velocidad de conmutación que permite el estadio de potencia. Las unidades convencionales AHF y generador estático de var basadas en IGBT están limitadas cerca de <strong class="font-semibold text-text-dark">150 °C</strong> de temperatura de unión y conmutan típicamente por debajo de <strong class="font-semibold text-text-dark">20 kHz</strong>. Los SiC MOSFET elevan el límite de unión a <strong class="font-semibold text-text-dark">200 °C</strong>, ofrecen aproximadamente <strong class="font-semibold text-text-dark">10×</strong> el campo de ruptura, y soportan <strong class="font-semibold text-text-dark">2-3×</strong> la frecuencia de conmutación con unas <strong class="font-semibold text-text-dark">50%</strong> menos de pérdida de conmutación.</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Parámetro</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Estadio IGBT</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">Estadio SiC MOSFET</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Temperatura de unión</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~150 °C</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~200 °C</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Frecuencia de conmutación típica</td><td class="p-4 border-b border-border-light text-text-mid font-medium">&lt; 20 kHz</td><td class="p-4 border-b border-border-light text-text-mid font-medium">2-3× mayor</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Pérdida de conmutación</td><td class="p-4 border-b border-border-light text-text-mid font-medium">Línea base</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~50% menor</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">Margen de ancho de banda de control</td><td class="p-4 border-b border-border-light text-text-mid font-medium">Limitado</td><td class="p-4 border-b border-border-light text-text-mid font-medium">Amplio</td></tr></tbody></table></div>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El efecto práctico es un lazo interno más rápido, un filtro de salida más pequeño y un armario más estrecho para la misma corriente de compensación. Esa es la dirección sobre la que se construye la plataforma LV AHF + SVG de CHITEK.</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Lista de Verificación de Despliegue</h2>
+<ol class="list-decimal list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>Mida la corriente de carga y la tensión del PCC durante un ciclo de trabajo completo; registre el espectro armónico y el peor THDi.</li><li>Confirme los órdenes armónicos dominantes y dimensione la corriente del filtro para cubrirlos con un margen del <strong class="font-semibold text-text-dark">15-25%</strong>.</li><li>Verifique la latencia del lazo de control frente al escalón de carga más rápido esperado en sitio.</li><li>Audite los bancos de condensadores existentes por resonancia antes de la puesta en marcha.</li><li>Compruebe el margen de red débil y confirme que el filtro mantiene la regulación ante la peor caída de tensión.</li><li>Tras la puesta en marcha, vuelva a medir el THDi en el PCC frente a los límites IEEE 519 y GB/T.</li></ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Perfiles Típicos de Aplicación</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">Clústeres de variadores de velocidad variable</strong> — escalones de conmutación cada pocos cientos de microsegundos; la latencia FPGA mantiene pequeño el error residual.</li><li><strong class="font-semibold text-text-dark">Centros de datos</strong> — las fuentes conmutadas generan armónicos de banda ancha que necesitan detección paralela en muchos órdenes.</li><li><strong class="font-semibold text-text-dark">Plantas industriales con carga no lineal mixta</strong> — un CHITEK AHF y un CHITEK SVG combinados manejan tanto la distorsión de forma de onda como la compensación reactiva desde una sola plataforma de control.</li><li><strong class="font-semibold text-text-dark">Alimentadores de red débil</strong> — la respuesta rápida del lazo estabiliza la tensión donde un controlador lento oscilaría.</li></ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">Conclusión</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">El control FPGA es lo que permite a un filtro activo de armónicos responder en microsegundos en lugar de milisegundos, y es la razón arquitectónica por la que los diseños de filtro activo de armónicos CHITEK mantienen el THDi por debajo del 5% en cargas dinámicas. El estadio de potencia SiC amplía esa ventaja al ensanchar el ancho de banda que el lazo de control puede usar realmente. ¿Cuál es su peor escalón de carga en el PCC — y su filtro tiene el presupuesto de latencia para seguirlo?</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">Equipo Técnico de CHITEK</div>
+              <div class="text-sm text-text-muted">Publicado {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">Compartir:</span>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              Más Artículos
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              Productos Relacionados
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Casos de Clientes
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href={caseItem.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

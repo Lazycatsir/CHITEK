@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+const article = {
+  title: "FPGA 控制在 CHITEK 有源电力滤波器设计中的应用",
+  category: "技术",
+  date: "2026-10-12",
+  dateDisplay: "2026年10月12日",
+  author: "CHITEK 技术团队",
+  readTime: "9 分钟阅读",
+  description: "FPGA 控制如何塑造 CHITEK 有源电力滤波器设计：微秒级谐波检测、PWM 时序，以及 CHITEK 有源电力滤波器背后的 SiC 功率级。",
+  keywords: ["有源电力滤波器", "CHITEK 有源电力滤波器", "静止无功发生器", "FPGA 控制", "SiC MOSFET", "THDi", "IEEE 519"],
+};
+
+const otherArticles = [
+  { title: "有源与无源谐波滤波器", category: "技术", href: "/news/active-vs-passive-harmonic-filters", color: "orange" },
+  { title: "AHF 模块的三防涂覆与可靠性", category: "技术", href: "/news/conformal-coating-ahf-reliability", color: "purple" },
+  { title: "分布式小容量 APF 百科指南", category: "技术", href: "/news/distributed-small-capacity-apf-guide", color: "orange" },
+];
+const relatedProducts = [
+  { name: "静止无功发生器 SVG", href: "/products#svg", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "有源电力滤波器 AHF", href: "/products#ahf", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+  { name: "SiC-AHF/SVG 高效系列", href: "/products#sic", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+];
+const relatedCases = [
+  { name: "迪拜 50MW 光伏电站", industry: "可再生能源" },
+  { name: "沙特工业工厂", industry: "制造业" },
+  { name: "巴西数据中心", industry: "数据中心" },
+];
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`} 
+  description={article.description} 
+  lang="zh"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage="https://chitek-inno.com/assets/images/index-product-ahf.webp"
+  alternateLangs={['zh', 'en', 'es', 'ar']}
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "FPGA 控制在 CHITEK 有源电力滤波器设计中的应用",
+    "description": "FPGA 控制如何塑造 CHITEK 有源电力滤波器设计：微秒级谐波检测、PWM 时序，以及 CHITEK 有源电力滤波器背后的 SiC 功率级。",
+    "image": "https://chitek-inno.com/assets/images/index-product-ahf.webp",
+    "author": { "@type": "Organization", "name": "CHITEK 技术团队" },
+    "publisher": { "@type": "Organization", "name": "CHITEK INNOPOWER", "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" } },
+    "datePublished": "2026-10-12",
+    "dateModified": "2026-10-12",
+    "keywords": "有源电力滤波器, CHITEK 有源电力滤波器, 静止无功发生器, FPGA 控制, SiC MOSFET, THDi, IEEE 519"
+  }
+  </script>
+
+  <Sidebar lang="zh" />
+
+  <section class="pt-[72px] bg-bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-20">
+      <a href="/news" class="inline-flex items-center text-brand-orange text-sm font-semibold mb-6 hover:underline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mr-2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回新闻
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold text-brand-orange bg-brand-orange/20 px-3 py-1 rounded-full">{article.category}</span>
+        <span class="text-xs text-gray-400">{article.dateDisplay}</span>
+        <span class="text-xs text-gray-400">·</span>
+        <span class="text-xs text-gray-400">{article.readTime}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-barlow-condensed)] tracking-tight max-w-4xl">
+        {article.title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 flex flex-col lg:flex-row gap-10">
+
+      <article class="flex-1 max-w-4xl">
+        <div class="w-full h-64 md:h-96 rounded-xl overflow-hidden mb-10 bg-gray-50">
+          <img src="/assets/images/news/news-img-5.webp" alt="FPGA 控制在 CHITEK 有源电力滤波器设计中的应用" class="w-full h-full object-cover" loading="eager" />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+<p class="text-text-mid text-lg leading-relaxed mb-6">有源电力滤波器的性能上限取决于它的控制环路。滤波器必须在负载电流发生变化之前，完成谐波检测、计算反相参考、并驱动 IGBT 或 SiC MOSFET 开关——且全部要在工频周期的一小段时间内完成。在 CHITEK 的有源电力滤波器设计中，这一环路运行在 FPGA 之上，而所选用的硅器件决定了环路能力的天花板。本文讲解控制链路、时序预算、为何基于 DSP 的设计力有不逮，以及如何将 FPGA 控制的 AHF 与静止无功发生器协同选型与投运。</p>
+<h2 id="what-the-control-loop-must-do" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">控制环路必须完成的任务</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">每一台 AHF 都依次执行三项任务，而每一项都消耗同一份时序预算：</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">谐波检测</strong>——使用 FFT 或瞬时功率理论（pq 理论）从测得的负载电流中提取谐波分量。</li><li><strong class="font-semibold text-text-dark">参考生成</strong>——对提取出的谐波取反，得到补偿电流指令 i_c*。</li><li><strong class="font-semibold text-text-dark">PWM 合成</strong>——驱动功率桥，使输出电流在纹波带内跟踪 i_c*。</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">指令本身表述很简单：</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">i_c* = i_L − i_s(基波)</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">难点在于 i_L 是连续变化的。变频器的整流前端在每一次换流时都会产生一个电流阶跃，而滤波器大约只有 <strong class="font-semibold text-text-dark">一个开关周期</strong> 的时间来响应，否则误差就会累积成可见的畸变。</p>
+<h2 id="how-fpga-control-is-quantified" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">FPGA 控制如何量化</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">真正关键的指标是环路延迟：从负载电流发生变化，到滤波器输出电流发生相应变化所经历的时间。在基于 DSP 的设计中，采样、中断进入、顺序计算与 PWM 更新通常会累积到数十微秒。FPGA 在并行硬件中执行检测与参考运算，因此延迟降至 <strong class="font-semibold text-text-dark">微秒</strong> 量级。</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">正是这一余量使滤波器能够在开关频率处无相位滞后地跟踪 5、7、11、13 次谐波——这些都是六脉冲整流器的主导次数。延迟也决定了可达到的控制带宽，而带宽决定了环路抑制扰动的快慢。</p>
+<h2 id="major-causes-of-poor-harmonic-compensation" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">谐波补偿不佳的主要成因</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">当一台 AHF 在现场表现不佳时，原因通常是以下几种之一：</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">控制延迟</strong>——缓慢的环路留下残余误差，在 PCC 处表现为升高的 THDi。</li><li><strong class="font-semibold text-text-dark">检测误差</strong>——电压畸变时失锁的 PLL 会误判基波，从而错误分配谐波分量。</li><li><strong class="font-semibold text-text-dark">PWM 时序抖动</strong>——不精确的门极时序会加宽输出电流纹波，浪费开关余量。</li><li><strong class="font-semibold text-text-dark">饱和</strong>——滤波器在负载峰值期间耗尽电流容量，停止补偿。</li><li><strong class="font-semibold text-text-dark">与既有电容器谐振</strong>——滤波器与附近的电容组相互作用，产生放大而非抵消。</li></ul>
+<h2 id="what-it-costs" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">它带来哪些代价</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">电费罚款</strong>——IEEE 519 与 GB/T 对电压与电流畸变在 PCC 处设限；残余 THDi 超限即产生周期性电费。</li><li><strong class="font-semibold text-text-dark">变压器与电缆发热</strong>——谐波电流抬高 I²R 损耗并降低容量裕度。</li><li><strong class="font-semibold text-text-dark">电容器失效</strong>——富谐波的电压加速功率因数校正电容组的介质老化。</li><li><strong class="font-semibold text-text-dark">误跳闸</strong>——畸变电压扰乱保护继电器与变频器。</li></ul>
+<h2 id="why-dsp-based-control-falls-short" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">为何基于 DSP 的控制力有不逮</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">DSP 依次运行检测算法、参考计算与 PWM 更新。每一步都等待前一步完成，而每次中断都会带来开销。其结果是一个对缓慢变化负载足够快、却会滞后于每几百微秒就换流的变频器的环路。</p>
+<p class="text-text-mid text-lg leading-relaxed mb-6">提高 DSP 时钟的帮助微乎其微，因为瓶颈在于架构而非时钟频率。更快的处理器仍然一次只执行一条指令。将同样的运算移入 FPGA 硬件则彻底消除了这种串行化。</p>
+<h2 id="how-fpga-control-fixes-it" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">FPGA 控制如何修复它</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">FPGA 将控制链划分为在同一时钟周期内并行运行的硬件模块。检测、参考生成与 PWM 比较同时进行，而非轮流进行。</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">并行检测</strong>——FFT 或 pq 理论模块一次性处理所有相，不共享执行资源。</li><li><strong class="font-semibold text-text-dark">确定性 PWM</strong>——门极信号由硬件生成，因此时序抖动由时钟界定，而非由软件调度决定。</li><li><strong class="font-semibold text-text-dark">闭环反馈</strong>——测得的输出电流在每个开关周期都与 i_c* 比较，误差在累积前即被纠正。</li></ul>
+<p class="text-text-mid text-lg leading-relaxed mb-6">在 CHITEK 的有源电力滤波器设计中，这一架构将 PCC 处的 THDi 从 <strong class="font-semibold text-text-dark">30%+ 降至 &lt; 5%</strong>，且补偿在 <strong class="font-semibold text-text-dark">&lt; 1 ms</strong> 内跟踪负载。同一控制平台也驱动 CHITEK SVG，其逐相无功电流注入将功率因数维持在 <strong class="font-semibold text-text-dark">0.99 以上</strong>，并再平衡固定电容组无法触及的负序电流。</p>
+<h2 id="igbt-vs-sic" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">IGBT 与 SiC 对比</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">控制环路只能利用功率级所允许的开关速度。传统的基于 IGBT 的 AHF 与静止无功发生器单元的结温上限约为 <strong class="font-semibold text-text-dark">150 °C</strong>，开关频率通常低于 <strong class="font-semibold text-text-dark">20 kHz</strong>。SiC MOSFET 将结温上限提高到 <strong class="font-semibold text-text-dark">200 °C</strong>，击穿场强约为 <strong class="font-semibold text-text-dark">10 倍</strong>，并以约 <strong class="font-semibold text-text-dark">50%</strong> 更低的开关损耗支持 <strong class="font-semibold text-text-dark">2–3 倍</strong> 的开关频率。</p>
+<div class="overflow-x-auto mb-6"><table class="w-full border-collapse"><thead><tr class="bg-gray-50"><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">参数</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">IGBT 功率级</th><th class="text-left p-4 font-semibold text-text-dark border-b border-border-light">SiC MOSFET 功率级</th></tr></thead><tbody><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">结温</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~150 °C</td><td class="p-4 border-b border-border-light text-text-mid font-medium">~200 °C</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">典型开关频率</td><td class="p-4 border-b border-border-light text-text-mid font-medium">&lt; 20 kHz</td><td class="p-4 border-b border-border-light text-text-mid font-medium">2–3 倍更高</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">开关损耗</td><td class="p-4 border-b border-border-light text-text-mid font-medium">基准</td><td class="p-4 border-b border-border-light text-text-mid font-medium">约低 50%</td></tr><tr><td class="p-4 border-b border-border-light text-text-mid font-medium">控制带宽余量</td><td class="p-4 border-b border-border-light text-text-mid font-medium">有限</td><td class="p-4 border-b border-border-light text-text-mid font-medium">宽裕</td></tr></tbody></table></div>
+<p class="text-text-mid text-lg leading-relaxed mb-6">实际效果是更快的内环、更小的输出滤波器，以及在相同补偿电流下更窄的机柜。这正是 CHITEK 低压 AHF + SVG 平台所依托的方向。</p>
+<h2 id="engineering-deployment-checklist" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">工程部署清单</h2>
+<ol class="list-decimal list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li>在完整工作周期内测量负载电流与 PCC 电压；记录谐波频谱与最差工况 THDi。</li><li>确认主导谐波次数，并按 <strong class="font-semibold text-text-dark">15–25%</strong> 的裕量确定滤波器电流容量以覆盖它们。</li><li>针对现场预期的最快负载阶跃，核验控制环路延迟。</li><li>投运前审查既有电容组的谐振风险。</li><li>检查弱网裕度，确认滤波器在最严重电压跌落下仍能维持调节。</li><li>投运后，按 IEEE 519 与 GB/T 限值重新测量 PCC 处 THDi。</li></ol>
+<h2 id="typical-application-profiles" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">典型应用场景</h2>
+<ul class="list-disc list-inside space-y-2 mb-6 text-text-mid leading-relaxed"><li><strong class="font-semibold text-text-dark">变频器集群</strong>——每几百微秒一次换流阶跃；FPGA 延迟使残余误差保持很小。</li><li><strong class="font-semibold text-text-dark">数据中心</strong>——开关电源产生宽频带谐波，需要跨多个次数的并行检测。</li><li><strong class="font-semibold text-text-dark">混合非线性负载的工业厂房</strong>——CHITEK AHF 与 CHITEK SVG 组合，从同一控制平台同时处理波形畸变与无功补偿。</li><li><strong class="font-semibold text-text-dark">弱网馈线</strong>——快速环路响应在慢速控制器会振荡的地方稳定电压。</li></ul>
+<h2 id="bottom-line" class="text-2xl font-bold font-[family-name:var(--font-barlow-condensed)] text-text-dark mt-10 mb-4">结论</h2>
+<p class="text-text-mid text-lg leading-relaxed mb-6">FPGA 控制让有源电力滤波器得以在微秒而非毫秒内响应，也是 CHITEK 有源电力滤波器设计能在动态负载下将 THDi 保持在 5% 以下的架构性原因。SiC 功率级通过拓宽控制环路实际可用的带宽，进一步放大了这一优势。您在 PCC 处的最差负载阶跃是多少——而您的滤波器控制环路是否具备跟踪它的延迟预算？</p>
+        </div>
+
+        <!-- SEO Keywords -->
+        <div class="mt-10 pt-6 border-t border-border-light">
+          <div class="flex flex-wrap gap-2">
+            {article.keywords.map((keyword) => (
+              <span class="text-xs text-text-muted bg-gray-100 px-3 py-1 rounded-full">#{keyword}</span>
+            ))}
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between mt-16 pt-8 border-t border-border-light">
+          <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 text-brand-orange">
+                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-text-dark">CHITEK 技术团队</div>
+              <div class="text-sm text-text-muted">发布于 {article.dateDisplay}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-muted">分享:</span>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61579260405315" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded border border-border-light flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="lg:w-[320px] shrink-0">
+        <div class="lg:sticky lg:top-[88px] space-y-4">
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+              </svg>
+              更多文章
+            </h3>
+            <div class="space-y-2">
+              {otherArticles.map((item) => (
+                <a href={item.href} class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark leading-snug">{item.title}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+              相关产品
+            </h3>
+            <div class="space-y-2">
+              {relatedProducts.map((product) => (
+                <a href={product.href} class="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="w-8 h-8 bg-brand-orange/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4 text-brand-orange">
+                      <path d={product.icon}/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-text-dark truncate">{product.name}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-text-muted shrink-0">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-4">
+            <h3 class="font-bold text-text-dark mb-3 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand-orange">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              客户案例
+            </h3>
+            <div class="space-y-2">
+              {relatedCases.map((caseItem) => (
+                <a href="/news/solar-farm-dubai" class="block p-2.5 bg-white rounded-lg border border-border-light hover:border-brand-orange hover:shadow-sm transition-all no-underline">
+                  <div class="text-sm font-semibold text-text-dark">{caseItem.name}</div>
+                  <div class="text-xs text-text-muted mt-1">{caseItem.industry}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>

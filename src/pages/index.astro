@@ -13,12 +13,12 @@ const lp = (p: string) => isLocal ? '' + p : p;
 // Featured products：8 张 AHF 系列卡。名称与 /en/products 列表页保持一致；后缀为电流规格 spec，渲染时用 .fp-spec 与主名隔开。
 // spec 依次为：(50-200A) / (50-200A) / (50-200A) / (8-20A) / (25A) / (30-50A) / (100-150A) / (50A)
 const featuredProducts = [
-  { name: '208V/400V/480V AHF/SVG 防污染机型', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution' },
-  { name: '690V/800V AHF/SVG 防污染机型', spec: '(85-100A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount' },
-  { name: 'SiC AHF/SVG 碳化硅机型', spec: '(50-200A)', href: '/en/products/sic-ultra-ahf', img: 'products-ahf-sic' },
-  { name: 'Ultra Slim AHF/SVG 超薄机型（数据中心冷却）', spec: '(8-20A)', href: '/en/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim-rackmount' },
+  { name: '208V/400V/480V AHF/SVG 防污染机型', spec: '(50-200A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-r2' },
+  { name: '690V/800V AHF/SVG 防污染机型', spec: '(85-100A)', href: '/en/products/anti-pollution-ahf', img: 'products-ahf-anti-pollution-690v-800v-rackmount-r3' },
+  { name: 'SiC AHF/SVG 碳化硅机型', spec: '(50-200A)', href: '/en/products/sic-ultra-ahf', img: 'products-ahf-sic-r2' },
+  { name: 'Ultra Slim AHF/SVG 超薄机型（数据中心冷却）', spec: '(8-20A)', href: '/en/products/ultra-slim-ahf', img: 'products-ahf-ultra-slim-rackmount-r2' },
   { name: 'IP65 Fanless SiC AHF/SVG 高防护无风扇机型', spec: '(25A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-ip65-fanless' },
-  { name: 'Distributed AHF/SVG 分布式机型', spec: '(30-50A)', href: '/en/products/distributed-ahf', img: 'products-ahf-distributed-rackmount' },
+  { name: 'Distributed AHF/SVG 分布式机型', spec: '(30-50A)', href: '/en/products/distributed-ahf', img: 'products-ahf-distributed-2u-r2' },
   { name: 'IP65 AHF/SVG 高防护机型', spec: '(100-150A)', href: '/en/products/ip65-ahf', img: 'products-ahf-ip65' },
   { name: 'SiC-Low Noise Fan AHF/SVG 高防护无风扇低噪声机型', spec: '(50A)', href: '/en/products/sic-fanless-ahf', img: 'products-ahf-sic-fanless' }
 ];
@@ -30,10 +30,8 @@ const featuredProducts = [
     <div class="hero-carousel absolute inset-0 z-0 pointer-events-none">
       <picture class="contents">
         <source media="(min-width:1024px)" srcset="/assets/images/index-hero-lineup-wide-1440w.webp 1440w, /assets/images/index-hero-lineup-wide.webp 3924w" sizes="100vw" />
-        <img src="/assets/images/index-hero-lineup.webp" srcset="/assets/images/index-hero-lineup-480w.webp 480w, /assets/images/index-hero-lineup-960w.webp 960w, /assets/images/index-hero-lineup.webp 2172w" sizes="100vw" alt="最全产品系列——AHF、SVG 与 ASVG，208V 至 800V，IP20 至 IP65" width="2172" height="654" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" fetchpriority="high" />
+        <img src="/assets/images/index-hero-lineup.webp" srcset="/assets/images/index-hero-lineup-480w.webp 480w, /assets/images/index-hero-lineup-960w.webp 960w, /assets/images/index-hero-lineup-1440w.webp 1440w, /assets/images/index-hero-lineup.webp 2172w" sizes="100vw" alt="最全产品系列——AHF、SVG 与 ASVG，208V 至 800V，IP20 至 IP65" width="2172" height="654" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" fetchpriority="high" />
       </picture>
-      <img data-hero-src="/assets/images/index-hero-bg.webp" data-hero-srcset="/assets/images/index-hero-bg-480w.webp 480w, /assets/images/index-hero-bg-960w.webp 960w, /assets/images/index-hero-bg.webp 2000w" sizes="100vw" alt="工程师在机房为机架式电能质量设备接线" width="2000" height="655" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
-      <img data-hero-src="/assets/images/products-key-features.webp" data-hero-srcset="/assets/images/products-key-features-480w.webp 480w, /assets/images/products-key-features-960w.webp 960w, /assets/images/products-key-features.webp 1920w" sizes="100vw" alt="自主研发与制造——工厂上方的 CHITEK 电能质量设备" width="1920" height="1025" class="hero-slide absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" />
     </div>
 
     <!-- 文字面板 0：产品主题（第 1 页，首屏） -->
@@ -118,7 +116,7 @@ const featuredProducts = [
 
   <!-- ABOUT -->
   <section class="relative overflow-hidden bg-bg-mid text-white min-h-[calc(100vh-72px)] flex flex-col justify-center py-14" id="about">
-    <div class="absolute inset-0 bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
+    <div class="absolute inset-0 bg-[url('/assets/images/about-bg-480w.webp')] md:bg-[url('/assets/images/about-bg-960w.webp')] xl:bg-[url('/assets/images/about-bg.webp')] bg-cover bg-center bg-no-repeat opacity-30 z-0"></div>
     <div class="absolute inset-0 bg-[rgba(7,16,30,0.7)] z-[1]"></div>
 
 
@@ -140,9 +138,9 @@ const featuredProducts = [
       </div>
 
       <!-- 右侧四大优势区域 -->
-      <div class="flex-[1.2] grid grid-cols-1 md:grid-cols-2">
+      <div class="flex-[1.2] grid grid-cols-2">
         <!-- 优势 1 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-r border-b border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="font-barlow-condensed text-[42px] font-bold leading-[1] text-brand-orange mb-3">60<sup class="text-[16px] align-super text-brand-orange">%</sup></div>
           <h3 class="text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]">经验丰富的研发团队</h3>
           <p class="text-[clamp(10px,0.8vw,14px)] leading-[1.6] text-white max-w-[180px]">由高素质、经验丰富的团队提供强大研发能力</p>
@@ -163,7 +161,7 @@ const featuredProducts = [
         </div>
 
         <!-- 优势 3 -->
-        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center md:border-r border-b border-white/10 md:border-b-0 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
+        <div class="px-[clamp(12px,2vw,40px)] py-[clamp(12px,2vw,36px)] flex flex-col items-center justify-center text-center border-r border-white/10 hover:bg-[rgba(234,81,30,0.05)] transition-colors duration-300 relative">
           <div class="w-12 h-12 mb-4 text-brand-orange">
             <svg viewBox="0 0 64 64" class="w-full h-full stroke-current stroke-[1.5] fill-none">
               <path d="M20 20 L44 20 L44 44 L20 44 Z" stroke-linecap="round" />
@@ -212,7 +210,7 @@ const featuredProducts = [
   </section>
 
   <!-- PRODUCTS -->
-  <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
+  <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg-480w.webp')] md:bg-[url('/assets/images/index-products-bg-960w.webp')] xl:bg-[url('/assets/images/index-products-bg.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
     <div class="relative z-10">
       <div class="text-center mb-[clamp(16px,3vw,48px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
         <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">产品系列</h2>
@@ -350,48 +348,21 @@ const featuredProducts = [
       statNumbers.forEach((el) => statsObserver.observe(el));
     }
 
-    // HERO 轮播
-    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+    // HERO 轮播（2026-10-26 用户裁定：首图固定，只轮文字）
     const heroTexts = Array.from(document.querySelectorAll('.hero-text'));
     const heroDots = Array.from(document.querySelectorAll('.hero-dot'));
-    if (heroSlides.length > 1) {
+    if (heroTexts.length > 1) {
       let heroIdx = 0;
       let heroTimer = null;
-      // ── 2026-10-21 性能 P0-2：首屏只加载第 1 张轮播图（LCP），其余两张延迟注入 ──
-      // 这 3 张是 absolute inset-0 叠在首屏里，始终在视口内 → loading="lazy" 不会生效，
-      // 只能用 data-hero-src + 手动注入。省首屏约 228KB（第 2 张 64KB + 第 3 张 164KB）。
-      // 无 JS 时第 1 张仍正常显示，轮播本身也依赖 JS，属渐进增强。
-      const heroEnsure = (img) => {
-        if (img && img.dataset.heroSrc && !img.hasAttribute('src')) {
-          /* 一并注入 srcset：手机轮播时不再下 2000px 原图 */
-          if (img.dataset.heroSrcset) img.setAttribute('srcset', img.dataset.heroSrcset);
-          img.src = img.dataset.heroSrc;
-        }
-      };
+      /* 图片不再随轮播切换：换图会让浏览器把 LCP 重新计时（实测桌面 LCP 6.5s）。
+         首图常驻，只切文字面板与圆点；后两张图已从标记中删除，首屏少 124KB。 */
       const heroShow = (i) => {
-        heroSlides[heroIdx].classList.remove('hero-slide-active');
         if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.remove('hero-text-active');
         if (heroDots[heroIdx]) heroDots[heroIdx].classList.remove('hero-dot-active');
-        heroIdx = (i + heroSlides.length) % heroSlides.length;
-        heroEnsure(heroSlides[heroIdx]);
-        heroSlides[heroIdx].classList.add('hero-slide-active');
+        heroIdx = (i + heroTexts.length) % heroTexts.length;
         if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.add('hero-text-active');
         if (heroDots[heroIdx]) heroDots[heroIdx].classList.add('hero-dot-active');
-        heroEnsure(heroSlides[(heroIdx + 1) % heroSlides.length]);
       };
-      // 首屏（load）完成后再预热第 2 张，不和 LCP 抢带宽，也避免首次切换出现空白
-      const heroWarm = () => {
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(() => heroEnsure(heroSlides[1]), { timeout: 2000 });
-        } else {
-          setTimeout(() => heroEnsure(heroSlides[1]), 600);
-        }
-      };
-      if (document.readyState === 'complete') {
-        heroWarm();
-      } else {
-        window.addEventListener('load', heroWarm, { once: true });
-      }
       const heroStart = () => { heroTimer = setInterval(() => heroShow(heroIdx + 1), 5000); };
       const heroStop = () => { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } };
       heroDots.forEach((dot, i) => {
@@ -691,7 +662,7 @@ const featuredProducts = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
       <!-- Hospital -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-hospital.webp')]"></div>
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-hospital-480w.webp')] md:bg-[url('/assets/images/index-solution-hospital-960w.webp')] xl:bg-[url('/assets/images/index-solution-hospital.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
@@ -710,7 +681,7 @@ const featuredProducts = [
 
       <!-- Data Center -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-datacenter.webp')]"></div>
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-datacenter-480w.webp')] md:bg-[url('/assets/images/index-solution-datacenter-960w.webp')] xl:bg-[url('/assets/images/index-solution-datacenter.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
@@ -729,7 +700,7 @@ const featuredProducts = [
 
       <!-- Manufacturing -->
       <div class="group relative rounded-2xl overflow-hidden h-[clamp(400px,48vh,620px)] cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 insight-card">
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-manufacturing.webp')]"></div>
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 bg-[url('/assets/images/index-solution-manufacturing-480w.webp')] md:bg-[url('/assets/images/index-solution-manufacturing-960w.webp')] xl:bg-[url('/assets/images/index-solution-manufacturing.webp')]"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
