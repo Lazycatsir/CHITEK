@@ -37,3 +37,19 @@ news_i18n_data*.py
 # 内部目录：工作记忆、审计产物
 /.workbuddy/
 /home_seo/
+
+# ===== 2026-10-27 补充 =====
+# 根目录 .js 调试脚本（与 _*.py / _*.mjs 口径一致，此前漏了这一条）
+/_*.js
+# 例外：sitemap 流程工具，必须入库（新增页面后靠它重建 public/sitemap.xml）
+!/_gen_sitemap.mjs
+!/_check_sitemap_urls.mjs
+!/_check_sitemap_coverage.js
+# 本地临时对比目录 / Python 缓存 / 空错误日志
+/_spin_compare/
+__pycache__/
+*.err
+# 根目录一次性参考/截图（_final_sheet.png、_ref_*.html 之类）
+/_*.html
+/_*.css
+/_*.png

@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import sitemap from '@astrojs/sitemap';
+
+// sitemap 由 `node _gen_sitemap.mjs` 生成到 public/sitemap.xml（2026-10-26 起不再用 @astrojs/sitemap，
+// 避免构建时另出一份 sitemap-index.xml 与手工版并存）。新增页面后记得重跑该脚本。
 
 export default defineConfig({
   site: 'https://chitek-inno.com',
@@ -11,20 +13,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [
-    sitemap({
-      serialize(entry) {
-        const url = new URL(entry.url);
-        const match = url.pathname.match(/^\/(en|es|ar|pt)(\/|$)/);
-        if (match) {
-          const lang = match[1];
-          const cleanPath = url.pathname.slice(match[0].length - 1) || '/';
-          entry.url = `https://${lang}.chitek-inno.com${cleanPath}`;
-        }
-        return entry;
-      },
-    }),
-  ],
   vite: {
     plugins: [tailwindcss()],
   },
