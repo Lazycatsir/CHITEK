@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>CHITEK 英文站 · 产品 SKU 管理</title><style>
+*{box-sizing:border-box}
+body{font:13px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:#111;margin:0;padding:26px 30px;max-width:1560px}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:16px;margin:30px 0 8px;padding-bottom:5px;border-bottom:1px solid #e3e3e3}
+h3{font-size:14px;margin:20px 0 6px}
+p{margin:8px 0}
+.nav{font-size:13px;margin:10px 0 22px;padding:8px 11px;background:#f7f7f7;border:1px solid #e3e3e3;border-radius:3px}
+.nav a{color:#c2410c;text-decoration:none;margin-right:16px}
+.nav a.on{font-weight:700;text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:6px 0 16px}
+th,td{border:1px solid #ddd;padding:4px 7px;text-align:left;vertical-align:top}
+th{background:#f5f5f5;font-weight:600;white-space:nowrap}
+td.num{text-align:right;white-space:nowrap}
+code{font-family:Consolas,monospace;font-size:12px}
+.miss{background:#fff3f3}
+.warn{background:#fffaf0}
+.gray{color:#999;background:#fafafa}
+.ok{color:#4b7a4b}
+.note{color:#666;font-size:12px}
+ul,ol{margin:6px 0;padding-left:20px}
+li{margin:2px 0}
+.kpi{display:inline-block;border:1px solid #e3e3e3;background:#fafafa;padding:6px 12px;margin:0 10px 8px 0;font-size:13px}
+.kpi b{font-size:16px;color:#c2410c}
+</style></head><body>
+<div class="nav"><a href="index.html">总览</a><a href="01-news-cards-and-links.html">① 新闻卡片与推荐链接</a><a href="02-download-links.html">② 下载链接管理</a><a href="03-product-sku.html" class="on">③ 产品 SKU 管理</a></div>
+<h1>英文站产品 SKU 管理</h1>
+<p class="note">SKU 由详情页的「Configure your SKU」配置器算出：访客勾选 电压 / 容量 / 接线 / 安装 / 防护，JS 拼出料号并查表补尺寸重量。本表把 24 个产品页的规则、选项、默认值、价格全列出来，便于核对与维护。</p>
+<h2>〇、SKU 命名规则（从源码抽取）</h2>
+<p>详情页内联脚本里的一句话定义：</p>
+<p><code>partNo = '&lt;前缀&gt;' + 电流 + '-' + 电压 + '-' + 安装 + '-' + 防护</code></p>
+<p>完整展示串：<code>SKU: &lt;partNo&gt; · 500 × 550 × &lt;深&gt; mm · &lt;重&gt; kg · &lt;价格&gt;$(EXW)</code></p>
+<ul><li>前缀：每页写死（见下表）。<b>两种风格并存</b>：<code>CHITEK-SiC-AHF-</code>（连字符）与 <code>ULTRA_SLIM_AHF_</code>（下划线）。</li><li>电流 / 电压 / 安装 / 防护：四档直接拼进料号。</li><li><span class="miss">接线（3P3W / 3P4W）虽然在配置器里可选，但<b>没有拼进料号</b> —— 换接线方式时 SKU 不变。</span></li><li>尺寸：宽 × 高 全站写死 <code>500 × 550</code>，只有深度按电流档查 <code>SPECS</code> 表。</li><li>价格：全站硬编码 <code>1300$(EXW)</code>（未按型号/容量区分）。</li></ul>
+<h2>一、全部产品页 SKU 规则总表</h2>
+<p>24 个产品页：23 个带配置器，1 个为 legacy 页（无配置器）。</p>
+<table><tr><th>族</th><th>详情页文件</th><th>料号前缀</th><th>电压档</th><th>容量档</th><th>接线</th><th>安装</th><th>防护</th><th>价格(EXW)</th></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/anti-pollution-ahf.astro</code></td><td class=""><code>ANTI_POLLUTION_AHF_</code></td><td class="">208V / 400V / 480V / 690V / 800V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/distributed-ahf.astro</code></td><td class=""><code>DISTRIBUTED_AHF_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/ip65-ahf.astro</code></td><td class=""><code>IP65_AHF_</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/ip65-sic-fanless-ahf.astro</code></td><td class=""><code>IP65_SIC_FANLESS_AHF_</code></td><td class="">400V / 480V / 690V</td><td class="">8A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/sic-fanless-ahf.astro</code></td><td class=""><code>SIC_FANLESS_AHF_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/sic-ultra-ahf.astro</code></td><td class=""><code>CHITEK-SiC-AHF-</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">AHF</td><td class=""><code>products/ultra-slim-ahf.astro</code></td><td class=""><code>ULTRA_SLIM_AHF_</code></td><td class="">208V / 400V / 480V</td><td class="">8A / 15A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/anti-pollution-hv-svg.astro</code></td><td class=""><code>ANTI_POLLUTION_SVG_</code></td><td class="">208V / 400V / 480V / 690V / 800V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/anti-pollution-svg.astro</code></td><td class=""><code>ANTI_POLLUTION_SVG_</code></td><td class="">208V / 400V / 480V / 690V / 800V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/distributed-svg.astro</code></td><td class=""><code>DISTRIBUTED_SVG_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/ip65-sic-fanless-svg.astro</code></td><td class=""><code>IP65_SIC_FANLESS_SVG_</code></td><td class="">400V / 480V / 690V</td><td class="">8A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/ip65-svg.astro</code></td><td class=""><code>IP65_SVG_</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/sic-fanless-svg.astro</code></td><td class=""><code>SIC_FANLESS_SVG_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/sic-ultra-svg.astro</code></td><td class=""><code>CHITEK-SiC-SVG-</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">SVG</td><td class=""><code>products-svg/ultra-slim-svg.astro</code></td><td class=""><code>ULTRA_SLIM_SVG_</code></td><td class="">208V / 400V / 480V</td><td class="">8A / 15A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/anti-pollution-asvg.astro</code></td><td class=""><code>ANTI_POLLUTION_ASVG_</code></td><td class="">208V / 400V / 480V / 690V / 800V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/anti-pollution-hv-asvg.astro</code></td><td class=""><code>ANTI_POLLUTION_ASVG_</code></td><td class="">208V / 400V / 480V / 690V / 800V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/distributed-asvg.astro</code></td><td class=""><code>DISTRIBUTED_ASVG_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/ip65-asvg.astro</code></td><td class=""><code>IP65_ASVG_</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/ip65-sic-fanless-asvg.astro</code></td><td class=""><code>IP65_SIC_FANLESS_ASVG_</code></td><td class="">400V / 480V / 690V</td><td class="">8A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/sic-fanless-asvg.astro</code></td><td class=""><code>SIC_FANLESS_ASVG_</code></td><td class="">208V / 400V / 480V</td><td class="">30A / 50A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/sic-ultra-asvg.astro</code></td><td class=""><code>CHITEK-SiC-ASVG-</code></td><td class="">208V / 400V / 480V</td><td class="">50A / 75A / 100A / 150A / 200A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+<tr class=""><td class="">ASVG</td><td class=""><code>products-asvg/ultra-slim-asvg.astro</code></td><td class=""><code>ULTRA_SLIM_ASVG_</code></td><td class="">208V / 400V / 480V</td><td class="">8A / 15A / 20A / Unlimited</td><td class="">3P3W / 3P4W</td><td class="">Wall / Rack</td><td class="">IP20 / IP65 / other</td><td class="">1300</td></tr>
+</table>
+<p><span class="note">legacy 页（无配置器，不参与 SKU）：<code>products/active-harmonic-filter.astro</code></span></p>
+<h2>二、尺寸重量换算表（SPECS，按容量档）</h2>
+<p>24 个详情页共用<b>同一份</b> SPECS 表（模板复制）。配置器用它把「容量档」映射到深度/重量；容量档不在表里时会静默回落到 <code>d:135 / kg:27</code>。</p>
+<table><tr><th>容量档（SPECS 键）</th><th>深度 d (mm)</th><th>重量 kg</th></tr>
+<tr class=""><td class="">Unlimited</td><td class="">135</td><td class="">27</td></tr>
+<tr class=""><td class="">50A</td><td class="">150</td><td class="">21</td></tr>
+<tr class=""><td class="">75A</td><td class="">142</td><td class="">24</td></tr>
+<tr class=""><td class="">100A</td><td class="">135</td><td class="">27</td></tr>
+<tr class=""><td class="">150A</td><td class="">100</td><td class="">31</td></tr>
+<tr class=""><td class="">200A</td><td class="">118</td><td class="">38</td></tr>
+</table>
+<h3>⚠️ 容量档缺 SPECS 键（会静默回落）</h3>
+<table><tr><th>详情页</th><th>配置器里有、但 SPECS 无键的容量档</th><th>回落取值</th></tr>
+<tr class=""><td class=""><code>products/distributed-ahf.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products/ip65-sic-fanless-ahf.astro</code></td><td class="">8A / 20A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products/sic-fanless-ahf.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products/ultra-slim-ahf.astro</code></td><td class="">8A / 15A / 20A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-svg/distributed-svg.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-svg/ip65-sic-fanless-svg.astro</code></td><td class="">8A / 20A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-svg/sic-fanless-svg.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-svg/ultra-slim-svg.astro</code></td><td class="">8A / 15A / 20A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-asvg/distributed-asvg.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-asvg/ip65-sic-fanless-asvg.astro</code></td><td class="">8A / 20A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-asvg/sic-fanless-asvg.astro</code></td><td class="">30A</td><td class="">Unlimited</td></tr>
+<tr class=""><td class=""><code>products-asvg/ultra-slim-asvg.astro</code></td><td class="">8A / 15A / 20A</td><td class="">Unlimited</td></tr>
+</table>
+<h2>三、列表页卡片参数（三页 × 8 卡）</h2>
+<p>卡片的 <code>data-v / data-a / data-s / data-i / data-t</code> 决定「筛选」命中，与详情页配置器是两套独立硬编码，需人工保持口径一致。</p>
+<h3>products（8 卡）</h3>
+<table><tr><th>#</th><th>详情页 slug</th><th>电压 data-v</th><th>容量 data-a</th><th>尺寸 data-s</th><th>防护 data-i</th><th>技术 data-t</th></tr>
+<tr class=""><td class="">1</td><td class=""><code>/products/sic-ultra-ahf</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*175mm,500*550*130mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+<tr class=""><td class="">2</td><td class=""><code>/products/anti-pollution-ahf</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*130mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">3</td><td class=""><code>/products/anti-pollution-ahf</code></td><td class="">690V,800V</td><td class="">50~200A</td><td class="">480*600*175mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">4</td><td class=""><code>/products/ultra-slim-ahf</code></td><td class="">208V,400V,480V</td><td class="">8~20A</td><td class="">340*410*45mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">5</td><td class=""><code>/products/distributed-ahf</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">380*400*88mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">6</td><td class=""><code>/products/sic-fanless-ahf</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP65</td><td class="">SiC</td></tr>
+<tr class=""><td class="">7</td><td class=""><code>/products/ip65-ahf</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">600*500*220mm</td><td class="">IP65</td><td class="">IGBT,SiC</td></tr>
+<tr class=""><td class="">8</td><td class=""><code>/products/sic-fanless-ahf</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+</table>
+<h3>products-svg（8 卡）</h3>
+<table><tr><th>#</th><th>详情页 slug</th><th>电压 data-v</th><th>容量 data-a</th><th>尺寸 data-s</th><th>防护 data-i</th><th>技术 data-t</th></tr>
+<tr class=""><td class="">1</td><td class=""><code>/products-svg/sic-ultra-svg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*175mm,500*550*130mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+<tr class=""><td class="">2</td><td class=""><code>/products-svg/anti-pollution-svg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*130mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">3</td><td class=""><code>/products-svg/anti-pollution-hv-svg</code></td><td class="">690V,800V</td><td class="">50~200A</td><td class="">480*600*175mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">4</td><td class=""><code>/products-svg/ultra-slim-svg</code></td><td class="">208V,400V,480V</td><td class="">8~20A</td><td class="">340*410*45mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">5</td><td class=""><code>/products-svg/distributed-svg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">380*400*88mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">6</td><td class=""><code>/products-svg/ip65-sic-fanless-svg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP65</td><td class="">SiC</td></tr>
+<tr class=""><td class="">7</td><td class=""><code>/products-svg/ip65-svg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">600*500*220mm</td><td class="">IP65</td><td class="">IGBT,SiC</td></tr>
+<tr class=""><td class="">8</td><td class=""><code>/products-svg/sic-fanless-svg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+</table>
+<h3>products-asvg（8 卡）</h3>
+<table><tr><th>#</th><th>详情页 slug</th><th>电压 data-v</th><th>容量 data-a</th><th>尺寸 data-s</th><th>防护 data-i</th><th>技术 data-t</th></tr>
+<tr class=""><td class="">1</td><td class=""><code>/products-asvg/sic-ultra-asvg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*175mm,500*550*130mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+<tr class=""><td class="">2</td><td class=""><code>/products-asvg/anti-pollution-asvg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">500*550*130mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">3</td><td class=""><code>/products-asvg/anti-pollution-hv-asvg</code></td><td class="">690V,800V</td><td class="">50~200A</td><td class="">480*600*175mm</td><td class="">IP20,IP30</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">4</td><td class=""><code>/products-asvg/ultra-slim-asvg</code></td><td class="">208V,400V,480V</td><td class="">8~20A</td><td class="">340*410*45mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">5</td><td class=""><code>/products-asvg/distributed-asvg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">380*400*88mm</td><td class="">IP20,IP30,IP40</td><td class="">IGBT</td></tr>
+<tr class=""><td class="">6</td><td class=""><code>/products-asvg/ip65-sic-fanless-asvg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP65</td><td class="">SiC</td></tr>
+<tr class=""><td class="">7</td><td class=""><code>/products-asvg/ip65-asvg</code></td><td class="">208V,400V,480V</td><td class="">50~200A</td><td class="">600*500*220mm</td><td class="">IP65</td><td class="">IGBT,SiC</td></tr>
+<tr class=""><td class="">8</td><td class=""><code>/products-asvg/sic-fanless-asvg</code></td><td class="">208V,400V,480V</td><td class="">30~50A</td><td class="">515*500*185mm</td><td class="">IP20,IP30</td><td class="">SiC</td></tr>
+</table>
+<h2>四、校验清单</h2>
+<p>比对「列表页卡片参数（data-v/a/s/i/t）」与「详情页配置器档位」是否同口径。两者是两套独立硬编码，改了一边不会自动同步另一边。</p>
+<p>共 42 条（严重 0 条）。</p>
+<table><tr><th>级别</th><th>问题</th></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products/ip65-sic-fanless-ahf</code> 没有任何列表页卡片指向它（孤儿页，只能靠直链进入）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products/anti-pollution-ahf</code> 被 2 张卡片共用：products（208V,400V,480V / IP20,IP30）、products（690V,800V / IP20,IP30）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products/sic-fanless-ahf</code> 被 2 张卡片共用：products（208V,400V,480V / IP65）、products（208V,400V,480V / IP20,IP30）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-svg/anti-pollution-svg</code> 配置器可选电压 ['690V', '800V']，但指向它的卡片 data-v 只有 ['208V', '400V', '480V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-svg/anti-pollution-hv-svg</code> 配置器可选电压 ['208V', '400V', '480V']，但指向它的卡片 data-v 只有 ['690V', '800V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-svg/ip65-sic-fanless-svg</code> 配置器可选电压 ['690V']，但指向它的卡片 data-v 只有 ['208V', '400V', '480V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">卡片 <code>/products-svg/ip65-sic-fanless-svg</code> 的 data-v 含 ['208V']，但详情页配置器没有该电压档</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-svg/ip65-sic-fanless-svg</code> 配置器容量档 ['8A', '20A'] 落在卡片 data-a 范围 30~50A 之外</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-asvg/anti-pollution-asvg</code> 配置器可选电压 ['690V', '800V']，但指向它的卡片 data-v 只有 ['208V', '400V', '480V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-asvg/anti-pollution-hv-asvg</code> 配置器可选电压 ['208V', '400V', '480V']，但指向它的卡片 data-v 只有 ['690V', '800V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-asvg/ip65-sic-fanless-asvg</code> 配置器可选电压 ['690V']，但指向它的卡片 data-v 只有 ['208V', '400V', '480V'] → 按这些电压筛选时该卡不出现在列表页</td></tr>
+<tr class=""><td class="">提示</td><td class="">卡片 <code>/products-asvg/ip65-sic-fanless-asvg</code> 的 data-v 含 ['208V']，但详情页配置器没有该电压档</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>/products-asvg/ip65-sic-fanless-asvg</code> 配置器容量档 ['8A', '20A'] 落在卡片 data-a 范围 30~50A 之外</td></tr>
+<tr class=""><td class="">提示</td><td class="">卡片 data-i 里出现配置器没有的防护档 ['IP30', 'IP40']，共 17 页（<code>/products/sic-ultra-ahf</code>、<code>/products/anti-pollution-ahf</code>、<code>/products/ultra-slim-ahf</code>、<code>/products/distributed-ahf</code>、<code>/products/sic-fanless-ahf</code>、<code>/products-svg/sic-ultra-svg</code>、<code>/products-svg/anti-pollution-svg</code>、<code>/products-svg/anti-pollution-hv-svg</code>、<code>/products-svg/ultra-slim-svg</code>、<code>/products-svg/distributed-svg</code>、<code>/products-svg/sic-fanless-svg</code>、<code>/products-asvg/sic-ultra-asvg</code>、<code>/products-asvg/anti-pollution-asvg</code>、<code>/products-asvg/anti-pollution-hv-asvg</code>、<code>/products-asvg/ultra-slim-asvg</code>、<code>/products-asvg/distributed-asvg</code>、<code>/products-asvg/sic-fanless-asvg</code>）。配置器只提供 IP20 / IP65 / other，卡片筛选却按 IP30 / IP40 细分 —— 属两套口径，确认是否有意为之。</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/distributed-ahf.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/ip65-sic-fanless-ahf.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/sic-fanless-ahf.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/ultra-slim-ahf.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '15A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/distributed-svg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/ip65-sic-fanless-svg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/sic-fanless-svg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/ultra-slim-svg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '15A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/distributed-asvg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/ip65-sic-fanless-asvg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/sic-fanless-asvg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['30A', '50A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/ultra-slim-asvg.astro</code> 默认值 DEF.a=100A 不在配置器档位 ['8A', '15A', '20A', 'Unlimited'] 内（访客未勾选时页面会显示这个值）</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/distributed-ahf.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/ip65-sic-fanless-ahf.astro</code> 容量档 ['8A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/sic-fanless-ahf.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products/ultra-slim-ahf.astro</code> 容量档 ['8A', '15A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/distributed-svg.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/ip65-sic-fanless-svg.astro</code> 容量档 ['8A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/sic-fanless-svg.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-svg/ultra-slim-svg.astro</code> 容量档 ['8A', '15A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/distributed-asvg.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/ip65-sic-fanless-asvg.astro</code> 容量档 ['8A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/sic-fanless-asvg.astro</code> 容量档 ['30A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">详情页 <code>products-asvg/ultra-slim-asvg.astro</code> 容量档 ['8A', '15A', '20A'] 在 SPECS 表中无键 → 尺寸重量静默回落 d:135 / kg:27</td></tr>
+<tr class=""><td class="">提示</td><td class="">料号前缀两种风格并存：连字符 3 个（<code>products/sic-ultra-ahf.astro</code>、<code>products-svg/sic-ultra-svg.astro</code>、<code>products-asvg/sic-ultra-asvg.astro</code>）；下划线 20 个。建议统一。</td></tr>
+<tr class=""><td class="">提示</td><td class="">接线档（3P3W / 3P4W）在配置器里可选，但<b>没有拼进 partNo</b> —— 同一容量+电压+安装+防护下，两种接线方式生成相同 SKU。</td></tr>
+<tr class=""><td class="">提示</td><td class="">价格全站硬编码为 1300$(EXW)，未按型号/容量区分。</td></tr>
+<tr class=""><td class="">提示</td><td class="">legacy 页无配置器、不参与 SKU：<code>products/active-harmonic-filter.astro</code></td></tr>
+</table>
+</body></html>

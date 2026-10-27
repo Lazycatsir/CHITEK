@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AHF SKU 表 · 英文站 8 个 AHF 详情页</title>
+<style>
+  body{margin:0;padding:26px 32px 84px;font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:#222;background:#fff}
+  h1{font-size:19px;margin:0 0 6px}
+  p.note{margin:0 0 3px;color:#555;font-size:13px;max-width:1120px}
+  p.warn{margin:8px 0 0;color:#b45309;font-size:13px}
+  code{background:#f4f4f4;padding:1px 4px;font-size:12.5px}
+  section{margin:26px 0 0}
+  h2{font-size:15px;margin:0 0 2px;font-weight:600}
+  h2 .slug{font-weight:400;color:#999;font-size:12.5px;margin-left:8px;font-family:Consolas,monospace}
+  h3{font-size:13px;margin:14px 0 6px;font-weight:600;color:#444}
+  table{border-collapse:collapse;width:100%;max-width:1120px}
+  th,td{border:1px solid #ddd;padding:5px 9px;text-align:left;vertical-align:middle;font-size:13px}
+  th{background:#f7f7f7;font-weight:600}
+  td.mono{font-family:Consolas,monospace;font-size:12.5px;white-space:nowrap}
+  td.a{white-space:nowrap;font-weight:600}
+  tr.is-def td{background:#fffdf5}
+  .tag{font-size:11px;color:#b45309;border:1px solid #e6cfa0;padding:0 4px;margin-left:6px;font-weight:400}
+  input.p{width:108px;padding:3px 6px;border:1px solid #bbb;font:inherit;font-size:13px;text-align:right}
+  input.p:focus{outline:2px solid #2563eb}
+  input.p.dirty{border-color:#b45309;background:#fffbf0;font-weight:600}
+  .tbd{display:inline-block;width:108px;text-align:right;color:#9aa0a6;font-weight:600;letter-spacing:1px;cursor:help}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #ddd;padding:10px 32px;display:flex;gap:12px;align-items:center}
+  button{font:inherit;font-size:13px;padding:6px 14px;border:1px solid #333;background:#fff;cursor:pointer}
+  button:hover{background:#f2f2f2}
+  #msg{color:#0a7c3f;font-size:13px}
+  #msg.pending{color:#b45309}
+  #out{display:none;width:100%;max-width:1120px;height:180px;margin-top:10px;font-family:Consolas,monospace;font-size:12px}
+  .switch{display:flex;gap:6px;margin:0 0 16px}
+  .switch a{font-size:13px;padding:5px 16px;border:1px solid #ccc;color:#333;text-decoration:none;background:#fff}
+  .switch a.on{border-color:#333;font-weight:600;background:#f2f2f2;cursor:default}
+</style></head><body>
+<nav class="switch"><a href="sku-table-ahf.html" class="on">AHF 表</a><a href="sku-table-svg.html">SVG 表</a><a href="sku-table-asvg.html">ASVG 表</a></nav>
+<h1>AHF SKU 表 —— 英文站 8 个 AHF 详情页</h1>
+<p class="note">数据源 <code>src/data/ahfSku.js</code>（唯一真值）。尺寸 / 净重取自各页 Parameters 表前 5 行（Dimensions W×D×H、Net Weight），页面已经接入本表，改 price 会直接改变页面摘要栏。</p>
+<p class="note">共 <strong>8</strong> 个页面、<strong>29</strong> 行标准 SKU（另加 12 行 480V 特例）。价格直接在输入框改（改动存在本浏览器，刷新不丢）。<strong>用 <code>_sku_ledger_server.py</code> 打开本页 → 点「保存到项目」即写回数据文件并重建页面</strong>；用 file:// 打开时没有「保存」按钮，改完点「下载 JSON」发我。</p>
+
+<section><h2>Silicon Carbide MOSFET Active Harmonic Filter SiC (50-200A) <span class="slug">/en/products/sic-ultra-ahf</span></h2><h3>标准档（400V / 208V 基准）</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">50A</td><td class="mono">CHITEK-SiC-AHF-50A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="" data-a="50A" value="2300" inputmode="numeric" aria-label="EXW price sic-ultra-ahf default 50A"></td></tr><tr><td class="a">75A</td><td class="mono">CHITEK-SiC-AHF-75A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="" data-a="75A" value="2640" inputmode="numeric" aria-label="EXW price sic-ultra-ahf default 75A"></td></tr><tr class="is-def"><td class="a">100A<span class="tag">默认</span></td><td class="mono">CHITEK-SiC-AHF-100A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="" data-a="100A" value="3120" inputmode="numeric" aria-label="EXW price sic-ultra-ahf default 100A"></td></tr><tr><td class="a">150A</td><td class="mono">CHITEK-SiC-AHF-150A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">29 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="" data-a="150A" value="4100" inputmode="numeric" aria-label="EXW price sic-ultra-ahf default 150A"></td></tr><tr><td class="a">200A</td><td class="mono">CHITEK-SiC-AHF-200A-400V-Rack-IP20</td><td class="mono">500 × 550 × 175</td><td class="mono">34 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="" data-a="200A" value="5440" inputmode="numeric" aria-label="EXW price sic-ultra-ahf default 200A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">CHITEK-SiC-AHF-Unlimited-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table><h3>480V 特例（覆盖标准档价格）</h3><table><thead><tr><th>Power capacity</th><th>Part number (480V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">50A</td><td class="mono">CHITEK-SiC-AHF-50A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="480V" data-a="50A" value="2800" inputmode="numeric" aria-label="EXW price sic-ultra-ahf 480V 50A"></td></tr><tr><td class="a">75A</td><td class="mono">CHITEK-SiC-AHF-75A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="480V" data-a="75A" value="3160" inputmode="numeric" aria-label="EXW price sic-ultra-ahf 480V 75A"></td></tr><tr><td class="a">100A</td><td class="mono">CHITEK-SiC-AHF-100A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="480V" data-a="100A" value="3800" inputmode="numeric" aria-label="EXW price sic-ultra-ahf 480V 100A"></td></tr><tr><td class="a">150A</td><td class="mono">CHITEK-SiC-AHF-150A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">29 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="480V" data-a="150A" value="4920" inputmode="numeric" aria-label="EXW price sic-ultra-ahf 480V 150A"></td></tr><tr><td class="a">200A</td><td class="mono">CHITEK-SiC-AHF-200A-480V-Rack-IP20</td><td class="mono">500 × 550 × 175</td><td class="mono">34 kg</td><td><input class="p" data-slug="sic-ultra-ahf" data-v="480V" data-a="200A" value="6520" inputmode="numeric" aria-label="EXW price sic-ultra-ahf 480V 200A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">CHITEK-SiC-AHF-Unlimited-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>208V/400V/480V Anti-Pollution Active Harmonic Filter (50-200A) <span class="slug">/en/products/anti-pollution-ahf</span></h2><h3>标准档（400V / 208V 基准）</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">50A</td><td class="mono">ANTI_POLLUTION_AHF_50A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="" data-a="50A" value="1150" inputmode="numeric" aria-label="EXW price anti-pollution-ahf default 50A"></td></tr><tr><td class="a">75A</td><td class="mono">ANTI_POLLUTION_AHF_75A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="" data-a="75A" value="1320" inputmode="numeric" aria-label="EXW price anti-pollution-ahf default 75A"></td></tr><tr class="is-def"><td class="a">100A<span class="tag">默认</span></td><td class="mono">ANTI_POLLUTION_AHF_100A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="" data-a="100A" value="1560" inputmode="numeric" aria-label="EXW price anti-pollution-ahf default 100A"></td></tr><tr><td class="a">150A</td><td class="mono">ANTI_POLLUTION_AHF_150A-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">29 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="" data-a="150A" value="2050" inputmode="numeric" aria-label="EXW price anti-pollution-ahf default 150A"></td></tr><tr><td class="a">200A</td><td class="mono">ANTI_POLLUTION_AHF_200A-400V-Rack-IP20</td><td class="mono">500 × 550 × 175</td><td class="mono">34 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="" data-a="200A" value="2720" inputmode="numeric" aria-label="EXW price anti-pollution-ahf default 200A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">ANTI_POLLUTION_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table><h3>480V 特例（覆盖标准档价格）</h3><table><thead><tr><th>Power capacity</th><th>Part number (480V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">50A</td><td class="mono">ANTI_POLLUTION_AHF_50A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="480V" data-a="50A" value="1400" inputmode="numeric" aria-label="EXW price anti-pollution-ahf 480V 50A"></td></tr><tr><td class="a">75A</td><td class="mono">ANTI_POLLUTION_AHF_75A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="480V" data-a="75A" value="1580" inputmode="numeric" aria-label="EXW price anti-pollution-ahf 480V 75A"></td></tr><tr><td class="a">100A</td><td class="mono">ANTI_POLLUTION_AHF_100A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">24 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="480V" data-a="100A" value="1900" inputmode="numeric" aria-label="EXW price anti-pollution-ahf 480V 100A"></td></tr><tr><td class="a">150A</td><td class="mono">ANTI_POLLUTION_AHF_150A-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">29 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="480V" data-a="150A" value="2460" inputmode="numeric" aria-label="EXW price anti-pollution-ahf 480V 150A"></td></tr><tr><td class="a">200A</td><td class="mono">ANTI_POLLUTION_AHF_200A-480V-Rack-IP20</td><td class="mono">500 × 550 × 175</td><td class="mono">34 kg</td><td><input class="p" data-slug="anti-pollution-ahf" data-v="480V" data-a="200A" value="3260" inputmode="numeric" aria-label="EXW price anti-pollution-ahf 480V 200A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">ANTI_POLLUTION_AHF_Unlimited-480V-Rack-IP20</td><td class="mono">500 × 550 × 130</td><td class="mono">19 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>690V/800V Anti-Pollution Active Harmonic Filter (85-100A) <span class="slug">/en/products/anti-pollution-hv-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">85A</td><td class="mono">ANTI_POLLUTION_HV_AHF_85A-400V-Rack-IP20</td><td class="mono">480 × 600 × 175</td><td class="mono">40 kg</td><td><input class="p" data-slug="anti-pollution-hv-ahf" data-v="" data-a="85A" value="4280" inputmode="numeric" aria-label="EXW price anti-pollution-hv-ahf default 85A"></td></tr><tr class="is-def"><td class="a">100A<span class="tag">默认</span></td><td class="mono">ANTI_POLLUTION_HV_AHF_100A-400V-Rack-IP20</td><td class="mono">480 × 600 × 175</td><td class="mono">40 kg</td><td><input class="p" data-slug="anti-pollution-hv-ahf" data-v="" data-a="100A" value="4280" inputmode="numeric" aria-label="EXW price anti-pollution-hv-ahf default 100A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">ANTI_POLLUTION_HV_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">480 × 600 × 175</td><td class="mono">40 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>Distributed Active Harmonic Filter (30-50A) <span class="slug">/en/products/distributed-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr><td class="a">30A</td><td class="mono">DISTRIBUTED_AHF_30A-400V-Rack-IP20</td><td class="mono">380 × 400 × 88</td><td class="mono">11.5 kg</td><td><input class="p" data-slug="distributed-ahf" data-v="" data-a="30A" value="910" inputmode="numeric" aria-label="EXW price distributed-ahf default 30A"></td></tr><tr class="is-def"><td class="a">50A<span class="tag">默认</span></td><td class="mono">DISTRIBUTED_AHF_50A-400V-Rack-IP20</td><td class="mono">380 × 400 × 88</td><td class="mono">11.5 kg</td><td><input class="p" data-slug="distributed-ahf" data-v="" data-a="50A" value="1080" inputmode="numeric" aria-label="EXW price distributed-ahf default 50A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">DISTRIBUTED_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">380 × 400 × 88</td><td class="mono">11.5 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>IP65 SiC-Low Noise Fan Active Harmonic Filter 50A <span class="slug">/en/products/sic-fanless-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr class="is-def"><td class="a">50A<span class="tag">默认</span></td><td class="mono">SIC_FANLESS_AHF_50A-400V-Rack-IP20</td><td class="mono">515 × 500 × 185</td><td class="mono">18 kg</td><td><input class="p" data-slug="sic-fanless-ahf" data-v="" data-a="50A" value="2400" inputmode="numeric" aria-label="EXW price sic-fanless-ahf default 50A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">SIC_FANLESS_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">515 × 500 × 185</td><td class="mono">18 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>IP65 SiC-Fanless Active Harmonic Filter 25A <span class="slug">/en/products/ip65-sic-fanless-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr class="is-def"><td class="a">25A<span class="tag">默认</span></td><td class="mono">SIC_FANLESS_AHF_25A-400V-Rack-IP20</td><td class="mono">515 × 500 × 185</td><td class="mono">18 kg</td><td><input class="p" data-slug="ip65-sic-fanless-ahf" data-v="" data-a="25A" value="1900" inputmode="numeric" aria-label="EXW price ip65-sic-fanless-ahf default 25A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">SIC_FANLESS_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">515 × 500 × 185</td><td class="mono">18 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>IP65 Active Harmonic Filter (100-150A) <span class="slug">/en/products/ip65-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr class="is-def"><td class="a">100A<span class="tag">默认</span></td><td class="mono">IP65_AHF_100A-400V-Rack-IP20</td><td class="mono">600 × 220 × 500</td><td class="mono">—</td><td><input class="p" data-slug="ip65-ahf" data-v="" data-a="100A" value="1900" inputmode="numeric" aria-label="EXW price ip65-ahf default 100A"></td></tr><tr><td class="a">150A</td><td class="mono">IP65_AHF_150A-400V-Rack-IP20</td><td class="mono">600 × 220 × 500</td><td class="mono">—</td><td><input class="p" data-slug="ip65-ahf" data-v="" data-a="150A" value="2460" inputmode="numeric" aria-label="EXW price ip65-ahf default 150A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">IP65_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">600 × 220 × 500</td><td class="mono">—</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<section><h2>Ultra-slim Active Harmonic Filter (8-20A) <span class="slug">/en/products/ultra-slim-ahf</span></h2><h3>模块规格</h3><table><thead><tr><th>Power capacity</th><th>Part number (400V · Rack · IP20)</th><th>W × D × H (mm)</th><th>Net weight</th><th>EXW price (USD)</th></tr></thead><tbody><tr class="is-def"><td class="a">8A<span class="tag">默认</span></td><td class="mono">ULTRA_SLIM_AHF_8A-400V-Rack-IP20</td><td class="mono">340 × 410 × 45</td><td class="mono">7.5 kg</td><td><input class="p" data-slug="ultra-slim-ahf" data-v="" data-a="8A" value="910" inputmode="numeric" aria-label="EXW price ultra-slim-ahf default 8A"></td></tr><tr><td class="a">15A</td><td class="mono">ULTRA_SLIM_AHF_15A-400V-Rack-IP20</td><td class="mono">340 × 410 × 45</td><td class="mono">7.5 kg</td><td><input class="p" data-slug="ultra-slim-ahf" data-v="" data-a="15A" value="910" inputmode="numeric" aria-label="EXW price ultra-slim-ahf default 15A"></td></tr><tr><td class="a">20A</td><td class="mono">ULTRA_SLIM_AHF_20A-400V-Rack-IP20</td><td class="mono">340 × 410 × 45</td><td class="mono">7.5 kg</td><td><input class="p" data-slug="ultra-slim-ahf" data-v="" data-a="20A" value="910" inputmode="numeric" aria-label="EXW price ultra-slim-ahf default 20A"></td></tr><tr><td class="a">Unlimited</td><td class="mono">ULTRA_SLIM_AHF_Unlimited-400V-Rack-IP20</td><td class="mono">340 × 410 × 45</td><td class="mono">7.5 kg</td><td><span class="tbd" title="price not settled yet - set it in src/data/*Sku.js">？？</span></td></tr></tbody></table></section>
+<div class="bar">
+  <button id="save">保存到项目</button>
+  <button id="copy">复制 JS 表</button>
+  <button id="export">下载 JSON</button>
+  <button id="reset">清除本地改动</button>
+  <span id="msg"></span>
+</div>
+<textarea id="out" readonly></textarea>
+<script>
+(function () {
+  var KEY = 'chitek-sku-prices-ahf';
+  var inputs = Array.prototype.slice.call(document.querySelectorAll('input.p'));
+  var base = {};     // values baked into this HTML by the generator
+  var saved = {};    // edits kept in this browser (survive a refresh)
+  function id(i) { return i.dataset.slug + '|' + i.dataset.v + '|' + i.dataset.a; }
+
+  // "4,280" / "$4,280" / "4 280" / "4280.00" -> 4280
+  // parseInt() alone stops at the first non-digit, which turned 4,280 into 4.
+  function toNum(v) {
+    var d = String(v).replace(/[^0-9]/g, '');
+    return d === '' ? 0 : parseInt(d, 10);
+  }
+
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  inputs.forEach(function (i) {
+    var k = id(i);
+    base[k] = i.value;
+    if (saved[k] !== undefined) {
+      if (String(saved[k]) === i.value) delete saved[k];   // same as the file -> nothing to keep
+      else i.value = saved[k];
+    }
+    i.classList.toggle('dirty', i.value !== base[k]);
+    i.addEventListener('input', function () {
+      if (i.value === base[k]) delete saved[k];
+      else saved[k] = i.value;
+      i.classList.toggle('dirty', i.value !== base[k]);
+      persist();
+    });
+    // keep only digits once the field loses focus, so "4,280" can never be
+    // saved back as 4 and the box never shows a separator the writer can't read
+    i.addEventListener('blur', function () {
+      var clean = String(toNum(i.value));
+      if (clean === i.value) return;
+      i.value = clean;
+      if (clean === base[k]) delete saved[k];
+      else saved[k] = clean;
+      i.classList.toggle('dirty', i.value !== base[k]);
+      persist();
+    });
+  });
+  persist();
+
+  function persist() {
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    var n = Object.keys(saved).length;
+    var msg = document.getElementById('msg');
+    msg.textContent = n
+      ? n + ' 个价格只存在这台浏览器里（刷新不丢）—— 点「下载 JSON」交给我写回数据文件'
+      : '全部与数据文件一致';
+    msg.className = n ? 'pending' : '';
+  }
+
+  function collect() {
+    var map = {};
+    inputs.forEach(function (i) {
+      var s = i.dataset.slug, v = i.dataset.v, a = i.dataset.a, n = toNum(i.value);
+      map[s] = map[s] || { rows: {}, byVoltage: {} };
+      if (v === '') map[s].rows[a] = n;
+      else { map[s].byVoltage[v] = map[s].byVoltage[v] || {}; map[s].byVoltage[v][a] = n; }
+    });
+    return map;
+  }
+
+  // 保存到项目：只有从 _sku_ledger_server.py 打开时才可用（同源 POST /save）
+  var saveBtn = document.getElementById('save');
+  if (location.protocol === 'file:') {
+    saveBtn.style.display = 'none';
+  } else {
+    saveBtn.addEventListener('click', function () {
+      saveBtn.disabled = true;
+      document.getElementById('msg').textContent = '正在写回数据文件并重建页面…';
+      fetch('/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(collect())
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          saveBtn.disabled = false;
+          if (res.ok) {
+            saved = {};
+            persist();
+            document.getElementById('msg').textContent = '已写回数据文件并重建页面 ✓ 刷新中…';
+            setTimeout(function () { location.reload(); }, 1200);
+          } else {
+            document.getElementById('msg').textContent = '保存失败：' + (res.log || res.error || '未知错误');
+          }
+        })
+        .catch(function () {
+          saveBtn.disabled = false;
+          document.getElementById('msg').textContent = '保存失败 —— 这个页面不是由 _sku_ledger_server.py 打开的，请用「下载 JSON」';
+        });
+    });
+  }
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var map = collect(), lines = [];
+    Object.keys(map).forEach(function (s) {
+      lines.push("  '" + s + "': {");
+      lines.push('    rows: {');
+      Object.keys(map[s].rows).forEach(function (a) { lines.push("      '" + a + "': " + map[s].rows[a] + ","); });
+      lines.push('    },');
+      var vs = Object.keys(map[s].byVoltage);
+      if (vs.length) {
+        lines.push('    byVoltage: {');
+        vs.forEach(function (v) {
+          lines.push("      '" + v + "': {");
+          Object.keys(map[s].byVoltage[v]).forEach(function (a) { lines.push("        '" + a + "': " + map[s].byVoltage[v][a] + ","); });
+          lines.push('      },');
+        });
+        lines.push('    },');
+      }
+      lines.push('  },');
+    });
+    var ta = document.getElementById('out');
+    ta.style.display = 'block';
+    ta.value = lines.join('\n');
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.getElementById('msg').textContent = '已复制 ' + lines.length + ' 行价格 —— 发给我回填到数据文件';
+  });
+
+  document.getElementById('export').addEventListener('click', function () {
+    var blob = new Blob([JSON.stringify(collect(), null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'sku-prices-ahf.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 3000);
+    document.getElementById('msg').textContent = '已下载 sku-prices-ahf.json —— 发给我，我用 _apply_sku_prices.py 写回数据文件并重新生成页面';
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    saved = {};
+    inputs.forEach(function (i) { i.value = base[id(i)]; i.classList.remove('dirty'); });
+    persist();
+    document.getElementById('msg').textContent = '已清除本地改动，恢复为数据文件里的值';
+  });
+})();
+</script>
+</body></html>

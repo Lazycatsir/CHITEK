@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>CHITEK 英文站管理文档</title><style>
+*{box-sizing:border-box}
+body{font:13px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:#111;margin:0;padding:26px 30px;max-width:1560px}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:16px;margin:30px 0 8px;padding-bottom:5px;border-bottom:1px solid #e3e3e3}
+h3{font-size:14px;margin:20px 0 6px}
+p{margin:8px 0}
+.nav{font-size:13px;margin:10px 0 22px;padding:8px 11px;background:#f7f7f7;border:1px solid #e3e3e3;border-radius:3px}
+.nav a{color:#c2410c;text-decoration:none;margin-right:16px}
+.nav a.on{font-weight:700;text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:6px 0 16px}
+th,td{border:1px solid #ddd;padding:4px 7px;text-align:left;vertical-align:top}
+th{background:#f5f5f5;font-weight:600;white-space:nowrap}
+td.num{text-align:right;white-space:nowrap}
+code{font-family:Consolas,monospace;font-size:12px}
+.miss{background:#fff3f3}
+.warn{background:#fffaf0}
+.gray{color:#999;background:#fafafa}
+.ok{color:#4b7a4b}
+.note{color:#666;font-size:12px}
+ul,ol{margin:6px 0;padding-left:20px}
+li{margin:2px 0}
+.kpi{display:inline-block;border:1px solid #e3e3e3;background:#fafafa;padding:6px 12px;margin:0 10px 8px 0;font-size:13px}
+.kpi b{font-size:16px;color:#c2410c}
+</style></head><body>
+<div class="nav"><a href="index.html" class="on">总览</a><a href="01-news-cards-and-links.html">① 新闻卡片与推荐链接</a><a href="02-download-links.html">② 下载链接管理</a><a href="03-product-sku.html">③ 产品 SKU 管理</a><a href="04-font-audit.html">④ 字体审计</a></div>
+<h1>CHITEK 英文站管理文档</h1>
+<p class="note">把英文站的新闻、下载链接、产品 SKU 三块「管理型」数据与字体审计报告集中成可检索、可核对的文档。全部由源码只读生成，不修改站点。</p>
+<h2>〇、四份文档</h2>
+<table><tr><th>文档</th><th>HTML</th><th>Markdown</th><th>内容</th></tr>
+<tr class=""><td class="">① 新闻卡片与推荐链接</td><td class=""><a href="01-news-cards-and-links.html">01-news-cards-and-links.html</a></td><td class=""><a href="01-news-cards-and-links.md">.md</a></td><td class="">列表页卡片总表 + 每篇文章的 3 块推荐链接（相关阅读/推荐产品/相关案例）+ 内链反查 + 校验</td></tr>
+<tr class=""><td class="">② 下载链接管理</td><td class=""><a href="02-download-links.html">02-download-links.html</a></td><td class=""><a href="02-download-links.md">.md</a></td><td class="">三张列表页卡片下载按钮 + 23 个详情页 Resources 现状 + 待补清单（43 处）</td></tr>
+<tr class=""><td class="">③ 产品 SKU 管理</td><td class=""><a href="03-product-sku.html">03-product-sku.html</a></td><td class=""><a href="03-product-sku.md">.md</a></td><td class="">SKU 命名规则 + 23 个带配置器产品页的选项/默认值/价格 + 三张列表页 24 张卡的筛选参数 + 校验</td></tr>
+<tr class=""><td class="">④ 字体审计</td><td class=""><a href="04-font-audit.html">04-font-audit.html</a></td><td class=""><a href="04-font-audit.md">.md</a></td><td class="">全站 2 字族（Barlow / Barlow Condensed）的字族·字重·字符调整签名汇总 + 各核心页/新闻页明细 + 不一致根因</td></tr>
+</table>
+<h2>一、怎么用</h2>
+<ul><li>日常管理 → 直接开 <code>index.html</code>（或对应的 .html），用浏览器打开就能看，不需启动站点。</li><li>源码改过之后 → 重跑 <code>python docs/en-site/_gen/gen_en_site_docs.py</code>，两份格式（html + md）一起刷新。</li><li>要交给别人 / 贴进文档 → 用同名的 <code>.md</code>，纯文本表格，可直接粘进任何文档系统。</li><li>待补清单里的「建议新 href」列 → 在 html 里看、在 md 里填，或直接改 <code>02-download-links.md</code>。</li></ul>
+<h2>二、数据源（只读）</h2>
+<ul><li><code>src/data/enNewsCards.js</code>、<code>src/pages/en/news/*.astro</code></li><li><code>src/pages/en/products*.astro</code>、<code>src/pages/en/products*/ *.astro</code></li><li><code>public/assets/pdf/*.pdf</code></li></ul>
+</body></html>

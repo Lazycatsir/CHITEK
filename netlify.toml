@@ -3,6 +3,22 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# ── PDF 去重兜底（2026-10-27）──
+# 这三份 user-manual-en.pdf 的 md5 完全相同（各 4.9MB），只保留
+# high-protection-series 一份，另外两个名字 301 过去，兜住外部旧链接/老书签。
+# ⚠️ 必须放在下面 /assets/* 的 200 透传规则之前，否则会被它遮蔽成 404。
+[[redirects]]
+  from = "/assets/pdf/anti-pollution-hv-ahf-user-manual-en.pdf"
+  to = "/assets/pdf/high-protection-series-user-manual-en.pdf"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/assets/pdf/anti-pollution-hv-svg-user-manual-en.pdf"
+  to = "/assets/pdf/high-protection-series-user-manual-en.pdf"
+  status = 301
+  force = true
+
 # 静态资源直接提供（不走重定向，避免 /_astro 被转发到 /en/_astro）
 [[redirects]]
   from = "/_astro/*"

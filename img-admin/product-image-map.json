@@ -1,0 +1,265 @@
+{
+  "_note": "产品图主数据。★ matrix = 尺寸组 × 形态 矩阵（主用）：matrix[\"130\"].forms[\"wall-screen\"] = 文件名（可写数组）；matrix[\"185\"].generic = 该尺寸暂无形态区分时的通用图。series[slug].image = 系列默认图；series[slug].specs = 规格级覆盖，key 写「容量|电压」；series[slug].forms = 形态级配图，key 为 wall-screen / wall-noscreen / rail-screen / rail-noscreen；screens = 屏形态：with(带小屏) / without(不带小屏)；mounts = 安装形态：wall(壁挂式) / rail(导轨式) / cabinet(机柜式) / any(通用外观) —— 全站只有壁挂和导轨两种主形态，没有「机架式」。值统一写 public/assets/images 下的文件名。改完重跑 build_product_images.py。",
+  "naming": "products-{line}-{series}-{capacity}-{voltage}.webp",
+  "series": {
+    "anti-pollution-ahf": {
+      "image": "products-ahf-anti-pollution.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "208V/400V/480V Anti-Pollution Active Harmonic Filter AHF",
+      "forms": {}
+    },
+    "anti-pollution-hv-ahf": {
+      "image": "products-ahf-anti-pollution-690v-800v-rackmount.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "690V/800V Anti-Pollution Active Harmonic Filter AHF",
+      "forms": {}
+    },
+    "distributed-ahf": {
+      "image": "products-ahf-distributed-rackmount.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "Distributed Active Harmonic Filter AHF",
+      "forms": {}
+    },
+    "ip65-ahf": {
+      "image": "products-ahf-ip65.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "IP65 Active Harmonic Filter",
+      "forms": {}
+    },
+    "ip65-sic-fanless-ahf": {
+      "image": "products-ahf-ip65-fanless.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "SiC-Fanless & Low Noise Active Harmonic Filter",
+      "forms": {}
+    },
+    "sic-fanless-ahf": {
+      "image": "products-ahf-sic-fanless.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "SiC-Fanless & Low Noise Active Harmonic Filter",
+      "forms": {}
+    },
+    "sic-ultra-ahf": {
+      "image": "products-ahf-sic.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "Silicon Carbide MOSFET Active Harmonic Filter SiC AHF",
+      "forms": {}
+    },
+    "ultra-slim-ahf": {
+      "image": "products-ahf-ultra-slim-rackmount.webp",
+      "specs": {},
+      "line": "AHF",
+      "name": "Ultra-slim Active Harmonic Filter AHF",
+      "forms": {}
+    },
+    "anti-pollution-hv-svg": {
+      "image": "products-ahf-anti-pollution-690v-800v-rackmount.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "690V/800V Anti-Pollution Static Var Generator SVG",
+      "forms": {}
+    },
+    "anti-pollution-svg": {
+      "image": "products-ahf-anti-pollution.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "208V/400V/480V Anti-Pollution Static Var Generator SVG",
+      "forms": {}
+    },
+    "distributed-svg": {
+      "image": "products-ahf-distributed-rackmount.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "Distributed Static Var Generator SVG",
+      "forms": {}
+    },
+    "ip65-sic-fanless-svg": {
+      "image": "products-ahf-ip65-fanless.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "SiC-Fanless & Low Noise Static Var Generator",
+      "forms": {}
+    },
+    "ip65-svg": {
+      "image": "products-ahf-ip65.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "IP65 Static Var Generator",
+      "forms": {}
+    },
+    "sic-fanless-svg": {
+      "image": "products-ahf-sic-fanless.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "SiC-Fanless & Low Noise Static Var Generator",
+      "forms": {}
+    },
+    "sic-ultra-svg": {
+      "image": "products-ahf-sic.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "Silicon Carbide MOSFET Static Var Generator SiC SVG",
+      "forms": {}
+    },
+    "ultra-slim-svg": {
+      "image": "products-ahf-ultra-slim-rackmount.webp",
+      "specs": {},
+      "line": "SVG",
+      "name": "Ultra-slim Static Var Generator SVG",
+      "forms": {}
+    },
+    "anti-pollution-asvg": {
+      "image": "products-ahf-anti-pollution.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "anti-pollution-hv-asvg": {
+      "image": "products-ahf-anti-pollution-690v-800v-rackmount.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "690V/800V Anti-Pollution Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "distributed-asvg": {
+      "image": "products-ahf-distributed-rackmount.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "Distributed Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "ip65-asvg": {
+      "image": "products-ahf-ip65.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "IP65 Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "ip65-sic-fanless-asvg": {
+      "image": "products-ahf-ip65-fanless.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "SiC-Fanless & Low Noise Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "sic-fanless-asvg": {
+      "image": "products-ahf-sic-fanless.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "SiC-Fanless & Low Noise Advanced Static Var Generator ASVG",
+      "forms": {}
+    },
+    "sic-ultra-asvg": {
+      "image": "products-ahf-sic.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG",
+      "forms": {}
+    },
+    "ultra-slim-asvg": {
+      "image": "products-ahf-ultra-slim-rackmount.webp",
+      "specs": {},
+      "line": "ASVG",
+      "name": "Ultra-slim Advanced Static Var Generator ASVG",
+      "forms": {}
+    }
+  },
+  "screens": {
+    "products-ahf-anti-pollution-690v-800v.webp": "with",
+    "products-ahf-ip65.webp": "without",
+    "products-ahf-distributed.webp": "with",
+    "products-ahf-ultra-slim-rackmount.webp": "without",
+    "products-ahf-ultra-slim.webp": "without",
+    "products-ahf-sic.webp": "with",
+    "products-ahf-ip65-fanless.webp": "without",
+    "products-ahf-sic-fanless.webp": "without",
+    "products-ahf-rack-mounted.webp": "with",
+    "products-ahf-advanced.webp": "with",
+    "products-asvg-4u-din-rail.webp": "with",
+    "products-asvg-4u-wall-mounted.webp": "with",
+    "products-ahf-anti-pollution.webp": "with",
+    "products-ahf-distributed-rackmount.webp": "with",
+    "products-asvg-cabinet.webp": "with",
+    "products-ahf-anti-pollution-690v-800v-rackmount.webp": "with"
+  },
+  "mounts": {
+    "products-asvg-cabinet.webp": "cabinet",
+    "products-ahf-anti-pollution-690v-800v.webp": "wall",
+    "products-ahf-sic.webp": "wall",
+    "products-asvg-4u-din-rail.webp": "rail",
+    "products-asvg-4u-wall-mounted.webp": "wall",
+    "products-ahf-distributed-rackmount.webp": "rail",
+    "products-ahf-ip65-fanless.webp": "any",
+    "products-ahf-rack-mounted.webp": "wall",
+    "products-ahf-sic-fanless.webp": "any",
+    "products-ahf-ultra-slim-rackmount.webp": "wall",
+    "products-ahf-anti-pollution.webp": "rail",
+    "products-ahf-anti-pollution-690v-800v-rackmount.webp": "rail",
+    "products-ahf-advanced.webp": "wall",
+    "products-ahf-ultra-slim.webp": "rail",
+    "products-ahf-distributed.webp": "wall",
+    "products-ahf-ip65.webp": "any"
+  },
+  "matrix": {
+    "45": {
+      "forms": {
+        "rail": [
+          "products-ahf-ultra-slim.webp"
+        ],
+        "wall": [
+          "products-ahf-ultra-slim-rackmount.webp"
+        ]
+      }
+    },
+    "88": {
+      "forms": {
+        "rail-screen": [
+          "products-ahf-distributed-rackmount.webp"
+        ],
+        "wall-screen": [
+          "products-ahf-distributed.webp"
+        ]
+      }
+    },
+    "130": {
+      "forms": {
+        "wall-screen": [
+          "products-ahf-sic.webp"
+        ],
+        "rail-screen": [
+          "products-ahf-anti-pollution.webp"
+        ]
+      }
+    },
+    "175": {
+      "forms": {
+        "rail-screen": [
+          "products-ahf-anti-pollution-690v-800v-rackmount.webp"
+        ],
+        "wall-screen": [
+          "products-ahf-anti-pollution-690v-800v.webp"
+        ]
+      }
+    },
+    "185": {
+      "forms": {},
+      "generic": [
+        "products-ahf-sic-fanless.webp",
+        "products-ahf-ip65-fanless.webp"
+      ]
+    },
+    "220": {
+      "forms": {},
+      "generic": [
+        "products-ahf-ip65.webp"
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+[vite] connected.
+[2m21:31:22[22m [34m[types][39m Generated [2m28ms[22m
+[42m[1m astro [22m[49m [32mv6.3.1[39m [2mready in[22m 18130 [2mms[22m
+[2m┃[22m Local    [36mhttp://127.0.0.1:4412/[39m
+[2m21:31:22[22m [32mwatching for file changes...[39m
+[2m21:32:18[22m [34m[200][39m /es/news/sic-vs-igbt [2m526ms[22m
+[2m21:32:18[22m [34m[200][39m /es/news/ieee-519-harmonic-distortion-limits [2m173ms[22m
+[2m21:32:18[22m [34m[200][39m /es/news/active-pfc-dynamic-reactive-compensation [2m113ms[22m
+[2m21:32:19[22m [34m[200][39m /ar/news/sic-vs-igbt [2m116ms[22m
+[2m21:32:19[22m [34m[200][39m /ar/news/ieee-519-harmonic-distortion-limits [2m122ms[22m
+[2m21:32:19[22m [34m[200][39m /es/news/ [2m120ms[22m
+[2m21:32:19[22m [34m[200][39m /ar/news/ [2m120ms[22m
+[vite] program reload
+[vite] An error happened during full reload
+Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+Error: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+    at loadAndTransform (file:///F:/%E4%B8%8B%E8%BD%BD/CHITEK/node_modules/vite/dist/node/chunks/config.js:22679:33)
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[vite] program reload
+[2m21:42:35[22m [34m[200][39m /es/news/what-are-harmonics-and-why-they-matter [2m253ms[22m
+[2m21:42:35[22m [34m[200][39m /es/news/ieee-519-harmonic-distortion-limits [2m107ms[22m
+[2m21:42:35[22m [34m[200][39m /ar/news/what-are-harmonics-and-why-they-matter [2m117ms[22m
+[2m21:42:35[22m [34m[200][39m /ar/news/ieee-519-harmonic-distortion-limits [2m116ms[22m
+[2m21:42:35[22m [34m[200][39m /es/news/sic-vs-igbt [2m57ms[22m
+[2m21:42:35[22m [34m[200][39m /es/news/active-pfc-dynamic-reactive-compensation [2m59ms[22m
+[2m21:42:36[22m [33m[404][39m /ar/solar-farm-dubai [2m123ms[22m
+[2m21:43:02[22m [34m[200][39m /es/news/solar-farm-dubai [2m128ms[22m
+[2m21:43:03[22m [34m[200][39m /ar/news/solar-farm-dubai [2m104ms[22m

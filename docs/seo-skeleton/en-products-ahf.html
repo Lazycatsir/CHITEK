@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>AHF 汇总页（Products 列表） — SEO 骨架</title><style>
+:root{--bd:#d8d8d8;--mut:#666;--bg:#fafafa;}
+*{box-sizing:border-box}
+body{font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;color:#1a1a1a;background:#fff;
+     margin:0;padding:32px 40px 120px;line-height:1.55;font-size:14px;max-width:1180px}
+h1{font-size:24px;margin:0 0 4px;border-bottom:2px solid #1a1a1a;padding-bottom:8px}
+h2{font-size:17px;margin:32px 0 8px;border-left:4px solid #1a1a1a;padding-left:8px}
+h3{font-size:14px;margin:20px 0 6px;color:#333}
+p.sub{color:var(--mut);margin:4px 0 12px}
+code{background:var(--bg);border:1px solid #e4e4e4;padding:1px 4px;font-family:Consolas,monospace;font-size:12.5px}
+table{border-collapse:collapse;width:100%;margin:6px 0 14px}
+th,td{border:1px solid var(--bd);padding:5px 8px;text-align:left;vertical-align:top;font-size:13px}
+th{background:var(--bg);font-weight:600;white-space:nowrap}
+td.lvl1{font-weight:700}
+td.lvl2{padding-left:16px}
+td.lvl3{padding-left:32px}
+td.lvl4{padding-left:48px;color:#444}
+.f{display:inline-block;padding:0 6px;font-size:12px;border:1px solid #bbb}
+.f.ok{color:#146c2e;border-color:#146c2e}
+.f.low,.f.high{color:#8a5a00;border-color:#8a5a00}
+.f.bad,.f.empty{color:#a11212;border-color:#a11212}
+.f.mute{color:#777;border-color:#ccc}
+.n{font-weight:700}
+.n.ok{color:#146c2e}
+.n.low,.n.high{color:#8a5a00}
+.n.bad,.n.empty{color:#a11212}
+td.tt{font-size:12.5px;color:#333}
+pre{background:var(--bg);border:1px solid #e4e4e4;padding:8px 10px;overflow-x:auto;
+    white-space:pre-wrap;word-break:break-word;font-family:Consolas,monospace;font-size:12.5px;margin:4px 0 12px}
+pre.body{max-height:none}
+.sec{border-top:1px dashed #ddd;padding-top:8px}
+ul.pts{list-style:none;padding-left:0;margin:6px 0 14px}
+ul.pts li{margin:3px 0}
+ul.ol{margin:4px 0 6px;padding-left:22px}
+ul.ol li{margin:2px 0}
+a{color:#0b57d0}
+.toc{background:var(--bg);border:1px solid var(--bd);padding:10px 14px}
+.toc a{display:inline-block;margin-right:16px}
+</style></head><body>
+<h1>AHF 汇总页（Products 列表）</h1>
+<p class="sub">本地路径 <code>/en/products/</code> ｜ canonical <code>https://en.chitek-inno.com/products/</code></p>
+<h2>零、自动体检结论</h2>
+<ul class='pts'>
+<li><span class='f warn'>注意</span> Title 69 字符，超过 60，SERP 易被截断（建议 30–60）</li>
+<li><span class='f ok'>OK</span> Description 长度 125，位于 110–160 区间</li>
+<li><span class='f ok'>OK</span> 全页唯一 H1：「Active Harmonic Filter (AHF) Series」</li>
+<li><span class='f ok'>OK</span> 页面级结构化数据：BreadcrumbList | ItemList | FAQPage（另有全站共用的 Organization / WebSite）</li>
+<li><span class='f ok'>OK</span> 全部 30 张图片均有 alt</li>
+<li><span class='f ok'>OK</span> 无功能性 href=&quot;#&quot;</li>
+<li><span class='f ok'>OK</span> 正文标题层级无跳级</li>
+<li><span class='f info'>说明</span> 导航/页脚内另有 3 个标题（H4）—— 属全站共用组件，非本页文案</li>
+<li><span class='f info'>说明</span> 正文可见词数 984，整页（含导航/页脚）1323 词</li>
+</ul>
+<h2>一、关键词命中体检（13 个目标词 · 来自关键词矩阵）</h2>
+<p class="sub">框架 §10：类目页吃<b>品类词</b>（category）+ <b>品类级询盘词</b>（transactional），向下把权重分给 8 张产品卡。型号层词（model，如 active harmonic filter 300a）归详情页、对比词（vs）归对比页/博客，均不在本页考核。</p>
+<p class="sub">命中口径：<b>core</b>=已进 meta title 或 H1（最关键）｜<b>mid</b>=仅在 H2/H3 或首段｜<b>body</b>=仅正文出现｜<b>变体</b>=只有复数/变形、缺精确形式（Bing 不认，见框架 §3.3）｜<b>未命中</b>=全页无此词。精确匹配按词边界判定。</p>
+<table class="kv">
+<tr><th>优先级</th><th>目标词数</th><th>进 title/H1</th><th>任一位置命中</th><th>完全未命中</th><th>命中率</th></tr>
+<tr><td>P0</td><td>13</td><td>1</td><td>1</td><td><span class='n bad'>12</span></td><td><span class='n bad'>8%</span></td></tr>
+</table>
+<h3>命名变体覆盖（同一件东西的不同叫法）</h3>
+<p class="sub">买家搜同一类产品会用不同名字（AHF / APF / 谐波滤波器 / STATCOM…）。框架 §3.3：Bing 对字面敏感，<b>每个主要叫法至少要有一次精确形式的出现</b>，否则那条叫法的搜索里你等于不存在。注意：Google 是语义匹配，不需要每页把每个叫法都塞一遍。</p>
+<table class="kv"><tr><th>叫法</th><th>词数</th><th>命中</th><th>命中率</th><th>未命中的词</th></tr>
+<tr><td><b>AHF</b></td><td>12</td><td>1</td><td><span class='n bad'>8%</span></td><td class='tt'>active power filter、active harmonic filter device、active filter power quality、harmonic filter active type、active harmonic filter price、active harmonic filter manufacturer、active harmonic filter supplier、active harmonic filter manufacturer china、harmonic filter factory china、buy active harmonic filter、active harmonic filter quotation</td></tr>
+<tr><td><b>APF</b></td><td>1</td><td>0</td><td><span class='n bad'>0%</span></td><td class='tt'>apf active power filter</td></tr>
+</table>
+<h3>逐词明细</h3>
+<p class="sub">判定为「精确匹配」：要求该词作为连续词组出现（按词边界）。若词序不同、或中间插了别的词（例：页面写 <code>Active Harmonic Filter professional manufacturer</code>，目标词 <code>active harmonic filter manufacturer</code> 会被判未命中），一律算未命中 —— <b>Bing 看字面、Google 看语义</b>，按你要投的渠道取舍。</p>
+<table class="kv"><tr><th>目标词</th><th>意图</th><th>优先级</th><th>URL</th><th>title</th><th>desc</th><th>H1</th><th>H2/H3</th><th>首段</th><th>正文</th><th>alt</th><th>状态</th></tr>
+<tr><td class='tt'><b>active harmonic filter</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span class='n ok'>1</span></td><td><span class='n ok'>1</span></td><td><span class='n ok'>1</span></td><td><span class='n ok'>12</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class='n ok'>12</span></td><td><span class="f ok">进 title/H1</span></td></tr>
+<tr><td class='tt'><b>active power filter</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter device</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active filter power quality</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>apf active power filter</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>harmonic filter active type</b></td><td>category</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter price</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter manufacturer</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter supplier</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter manufacturer china</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>harmonic filter factory china</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>buy active harmonic filter</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+<tr><td class='tt'><b>active harmonic filter quotation</b></td><td>transactional</td><td>P0</td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span style='color:#bbb'>·</span></td><td><span class="f bad">未命中</span></td></tr>
+</table>
+<h2>二、关键指标体检</h2>
+<table class="kv">
+<tr><th>项目</th><th>值</th><th>判断</th></tr>
+<tr><td>Title 长度</td><td>69 字符</td><td><span class="f high">偏长</span></td></tr>
+<tr><td>Description 长度</td><td>125 字符</td><td><span class="f ok">OK</span></td></tr>
+<tr><td>H1 数量（正文内）</td><td>1</td><td><span class="f ok">OK</span></td></tr>
+<tr><td>H1 数量（含导航/页脚）</td><td>1</td><td><span class="f ok">OK</span></td></tr>
+<tr><td>标题总数 H1–H6</td><td>16</td><td></td></tr>
+<tr><td>JSON-LD 块数</td><td>5</td><td></td></tr>
+<tr><td>Schema 类型</td><td>Organization | WebSite | BreadcrumbList | ItemList | FAQPage</td><td></td></tr>
+<tr><td>图片总数</td><td>30</td><td></td></tr>
+<tr><td>图片缺 alt</td><td>0</td><td><span class="f ok">OK</span></td></tr>
+<tr><td>内链数</td><td>145</td><td></td></tr>
+<tr><td>外链数</td><td>5</td><td></td></tr>
+<tr><td>href=&quot;#&quot; 占位</td><td>0</td><td><span class="f ok">OK</span></td></tr>
+<tr><td>正文可见词数</td><td>984</td><td></td></tr>
+<tr><td>整页可见词数</td><td>1323</td><td></td></tr>
+</table>
+<h2>三、meta 与 &lt;head&gt; 明细</h2>
+<table class="kv">
+<tr><th>字段</th><th>值</th></tr>
+<tr><td>&amp;lt;title&amp;gt;</td><td><code>Active harmonic filter professional manufacturer,China factory-CHITEK</code></td><td></td></tr>
+<tr><td>meta description</td><td>CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG for low-voltage power quality correction.</td><td></td></tr>
+<tr><td>meta robots</td><td>(未设置 = 默认 index,follow)</td><td></td></tr>
+<tr><td>canonical</td><td><code>https://en.chitek-inno.com/products/</code></td><td></td></tr>
+<tr><td>html lang / dir</td><td>en / ltr</td><td></td></tr>
+<tr><td>favicon</td><td><code>/assets/images/logo-head.svg</code></td><td></td></tr>
+<tr><td>Bing 验证</td><td>有</td><td></td></tr>
+</table>
+<h3>hreflang 多语言互指（6 条）</h3>
+<table class="kv"><tr><th>hreflang</th><th>href</th></tr>
+<tr><td>zh</td><td><code>https://chitek-inno.com/products/</code></td></tr>
+<tr><td>en</td><td><code>https://en.chitek-inno.com/products/</code></td></tr>
+<tr><td>pt</td><td><code>https://pt.chitek-inno.com/products/</code></td></tr>
+<tr><td>es</td><td><code>https://es.chitek-inno.com/products/</code></td></tr>
+<tr><td>ar</td><td><code>https://ar.chitek-inno.com/products/</code></td></tr>
+<tr><td>x-default</td><td><code>https://chitek-inno.com/products/</code></td></tr>
+</table>
+<h3>Open Graph / Twitter Card</h3>
+<table class="kv"><tr><th>属性</th><th>内容</th></tr>
+<tr><td>og:locale</td><td>en_US</td></tr>
+<tr><td>og:title</td><td>Active harmonic filter professional manufacturer,China factory-CHITEK</td></tr>
+<tr><td>og:description</td><td>CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG for low-voltage power quality correction.</td></tr>
+<tr><td>og:image</td><td>https://en.chitek-inno.com/assets/images/logo.webp</td></tr>
+<tr><td>og:url</td><td>https://en.chitek-inno.com/products/</td></tr>
+<tr><td>og:type</td><td>website</td></tr>
+<tr><td>og:site_name</td><td>CHITEK INNOPOWER</td></tr>
+<tr><td>twitter:card</td><td>summary_large_image</td></tr>
+<tr><td>twitter:title</td><td>Active harmonic filter professional manufacturer,China factory-CHITEK</td></tr>
+<tr><td>twitter:description</td><td>CHITEK offers Active Harmonic Filter (AHF), Static Var Generator (SVG), SiC AHF/SVG for low-voltage power quality correction.</td></tr>
+</table>
+<h2>四、结构化数据（JSON-LD）</h2>
+<h3>块 1 ｜ @type = Organization</h3>
+<pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;CHITEK INNOPOWER&quot;,
+  &quot;url&quot;: &quot;https://en.chitek-inno.com&quot;,
+  &quot;logo&quot;: &quot;https://en.chitek-inno.com/assets/images/logo.webp&quot;,
+  &quot;description&quot;: &quot;Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF) and Static Var Generator (SVG).&quot;,
+  &quot;contactPoint&quot;: {
+    &quot;@type&quot;: &quot;ContactPoint&quot;,
+    &quot;telephone&quot;: &quot;+86-18818994346&quot;,
+    &quot;contactType&quot;: &quot;sales&quot;,
+    &quot;availableLanguage&quot;: [
+      &quot;English&quot;,
+      &quot;Portuguese&quot;,
+      &quot;Spanish&quot;,
+      &quot;Arabic&quot;,
+      &quot;Chinese&quot;
+    ]
+  },
+  &quot;sameAs&quot;: [
+    &quot;https://www.linkedin.com/in/yongkai-li/&quot;,
+    &quot;https://www.youtube.com/@CHITEKNewEnergyTechnology&quot;,
+    &quot;https://www.facebook.com/profile.php?id=61579260405315&quot;
+  ]
+}</pre>
+<h3>块 2 ｜ @type = WebSite</h3>
+<pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;WebSite&quot;,
+  &quot;name&quot;: &quot;CHITEK INNOPOWER&quot;,
+  &quot;url&quot;: &quot;https://en.chitek-inno.com&quot;,
+  &quot;description&quot;: &quot;B2B industrial power quality solutions manufacturer — AHF and SVG for global industrial and commercial applications.&quot;,
+  &quot;inLanguage&quot;: [
+    &quot;en&quot;,
+    &quot;pt&quot;,
+    &quot;es&quot;,
+    &quot;ar&quot;,
+    &quot;zh&quot;
+  ]
+}</pre>
+<h3>块 3 ｜ @type = BreadcrumbList</h3>
+<pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;https://en.chitek-inno.com/&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 2,
+      &quot;name&quot;: &quot;Products&quot;,
+      &quot;item&quot;: &quot;https://en.chitek-inno.com/products&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 3,
+      &quot;name&quot;: &quot;Active Harmonic Filter&quot;
+    }
+  ]
+}</pre>
+<h3>块 4 ｜ @type = ItemList</h3>
+<pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;ItemList&quot;,
+  &quot;name&quot;: &quot;Active Harmonic Filter (AHF) Series&quot;,
+  &quot;numberOfItems&quot;: 8,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Silicon Carbide MOSFET Active Harmonic Filter SiC AHF&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/sic-ultra-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 2,
+      &quot;name&quot;: &quot;208V/400V/480V Anti-Pollution Active Harmonic Filter AHF&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/anti-pollution-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 3,
+      &quot;name&quot;: &quot;690V/800V Anti-Pollution Active Harmonic Filter AHF&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/anti-pollution-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 4,
+      &quot;name&quot;: &quot;Ultra-slim Active Harmonic Filter AHF&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/ultra-slim-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 5,
+      &quot;name&quot;: &quot;Distributed Active Harmonic Filter AHF&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/distributed-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 6,
+      &quot;name&quot;: &quot;IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/sic-fanless-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 7,
+      &quot;name&quot;: &quot;IP65 Active Harmonic Filter&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/ip65-ahf&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 8,
+      &quot;name&quot;: &quot;SiC-Fanless &amp; Low Noise Active Harmonic Filter&quot;,
+      &quot;url&quot;: &quot;https://en.chitek-inno.com/products/sic-fanless-ahf&quot;
+    }
+  ]
+}</pre>
+<h3>块 5 ｜ @type = FAQPage</h3>
+<pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How do the models in the AHF range differ?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;The range varies on two axes — switching technology (IGBT or SiC MOSFET) and mechanical format (ultra-slim wall mount, distributed, anti-pollution, IP65 outdoor and fanless low-noise). Every model applies the same real-time compensation principle; they differ in switching efficiency, footprint, enclosure rating and acoustic noise.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Which harmonic orders does the AHF series correct?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Every model in the range compensates harmonic orders from the 2nd through the 50th, and you choose how much of each individual order is corrected. Instead of running to a fixed curve, the compensation current tracks whatever the network is producing at that moment.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can AHF modules be combined to reach a higher capacity?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Yes. The range is modular — modules parallel without a practical limit, so the same platform covers a single wall-mounted unit and installations reaching 3000 A and beyond.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can AHF be installed outdoors or in harsh environments?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Yes. Alongside IP20 and IP30/IP40 enclosures for indoor switchrooms, the range includes IP65 models for outdoor and dusty sites, plus anti-pollution and fanless low-noise versions where dust, corrosion or acoustic noise is the constraint.&quot;
+      }
+    }
+  ]
+}</pre>
+<h2>五、标题层级（H1–H6，文档顺序）</h2>
+<table class="kv"><tr><th>层级</th><th>文本</th><th>所在区块</th></tr>
+<tr><td>H3</td><td class="lvl3">Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">208V/400V/480V Anti-Pollution Active Harmonic Filter AHF</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">690V/800V Anti-Pollution Active Harmonic Filter AHF</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">Ultra-slim Active Harmonic Filter AHF</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">Distributed Active Harmonic Filter AHF</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">IP65 Active Harmonic Filter</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H3</td><td class="lvl3">SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H1</td><td class="lvl1">Active Harmonic Filter (AHF) Series</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H2</td><td class="lvl2">Benefits of Active Harmonic Filter (AHF)</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H2</td><td class="lvl2">Application of Active Harmonic Filter (AHF)</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H2</td><td class="lvl2">Working Principle of Active Harmonic Filter (AHF)</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H2</td><td class="lvl2">FAQs About the Active Harmonic Filter (AHF) Series</td><td><span class="f ok">main</span></td></tr>
+<tr><td>H4</td><td class="lvl4">Products</td><td><span class="f mute">footer</span></td></tr>
+<tr><td>H4</td><td class="lvl4">Solutions</td><td><span class="f mute">footer</span></td></tr>
+<tr><td>H4</td><td class="lvl4">Resources &amp; Partnership</td><td><span class="f mute">footer</span></td></tr>
+</table>
+<h2>六、正文分区块（可直接对照改写）</h2>
+<p class="sub">共 5 块（按 H1/H2 边界切）｜ 正文可见词数 984。每块列出标题大纲 + 逐行正文纯文本（已排除导航/页脚/标题自身）。</p>
+<p class="sub">面包屑：Home › Products › Active Harmonic Filter › Static Var Generator › Advanced Static Var Generator</p>
+<div class="sec">
+<h3>块 1 ｜ Active Harmonic Filter (AHF) Series ｜ 1 个标题 ｜ 82 词</h3>
+<ul class="ol">
+<li><b>H1</b> Active Harmonic Filter (AHF) Series</li>
+</ul>
+<pre class="body">Every CHITEK AHF compensates harmonics from the 2nd through the 50th order, and you decide how much of each individual order gets corrected. The compensation current tracks whatever the network is producing at that moment instead of running to a fixed curve — cleaner power, less wasted energy.
+No two loads distort the waveform the same way, and a single load keeps changing its harmonic signature as operating conditions shift. The filter reads those changes continuously and adapts its output to follow them.</pre>
+</div>
+<div class="sec">
+<h3>块 2 ｜ Benefits of Active Harmonic Filter (AHF) ｜ 1 个标题 ｜ 33 词</h3>
+<ul class="ol">
+<li><b>H2</b> Benefits of Active Harmonic Filter (AHF)</li>
+</ul>
+<pre class="body">Save on energy costs
+Boost overall productivity
+Fast payback on your investment
+Electrical and process equipment keeps running longer
+Reliable operation with lower maintenance spend
+Extra usable capacity from your existing power grid</pre>
+</div>
+<div class="sec">
+<h3>块 3 ｜ Application of Active Harmonic Filter (AHF) ｜ 1 个标题 ｜ 46 词</h3>
+<ul class="ol">
+<li><b>H2</b> Application of Active Harmonic Filter (AHF)</li>
+</ul>
+<pre class="body">Industry
+Semiconductor, pulp &amp; paper, pharmaceuticals, food &amp; beverages, automotive, metal processing
+Commercial buildings
+Data centers, hospitals, airports, logistic centers, shopping malls
+Infrastructure and utilities
+Water treatment, wastewater purification, irrigation systems, desalination
+Anyone with VFDs
+Wherever VFDs are used, our active filter helps optimize performance and power quality</pre>
+</div>
+<div class="sec">
+<h3>块 4 ｜ Working Principle of Active Harmonic Filter (AHF) ｜ 1 个标题 ｜ 124 词</h3>
+<ul class="ol">
+<li><b>H2</b> Working Principle of Active Harmonic Filter (AHF)</li>
+</ul>
+<pre class="body">Inside every CHITEK AHF, an external CT keeps sampling the load current while the DSP at the core runs an advanced control algorithm. It tracks the demanded current as it shifts, splits the measured load current into active and reactive components with an intelligent FFT, and derives the harmonic content quickly and precisely.
+The DSP then feeds a PWM signal to the internal IGBT driver board, switching the IGBTs at 20 kHz. The inverter stage outputs a compensation current in opposite phase to the harmonics — and as it does, the CT reads the output current too and returns it to the DSP as negative feedback. That closed loop drives the next control cycle, which is what keeps the correction accurate and the system stable.</pre>
+</div>
+<div class="sec">
+<h3>块 5 ｜ FAQs About the Active Harmonic Filter (AHF) Series ｜ 1 个标题 ｜ 189 词</h3>
+<ul class="ol">
+<li><b>H2</b> FAQs About the Active Harmonic Filter (AHF) Series</li>
+</ul>
+<pre class="body">Q1: How do the models in the AHF range differ?
+The range varies on two axes — switching technology (IGBT or SiC MOSFET) and mechanical format (ultra-slim wall mount, distributed, anti-pollution, IP65 outdoor and fanless low-noise). Every model applies the same real-time compensation principle; they differ in switching efficiency, footprint, enclosure rating and acoustic noise.
+Q2: Which harmonic orders does the AHF series correct?
+Every model in the range compensates harmonic orders from the 2nd through the 50th, and you choose how much of each individual order is corrected. Instead of running to a fixed curve, the compensation current tracks whatever the network is producing at that moment.
+Q3: Can AHF modules be combined to reach a higher capacity?
+Yes. The range is modular — modules parallel without a practical limit, so the same platform covers a single wall-mounted unit and installations reaching 3000 A and beyond.
+Q4: Can AHF be installed outdoors or in harsh environments?
+Yes. Alongside IP20 and IP30/IP40 enclosures for indoor switchrooms, the range includes IP65 models for outdoor and dusty sites, plus anti-pollution and fanless low-noise versions where dust, corrosion or acoustic noise is the constraint.</pre>
+</div>
+<h2>七、图片与 alt 文本</h2>
+<table class="kv"><tr><th>#</th><th>src</th><th>alt</th><th>位置</th></tr>
+<tr><td>1</td><td><code>/assets/images/logo.webp</code></td><td>CHITEK Logo</td><td>nav</td></tr>
+<tr><td>2</td><td><code>/assets/images/products-ahf-anti-pollution.webp</code></td><td>Anti-Pollution Active Harmonic Filter AHF</td><td>nav</td></tr>
+<tr><td>3</td><td><code>/assets/images/products-ahf-sic.webp</code></td><td>Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</td><td>nav</td></tr>
+<tr><td>4</td><td><code>/assets/images/products-ahf-ultra-slim.webp</code></td><td>Ultra-slim Active Harmonic Filter AHF</td><td>nav</td></tr>
+<tr><td>5</td><td><code>/assets/images/products-ahf-anti-pollution.webp</code></td><td>Anti-Pollution Static Var Generator SVG</td><td>nav</td></tr>
+<tr><td>6</td><td><code>/assets/images/products-ahf-sic.webp</code></td><td>Silicon Carbide MOSFET Static Var Generator SiC SVG</td><td>nav</td></tr>
+<tr><td>7</td><td><code>/assets/images/products-ahf-ultra-slim.webp</code></td><td>Ultra-slim Static Var Generator SVG</td><td>nav</td></tr>
+<tr><td>8</td><td><code>/assets/images/products-ahf-anti-pollution.webp</code></td><td>Anti-Pollution Advanced Static Var Generator ASVG</td><td>nav</td></tr>
+<tr><td>9</td><td><code>/assets/images/products-asvg-4u-din-rail.webp</code></td><td>SiC Static Var Generator, 4U rail mounted</td><td>nav</td></tr>
+<tr><td>10</td><td><code>/assets/images/products-asvg-cabinet.webp</code></td><td>Advanced Static Var Generator Cabinet</td><td>nav</td></tr>
+<tr><td>11</td><td><code>/assets/images/flags/gb.png</code></td><td>English</td><td>nav</td></tr>
+<tr><td>12</td><td><code>/assets/images/flags/gb.png</code></td><td>UK</td><td>nav</td></tr>
+<tr><td>13</td><td><code>/assets/images/flags/pt.png</code></td><td>Portugal</td><td>nav</td></tr>
+<tr><td>14</td><td><code>/assets/images/flags/es.png</code></td><td>Spain</td><td>nav</td></tr>
+<tr><td>15</td><td><code>/assets/images/flags/sa.png</code></td><td>Saudi Arabia</td><td>nav</td></tr>
+<tr><td>16</td><td><code>/assets/images/flags/cn.png</code></td><td>China</td><td>nav</td></tr>
+<tr><td>17</td><td><code>/assets/images/about-bg.webp</code></td><td>Shenzhen CHITEK New Energy Technology Co., Ltd.</td><td>main</td></tr>
+<tr><td>18</td><td><code>/assets/images/products-ahf-sic.webp</code></td><td>Silicon Carbide MOSFET Static Var Generator SiC SVG</td><td>main</td></tr>
+<tr><td>19</td><td><code>/assets/images/products-ahf-ultra-slim.webp</code></td><td>Ultra-slim Static Var Generator SVG</td><td>main</td></tr>
+<tr><td>20</td><td><code>/assets/images/products-ahf-ip65-fanless.webp</code></td><td>IP65 SiC-Fanless &amp; Low Noise Static Var Generator</td><td>main</td></tr>
+<tr><td>21</td><td><code>/assets/images/products-ahf-sic.webp</code></td><td>Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</td><td>main</td></tr>
+<tr><td>22</td><td><code>/assets/images/products-ahf-anti-pollution.webp</code></td><td>208V/400V/480V Anti-Pollution Active Harmonic Filter AHF</td><td>main</td></tr>
+<tr><td>23</td><td><code>/assets/images/products-ahf-anti-pollution-690v-800v.webp</code></td><td>690V/800V Anti-Pollution Active Harmonic Filter AHF</td><td>main</td></tr>
+<tr><td>24</td><td><code>/assets/images/products-ahf-ultra-slim.webp</code></td><td>Ultra-slim Active Harmonic Filter AHF</td><td>main</td></tr>
+<tr><td>25</td><td><code>/assets/images/products-ahf-distributed.webp</code></td><td>Distributed Active Harmonic Filter AHF</td><td>main</td></tr>
+<tr><td>26</td><td><code>/assets/images/products-ahf-ip65-fanless.webp</code></td><td>IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td>main</td></tr>
+<tr><td>27</td><td><code>/assets/images/products-ahf-ip65.webp</code></td><td>IP65 Active Harmonic Filter</td><td>main</td></tr>
+<tr><td>28</td><td><code>/assets/images/products-ahf-sic-fanless.webp</code></td><td>SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td>main</td></tr>
+<tr><td>29</td><td><code>/assets/images/working-principle-ahf.webp</code></td><td>Working principle of CHITEK active harmonic filter</td><td>main</td></tr>
+<tr><td>30</td><td><code>/assets/images/logo.webp</code></td><td>CHITEK Logo</td><td>footer</td></tr>
+</table>
+<h2>八、站内链接清单</h2>
+<p class="sub">内链 145 条（含导航/页脚）。href="#" 占位 0 条。</p>
+<table class="kv"><tr><th>锚文本</th><th>href</th><th>位置</th></tr>
+<tr><td>(无文字)</td><td><code>/en</code></td><td>nav</td></tr>
+<tr><td>Products</td><td><code>/en/products</code></td><td>nav</td></tr>
+<tr><td>Active Harmonic Filter</td><td><code>/en/products</code></td><td>nav</td></tr>
+<tr><td>Anti-Pollution AHF</td><td><code>/en/products/anti-pollution-ahf</code></td><td>nav</td></tr>
+<tr><td>SiC AHF</td><td><code>/en/products/sic-ultra-ahf</code></td><td>nav</td></tr>
+<tr><td>Ultra-Slim AHF</td><td><code>/en/products/ultra-slim-ahf</code></td><td>nav</td></tr>
+<tr><td>Static Var Generator</td><td><code>/en/products-svg</code></td><td>nav</td></tr>
+<tr><td>Anti-Pollution SVG</td><td><code>/en/products-svg/anti-pollution-svg</code></td><td>nav</td></tr>
+<tr><td>SiC SVG</td><td><code>/en/products-svg/sic-ultra-svg</code></td><td>nav</td></tr>
+<tr><td>Ultra-Slim SVG</td><td><code>/en/products-svg/ultra-slim-svg</code></td><td>nav</td></tr>
+<tr><td>Advanced Static Var Generator</td><td><code>/en/products-asvg</code></td><td>nav</td></tr>
+<tr><td>Anti-Pollution ASVG</td><td><code>/en/products-asvg/anti-pollution-asvg</code></td><td>nav</td></tr>
+<tr><td>SiC ASVG</td><td><code>/en/products-asvg/sic-ultra-asvg</code></td><td>nav</td></tr>
+<tr><td>ASVG Cabinet</td><td><code>/en/products-asvg</code></td><td>nav</td></tr>
+<tr><td>Solutions</td><td><code>/en/solutions</code></td><td>nav</td></tr>
+<tr><td>Industrial Manufacturing</td><td><code>/en/solutions/industrial</code></td><td>nav</td></tr>
+<tr><td>Commercial &amp; Medical Buildings</td><td><code>/en/solutions/commercial</code></td><td>nav</td></tr>
+<tr><td>Data Centers &amp; Telecom</td><td><code>/en/solutions/data-center</code></td><td>nav</td></tr>
+<tr><td>Renewable Energy (PV/Wind)</td><td><code>/en/solutions/renewable</code></td><td>nav</td></tr>
+<tr><td>Transportation (Rail/Charging)</td><td><code>/en/solutions/rail-transit</code></td><td>nav</td></tr>
+<tr><td>Power Grid &amp; Utility</td><td><code>/en/solutions/power-grid</code></td><td>nav</td></tr>
+<tr><td>Services</td><td><code>/en/services</code></td><td>nav</td></tr>
+<tr><td>OEM/ODM</td><td><code>/en/services#oem</code></td><td>nav</td></tr>
+<tr><td>Technical Support</td><td><code>/en/services#tech-support</code></td><td>nav</td></tr>
+<tr><td>Distributor Program</td><td><code>/en/services#distributor</code></td><td>nav</td></tr>
+<tr><td>About</td><td><code>/en/about</code></td><td>nav</td></tr>
+<tr><td>Company Profile</td><td><code>/en/about#about</code></td><td>nav</td></tr>
+<tr><td>Case Studies</td><td><code>/en/about#industry</code></td><td>nav</td></tr>
+<tr><td>Certifications</td><td><code>/en/about#certifications</code></td><td>nav</td></tr>
+<tr><td>News</td><td><code>/en/news</code></td><td>nav</td></tr>
+<tr><td>Contact</td><td><code>/en/contact</code></td><td>nav</td></tr>
+<tr><td>English</td><td><code>/en/products/</code></td><td>nav</td></tr>
+<tr><td>Português</td><td><code>/pt/products/</code></td><td>nav</td></tr>
+<tr><td>Español</td><td><code>/es/products/</code></td><td>nav</td></tr>
+<tr><td>العربية</td><td><code>/ar/products/</code></td><td>nav</td></tr>
+<tr><td>中文</td><td><code>/products/</code></td><td>nav</td></tr>
+<tr><td>Silicon Carbide MOSFET Active Harmonic Filter SiC AHF</td><td><code>/en/products/sic-ultra-ahf</code></td><td>other</td></tr>
+<tr><td>208V/400V/480V Anti-Pollution Active Harmonic Filter AHF</td><td><code>/en/products/anti-pollution-ahf</code></td><td>other</td></tr>
+<tr><td>Ultra-slim Active Harmonic Filter AHF</td><td><code>/en/products/ultra-slim-ahf</code></td><td>other</td></tr>
+<tr><td>Distributed Active Harmonic Filter AHF</td><td><code>/en/products/distributed-ahf</code></td><td>other</td></tr>
+<tr><td>IP65 SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td><code>/en/products/sic-fanless-ahf</code></td><td>other</td></tr>
+<tr><td>IP65 Active Harmonic Filter</td><td><code>/en/products/ip65-ahf</code></td><td>other</td></tr>
+<tr><td>Silicon Carbide MOSFET Static Var Generator SiC SVG</td><td><code>/en/products-svg/sic-ultra-svg</code></td><td>other</td></tr>
+<tr><td>208V/400V/480V Anti-Pollution Static Var Generator SVG</td><td><code>/en/products-svg/anti-pollution-svg</code></td><td>other</td></tr>
+<tr><td>690V/800V Anti-Pollution Static Var Generator SVG</td><td><code>/en/products-svg/anti-pollution-hv-svg</code></td><td>other</td></tr>
+<tr><td>Ultra-slim Static Var Generator SVG</td><td><code>/en/products-svg/ultra-slim-svg</code></td><td>other</td></tr>
+<tr><td>Distributed Static Var Generator SVG</td><td><code>/en/products-svg/distributed-svg</code></td><td>other</td></tr>
+<tr><td>IP65 SiC-Fanless &amp; Low Noise Static Var Generator</td><td><code>/en/products-svg/ip65-sic-fanless-svg</code></td><td>other</td></tr>
+<tr><td>IP65 Static Var Generator</td><td><code>/en/products-svg/ip65-svg</code></td><td>other</td></tr>
+<tr><td>SiC-Fanless &amp; Low Noise Static Var Generator</td><td><code>/en/products-svg/sic-fanless-svg</code></td><td>other</td></tr>
+<tr><td>Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG</td><td><code>/en/products-asvg/sic-ultra-asvg</code></td><td>other</td></tr>
+<tr><td>208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/anti-pollution-asvg</code></td><td>other</td></tr>
+<tr><td>690V/800V Anti-Pollution Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/anti-pollution-hv-asvg</code></td><td>other</td></tr>
+<tr><td>Ultra-slim Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/ultra-slim-asvg</code></td><td>other</td></tr>
+<tr><td>Distributed Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/distributed-asvg</code></td><td>other</td></tr>
+<tr><td>IP65 SiC-Fanless &amp; Low Noise Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/ip65-sic-fanless-asvg</code></td><td>other</td></tr>
+<tr><td>IP65 Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/ip65-asvg</code></td><td>other</td></tr>
+<tr><td>SiC-Fanless &amp; Low Noise Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg/sic-fanless-asvg</code></td><td>other</td></tr>
+<tr><td>Home</td><td><code>/en/</code></td><td>nav</td></tr>
+<tr><td>Inquire Now</td><td><code>/en/contact</code></td><td>main</td></tr>
+<tr><td>Silicon Carbide MOSFET Static Var Generator SiC SVG</td><td><code>/en/products-svg</code></td><td>main</td></tr>
+<tr><td>Ultra-slim Static Var Generator SVG</td><td><code>/en/products-svg</code></td><td>main</td></tr>
+<tr><td>IP65 SiC-Fanless &amp; Low Noise Static Var Generator</td><td><code>/en/products-svg</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/sic-ultra-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/sic-ultra-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/sic-ultra-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>Catalog</td><td><code>/assets/pdf/chitek-power-quality-catalog.pdf</code></td><td>main</td></tr>
+<tr><td>Device Manual</td><td><code>/assets/pdf/sic-module-user-manual-en.pdf</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/anti-pollution-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/anti-pollution-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/anti-pollution-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>Device Manual</td><td><code>/assets/pdf/high-protection-series-user-manual-en.pdf</code></td><td>main</td></tr>
+<tr><td>690V/800V Anti-Pollution Active Harmonic Filter AHF</td><td><code>/en/products/anti-pollution-ahf</code></td><td>main</td></tr>
+<tr><td>Device Manual</td><td><code>/assets/pdf/anti-pollution-hv-ahf-user-manual-en.pdf</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/ultra-slim-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/ultra-slim-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/ultra-slim-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>Device Manual</td><td><code>/assets/pdf/ultra-slim-series-user-manual-en.pdf</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/distributed-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/distributed-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/distributed-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>Device Manual</td><td><code>/assets/pdf/distributed-ahf-user-manual-en.pdf</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/sic-fanless-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/sic-fanless-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/ip65-sic-fanless-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>(无文字)</td><td><code>/en/products/ip65-ahf</code></td><td>main</td></tr>
+<tr><td>View More</td><td><code>/en/products/ip65-ahf</code></td><td>main</td></tr>
+<tr><td>SiC-Fanless &amp; Low Noise Active Harmonic Filter</td><td><code>/en/products/sic-fanless-ahf</code></td><td>main</td></tr>
+<tr><td>Datasheet</td><td><code>/assets/pdf/sic-fanless-ahf-datasheet.pdf</code></td><td>main</td></tr>
+<tr><td>Active Harmonic Filter AHF</td><td><code>/en/products</code></td><td>footer</td></tr>
+<tr><td>Static Var Generator SVG</td><td><code>/en/products-svg</code></td><td>footer</td></tr>
+<tr><td>Advanced Static Var Generator ASVG</td><td><code>/en/products-asvg</code></td><td>footer</td></tr>
+<tr><td>SiC-AHF/SVG (High Efficiency)</td><td><code>/en/products</code></td><td>footer</td></tr>
+<tr><td>High-Protection AHF/SVG</td><td><code>/en/products</code></td><td>footer</td></tr>
+<tr><td>Technical Library</td><td><code>/en/services#tech-support</code></td><td>footer</td></tr>
+<tr><td>Global References</td><td><code>/en/services#tech-support</code></td><td>footer</td></tr>
+<tr><td>OEM &amp; ODM Services</td><td><code>/en/services#oem</code></td><td>footer</td></tr>
+<tr><td>Become a Distributor</td><td><code>/en/services#distributor</code></td><td>footer</td></tr>
+<tr><td>News &amp; Insights</td><td><code>/en/news</code></td><td>footer</td></tr>
+</table>
+<h2>九、GEO 可切块检查（框架 §4.3）</h2>
+<p class="sub">生成式引擎按「段落」召回与重排。三种可被引用的结构：<b>答案块</b>（小节开头 40–60 词先给完整答案）｜<b>数据块</b>（具体数字+单位、标准号）｜<b>对比块</b>（表格）。本表按每个 H2 块检查开头段词数、是否含数字与标准号。</p>
+<table class="kv"><tr><th>块</th><th>标题</th><th>开头段词数</th><th>答案块</th><th>含数字/单位</th><th>含标准号</th><th>块内词数</th></tr>
+<tr><td>1</td><td>Active Harmonic Filter (AHF) Series</td><td>47</td><td><span class="f ok">达标</span></td><td><span class="f ok">有</span></td><td><span class="f low">无</span></td><td>82</td></tr>
+<tr><td>2</td><td>Benefits of Active Harmonic Filter (AHF)</td><td>4</td><td><span class="f low">偏短 4</span></td><td><span class="f low">无</span></td><td><span class="f low">无</span></td><td>33</td></tr>
+<tr><td>3</td><td>Application of Active Harmonic Filter (AHF)</td><td>1</td><td><span class="f low">偏短 1</span></td><td><span class="f low">无</span></td><td><span class="f low">无</span></td><td>46</td></tr>
+<tr><td>4</td><td>Working Principle of Active Harmonic Filter (AHF)</td><td>53</td><td><span class="f ok">达标</span></td><td><span class="f ok">有</span></td><td><span class="f low">无</span></td><td>124</td></tr>
+<tr><td>5</td><td>FAQs About the Active Harmonic Filter (AHF) Series</td><td>10</td><td><span class="f low">偏短 10</span></td><td><span class="f ok">有</span></td><td><span class="f low">无</span></td><td>189</td></tr>
+</table>
+<p class="sub">⚠️ 开头段词数是「该 H2 块第一行文本」的词数。GEO 上理想形态是每块开头 40–60 词直接回答一个小问题；这里偏短/偏长只说明「形态不像答案块」，不等于内容差。</p>
+</body></html>

@@ -1,0 +1,1357 @@
+{
+  "slug_path": "/en/",
+  "name": "Home 首页",
+  "jsonld": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CHITEK INNOPOWER",
+      "url": "https://en.chitek-inno.com",
+      "logo": "https://en.chitek-inno.com/assets/images/logo.webp",
+      "description": "Leading manufacturer of low-voltage power quality solutions — Active Harmonic Filter (AHF) and Static Var Generator (SVG).",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+86-18818994346",
+        "contactType": "sales",
+        "availableLanguage": [
+          "English",
+          "Portuguese",
+          "Spanish",
+          "Arabic",
+          "Chinese"
+        ]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/yongkai-li/",
+        "https://www.youtube.com/@CHITEKNewEnergyTechnology",
+        "https://www.facebook.com/profile.php?id=61579260405315"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CHITEK INNOPOWER",
+      "url": "https://en.chitek-inno.com",
+      "description": "B2B industrial power quality solutions manufacturer — AHF and SVG for global industrial and commercial applications.",
+      "inLanguage": [
+        "en",
+        "pt",
+        "es",
+        "ar",
+        "zh"
+      ]
+    }
+  ],
+  "title": "CHITEK — Low Voltage AHF & SVG Manufacturer | Power Quality",
+  "description": "CHITEK manufactures low-voltage power quality equipment — Active Harmonic Filter (AHF), Static Var Generator (SVG) and AVR — for industrial and commercial sites.",
+  "robots": "(未设置 = 默认 index,follow)",
+  "viewport": "width=device-width, initial-scale=1.0",
+  "bing_verify": true,
+  "html_lang": "en",
+  "html_dir": "ltr",
+  "canonical": "https://en.chitek-inno.com/",
+  "favicon": "/assets/images/logo-head.svg",
+  "hreflang": [
+    [
+      "zh",
+      "https://chitek-inno.com/"
+    ],
+    [
+      "en",
+      "https://en.chitek-inno.com/"
+    ],
+    [
+      "pt",
+      "https://pt.chitek-inno.com/"
+    ],
+    [
+      "es",
+      "https://es.chitek-inno.com/"
+    ],
+    [
+      "ar",
+      "https://ar.chitek-inno.com/"
+    ],
+    [
+      "x-default",
+      "https://chitek-inno.com/"
+    ]
+  ],
+  "og": [
+    [
+      "og:locale",
+      "en_US"
+    ],
+    [
+      "og:title",
+      "CHITEK — Low Voltage AHF & SVG Manufacturer | Power Quality"
+    ],
+    [
+      "og:description",
+      "CHITEK manufactures low-voltage power quality equipment — Active Harmonic Filter (AHF), Static Var Generator (SVG) and AVR — for industrial and commercial sites."
+    ],
+    [
+      "og:image",
+      "https://en.chitek-inno.com/assets/images/logo.webp"
+    ],
+    [
+      "og:url",
+      "https://en.chitek-inno.com/"
+    ],
+    [
+      "og:type",
+      "website"
+    ],
+    [
+      "og:site_name",
+      "CHITEK INNOPOWER"
+    ]
+  ],
+  "twitter": [
+    [
+      "twitter:card",
+      "summary_large_image"
+    ],
+    [
+      "twitter:title",
+      "CHITEK — Low Voltage AHF & SVG Manufacturer | Power Quality"
+    ],
+    [
+      "twitter:description",
+      "CHITEK manufactures low-voltage power quality equipment — Active Harmonic Filter (AHF), Static Var Generator (SVG) and AVR — for industrial and commercial sites."
+    ]
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "Low Voltage AHF, SVG & ASVG Manufacturer for Industrial & Commercial Power Quality",
+      "where": "main",
+      "cls": "hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5",
+      "id": ""
+    },
+    {
+      "level": 2,
+      "text": "Customer Favorites",
+      "where": "main",
+      "cls": "relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,30px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Silicon Carbide MOSFET SiC AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "690V/800V Anti-Pollution AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Ultra-Slim AHF/SVG(Datacenter Cooling)",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "IP65 SiC-Fanless & Low Noise AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "208V/400V/480V Anti-Pollution AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Distributed AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "IP65 AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "SiC-Fanless & Low Noise AHF/SVG",
+      "where": "main",
+      "cls": "fp-name",
+      "id": ""
+    },
+    {
+      "level": 2,
+      "text": "ABOUT CHITEK",
+      "where": "main",
+      "cls": "font-barlow-condensed text-[45px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Experienced R&D Team",
+      "where": "main",
+      "cls": "text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Proprietary Design",
+      "where": "main",
+      "cls": "text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Diversified Products",
+      "where": "main",
+      "cls": "text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Quality Guaranteed",
+      "where": "main",
+      "cls": "text-[clamp(12px,1.1vw,17px)] font-bold text-white mb-2 leading-[1.4] uppercase tracking-[0.02em]",
+      "id": ""
+    },
+    {
+      "level": 2,
+      "text": "Product Series",
+      "where": "main",
+      "cls": "font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "AHF",
+      "where": "main",
+      "cls": "font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "SVG",
+      "where": "main",
+      "cls": "font-barlow-condensed text-[clamp(20px,2vw,32px)] font-bold uppercase mb-2",
+      "id": ""
+    },
+    {
+      "level": 2,
+      "text": "Solution Insights",
+      "where": "main",
+      "cls": "font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "LED Lighting Harmonic & Neutral Overload — Wholesale Mall, Guangzhou",
+      "where": "main",
+      "cls": "text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "Data Centre Feeder UPS Harmonics — Guangzhou IDC",
+      "where": "main",
+      "cls": "text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4",
+      "id": ""
+    },
+    {
+      "level": 3,
+      "text": "VFD & Compressor Feeder Retrofit — Electronics Manufacturer, Guangdong",
+      "where": "main",
+      "cls": "text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4",
+      "id": ""
+    },
+    {
+      "level": 4,
+      "text": "Products",
+      "where": "footer",
+      "cls": "text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]",
+      "id": ""
+    },
+    {
+      "level": 4,
+      "text": "Solutions",
+      "where": "footer",
+      "cls": "text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]",
+      "id": ""
+    },
+    {
+      "level": 4,
+      "text": "Resources & Partnership",
+      "where": "footer",
+      "cls": "text-[clamp(12px,1vw,16px)] font-bold tracking-[0.08em] uppercase text-white mb-[clamp(12px,2vw,32px)]",
+      "id": ""
+    }
+  ],
+  "images": [
+    {
+      "src": "/assets/images/logo.webp",
+      "alt": "CHITEK Logo",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-anti-pollution.webp",
+      "alt": "Anti-Pollution Active Harmonic Filter AHF",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-sic.webp",
+      "alt": "Silicon Carbide MOSFET Active Harmonic Filter SiC AHF",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-ultra-slim.webp",
+      "alt": "Ultra-slim Active Harmonic Filter AHF",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-anti-pollution.webp",
+      "alt": "Anti-Pollution Static Var Generator SVG",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-sic.webp",
+      "alt": "Silicon Carbide MOSFET Static Var Generator SiC SVG",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-ultra-slim.webp",
+      "alt": "Ultra-slim Static Var Generator SVG",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-ahf-anti-pollution.webp",
+      "alt": "Anti-Pollution Advanced Static Var Generator ASVG",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-asvg-4u-din-rail.webp",
+      "alt": "SiC Static Var Generator, 4U rail mounted",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/products-asvg-cabinet.webp",
+      "alt": "Advanced Static Var Generator Cabinet",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/gb.png",
+      "alt": "English",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/gb.png",
+      "alt": "UK",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/pt.png",
+      "alt": "Portugal",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/es.png",
+      "alt": "Spain",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/sa.png",
+      "alt": "Saudi Arabia",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/flags/cn.png",
+      "alt": "China",
+      "missing": false,
+      "where": "nav"
+    },
+    {
+      "src": "/assets/images/index-hero-product-family.webp",
+      "alt": "Fullest Product Range — AHF, SVG & ASVG, 208V to 800V, IP20 to IP65",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/index-hero-bg.webp",
+      "alt": "Engineer wiring rack-mounted power quality equipment in a server room",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-key-features.webp",
+      "alt": "In-house R&D and manufacturing — CHITEK power quality equipment over a production plant",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-sic.webp",
+      "alt": "Silicon Carbide MOSFET SiC AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-anti-pollution-690v-800v.webp",
+      "alt": "690V/800V Anti-Pollution AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-ultra-slim.webp",
+      "alt": "Ultra-Slim AHF/SVG(Datacenter Cooling)",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-ip65-fanless.webp",
+      "alt": "IP65 SiC-Fanless & Low Noise AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-anti-pollution.webp",
+      "alt": "208V/400V/480V Anti-Pollution AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-distributed.webp",
+      "alt": "Distributed AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-ip65.webp",
+      "alt": "IP65 AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/products-ahf-sic-fanless.webp",
+      "alt": "SiC-Fanless & Low Noise AHF/SVG",
+      "missing": false,
+      "where": "main"
+    },
+    {
+      "src": "/assets/images/logo.webp",
+      "alt": "CHITEK Logo",
+      "missing": false,
+      "where": "footer"
+    }
+  ],
+  "links": [
+    {
+      "href": "/en",
+      "text": "",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products",
+      "text": "Products",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products",
+      "text": "Active Harmonic Filter",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products/anti-pollution-ahf",
+      "text": "Anti-Pollution AHF",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products/sic-ultra-ahf",
+      "text": "SiC AHF",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products/ultra-slim-ahf",
+      "text": "Ultra-Slim AHF",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-svg",
+      "text": "Static Var Generator",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-svg/anti-pollution-svg",
+      "text": "Anti-Pollution SVG",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-svg/sic-ultra-svg",
+      "text": "SiC SVG",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-svg/ultra-slim-svg",
+      "text": "Ultra-Slim SVG",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-asvg",
+      "text": "Advanced Static Var Generator",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-asvg/anti-pollution-asvg",
+      "text": "Anti-Pollution ASVG",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-asvg/sic-ultra-asvg",
+      "text": "SiC ASVG",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products-asvg",
+      "text": "ASVG Cabinet",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions",
+      "text": "Solutions",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/industrial",
+      "text": "Industrial Manufacturing",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/commercial",
+      "text": "Commercial & Medical Buildings",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/data-center",
+      "text": "Data Centers & Telecom",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/renewable",
+      "text": "Renewable Energy (PV/Wind)",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/rail-transit",
+      "text": "Transportation (Rail/Charging)",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/solutions/power-grid",
+      "text": "Power Grid & Utility",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/services",
+      "text": "Services",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/services#oem",
+      "text": "OEM/ODM",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/services#tech-support",
+      "text": "Technical Support",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/services#distributor",
+      "text": "Distributor Program",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/about",
+      "text": "About",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/about#about",
+      "text": "Company Profile",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/about#industry",
+      "text": "Case Studies",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/about#certifications",
+      "text": "Certifications",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/news",
+      "text": "News",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/contact",
+      "text": "Contact",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/",
+      "text": "English",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/pt/",
+      "text": "Português",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/es/",
+      "text": "Español",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/ar/",
+      "text": "العربية",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/",
+      "text": "中文",
+      "kind": "internal",
+      "where": "nav"
+    },
+    {
+      "href": "/en/products",
+      "text": "Active Harmonic Filter",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/sic-ultra-ahf",
+      "text": "Silicon Carbide MOSFET Active Harmonic Filter SiC AHF",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/anti-pollution-ahf",
+      "text": "208V/400V/480V Anti-Pollution Active Harmonic Filter AHF",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/ultra-slim-ahf",
+      "text": "Ultra-slim Active Harmonic Filter AHF",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/distributed-ahf",
+      "text": "Distributed Active Harmonic Filter AHF",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/sic-fanless-ahf",
+      "text": "IP65 SiC-Fanless & Low Noise Active Harmonic Filter",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/ip65-ahf",
+      "text": "IP65 Active Harmonic Filter",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg",
+      "text": "Static Var Generator",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/sic-ultra-svg",
+      "text": "Silicon Carbide MOSFET Static Var Generator SiC SVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/anti-pollution-svg",
+      "text": "208V/400V/480V Anti-Pollution Static Var Generator SVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/anti-pollution-hv-svg",
+      "text": "690V/800V Anti-Pollution Static Var Generator SVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/ultra-slim-svg",
+      "text": "Ultra-slim Static Var Generator SVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/distributed-svg",
+      "text": "Distributed Static Var Generator SVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/ip65-sic-fanless-svg",
+      "text": "IP65 SiC-Fanless & Low Noise Static Var Generator",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/ip65-svg",
+      "text": "IP65 Static Var Generator",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-svg/sic-fanless-svg",
+      "text": "SiC-Fanless & Low Noise Static Var Generator",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg",
+      "text": "Advanced Static Var Generator",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/sic-ultra-asvg",
+      "text": "Silicon Carbide MOSFET Advanced Static Var Generator SiC ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/anti-pollution-asvg",
+      "text": "208V/400V/480V Anti-Pollution Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/anti-pollution-hv-asvg",
+      "text": "690V/800V Anti-Pollution Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/ultra-slim-asvg",
+      "text": "Ultra-slim Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/distributed-asvg",
+      "text": "Distributed Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/ip65-sic-fanless-asvg",
+      "text": "IP65 SiC-Fanless & Low Noise Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/ip65-asvg",
+      "text": "IP65 Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products-asvg/sic-fanless-asvg",
+      "text": "SiC-Fanless & Low Noise Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/industrial",
+      "text": "Industrial Manufacturing",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/commercial",
+      "text": "Commercial & Medical Buildings",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/data-center",
+      "text": "Data Centers & Telecom",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/renewable",
+      "text": "Renewable Energy (PV/Wind)",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/rail-transit",
+      "text": "Transportation (Rail/Charging)",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/solutions/power-grid",
+      "text": "Power Grid & Utility",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/services#oem",
+      "text": "OEM/ODM",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/services#tech-support",
+      "text": "Technical Support",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/services#distributor",
+      "text": "Distributor Program",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/about#about",
+      "text": "Company Profile",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/about#industry",
+      "text": "Case Studies",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/about#certifications",
+      "text": "Certifications",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/news",
+      "text": "News",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/contact",
+      "text": "Contact",
+      "kind": "internal",
+      "where": "other"
+    },
+    {
+      "href": "/en/products/sic-ultra-ahf",
+      "text": "Silicon Carbide MOSFET SiC AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/anti-pollution-ahf",
+      "text": "690V/800V Anti-Pollution AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/ultra-slim-ahf",
+      "text": "Ultra-Slim AHF/SVG(Datacenter Cooling)",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/sic-fanless-ahf",
+      "text": "IP65 SiC-Fanless & Low Noise AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/anti-pollution-ahf",
+      "text": "208V/400V/480V Anti-Pollution AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/distributed-ahf",
+      "text": "Distributed AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/ip65-ahf",
+      "text": "IP65 AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products/sic-fanless-ahf",
+      "text": "SiC-Fanless & Low Noise AHF/SVG",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products",
+      "text": "All Products",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/about",
+      "text": "Play Video",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products",
+      "text": "Active Harmonic Filter Series →",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/products-svg",
+      "text": "Static Var Generator Series →",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/solutions/commercial",
+      "text": "Read the harmonic mitigation case",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/solutions/data-center",
+      "text": "Read the data centre case",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "/en/solutions/industrial",
+      "text": "Read the industrial retrofit case",
+      "kind": "internal",
+      "where": "main"
+    },
+    {
+      "href": "https://www.linkedin.com/in/yongkai-li/",
+      "text": "",
+      "kind": "external",
+      "where": "footer"
+    },
+    {
+      "href": "https://www.youtube.com/@CHITEKNewEnergyTechnology",
+      "text": "",
+      "kind": "external",
+      "where": "footer"
+    },
+    {
+      "href": "https://www.facebook.com/profile.php?id=61579260405315",
+      "text": "",
+      "kind": "external",
+      "where": "footer"
+    },
+    {
+      "href": "/en/products",
+      "text": "Active Harmonic Filter AHF",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/products-svg",
+      "text": "Static Var Generator SVG",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/products-asvg",
+      "text": "Advanced Static Var Generator ASVG",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/products",
+      "text": "SiC-AHF/SVG (High Efficiency)",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/products",
+      "text": "High-Protection AHF/SVG",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/industrial",
+      "text": "Industrial Manufacturing",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/commercial",
+      "text": "Commercial & Medical Buildings",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/data-center",
+      "text": "Data Centers & Telecom",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/renewable",
+      "text": "Renewable Energy (PV/Wind)",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/rail-transit",
+      "text": "Transportation (Rail/Charging)",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/solutions/power-grid",
+      "text": "Power Grid & Utility",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/services#tech-support",
+      "text": "Technical Library",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/services#tech-support",
+      "text": "Global References",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/services#oem",
+      "text": "OEM & ODM Services",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/services#distributor",
+      "text": "Become a Distributor",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "/en/news",
+      "text": "News & Insights",
+      "kind": "internal",
+      "where": "footer"
+    },
+    {
+      "href": "tel:+8618818994346",
+      "text": "+86 18818994346",
+      "kind": "contact",
+      "where": "other"
+    },
+    {
+      "href": "mailto:leo.li@chitek-inno.com",
+      "text": "leo.li@chitek-inno.com",
+      "kind": "contact",
+      "where": "other"
+    },
+    {
+      "href": "https://wa.me/8618818994346",
+      "text": "+86 18818994346",
+      "kind": "external",
+      "where": "other"
+    }
+  ],
+  "sections": [
+    {
+      "no": 1,
+      "id": "",
+      "cls": "hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5",
+      "outline": [
+        {
+          "level": 1,
+          "text": "Low Voltage AHF, SVG & ASVG Manufacturer for Industrial & Commercial Power Quality"
+        }
+      ],
+      "first_head": "Low Voltage AHF, SVG & ASVG Manufacturer for Industrial & Commercial Power Quality",
+      "n_head": 1,
+      "chars": 309,
+      "words": 41,
+      "text": [
+        "208V to 800V, IP20 to IP65, IGBT and SiC — engineered and manufactured in our own plant. One focus, the widest range.",
+        "Easy",
+        "Installation",
+        "& Wiring",
+        "Plug-and-play · error-proof terminals · automatic fine-tuning",
+        "In-house",
+        "R&D",
+        "& Manufacturing",
+        "Experienced R&D team · 30+ patents · All required certifications obtained"
+      ]
+    },
+    {
+      "no": 2,
+      "id": "",
+      "cls": "relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,30px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]",
+      "outline": [
+        {
+          "level": 2,
+          "text": "Customer Favorites"
+        },
+        {
+          "level": 3,
+          "text": "Silicon Carbide MOSFET SiC AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "690V/800V Anti-Pollution AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "Ultra-Slim AHF/SVG(Datacenter Cooling)"
+        },
+        {
+          "level": 3,
+          "text": "IP65 SiC-Fanless & Low Noise AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "208V/400V/480V Anti-Pollution AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "Distributed AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "IP65 AHF/SVG"
+        },
+        {
+          "level": 3,
+          "text": "SiC-Fanless & Low Noise AHF/SVG"
+        }
+      ],
+      "first_head": "Customer Favorites",
+      "n_head": 9,
+      "chars": 12,
+      "words": 2,
+      "text": [
+        "All Products"
+      ]
+    },
+    {
+      "no": 3,
+      "id": "",
+      "cls": "font-barlow-condensed text-[45px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white",
+      "outline": [
+        {
+          "level": 2,
+          "text": "ABOUT CHITEK"
+        },
+        {
+          "level": 3,
+          "text": "Experienced R&D Team"
+        },
+        {
+          "level": 3,
+          "text": "Proprietary Design"
+        },
+        {
+          "level": 3,
+          "text": "Diversified Products"
+        },
+        {
+          "level": 3,
+          "text": "Quality Guaranteed"
+        }
+      ],
+      "first_head": "ABOUT CHITEK",
+      "n_head": 5,
+      "chars": 658,
+      "words": 86,
+      "text": [
+        "Shenzhen CHITEK New Energy Technology Co., Ltd., founded in 2019 and headquartered in Shenzhen, is a high-tech enterprise specializing in the research, development, manufacturing, and service of power electronic products. Committed to building an energy-efficient and green future.",
+        "Play Video",
+        "60",
+        "%",
+        "Strong Capability Backed by Well-educated, Highly Experienced Team",
+        "More than 30 Intellectual Properties covering Product Development and Manufacturing",
+        "Full Range of products covering different customer applications",
+        "ISO Certified manufacturing ensuring highest quality standards",
+        "0",
+        "Established in",
+        "0",
+        "+",
+        "Company Area",
+        "0",
+        "+",
+        "Intellectual Properties",
+        "0",
+        "+",
+        "Export Countries"
+      ]
+    },
+    {
+      "no": 4,
+      "id": "",
+      "cls": "font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]",
+      "outline": [
+        {
+          "level": 2,
+          "text": "Product Series"
+        },
+        {
+          "level": 3,
+          "text": "AHF"
+        },
+        {
+          "level": 3,
+          "text": "SVG"
+        }
+      ],
+      "first_head": "Product Series",
+      "n_head": 3,
+      "chars": 1809,
+      "words": 257,
+      "text": [
+        "Active Harmonic Filter",
+        "Static Var Generator",
+        "Active Harmonic Filters (AHF) covering 208V to 800V, with efficiency up to 99%. An AHF is a real-time, IGBT-based or Sic-based active filter that detects harmonic currents drawn by non-linear loads and injects equal, opposite currents to cancel them at the source — restoring a clean sinusoidal waveform and correcting power factor. Used across industrial plants, commercial buildings, data centers, hospitals, EV charging and renewable sites where harmonic distortion, PF penalties or grid instability are a concern.",
+        "Active Harmonic Filter Series →",
+        "CHITEK Static Var Generator (SVG) employs advanced IGBT or Sic switching at up to 25.6kHz to precisely regulate inverter voltage magnitude and phase. An SVG is a real-time reactive power compensator that injects or absorbs reactive current to dynamically correct power factor and stabilize voltage — eliminating penalties, sag and flicker. Used across industrial plants, commercial buildings, data centers, renewable farms, EV charging hubs and utility networks where reactive power, voltage fluctuation or load imbalance are a concern.",
+        "Static Var Generator Series →",
+        "Modular Design",
+        "Rack, wall and cabinet modules — size the unit to the switchroom and capacity you already have.",
+        "High Efficiency",
+        "Ultra-low calorific value, low standby power, efficiency up to 98.5–99.2%. SiC technology.",
+        "Versatile Compatibility",
+        "3-phase 3-wire and 4-wire, matching global low-voltage standards.",
+        "Parallel Expandable",
+        "Modules parallel without a practical limit — expand compensation capacity as the load grows.",
+        "Easy Maintenance",
+        "When a module is faulty, it does not affect other circuits. Quick maintenance within 5 minutes.",
+        "Safe & Reliable",
+        "Complete fault protection functions, Pollution Degree III rated for harsh industrial environments."
+      ]
+    },
+    {
+      "no": 5,
+      "id": "",
+      "cls": "font-barlow-condensed text-[clamp(36px,4vw,72px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]",
+      "outline": [
+        {
+          "level": 2,
+          "text": "Solution Insights"
+        },
+        {
+          "level": 3,
+          "text": "LED Lighting Harmonic & Neutral Overload — Wholesale Mall, Guangzhou"
+        },
+        {
+          "level": 3,
+          "text": "Data Centre Feeder UPS Harmonics — Guangzhou IDC"
+        },
+        {
+          "level": 3,
+          "text": "VFD & Compressor Feeder Retrofit — Electronics Manufacturer, Guangdong"
+        }
+      ],
+      "first_head": "Solution Insights",
+      "n_head": 4,
+      "chars": 586,
+      "words": 104,
+      "text": [
+        "Current distortion 49% → 2.75% · neutral current 365.76 A → 25.19 A. A 2,500 kVA mall transformer at 90% load, LED lighting and LED video walls. 2 × 200 A AHF.",
+        "Read the harmonic mitigation case",
+        "Harmonic current 204.96 A → 19.18 A · distortion 26.94% → 3.12% at 814 A load. TR1 feeder of an IDC hall; a 2 × 200 A + 100 A active filter built into the existing cabinet.",
+        "Read the data centre case",
+        "Current distortion 20.06% → 2.58% on a VFD, compressor and pump feeder. 800–1,000 A running current, 780 kvar of capacitor compensation; 2 × 200 A + 150 A AHF.",
+        "Read the industrial retrofit case"
+      ]
+    }
+  ],
+  "breadcrumb": [],
+  "main_words": 570,
+  "main_chars": 4098,
+  "total_words": 910
+}

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHITEK SKU 价格体系</title>
+<style>
+  :root{
+    --orange:#EA511E; --orange-dark:#C43B13; --ink:#222; --ink2:#555; --ink3:#888;
+    --line:#e2e2e2; --line2:#efefef; --bg:#fff; --bg2:#f7f7f7; --bg3:#fbfbfb;
+    --red:#c62828; --green:#1b7f3b; --amber:#9a3b12;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font:13px/1.55 -apple-system,"Segoe UI","Microsoft YaHei",Arial,sans-serif}
+  body{padding:16px 22px 60px;max-width:1520px}
+  h1{font-size:17px;font-weight:600;margin:0 0 3px}
+  .sub{color:var(--ink3);font-size:12px;margin-bottom:12px}
+  .sub b{color:var(--ink2);font-weight:600}
+  .warn{color:var(--amber)}
+  button{font:inherit;cursor:pointer;background:#fff;border:1px solid var(--line);
+    color:var(--ink);padding:5px 11px;border-radius:2px}
+  button:hover{border-color:#bbb;background:var(--bg2)}
+  button.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+  button.primary:hover{background:var(--orange-dark);border-color:var(--orange-dark)}
+  button.danger{color:var(--red);border-color:#e7c4c4}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  select,input[type=text],input[type=number],input[type=search]{
+    font:inherit;color:var(--ink);background:#fff;border:1px solid #d8d8d8;
+    border-radius:2px;padding:3px 5px;min-width:0}
+  select:focus,input:focus{outline:2px solid rgba(234,81,30,.22);outline-offset:-1px;border-color:var(--orange)}
+
+  .stats{display:flex;flex-wrap:wrap;border:1px solid var(--line);margin-bottom:12px}
+  .stat{flex:1 1 0;min-width:118px;padding:8px 12px;border-right:1px solid var(--line2)}
+  .stat:last-child{border-right:0}
+  .stat .k{font-size:11px;color:var(--ink3)}
+  .stat .v{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;margin-top:1px}
+  .stat .v small{font-size:11px;font-weight:400;color:var(--ink3);margin-left:3px}
+
+  .tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:12px}
+  .tabs button{border:1px solid transparent;border-bottom:2px solid transparent;background:transparent;
+    padding:7px 16px;font-size:13px;color:var(--ink2);border-radius:0}
+  .tabs button:hover{background:var(--bg2);border-color:transparent;border-bottom-color:#ddd}
+  .tabs button.on{color:var(--orange-dark);border-bottom-color:var(--orange);font-weight:600}
+
+  .bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:9px}
+  .bar .sp{flex:1}
+  .bar label{color:var(--ink2);font-size:12px}
+
+  .wrap{overflow:auto;border:1px solid var(--line);max-height:calc(100vh - 330px);background:#fff}
+  table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}
+  th,td{border-bottom:1px solid var(--line2);border-right:1px solid var(--line2);
+    padding:4px 8px;text-align:left;vertical-align:middle}
+  th:last-child,td:last-child{border-right:0}
+  thead th{position:sticky;top:0;z-index:3;background:var(--bg2);font-size:11px;font-weight:600;
+    color:var(--ink2);border-bottom:1px solid #d5d5d5;padding:6px 8px}
+  tbody tr:hover td{background:#fffdf7}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.grp{background:#eef2f6;font-weight:600;padding:7px 8px}
+  td.grp .spec{font-weight:400;color:var(--ink2);font-size:11.5px;margin-left:8px}
+  .muted{color:var(--ink3)}
+  .empty{padding:36px;text-align:center;color:var(--ink3)}
+  .hide{display:none!important}
+
+  table.edit td input[type=number]{width:92px;text-align:right;border-color:transparent;background:transparent}
+  table.edit td input[type=text]{border-color:transparent;background:transparent;width:100%}
+  table.edit td input:hover{border-color:#d8d8d8;background:#fff}
+  table.edit td input:focus{border-color:var(--orange);background:#fff}
+
+  .rules-tb td input[type=number]{width:100px;text-align:right}
+  .rules-tb td .unit{color:var(--ink3);font-size:11px;margin-left:5px}
+  .tag{display:inline-block;padding:0 5px;border:1px solid;border-radius:2px;font-size:11px}
+  .tag.apf{color:#1c5b9e;border-color:#c3d6ea;background:#f4f8fd}
+  .tag.svg{color:#7a4a00;border-color:#e6d3ab;background:#fffaf0}
+  .tag.todo{color:var(--red);border-color:#e7c4c4;background:#fdf4f4}
+
+  .qgrid{display:grid;grid-template-columns:minmax(340px,430px) 1fr;gap:16px;align-items:start}
+  @media(max-width:900px){.qgrid{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);padding:12px 14px;background:var(--bg3)}
+  .panel h3{font-size:12.5px;font-weight:600;margin:0 0 10px;color:var(--ink2)}
+  .fld{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .fld label{width:92px;color:var(--ink2);font-size:12px;flex:none}
+  .fld select,.fld input[type=number]{flex:1}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin:10px 0 4px}
+  .checks label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink)}
+  .checks label small{color:var(--ink3)}
+  .qtb{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  .qtb td{padding:5px 0;border-bottom:1px dashed var(--line)}
+  .qtb td.r{text-align:right;white-space:nowrap}
+  .qtb tr.sum td{border-top:1px solid #d5d5d5;border-bottom:0;padding-top:9px;font-size:15px;font-weight:600}
+  .qtb tr.sub td{font-weight:600;background:var(--bg2)}
+  .qhead{background:var(--bg2);padding:4px 8px;font-weight:600;font-size:12px;margin:10px 0 2px}
+  .terms{font-size:12px;color:var(--ink2);margin:0;padding-left:18px;line-height:1.8}
+  pre.quote-out{margin:12px 0 0;padding:12px;background:#fff;border:1px solid var(--line);
+    font:12px/1.75 ui-monospace,Consolas,monospace;white-space:pre-wrap;color:var(--ink)}
+  .hint{font-size:11.5px;color:var(--ink3);margin-top:7px;line-height:1.7}
+  .bad{color:var(--red);font-weight:600}
+</style>
+</head>
+<body>
+
+<h1>CHITEK SKU 价格体系</h1>
+<div class="sub">
+  基础价只按 <b>电流 / 容量档 + 价格分类（机型·电压）</b> 定；<b>小屏、壁挂、SiC、ASVG、中频炉、延保</b> 走统一加价规则，不单独建 SKU。
+  <span class="warn">数据源：盘厂底价表（图1）+ 价格说明（图2），2026-10-21 录入，单位 = 人民币元。</span>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="tabs">
+  <button type="button" class="on" data-tab="price">① 基础价目表</button>
+  <button type="button" data-tab="rules">② 加价规则</button>
+  <button type="button" data-tab="quote">③ 报价计算</button>
+</div>
+
+<div id="pane-price">
+  <div class="bar">
+    <label>价格分类</label><select id="fCat"></select>
+    <label>类型</label><select id="fType">
+      <option value="">全部</option><option value="APF">APF（按电流 A）</option><option value="SVG">SVG（按容量 Kvar）</option>
+    </select>
+    <input type="search" id="fKw" placeholder="搜型号 / 电流 / 备注" style="width:180px">
+    <button type="button" id="btnClear">清空筛选</button>
+    <span class="sp"></span>
+    <button type="button" id="btnExportCsv">导出 CSV</button>
+    <button type="button" class="danger" id="btnResetPrice">恢复表内底价</button>
+    <span class="muted" id="saveDot"></span>
+  </div>
+  <div class="wrap" id="priceWrap"></div>
+  <div class="hint">底价可直接改，改完自动存本机。<br>
+  型号规则：<code>M</code> + 机型位（A=高防护 / D=分布式 / L=高压）+ 类型位（F=APF / G=SVG）+ 三位电流或容量 + 电压接线位（34=400V三相四线 / 43=480V三相三线 / 63=690V / 83=800V）+ <code>RC</code>。</div>
+</div>
+
+<div id="pane-rules" class="hide">
+  <div class="bar">
+    <span class="muted">改数值后立即生效，报价计算同步更新。</span>
+    <span class="sp"></span>
+    <button type="button" class="danger" id="btnResetRules">恢复表内规则</button>
+  </div>
+  <table class="edit rules-tb" id="rulesTb"></table>
+  <div class="panel" style="margin-top:14px">
+    <h3>商务条款（随报价附带，不进单价）</h3>
+    <ul class="terms">
+      <li><b>质保期</b>：发货后 24 个月或上电后 15 个月，以先到为准。</li>
+      <li><b>延长质保</b>：每年价格 +3%。</li>
+      <li><b>付款条件</b>：到货后一个月。</li>
+      <li><b>标准交货期</b>：一周。</li>
+      <li><b>应用告知</b>：中频炉应用价格上浮 20%；中频炉及偶次谐波应用需<b>提前告知</b>。</li>
+    </ul>
+  </div>
+</div>
+
+<div id="pane-quote" class="hide">
+  <div class="qgrid">
+    <div class="panel">
+      <h3>1. 选型</h3>
+      <div class="fld"><label>基础机型</label><select id="qSku"></select></div>
+      <div class="fld"><label>数量（台）</label><input type="number" id="qQty" value="1" min="1" step="1"></div>
+
+      <h3 style="margin-top:14px">2. 加价项</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="qScreen"> 带小屏 <small id="lblScreen"></small></label>
+        <label><input type="checkbox" id="qWall"> 壁挂式套件 <small id="lblWall"></small></label>
+        <label><input type="checkbox" id="qSic"> SiC 机型 <small id="lblSic"></small></label>
+        <label><input type="checkbox" id="qAsvg"> ASVG <small id="lblAsvg"></small></label>
+        <label><input type="checkbox" id="qMid"> 中频炉应用 <small id="lblMid"></small></label>
+      </div>
+      <div class="fld" style="margin-top:8px"><label>延长质保</label>
+        <select id="qWarranty">
+          <option value="0">不延长</option><option value="1">+1 年</option>
+          <option value="2">+2 年</option><option value="3">+3 年</option>
+        </select>
+      </div>
+
+      <h3 style="margin-top:14px">3. 配件（单独购买，不进单价）</h3>
+      <div class="fld"><label>大屏通讯线缆</label><input type="number" id="qCableBig" value="0" min="0" step="1"><span class="muted" id="uCableBig"></span></div>
+      <div class="fld"><label>控制电容线缆</label><input type="number" id="qCableCtrl" value="0" min="0" step="1"><span class="muted" id="uCableCtrl"></span></div>
+      <div class="fld"><label>预制 CT 线缆</label><input type="number" id="qCableCT" value="0" min="0" step="0.5"><span class="muted" id="uCableCT"></span></div>
+    </div>
+
+    <div class="panel">
+      <h3>4. 报价明细</h3>
+      <table class="qtb" id="qTable"></table>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button type="button" class="primary" id="btnCopy">复制报价单文本</button>
+        <button type="button" id="btnClearQuote">清空选项</button>
+      </div>
+      <pre class="quote-out hide" id="quoteOut"></pre>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ================= 数据 ================= */
+  var CATS = [
+    {key:'1U',    name:'1U 超小型',      spec:'高度 45mm · 400V'},
+    {key:'2U',    name:'2U 分布式',      spec:'高度 88mm · 不含屏 · 400V'},
+    {key:'3U400', name:'3U 高防护 400V', spec:'高度 130mm（200A / 150Kvar 带小屏或壁挂为 175mm·4U）· 全系英飞凌 IGBT'},
+    {key:'3U480', name:'3U 高防护 480V', spec:'高度 130mm（200A / 180Kvar 带小屏或壁挂为 175mm·4U）· 三相三线 · 全系英飞凌 IGBT'},
+    {key:'4UHV',  name:'4U 800V / 690V', spec:'高度 175mm · 三相三线 · 全系英飞凌 IGBT'}
+  ];
+
+  var BASE0 = [
+    {cat:'1U', model:'MDF00834RC', type:'APF', rating:8,  price:2450, note:'原表写 MDF0??34RC，8/15/20A 同一底价，型号待定'},
+    {cat:'1U', model:'MDF01534RC', type:'APF', rating:15, price:2450, note:'同 8A 价'},
+    {cat:'1U', model:'MDF02034RC', type:'APF', rating:20, price:2450, note:'同 8A 价'},
+
+    {cat:'2U', model:'MDF03034RC', type:'APF', rating:30, price:2450, note:''},
+    {cat:'2U', model:'MDF05034RC', type:'APF', rating:50, price:2900, note:''},
+    {cat:'2U', model:'MDG03034RC', type:'SVG', rating:30, price:2450, note:'表内写 30Kvar（35Kvar）'},
+
+    {cat:'3U400', model:'MAF05034RC', type:'APF', rating:50,  price:3100, note:''},
+    {cat:'3U400', model:'MAF07534RC', type:'APF', rating:75,  price:3550, note:''},
+    {cat:'3U400', model:'MAF10034RC', type:'APF', rating:100, price:4200, note:''},
+    {cat:'3U400', model:'MAF15034RC', type:'APF', rating:150, price:5500, note:''},
+    {cat:'3U400', model:'MAF20034RC', type:'APF', rating:200, price:7300, note:'带小屏或壁挂 → 175mm / 4U'},
+    {cat:'3U400', model:'MAG03534RC', type:'SVG', rating:35,  price:3000, note:''},
+    {cat:'3U400', model:'MAG05034RC', type:'SVG', rating:50,  price:3300, note:''},
+    {cat:'3U400', model:'MAG07534RC', type:'SVG', rating:75,  price:4200, note:''},
+    {cat:'3U400', model:'MAG10034RC', type:'SVG', rating:100, price:4550, note:''},
+    {cat:'3U400', model:'MAG15034RC', type:'SVG', rating:150, price:6600, note:'带小屏或壁挂 → 175mm / 4U'},
+
+    {cat:'3U480', model:'MAF05043RC', type:'APF', rating:50,  price:3750, note:''},
+    {cat:'3U480', model:'MAF07543RC', type:'APF', rating:75,  price:4250, note:''},
+    {cat:'3U480', model:'MAF10043RC', type:'APF', rating:100, price:5100, note:''},
+    {cat:'3U480', model:'MAF15043RC', type:'APF', rating:150, price:6600, note:''},
+    {cat:'3U480', model:'MAF20043RC', type:'APF', rating:200, price:8750, note:'带小屏或壁挂 → 175mm / 4U'},
+    {cat:'3U480', model:'MAG04043RC', type:'SVG', rating:40,  price:3600, note:''},
+    {cat:'3U480', model:'MAG06043RC', type:'SVG', rating:60,  price:4000, note:''},
+    {cat:'3U480', model:'MAG08043RC', type:'SVG', rating:80,  price:5100, note:''},
+    {cat:'3U480', model:'MAG12043RC', type:'SVG', rating:120, price:5450, note:''},
+    {cat:'3U480', model:'MAG18043RC', type:'SVG', rating:180, price:7950, note:'带小屏或壁挂 → 175mm / 4U'},
+
+    {cat:'4UHV', model:'MLF08583RC', type:'APF', rating:85,  price:11500, note:'800V'},
+    {cat:'4UHV', model:'MLG12083RC', type:'SVG', rating:120, price:11500, note:'800V'},
+    {cat:'4UHV', model:'MLF10063RC', type:'APF', rating:100, price:11500, note:'690V'},
+    {cat:'4UHV', model:'MLG12063RC', type:'SVG', rating:120, price:11500, note:'690V'}
+  ];
+
+  var RULES0 = [
+    {key:'screen',  name:'带小屏',       mode:'fixed',   value:200,  unit:'元/台',   scope:'all', note:'价格说明第 3 条'},
+    {key:'wall',    name:'壁挂式套件',   mode:'fixed',   value:50,   unit:'元/台',   scope:'all', note:'价格说明第 3 条'},
+    {key:'sic',     name:'SiC 机型加价', mode:'fixed',   value:null, unit:'元/台',   scope:'all', note:'统一加价，金额待定 —— 填这里即全站生效'},
+    {key:'asvg',    name:'ASVG 加价',    mode:'perKvar', value:2,    unit:'元/Kvar', scope:'SVG', note:'价格说明第 2 条：每 Kvar 在 SVG 基础上加 2 元'},
+    {key:'midfreq', name:'中频炉应用',   mode:'pct',     value:20,   unit:'%',       scope:'all', note:'价格说明第 1 条：价格上浮 20%，偶次谐波需提前告知'},
+    {key:'warranty',name:'延长质保',     mode:'pctYear', value:3,    unit:'%/年',    scope:'all', note:'价格说明第 4 条：每年 +3%'}
+  ];
+
+  var PARTS0 = [
+    {key:'cableBig',  name:'大屏通讯线缆',        price:30, unit:'根'},
+    {key:'cableCtrl', name:'控制智能电容线缆',    price:15, unit:'根'},
+    {key:'cableCT',   name:'预制 CT 线缆 (2.5平)', price:30, unit:'米'}
+  ];
+
+  var STORE = 'chitek_sku_price_v3';
+  var ST = { base:[], rules:[], parts:[], tab:'price', savedAt:null };
+
+  /* ================= 工具 ================= */
+  function clone(o){ return JSON.parse(JSON.stringify(o)); }
+  function n(v){ var x = parseFloat(v); return isFinite(x) ? x : 0; }
+  function yuan(v){
+    if(v === null || v === undefined || v === '') return '—';
+    return Number(v).toLocaleString('zh-CN', {maximumFractionDigits:2});
+  }
+  function catOf(k){ for(var i=0;i<CATS.length;i++) if(CATS[i].key===k) return CATS[i]; return null; }
+  function ruleOf(k){ for(var i=0;i<ST.rules.length;i++) if(ST.rules[i].key===k) return ST.rules[i]; return null; }
+  function skuOf(m){ for(var i=0;i<ST.base.length;i++) if(ST.base[i].model===m) return ST.base[i]; return null; }
+  function byId(id){ return document.getElementById(id); }
+  function pad(x){ return x<10?'0'+x:''+x; }
+  function unitOf(t){ return t === 'APF' ? 'A' : 'Kvar'; }
+
+  /* ================= 存取 ================= */
+  function save(){
+    try{
+      localStorage.setItem(STORE, JSON.stringify({
+        base:ST.base.map(function(r){ return {model:r.model, price:r.price}; }),
+        rules:ST.rules.map(function(r){ return {key:r.key, value:r.value}; }),
+        parts:ST.parts.map(function(r){ return {key:r.key, price:r.price}; }),
+        savedAt:Date.now()
+      }));
+      ST.savedAt = Date.now(); paintSaved();
+    }catch(e){}
+  }
+  function load(){
+    var raw = null;
+    try{ raw = localStorage.getItem(STORE); }catch(e){}
+    ST.base = clone(BASE0); ST.rules = clone(RULES0); ST.parts = clone(PARTS0);
+    if(!raw) return false;
+    try{
+      var o = JSON.parse(raw);
+      (o.base||[]).forEach(function(x){
+        var r = skuOf(x.model);
+        if(r && x.price !== undefined && x.price !== null && x.price !== '') r.price = n(x.price);
+      });
+      (o.rules||[]).forEach(function(x){
+        var r = ruleOf(x.key);
+        if(r && x.value !== undefined) r.value = (x.value === null || x.value === '') ? null : n(x.value);
+      });
+      (o.parts||[]).forEach(function(x){
+        for(var i=0;i<ST.parts.length;i++) if(ST.parts[i].key===x.key) ST.parts[i].price = n(x.price);
+      });
+      ST.savedAt = o.savedAt || null;
+      return true;
+    }catch(e){ return false; }
+  }
+  function paintSaved(){
+    var el = byId('saveDot');
+    if(!ST.savedAt){ el.textContent = ''; return; }
+    var d = new Date(ST.savedAt);
+    el.textContent = '已保存 ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+
+  /* ================= 统计 ================= */
+  function renderStats(){
+    var apf = ST.base.filter(function(r){ return r.type==='APF'; }).length;
+    var svg = ST.base.filter(function(r){ return r.type==='SVG'; }).length;
+    var ps = ST.base.map(function(r){ return n(r.price); });
+    var min = Math.min.apply(null, ps), max = Math.max.apply(null, ps);
+    var sic = ruleOf('sic');
+    var sicMissing = !sic || sic.value === null || sic.value === '';
+    byId('stats').innerHTML = [
+      st('基础 SKU', ST.base.length + '<small>条</small>'),
+      st('APF（按 A）', apf + '<small>条</small>'),
+      st('SVG（按 Kvar）', svg + '<small>条</small>'),
+      st('底价区间', yuan(min) + ' – ' + yuan(max), '元'),
+      st('加价规则', ST.rules.length + '<small>条</small>'),
+      st('SiC 统一加价', sicMissing ? '待填' : ('+' + yuan(sic.value) + '<small>元/台</small>'))
+    ].join('');
+  }
+  function st(k, v, note){
+    return '<div class="stat"><div class="k">'+k+'</div><div class="v">'+v+
+      (note?' <small>'+note+'</small>':'')+'</div></div>';
+  }
+
+  /* ================= ① 价目表 ================= */
+  function initCatFilter(){
+    byId('fCat').innerHTML = '<option value="">全部分类</option>' + CATS.map(function(c){
+      return '<option value="'+c.key+'">'+c.name+'</option>';
+    }).join('');
+  }
+  function renderPrice(){
+    var fc = byId('fCat').value, ft = byId('fType').value, kw = byId('fKw').value.trim().toLowerCase();
+    var rs = ST.base.filter(function(r){
+      if(fc && r.cat !== fc) return false;
+      if(ft && r.type !== ft) return false;
+      if(kw && (r.model + ' ' + r.rating + ' ' + (r.note||'')).toLowerCase().indexOf(kw) < 0) return false;
+      return true;
+    });
+    if(!rs.length){ byId('priceWrap').innerHTML = '<div class="empty">没有匹配的 SKU。</div>'; return; }
+
+    var html = '<table class="edit"><colgroup><col style="width:150px"><col style="width:132px">' +
+      '<col style="width:62px"><col style="width:104px"><col style="width:112px"><col><col style="width:118px"></colgroup>' +
+      '<thead><tr><th>价格分类</th><th>型号</th><th>类型</th><th>电流 / 容量</th><th>盘厂底价</th><th>备注</th><th>单单位价</th></tr></thead><tbody>';
+
+    var last = null;
+    rs.forEach(function(r){
+      if(r.cat !== last){
+        var c = catOf(r.cat);
+        html += '<tr><td class="grp" colspan="7">' + c.name + '<span class="spec">' + c.spec + '</span></td></tr>';
+        last = r.cat;
+      }
+      html += '<tr data-model="'+r.model+'">' +
+        '<td class="muted">' + catOf(r.cat).name + '</td>' +
+        '<td><input type="text" data-pf="model" value="'+r.model+'"></td>' +
+        '<td><span class="tag '+(r.type==='APF'?'apf':'svg')+'">'+r.type+'</span></td>' +
+        '<td>'+r.rating+' '+unitOf(r.type)+'</td>' +
+        '<td class="num"><input type="number" data-pf="price" step="50" value="'+r.price+'"></td>' +
+        '<td><input type="text" data-pf="note" value="'+(r.note||'').replace(/"/g,'&quot;')+'"></td>' +
+        '<td class="num muted" data-c="per">' + (r.price / r.rating).toFixed(1) + ' 元/' + unitOf(r.type) + '</td>' +
+      '</tr>';
+    });
+    html += '</tbody></table>';
+    byId('priceWrap').innerHTML = html;
+  }
+
+  /* ================= ② 加价规则 ================= */
+  function renderRules(){
+    var rows = ST.rules.map(function(r){
+      var val = (r.value === null || r.value === '') ? '' : r.value;
+      var modeTxt = {fixed:'固定加价', perKvar:'按容量', pct:'按底价百分比', pctYear:'按底价百分比 / 年'}[r.mode];
+      var scopeTxt = r.scope === 'SVG' ? '仅 SVG 类型' : '全部机型';
+      var missing = (r.key==='sic' && val === '');
+      return '<tr data-rule="'+r.key+'">' +
+        '<td><b>'+r.name+'</b></td>' +
+        '<td class="muted">'+modeTxt+'</td>' +
+        '<td class="muted">'+scopeTxt+'</td>' +
+        '<td class="num"><input type="number" data-rv="1" step="1" value="'+val+'"' +
+          (missing ? ' placeholder="待填"' : '')+'><span class="unit">'+r.unit+'</span></td>' +
+        '<td class="muted">'+r.note+(missing ? ' <span class="tag todo">待定</span>' : '')+'</td>' +
+      '</tr>';
+    }).join('');
+
+    var parts = ST.parts.map(function(p){
+      return '<tr data-part="'+p.key+'"><td><b>'+p.name+'</b></td><td class="muted">配件，按量单独计价</td>' +
+        '<td class="muted">不计入整机单价</td>' +
+        '<td class="num"><input type="number" data-pv="1" step="1" value="'+p.price+'"><span class="unit">元/'+p.unit+'</span></td>' +
+        '<td class="muted">价格说明第 4 条</td></tr>';
+    }).join('');
+
+    byId('rulesTb').innerHTML =
+      '<colgroup><col style="width:150px"><col style="width:150px"><col style="width:118px"><col style="width:180px"><col></colgroup>' +
+      '<thead><tr><th>加价项</th><th>加价方式</th><th>适用范围</th><th>数值</th><th>说明</th></tr></thead>' +
+      '<tbody>' + rows +
+      '<tr><td class="grp" colspan="5">配件（单独购买）</td></tr>' + parts + '</tbody>';
+  }
+
+  /* ================= ③ 报价计算 ================= */
+  function initQuoteSku(){
+    var cur = byId('qSku').value;
+    var html = '';
+    CATS.forEach(function(c){
+      var items = ST.base.filter(function(r){ return r.cat === c.key; });
+      if(!items.length) return;
+      html += '<optgroup label="'+c.name+'">' + items.map(function(r){
+        return '<option value="'+r.model+'">'+r.model+' · '+r.type+' '+r.rating+unitOf(r.type)+' · '+yuan(r.price)+' 元</option>';
+      }).join('') + '</optgroup>';
+    });
+    byId('qSku').innerHTML = html;
+    if(cur && skuOf(cur)) byId('qSku').value = cur;
+    byId('uCableBig').textContent = '根 × ' + ST.parts[0].price + ' 元';
+    byId('uCableCtrl').textContent = '根 × ' + ST.parts[1].price + ' 元';
+    byId('uCableCT').textContent = '米 × ' + ST.parts[2].price + ' 元';
+    paintLabels();
+  }
+  function paintLabels(){
+    var screen = ruleOf('screen'), wall = ruleOf('wall'), sic = ruleOf('sic'),
+        asvg = ruleOf('asvg'), mid = ruleOf('midfreq');
+    byId('lblScreen').textContent = '+'+yuan(screen.value)+' 元';
+    byId('lblWall').textContent = '+'+yuan(wall.value)+' 元';
+    byId('lblSic').textContent = (sic.value === null || sic.value === '') ? '待填' : '+'+yuan(sic.value)+' 元';
+    byId('lblAsvg').textContent = '+'+yuan(asvg.value)+' 元/Kvar';
+    byId('lblMid').textContent = '+'+yuan(mid.value)+'%';
+  }
+
+  function calc(){
+    var s = skuOf(byId('qSku').value);
+    if(!s) return null;
+
+    var qty = Math.max(1, Math.round(n(byId('qQty').value) || 1));
+    var optScreen = byId('qScreen').checked, optWall = byId('qWall').checked,
+        optSic = byId('qSic').checked, optAsvg = byId('qAsvg').checked,
+        optMid = byId('qMid').checked, yrs = n(byId('qWarranty').value);
+
+    var rScreen = ruleOf('screen'), rWall = ruleOf('wall'), rSic = ruleOf('sic'),
+        rAsvg = ruleOf('asvg'), rMid = ruleOf('midfreq'), rWar = ruleOf('warranty');
+
+    var base = n(s.price);
+    var lines = [{label:'基础机型底价 · ' + s.model + '（' + s.type + ' ' + s.rating + unitOf(s.type) + '）', amt:base}];
+
+    var midAmt = optMid ? base * n(rMid.value) / 100 : 0;
+    if(optMid) lines.push({label:'中频炉应用 +' + n(rMid.value) + '%', note:'按底价', amt:midAmt});
+
+    var warAmt = yrs > 0 ? base * n(rWar.value) * yrs / 100 : 0;
+    if(yrs > 0) lines.push({label:'延长质保 +' + n(rWar.value) + '% × ' + yrs + ' 年', note:'按底价', amt:warAmt});
+
+    var screenAmt = optScreen ? n(rScreen.value) : 0;
+    if(optScreen) lines.push({label:'带小屏', note:'元/台', amt:screenAmt});
+
+    var wallAmt = optWall ? n(rWall.value) : 0;
+    if(optWall) lines.push({label:'壁挂式套件', note:'元/台', amt:wallAmt});
+
+    var sicAmt = 0, sicMissing = false;
+    if(optSic){
+      if(rSic.value === null || rSic.value === ''){ sicMissing = true; }
+      else { sicAmt = n(rSic.value); }
+      lines.push({label:'SiC 机型加价', note:sicMissing ? '未定价' : '元/台', amt:sicAmt, bad:sicMissing});
+    }
+
+    var asvgAmt = 0, asvgSkip = false;
+    if(optAsvg){
+      if(s.type !== 'SVG'){ asvgSkip = true; }
+      else { asvgAmt = n(rAsvg.value) * s.rating; }
+      lines.push({label:'ASVG 加价 ' + n(rAsvg.value) + ' 元/Kvar × ' + s.rating + ' Kvar',
+        note:asvgSkip ? '仅 SVG 适用' : '', amt:asvgAmt, bad:asvgSkip});
+    }
+
+    var unit = base + midAmt + warAmt + screenAmt + wallAmt + sicAmt + asvgAmt;
+
+    var qBig = Math.max(0, n(byId('qCableBig').value));
+    var qCtrl = Math.max(0, n(byId('qCableCtrl').value));
+    var qCT = Math.max(0, n(byId('qCableCT').value));
+    var partLines = [];
+    if(qBig > 0) partLines.push({label:'大屏通讯线缆 × ' + qBig + ' 根', amt:qBig * n(ST.parts[0].price)});
+    if(qCtrl > 0) partLines.push({label:'控制智能电容线缆 × ' + qCtrl + ' 根', amt:qCtrl * n(ST.parts[1].price)});
+    if(qCT > 0) partLines.push({label:'预制 CT 线缆 × ' + qCT + ' 米', amt:qCT * n(ST.parts[2].price)});
+    var partsTotal = partLines.reduce(function(a, x){ return a + x.amt; }, 0);
+
+    return {sku:s, qty:qty, lines:lines, unit:unit, partLines:partLines, partsTotal:partsTotal,
+      total:unit*qty + partsTotal, sicMissing:sicMissing, asvgSkip:asvgSkip,
+      opts:{screen:optScreen, wall:optWall, sic:optSic, asvg:optAsvg, mid:optMid, yrs:yrs}};
+  }
+
+  function renderQuote(){
+    var c = calc();
+    if(!c) return;
+    var html = '';
+    c.lines.forEach(function(l){
+      html += '<tr><td>'+l.label+(l.note?' <span class="muted">（'+l.note+'）</span>':'')+'</td>' +
+        '<td class="r'+(l.bad?' bad':'')+'">'+((l.bad && !l.amt) ? '待定价' : yuan(l.amt))+'</td></tr>';
+    });
+    html += '<tr class="sub"><td>单台合计</td><td class="r">'+yuan(c.unit)+'</td></tr>';
+    html += '<tr><td>数量</td><td class="r">× '+c.qty+' 台</td></tr>';
+    html += '<tr><td>整机小计</td><td class="r">'+yuan(c.unit*c.qty)+'</td></tr>';
+    if(c.partLines.length){
+      c.partLines.forEach(function(p){
+        html += '<tr><td>配件 · '+p.label+'</td><td class="r">'+yuan(p.amt)+'</td></tr>';
+      });
+    }
+    html += '<tr class="sum"><td>报价总额</td><td class="r">¥'+yuan(c.total)+'</td></tr>';
+    if(c.sicMissing){
+      html += '<tr><td colspan="2" class="bad" style="padding-top:9px">⚠ SiC 加价未填数值，当前按 +0 计。到「② 加价规则」填入金额后再报价。</td></tr>';
+    }
+    byId('qTable').innerHTML = html;
+  }
+
+  function quoteText(){
+    var c = calc();
+    if(!c) return '';
+    var L = [];
+    L.push('CHITEK 报价单  ' + new Date().toLocaleString('zh-CN'));
+    L.push('----------------------------------------');
+    L.push('型号：' + c.sku.model + '   ' + c.sku.type + ' ' + c.sku.rating + unitOf(c.sku.type));
+    L.push('分类：' + catOf(c.sku.cat).name);
+    L.push('----------------------------------------');
+    c.lines.forEach(function(l){
+      L.push(l.label + '  ' + ((l.bad && !l.amt) ? '待定价' : '¥' + yuan(l.amt)));
+    });
+    L.push('单台合计：¥' + yuan(c.unit));
+    L.push('数量：' + c.qty + ' 台    整机小计：¥' + yuan(c.unit*c.qty));
+    if(c.partLines.length){
+      L.push('---- 配件 ----');
+      c.partLines.forEach(function(p){ L.push(p.label + '  ¥' + yuan(p.amt)); });
+    }
+    L.push('----------------------------------------');
+    L.push('报价总额：¥' + yuan(c.total));
+    L.push('');
+    L.push('质保：发货后 24 个月或上电后 15 个月，以先到为准；延保每年 +3%。');
+    L.push('付款：到货后一个月。标准交货期：一周。');
+    if(c.opts.mid) L.push('※ 中频炉应用已按 +20% 计；偶次谐波应用需提前告知。');
+    if(c.sicMissing) L.push('※ SiC 加价尚未定价，本报价按 +0 计，正式报价前需确认。');
+    return L.join('\n');
+  }
+
+  /* ================= 事件 ================= */
+  function bindTabs(){
+    document.querySelector('.tabs').addEventListener('click', function(e){
+      var b = e.target.closest('button'); if(!b) return;
+      var t = b.dataset.tab;
+      ST.tab = t;
+      [].forEach.call(document.querySelectorAll('.tabs button'), function(x){
+        x.className = (x.dataset.tab === t) ? 'on' : '';
+      });
+      ['price','rules','quote'].forEach(function(k){
+        byId('pane-'+k).className = (k === t) ? '' : 'hide';
+      });
+      if(t === 'quote'){ initQuoteSku(); renderQuote(); }
+    });
+  }
+
+  function bindPrice(){
+    byId('priceWrap').addEventListener('input', function(e){
+      var t = e.target; if(!t.dataset || !t.dataset.pf) return;
+      var tr = t.closest('tr'); var s = skuOf(tr.dataset.model);
+      if(!s) return;
+      if(t.dataset.pf === 'price'){
+        s.price = n(t.value);
+        var per = tr.querySelector('[data-c="per"]');
+        if(per) per.textContent = (s.price / s.rating).toFixed(1) + ' 元/' + unitOf(s.type);
+        renderStats(); save();
+        if(ST.tab === 'quote'){ initQuoteSku(); renderQuote(); }
+      } else if(t.dataset.pf === 'note'){
+        s.note = t.value; save();
+      } else if(t.dataset.pf === 'model'){
+        var nm = t.value.trim();
+        if(!nm) return;
+        s.model = nm; tr.dataset.model = nm; save();
+        if(ST.tab === 'quote'){ initQuoteSku(); renderQuote(); }
+      }
+    });
+    ['fCat','fType'].forEach(function(id){ byId(id).addEventListener('change', renderPrice); });
+    var tmr = null;
+    byId('fKw').addEventListener('input', function(){ clearTimeout(tmr); tmr = setTimeout(renderPrice, 160); });
+    byId('btnClear').addEventListener('click', function(){
+      byId('fCat').value = ''; byId('fType').value = ''; byId('fKw').value = ''; renderPrice();
+    });
+    byId('btnExportCsv').addEventListener('click', function(){
+      var head = ['价格分类','型号','类型','电流/容量','单位','盘厂底价(元)','单单位价(元)','备注'];
+      var rows = ST.base.map(function(r){
+        return [catOf(r.cat).name, r.model, r.type, r.rating, unitOf(r.type),
+          r.price, (r.price / r.rating).toFixed(2), r.note || ''];
+      });
+      var csv = [head].concat(rows).map(function(a){
+        return a.map(function(x){
+          var s = String(x == null ? '' : x);
+          return /[",\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+        }).join(',');
+      }).join('\r\n');
+      download('\ufeff' + csv, 'CHITEK_盘厂底价_' + stamp() + '.csv', 'text/csv;charset=utf-8');
+    });
+    byId('btnResetPrice').addEventListener('click', function(){
+      if(!confirm('把 ' + BASE0.length + ' 条底价恢复成表内原值？改过的价格会丢失。')) return;
+      ST.base = clone(BASE0); save(); renderStats(); renderPrice();
+      if(ST.tab === 'quote'){ initQuoteSku(); renderQuote(); }
+    });
+  }
+
+  function bindRules(){
+    byId('rulesTb').addEventListener('input', function(e){
+      var t = e.target;
+      if(t.dataset && t.dataset.rv){
+        var r = ruleOf(t.closest('tr').dataset.rule);
+        if(!r) return;
+        r.value = (t.value === '') ? null : n(t.value);
+        var tagEl = t.closest('tr').querySelector('.tag.todo');
+        if(r.value === null && !tagEl){ t.insertAdjacentHTML('afterend', ' <span class="tag todo">待定</span>'); }
+        else if(r.value !== null && tagEl){ tagEl.remove(); }
+        t.placeholder = (r.value === null) ? '待填' : '';
+        renderStats(); paintLabels(); save();
+        if(ST.tab === 'quote') renderQuote();
+      }
+      if(t.dataset && t.dataset.pv){
+        var key = t.closest('tr').dataset.part;
+        for(var i=0;i<ST.parts.length;i++) if(ST.parts[i].key === key) ST.parts[i].price = n(t.value);
+        byId('uCableBig').textContent = '根 × ' + ST.parts[0].price + ' 元';
+        byId('uCableCtrl').textContent = '根 × ' + ST.parts[1].price + ' 元';
+        byId('uCableCT').textContent = '米 × ' + ST.parts[2].price + ' 元';
+        save(); if(ST.tab === 'quote') renderQuote();
+      }
+    });
+    byId('btnResetRules').addEventListener('click', function(){
+      if(!confirm('把加价规则恢复成表内原值？')) return;
+      ST.rules = clone(RULES0); ST.parts = clone(PARTS0);
+      save(); renderRules(); renderStats(); paintLabels();
+      if(ST.tab === 'quote') renderQuote();
+    });
+  }
+
+  function bindQuote(){
+    ['qSku','qQty','qWarranty'].forEach(function(id){
+      byId(id).addEventListener('change', renderQuote);
+      byId(id).addEventListener('input', renderQuote);
+    });
+    ['qScreen','qWall','qSic','qAsvg','qMid'].forEach(function(id){
+      byId(id).addEventListener('change', renderQuote);
+    });
+    ['qCableBig','qCableCtrl','qCableCT'].forEach(function(id){
+      byId(id).addEventListener('input', renderQuote);
+    });
+    byId('btnCopy').addEventListener('click', function(){
+      var txt = quoteText();
+      var out = byId('quoteOut');
+      out.textContent = txt; out.className = 'quote-out';
+      try{
+        navigator.clipboard.writeText(txt).then(function(){
+          byId('btnCopy').textContent = '已复制 ✓';
+          setTimeout(function(){ byId('btnCopy').textContent = '复制报价单文本'; }, 1600);
+        }, function(){});
+      }catch(e){}
+    });
+    byId('btnClearQuote').addEventListener('click', function(){
+      ['qScreen','qWall','qSic','qAsvg','qMid'].forEach(function(id){ byId(id).checked = false; });
+      byId('qWarranty').value = '0'; byId('qQty').value = 1;
+      ['qCableBig','qCableCtrl','qCableCT'].forEach(function(id){ byId(id).value = 0; });
+      byId('quoteOut').className = 'quote-out hide';
+      renderQuote();
+    });
+  }
+
+  function stamp(){
+    var d = new Date();
+    return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + '_' + pad(d.getHours()) + pad(d.getMinutes());
+  }
+  function download(text, name, mime){
+    var blob = new Blob([text], {type:mime});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+
+  /* ================= boot ================= */
+  load();
+  initCatFilter();
+  renderStats();
+  renderPrice();
+  renderRules();
+  initQuoteSku();
+  bindTabs(); bindPrice(); bindRules(); bindQuote();
+  renderQuote();
+  paintSaved();
+})();
+</script>
+</body>
+</html>

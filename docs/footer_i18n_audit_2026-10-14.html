@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Footer 五语言一致性检测 — 2026-10-14</title>
+<style>
+  body { margin: 0; padding: 32px 40px 80px; background: #fff; color: #222;
+         font: 14px/1.7 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 32px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e5e5; }
+  .sub { color: #777; font-size: 12px; margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 4px; }
+  th, td { border: 1px solid #e0e0e0; padding: 6px 10px; text-align: left; vertical-align: top;
+           font-size: 13px; word-break: break-all; }
+  th { background: #f7f7f7; font-weight: 600; }
+  code { background: #f4f4f4; padding: 1px 4px; font-family: Consolas, monospace; font-size: 12px; }
+  .ok { color: #1a7f37; font-weight: 600; }
+  .no { color: #c0392b; font-weight: 600; }
+  .warn { color: #b06a00; font-weight: 600; }
+  ul { margin: 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  .box { border: 1px solid #e0e0e0; padding: 12px 16px; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<h1>Footer 五语言一致性检测</h1>
+<div class="sub">CHITEK 站点 · zh / en / es / ar / pt · 2026-10-14 · 源码级复算 + 线上实测</div>
+
+<div class="box">
+<b>结论</b>：Footer 是<strong>单一来源组件</strong>（<code>src/components/Footer.astro</code>，全站唯一 <code>&lt;footer&gt;</code>，只被 BaseLayout 引用一次），
+5 语言靠 <code>lang</code> 分支渲染 —— 结构天然一致，无重复维护风险。<br>
+但存在 <strong>3 类差异</strong>，其中第 3 类为<strong>实测线上缺陷</strong>（非理论推断）。
+</div>
+
+<h2>一、结构 &amp; 翻译完整度</h2>
+<table>
+<tr><th>检查项</th><th>结果</th><th>说明</th></tr>
+<tr><td>组件数量</td><td class="ok">一致</td><td>全站 1 个 footer 组件，无各语言副本</td></tr>
+<tr><td>布局</td><td class="ok">一致</td><td>4 列 grid（品牌 / Products / Solutions / Resources）+ 底栏</td></tr>
+<tr><td>翻译字典</td><td class="ok">25 键 × 5 语言全非空</td><td>无缺译、无英文回退</td></tr>
+<tr><td>列内链接数</td><td class="no">pt 少 1 条</td><td>pt 的 Resources 列无 News 项 → 18 条链接，其余语言 19 条</td></tr>
+<tr><td>News 项渲染条件</td><td class="ok">有意为之</td><td><code>Footer.astro:120</code> 条件为 <code>zh||en||es||ar</code>，与「新闻无 pt 版」一致</td></tr>
+</table>
+
+<h2>二、链接目标差异（源码复算，online 模式）</h2>
+<table>
+<tr><th>链接</th><th>en</th><th>zh</th><th>es</th><th>ar</th><th>pt</th></tr>
+<tr><td>Products·AHF</td><td>/products</td><td>/zh/products</td><td>/es/products</td><td>/ar/products</td><td>/pt/products</td></tr>
+<tr><td>Products·SVG</td><td>/products-svg</td><td>/zh/products-svg</td><td class="warn">/es/products</td><td class="warn">/ar/products</td><td class="warn">/pt/products</td></tr>
+<tr><td>Products·ASVG</td><td>/products-asvg</td><td>/zh/products-asvg</td><td class="warn">/es/products</td><td class="warn">/ar/products</td><td class="warn">/pt/products</td></tr>
+<tr><td>Solutions 6 条</td><td>/solutions/{slug}（真实子页）</td><td colspan="4" class="warn">/{lang}/solutions#industry… 等锚点</td></tr>
+<tr><td>Resources·News</td><td>/news</td><td>/zh/news</td><td>/es/news</td><td>/ar/news</td><td class="warn">不渲染</td></tr>
+<tr><td>WhatsApp</td><td colspan="4">wa.me/8618818994346</td><td>wa.me/8619020586646（zh 专用，其余同左）</td></tr>
+</table>
+<ul>
+<li><b>Products 最后 3 行</b>：仅 en/zh 有独立 SVG/ASVG 页；es/ar/pt 的 5 条产品链接<strong>全部指向同一个 <code>/{lang}/products</code></strong>（无区分）。</li>
+<li><b>Solutions 6 条</b>：仅 en 指向真实行业子页；其余 4 语用锚点。</li>
+<li><b>共性冗余（5 语都一样，非语言间不一致）</b>：<code>Technical Library</code> 与 <code>Global References</code> 两个不同标签指向<strong>同一 URL</strong> <code>/services#tech-support</code>。</li>
+</ul>
+
+<h2>三、线上实测：链接可达性 <span class="no">（发现缺陷）</span></h2>
+<div class="sub">站点由子域承载语言，Netlify 规则：<code>https://es.chitek-inno.com/* → /es/:splat</code>（en / es / ar / pt / zh 同理）。</div>
+<table>
+<tr><th>请求 URL</th><th>结果</th><th>含义</th></tr>
+<tr><td>https://es.chitek-inno.com/es/products</td><td class="no">404</td><td rowspan="3">Footer 里 es 的 3 类链接（products / solutions / news）在 es 子域上<strong>全部 404</strong></td></tr>
+<tr><td>https://es.chitek-inno.com/es/solutions</td><td class="no">404</td></tr>
+<tr><td>https://es.chitek-inno.com/es/news</td><td class="no">404</td></tr>
+<tr><td>https://es.chitek-inno.com/products（无前缀）</td><td class="ok">200</td><td>正确形态：根相对、不带语言前缀</td></tr>
+<tr><td>https://ar.chitek-inno.com/ar/products</td><td class="no">404</td><td>ar 同样</td></tr>
+<tr><td>https://pt.chitek-inno.com/pt/products</td><td class="no">404</td><td>pt 同样</td></tr>
+<tr><td>https://chitek-inno.com/zh/products</td><td class="no">404</td><td>zh 同样（zh 在根域，应为 /products）</td></tr>
+<tr><td>https://en.chitek-inno.com/products（en 无前缀）</td><td class="ok">200</td><td><strong>en 正常</strong> —— 因为 en 的 prefix 是空串</td></tr>
+<tr><td>https://chitek-inno.com/es/products（根域带前缀）</td><td class="ok">200</td><td>另一入口，但 canonical/hreflang 指向的是子域</td></tr>
+</table>
+<div class="box">
+<b>根因</b>：<code>Footer.astro:41</code> 线上 prefix 给 zh→<code>/zh</code>、es→<code>/es</code>、ar→<code>/ar</code>、pt→<code>/pt</code>，
+而语言已由<strong>子域</strong>承载、Netlify 再补一次前缀 → 叠加成 <code>/es/es/products</code> → 404。<br>
+<b>影响面</b>：不止 footer —— <code>Nav.astro</code> 的同一套 <code>prefix</code>、以及 es/ar/pt 页面内硬编码的 <code>/es/…</code> 链接同病。
+<b>属全站级问题</b>，footer 只是其中之一。<br>
+<b>两种修法（待裁定）</b>：
+<ul>
+<li>若<strong>以子域为准</strong>（现状 canonical 即如此）→ 线上 prefix 统一改 <code>''</code>（与 <code>index.astro</code> 的 <code>lp()</code> 恒等一致）。</li>
+<li>若<strong>以根域 + 路径前缀为准</strong> → 现有前缀代码是对的，但 <code>LOCALE_DOMAIN</code> / canonical / hreflang 需改。</li>
+</ul>
+</div>
+
+<h2>四、锚点实测</h2>
+<table>
+<tr><th>锚点组</th><th>zh</th><th>en</th><th>es</th><th>ar</th><th>pt</th></tr>
+<tr><td>solutions 页 <code>#industry #commercial #datacenter #renewable #rail #grid</code></td>
+    <td class="no">0/6</td><td>—（用子页）</td><td class="no">0/6</td><td class="no">0/6</td><td class="no">0/6</td></tr>
+<tr><td>services 页 <code>#tech-support #oem #distributor</code></td>
+    <td class="ok">3/3</td><td class="ok">3/3</td><td class="ok">3/3</td><td class="ok">3/3</td><td class="ok">3/3</td></tr>
+</table>
+<p>solutions hub 页<strong>不存在</strong>那 6 个锚点 → zh/es/ar/pt footer 的 6 条 solutions 链接点击后只落在页面顶部，点不到对应行业。</p>
+
+<h2>五、语言传参正确性</h2>
+<table>
+<tr><th>检查项</th><th>结果</th></tr>
+<tr><td>根目录页面（zh）</td><td class="ok">全部 <code>lang="zh"</code></td></tr>
+<tr><td>en / es / ar / pt 子目录页面</td><td class="ok">lang 与目录一致，无错传</td></tr>
+<tr><td>en 子目录 7 个页面省略 lang（走默认 en）</td><td class="warn">结果正确但不显式：about / contact / index / products / products-svg / products-asvg / services</td></tr>
+</table>
+
+</body>
+</html>

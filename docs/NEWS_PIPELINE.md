@@ -6,6 +6,85 @@
 > 让根目录 `README.md` 回归「项目首页 + 文档地图」。
 > 项目规则见 `CLAUDE.md`。
 
+## 〇、输出契约（强制约束）
+
+> 本节是新闻详情页的**唯一可信输出规范**。任何新增 / 改写文章都必须满足下表。既有文章的偏离见 §七（坑 #16~#21），列入待修 backlog，新增文章不得再产生同类偏离。
+> 约束由 `npm run news:check`（`_verify_news_i18n.py`）做离线校验；新增的硬项会逐步接入校验脚本，现阶段以本表为人工自检基准。
+
+### 0.1 域名 / host 映射（LOCALE_DOMAIN）
+
+`ogImage`、`image`、`publisher.logo.url` **一律按语言子域**，不得写死根域：
+
+| 语言 | host | 示例 |
+|------|------|------|
+| zh | `chitek-inno.com` | `https://chitek-inno.com/assets/images/index-product-ahf.webp` |
+| en | `en.chitek-inno.com` | `https://en.chitek-inno.com/assets/images/index-product-ahf.webp` |
+| es | `es.chitek-inno.com` | `https://es.chitek-inno.com/assets/images/index-product-ahf.webp` |
+| ar | `ar.chitek-inno.com` | `https://ar.chitek-inno.com/assets/images/index-product-ahf.webp` |
+
+### 0.2 链接前缀 `lp()`（四语必定义）
+
+en 用 dev 前缀版；zh/es/ar 用恒等函数。**缺 `lp()` 的详情页在本地 dev 下内链会 404**（`news:sync` 不补这个，必须手写在 frontmatter 之后）：
+
+```js
+// en
+const lp = (p) => '/en' + p;
+// zh / es / ar
+const lp = (p) => p;
+```
+
+`lp()` 必须包裹：回链 `lp('/news')`、sidebar 三块的 `lp(item.href)` / `lp(product.href)` / `lp(c.href)`、正文 / CTA 内链。当前 zh 22 篇、es 19 篇、ar 19 篇缺 `lp()`，属待修 backlog（#16）。
+
+### 0.3 链接铁律
+
+- ❌ **禁止任何 `href="#"`**（全站硬规则）。分享按钮用 §0.4 模板，不得用 `#` 占位。
+- 当前 zh/es/ar 各 38 篇（共 114 篇）分享按钮是 `href="#"`，属待修 backlog（#17）。
+- `relatedCases` 每项**必须带 `href`**，sidebar「客户案例」渲染 `c.href`；不得把所有案例硬编码成同一个链接。
+
+### 0.4 分享按钮（canonical 模板）
+
+```astro
+const SHARE_URL = getHreflang('en', Astro.url.pathname);  // 各语言把 'en' 换成对应 lang
+...
+<a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`} ...>LinkedIn</a>
+<a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(article.title)}`} ...>Twitter</a>
+<a href="https://www.facebook.com/profile.php?id=61579260405315" ...>Facebook</a>
+```
+
+### 0.5 必要结构件（每篇必含）
+
+- `<BaseLayout>` 的 `ogImage`（按 §0.1 host）+ `ogType="article"`。
+- `<script type="application/ld+json" slot="head">` 的 **Article** JSON-LD（含 `headline / description / image / author / publisher / datePublished / dateModified / keywords`；`image` 与 `publisher.logo.url` 按 §0.1 host）。
+- `<!-- SEO Keywords -->` 标签区（`article.keywords.map()`）。
+- 当前 es/ar 各 4 篇（carbon-neutral-factories / saudi-arabia-standards / sic-vs-igbt / solar-farm-dubai）**缺 ogImage + Article JSON-LD**，属待修 backlog（#18）。
+
+### 0.6 `category` 规范值（五选一，按语言翻译，禁止串味）
+
+| 英文（规范） | zh | es | ar |
+|---|---|---|---|
+| Technology | 技术 | Tecnología | التكنولوجيا |
+| Case Study | 案例研究 | Caso de Estudio | دراسة حالة |
+| Product Update | 产品更新 | Actualización de Producto | تحديث المنتج |
+| Industry News | 行业动态 | Noticias del Sector | أخبار الصناعة |
+| Sustainability | 可持续发展 | Sostenibilidad | الاستدامة |
+
+- es 现状混杂：`Technology`(9, 英文残留) / `Tecnologia`(2, 漏重音) / `Tecnología`(14, 正确) —— 新文章只用 `Tecnología`；`Caso de Estudio` 与 `Estudio de Caso` 统一为 `Caso de Estudio`；`Actualización de Producto` 大小写统一。
+- ar 现状混杂：`التكنولوجيا`(13) / `تكنولوجيا`(8) / `تقنية`(4) —— 新文章只用 `التكنولوجيا`。
+
+### 0.7 `author` 规范值（按语言从下表选一，禁止自造）
+
+| 角色 | en | zh | es | ar |
+|---|---|---|---|---|
+| 技术（默认） | CHITEK Technical Team | CHITEK 技术团队 | Equipo Técnico de CHITEK | الفريق الفني لـ CHITEK |
+| 编辑 | CHITEK Editorial Team | CHITEK 编辑部 | Equipo Editorial de CHITEK | الفريق التحريري لـ CHITEK |
+| 可持续 | CHITEK Sustainability Team | CHITEK 可持续发展团队 | Equipo de Sostenibilidad de CHITEK | فريق الاستدامة لـ CHITEK |
+| 合规 | CHITEK Compliance Team | CHITEK 合规团队 | Equipo Regulatorio de CHITEK | فريق الامتثال التنظيمي لـ CHITEK |
+| 研发 | CHITEK R&D Team | CHITEK 研发团队 | Equipo de I+D de CHITEK | فريق البحث والتطوير لـ CHITEK |
+| 项目 | CHITEK Project Team | CHITEK 项目团队 | Equipo de Proyectos de CHITEK | فريق مشاريع CHITEK |
+
+- 显示 `author`（`article.author`）与 JSON-LD `author.name` **必须一致**（同一字符串）。
+- 禁止 es 的 `Equipo Técnico CHITEK`（漏 de）、`Equipo Tecnico`（漏重音）；禁止 ar 的 `FNI CHITEK الفني`、`فريق CHITEK الفني` 等变体。
+
 ## 一、流水线总览
 
 ```
@@ -46,10 +125,10 @@ LinkedIn 长文(.md) ──→ en .astro ─┼─→ 翻译同步（同 slug �
 > `title` · `category` · `date` · `dateDisplay` · `description`
 
 - `title`（文章标题）
-- `category`（分类：Technology / Case Study / Product Update / Industry News / Sustainability）
+- `category`（**必须从 §〇 0.6 的按语言规范值中选一**；禁止英文残留 / 同义变体 / 漏重音）
 - `date`（ISO yyyy-mm-dd，须与 JSON-LD datePublished 一致）
 - `dateDisplay`（本地化可读日期，如 "Jul 1, 2026" / "2026年7月1日" / "1 jul 2026" / "1 يوليو 2026"）
-- `author`（"CHITEK Technical Team" 或各语言翻译）
+- `author`（**必须从 §〇 0.7 的按语言规范值中选一**；显示值与 JSON-LD `author.name` 必须逐字一致）
 - `readTime`（"5 min read" / "5 分钟阅读"）
 - `description`（SEO 描述，截取正文前 120 字）
 - `keywords`（SEO 关键词数组）
@@ -57,7 +136,7 @@ LinkedIn 长文(.md) ──→ en .astro ─┼─→ 翻译同步（同 slug �
 **Sidebar 数据（3 个数组，须同步翻译）：**
 - `otherArticles` — 3 篇相关文章，每项包含 `title / category / href / color`
 - `relatedProducts` — 3 个相关产品，每项包含 `name / href / icon`
-- `relatedCases` — 3 个客户案例，每项包含 `name / industry`
+- `relatedCases` — 3 个客户案例，每项包含 `name / industry / href`（**`href` 必填**，sidebar 渲染 `c.href`，禁止硬编码同链）
 
 ### 3.3 详情页 HTML 结构
 
@@ -91,9 +170,10 @@ LinkedIn 长文(.md) ──→ en .astro ─┼─→ 翻译同步（同 slug �
         </div>
         <!-- Author & Share -->
       </article>
-      <aside class="lg:w-[320px]">  ← Inline sidebar
-        More Articles / Related Products / Customer Cases
-      </aside>
+  <aside class="lg:w-[320px]">  ← Inline sidebar
+    More Articles / Related Products / Customer Cases
+    （三块链接均走 `lp()`；客户案例渲染 `c.href`，禁止 `href="#"` 与硬编码同链 — 见 §〇 0.3/0.4）
+  </aside>
     </div>
   </section>
 </BaseLayout>
@@ -117,12 +197,12 @@ LinkedIn 长文(.md) ──→ en .astro ─┼─→ 翻译同步（同 slug �
   "@type": "Article",
   "headline": "{title}",
   "description": "{desc}",
-  "image": "https://chitek-inno.com/assets/images/...",
-  "author": { "@type": "Organization", "name": "CHITEK Technical Team" },
+  "image": "{LOCALE_DOMAIN}/assets/images/...",
+  "author": { "@type": "Organization", "name": "{与 article.author 完全一致}" },
   "publisher": {
     "@type": "Organization",
     "name": "CHITEK INNOPOWER",
-    "logo": { "@type": "ImageObject", "url": "https://chitek-inno.com/assets/images/logo.webp" }
+    "logo": { "@type": "ImageObject", "url": "{LOCALE_DOMAIN}/assets/images/logo.webp" }
   },
   "datePublished": "yyyy-mm-dd",
   "dateModified": "yyyy-mm-dd",
@@ -130,11 +210,13 @@ LinkedIn 长文(.md) ──→ en .astro ─┼─→ 翻译同步（同 slug �
 }
 ```
 
-> ⚠️ `publisher.logo.url` **必须用 `logo.webp`**，不要用 `Chitek-logo.png`
+> ⚠️ `image` 与 `publisher.logo.url` 的 host **按 §〇 0.1 的 LOCALE_DOMAIN 映射**（zh→根域，en/es/ar→各自子域），不得写死根域。
+> ⚠️ `publisher.logo.url` **必须用 `logo.webp`**，不要用 `Chitek-logo.png`。
+> ⚠️ `author.name` 必须与 frontmatter 的 `article.author` 字符串**逐字一致**。
 
 ### 3.6 `lp()` 函数（链接前缀）
 
-**所有语言必须定义 `lp()` 函数**，否则 `<Sidebar>` 和 inline sidebar 中的链接会报错。
+**所有语言必须定义 `lp()` 函数**（规范见 §〇 0.2），否则 `<Sidebar>` 和 inline sidebar 中的链接会报错。当前 zh/es/ar 共 60 篇缺 `lp()`，属待修 backlog（#16）。
 
 - en：定义带 dev 模式的版本（本地开发加 `/en/` 前缀，线上裸路径）
 - zh/es/ar：定义恒等函数 `const lp = (p) => p;`
@@ -234,7 +316,7 @@ src/data/{zh,en,es,ar}NewsCards.js                ← 自动生成（勿手改�
 
 - **卡片 & 详情页 featured image**：正文里第一张 `/assets/images/news/*.webp` 或 `/assets/images/blog/*.webp` 会被自动抓为卡片配图
 - 正文没有配图 → 自动按 slug 哈希挑一张 `news-img-1~8.webp` 兜底（**稳定**：新增文章不会打乱其他文章的图）
-- **ogImage**：`https://chitek-inno.com/assets/images/index-product-{ahf,svg}.webp` 或 `blog/sic-ahf-launch.webp`
+- **ogImage**：`{LOCALE_DOMAIN}/assets/images/index-product-{ahf,svg}.webp` 或 `blog/sic-ahf-launch.webp`（host 按 §〇 0.1 映射，不得写死根域）
 - 禁止用 SVG 渐变装饰替代真实图片
 
 **"阅读全文"文本：** en `Read More` / zh `阅读全文` / es `Leer más` / ar `اقرأ المزيد`
@@ -271,15 +353,21 @@ npm run build
 | 4 | **手工改 `src/data/*NewsCards.js`** | 下次 `news:sync` 被覆盖 | 数据文件是生成物，永远改文章 frontmatter |
 | 5 | **`article.date` 写成本地化串** | `date: "Oct 05, 2024"` | 必须 `yyyy-mm-dd`；本地化串放 `dateDisplay` |
 | 6 | **JSON-LD 日期不匹配** | `datePublished` 与 `article.date` 不一致 | 两者同步为同一 ISO 日期 |
-| 7 | **ogImage 用相对路径** | OG 图不生效 | 必须完整域名 `https://chitek-inno.com/assets/images/...` |
+| 7 | **ogImage 用相对路径 / 写死根域** | OG 图不生效 / 子域页 host 错 | 必须 `{LOCALE_DOMAIN}/assets/images/...`（按 §〇 0.1 映射，zh→根域其余→子域） |
 | 8 | **`article.keywords` 未定义 / 缺逗号** | `Expected "}" but found "keywords"` | `keywords` 必须在 `article` 对象里；注意 JS 对象尾逗号 |
-| 9 | **JSON-LD logo 路径** | 用了 `Chitek-logo.png` | 必须 `{SITE}/assets/images/logo.webp` |
+| 9 | **JSON-LD logo 路径** | 用了 `Chitek-logo.png` / 写死根域 | 必须 `{LOCALE_DOMAIN}/assets/images/logo.webp`（按 §〇 0.1） |
 | 10 | **详情页缺 SEO Keywords 标签区** | 正文与 Author 之间无 `#tag` 块 | 必须含 `<!-- SEO Keywords -->` + `article.keywords.map()` |
-| 11 | **en 详情页内链少 `lp()`** | 本地 dev 链接 404 | 各语言都定义 `lp()`（en 带 dev 前缀逻辑，zh/es/ar 恒等），sidebar/正文内链走 `lp()` |
+| 11 | **详情页少 `lp()`** | 本地 dev 内链 404 | 四语都定义 `lp()`（en 带 dev 前缀，zh/es/ar 恒等，规范见 §〇 0.2）；当前 60 篇缺，待修（#16） |
 | 12 | **ar 日期月份** | 阿语卡片混入数字月份 | 用阿语月名（`أكتوبر` 等），不要 `10/22/2024` |
 | 13 | **CRLF 行尾** | 正则 `$` / `\n` 锚点匹配不到 | 本项目 `.astro` 是 CRLF，正则写 `\r?\n` |
 | 14 | **生成模板用 `str.format()`** | `unexpected '{' in field name` | 模板含 JSX 花括号 → 用 `replace()` 占位符 |
 | 15 | **`src/pages/` 下留备份文件** | 被 Astro 当路由编译 → 垃圾 URL + 进 sitemap | 备份放 `docs/_ref/` 或 `F:\trash` |
+| 16 | **详情页缺 `lp()`（zh/es/ar 共 60 篇）** | 本地 dev 内链 404 | 按 §〇 0.2 补 `const lp = (p) => p;`（en 用 dev 前缀版） |
+| 17 | **分享按钮 `href="#"`（zh/es/ar 共 114 篇）** | 全站硬规则违例；点击无反应 | 按 §〇 0.4 模板：LinkedIn/Twitter 用 `SHARE_URL`，Facebook 用真实主页 URL |
+| 18 | **es/ar 各 4 篇缺 ogImage + Article JSON-LD** | 无 OG 图、无结构化数据 | carbon-neutral-factories / saudi-arabia-standards / sic-vs-igbt / solar-farm-dubai 四语补齐（§〇 0.5） |
+| 19 | **`relatedCases` 缺 `href`（103 篇）** | 案例链接失效 / 被硬编码成同一条 | 每项加 `href`，sidebar 渲染 `c.href`（§〇 0.3） |
+| 20 | **`category` 串味** | es 混 `Technology`/`Tecnologia`/`Tecnología`；ar 混 3 种「Technology」写法 | 按 §〇 0.6 规范值五选一，禁止英文残留与变体拼写 |
+| 21 | **`author` 自造变体** | 每语 6 种角色混用；es 漏 de/重音、ar 出现 `FNI CHITEK` 等 | 按 §〇 0.7 规范表选一；显示值与 JSON-LD `author.name` 必须一致 |
 
 ## 八、关联文件
 
@@ -298,4 +386,4 @@ npm run build
 
 ---
 
-*最后更新：2026-09-18*
+*最后更新：2026-10-09*

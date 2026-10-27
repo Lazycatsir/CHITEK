@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHITEK · 搜索可见性手册</title>
+<style>
+body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",Arial,sans-serif;
+font-size:14px;line-height:1.78;color:#222;background:#fff;
+max-width:1080px;margin:0 auto;padding:38px 28px 76px}
+h1{font-size:22px;font-weight:600;margin:0 0 14px}
+h2{font-size:17px;font-weight:600;margin:38px 0 12px;padding-bottom:7px;
+border-bottom:1px solid #e2e2e2}
+h3{font-size:15px;font-weight:600;margin:26px 0 8px}
+h4{font-size:14px;font-weight:600;margin:18px 0 6px}
+p{margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0;
+table-layout:fixed}
+th,td{border:1px solid #dcdcdc;padding:6px 9px;text-align:left;
+vertical-align:top;word-break:break-word;overflow-wrap:anywhere}
+th{background:#f5f5f5;font-weight:600}
+code{background:#f5f5f5;padding:1px 4px;font-size:12.5px;
+font-family:Consolas,Monaco,"Courier New",monospace}
+pre{background:#f7f7f7;border-left:3px solid #d0d0d0;padding:12px 14px;
+overflow-x:auto;font-size:12.5px;line-height:1.65;margin:12px 0}
+pre code{background:none;padding:0}
+blockquote{border-left:3px solid #b45309;background:#fbf8f4;padding:10px 14px;
+margin:12px 0;font-size:13px;color:#5a3a12}
+blockquote p{margin:4px 0}
+ul,ol{padding-left:24px;margin:10px 0}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid #e2e2e2;margin:30px 0}
+strong{font-weight:600}
+html{scroll-behavior:smooth}
+body{max-width:none;margin:0;padding:0}
+.wrap{display:flex;gap:38px;max-width:1280px;margin:0 auto;
+padding:36px 26px 90px;align-items:flex-start}
+nav.toc{position:sticky;top:30px;flex:0 0 214px;width:214px;
+max-height:calc(100vh - 60px);overflow-y:auto;
+border-right:1px solid #ececec;padding-right:16px}
+nav.toc .toc-h{font-size:11px;letter-spacing:.1em;color:#a8a8a8;
+margin:0 0 10px;font-weight:600}
+nav.toc ul{list-style:none;margin:0;padding:0}
+nav.toc a{display:block;text-decoration:none;color:#5a5a5a;
+font-size:12.5px;line-height:1.45;padding:5px 0 5px 10px;
+border-left:2px solid transparent}
+nav.toc a:hover{color:#b45309;border-left-color:#e3c3a0;background:#fcfaf7}
+nav.toc li.lv1 a{font-weight:600;color:#333;margin-top:9px}
+nav.toc li.lv2 a{padding-left:20px;color:#666}
+main{flex:1 1 auto;min-width:0;max-width:940px}
+main>h1:first-of-type{margin-top:0}
+@media(max-width:1020px){nav.toc{display:none}
+.wrap{padding:24px 18px 70px;max-width:none}main{max-width:none}}
+h1 a,h2 a,h3 a,h4 a{color:inherit;text-decoration:none;
+border-bottom:1px dashed #dcdcdc}
+h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover{color:#b45309;
+border-bottom-color:#b45309;border-bottom-style:solid}
+
+
+/* ---- 顶部 Tab ---- */
+.topbar{position:sticky;top:0;z-index:20;background:#fff;
+border-bottom:1px solid #e6e6e6;display:flex;align-items:center;
+gap:24px;padding:0 26px;height:52px}
+.topbar .brand{font-size:13px;font-weight:600;color:#333;letter-spacing:.02em}
+.tabs{display:flex;gap:4px}
+.tab{appearance:none;border:none;background:none;font:inherit;font-size:13px;
+color:#666;padding:6px 12px;border-radius:6px;cursor:pointer}
+.tab:hover{background:#f6f6f6;color:#333}
+.tab.active{background:#fdf5ec;color:#b45309;font-weight:600}
+/* ---- 布局覆盖（sticky 移到 .side）---- */
+.wrap{padding:22px 26px 90px}
+nav.toc{position:static;flex:none;max-height:none;overflow:visible}
+.side{position:sticky;top:82px;flex:0 0 214px;width:214px;
+max-height:calc(100vh - 110px);overflow-y:auto;align-self:flex-start}
+.toc{display:none;border-right:1px solid #ececec;padding-right:16px}
+.toc.active{display:block}
+.page{display:none}
+.page.active{display:block}
+/* ---- 矩阵页补充类（原矩阵 HTML 自有样式）---- */
+#page-kw .lead{color:#555;margin:0 0 4px;font-size:13.5px}
+#page-kw .note{font-size:12.5px;color:#666;margin:4px 0 0}
+#page-kw .warn{border-left:3px solid #b45309;background:#fbf8f4;
+padding:9px 13px;font-size:12.5px;margin:10px 0;color:#5a3a12}
+#page-kw .p0{color:#b45309;font-weight:600}
+#page-kw .words{line-height:1.95}
+#page-kw .ar{direction:rtl;text-align:right;font-size:14px}
+#page-kw .foot{margin-top:40px;padding-top:12px;
+border-top:1px solid #e2e2e2;font-size:12px;color:#888}
+#page-kw td.k{font-weight:600}
+#page-kw table{font-size:12.5px}
+@media(max-width:1020px){.side{display:none}.topbar{padding:0 16px;gap:12px}}
+
+</style>
+</head><body>
+<header class="topbar">
+  <span class="brand">CHITEK · 搜索可见性</span>
+  <nav class="tabs">
+    <button type="button" class="tab active" data-page="fw">SEO / GEO 框架</button>
+    <button type="button" class="tab" data-page="os">GEO 站外</button>
+    <button type="button" class="tab" data-page="sm">社媒运营</button>
+    <button type="button" class="tab" data-page="kw">关键词矩阵</button>
+  </nav>
+</header>
+<div class="wrap">
+  <aside class="side">
+<nav class="toc active" id="toc-fw"><p class="toc-h">目录</p><ul><li class="lv1"><a href="#fw-1">SEO / GEO 基础框架（CHITEK）</a></li><li class="lv1"><a href="#fw-2">第一部分 · 算法层：三套逻辑在评什么</a></li><li class="lv2"><a href="#fw-3">1. 三块搜索版图</a></li><li class="lv2"><a href="#fw-4">2. Google 的底层</a></li><li class="lv2"><a href="#fw-5">3. Bing 的底层</a></li><li class="lv2"><a href="#fw-6">4. 生成式引擎的底层（GEO）</a></li><li class="lv2"><a href="#fw-7">5. 三者共用的六条</a></li><li class="lv1"><a href="#fw-8">第二部分 · 结构层：站点骨架</a></li><li class="lv2"><a href="#fw-9">6. 四层骨架与权重流向</a></li><li class="lv2"><a href="#fw-10">7. URL 规范（已敲定，不再变）</a></li><li class="lv2"><a href="#fw-11">8. 公共层（所有页面共用）</a></li><li class="lv2"><a href="#fw-12">9. 首页骨架 /en/</a></li><li class="lv2"><a href="#fw-13">10. 产品页（类目页）骨架 /en/products</a></li><li class="lv2"><a href="#fw-14">11. 详情页骨架 /en/products/{product}</a></li><li class="lv2"><a href="#fw-15">12. 三类页面互链关系</a></li><li class="lv1"><a href="#fw-16">第三部分 · 执行层</a></li><li class="lv2"><a href="#fw-17">13. 站内互联规则</a></li><li class="lv2"><a href="#fw-18">14. 文章簇建法</a></li><li class="lv2"><a href="#fw-19">15. 累积机制</a></li><li class="lv1"><a href="#fw-20">第四部分 · 渠道落地项</a></li><li class="lv2"><a href="#fw-21">16. Google 生态</a></li><li class="lv2"><a href="#fw-22">17. Bing 生态</a></li><li class="lv2"><a href="#fw-23">18. GEO 落地</a></li><li class="lv1"><a href="#fw-24">第五部分 · 验收与边界</a></li><li class="lv2"><a href="#fw-25">19. 验收清单</a></li><li class="lv2"><a href="#fw-26">20. 与既有文件的边界</a></li></ul></nav>
+<nav class="toc " id="toc-os"><p class="toc-h">目录</p><ul><li class="lv1"><a href="#os-1">GEO 站外篇（CHITEK）</a></li><li class="lv2"><a href="#os-2">0. 一句话</a></li><li class="lv2"><a href="#os-3">1. 提及 ≠ 引用：两个指标，两套做法</a></li><li class="lv2"><a href="#os-4">2. 五个平台，五套信源偏好</a></li><li class="lv2"><a href="#os-5">3. 信源结构正在变（2026 年实测）</a></li><li class="lv2"><a href="#os-6">4. 站外动作：分三层做</a></li><li class="lv2"><a href="#os-7">5. 权重怎么才高：六个变量</a></li><li class="lv2"><a href="#os-8">6. 量化杠杆（Princeton GEO 研究）</a></li><li class="lv2"><a href="#os-9">7. 什么别做</a></li><li class="lv2"><a href="#os-10">8. 衡量：Share of Model</a></li><li class="lv2"><a href="#os-11">9. 时间预期（别被忽悠）</a></li><li class="lv2"><a href="#os-12">10. 与站内篇的分工</a></li></ul></nav>
+<nav class="toc " id="toc-sm"><p class="toc-h">目录</p><ul><li class="lv1"><a href="#sm-1">社媒运营篇（CHITEK）</a></li><li class="lv2"><a href="#sm-2">0. 一句话</a></li><li class="lv2"><a href="#sm-3">1. 两条线，别混着做</a></li><li class="lv1"><a href="#sm-4">第一部分 · A 线：喂搜索与 AI</a></li><li class="lv2"><a href="#sm-5">2. 为什么社媒是 AI 的最强信源</a></li><li class="lv2"><a href="#sm-6">3. YouTube：A 线第一优先级</a></li><li class="lv2"><a href="#sm-7">4. LinkedIn：A 线第二优先级</a></li><li class="lv2"><a href="#sm-8">5. 行业社区</a></li><li class="lv2"><a href="#sm-9">6. 附带一条：图片也有「文本层」</a></li><li class="lv1"><a href="#sm-10">第二部分 · B 线：纯扩大曝光</a></li><li class="lv2"><a href="#sm-11">7. 平台全景与打法：国内 / 国外</a></li><li class="lv2"><a href="#sm-12">8. 内容配比</a></li><li class="lv2"><a href="#sm-13">9. 私域：B2B 工业品真正的成交场</a></li><li class="lv2"><a href="#sm-14">10. 什么别做</a></li><li class="lv1"><a href="#sm-15">第三部分 · 通用</a></li><li class="lv2"><a href="#sm-16">11. 一条内容，四处使用</a></li><li class="lv2"><a href="#sm-17">12. 衡量</a></li><li class="lv2"><a href="#sm-18">13. 与另两篇的分工</a></li></ul></nav>
+<nav class="toc " id="toc-kw"><p class="toc-h">目录</p><ul><li class="lv1"><a href="#kw-1">AHF / SVG 海外关键词矩阵</a></li><li class="lv2"><a href="#kw-2">1. 前提：搜索行为由「客户成熟度」决定，不由市场规模决定</a></li><li class="lv2"><a href="#kw-3">2. 命名碎片化：同一个产品，海外至少有 10 个名字</a></li><li class="lv2"><a href="#kw-4">3. 主矩阵：应用场景 × 搜索意图</a></li><li class="lv2"><a href="#kw-5">4. 代理商 / 老客户承接线（品牌资产，不是获客线）</a></li><li class="lv2"><a href="#kw-6">5. 问题型长尾的句式模板</a></li><li class="lv2"><a href="#kw-7">6. 通用词库（不绑场景）</a></li><li class="lv2"><a href="#kw-8">7. 漏斗分层 → 目标页面</a></li><li class="lv2"><a href="#kw-9">8. 多语言术语表</a></li><li class="lv2"><a href="#kw-10">9. 市场分层策略</a></li><li class="lv2"><a href="#kw-11">10. 落地优先级</a></li><li class="lv2"><a href="#kw-12">附：执行时的两条硬规则</a></li></ul></nav>
+  </aside>
+  <main>
+    <section class="page active" id="page-fw">
+<span id="fw-top"></span>
+<h1 id="fw-1">SEO / GEO 基础框架（CHITEK）</h1>
+<blockquote><p>2026-09-28 立。<strong>站点在搜索引擎与生成式引擎里的完整作业基准。</strong></p><p>结构：<strong>算法层（在评什么）→ 结构层（页面长什么样）→ 执行层（怎么连、怎么长）→ 渠道落地项 → 验收与边界。</strong></p><p>本文件<strong>只定原则与骨架，不记现状与待办</strong>：现状 / 差异 / 待办 → <code>SITE_SKELETON_SPEC.md</code>；基础设施 → <code>SEO_SPEC.md</code>；产品页细节 → <code>PRODUCT_PAGE_SPEC.md</code>。</p></blockquote>
+<hr>
+<h1 id="fw-2">第一部分 · 算法层：三套逻辑在评什么</h1>
+<blockquote><p>操作规则是算法的推论。先看懂在评什么，清单就不用背。</p><p>一句话概括三者的分歧：<strong>Google 赌「语义」，Bing 赌「分发」，生成式引擎赌「可被切走」。</strong></p></blockquote>
+<h2 id="fw-3">1. 三块搜索版图</h2>
+<table><thead><tr><th></th><th>Google</th><th>Bing 生态</th><th>生成式引擎</th></tr></thead><tbody><tr><td><strong>入口</strong></td><td>google.com</td><td>Bing / Edge / Windows / M365 / Teams</td><td>ChatGPT / Copilot / Perplexity / Gemini / Claude</td></tr><tr><td><strong>索引来源</strong></td><td>Google 自建</td><td><strong>Bing 索引</strong>（Copilot 与 ChatGPT Search 都依赖它）</td><td>各自检索层，多数回落到 Bing / Google</td></tr><tr><td><strong>优化目标</strong></td><td>排名</td><td>排名 + <strong>被 Copilot 引用</strong></td><td><strong>被引用</strong>（不排名）</td></tr><tr><td><strong>衡量指标</strong></td><td>排名、点击、转化</td><td>收录覆盖率、Copilot 引用</td><td>引用率、声量占比、AI 引荐流量</td></tr><tr><td><strong>竞争度</strong></td><td>高</td><td><strong>极低</strong></td><td>中（且每月在变）</td></tr></tbody></table>
+<p><strong>分工</strong>：Google 拿流量，Bing 拿企业客户，生成式引擎拿品牌认知。三条腿都要，但投入不成比例——<strong>Bing 的增量成本最小</strong>。</p>
+<h3>1.1 三套核心算法：各自在评什么</h3>
+<table><thead><tr><th></th><th>Google</th><th>Bing</th><th>生成式引擎</th></tr></thead><tbody><tr><td><strong>质量框架</strong></td><td><strong>E-E-A-T + YMYL</strong></td><td>相关性 / 质量与可信度 / <strong>用户参与度</strong> / 新鲜度 / 位置</td><td><strong>RAG 重排</strong>：相关性 + 信息密度 + 可验证性</td></tr><tr><td><strong>排序单元</strong></td><td>页面</td><td>页面</td><td><strong>段落 / chunk</strong></td></tr><tr><td><strong>匹配方式</strong></td><td>语义推断（RankBrain → BERT → MUM）</td><td>字面与语义混合，<strong>字面权重更高</strong></td><td>向量检索 + 交叉重排</td></tr><tr><td><strong>信任从哪来</strong></td><td>站外引用 + 作者资质 + 实体</td><td><strong>域名级声誉</strong> + 社交信号 + 交互数据</td><td><strong>多个独立来源的交叉印证</strong></td></tr><tr><td><strong>失败方式</strong></td><td>排名下降</td><td>收录不进 / 排名下降</td><td><strong>直接不被引用</strong>（无声）</td></tr></tbody></table>
+<p>⚠️ <strong>三者的失败方式不同，这是最容易被忽略的一点。</strong> Google 和 Bing 的失败是「排名掉了，还能查得到」；<strong>生成式引擎的失败是「AI 根本没提你」，而且你不会收到任何通知</strong>。这就是为什么做 GEO 必须先建基线测量——否则连自己失败都不知道。</p>
+<h3>1.2 抓取层：各引擎实际读的是哪一份 HTML</h3>
+<p>算法再聪明，也只在<strong>它收到的那些字节</strong>上工作。而三者收到的字节并不一样：</p>
+<table><thead><tr><th></th><th>Google（含 AI Overviews / Gemini）</th><th>Bing（含 Copilot / ChatGPT 候选池）</th><th>AI 爬虫（GPTBot / ClaudeBot / PerplexityBot…）</th></tr></thead><tbody><tr><td><strong>索引基准</strong></td><td><strong>移动版</strong>（移动优先）</td><td><strong>两端都看</strong>（设备无关单一索引）</td><td><strong>不区分端</strong>（没有视口这个概念）</td></tr><tr><td><strong>抓取器</strong></td><td>Googlebot Smartphone</td><td>Bingbot（桌面 / 移动两个 UA，robots.txt 不区分）</td><td>纯 HTTP GET，无渲染器</td></tr><tr><td><strong>JS 渲染</strong></td><td>渲染（<strong>二次渲染</strong>，与首次抓取可能隔数秒到数周）</td><td>渲染（Chromium 版 Edge 内核），但<strong>官方建议重要内容别只靠 JS</strong></td><td><strong>不渲染</strong></td></tr><tr><td><strong>实际读到的</strong></td><td>移动版 DOM</td><td>桌面 + 移动落在<strong>同一个索引</strong>里</td><td><strong>服务器返回的原始 HTML</strong></td></tr></tbody></table>
+<p>⚠️ <strong>三条必须纠正的直觉</strong>：</p>
+<ul><li><strong>Bing 不是移动优先。</strong> Google 2023-10 完成 mobile-first indexing，<strong>Bing 没有跟进</strong>——它维持一个<strong>设备无关（device-agnostic）的单一索引</strong>。微软 Bing 的 James Murray 原话是「we think it's more useful to have an integrated view and to be more device agnostic」。网上（尤其 AI 生成的内容农场）说「Bing 已转向 mobile-first」是错的。含义：<strong>桌面端与移动端的内容对 Bing 同等重要</strong>，不存在「移动版写全了就够」。</li><li><strong>AI 爬虫根本没有「端」。</strong> <code>GPTBot</code> / <code>ClaudeBot</code> / <code>PerplexityBot</code> / <code>OAI-SearchBot</code> 等都是纯 HTTP 客户端，<strong>不执行 JS</strong>（Vercel 2024-12 实测：GPTBot 抓取了 11.5% 的 JS 文件、<strong>执行了 0 行</strong>）。它们读到的只有<strong>服务器直出的那份 HTML</strong>。</li><li><strong>例外只有两家</strong>：<code>Google-Extended</code>（Gemini 用）与 <code>Applebot</code> <strong>会渲染 JS</strong>，因为它们共用 Googlebot 的渲染服务。所以「Gemini 看得到」不等于「ChatGPT 也看得到」——同一份页面，四家引擎看到的可能不是同一个东西。</li></ul>
+<p>⚠️ <strong>一条最隐蔽的传导链</strong>：ChatGPT 搜索的<strong>候选页面来自 Bing 索引</strong>（Bingbot 会渲染 → 纯前端渲染的站也能进候选池），<strong>但回答时 <code>OAI-SearchBot</code> 现场抓取、不渲染</strong> → 结果是「<strong>排名在、引用里没有</strong>」。</p>
+<p><strong>推论</strong>：真正决定可见性的不是「渲染得多漂亮」，而是<strong>内容在初始 HTML 里存不存在</strong>。SSR / 预渲染的站点天然同时满足三方；纯客户端渲染的站，会在 Google 移动优先、Bing 设备无关、AI 引用三处<strong>同时</strong>出问题。Google 移动优先的细节见 <strong>§2.1</strong>，爬虫放行清单见 <strong>§18.1</strong>。</p>
+<h3>1.3 算法哲学的分歧：它解释了一切差异</h3>
+<ul><li><strong>Google</strong> 二十年的主线是<strong>更强的语义理解</strong>：从 PageRank 到 RankBrain、BERT、MUM，目标是「即使你表达模糊，我也猜对你要什么」。所以它对关键词的字面形式越来越宽容。</li><li><strong>Bing</strong> 的主线是<strong>默认位</strong>：Windows、Edge、M365、Xbox。它的份额不来自用户偏好，而来自分发结构。所以它的排序更<strong>忠实于字面信号</strong>，也更看重<strong>域名的整体声誉</strong>——因为在企业环境里，用户信任的是「这个站靠不靠得住」，而不是逐页判断。</li></ul>
+<p><strong>理解这条分歧，很多现象就不用背了</strong>：为什么 Bing 上精确匹配词权重更高？为什么 <code>.edu</code> / <code>.gov</code> 外链在 Bing 更吃香？为什么 LinkedIn 在 Bing 有用而在 Google 基本无效？——全都是「分发 + 字面 + 机构声誉」这条主线的自然结果。</p>
+<hr>
+<h2 id="fw-4">2. Google 的底层</h2>
+<h3>2.1 先决条件：Google 索引的是<strong>移动版</strong></h3>
+<p><strong>2023-10 Google 完成 mobile-first indexing，2024-07-05 起桌面版 Googlebot 完全不再参与索引</strong>（仅存在于少数验证场景）。含义只有一句：<strong>Google 索引里存的那份 HTML，是 <code>Googlebot Smartphone</code> 在手机上渲染出来的那一版。</strong> 桌面版写得再多，只要移动版没给，Google 就等于没看见。</p>
+<p>⚠️ <strong>它改变的是「优化对象」的定义</strong>——我们要优化的不是「自己写的那份源码」，而是「Googlebot Smartphone 渲染出的那份 HTML」。三条推论直接落到操作上：</p>
+<ul><li><strong>内容对等，缺一即无。</strong> 移动版没有输出的正文 / 图片 / schema 等于不存在；桌面端多出来的那部分，写了也不产生 SEO 收益。</li><li><strong>折叠可以，「点击才加载」不行。</strong> tab / accordion 里的文字只要在 HTML 标记里，Google 照常收录（本站案例 tab、决策树「初始全展示」正是按此设计）；「点击后才用 JS 拉取」的内容渲染器不会去取——那才是真的丢内容。</li><li><strong>别在桌面端下重注。</strong> 桌面专属的大动效、hover 交互、更炫的排版<strong>不产生任何 SEO 收益</strong>。桌面流量当然还在（StatCounter 2026-07：欧洲桌面浏览量 51.8%、北美 52.6%），体验该做——只是它不在 SEO 的考核集里。</li></ul>
+<p>两条同源结论：<strong>内链必须是移动版 DOM 里真实存在的链接</strong>（汉堡菜单用 CSS 隐藏没问题，用 JS 动态生成菜单就不行）；<strong>canonical / hreflang / JSON-LD 必须出现在移动版 HTML 里</strong>（本站全站 SSR 输出、与视口无关，天然满足——但任何「按断点条件注入」的写法都会让它们直接消失）。<strong>Core Web Vitals 同理，只按移动端测</strong>（LCP &lt; 2.5s / INP &lt; 200ms / CLS &lt; 0.1）：桌面 95 分、移动 55 分，在 Google 眼里就是一个 55 分的站。</p>
+<h3>2.2 E-E-A-T 与 YMYL</h3>
+<p><strong>E-E-A-T</strong>（Experience / Expertise / Authoritativeness / Trustworthiness）是 Google《搜索质量评估指南》里的质量框架，写给<strong>人工评估员</strong>用；Google 用可计算的代理指标去近似它。所以它<strong>无法被「技术性优化」，只能真的做到，并让它可见</strong>。</p>
+<table><thead><tr><th>维度</th><th>一句话</th><th>官网的落地载体</th></tr></thead><tbody><tr><td><strong>T</strong>rust 信任</td><td>你是不是真实存在、说话算数的公司</td><td>真实联系方式与地址、质保条款、证书编号可核验、隐私政策</td></tr><tr><td><strong>E</strong>xperience 经验</td><td>你<strong>做过</strong>，不只是知道</td><td>项目案例（行业 + 国家 + 规模 + 实测数字）、现场照片、调试记录</td></tr><tr><td><strong>E</strong>xpertise 专业</td><td>参数、原理、标准讲得对且具体</td><td>完整参数表、datasheet、选型指南、接线图、标准符合性</td></tr><tr><td><strong>A</strong>uthority 权威</td><td>别人怎么看你</td><td>第三方认证、专利、协会会员、行业媒体引用</td></tr></tbody></table>
+<p><strong>次序不能反：Trust 是地基，Experience 是差异，Expertise 是弹药，Authority 是结果。</strong> 把力气全花在 Authority（到处发外链），落地页却连公司地址都查不到——这是把顺序做反了。</p>
+<p><strong>为什么 Experience 最值钱</strong>：2022 年底 Google 在 E-A-T 前加第一个 E，背景正是 AI 内容泛滥。AI 写得出「谐波会导致变压器过热」，写不出「某钢厂 40MW 项目 THD 从 14% 降到 2.8%，用了 3 台 300A」。这个差距就是工业品官网的护城河。</p>
+<p><strong>YMYL（Your Money or Your Life）是 E-E-A-T 的放大器。</strong> 涉及健康、财务、<strong>人身安全</strong>的题材，Google 会用<strong>更严的</strong>标准衡量。</p>
+<p>⚠️ <strong>这一点与我们直接相关</strong>：工业电力设备（谐波治理、无功补偿）属于<strong>涉及电气安全</strong>的品类，处在 YMYL 邻域。含义有三条：</p>
+<ul><li>参数不能错、认证不能虚、案例不能编——<strong>错误在本品类的代价被放大</strong></li><li>越具体的可核验信息（标准号、认证编号、实测数据），价值越高</li><li>泛泛的营销文案在本品类里几乎不起作用</li></ul>
+<p>反过来看这是好消息：<strong>工业品天然是 E-E-A-T 友好的赛道</strong>——真正做这行的公司本来就有真东西，只要把它<strong>展示出来</strong>就赢过大部分人。</p>
+<h3>2.3 同时起作用的其他机制</h3>
+<table><thead><tr><th>机制</th><th>在评什么</th><th>对我们的含义</th></tr></thead><tbody><tr><td>语义理解（BERT / MUM 一路）</td><td>意图，而非字面</td><td>把「是什么、给谁、解决什么问题」写清，比堆词有效</td></tr><tr><td>Helpful Content（已并入核心算法）</td><td>是不是「为搜索引擎写的」</td><td>为关键词而造的页面会被系统性压低</td></tr><tr><td>SpamBrain</td><td>操纵行为（站群、AI 灌水、垃圾外链）</td><td><strong>PBN 是红线</strong>，会连坐主站</td></tr><tr><td>Core Web Vitals</td><td><strong>移动端</strong>页面体验（加载 / 交互 / 视觉稳定）</td><td>只按手机测；技术债会直接进入排序</td></tr><tr><td>站点级质量评估</td><td>整个站的可信度</td><td>少数低质页面会拖累全站</td></tr></tbody></table>
+<h3>2.4 PageRank 还在，但换了角色</h3>
+<p>外链仍然是<strong>信任投票</strong>，只是权重相对于「内容质量 + 实体清晰度 + 用户满意度」已经下降。今天的外链价值次序大致是：</p>
+<pre><code>行业媒体 / 协会 / 标准机构引用  &gt;  客户与合作伙伴站  &gt;  行业目录  &gt;  自建站群（禁止）</code></pre>
+<hr>
+<h2 id="fw-5">3. Bing 的底层</h2>
+<h3>3.1 为什么值得做</h3>
+<p><strong>① Bing 索引就是 Copilot 的底层，而 Copilot 覆盖五个触点</strong></p>
+<p>Bing 搜索 / Edge 侧栏 / Windows 11 / Microsoft 365（Word、Excel、Outlook、PowerPoint）/ Teams——<strong>全部拉同一个 Bing 索引</strong>。优化一次，五个入口通吃。Bing 同时是 <strong>ChatGPT Search 的主要检索源之一</strong>（两者引用重叠度很高）。</p>
+<p><strong>② 用户画像与工业品高度匹配</strong></p>
+<p>企业环境中 Microsoft 365 占比常达 <strong>60~80%</strong>，制造业与受监管行业更高。这正是工业品的工程与采购决策人群。</p>
+<p><strong>③ 份额要拆开看：桌面才是关键</strong></p>
+<p>Bing 的桌面份额约为移动端的 <strong>15 倍</strong>——因为它的份额来自 Edge / Windows 的默认位与企业标准化，不是用户主动选择。</p>
+<table><thead><tr><th>市场</th><th>Bing 全平台</th><th><strong>Bing 桌面</strong></th></tr></thead><tbody><tr><td>中国</td><td>22~23%（#2）</td><td><strong>39.4%（#1，超过百度 37%）</strong></td></tr><tr><td>全球</td><td>4.5~5.1%</td><td><strong>≈10%</strong></td></tr><tr><td><strong>美国</strong></td><td>8.8~9.9%</td><td><strong>≈16~17%</strong></td></tr><tr><td>加拿大</td><td>9.5%</td><td>—</td></tr><tr><td>澳洲</td><td>8.7%</td><td>—</td></tr><tr><td>日本</td><td>大幅上升（早期 &lt;8% → 2026 上半年约 36%）</td><td>—</td></tr><tr><td>英国</td><td>5.9%</td><td>≈5.8%</td></tr><tr><td>欧洲</td><td>5.3%</td><td>—</td></tr><tr><td>中东</td><td>3.3%</td><td>—</td></tr><tr><td>拉美</td><td>2.8%</td><td>—</td></tr><tr><td>非洲</td><td>1.9%</td><td>—</td></tr><tr><td>印度</td><td><strong>1.2%</strong></td><td>—</td></tr></tbody></table>
+<p>（StatCounter，2026 年 3–8 月快照）</p>
+<p><strong>④ 但要把两种价值分开算</strong></p>
+<ul><li><strong>Bing 的「搜索流量价值」</strong>：分市场差异极大。北美 / 日本 / 澳新 → 值得；欧洲 → 中等；拉美 / 印度 / 非洲 / 中东 → 传统流量有限。</li><li><strong>Bing 的「索引价值」</strong>：<strong>不受份额限制</strong>。Copilot 是通过 <strong>M365 订阅</strong>触达企业员工的，不是通过「某个国家的 Bing 搜索用户」。一个巴西工程师用 M365 Copilot 提问，照样去 Bing 索引里找。</li></ul>
+<p><strong>所以对工业品来说，Bing 的主要价值不是「多 5% 自然流量」，而是它是 AI 可见性的入场券——不做 Bing 等于放弃 Copilot 和一部分 ChatGPT。</strong></p>
+<p><strong>⑤ 竞争度极低</strong>：绝大多数同行只盯 Google。</p>
+<h3>3.2 官方五要素（Bing 的底层算法）</h3>
+<p>Bing 的 Webmaster Guidelines 把排序依据归纳为五条：</p>
+<table><thead><tr><th>要素</th><th>含义</th></tr></thead><tbody><tr><td><strong>Relevance</strong> 相关性</td><td>页面与查询的匹配程度</td></tr><tr><td><strong>Quality &amp; Credibility</strong> 质量与可信度</td><td>内容质量、站点声誉、作者可辨识</td></tr><tr><td><strong>User Engagement</strong> 用户参与度</td><td>点击率、停留、回访等交互信号</td></tr><tr><td><strong>Freshness</strong> 新鲜度</td><td>内容是否新鲜、是否持续更新</td></tr><tr><td><strong>Location</strong> 位置</td><td>地域相关性</td></tr></tbody></table>
+<p>⚠️ <strong>「User Engagement」和「Location」是 Bing 官方明确列出、而 Google 从不强调的维度。</strong> 这就是「Bing 更依赖交互数据」的出处——历史上 Bing Toolbar 提供了大量真实用户行为样本。</p>
+<h3>3.3 三个可操作的推论</h3>
+<ol><li><strong>字面 &gt; 语义。</strong> 主要关键词在 title / H1 / URL 里用<strong>精确形式</strong>，不要用同义改写把它替掉。（在 Google 那里无所谓，在 Bing 这里有差别。）</li><li><strong>域名级声誉 &gt; 单页质量。</strong> 与其死磨一页，不如保证<strong>整个域</strong>看起来是一家真实、持续经营的公司——完整 About、真实地址与联系方式、一致的品牌名。</li><li><strong>机构背书 &gt; 个人背书。</strong> <code>.edu</code> / <code>.gov</code> / 协会 / 行业媒体 的外链在 Bing 加成更明显；<strong>LinkedIn 是微软自家资产，其信号被计入</strong>，公司页要完整。</li></ol>
+<h3>3.4 Bing 独有的两个机制</h3>
+<p><strong>① IndexNow —— 即时收录</strong></p>
+<p>Bing 联合开发的开放协议：发布或更新后主动推送 URL，<strong>分钟级</strong>进入索引，不必等爬虫发现。支持 Bing / Yandex / Naver / Seznam / Yep。<strong>Google 不支持</strong>。</p>
+<p>价值不在「快」本身，而在：<strong>第一个被索引的页面往往成为该话题的「种子来源」，后续引用会向它集中</strong>。晚两天，等于把位置让给竞品。</p>
+<p><strong>② Bing Webmaster Tools 的 AI Performance Report</strong></p>
+<p>目前<strong>唯一</strong>由搜索引擎官方提供的 AI 引用追踪报告——显示哪些查询触发了对你内容的 Copilot 引用、带来多少曝光与点击、以及匹配到的底层意图。<strong>Google Search Console 没有对应功能。</strong></p>
+<h3>3.5 Copilot 的 grounding 链</h3>
+<p>Copilot 的答案 = <strong>Bing 索引检索 + LLM 合成 + 引用标注</strong>。</p>
+<p>所以对 Copilot 来说，<strong>排名不是目标，进入检索候选才是</strong>：</p>
+<pre><code>① 页面在 Bing 索引里         ← 不是「Google 排得好」，是「Bing 收没收录」
+      ↓
+② 内容能被切成可用段落
+      ↓
+③ 被 Copilot 选取并标注来源</code></pre>
+<p>⚠️ <strong>第一环断掉，后面全部无从谈起。</strong></p>
+<hr>
+<h2 id="fw-6">4. 生成式引擎的底层（GEO）</h2>
+<h3>4.1 技术栈：RAG 四阶段</h3>
+<p>生成式引擎不是「更聪明的搜索」。它的内部是这样跑的：</p>
+<pre><code>① 查询理解与扩展
+   把你的问题拆成多个子查询（query fan-out），并行去检索
+        ↓
+② 检索（Recall）
+   混合检索：稀疏（关键词 / BM25）+ 稠密（向量语义）
+   从索引里召回一批候选【段落】，不是整页
+        ↓
+③ 重排（Rerank）★ 最关键的一层
+   用交叉编码器给每个候选段落打分，按「能否回答这个问题」排序
+        ↓
+④ 生成与引用
+   LLM 只基于被选中的段落合成答案，并标注来源</code></pre>
+<h3>4.2 从这套栈推出的四条结论</h3>
+<p><strong>① 优化单位是「段落」，不是「页面」。</strong> 检索召回的是 chunk、重排打分的是 chunk、生成引用的是 chunk。<strong>页面写得再好，切不出好段落就等于不存在。</strong></p>
+<p><strong>② 重排层是真正的战场。</strong> 能不能被召回只是入场券；能不能在重排里排进前列，才决定会不会被引用。重排打分看的是：</p>
+<ul><li><strong>与问题的直接相关性</strong>——这个段落是否独立回答了它</li><li><strong>信息密度</strong>——同样长度里事实更多者胜</li><li><strong>可验证性</strong>——有数字、有单位、有出处 ＞ 形容词</li><li><strong>来源可信度</strong>——域名与实体的声誉</li></ul>
+<p><strong>③ query fan-out 意味着要覆盖「子问题」。</strong> 一个问题会被拆成多个子查询并行检索。所以一个页面覆盖的相关子问题越多，在多个子查询里被召回的概率越高——<strong>这正是「内容成网」在 GEO 里的技术解释</strong>。</p>
+<p><strong>④ 引用偏好「独占信息」。</strong> AI 不会引用到处都能找到的常识。<strong>原创数据、实测结果、具体配置、行业特有的经验判断</strong>，才是被引用的理由。这也是官网案例页存在的真正意义。</p>
+<h3>4.3 可被引用的三种结构</h3>
+<p>GEO 不是「写得更好」，是<strong>把内容改成可被机器切走的形状</strong>：</p>
+<ol><li><strong>答案块</strong> —— 每个小节开头用 <strong>40~60 词</strong>给出完整答案，后面再展开理由。AI 抽的就是这一段。</li><li><strong>数据块</strong> —— 具体数字、标准号、参数、实测结果。含糊表述（「效果显著」）不会被引用，<strong>有出处的具体数字才会被引用</strong>。</li><li><strong>对比块</strong> —— 表格与并列结构。「A vs B」在 AI 查询里占比极高，有对比表的页面天然优先被抽取。</li></ol>
+<p>配套的可信度动作：引用外部权威来源（研究、标准、政府数据）、标注更新日期。</p>
+<hr>
+<h2 id="fw-7">5. 三者共用的六条</h2>
+<p>前五条讲「内容该做成什么样」，第六条讲「内容该覆盖什么」。</p>
+<ol><li><strong>可切块</strong> —— 每个小节能独立回答一个问题</li><li><strong>可验证</strong> —— 具体数字、标准号、可核对的资证，而不是形容词</li><li><strong>实体清晰</strong> —— 品牌名 / 型号 / 公司信息全站一致，能被识别为同一个实体</li><li><strong>有出处</strong> —— 数据能溯源，观点有作者或机构</li><li><strong>够新</strong> —— 有更新日期，且真的在更新</li><li><strong>流量矩阵</strong> —— 覆盖买家的全部提问路径（见 §5.1）</li></ol>
+<p>这六条同时喂三套算法。<strong>为 GEO 做的最好的事，通常也是为 SEO 做的最好的事</strong>——不是两套工作，是一套内容在三种读法下都成立。</p>
+<h3>5.1 <a href="#kw-top">流量矩阵：三套算法共用的选题蓝图 →</a></h3>
+<p>前面几节讲的是「怎么被选中」，但没回答「被选中去回答<strong>哪些</strong>问题」——那是流量矩阵的事。</p>
+<p>它把买家的提问按「<strong>场景 × 意图</strong>」铺开：</p>
+<table><thead><tr><th>层</th><th>谁在问</th><th>提问形态</th><th>承接页面</th></tr></thead><tbody><tr><td><strong>型号层</strong></td><td>代理商、老客户</td><td>品牌 + 料号 + 手册 / 故障码</td><td>型号查询页 · 下载中心 · 技术支持页</td></tr><tr><td><strong>参数层</strong></td><td>工程师、设计院</td><td>品类 + 参数 + 标准号</td><td>产品页 · 参数表 · 认证区</td></tr><tr><td><strong>问题层</strong></td><td>新兴市场 / 新入行</td><td>故障现象 + 自然长句提问</td><td>场景解决方案页 · 博客</td></tr></tbody></table>
+<p>三套算法从<strong>同一张矩阵</strong>里取食：</p>
+<ul><li><strong>Google</strong> 取页面 —— 按层归到不同页面类型</li><li><strong>Bing</strong> 取精确匹配 —— 型号层与参数层直接对上</li><li><strong>生成式引擎</strong> 取段落 —— 问题层的一句话就是一个可被抽走的答案块（§4.1）</li></ul>
+<p><strong>没有矩阵，内容就是散的。</strong> 有了矩阵，每个渠道都知道自己该覆盖什么、缺哪一块；文章簇的选题（§14）也直接从这里长出来。</p>
+<p>→ 完整矩阵（245 条词，含「场景 × 意图」交叉表、句式模板、多语言术语表）见 <strong><a href="#kw-top">关键词矩阵</a></strong> 页面。</p>
+<hr>
+<h1 id="fw-8">第二部分 · 结构层：站点骨架</h1>
+<h2 id="fw-9">6. 四层骨架与权重流向</h2>
+<pre><code>首页 ──────────── 品牌词，全站内链的源头
+  ↓ ↑
+类目页 · 场景页 ── 品类词与应用词，聚合与筛选的枢纽
+  ↓ ↑
+产品详情页 ─────── 型号词，转化主力，权重最高的一层
+  ↓ ↑
+文章簇 ────────── 长尾问题词，向外生长</code></pre>
+<p>实线向下 = 权重下发与抓取路径；虚线向上 = 相关性回流（内链投票）。</p>
+<p><strong>每一层都必须双向连通。</strong> 只有向下的站是漏斗，会被当成薄内容聚合；只有向上的站是孤岛，权重上不去。</p>
+<hr>
+<h2 id="fw-10">7. URL 规范（已敲定，不再变）</h2>
+<p>页面数量与内容方向已冻结，URL 是这套骨架的地址，规则一并冻结。</p>
+<ol><li>全小写、连字符分词、无参数、无 ID、无日期</li><li>层级固定 <code>/{lang}/{category}/{product}</code></li><li><strong>型号 slug 全球统一用英文</strong>（型号本身全球通用）；<strong>品类 slug 可本地化</strong>——这是唯一值得本地化的部分</li><li>尾斜杠全站一致，不允许有的带有的不带</li><li>尽量短，但要能读出这是什么产品</li></ol>
+<p><strong>变更纪律</strong>：URL 一旦上线只允许 301，且必须同步更新六处——漏一处就产生死链或重复内容。</p>
+<pre><code>□ 301 重定向      □ 站内内链      □ sitemap
+□ canonical       □ hreflang       □ 结构化数据里的 url</code></pre>
+<p><strong>多语言承载</strong>：现用 <code>{lang}.chitek-inno.com</code> 子域。Google 视子域为相对独立的站点，权重继承弱于子目录；<strong>已上线不动，新增语言时重新评估</strong>。</p>
+<hr>
+<h2 id="fw-11">8. 公共层（所有页面共用）</h2>
+<pre><code>BaseLayout
+├─ &lt;head&gt;   title / description / canonical / hreflang / OG / favicon
+│           JSON-LD 全局 ×2：Organization + WebSite
+├─ &lt;Nav&gt;    fixed top-0 h-[72px]  → 页面首元素必须自加 mt-[72px]
+├─ 页面主体
+└─ &lt;Footer&gt;</code></pre>
+<ol><li>每页<strong>有且只有一个 H1</strong></li><li>UI 标签（Filter / Sort by / Contact Us）<strong>不用 H1–H6</strong>，用 <code>&lt;p&gt;</code> 或 <code>&lt;span&gt;</code></li><li>面包屑用 <code>&lt;nav aria-label="Breadcrumb"&gt;</code> + <code>&lt;ol&gt;</code>，<strong>除首页外每页必有</strong></li><li>页面级 JSON-LD 写在页面内，不塞进 BaseLayout</li></ol>
+<hr>
+<h2 id="fw-12">9. 首页骨架 <code>/en/</code></h2>
+<p><strong>定位</strong>：品牌词落点 + 内链源头 + 让爬虫一眼看懂「你是谁 + 有哪些品类 + 有哪些应用」。</p>
+<pre><code>#hero-section         H1 —— 一句话说清「做什么 + 给谁」
+#featured-products    H2 + 8 张产品卡（→ 详情页）+ All Products（→ 类目页）
+#about                H2 + H3 ×4（团队 / 设计 / 产品线 / 品质）
+#products             H2 + AHF / SVG 双 Tab → 各品类类目页
+#solutions            H2 + 3 张场景卡 → 场景页</code></pre>
+<p>要点：</p>
+<ul><li>内容纯 HTML 可读，不依赖 JS 渲染</li><li>每个模块都有<strong>真实链接目标</strong>（不是 <code>href="#"</code>）</li><li>首屏之下仍有实质内容</li><li>❌ 不用大图轮播（内容频繁变动、抓取不稳定）</li></ul>
+<p><strong>首页不承担单一关键词排名</strong>——只做品牌与导流。品类长尾交给类目页和详情页。</p>
+<hr>
+<h2 id="fw-13">10. 产品页（类目页）骨架 <code>/en/products</code></h2>
+<p><strong>定位</strong>：品类聚合页，吃品类词，向下把权重分给各张卡。</p>
+<pre><code>面包屑                Home / Products / {品类}
+筛选面板（左栏）       Technology / Voltage / Current / IP / Dimensions
+                      —— UI 标签用 &lt;p&gt;
+产品网格              8 张卡：图 + H3 + 标签 + View More
+                      三处链接全部 → 各自详情页
+H1                    {品类} Series
+引导段                2 段：品类定义 + 这一页怎么选
+H2  Benefits          品类优势
+H2  Application       应用场景（→ 场景页）
+H2  Working Principle 工作原理 + 配图
+结构化数据             BreadcrumbList + ItemList</code></pre>
+<p>要点：</p>
+<ul><li>卡片链接必须是<strong>真实 URL</strong>。若为 <code>#</code>，<strong>宁可不加 <code>ItemList</code></strong>——提交无效 URL 比不提交更糟</li><li>类目页 FAQ 若要加，必须与详情页 FAQ <strong>不重复</strong>（否则构成站内重复内容），只答品类级问题</li><li>三个类目页（<code>/products</code>、<code>-svg</code>、<code>-asvg</code>）互为系列切换入口</li></ul>
+<hr>
+<h2 id="fw-14">11. 详情页骨架 <code>/en/products/{product}</code></h2>
+<p><strong>定位</strong>：单型号转化页，吃型号词 + 长尾技术词，最终导向询盘。</p>
+<pre><code>面包屑                Home / Products / {型号}
+#overview             左栏段导航 + H1 + 标签 + 参数块 + SKU 配置器
+                      └ 配置器内含全页唯一的询盘表单
+#description          H2 + H3 ×6（特性）
+#parameters           H2 + 技术参数表
+#why                  H2 + H3 ×4
+   ├ #manufacturing   H3 + H4 ×4
+   └ Certifications   证书图
+#faq                  H2 + 6 问（与 FAQPage 逐字同源）
+#application          H2 + H3 ×3（案例）
+Related Products      H2 + 同类产品卡（→ 其他详情页）
+结构化数据             BreadcrumbList + Product + FAQPage</code></pre>
+<p>要点：</p>
+<ul><li>参数表<strong>必须是文字</strong>，不能是图片——图片搜不到、翻译不了、AI 也读不了</li><li><code>Product</code> 必备字段：<code>name / brand / description / category</code> + <strong><code>url</code> / <code>image</code> / <code>sku</code> / <code>manufacturer</code></strong></li><li><code>sku</code> 必须与配置器生成的料号一致，否则那套 SKU 逻辑对搜索引擎等于不存在</li><li>下载链接必须是真实 <code>&lt;a href&gt;</code>，不是 <code>#</code></li><li>Related Products 必须<strong>语义相关</strong>（同系列 / 上下位型号），不能随机</li><li>全页<strong>只保留一个询盘表单</strong></li></ul>
+<hr>
+<h2 id="fw-15">12. 三类页面互链关系</h2>
+<pre><code>首页 ──→ 8 张产品卡 ──→ 详情页
+     ├─→ 双 Tab ──────→ 类目页
+     └─→ 场景卡 ──────→ 场景页
+
+类目页 ─→ 8 张产品卡 ──→ 详情页
+
+详情页 ─→ Related Products ──→ 其他详情页
+       └─→ 面包屑 ──────────→ 类目页 / 首页
+
+文章簇 ─→ 枢纽页（产品页 或 类目页）</code></pre>
+<p><strong>一条铁律</strong>：任何页面之间<strong>不允许存在 <code>href="#"</code> 的功能性链接</strong>。 宁可不放模块，也不要放一个点不动的链接——它同时损害抓取、转化和信任三个指标。</p>
+<hr>
+<h1 id="fw-16">第三部分 · 执行层</h1>
+<h2 id="fw-17">13. 站内互联规则</h2>
+<table><thead><tr><th>规则</th><th>说明</th></tr></thead><tbody><tr><td>无孤儿页</td><td>每页必须有明确的父页面 + 至少 2~3 个同级或子级链接</td></tr><tr><td>面包屑贯穿</td><td>除首页外所有页面，且带 BreadcrumbList</td></tr><tr><td>双向连通</td><td>详情页 → 类目页的回链必须存在</td></tr><tr><td>互链要语义相关</td><td>同系列、上下位型号、配套设备；不能随机</td></tr><tr><td>锚文本描述性</td><td>用 <code>SiC Ultra AHF 300A</code>，不用 <code>click here</code> / <code>read more</code></td></tr><tr><td>锚文本分散</td><td>同一锚文本不要全站重复指向同一页面</td></tr></tbody></table>
+<hr>
+<h2 id="fw-18">14. 文章簇建法</h2>
+<p><strong>核心认知：文章的价值不是它自己的排名，是它给产品页投的票。</strong> 一篇只有 20 次访问的文章，只要内容相关并链向产品页，它就在帮产品页累积主题权重。</p>
+<pre><code>簇页（问题型 / 对比型 / 知识型 / 选型 / 案例）
+   ↓  每一篇都必须链回
+枢纽页（品类深度页 = 产品页 / 类目页）</code></pre>
+<ol><li><strong>每篇簇页必须链回枢纽页</strong>——这是「网」能不能结起来的关键</li><li>簇页之间横向互链（相关问题互推）</li><li><strong>出口链必须是产品页，不是首页</strong>——习惯性链回首页等于把票投给最不需要票的页面</li><li>选题用关键词矩阵的问题型句式模板批量生成，先看有没有人搜，有量的才写</li></ol>
+<p>节奏：每个品类先做 8~15 篇形成闭环，<strong>不要今天发 50 篇、后面三个月断更</strong>。</p>
+<hr>
+<h2 id="fw-19">15. 累积机制</h2>
+<table><thead><tr><th>动作</th><th>原因</th></tr></thead><tbody><tr><td>更新老页面 &gt; 发布新页面</td><td>Freshness + 证明站点还活着</td></tr><tr><td>定期合并低质页</td><td>页面多而质量参差会被站点级评估稀释</td></tr><tr><td>先骨架后内容</td><td>内链随新内容自然累积；骨架错了会持续加固错误</td></tr><tr><td>每月看两个信号</td><td><strong>有曝光无点击 → title 问题</strong>；<strong>有点击无排名 → 内容深度问题</strong></td></tr></tbody></table>
+<hr>
+<h1 id="fw-20">第四部分 · 渠道落地项</h1>
+<h2 id="fw-21">16. Google 生态</h2>
+<h3>16.1 页面的额外要求</h3>
+<p>在 §8–§11 的页面骨架之上追加：</p>
+<ul><li><strong>结构化数据</strong>：全局 <code>Organization</code> + <code>WebSite</code>；类目页 <code>BreadcrumbList</code> + <code>ItemList</code>；详情页 <code>Product</code> + <code>FAQPage</code></li><li><strong>hreflang</strong>：五语互指，并带 <code>x-default</code></li><li><strong>canonical</strong> 与 JSON-LD 的 host 必须一致（子域承载语言时尤为容易出错）</li><li><strong>title ≤60 字符</strong>——英文 SERP 的截断线约 580px，超出的部分在结果页看不到</li><li><strong>Core Web Vitals 达标</strong>：LCP / INP / CLS</li><li>参数表用<strong>文字</strong>，不用图片（AI 概览读的也是这段）</li><li>内链语义相关（见 §13）</li></ul>
+<h3>16.2 要盯的三个工具</h3>
+<table><thead><tr><th>工具</th><th>用途</th></tr></thead><tbody><tr><td><strong>Google Search Console</strong></td><td>sitemap 提交、URL 检查、效果报告（<strong>有曝光无点击 → title 问题</strong>）、Core Web Vitals 报告</td></tr><tr><td><strong>GA4</strong></td><td>流量与转化；识别 AI 引荐来源</td></tr><tr><td><strong>Rich Results Test</strong></td><td>结构化数据是否有效、能否出富结果</td></tr></tbody></table>
+<h3>16.3 Google 的 AI 效果报告（已有官方数据源）</h3>
+<p><strong>Generative AI performance report</strong> —— 2026-06-03 发布，<strong>2026-08-31 起全球铺开</strong>：</p>
+<ul><li>显示站点在 <strong>AI Overviews / AI Mode</strong>（以及 Discover 的生成式功能）里的<strong>展示次数</strong></li><li>可按 页面 / 国家 / 设备 / 日期 分组</li><li>⚠️ <strong>不含点击数据</strong>——只知道「被展示了」，不知道「带来多少访问」。Google 称后续会加指标；英国 CMA 要求其在 <strong>2027-03 前</strong>提供页面级控制与点击报告</li></ul>
+<p>同时上线了<strong>站点级 opt-out 开关</strong>（Search Console → Settings）：可整体退出 AI 功能。Google 声明<strong>不影响常规搜索排名</strong>（训练数据另有 <code>Google-Extended</code> 单独控制）。</p>
+<p><strong>对照</strong>：Bing 的 AI Performance Report（§3.4）与 Google 这份，是目前仅有的两个<strong>官方 AI 可见度数据源</strong>。<strong>两者都只看展示、不看点击</strong> —— 所以引用之外的业务影响，仍须靠 GA4 的 AI 引荐流量自行衡量（§18.6）。</p>
+<hr>
+<h2 id="fw-22">17. Bing 生态</h2>
+<h3>17.1 页面的额外要求</h3>
+<p>在 §8–§11 的页面骨架之上追加：</p>
+<ul><li>title / H1 / URL 里主要关键词用<strong>精确匹配</strong></li><li><strong>内容必须在服务端渲染的 HTML 里</strong>——Bing 对 JS 渲染容忍度低，客户端渲染的内容可能完全不在索引里。自检：禁用 JS 抓一次页面，看内容还在不在</li><li><strong>LinkedIn 公司页完整</strong></li><li>结构化数据保持有效——Copilot 用它做 grounding</li><li>每次发布 / 更新走 <strong>IndexNow</strong></li></ul>
+<h3>17.2 要盯的两件事</h3>
+<table><thead><tr><th>事项</th><th>为什么</th></tr></thead><tbody><tr><td>关键页面是否进了 Bing 索引</td><td>Copilot grounding 的第一环（§3.5），断了后面全无意义</td></tr><tr><td>AI Performance Report</td><td>唯一官方的 AI 引用追踪（§3.4）</td></tr></tbody></table>
+<hr>
+<h2 id="fw-23">18. GEO 落地</h2>
+<h3>18.1 先分清三个环节，再看谁在收你</h3>
+<p>⚠️ <strong>抓取 ≠ 索引 ≠ 引用</strong>，是三个独立环节。任一环没过，结果都是「AI 的答案里没有你」。</p>
+<pre><code>抓取   内容能否被获取       ← 爬虫有没有被拦
+  ↓
+索引   内容能否被留下       ← 进了哪一家的索引
+  ↓
+引用   内容能否出现在答案里  ← 重排层有没有选中你</code></pre>
+<p>两个最常见的误判：</p>
+<ul><li><strong>访问日志里出现 AI 爬虫，不等于会被引用。</strong> 爬虫要分类看（见下）——训练类爬虫的到访与搜索可见度<strong>完全无关</strong>。</li><li><strong>在 Google 排得好，不等于 AI 找得到你。</strong> 各家用的<strong>不是同一个索引</strong>。</li></ul>
+<h4>五个索引，五种入口</h4>
+<table><thead><tr><th>平台</th><th>读哪个索引</th><th>进这个索引的前提</th></tr></thead><tbody><tr><td><strong>Gemini / AI Overviews / AI Mode</strong></td><td><strong>Google</strong></td><td>常规 SEO</td></tr><tr><td><strong>Copilot</strong></td><td><strong>Bing</strong></td><td>被 Bing 收录 + 服务端渲染</td></tr><tr><td><strong>ChatGPT Search</strong></td><td><strong>Bing</strong>（+ 自有 / 合作数据源）</td><td>同上</td></tr><tr><td><strong>Claude</strong></td><td><strong>Brave</strong>（独立自建索引，约 860 亿页）</td><td>⚠️ <strong>另有一套发现机制</strong>（见下）</td></tr><tr><td><strong>Perplexity</strong></td><td><strong>自建爬取与索引</strong></td><td>被 <code>PerplexityBot</code> 抓取</td></tr></tbody></table>
+<p>⚠️ <strong>最容易漏的是 Brave。</strong> Claude 的网页搜索走 Brave，证据链有三条：Brave 在 Anthropic 的 subprocessor 列表里、Claude API 有 <code>BraveSearchParams</code> 参数、<strong>Claude 的引用与 Brave 自然结果重叠约 86.7%</strong>。</p>
+<p>而 Brave 的索引<strong>不来自 Google 或 Bing</strong> —— 它靠浏览器端发现：</p>
+<blockquote><p>内容需要<strong>至少 20 个开启数据共享的 Brave 浏览器用户访问过</strong>，才会进入 Brave 索引。</p></blockquote>
+<p>对多数 B2B 站点这个门槛是隐形的：<strong>Brave 里没收录，Claude 就永远找不到你，而你在 Google 的排名对此毫无提示。</strong> Brave 有自己的站长工具，可以先自查。</p>
+<h4>AI 爬虫：三类分工（别一刀切屏蔽）</h4>
+<p>两家主流厂商都把爬虫拆成三种用途，<strong>可见度影响完全不同</strong>：</p>
+<table><thead><tr><th>用途</th><th>OpenAI</th><th>Anthropic</th><th>拦掉的后果</th></tr></thead><tbody><tr><td><strong>训练</strong></td><td><code>GPTBot</code></td><td><code>ClaudeBot</code></td><td>与搜索可见度<strong>无关</strong>，只影响未来模型对你的认知</td></tr><tr><td><strong>搜索索引</strong></td><td><code>OAI-SearchBot</code></td><td><code>Claude-SearchBot</code></td><td>⚠️ <strong>从索引中移除，等于不参与引用</strong></td></tr><tr><td><strong>实时抓取</strong></td><td><code>ChatGPT-User</code></td><td><code>Claude-User</code></td><td>⚠️ 用户提问时读不到你的页面，<strong>引用会落到竞品头上</strong></td></tr></tbody></table>
+<p>其他需放行：<code>PerplexityBot</code>、<code>Bingbot</code>（Copilot 的前提）、<code>Google-Extended</code>（Gemini 相关）。</p>
+<p><strong>推荐配置</strong>：训练爬虫按你的版权策略决定；<strong>「搜索索引」与「实时抓取」两类必须放行</strong>。 ⚠️ 2024–2025 年大量站点为抗议训练数据抓取而<strong>一刀切屏蔽全部 AI bot</strong>，结果把会引用自己的那两个也一起屏蔽了——这是最常见的自伤。</p>
+<p>两个验证要点：</p>
+<ul><li>robots.txt 的 <code>Allow: /</code> 本身不拦它们，但<strong>CDN 的机器人防护与防火墙限流会悄悄拦掉</strong>——要实际验证返回 200 而不是 403</li><li>按 <strong>IP 段 / 反向 DNS</strong> 核验真实身份（User-Agent 可伪造）；Anthropic 有公开的 bot IP 清单</li></ul>
+<h4>llms.txt：目前存疑</h4>
+<p>它一度被当作「AI 时代的 robots.txt」。但实践反馈是：<strong>主流引擎在抓取阶段直接抽取网页正文并转 Markdown，并不依赖 llms.txt 提供的索引路径</strong>——部署成本极低，但<strong>目前看不到实际收益</strong>。属于「做也无妨，别指望它」。</p>
+<h3>18.2 权重从哪来：GEO 的三层权重</h3>
+<p>传统 SEO 的「权重」约等于域名权威 + 外链。<strong>GEO 不是</strong>——它至少分三层，而且从下往上越来越难、越来越关键：</p>
+<table><thead><tr><th>层</th><th>决定什么</th><th>怎么攒</th></tr></thead><tbody><tr><td><strong>① 索引层</strong></td><td>有没有资格被检索到</td><td>进对索引（§18.1 五个）；技术可抓取</td></tr><tr><td><strong>② 实体层</strong></td><td>AI「认识不认识」你这家公司</td><td>预训练里的品牌认知 + 全站实体一致性</td></tr><tr><td><strong>③ 证据层</strong></td><td>重排时凭什么选你</td><td>第三方信源 + 独占数据 + 可切块结构</td></tr></tbody></table>
+<p><strong>① 索引层是门槛，不是优势。</strong> 五个索引都进了才刚站上起跑线；这一层没做好，后面全部作废。</p>
+<p><strong>② 实体层最容易被忽略。</strong> AI 有「<strong>主要偏差</strong>」——预训练阶段对品牌形成的先入之见。有研究提到一个具体现象：<strong>某些中国品牌即使在搜索结果里排第一，AI 也可能拒绝推荐</strong>。这不是内容问题，是<strong>认知问题</strong>，而且改不了——只能靠<strong>第三方的独立叙述</strong>去对冲：别人怎么介绍你，比你自己怎么说更重要。</p>
+<p>所以实体层的做法是「一致性 + 外部复述」：品牌名 / 型号 / 公司信息在全站和所有外部渠道<strong>用同一个写法</strong>，让 AI 能把它归并到同一个实体上。</p>
+<p><strong>③ 证据层才是重排层的战场</strong>（§4.2）。拼三件事：有没有第三方的独立叙述、有没有别人没有的数据、段落能不能被整块切走。</p>
+<p>⚠️ <strong>一句反直觉但很关键的判断</strong>：研究显示 AI 答案对<strong>第三方信源的依赖度约 95%</strong>——品牌自有域名的引用占比，Google AI Overviews 约 <strong>59.8%</strong>、ChatGPT 约 <strong>44.7%</strong>、Perplexity 约 <strong>28.9%</strong>。</p>
+<p>也就是说：<strong>只做官网，在 AI 的答案体系里最多只能拿到一半存在感，而 Perplexity 那边连三成都不到。</strong>「内容发在哪里」和「内容是什么」同等重要。</p>
+<hr>
+<h3>18.3 第三方引用：AI 最看重的站外信号</h3>
+<p>AI 不会引用「自己夸自己」的内容——它需要一个<strong>独立理由</strong>相信你。</p>
+<ul><li>社区平台（Reddit、Quora、行业论坛、Stack Exchange）在 AI 引用中占比极高：<strong>真实的技术回答比官网文案更容易被引用</strong></li><li>「最佳 XX 厂商」类的第三方汇总文章</li><li>行业评测平台、协会目录、企业档案</li><li>LinkedIn 上的专业讨论（同时也喂 Bing）</li><li>维基百科 / 知识面板（若适用）</li></ul>
+<p><strong>所以 GEO 有一半工作在站外。</strong> 一个在技术社区里认真回答问题的工程师，带来的 AI 引用可能超过十篇官网文章。</p>
+<h3>18.4 多语言 GEO：一个被忽略的机会</h3>
+<p><strong>同一个品牌在不同语种里的 AI 可见性是彼此独立的。</strong> 英文里被频繁引用，不代表西班牙语或阿拉伯语里也能被找到——各语种的训练数据与检索语料完全不同。</p>
+<ul><li>五语站点的每一语，都是<strong>独立的一次 GEO 机会</strong></li><li><strong>西语 / 葡语 / 阿语市场的 AI 引用竞争远低于英文</strong>，同一份内容本地化后，被引用的概率显著更高</li><li>但<strong>只有被索引、且能切块的本地化内容才算数</strong>；机器翻译的潦草版本既不被引用，也不被信任</li></ul>
+<h3>18.5 GEO 与 SEO 的关系</h3>
+<p><strong>不是替代，是叠加。</strong> RAG 的第一步是检索，检索依赖索引——<strong>SEO 是 GEO 的地基</strong>。</p>
+<p>但有一个反转值得记住：<strong>AI 概览让点击变少，却让「品牌被记住」变重要</strong>。客户可能不点你的链接、直接问 AI，然后<strong>记住品牌名再来搜你</strong>。所以 GEO 的收益，往往先在<strong>品牌词搜索量</strong>上体现，而不是在自然流量报表里。</p>
+<h3>18.6 衡量 GEO</h3>
+<table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td>引用率</td><td>在一组目标问题上，品牌被点名 / 被链接的频率</td></tr><tr><td>声量占比</td><td>同一组问题里，自己 vs 竞品的引用比例</td></tr><tr><td>描述情感</td><td>AI 怎么描述你（用词是否准确、信息是否过时）</td></tr><tr><td>AI 引荐流量</td><td>GA4 中来自 chatgpt.com / perplexity.ai / copilot.microsoft.com 的会话</td></tr></tbody></table>
+<p>测法要点：用<strong>买家会问的自然长问句</strong>做一组固定问题集，定期在多引擎跑。 ⚠️ <strong>不要用品牌名去问</strong>——那会污染结果（相当于给模型提示）。</p>
+<hr>
+<h1 id="fw-24">第五部分 · 验收与边界</h1>
+<h2 id="fw-25">19. 验收清单</h2>
+<pre><code>【算法层共通】
+□ 关键页面有可验证的专业痕迹（标准号 / 认证编号 / 实测数据）
+□ 无「为搜索引擎而写」的页面；无 PBN 类外链
+□ 每个小节能独立回答一个问题（可切块）
+□ 品牌名 / 型号 / 公司信息全站一致（实体清晰）
+
+【Google】
+□ sitemap 已在 Search Console 提交，无覆盖错误
+□ title ≤60 字符（英文 SERP 截断线）
+□ Core Web Vitals 达标（LCP / INP / CLS）
+□ 结构化数据通过 Rich Results Test
+□ 五语 hreflang 互指且带 x-default
+
+【结构层】
+□ 每页 H1 数量 == 1
+□ 无跳级（H1 → H2 → H3）；UI 标签不用 H1–H6
+□ 面包屑存在于所有非首页，且带 BreadcrumbList
+□ JSON-LD 的 host == canonical 的 host
+□ 详情页 Product 含 url / image / sku / manufacturer
+□ 全站无 href="#" 的功能性链接
+□ 文章簇每篇都链回对应枢纽页，且出口链是产品页不是首页
+
+【Bing / Copilot】
+□ 关键页面在服务端渲染的 HTML 里（禁用 JS 仍可读）
+□ 已被 Bing 索引（Webmaster Tools 的 URL 检查返回已收录）
+□ IndexNow 已启用，发布即推送
+□ title / H1 / URL 使用精确匹配的主要关键词
+□ LinkedIn 公司页完整
+□ 每月看一次 AI Performance Report
+
+【GEO】
+□ 五个索引已逐家确认收录（Google / Bing / **Brave** / Perplexity）
+□ robots.txt 放行 OAI-SearchBot、Claude-SearchBot、Claude-User（训练类爬虫可另议）
+□ 关键小节以 40–60 词答案块开头
+□ 每个 H2/H3 是问题或明确结论，不是宽泛名词
+□ 有对比表与具体数据（含单位、标准号、出处）
+□ 结构化数据有效：Organization / Article / FAQPage / Product
+□ robots.txt 放行全部主流 AI 爬虫，且实测返回 200
+□ llms.txt 已发布
+□ 目标问题集已在多引擎跑过基线
+□ 五语站点每语都有可被切块的本地化内容</code></pre>
+<hr>
+<h2 id="fw-26">20. 与既有文件的边界</h2>
+<table><thead><tr><th>文件</th><th>管什么</th></tr></thead><tbody><tr><td><strong>SEO_GEO_FRAMEWORK.md</strong>（本文件）</td><td>算法层（三套评价标准）＋ 结构层（三类页面骨架）＋ 执行层（内链 / 文章簇 / 累积）＋ 渠道落地项</td></tr><tr><td><code>SITE_SKELETON_SPEC.md</code></td><td>骨架现状、差异清单、待办、已裁定记录</td></tr><tr><td><code>SEO_SPEC.md</code></td><td>基础设施：GA4 / GSC / sitemap / hreflang / 追踪 / 运营计划</td></tr><tr><td><code>PRODUCT_PAGE_SPEC.md</code></td><td>产品页文案与区块细节</td></tr></tbody></table>
+<p><strong>待办只进 <code>SITE_SKELETON_SPEC.md</code>，本文件不记待办。</strong></p>
+<hr>
+<p><em>本文件是站点搜索可见性的唯一基准。改 URL、加内链、发文章、做内容之前，先确认它落在哪一层、归属于哪个枢纽页。</em></p>
+    </section>
+
+    <section class="page" id="page-os">
+<span id="os-top"></span>
+<h1 id="os-1">GEO 站外篇（CHITEK）</h1>
+<blockquote><p>2026-09-29 立。<code>SEO_GEO_FRAMEWORK.md</code> 的<strong>站外分册</strong>——那本讲「站内怎么改」，这本讲「站外怎么做、权重才高」。</p><p>形态一致：<strong>只定原则与规则，不记现状与待办</strong>。</p></blockquote>
+<hr>
+<h2 id="os-2">0. 一句话</h2>
+<p><strong>站内决定「AI 能不能把你的话切走」，站外决定「AI 愿不愿意说你的名字」。</strong></p>
+<p>而后者的份量远超想象：<strong>84% 的 AI 引用来自 earned media</strong>（第三方赢得的内容），<strong>95% 的答案依赖第三方信源</strong>。自有域名能拿到的引用占比——Google AI Overviews 约 <strong>59.8%</strong>、ChatGPT 约 <strong>44.7%</strong>、Perplexity 约 <strong>28.9%</strong>。</p>
+<p><strong>只做官网，最多拿到一半存在感；Perplexity 那边连三成都不到。</strong></p>
+<p>⚠️ <strong>但这个比例取决于查询类型</strong>（三组研究口径不一，实为同一件事的三面）：</p>
+<table><thead><tr><th>查询类型</th><th>引用结构</th></tr></thead><tbody><tr><td><strong>品牌词查询</strong>（「CHITEK 怎么样」）</td><td><strong>官网权重高</strong>（Trustmary 测得官方域名约 62%）</td></tr><tr><td><strong>泛需求查询</strong>（「AHF 怎么选」）</td><td><strong>第三方主导</strong>——评测、论坛、数据服务</td></tr></tbody></table>
+<p>所以「95% 依赖第三方」要按这个前提理解：<strong>客户在还没听说过你的时候，看到的基本都是别人说的话。</strong></p>
+<hr>
+<h2 id="os-3">1. 提及 ≠ 引用：两个指标，两套做法</h2>
+<table><thead><tr><th>指标</th><th>定义</th><th>价值</th></tr></thead><tbody><tr><td><strong>提及（Mention）</strong></td><td>AI 在答案里<strong>说出你的品牌名</strong></td><td>品牌认知</td></tr><tr><td><strong>引用（Citation）</strong></td><td>AI 把<strong>你的页面当作来源</strong>列进脚注，用户可点可查</td><td>流量 + 可信度</td></tr></tbody></table>
+<p>⚠️ <strong>高引用、低提及 = AI 在白嫖你的内容</strong>（用了你的数据，不给你署名）。两个指标必须<strong>分开记</strong>——只看其中一个一定会被误导。</p>
+<h3>1.1 它们要的东西完全不同</h3>
+<table><thead><tr><th></th><th><strong>引用（Citation）</strong></th><th><strong>提及（Mention）</strong></th></tr></thead><tbody><tr><td>目标</td><td>让 AI 把你的<strong>页面</strong>当来源</td><td>让 AI <strong>说出你的品牌名</strong></td></tr><tr><td>载体</td><td>页面 / 段落</td><td><strong>实体认知</strong>（跟页面无关）</td></tr><tr><td>靠什么</td><td>内容可切块 + 独占数据</td><td>第三方独立叙述</td></tr><tr><td>谁控制</td><td><strong>你自己</strong>（站内工程）</td><td><strong>别人</strong>（站外经营）</td></tr><tr><td>见效</td><td>2–4 周</td><td>以季度计</td></tr><tr><td>失败的信号</td><td>数据被用了，但没署名</td><td>AI 推荐同类产品时完全没想到你</td></tr></tbody></table>
+<p><strong>一句话区别</strong>：引用取决于「你的页面有多好切」，提及取决于「AI 认不认识你这家公司」。<strong>前者是工程，后者是经营。</strong></p>
+<p>两者是<strong>互相强化</strong>的：AI 先认识你（提及），用户问相关问题时它才会<strong>主动去检索你的官网</strong>——这时候页面可切块，就产生引用。所以<strong>提及是引用的前置条件</strong>。</p>
+<h3>1.2 怎么做引用（站内 · 自己可控）</h3>
+<p>前提：页面能被检索到（五个索引，见框架 §18.1）。然后是<strong>可切块 + 有独占信息</strong>：</p>
+<table><thead><tr><th>动作</th><th>量化效果</th></tr></thead><tbody><tr><td><strong>答案前置</strong> —— 每个 H2 下第一段用 <strong>40–60 词</strong>直接回答</td><td>44.2% 的 LLM 引用来自页面前 30%</td></tr><tr><td><strong>小节自包含</strong> —— 每节抽出来能独立回答一个问题</td><td>—</td></tr><tr><td><strong>具体数字 + 出处</strong></td><td><strong>+33%</strong></td></tr><tr><td><strong>专家引述</strong></td><td><strong>+41%</strong></td></tr><tr><td><strong>对比表</strong>（「A vs B」类问题占比极高）</td><td>—</td></tr><tr><td><strong><code>FAQPage</code> schema</strong></td><td>与引用率相关性 <strong>0.71</strong>（最强站内信号）</td></tr><tr><td><strong>90 天内更新</strong></td><td>被引用概率 <strong>2.4 倍</strong></td></tr><tr><td><strong>URL 稳定</strong>（页面别删、链接别断）</td><td>⚠️ 19.3% 的 AI 引用链接已失效</td></tr></tbody></table>
+<p>⚠️ 最后一条最容易被忽略：<strong>删掉一个页面，等于把之前攒下的引用一起删掉。</strong></p>
+<h3>1.3 怎么做提及（站外 · 靠别人）</h3>
+<p><strong>第一步不是发内容，是让 AI 知道你是谁、属于哪一类。</strong></p>
+<p>如果 AI 不知道你属于哪个品类，它没办法在「推荐 XX 类产品」时想到你。所以要有一句<strong>标准自我介绍</strong>，并在所有渠道用<strong>同一个说法</strong>：</p>
+<blockquote><p>「CHITEK 是一家低压有源谐波滤波器（AHF）与静止无功发生器（SVG）制造商，产品覆盖 8–300A…」</p></blockquote>
+<p>然后靠第三方独立叙述反复出现：</p>
+<table><thead><tr><th>渠道</th><th>具体做法</th><th>注意</th></tr></thead><tbody><tr><td><strong>行业社区</strong></td><td>在电气 / 工控专业社区<strong>真实回答技术问题</strong></td><td>不带推销；真实从业者对话，AI 高度信任</td></tr><tr><td><strong>目录 / 评测平台</strong></td><td>行业目录、协会名录、供应商库</td><td>挑你们品类<strong>真正在用</strong>的平台，别硬套软件类平台</td></tr><tr><td><strong>行业媒体</strong></td><td>垂直媒体投稿 / 专家评论</td><td>⚠️ <strong>垂直媒体被引用频率正在超越综合媒体</strong></td></tr><tr><td><strong>榜单 / 汇总</strong></td><td>进入「最佳 XX 厂商」类文章</td><td>加入<strong>已排在搜索前列</strong>的现成榜单，比自建新页快得多</td></tr><tr><td><strong>LinkedIn</strong></td><td>工程师 / 销售个人号的专业内容</td><td>微软自家资产，同时喂 Bing 与 Copilot</td></tr><tr><td><strong>客户证言</strong></td><td>让成交客户在公开平台留真实评价</td><td>无法伪造 → AI 给高权重</td></tr></tbody></table>
+<p>⚠️ <strong>提及必须带上下文</strong>：不是孤立地出现品牌名，而是「CHITEK 的 AHF 在××场景下……」。AI 要的是<strong>实体 + 品类的关联</strong>，一个孤立的名字它没法用。</p>
+<hr>
+<h2 id="os-4">2. 五个平台，五套信源偏好</h2>
+<p><strong>别把 GEO 当成一个统一打法。</strong> 实测口径：<strong>只有 11% 的域名能同时被 ChatGPT 和 Perplexity 引用。</strong></p>
+<table><thead><tr><th>平台</th><th>它要什么</th><th>该往哪投</th></tr></thead><tbody><tr><td><strong>ChatGPT</strong></td><td>「被公认为可靠」的信源</td><td>Wikipedia、G2 / Trustpilot、<strong>权威媒体的第三方报道</strong></td></tr><tr><td><strong>Perplexity</strong></td><td>「最新鲜、最像人话」的第一答案</td><td>社区（Reddit 等）、<strong>30 天内更新</strong>、答案前置</td></tr><tr><td><strong>Google AI Overviews</strong></td><td>结构化 + 直答</td><td><code>FAQPage</code> schema、清晰小标题、直答式段落</td></tr><tr><td><strong>Claude</strong></td><td>「可防御」的实操 / 文档型内容</td><td>Brave 索引、<strong>63% 的引用给 practitioner / docs 类内容</strong></td></tr><tr><td><strong>Copilot</strong></td><td>Bing 索引 + LinkedIn 信号</td><td>Bing 收录、LinkedIn 公司页与专业内容</td></tr></tbody></table>
+<hr>
+<h2 id="os-5">3. 信源结构正在变（2026 年实测）</h2>
+<p>跨 8 个平台的追踪数据（2026-07）显示：</p>
+<ul><li><strong>上涨</strong>：<strong>YouTube（创新高）</strong>、<strong>LinkedIn（从次要渠道跻身前五）</strong>、Facebook、Instagram</li></ul>
+<p>→ 共同点是「有可追溯的发布主体 + 实时更新」</p>
+<ul><li><strong>回落</strong>：<strong>Wikipedia、NIH、Statista</strong></li></ul>
+<p>→ 共同点是「结构化程度高、更新频率低、内容形态统一」</p>
+<p>原因很直接：参考类信源<strong>权威但更新慢、缺具体场景</strong>。当 AI 要回答「需要经验、需要当下状况、需要实操细节」的问题时，它们提供不了。</p>
+<p>⚠️ <strong>一个必须知道的突变案例</strong>：2026-08-08 OpenAI 调整了 <strong>query fanout</strong> 机制，改用 <code>site:</code> 操作符锁定可信域名——<strong>Reddit 在 ChatGPT 引用中的份额从 3.83% 跌到 0.52%，一周掉了 86.4%</strong>。ChatGPT 转而更多引用官方信源与直接网站。</p>
+<p><strong>教训</strong>：平台的信源偏好<strong>会突变</strong>，押单一渠道等于押平台的产品决策。<strong>要建的是多源矩阵，不是某个平台的最优解。</strong></p>
+<hr>
+<h2 id="os-6">4. 站外动作：分三层做</h2>
+<h3>第一层 · 实体层（前提，必须最先做）</h3>
+<p>⚠️ <strong>顺序错了后面全部白做</strong>——实体没理清，AI 可能把引用给到同名竞品。</p>
+<ul><li><strong>统一一个清晰的品类描述</strong>，然后让所有渠道对齐：官网（首页 / About / 产品页）、LinkedIn 公司页、Crunchbase 类数据库、评测平台、维基 / Wikidata（若符合收录条件）、<strong>过去两年的所有新闻稿与署名文章</strong></li><li>品牌名 / 产品名 / 型号 / 创始人名，<strong>在所有地方用同一个写法</strong></li><li><code>Organization</code> schema 加 <strong><code>sameAs</code></strong>，指向所有已验证档案</li><li>公司在各处引用的自身数据（成立年、产能、客户数）必须<strong>完全一致</strong></li></ul>
+<p>实测反馈：<strong>只做实体统一这一步，就有品牌把 ChatGPT 引用率翻倍</strong>——还没写一个字的新内容。</p>
+<h3>第二层 · 第三方信源（主力）</h3>
+<table><thead><tr><th>类型</th><th>具体载体</th><th>为什么有效</th></tr></thead><tbody><tr><td><strong>评测平台</strong></td><td>G2、Capterra、TrustRadius、Gartner Peer Insights</td><td>AI 直接读结构化评测数据</td></tr><tr><td><strong>社区讨论</strong></td><td>Reddit、LinkedIn 讨论、垂直行业论坛</td><td>真实从业者对话，难以伪造 → AI 高度信任</td></tr><tr><td><strong>行业媒体</strong></td><td><strong>垂直媒体 &gt; 综合媒体</strong></td><td>⚠️ 垂直媒体被引用频率正在超越综合媒体：产能压在一个赛道，颗粒度更细、更结构化</td></tr><tr><td><strong>榜单 / 汇总页</strong></td><td>「最佳 XX 厂商」类文章</td><td>⚠️ AI 引用常来自传统搜索前列 → <strong>加入已排在 Bing / Google 前几名的榜单页，比自建新页快得多</strong></td></tr><tr><td><strong>客座内容</strong></td><td>第三方平台上用自己的话复述你的核心主张</td><td><strong>独立来源重复同一个事实</strong> = 佐证（corroboration）</td></tr></tbody></table>
+<p>⚠️ <strong>一条经验</strong>：被引用多的品牌，往往是<strong>在品类专属媒体上有几篇报道</strong>，而不是在五十个泛高权重博客上都留过名。<strong>具体 &gt; 数量。</strong></p>
+<h3>第三层 · 内容信用（加速）</h3>
+<ul><li><strong>专家引述</strong>、<strong>原创数据</strong>、<strong>具体统计</strong>（量化效果见 §6）</li><li>具名作者 + 可核查的作者档案（LinkedIn、行业署名）</li><li><strong>视频</strong>：YouTube 引用量创新高——一场产品演示或技术讲解，是 AI 能抓取的多模态信源</li></ul>
+<hr>
+<h2 id="os-7">5. 权重怎么才高：六个变量</h2>
+<table><thead><tr><th>变量</th><th>说明</th></tr></thead><tbody><tr><td><strong>① 信源层级</strong></td><td>权威媒体 / 标准机构 ＞ 行业垂直 ＞ 协会 / 地方 ＞ 自媒体。<strong>一个高权重信源可能抵上百个低权重</strong></td></tr><tr><td><strong>② 实体一致性</strong></td><td>名称与描述在所有渠道统一（前提条件，见 §4）</td></tr><tr><td><strong>③ 多样性</strong></td><td><strong>多个独立来源都在说你</strong>，远强于一个来源反复说</td></tr><tr><td><strong>④ 稳定性</strong></td><td>⚠️ <strong>19.3% 的 AI 引用链接已失效</strong>——频繁变动或无法访问的信源会被逐步降低优先级。<strong>链接别断，页面别删</strong></td></tr><tr><td><strong>⑤ 新鲜度</strong></td><td><strong>90 天内更新的页面，被引用概率是 12 个月以上页面的 2.4 倍</strong></td></tr><tr><td><strong>⑥ 独占信息</strong></td><td>别人没有的数据、实测、配置、行业判断——<strong>AI 不引用到处都有的常识</strong></td></tr></tbody></table>
+<hr>
+<h2 id="os-8">6. 量化杠杆（Princeton GEO 研究）</h2>
+<p>同一份内容，做与不做差多少：</p>
+<table><thead><tr><th>动作</th><th>效果</th></tr></thead><tbody><tr><td>加入<strong>具体统计数据</strong></td><td><strong>+33%</strong></td></tr><tr><td>加入<strong>专家引述</strong></td><td><strong>+41%</strong></td></tr><tr><td>加入<strong>权威来源引用</strong></td><td><strong>+28%</strong></td></tr><tr><td><strong>流畅的结构</strong>（不是堆砌）</td><td><strong>+29%</strong></td></tr><tr><td>❌ <strong>关键词堆砌</strong></td><td><strong>−8%</strong></td></tr></tbody></table>
+<p>另外两条位置规律：</p>
+<ul><li><strong>44.2% 的 LLM 引用来自页面前 30%</strong> → 结论必须前置</li><li><strong><code>FAQPage</code> schema 与引用率相关性 0.71</strong> —— 目前测到的<strong>最强站内信号</strong></li></ul>
+<hr>
+<h2 id="os-9">7. 什么别做</h2>
+<ul><li>❌ <strong>关键词堆砌</strong>：−8%，且不产生任何信任</li><li>❌ <strong>批量 AI 生成内容</strong>：不建立实体权威，而是<strong>稀释</strong>它</li><li>❌ <strong>到处写「我们是最领先的 XX」</strong>：被判为推广语，常反而降低抽取率</li><li>❌ <strong>买「保证被 AI 引用」的服务</strong>：站外是<strong>慢变量</strong>（以季度计），承诺即时见效的都是卖幻觉</li></ul>
+<hr>
+<h2 id="os-10">8. 衡量：Share of Model</h2>
+<p>传统排名看不见 GEO 的产出——<strong>一次好的 AI 提及往往不产生任何点击</strong>。</p>
+<p>所以业界收敛到的核心指标是 <strong>Share of Model（SoM）</strong>：在一组固定的买家提问上，<strong>你的品牌出现频率 vs 竞品</strong>。</p>
+<p>配套三个数：</p>
+<table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td><strong>提及率</strong></td><td>AI 答案里出现你品牌的频率</td></tr><tr><td><strong>引用率</strong></td><td>AI 把你的域名列为来源的频率</td></tr><tr><td><strong>描述准确度 / 情感</strong></td><td>它怎么描述你（是否过时、是否说错）</td></tr></tbody></table>
+<p>⚠️ 同一个问题在不同时间问会得到不同答案——<strong>必须重复采样</strong>，别用单次结果下结论。</p>
+<hr>
+<h2 id="os-11">9. 时间预期（别被忽悠）</h2>
+<table><thead><tr><th>动作</th><th>见效周期</th></tr></thead><tbody><tr><td>实体层统一</td><td>数周内可见变化</td></tr><tr><td>站内结构化改造</td><td><strong>2–4 周</strong></td></tr><tr><td>首批 AI 引用出现</td><td><strong>6–12 周</strong></td></tr><tr><td>第三方背书（媒体 / 评测 / 榜单）</td><td><strong>以季度计</strong></td></tr></tbody></table>
+<p><strong>站内是完全由自己控制的快变量；站外是慢变量。</strong> 任何把慢的那半当成快的那半在卖的，都在卖幻觉。</p>
+<hr>
+<h2 id="os-12">10. 与站内篇的分工</h2>
+<table><thead><tr><th></th><th>站内篇（<code>SEO_GEO_FRAMEWORK.md</code> §18）</th><th><strong>本篇</strong></th></tr></thead><tbody><tr><td>管什么</td><td>索引 / 抓取 / 段落结构 / schema</td><td>实体 / 第三方信源 / 权重来源</td></tr><tr><td>见效</td><td>快（周）</td><td>慢（季度）</td></tr><tr><td>谁控制</td><td>你们自己</td><td>需要关系与持续投入</td></tr></tbody></table>
+<p><strong>正确顺序：先把实体的坑填平（快且便宜）→ 再动站内结构 → 最后才铺站外。</strong> 反过来做，是大多数 GEO 项目卡住的原因。</p>
+<hr>
+<p><em>站内是工程，站外是经营。前者能靠一次改造完成，后者只能靠时间累积。</em></p>
+    </section>
+
+    <section class="page" id="page-sm">
+<span id="sm-top"></span>
+<h1 id="sm-1">社媒运营篇（CHITEK）</h1>
+<blockquote><p>2026-09-30 立。SEO/GEO 框架的第三分册。</p><p><strong>分两条线</strong>：<strong>A 线</strong>服务搜索与 AI 可见度，<strong>B 线</strong>纯做曝光与需求激发。</p><p>两条线的目标、内容形态、衡量指标<strong>完全不同</strong>——混着做，两边都做不成。</p></blockquote>
+<hr>
+<h2 id="sm-2">0. 一句话</h2>
+<p>2026 年社媒有了<strong>双重身份</strong>：</p>
+<ul><li>对 <strong>AI</strong> 而言，它是<strong>最强的信源</strong>——Ahrefs 对 7.5 万个品牌的研究显示，<strong>「YouTube 提及」与 AI 可见性的相关系数约 0.737</strong>，影响力<strong>超过了反向链接、域名权威和内容体量</strong>。</li><li>对<strong>市场</strong>而言，它是<strong>主动触达渠道</strong>——不必等人搜你，可以直接出现在客户的行业信息流里。</li></ul>
+<hr>
+<h2 id="sm-3">1. 两条线，别混着做</h2>
+<table><thead><tr><th></th><th><strong>A 线：喂搜索与 AI</strong></th><th><strong>B 线：扩大曝光</strong></th></tr></thead><tbody><tr><td>目标</td><td>被引用、被提及</td><td>被看见、被记住、被联系</td></tr><tr><td>内容</td><td>可切块的技术内容、可检索的文本层</td><td>故事、现场、人、案例</td></tr><tr><td>载体</td><td>YouTube / LinkedIn / 行业社区</td><td>LinkedIn / Facebook 群组 / WhatsApp / 展会</td></tr><tr><td>指标</td><td>引用率、提及率</td><td>触达、互动、品牌搜索量、询盘</td></tr><tr><td>见效</td><td>6–12 周</td><td>即时，但衰减快</td></tr><tr><td>失败信号</td><td>内容被用了但没署名</td><td>有声量但没询盘</td></tr></tbody></table>
+<p><strong>A 线是资产</strong>（会累积），<strong>B 线是流量</strong>（要持续投）。<strong>A 线的产出还能反哺 B 线</strong>：一段被 AI 反复引用的技术讲解，本身就是最好的销售素材。</p>
+<hr>
+<h1 id="sm-4">第一部分 · A 线：喂搜索与 AI</h1>
+<h2 id="sm-5">2. 为什么社媒是 AI 的最强信源</h2>
+<p>Ahrefs 对 7.5 万品牌的研究，把各类信号与 AI 可见性的<strong>相关系数</strong>排了个序：</p>
+<table><thead><tr><th>信号</th><th>相关系数</th></tr></thead><tbody><tr><td><strong>YouTube 提及</strong>（品牌名出现在视频标题 / 字幕 / 描述里）</td><td><strong>0.737</strong></td></tr><tr><td>品牌网页提及</td><td>0.66–0.71</td></tr><tr><td>品牌锚文本</td><td>0.628</td></tr><tr><td>品牌搜索量</td><td>0.466</td></tr><tr><td>域名评级</td><td>0.266–0.326</td></tr><tr><td><strong>网站页面数量</strong></td><td><strong>0.194</strong></td></tr></tbody></table>
+<p>⚠️ <strong>两条结论直接改变了做法</strong>：</p>
+<ol><li><strong>社媒提及比外链和域名权威更重要</strong> —— 传统 SEO 的两大支柱在 AI 可见性里权重很低。</li><li><strong>页面数量几乎没关系（0.194）</strong> —— 这直接反驳了「批量生产页面堆量」的策略。<strong>堆 100 个薄页面，不如让 20 个创作者在视频里念一次你的名字。</strong></li></ol>
+<p>背后的原因也清楚：<strong>GPT-4 的训练用了超过 100 万小时的 YouTube 转录数据</strong>，而<strong>Google AI Mode 引用 YouTube 的次数多于任何其他域名</strong>。</p>
+<p>⚠️ <strong>另一条关键规律：体量胜于广度。</strong> 「在 20 个小创作者的低播放视频里被提到」<strong>强于</strong>「出现在一条爆款视频里」。所以不要盯着大 V，<strong>铺开面比单点爆量重要</strong>。</p>
+<h2 id="sm-6">3. YouTube：A 线第一优先级</h2>
+<p><strong>为什么第一</strong>：数据在上面，而且它是<strong>唯一同时具备「视频说服力」和「AI 可读性」的载体</strong>。</p>
+<p>⚠️ <strong>视频被 AI 引用的通道是文本，不是画面。</strong> AI 读不了视频流，它读的是：</p>
+<table><thead><tr><th>动作</th><th>具体做法</th></tr></thead><tbody><tr><td><strong>① 逐字稿</strong></td><td>口播内容转成文字，放进视频描述区或配套文章</td></tr><tr><td><strong>② 章节标记</strong></td><td>时间轴加目录：<code>00:00 产品概述</code> / <code>02:30 技术参数</code> / <code>05:00 应用案例</code></td></tr><tr><td><strong>③ 描述区文本</strong></td><td>写清「这是什么、解决什么问题、参数是多少」——<strong>带品类词与具体型号</strong></td></tr></tbody></table>
+<p><strong>同样一条视频，有没有完整的文字说明，被引用的概率完全不同。</strong></p>
+<p>内容形态（按优先级）：</p>
+<ol><li><strong>技术讲解</strong> —— 谐波是怎么产生的、AHF 和 SVG 到底怎么选（最能被引用）</li><li><strong>产品演示</strong> —— 一台设备从接线到运行</li><li><strong>现场调试 / 工厂实拍</strong> —— 真实感，也是 B 线的好素材</li><li><strong>故障排查</strong> —— 「THD 超标怎么一步步定位」</li></ol>
+<h2 id="sm-7">4. LinkedIn：A 线第二优先级</h2>
+<p>⚠️ <strong>2026 年 3 月 12 日 LinkedIn 做了算法大改</strong>（统一 feed 架构 + LLM embedding + 生成式推荐），几个数字必须先知道：</p>
+<table><thead><tr><th>事实</th><th>数据</th></tr></thead><tbody><tr><td>全平台自然流量</td><td><strong>下降约 50%</strong></td></tr><tr><td><strong>公司页获得的 feed 分配</strong></td><td><strong>仅 5%</strong></td></tr><tr><td><strong>个人资料页的 feed 分配</strong></td><td><strong>65%</strong></td></tr><tr><td>个人号 vs 公司页</td><td><strong>曝光 2.75 倍、互动 5 倍</strong></td></tr></tbody></table>
+<p><strong>结论很硬：LinkedIn 的自然触达靠个人号，不靠公司页。</strong> 公司页保留（用于广告、招聘、背书），<strong>内容主战场挪到工程师 / 销售 / 管理层的个人号</strong>。</p>
+<p><strong>新算法的核心指标是 Depth Score</strong>（停留时间 + 评论深度 + 收藏 + 私密分享）：</p>
+<ul><li><strong>停留时间排第一</strong> —— 30 秒以上的阅读显著加分</li><li><strong>收藏和私密分享是最高价值信号</strong> —— 说明「这人觉得有用到要留下来」</li><li>问自己一个问题：<strong>这篇内容，有人会收藏吗？</strong> 不会，就别发</li></ul>
+<p><strong>两个明确的惩罚</strong>：</p>
+<ul><li>❌ <strong>互动诱饵</strong>（「同意就评论 YES」）→ 被检测并压制</li><li>❌ <strong>正文里的外链 → 60% 曝光惩罚</strong>（此前约 30%）→ <strong>链接改放第一条评论</strong></li></ul>
+<p><strong>高表现的格式</strong>：<strong>轮播图 / 文档帖</strong>的停留时间是纯文本的 <strong>2–3 倍</strong>。</p>
+<p><strong>节奏</strong>：</p>
+<ul><li><strong>每周 2–3 篇高质量</strong>（每天发反而有害——算法会压制）</li><li><strong>前 30 分钟的互动质量</strong>比 48 小时总量更重要</li><li>内容配比：<strong>40% 价值 / 30% 故事 / 20% 观点 / 10% 推广</strong></li></ul>
+<h2 id="sm-8">5. 行业社区</h2>
+<p>Reddit、Eng-Tips、专业论坛、LinkedIn Groups。</p>
+<p>⚠️ <strong>只能真实回答技术问题，不能推销。</strong> AI 对这类内容信任度极高，恰恰因为<strong>它无法被伪造</strong>——真实从业者在真实问题下的真实回答。</p>
+<p>一条反常识的经验：<strong>在技术社区里认真回答 20 个问题带来的 AI 引用，可能超过十篇官网文章。</strong></p>
+<h2 id="sm-9">6. 附带一条：图片也有「文本层」</h2>
+<p>AI 读图主要靠<strong>文件名、alt 文本、图注、周边段落</strong>，不是像素识别。</p>
+<p>实测对比：</p>
+<table><thead><tr><th></th><th>结果</th></tr></thead><tbody><tr><td><code>IMG_20240315_0932.jpg</code>，无 alt，周边写「产品展示」</td><td>不被引用</td></tr><tr><td><code>高精度数控机床-VMC850-主轴转速12000rpm.jpg</code>，alt 写参数与应用场景</td><td><strong>被引用为配图来源</strong></td></tr></tbody></table>
+<p>→ <strong>产品图、案例图、证书图的文件名与 alt 都要写成有语义的</strong>。</p>
+<hr>
+<h1 id="sm-10">第二部分 · B 线：纯扩大曝光</h1>
+<blockquote><p>这一部分不服务 AI，服务<strong>人</strong>。目标只有一个：让更多潜在客户知道 CHITEK 这个选项存在。</p></blockquote>
+<h2 id="sm-11">7. 平台全景与打法：国内 / 国外</h2>
+<p>⚠️ <strong>先说清一个前提：AI 平台也分国内和国外，各自引用各自生态的内容。</strong></p>
+<table><thead><tr><th></th><th><strong>国外 AI</strong></th><th><strong>国内 AI</strong></th></tr></thead><tbody><tr><td>代表</td><td><strong>ChatGPT · Claude · Perplexity · Gemini · Copilot · Grok</strong></td><td><strong>豆包 · DeepSeek · 腾讯元宝 · 文心一言 · Kimi · 通义千问</strong></td></tr><tr><td>读什么</td><td>YouTube · LinkedIn · Reddit · Facebook ＋ 各自索引（Google / Bing / Brave）</td><td>知乎 · B站 · 公众号 · 抖音 · 今日头条 · 百家号 · 百度百科…</td></tr><tr><td>决定因素</td><td><strong>索引</strong>（框架 §18.1 五个）</td><td><strong>生态归属</strong>——各家优先自己的生态</td></tr></tbody></table>
+<p><strong>所以「投哪个平台」取决于「你要影响哪个市场、哪个 AI」。</strong></p>
+<h3>7.1 国外平台（主力）</h3>
+<table><thead><tr><th>平台</th><th>定位</th><th>对 AI 可见度</th><th>内容形态</th><th>重点市场</th></tr></thead><tbody><tr><td><strong>YouTube</strong></td><td>视频第一</td><td>✅✅ <strong>相关系数 0.737（最强信号）</strong></td><td>技术讲解 ＋ 逐字稿 / 章节标记</td><td>全球</td></tr><tr><td><strong>LinkedIn</strong></td><td>B2B 第一</td><td>✅ 已进 AI 引用前五（微软资产，喂 Bing / Copilot）</td><td><strong>个人号</strong>轮播 / 长文</td><td>全球</td></tr><tr><td><strong>Facebook</strong></td><td>社群</td><td>✅ 稳居 AI 引用第 3</td><td>群组讨论</td><td>中东 / 东南亚 / 非洲 / 拉美</td></tr><tr><td><strong>Reddit</strong></td><td>技术社区</td><td>✅ 高信任（无法伪造）</td><td>真实技术回答</td><td>欧美</td></tr><tr><td><strong>行业垂直社区</strong></td><td>Eng-Tips / EEVblog / Control.com</td><td>✅ 高信任</td><td>技术问答</td><td>欧美</td></tr><tr><td><strong>X (Twitter)</strong></td><td>行业快讯</td><td>中</td><td>快讯 / 观点</td><td>欧美</td></tr><tr><td><strong>Instagram</strong></td><td>视觉曝光</td><td>维持前十，工业品偏弱</td><td>图 / 短视频</td><td>中东 / 拉美</td></tr><tr><td><strong>TikTok</strong></td><td>短视频</td><td>低（B2B 弱）</td><td>短视频</td><td>新兴市场</td></tr><tr><td><strong>WhatsApp</strong></td><td><strong>私域成交</strong>（§9）</td><td>❌ 不产 AI 引用</td><td>1v1 / 群</td><td>中东 / 南美 / 东南亚</td></tr></tbody></table>
+<p>另有三类<strong>非平台渠道</strong>，同样重要：<strong>行业展会</strong>（现场素材的唯一来源）、<strong>行业媒体</strong>（专栏 / 专访 / 投稿）、<strong>工程师 KOL</strong>（技术测评 / 联合内容）。</p>
+<h3>7.2 国内平台</h3>
+<p>⚠️ <strong>先做一个战略取舍</strong>：如果国内市场不是重点，<strong>别把产能分散过来</strong>。国内平台只保留最低限度的存在（一个公众号 ＋ 一个知乎号），用途是供应链背书与人才招聘——<strong>它不服务海外客户，也不产海外 AI 引用</strong>。</p>
+<table><thead><tr><th>平台</th><th>归属生态</th><th>内容形态</th><th>谁在引用它</th></tr></thead><tbody><tr><td><strong>微信公众号</strong></td><td>腾讯</td><td>深度长文</td><td><strong>元宝</strong>（公众号占比 ~40%）</td></tr><tr><td><strong>视频号</strong></td><td>腾讯</td><td>短视频 / 直播</td><td>元宝</td></tr><tr><td><strong>知乎</strong></td><td>独立</td><td>专业问答</td><td><strong>DeepSeek / Kimi</strong>（Kimi 里 UGC 约占 70%）</td></tr><tr><td><strong>今日头条</strong></td><td>字节</td><td>资讯短文</td><td><strong>豆包</strong>（头条号 35.2%）</td></tr><tr><td><strong>抖音</strong></td><td>字节</td><td>短视频</td><td><strong>豆包</strong>（13.5%）</td></tr><tr><td><strong>B站</strong></td><td>独立</td><td>中长视频（知识区）</td><td>千问（B站 / 知乎合计 18%）</td></tr><tr><td><strong>百家号 ＋ 百度百科</strong></td><td>百度</td><td>词条 / 图文</td><td><strong>文心一言</strong>（百度系 60–82%）</td></tr><tr><td><strong>小红书</strong></td><td>独立</td><td>图文种草</td><td>工业品基本无效</td></tr></tbody></table>
+<h3>7.3 若要做国内：六家 AI 的信源偏好</h3>
+<table><thead><tr><th>AI</th><th>生态</th><th>核心信源</th><th>关键数据</th></tr></thead><tbody><tr><td><strong>豆包</strong></td><td>字节系</td><td>头条号 / 抖音百科 / 抖音</td><td>字节系合计 <strong>48.7%</strong>；头条号需<strong>认证 ＋ FAQ 结构 ＋ 800–1500 字</strong>，未认证号权重仅 0.5–1.5 倍</td></tr><tr><td><strong>腾讯元宝</strong></td><td>腾讯系</td><td>公众号 / 视频号 / 腾讯新闻</td><td>公众号 ~40%；<strong>官网引用率 4 个月涨 4 倍</strong>（增速全平台第一）</td></tr><tr><td><strong>DeepSeek</strong></td><td>独立</td><td>官媒 / 学术论文 / 机构报告 / 知乎 / CSDN</td><td>官媒 39.4%；<strong>机构报告 47%</strong>；⚠️ <strong>「孤证不采信」，要多源交叉验证</strong></td></tr><tr><td><strong>文心一言</strong></td><td>百度系</td><td>百度百科 / 百家号 / 知道 / 文库</td><td>百度系 <strong>60–82%</strong>；<strong>首段定义句被引用概率 &gt; 70%</strong></td></tr><tr><td><strong>Kimi</strong></td><td>独立</td><td>知乎 / 技术社区 / 长文本</td><td>UGC ~70%；官网 30.85%；<strong>对 8000 字＋长文友好</strong></td></tr><tr><td><strong>通义千问</strong></td><td>阿里系</td><td>今日头条 / 淘宝天猫</td><td>头条 44.6%；<strong>表格引用率比普通段落高 47%</strong></td></tr></tbody></table>
+<p>⚠️ <strong>「一套稿子全网群发」在国内基本等于无效功</strong>——六家 AI 的信源偏好按<strong>生态派系</strong>分配，且分化还在加剧。</p>
+<p>⭐ <strong>但有一条对国内所有平台都成立</strong>：<strong>企业官网已是国内 AI 的第一大信源</strong>（新榜智汇口径：占比 <strong>24.7%</strong>，上一年 15.06%）。<strong>深度技术内容优先放官网，再分发到生态平台。</strong></p>
+<p>⚠️ 国内信源的权威梯度（Forrester 2026 Q2）：<strong>央媒 / 国家级媒体 = 权重天花板</strong>（引用概率是普通自媒体的 <strong>9.4 倍</strong>）＞ 省级重点新闻网站 ＞ 垂直媒体 ＞ 自媒体。</p>
+<h3>7.4 怎么选：三条规则</h3>
+<ol><li><strong>按市场选</strong> —— 客户在哪个市场，就投那个市场的平台生态</li><li><strong>按 AI 选</strong> —— 想让哪个 AI 提到你，就投它的信源偏好（豆包→头条号，元宝→公众号，文心→百家号，Claude→Brave…）</li><li><strong>先深耕 1–2 个</strong> —— <strong>不要通吃</strong>。选与目标客群决策路径最相关的 1–2 个平台做深，再逐步扩展</li></ol>
+<p>⚠️ <strong>官网在两类 AI 里都是「权威底稿」</strong>（国外靠索引、国内占比 24.7% 且最大），<strong>而社媒生态提供的是「背书弹药」</strong>。只做一侧，都会在另一类平台整体缺席。</p>
+<h2 id="sm-12">8. 内容配比</h2>
+<p>沿用 LinkedIn 的 <strong>40 / 30 / 20 / 10</strong>：</p>
+<table><thead><tr><th>类型</th><th>占比</th><th>工业品该发什么</th></tr></thead><tbody><tr><td><strong>价值内容</strong></td><td>40%</td><td>技术科普、选型方法、故障排查、标准解读</td></tr><tr><td><strong>故事</strong></td><td>30%</td><td>项目现场、客户问题怎么解决、工厂日常、出差见闻</td></tr><tr><td><strong>观点</strong></td><td>20%</td><td>行业趋势判断、对某个现象的看法</td></tr><tr><td><strong>推广</strong></td><td>10%</td><td>产品、展会、促销</td></tr></tbody></table>
+<p>⚠️ <strong>工业品最容易做错的是把比例倒过来</strong>——满屏产品图。<strong>技术内容才是工程师愿意看、愿意转发的东西。</strong></p>
+<h2 id="sm-13">9. 私域：B2B 工业品真正的成交场</h2>
+<p>⚠️ <strong>公域社媒负责「让客户认识你」，私域负责「把单子谈成」。</strong></p>
+<ul><li><strong>WhatsApp</strong> —— 中东、南美、东南亚客户的实际成交渠道。官网和社媒的最终目的，往往是引导到这里</li><li><strong>LinkedIn 私信</strong> —— 欧美客户更接受</li><li><strong>展会跟进</strong> —— 展会后 72 小时内的跟进转化率最高</li></ul>
+<p>一个实战数字：<strong>带内容的邀约（比如 webinar 邀请）接受率 40–50%，而直接推销只有 5–10%</strong>。同样的名单、同样的发件人，<strong>差别只在「要什么」</strong>——所以 B 线的曝光要先于私域的推销。</p>
+<h2 id="sm-14">10. 什么别做</h2>
+<ul><li>❌ <strong>只发公司页不发个人号</strong> —— 2026 年后这条基本等于不发</li><li>❌ <strong>正文带外链</strong> —— 60% 曝光惩罚，链接放首条评论</li><li>❌ <strong>互动诱饵</strong>（「同意请点赞」）—— 已被算法识别压制</li><li>❌ <strong>每天发</strong> —— 每周 2–3 篇高质量远好于 7 篇凑数</li><li>❌ <strong>满屏产品图</strong> —— 工程师不转发这类内容</li></ul>
+<hr>
+<h1 id="sm-15">第三部分 · 通用</h1>
+<h2 id="sm-16">11. 一条内容，四处使用</h2>
+<p>工业品做内容的瓶颈是<strong>产能</strong>，不是创意。所以一次产出要拆开用：</p>
+<pre><code>一次工厂拍摄 / 一次技术讲解
+   ├─→ YouTube 长视频（完整版 + 章节标记 + 逐字稿）      ← A 线
+   ├─→ YouTube Shorts / LinkedIn 短视频（60 秒切片）        ← B 线
+   ├─→ LinkedIn 轮播帖（把要点做成 10 页文档）              ← A 线（停留时长最高）
+   ├─→ 官网博客 / 场景页的一段（可切块的答案）              ← 框架里的内容层
+   └─→ 社区里回答同类问题时的素材                          ← A 线</code></pre>
+<p><strong>这也是为什么 A 线和 B 线不该分开做</strong>——同一份素材，换个形态就是两个渠道的内容。</p>
+<h2 id="sm-17">12. 衡量</h2>
+<table><thead><tr><th>线</th><th>看什么</th><th>怎么测</th></tr></thead><tbody><tr><td><strong>A 线</strong></td><td>引用率 / 提及率</td><td>用框架 §18.6 的固定问题集，在多个 AI 引擎上跑，看有没有提到 CHITEK</td></tr><tr><td><strong>A 线</strong></td><td>YouTube 提及量</td><td>品牌名出现在多少条视频的标题 / 字幕 / 描述里</td></tr><tr><td><strong>B 线</strong></td><td>触达与互动</td><td>平台自带数据 + <strong>保存 / 私密分享</strong>（比点赞更真实）</td></tr><tr><td><strong>B 线</strong></td><td>品牌搜索量</td><td>GA4 里的品牌词自然搜索，这是 B 线最诚实的指标</td></tr><tr><td><strong>共同</strong></td><td>询盘</td><td>表单里的「你是从哪知道我们」字段——<strong>AI 和社媒的贡献都很难靠 cookie 追踪</strong></td></tr></tbody></table>
+<p>⚠️ 最后一条要特别注意：<strong>AI 和社媒的贡献在传统分析工具里几乎看不见</strong>，因为没有点击、没有 referrer。<strong>自报归因字段是唯一可靠的办法。</strong></p>
+<h2 id="sm-18">13. 与另两篇的分工</h2>
+<table><thead><tr><th></th><th><code>SEO_GEO_FRAMEWORK.md</code></th><th><code>GEO_OFFSITE.md</code></th><th><strong>本篇</strong></th></tr></thead><tbody><tr><td>管什么</td><td>站内骨架、索引、算法评价标准</td><td>实体、第三方信源、权重来源</td><td>社媒两条线：喂 AI + 做曝光</td></tr><tr><td>载体</td><td>自己的页面</td><td>别人的页面</td><td>平台账号与内容</td></tr><tr><td>见效</td><td>2–4 周</td><td>以季度计</td><td>A 线 6–12 周 / B 线即时</td></tr></tbody></table>
+<p><strong>三者的关系</strong>：站内是<strong>地基</strong>，站外第三方是<strong>背书</strong>，社媒是<strong>自己可控的站外阵地</strong>——它同时能产生 AI 引用和直接曝光，是三块里<strong>性价比最高的一块</strong>。</p>
+<hr>
+<p><em>社媒是唯一一个「既能喂 AI、又能直接见客户」的渠道。所以它不该是最后做的，而应该是和官网并行做的。</em></p>
+    </section>
+
+    <section class="page" id="page-kw">
+<span id="kw-top"></span>
+<h1 id="kw-1">AHF / SVG 海外关键词矩阵</h1>
+<p class="lead">按「谁在搜 + 搜什么形态」建轴，而不是按关键词主题分类。同一个产品，代理商、工程师、新兴市场客户会把它搜成三种完全不同的样子，用一套词打所有人等于谁都没打中。</p>
+<h2 id="kw-2">1. 前提：搜索行为由「客户成熟度」决定，不由市场规模决定</h2>
+<table>
+<colgroup><col style="width:15%"><col style="width:16%"><col style="width:14%"><col style="width:30%"><col style="width:25%"></colgroup>
+<thead><tr><th>谁在搜</th><th>脑子里是什么</th><th>搜索形态</th><th>例子</th><th>该用什么页面承接</th></tr></thead>
+<tbody>
+<tr><td>A  已成交代理商 / 老客户</td><td>脑子里是一个具体型号</td><td>品牌 + 型号 + 支持需求</td><td><div class="words">CHITEK AHF-100、AHF 100A 400V、AHF manual pdf</div></td><td>品牌词页 · 型号页 · 下载中心 · 技术支持页</td></tr>
+<tr><td>B  成熟市场工程师</td><td>脑子里是一个准确品类名</td><td>品类 + 参数 / 标准号</td><td><div class="words">active harmonic filter 100A、IEEE 519 compliance</div></td><td>产品页 · 选型页 · 参数表 · 认证区</td></tr>
+<tr><td>C  新兴市场 / 新入行</td><td>脑子里是一个故障现象</td><td>场景 + 问题长句</td><td><div class="words">solar inverter grid harmonics problem</div></td><td>场景解决方案页 · 博客</td></tr>
+</tbody></table>
+<p class="note">关键：这三段的词不能混在同一个页面上打。A 段靠品牌资产和文档承接，B 段靠参数页和选型页打，C 段靠场景解决方案页打。混着打的结果是三种人都觉得不对味。</p>
+<h2 id="kw-3">2. 命名碎片化：同一个产品，海外至少有 10 个名字</h2>
+<h3>AHF 族（治谐波）</h3>
+<table>
+<colgroup><col style="width:17%"><col style="width:21%"><col style="width:22%"><col style="width:8%"><col style="width:32%"></colgroup>
+<thead><tr><th>名称</th><th>全称</th><th>主要使用地区</th><th>优先级</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><span class="k">AHF</span></td><td>Active Harmonic Filter</td><td>北美 · 澳洲 · 英国 · 中东</td><td><span class="p0">P0</span></td><td>语义最直白，英文站首选主词</td></tr>
+<tr><td><span class="k">APF</span></td><td>Active Power Filter</td><td>中日韩 · 东南亚 · 印度 · 南美</td><td><span class="p0">P0</span></td><td>源自日本学界；亚洲客户搜 APF 的量不低于 AHF，必须覆盖</td></tr>
+<tr><td><span class="k">Active Filter</span></td><td>—</td><td>欧洲通用</td><td><span class="p0">P0</span></td><td>泛称，常与 power quality 连用</td></tr>
+<tr><td><span class="k">Harmonic Filter</span></td><td>—</td><td>全球泛词</td><td>P1</td><td>不区分有源 / 无源，需与 active 搭配才精准</td></tr>
+<tr><td><span class="k">ADF</span></td><td>Active Dynamic Filter</td><td>部分中国 / 印度厂商出口资料</td><td>P1</td><td>厂商自造术语，搜索量小但竞争几乎为零</td></tr>
+<tr><td><span class="k">Active Harmonic Compensator</span></td><td>—</td><td>欧洲 · 中东</td><td>P2</td><td>低频别名，顺带覆盖即可</td></tr>
+</tbody></table>
+<p class="note"><b>AHF、APF、ADF 指的是同一类产品，不是三个产品。</b>只写 AHF 的站，会直接丢掉所有搜 APF 的亚洲、中东、南美客户——这部分流量在数量上不低于 AHF。</p>
+<h3>SVG 族（无功 + 谐波 + 闪变 + 不平衡）</h3>
+<table>
+<colgroup><col style="width:17%"><col style="width:21%"><col style="width:26%"><col style="width:8%"><col style="width:28%"></colgroup>
+<thead><tr><th>名称</th><th>全称</th><th>主要使用地区</th><th>优先级</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><span class="k">STATCOM</span></td><td>Static Synchronous Compensator</td><td>IEC / IEEE 标准术语，欧美电力行业</td><td><span class="p0">P0</span></td><td>海外专业买家的标准词，优先度与 SVG 并列</td></tr>
+<tr><td><span class="k">SVG</span></td><td>Static Var Generator</td><td>中国 · 亚洲厂商主推</td><td>P0*</td><td>海外搜索严重歧义，见下方警告，不可裸用</td></tr>
+<tr><td><span class="k">ASVG</span></td><td>Advanced Static Var Generator</td><td>中国标准叫法</td><td>P1</td><td>出口技术文件中出现，海外搜索量低</td></tr>
+<tr><td><span class="k">Static Var System</span></td><td>—</td><td>泛称</td><td>P2</td><td>低频</td></tr>
+<tr><td><span class="k">Var Generator</span></td><td>—</td><td>北美口语</td><td>P2</td><td>低频</td></tr>
+</tbody></table>
+<div class="warn"><b>SVG 缩写的陷阱：</b>SVG 在英文世界的默认含义是 Scalable Vector Graphics（矢量图格式）。裸搜 SVG 的流量几乎全部与无功补偿无关。英文站推广必须使用全称 Static Var Generator，或写作 SVG (Static Var Generator)；同时把 STATCOM 作为并列主词——它在欧美电力行业才是标准术语。</div>
+<h3>竞品 / 替代方案（要拦截，不是要回避）</h3>
+<table>
+<colgroup><col style="width:17%"><col style="width:21%"><col style="width:18%"><col style="width:8%"><col style="width:36%"></colgroup>
+<thead><tr><th>名称</th><th>全称</th><th>主要使用地区</th><th>策略</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><span class="k">SVC</span></td><td>Static Var Compensator</td><td>全球</td><td>拦截</td><td>不是同一产品（晶闸管投切型），客户常混淆，值得做区分内容</td></tr>
+<tr><td><span class="k">Detuned Reactor + Capacitor</span></td><td>调谐电抗器 + 电容柜</td><td>全球</td><td>拦截</td><td>AHF 的传统替代方案，价格敏感客户的第一选择</td></tr>
+<tr><td><span class="k">Passive Harmonic Filter</span></td><td>无源谐波滤波器</td><td>全球</td><td>拦截</td><td>同上，主要比价对象</td></tr>
+<tr><td><span class="k">APFC Panel</span></td><td>Automatic Power Factor Correction</td><td>印度 · 中东 · 东南亚</td><td>拦截</td><td>只补无功、不治谐波，需明确说明差异</td></tr>
+<tr><td><span class="k">Hybrid Filter</span></td><td>混合型滤波器（无源 + 有源）</td><td>欧洲</td><td>拦截</td><td>组合方案，可作为产品线补充的话题</td></tr>
+</tbody></table>
+<p class="note">搜这些词的客户已经在比方案了。你不占位，比价时就没人替你说话。做一页「无源 vs 有源」「SVC vs STATCOM」，比投广告便宜得多。</p>
+<h2 id="kw-4">3. 主矩阵：应用场景 × 搜索意图</h2>
+<p class="note">行是场景（客户从自己的场景进来，不是从你的型号进来），列是三段搜索意图。每格按英文站处理，其他语言的对应版本见第 8 节。</p>
+<table>
+<colgroup><col style="width:26%"><col style="width:22%"><col style="width:25%"><col style="width:27%"></colgroup>
+<thead><tr><th>应用场景 / 为什么打它</th><th>型号层（新客 + 代理商）</th><th>参数层（工程师）</th><th>问题层（新兴市场）</th></tr></thead>
+<tbody>
+<tr><td><span class="k">数据中心 / AI 算力</span><br><span class="note">UPS、变频制冷负载密集，THD 常超 IEEE 519；欧美与中东新建项目密集，预算高、决策快</span></td><td><div class="words">active harmonic filter data center<br>ahf for data center<br>harmonic filter 300a data center</div></td><td><div class="words">ups harmonic mitigation<br>data center power quality ieee 519<br>harmonic filter for it load<br>active harmonic filter data center ups</div></td><td><div class="words">ups causing harmonics problem<br>data center power quality issues<br>ai data center harmonics<br>why do ups systems cause harmonics</div></td></tr>
+<tr><td><span class="k">光伏 / 储能并网</span><br><span class="note">新兴市场最热赛道；逆变器既产生谐波又对电网谐波敏感，SVG / AHF 需求刚性</span></td><td><div class="words">static var generator for solar farm<br>ahf for pv plant<br>svg 100kvar solar</div></td><td><div class="words">pv inverter harmonic filter<br>reactive power compensation solar farm<br>harmonics mitigation pv plant<br>static var generator pv power plant</div></td><td><div class="words">solar inverter grid harmonics problem<br>why is my thd high with solar panels<br>solar farm power quality problems<br>harmonics from pv inverters</div></td></tr>
+<tr><td><span class="k">充电站 / 大功率快充</span><br><span class="note">快充桩群谐波 + 三相不平衡突出；欧洲、中东、东南亚铺设速度快</span></td><td><div class="words">active harmonic filter charging station<br>ahf for ev charger</div></td><td><div class="words">ev charger harmonic filter<br>power factor correction ev charging<br>harmonics mitigation fast charger<br>active filter for charging station</div></td><td><div class="words">ev charging station harmonics problem<br>fast charger power quality issues<br>why do ev chargers cause harmonics</div></td></tr>
+<tr><td><span class="k">冶金 / 电弧炉 / 轧机</span><br><span class="note">冲击性负载，闪变 + 谐波 + 无功三重问题，SVG 的经典主场，单值最高</span></td><td><div class="words">static var generator steel plant<br>ahf for arc furnace<br>svg for rolling mill</div></td><td><div class="words">active harmonic filter arc furnace<br>flicker mitigation rolling mill<br>harmonics mitigation electric arc furnace<br>static var generator arc furnace</div></td><td><div class="words">arc furnace flicker problem<br>harmonics in steel mill<br>electric arc furnace power quality issues<br>why does arc furnace cause flicker</div></td></tr>
+<tr><td><span class="k">水处理 / 泵站</span><br><span class="note">变频器（VFD）是谐波第一大户；市政项目多、招标规范、方案可复制</span></td><td><div class="words">harmonic filter pump station<br>ahf for vfd</div></td><td><div class="words">vfd harmonics mitigation<br>harmonic filter for vfd<br>variable frequency drive harmonic filter<br>harmonic filter water treatment plant</div></td><td><div class="words">vfd harmonics problems<br>variable frequency drive causing harmonics<br>why do vfd cause harmonics</div></td></tr>
+<tr><td><span class="k">商业楼宇 / 医院</span><br><span class="note">变频空调、电梯、影像设备谐波严重；医院对供电质量极敏感，验收有硬指标</span></td><td><div class="words">harmonic filter hospital<br>ahf for commercial building</div></td><td><div class="words">power quality medical equipment<br>thd correction commercial building<br>harmonic filter for hvac<br>harmonic filter for elevator</div></td><td><div class="words">hospital power quality problems<br>mri harmonics issue<br>neutral current too high office building<br>flickering lights in office building harmonics</div></td></tr>
+<tr><td><span class="k">焊接 / 电阻焊</span><br><span class="note">中小工厂常见、决策链短、单值中低但量大；新兴市场最容易起量的长尾</span></td><td><div class="words">harmonic filter welding machine<br>ahf for welding shop</div></td><td><div class="words">spot welding power quality<br>harmonics mitigation resistance welding<br>harmonic filter for welding equipment</div></td><td><div class="words">welding machine harmonics problem<br>why do lights flicker when welding<br>welding power quality issues</div></td></tr>
+<tr><td><span class="k">船舶 / 海工 / 油气</span><br><span class="note">船舶电网小、谐波影响大，IEEE 45 有硬要求；认证门槛高但竞争小、利润厚</span></td><td><div class="words">marine harmonic filter<br>ahf marine vessel</div></td><td><div class="words">marine active harmonic filter<br>offshore power quality solution<br>shipboard harmonic mitigation<br>ieee 45 power quality marine</div></td><td><div class="words">shipboard harmonics problems<br>marine power quality issues<br>why are harmonics a problem on ships</div></td></tr>
+<tr><td><span class="k">风电 / 新能源场站</span><br><span class="note">风电变流器谐波 + 无功波动，集中式场站对 STATCOM 有硬需求（看市场优先级再开）</span></td><td><div class="words">static var generator wind farm</div></td><td><div class="words">wind farm reactive power compensation<br>wind turbine harmonics filter<br>statcom for wind farm</div></td><td><div class="words">wind farm power quality issues<br>harmonics from wind turbines</div></td></tr>
+</tbody></table>
+<p class="note">阅读方式：先看「型号层」判断这个场景有没有成熟买家，再看「问题层」判断能不能从新兴市场低成本获客。两列都薄弱的场景，优先级往后放。</p>
+<h2 id="kw-5">4. 代理商 / 老客户承接线（品牌资产，不是获客线）</h2>
+<p class="note">这条线容易被忽略：已经成交的代理商搜的不是「active harmonic filter」，而是你的品牌名、具体料号、说明书和故障码。这批词量小，但意图最强、竞争最弱，而且它决定了代理商能不能自己拿资料去谈终端。</p>
+<table>
+<colgroup><col style="width:10%"><col style="width:17%"><col style="width:26%"><col style="width:11%"><col style="width:6%"><col style="width:30%"></colgroup>
+<thead><tr><th>词族</th><th>谁在搜</th><th>关键词</th><th>目标页面</th><th>优先级</th><th>为什么重要</th></tr></thead>
+<tbody>
+<tr><td><span class="k">品牌词</span></td><td>已经知道你，正在找你的官网</td><td><div class="words">chitek<br>chitek active harmonic filter<br>chitek power quality<br>chitek ahf<br>chitek svg</div></td><td>品牌词页 · 首页</td><td><span class="p0">P0</span></td><td>成本最低的一批词，但只在别人搜你时才生效——它是防守，不是进攻</td></tr>
+<tr><td><span class="k">型号词</span></td><td>代理商 / 老客户手里拿着具体料号</td><td><div class="words">ahf-100-400-3p4w（按贵司料号规则生成）<br>sic ahf<br>ip65 sic fanless ahf<br>ahf 100a 400v 3p4w</div></td><td>型号查询页</td><td><span class="p0">P0</span></td><td>料号规则一旦确定，每个在售型号都要有可被索引的页面或区块</td></tr>
+<tr><td><span class="k">技术文档词</span></td><td>要安装、要维修、要投标的客户和代理商</td><td><div class="words">active harmonic filter manual pdf<br>ahf installation guide<br>ahf wiring diagram pdf<br>ahf user manual download<br>ahf firmware update</div></td><td>下载中心</td><td>P1</td><td>意图极强，且能实实在在降低售后成本；代理商拿这些资料去谈终端</td></tr>
+<tr><td><span class="k">故障 / 备件词</span></td><td>设备出问题、正在着急的人</td><td><div class="words">ahf fault code<br>active harmonic filter troubleshooting<br>ahf spare parts<br>harmonic filter not working</div></td><td>技术支持页</td><td>P1</td><td>接住这些词就是接住续单和口碑；这类客户最忠诚</td></tr>
+<tr><td><span class="k">招商 / 代理词</span></td><td>当地公司在找上游供应商</td><td><div class="words">active harmonic filter distributor<br>become ahf distributor<br>ahf dealer program<br>power quality products distributor</div></td><td>招商页</td><td>P2</td><td>主动招代理商比一个个找终端客户快；德国、巴西、印度、越南是重点</td></tr>
+</tbody></table>
+<h2 id="kw-6">5. 问题型长尾的句式模板</h2>
+<p class="note">223 条词是有限的，模板是无限的。新兴市场客户搜的是一句人话，不是关键词。按下面的句式套变量，可以批量生成几百条长尾，而且每一条都是一个真实的场景页选题。</p>
+<table>
+<colgroup><col style="width:16%"><col style="width:40%"><col style="width:44%"></colgroup>
+<thead><tr><th>句式意图</th><th>模板</th><th>实际例子</th></tr></thead>
+<tbody>
+<tr><td>为什么……</td><td><span class="words">why is my {设备} {现象}</span></td><td>why is my inverter overheating</td></tr>
+<tr><td>怎么降低……</td><td><span class="words">how to reduce {问题} in {场景}</span></td><td>how to reduce harmonics in solar farm</td></tr>
+<tr><td>……导致……</td><td><span class="words">{设备} causing {问题}</span></td><td>vfd causing harmonics</td></tr>
+<tr><td>……场景里的……问题</td><td><span class="words">{问题} problem in {场景}</span></td><td>harmonics problem in steel mill</td></tr>
+<tr><td>我需要……吗</td><td><span class="words">do i need {产品} for {场景}</span></td><td>do i need a harmonic filter for solar</td></tr>
+<tr><td>……和……的区别</td><td><span class="words">difference between {A} and {B}</span></td><td>difference between passive and active harmonic filter</td></tr>
+<tr><td>……的解决方法</td><td><span class="words">{问题} solution</span></td><td>harmonic distortion solution</td></tr>
+<tr><td>……过热 / 跳闸 / 烧毁</td><td><span class="words">{设备} {现象} due to harmonics</span></td><td>transformer overheating due to harmonics</td></tr>
+</tbody></table>
+<table>
+<colgroup><col style="width:12%"><col style="width:88%"></colgroup>
+<thead><tr><th>变量</th><th>可替换的词池</th></tr></thead>
+<tbody>
+<tr><td><span class="k">设备</span></td><td>inverter · vfd · ups · ev charger · arc furnace · welding machine · transformer · generator</td></tr>
+<tr><td><span class="k">现象</span></td><td>overheating · flickering · tripping · failure · burning · noise</td></tr>
+<tr><td><span class="k">问题</span></td><td>harmonics · thd · flicker · voltage fluctuation · power factor · neutral current</td></tr>
+<tr><td><span class="k">场景</span></td><td>solar farm · factory · data center · hospital · office building · steel mill · ship · charging station</td></tr>
+<tr><td><span class="k">产品</span></td><td>harmonic filter · active filter · svg · statcom · power factor correction</td></tr>
+</tbody></table>
+<p class="note">用法：任选一个模板 + 从词池里挑组合，例如 <b>why is my inverter overheating</b>、<b>harmonic filter for steel mill</b>。生成后先看有没有人搜，有量的才写页面。</p>
+<h2 id="kw-7">6. 通用词库（不绑场景）</h2>
+<table>
+<colgroup><col style="width:18%"><col style="width:7%"><col style="width:8%"><col style="width:15%"><col style="width:52%"></colgroup>
+<thead><tr><th>词族</th><th>意图</th><th>漏斗</th><th>目标页面</th><th>关键词</th></tr></thead>
+<tbody>
+<tr><td><span class="k">品类核心名 · AHF 族</span></td><td>品类</td><td>MOFU</td><td>类目页 / 首页</td><td><div class="words">active harmonic filter<br>active power filter<br>active harmonic filter device<br>active filter power quality<br>apf active power filter<br>harmonic filter active type</div></td></tr>
+<tr><td><span class="k">品类核心名 · SVG 族</span></td><td>品类</td><td>MOFU</td><td>类目页 / 首页</td><td><div class="words">static var generator<br>static synchronous compensator<br>statcom<br>advanced static var generator<br>static var generator svg<br>reactive power compensation device</div></td></tr>
+<tr><td><span class="k">别名 · 对比 · 澄清</span></td><td>品类</td><td>MOFU</td><td>对比页 / FAQ</td><td><div class="words">ahf vs apf<br>apf vs ahf<br>active dynamic filter adf<br>ahf vs svg<br>statcom vs svg<br>svg vs svc<br>active harmonic filter vs static var generator</div></td></tr>
+<tr><td><span class="k">型号 / 参数长尾（工程师）</span></td><td>参数</td><td>BOFU</td><td>产品页 · 参数区</td><td><div class="words">active harmonic filter 100a<br>active harmonic filter 200a<br>active harmonic filter 300a<br>active harmonic filter 400v<br>active harmonic filter 690v<br>active harmonic filter 3 phase 4 wire<br>active harmonic filter response time<br>active harmonic filter thd reduction<br>active harmonic filter 2nd to 50th harmonic<br>active harmonic filter modbus<br>active harmonic filter ip65<br>active harmonic filter fanless<br>active harmonic filter rack mounted<br>active harmonic filter parallel connection<br>static var generator 100kvar<br>static var generator 400v<br>static var generator response time<br>static var generator iec 61850<br>static var generator working principle</div></td></tr>
+<tr><td><span class="k">认证 / 合规（工程 + 采购都会搜）</span></td><td>合规</td><td>MOFU</td><td>产品页 · 认证区</td><td><div class="words">harmonic filter ieee 519<br>ieee 519 compliance solution<br>iec 61000-3-6 compliance<br>en 61000-3-12 harmonic filter<br>g5/5 harmonics compliance<br>ul listed active harmonic filter<br>harmonic filter ieee 45 marine<br>ce certified active harmonic filter</div></td></tr>
+<tr><td><span class="k">问题 / 科普（新兴市场主力）</span></td><td>问题</td><td>TOFU</td><td>博客 · 场景页</td><td><div class="words">how to reduce harmonics in power system<br>how to solve harmonic problems<br>why is my thd too high<br>what causes high thd<br>harmonics causing transformer overheating<br>do i need a harmonic filter<br>difference between passive and active harmonic filter<br>how to improve power factor in factory<br>how to reduce voltage flicker<br>power quality problems and solutions<br>capacitor bank failure due to harmonics</div></td></tr>
+<tr><td><span class="k">竞品 / 替代方案拦截</span></td><td>竞品</td><td>MOFU</td><td>对比页</td><td><div class="words">detuned reactor vs active harmonic filter<br>capacitor bank vs active harmonic filter<br>passive harmonic filter vs active filter<br>apfc panel vs active harmonic filter<br>svc vs statcom<br>abb active harmonic filter alternative<br>schneider active filter equivalent<br>danfoss active filter alternative<br>comsys active harmonic filter alternative</div></td></tr>
+<tr><td><span class="k">交易意图（BOFU）</span></td><td>交易</td><td>BOFU</td><td>询盘页 · 产品页</td><td><div class="words">active harmonic filter price<br>active harmonic filter manufacturer<br>active harmonic filter supplier<br>active harmonic filter manufacturer china<br>harmonic filter factory china<br>static var generator price<br>static var generator manufacturer<br>buy active harmonic filter<br>active harmonic filter quotation</div></td></tr>
+<tr><td><span class="k">知识型（TOFU）</span></td><td>知识</td><td>TOFU</td><td>博客</td><td><div class="words">what is an active harmonic filter<br>how does active harmonic filter work<br>what is a static var generator<br>what is statcom<br>harmonics in electrical systems explained<br>ieee 519 explained<br>total harmonic distortion explained</div></td></tr>
+</tbody></table>
+<h2 id="kw-8">7. 漏斗分层 → 目标页面</h2>
+<table>
+<colgroup><col style="width:12%"><col style="width:20%"><col style="width:24%"><col style="width:17%"><col style="width:22%"><col style="width:5%"></colgroup>
+<thead><tr><th>阶段</th><th>客户状态</th><th>典型搜索形态</th><th>承接页面</th><th>打法</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><span class="k">TOFU  认知</span></td><td>客户知道「有毛病」，不知道「有你这东西」</td><td><span class="words">what is / how does / why / explained / problems</span></td><td>博客 · 科普页 · 场景解决方案页</td><td>不推销，先当专家；文末一句软引导回产品页</td><td><span class="p0">P0</span></td></tr>
+<tr><td><span class="k">MOFU  评估</span></td><td>客户知道品类，在比方案、比路线</td><td><span class="words">vs / comparison / difference / compliance / selection</span></td><td>对比页 · 选型页 · 认证区</td><td>核心战场：把「无源 vs 有源」「SVC vs STATCOM」讲成客户听得懂的选择题</td><td><span class="p0">P0</span></td></tr>
+<tr><td><span class="k">BOFU  转化</span></td><td>客户已锁定品类，在挑供应商</td><td><span class="words">price / manufacturer / supplier / buy / quotation + 型号参数</span></td><td>产品页 · 参数表 · 询盘表单</td><td>给参数、给 datasheet、给交期承诺、给响应时效</td><td><span class="p0">P0</span></td></tr>
+</tbody></table>
+<p class="note">最常见的错误：把所有词都塞进产品页。TOFU 的词进产品页会显得答非所问，跳出率高；BOFU 的词进博客会浪费转化意图。</p>
+<h2 id="kw-9">8. 多语言术语表</h2>
+<p class="note">多语言不是把英文翻译一遍，是重新选一次术语。同一个产品在每种语言里的通行叫法可能完全不同。</p>
+<table>
+<colgroup><col style="width:12%"><col style="width:20%"><col style="width:23%"><col style="width:22%"><col style="width:23%"></colgroup>
+<thead><tr><th>语言</th><th>目标市场</th><th>AHF 族</th><th>SVG 族</th><th>问题 / 场景型</th></tr></thead>
+<tbody>
+<tr><td><span class="k">英语</span><br><span class="note">en</span></td><td>全球基准</td><td><div class="words">active harmonic filter<br>active power filter<br>active filter power quality</div></td><td><div class="words">static var generator<br>statcom<br>static synchronous compensator</div></td><td><div class="words">how to reduce harmonics in power system<br>why is my thd too high</div></td></tr>
+<tr><td><span class="k">西班牙语</span><br><span class="note">es</span></td><td>西班牙 · 墨西哥 · 智利 · 秘鲁 · 哥伦比亚</td><td><div class="words">filtro activo de armónicos<br>filtro activo de potencia<br>filtro de armónicos precio<br>filtro activo de armónicos 100a</div></td><td><div class="words">compensador estático de reactivos<br>generador estático de reactivos<br>compensador estático de var</div></td><td><div class="words">cómo reducir armónicos en la red eléctrica<br>problemas de armónicos en variadores de frecuencia<br>solución de armónicos en planta solar</div></td></tr>
+<tr><td><span class="k">葡萄牙语</span><br><span class="note">pt</span></td><td>巴西 · 葡萄牙</td><td><div class="words">filtro ativo de harmônicos<br>filtro ativo de potência<br>filtro de harmônicos preço<br>filtro ativo de harmônicos 100a</div></td><td><div class="words">compensador estático de reativos<br>gerador estático de reativos<br>compensação de reativos</div></td><td><div class="words">como reduzir harmônicos na rede elétrica<br>problemas de harmônicos em inversores solar<br>por que meu thd está alto</div></td></tr>
+<tr><td><span class="k">阿拉伯语</span><br><span class="note">ar</span></td><td>海湾 · 沙特 · 阿联酋 · 埃及 · 北非</td><td><div class="words" class="ar">مرشح التوافقيات النشط<br>فلتر التوافقيات النشط<br>مرشح التوافقيات سعر</div></td><td><div class="words" class="ar">معوض القدرة التفاعلية الساكن<br>مولد القدرة التفاعلية الساكن</div></td><td><div class="words" class="ar">حل مشاكل التوافقيات في الشبكة الكهربائية<br>التوافقيات في المحطات الشمسية</div></td></tr>
+<tr><td><span class="k">中文</span><br><span class="note">zh</span></td><td>中国大陆</td><td><div class="words">有源电力滤波器<br>有源谐波滤波器<br>有源电力滤波器 价格<br>APF 选型</div></td><td><div class="words">静止无功发生器<br>SVG 无功补偿<br>静止无功发生器 价格<br>ASVG</div></td><td><div class="words">光伏并网 谐波治理<br>数据中心 谐波治理<br>变频器 谐波 解决方案</div></td></tr>
+</tbody></table>
+<p class="note">术语差异要点：西语用 armónicos + CER；葡语巴西拼 harmônicos、葡萄牙拼 harmónicas；阿语客户常英文 + 阿语混搜，两种都要铺；中文国内 APF 比 AHF 更常用。</p>
+<h3>语言扩展优先级</h3>
+<table>
+<colgroup><col style="width:7%"><col style="width:13%"><col style="width:24%"><col style="width:56%"></colgroup>
+<thead><tr><th>顺序</th><th>语言</th><th>覆盖市场</th><th>为什么排这个位置</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="k">英语</span></td><td>所有市场</td><td>不解释，基线</td></tr>
+<tr><td>2</td><td><span class="k">西班牙语</span></td><td>拉美 + 西班牙</td><td>拉美光伏与矿业项目密集，本地内容少</td></tr>
+<tr><td>3</td><td><span class="k">葡萄牙语</span></td><td>巴西</td><td>巴西是拉美最大单一市场，变电站与工业项目多</td></tr>
+<tr><td>4</td><td><span class="k">阿拉伯语</span></td><td>海湾 + 北非</td><td>新能源投资大，几乎无本地竞争内容</td></tr>
+<tr><td>5</td><td><span class="k">俄语</span></td><td>俄罗斯 + 中亚</td><td>制裁下欧美供应商退出，中国供应商窗口期</td></tr>
+<tr><td>6</td><td><span class="k">印尼语</span></td><td>印尼</td><td>东南亚最大市场，制造业与新能源双增长</td></tr>
+</tbody></table>
+<h3>建议扩展的语言 · 代表词</h3>
+<table>
+<colgroup><col style="width:10%"><col style="width:20%"><col style="width:34%"><col style="width:36%"></colgroup>
+<thead><tr><th>语言</th><th>目标市场</th><th>为什么值得做</th><th>代表词</th></tr></thead>
+<tbody>
+<tr><td><span class="k">俄语</span></td><td>俄罗斯 · 中亚 · 独联体</td><td>有源滤波器常被写作 АФГ；长期制裁下中国供应商优势明显</td><td><div class="words" class="ar">активный фильтр гармоник<br>фильтр высших гармоник<br>статический компенсатор реактивной мощности<br>устройство компенсации реактивной мощности</div></td></tr>
+<tr><td><span class="k">印尼语</span></td><td>印度尼西亚</td><td>东南亚最大单一市场，制造业转移承接地，长尾竞争低</td><td><div class="words" class="ar">filter harmonisa aktif<br>filter harmonik aktif<br>kompensator reaktif statis<br>cara mengurangi harmonisa listrik</div></td></tr>
+<tr><td><span class="k">越南语</span></td><td>越南</td><td>制造业转移主要承接地，工厂配电与光伏同时增长</td><td><div class="words" class="ar">bộ lọc sóng hài hoạt động<br>bộ bù công suất phản kháng tĩnh<br>giảm sóng hài trong hệ thống điện</div></td></tr>
+<tr><td><span class="k">土耳其语</span></td><td>土耳其</td><td>本地电力设备制造强，项目型采购多，是进入欧洲与中东的跳板</td><td><div class="words" class="ar">aktif harmonik filtre<br>aktif güç filtresi<br>statik var generatörü<br>harmonik filtre fiyat</div></td></tr>
+<tr><td><span class="k">波斯语</span></td><td>伊朗</td><td>AHF 使用大国，长期被制裁，几乎无欧美供应商竞争</td><td><div class="words" class="ar">فیلتر هارمونیک فعال<br>جبران ساز توان راکتیو استاتیک</div></td></tr>
+<tr><td><span class="k">印地语</span></td><td>印度</td><td>市场巨大，价格敏感；英文与印地语混搜普遍</td><td><div class="words" class="ar">सक्रिय हार्मोनिक फ़िल्टर<br>स्टैटिक वार जनरेटर</div></td></tr>
+</tbody></table>
+<p class="note">这六种语言当前几乎没有本地内容竞争。先各做一页落地页验证询盘量，跑通了再铺——单页验证成本极低。</p>
+<h2 id="kw-10">9. 市场分层策略</h2>
+<table>
+<colgroup><col style="width:14%"><col style="width:43%"><col style="width:43%"></colgroup>
+<thead><tr><th>维度</th><th>成熟市场（欧盟 · 北美 · 澳新 · 日韩）</th><th>新兴市场（东南亚 · 中东 · 非洲 · 拉美 · 南亚）</th></tr></thead>
+<tbody>
+<tr><td><span class="k">客户在搜什么</span></td><td>准确品类名 + 参数 + 标准号（IEEE 519 / EN 61000-3-12 / G5/5）</td><td>故障现象长句、口语化提问，几乎不搜标准号</td></tr>
+<tr><td><span class="k">术语习惯</span></td><td>AHF 与 APF 并存，STATCOM 比 SVG 更通行</td><td>跟当地工程习惯走，印度 / 中东常见 APFC、APF 混用</td></tr>
+<tr><td><span class="k">决策关注点</span></td><td>合规文件、EMC 报告、质保条款、可追溯的第三方认证</td><td>价格、交期、能不能用、坏了怎么修；决策链短</td></tr>
+<tr><td><span class="k">竞争强度</span></td><td>高，ABB / 施耐德 / Danfoss 等占位，需差异化切入</td><td>低，长尾词几乎没有本地内容竞争</td></tr>
+<tr><td><span class="k">内容策略</span></td><td>技术文档驱动：datasheet、选型计算、合规对照表</td><td>场景问题驱动：一页解决一个具体故障，配实测数字</td></tr>
+<tr><td><span class="k">主要渠道</span></td><td>Google 自然搜索 + LinkedIn + 行业媒体</td><td>Google 长尾 + WhatsApp 直达 + 本地代理商</td></tr>
+<tr><td><span class="k">转化方式</span></td><td>留资 → 技术澄清 → 报价 → 项目跟进</td><td>聊起来就要参数和价，更快，但比价更狠</td></tr>
+<tr><td><span class="k">结论</span></td><td>承接高价值订单，靠文档和认证赢</td><td>低成本获客，靠长尾场景词和本地语言起量</td></tr>
+</tbody></table>
+<p class="note">一句话结论：用新兴市场的长尾场景词低成本获客，用成熟市场的技术文档和认证承接高价值订单。两条腿同时走，不要只打一头。</p>
+<h2 id="kw-11">10. 落地优先级</h2>
+<table>
+<colgroup><col style="width:7%"><col style="width:7%"><col style="width:21%"><col style="width:39%"><col style="width:26%"></colgroup>
+<thead><tr><th>优先级</th><th>时间</th><th>做什么</th><th>具体动作</th><th>为什么</th></tr></thead>
+<tbody>
+<tr><td><span class="p0">P0</span></td><td>本周</td><td><span class="k">英文站现有页面的词落位</span></td><td>把品类核心名、型号参数、认证合规三组词，落到已有产品页的 title / H1 / 参数区 / 认证区</td><td>不需要新建页面，改文案即可</td></tr>
+<tr><td><span class="p0">P0</span></td><td>本周</td><td><span class="k">补上 APF 同义名</span></td><td>在产品页首段自然写一次 Active Power Filter (APF) 同义说明；或建一页 AHF vs APF 澄清页</td><td>直接吃掉亚洲与中东搜 APF 的流量</td></tr>
+<tr><td><span class="p0">P0</span></td><td>本周</td><td><span class="k">品牌词与型号词先占位</span></td><td>确认 CHITEK 品牌词、在售料号能被搜到；料号规则定下来后逐型号铺</td><td>代理商和老客户找你的第一条路，不能断</td></tr>
+<tr><td>P1</td><td>本月</td><td><span class="k">场景解决方案页（先做 4 个）</span></td><td>数据中心 / 光伏并网 / 充电站 / 冶金，每页：现象 → 危害 → 配置 → 实测效果 → 案例</td><td>新兴市场主力获客入口，也是销售最好的开场素材</td></tr>
+<tr><td>P1</td><td>本月</td><td><span class="k">对比页 3 篇</span></td><td>AHF vs SVG / AHF vs APF / 无源 vs 有源，把「怎么选」讲成选择题</td><td>MOFU 核心战场，客户比价时你已经在场</td></tr>
+<tr><td>P2</td><td>下月</td><td><span class="k">下载中心 + 技术支持页</span></td><td>把 datasheet、安装手册、接线图、故障码表做成可下载资源</td><td>降低售后成本，同时让代理商有资料去谈终端</td></tr>
+<tr><td>P2</td><td>下月</td><td><span class="k">STATCOM 与 SVG 双轨并行</span></td><td>英文站把 STATCOM 提到与 Static Var Generator 同级的表述位置</td><td>欧美电力行业买家用 STATCOM 搜索，别漏掉</td></tr>
+<tr><td>P2</td><td>下月</td><td><span class="k">把场景词扩展为西语 + 葡语 + 阿语</span></td><td>优先做这三种语言，覆盖拉美、巴西、中东</td><td>本地竞争极低，投入产出比最高</td></tr>
+<tr><td>P3</td><td>季度</td><td><span class="k">评估扩展语言</span></td><td>俄语 / 印尼语 / 越南语 / 土耳其语 / 波斯语，先各做一页落地页验证询盘</td><td>一页验证成本很低，跑通了再铺</td></tr>
+</tbody></table>
+<h2 id="kw-12">附：执行时的两条硬规则</h2>
+<ol><li><b>同义名要覆盖，但要在句子里自然写。</b>不是把 AHF APF ADF 三个词堆成一排，而是在正文里写一次「Active Harmonic Filter (AHF), also referred to as Active Power Filter (APF)」。搜索引擎识别同义，客户读到也不觉得突兀。堆砌关键词反而会被判罚。</li><li><b>参数必须是文字，不能是图片。</b>参数做进图片里，搜索引擎读不到、客户搜不到、翻译工具也翻不了。这不是美观问题，是丢单问题。</li></ol>
+<div class="foot">词库共 245 条，同源导出 CSV。数据定义在 gen_keyword_matrix.py，改词后重跑脚本即可同步更新本页与 CSV。</div>
+    </section>
+  </main>
+</div>
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function show(key){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.page === key); });
+    Array.prototype.forEach.call(document.querySelectorAll('.page'), function(p){
+      p.classList.toggle('active', p.id === 'page-' + key);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.toc'), function(n){
+      n.classList.toggle('active', n.id === 'toc-' + key);
+    });
+    window.scrollTo(0, 0);
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ show(t.dataset.page); });
+  });
+  // 跨页锚点：点到另一个 Tab 里的锚点，先切 Tab 再跳转
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href');
+    if(!href || href.length < 2) return;
+    var target = document.getElementById(href.slice(1));
+    if(!target) return;
+    var page = target.closest ? target.closest('.page') : null;
+    if(page && !page.classList.contains('active')){
+      e.preventDefault();
+      show(page.id.replace('page-', ''));
+      setTimeout(function(){ target.scrollIntoView(); }, 0);
+    }
+  });
+})();
+</script>
+</body></html>
