@@ -8,6 +8,18 @@
 - 首页 title/desc 长度：zh 29/76、en 59/161、es 48/151、pt 48/156、ar 60/140。
 - src 内 U+FFFD 乱码 = 0。冒烟脚本 `_smoke_home_news.py`（12 断言）。
 
+## Sitemap（2026-09-21 实测）
+- **唯一可提交地址：`https://chitek-inno.com/sitemap-index.xml`**（index 里只有一个子图 `sitemap-0.xml`；根域 robots.txt 已声明 Sitemap 行）。
+- ⚠️ **子域下面是 404**：`en.chitek-inno.com/sitemap-index.xml`（及 `/sitemap-0.xml`、`/robots.txt`）全部 404 ——
+  netlify.toml 的 `https://en.../* → /en/:splat` 通配转发把请求引到不存在的 `/en/sitemap-*.xml`。
+  若要子域可访问，需**在通配规则之前**加 sitemap/robots 的 200 转发。
+- ⚠️ **sitemap 里混着 5 个 host**（`serialize()` 按语言改写成子域）→ Bing/GSC 必须用 **`chitek-inno.com` 网域属性**提交；
+  若只在 `https://en.chitek-inno.com/` 这类 URL 前缀属性下提交，会因跨域 URL 被报"包含其他域的网址"。
+- 收录现状（164 条）：en 41 / zh(根) 39 / ar 39 / es 39 / **pt 仅 6**（pt 无新闻，属预期）。
+  ⚠️ **新页不在里面**：`products-svg` 0 条、9 个产品详情页只进了 2 条（旧页 `active-harmonic-filter` + `sic-ultra-ahf`），
+  因为 8 个新详情页与 SVG 页还没 commit → 没部署 → 没进 sitemap。**提交 Bing 前必须先 commit + build**。
+- ⚠️ `xhtml:link` 交替链接数 = **0**（sitemap 里没有 hreflang），hreflang 目前只靠页面 `<link rel=alternate>`。
+
 ## hreflang（BaseLayout 两开关）
 - `alternates={false}` → 分页页 / 仅英文产品页 / 404。
 - `alternateLangs=[...]` → 新闻文章页。
