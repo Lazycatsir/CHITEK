@@ -47,8 +47,8 @@ const preloadFont = lang === 'ar'
   : (lang === 'zh' ? null : '/assets/fonts/OPPOSans-400.woff2');
 
 /* 社交账号 = Footer 第 1/2/3 个图标（2026-10-08 裁定的单一来源）。
-   注：contact 页的 Facebook / Twitter / Instagram 三图标当前是 data-social-temp 占位
-   （暂指 LinkedIn），真主页 URL 到位后需同时更新此数组 + Footer + contact 三处。 */
+   注：contact 页 2026-10-27 起只保留 LinkedIn / YouTube / Facebook 三图标（删掉 Twitter、Instagram），
+   Facebook 已接真实主页（本数组第 3 项），不再有 data-social-temp 占位。改账号需同时更新此数组 + Footer + contact 五语。 */
 const SOCIAL_PROFILES = [
   'https://www.linkedin.com/in/yongkai-li/',
   'https://www.youtube.com/@CHITEKNewEnergyTechnology',

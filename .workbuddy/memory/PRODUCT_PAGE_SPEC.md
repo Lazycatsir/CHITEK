@@ -654,7 +654,7 @@
 ### ⚠️ 后续更正（2026-10-10 10:22 源码实测）
 - 参数表**分组表头行底色**已由 `bg-[#fbdcd3]` 改为 **`bg-[#e5e7eb]`**（源码 `bg-[#e5e7eb]` 共 13 处，含 7 个分组行）；上文「表头底色仍 `bg-[#fbdcd3]`」**作废**，全页已无 `#fbdcd3`。
 - 同页区域底色：7 个 section 全 `bg-white` + 6 条 8px 灰分割线（见上）。
-- 全页字体族 = OPPO Sans（英文站全局覆盖，见 global.css）。
+- 全页字体族 = 微软雅黑 Microsoft YaHei（2026-10-27 用户裁定，英文站全局 `html[lang="en"]` 覆盖；旧值 OPPO Sans 降为后备，见 global.css 注释）。
 
 ### 另项更正（2026-10-10 11:27 源码实测）
 - **参数区 H2 现为 `Parameters`**（原 `Technical Parameters`，10-10 11:27 改）；左侧分节吸附栏锚文本本来就是 `Parameters`。

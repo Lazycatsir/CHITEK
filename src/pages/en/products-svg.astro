@@ -45,10 +45,10 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is the difference between an SVG and a capacitor bank?", "acceptedAnswer": { "@type": "Answer", "text": "A static var generator (SVG) is an active, stepless compensator that reads the reactive demand continuously and injects exactly what the network needs, so correction tracks the load in real time. A capacitor or reactor bank switches in fixed steps, which means jumps in power factor, possible resonance and regular maintenance. The two differ across response time, output, power factor correction, design and sizing, resonance, overloading, footprint and installation, expansion, and maintenance and lifetime." } },
-      { "@type": "Question", "name": "Can one SVG follow a fluctuating load?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and that is where it beats a switched bank. Welding, motor starts and drive ramps change the reactive demand many times a second. The generator tracks those changes cycle by cycle, so it also covers the fast swings a contactor-based bank never sees." } },
-      { "@type": "Question", "name": "Can SVG units be combined for a higher capacity?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The range is modular, so units can be paralleled to cover anything from a single wall-mounted module to a large plant, instead of forcing everything through one oversized cabinet." } },
-      { "@type": "Question", "name": "Can SVG be installed outdoors or in harsh environments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Alongside indoor enclosures, the range includes IP65 models for outdoor and dusty sites, plus anti-pollution and fanless low-noise versions for switchrooms where dust, corrosion or acoustic noise is the constraint." } }
+      { "@type": "Question", "name": "Q1: What is the difference between an SVG and a capacitor bank?", "acceptedAnswer": { "@type": "Answer", "text": "A static var generator (SVG) is an active, stepless compensator — it reads the reactive demand continuously and injects exactly what the network needs, so correction tracks the load in real time. A capacitor or reactor bank switches in fixed steps, which means jumps in power factor, possible resonance and regular maintenance. The table below contrasts the two across the dimensions that matter in the field." } },
+      { "@type": "Question", "name": "Q2: Can one SVG follow a fluctuating load?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and that is where it beats a switched bank. Welding, motor starts and drive ramps change the reactive demand many times a second. The generator tracks those changes cycle by cycle, so it also covers the fast swings a contactor-based bank never sees." } },
+      { "@type": "Question", "name": "Q3: Can SVG units be combined for a higher capacity?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The range is modular, so units can be paralleled to cover anything from a single wall-mounted module to a large plant, instead of forcing everything through one oversized cabinet." } },
+      { "@type": "Question", "name": "Q4: Can SVG be installed outdoors or in harsh environments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Alongside indoor enclosures, the range includes IP65 models for outdoor and dusty sites, plus anti-pollution and fanless low-noise versions for switchrooms where dust, corrosion or acoustic noise is the constraint." } }
     ]
   }
   </script>
@@ -458,8 +458,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                     <path d="M48 24l-5 5" />
                   </g>
                 </svg>
-                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Industry</p>
-                <p class="text-[14px] leading-relaxed text-gray-600">Metal processing, automotive, pulp &amp; paper, plastics and extrusion, food &amp; beverages</p>
+                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Power factor penalties</p>
+                <p class="text-[14px] leading-relaxed text-gray-600">Utilities bill reactive power and penalise a low power factor. The generator holds your target continuously, in stepless correction instead of contactor steps.</p>
               </div>
               <div class="text-center">
                 <svg class="mx-auto mb-4 h-16 w-16" viewBox="0 0 72 72" fill="none" stroke="#1a5f96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -469,8 +469,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <path d="M24 13h3.5v3.5H24zM29.5 13h3.5v3.5h-3.5zM24 21h3.5v3.5H24zM29.5 21h3.5v3.5h-3.5zM24 29h3.5v3.5H24zM29.5 29h3.5v3.5h-3.5zM24 37h3.5v3.5H24zM29.5 37h3.5v3.5h-3.5z" />
                   <path d="M39 29h3.5v3.5H39zM44.5 29h3.5v3.5h-3.5zM39 37h3.5v3.5H39zM44.5 37h3.5v3.5h-3.5z" />
                 </svg>
-                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Commercial buildings</p>
-                <p class="text-[14px] leading-relaxed text-gray-600">Data centers, hospitals, airports, logistics centers, shopping malls</p>
+                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Fast-changing loads</p>
+                <p class="text-[14px] leading-relaxed text-gray-600">Welders, cranes, presses and mill drives swing reactive demand many times a second. Correction follows it cycle by cycle.</p>
               </div>
               <div class="text-center">
                 <svg class="mx-auto mb-4 h-16 w-16" viewBox="0 0 72 72" fill="none" stroke="#1a5f96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -483,8 +483,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <path d="M36 34c3 4 4.5 6.3 4.5 8.6a4.5 4.5 0 0 1-9 0c0-2.3 1.5-4.6 4.5-8.6z" />
                   <path d="M6 56q4.5-4.5 9 0t9 0t9 0t9 0t9 0" />
                 </svg>
-                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Infrastructure and utilities</p>
-                <p class="text-[14px] leading-relaxed text-gray-600">Water treatment, pumping stations, irrigation systems, desalination</p>
+                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Capacity and line losses</p>
+                <p class="text-[14px] leading-relaxed text-gray-600">Reactive current occupies transformer and cable capacity you have already paid for. Compensating at the load releases it and cuts I²R losses.</p>
               </div>
               <div class="text-center">
                 <svg class="mx-auto mb-4 h-16 w-16" viewBox="0 0 72 72" fill="none" stroke="#1a5f96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -496,8 +496,8 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   <circle cx="56" cy="35" r="2.5" />
                   <circle cx="56" cy="44" r="2.5" />
                 </svg>
-                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Anyone with motors</p>
-                <p class="text-[14px] leading-relaxed text-gray-600">Wherever large motors, welders or transformers run, the generator keeps the power factor on target</p>
+                <p class="text-[15px] font-bold text-[#1a5f96] mb-2">Weak grids and renewables</p>
+                <p class="text-[14px] leading-relaxed text-gray-600">Long feeders, PV and wind inverters and EV chargers all need reactive support. Supply it locally instead of oversizing the network.</p>
               </div>
             </div>
           </div>

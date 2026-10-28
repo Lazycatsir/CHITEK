@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CHITEK 产品目录 — APF/SVG 系列（英文版 · 23 页）</title>
+<title>CHITEK 产品目录 — APF/SVG 系列（英文版 · 25 页）</title>
 <!--
   ================================================================
   CHITEK · APF/SVG 系列产品目录（英文版 · 串联合集）
   ----------------------------------------------------------------
-  由 12 个单页【逐字节原样串联】而成（首节 = 官方画册外封，无页码）。每页仍是一个独立的
+  由 13 个单页【逐字节原样串联】而成（首节 = 官方画册外封，无页码）。每页仍是一个独立的
   section.sheet（426x291mm = 1610x1100 csspx @96dpi），打印时每页自动分页。
 
   >>> 为什么每节的 CSS 都带 [data-cat=…] 前缀 <<<
@@ -36,7 +36,8 @@
        9. 480v           15-16   ---  15-16-datasheet-en-480v.html
       10. 800v           17-18   ---  17-18-datasheet-en-800v.html
       11. aircooling     19-20   ---  19-20-datasheet-en-aircooling.html
-      12. monitor        21-22   ---  21-22-datasheet-en-monitor.html
+      12. lownoise       21-22   ---  21-22-datasheet-en-lownoise.html
+      13. monitor        23-24   ---  21-22-datasheet-en-monitor.html
   ================================================================
 -->
 <style>
@@ -1135,8 +1136,7 @@
 
   <!-- ========== 右页：照片（占位渐变；有实拍图请换成 <img>） ========== -->
   <div class="photo">
-    <span class="photo-ph" aria-hidden="true"></span>
-    <!-- <img src="images/cover2-photo.jpg" alt=""> -->
+    <img src="images/cover2-photo.webp" alt="">
   </div>
 
   <!-- ========== 右页：橙色半透明带 ========== -->
@@ -1742,7 +1742,7 @@
 
           <!-- Mechanical Properties -->
           <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
-          <tr><td class="k">Mounting Options</td><td class="v">Rack-mounted / Hot-swappable</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Rack-mounted / Wall-mounted / Hot-swappable</td></tr>
           <tr><td class="k">Chassis Height</td><td class="v">2U</td></tr>
           <tr><td class="k">Color</td><td class="v">Industrial gray (RAL7035), custom colors available on request</td></tr>
           <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
@@ -2480,7 +2480,7 @@
       <div class="panel">
 
         <div class="pphoto">
-          <img src="images/products-ahf-ip65-fanless.webp" style="mix-blend-mode:normal"
+          <img src="images/products-ahf-ip65-fanless.webp"
                alt="APF/SVG NATURAL AIRCOOLING MODEL — IP65 wall-mounted unit">
         </div>
 
@@ -2515,13 +2515,145 @@
           <tr class="split3"><td class="k">Rated Current</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">APF 30A</td><td>APF 50A</td>
+                <td>APF 25A</td>
               </tr></table>
             </td></tr>
           <tr class="split3"><td class="k">Rated Capacity</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">SVG 20Kvar</td><td>SVG 35Kvar</td>
+                <td>SVG 17Kvar</td>
+              </tr></table>
+            </td></tr>
+
+          <tr class="split3"><td class="k">Net Weight</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td>18kg</td>
+              </tr></table>
+            </td></tr>
+          <tr><td class="k">Dimensions W×D×H (mm)</td><td class="v">515x500x185</td></tr>
+
+          <!-- System Parameters -->
+          <tr class="grp"><td colspan="2">System Parameters</td></tr>
+          <tr><td class="k">Rated Input Voltage</td><td class="v">400VAC (-20%~+15%)</td></tr>
+          <tr><td class="k">Grid Frequency</td><td class="v">50Hz (Range: 47Hz~53Hz), 60Hz (Range: 57Hz~63Hz)</td></tr>
+          <tr><td class="k">Parallel Connections Limit</td><td class="v">≤16 units</td></tr>
+          <tr><td class="k">Efficiency</td><td class="v">Up to 99%</td></tr>
+          <tr><td class="k">Grid Structure</td><td class="v">Three-phase four-wire or three-phase three-wire</td></tr>
+          <tr><td class="k">Current Transformer</td><td class="v">50/5~10,000/5</td></tr>
+
+          <!-- Performance Indicators -->
+          <tr class="grp"><td colspan="2">Performance Indicators</td></tr>
+          <tr><td class="k">Harmonic Compensation Range</td><td class="v">2nd~50th order</td></tr>
+          <tr><td class="k">Harmonic Attenuation</td><td class="v">&gt;95% (rated load)</td></tr>
+          <tr><td class="k">Quick Response Time</td><td class="v">&lt; 25μs</td></tr>
+          <tr><td class="k">Full Response Time</td><td class="v">&lt; 5ms</td></tr>
+          <tr><td class="k">Target Power Factor</td><td class="v">-1~+1, continuously adjustable (capacitive / inductive)</td></tr>
+          <tr><td class="k">Compensation Mode</td><td class="v">Harmonic suppression / Reactive power compensation / Unbalance compensation, 11 modes freely combinable</td></tr>
+          <tr><td class="k">Noise Indicator</td><td class="v">&lt;40dB</td></tr>
+
+          <!-- Communications & Monitoring -->
+          <tr class="grp"><td colspan="2">Communications &amp; Monitoring</td></tr>
+          <tr><td class="k">Communication Interface</td><td class="v">RS485, WiFi, 4G, CAN</td></tr>
+          <tr><td class="k">Communication Protocol</td><td class="v">Modbus (RTU or TCP/IP)</td></tr>
+          <tr><td class="k">Module Display Interface</td><td class="v">LED indicators, independent touchscreen, local WiFi interface</td></tr>
+
+          <!-- Mechanical Properties -->
+          <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
+          <tr><td class="k">Mounting Options</td><td class="v">Wall-mounted</td></tr>
+          <tr><td class="k">Color</td><td class="v">Industrial gray (RAL7035), custom colors available on request</td></tr>
+          <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
+
+          <!-- Environmental Requirements -->
+          <tr class="grp"><td colspan="2">Environmental Requirements</td></tr>
+          <tr><td class="k">Altitude</td><td class="v">≤1500m; 1500m~4000m: derate 1% per 100m per GB/T3859.2</td></tr>
+          <tr><td class="k">Operating Temperature</td><td class="v">-40℃~+55℃</td></tr>
+          <tr><td class="k">Relative Humidity</td><td class="v">5%~95%, non-condensing</td></tr>
+          <tr><td class="k">Protection Level</td><td class="v">IP65</td></tr>
+
+          <!-- Related Qualifications and Standards -->
+          <tr class="grp"><td colspan="2">Related Qualifications and Standards</td></tr>
+          <tr><td class="k">Standards Compliance</td><td class="v">IEC61000-3-6, IEC61000-6-4, ER G5/4, EN 62477-1</td></tr>
+          <tr><td class="k">Certification</td><td class="v">CE, CQC</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sheet" data-cat="ultraslim">
+
+  <!-- 栏眉：产品介绍 PRODUCT INTRODUCTION -->
+  <div class="eyebrow">
+    <span>PRODUCT INTRODUCTION</span>
+    <span class="pg">21-22</span>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ 左栏（模板2 式排版） ============ -->
+    <div class="col-l">
+
+      <h1 class="ptitle">APF/SVG LOW NOISE MODEL</h1>
+
+      <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
+      <div class="feats">
+        <ul class="featlist">
+          <li>Independent button design for simpler operation;</li>
+          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+        </ul>
+        <ul class="featlist">
+          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+        </ul>
+      </div>
+
+      <!-- 一整块浅灰面板：产品实拍图 →「Rack-mounted」→ 尺寸图 -->
+      <div class="panel">
+
+        <div class="pphoto">
+          <img src="images/products-ahf-sic-fanless.webp"
+               alt="APF/SVG LOW NOISE MODEL — IP65 low-noise fan wall-mounted unit">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">Rack-mounted</span>
+        </div>
+
+        <div class="rackdraw">
+          <img src="images/products-ahf-aircooling-dims.webp"
+               alt="APF/SVG LOW NOISE MODEL — outline drawing">
+        </div>
+
+        <div class="pspace"></div>
+      </div>
+    </div>
+
+    <!-- ============ 右栏 ============ -->
+    <div class="col-r">
+      <div class="sptitle">
+        <div class="en">Specifications</div>
+      </div>
+
+      <div class="specs">
+        <table class="spec">
+          <colgroup><col class="k"><col class="v"></colgroup>
+
+          <!-- Module Parameters -->
+          <tr class="grp"><td colspan="2">Module Parameters</td></tr>
+          <tr><td class="k">Rated Voltage</td><td class="v">400VAC (208V, 480V please contact us)</td></tr>
+
+          <tr class="split3"><td class="k">Rated Current</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td>APF 50A</td>
+              </tr></table>
+            </td></tr>
+          <tr class="split3"><td class="k">Rated Capacity</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td>SVG 35Kvar</td>
               </tr></table>
             </td></tr>
 
@@ -2591,7 +2723,7 @@
        是 5 个英文模板里唯一还带中文的页眉。 -->
   <div class="eyebrow">
     <span>PRODUCT INTRODUCTION</span>
-    <span class="pg">21-22</span>
+    <span class="pg">23-24</span>
   </div>
 
   <div class="stage">

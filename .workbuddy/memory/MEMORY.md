@@ -15,7 +15,7 @@
 
 ## 环境铁律
 - Astro 6.x + Tailwind v4 + Netlify；zh/en/es/ar/pt 五语（新闻四语）。禁内联 style。Nav = fixed `h-[72px]` → 首元素自加 `mt-[72px]`；Nav 文字色五语统一 `#333333`。
-- 字体：en/es/pt = OPPO Sans(Latin)；zh = OPPO Sans SC(CJK)；ar = Barlow。Astro 表达式属性必须 `href={lp('...')}`。
+- 字体：**en = 微软雅黑 Microsoft YaHei（10-27 用户裁定：电脑雅黑、手机端保留）**；es/pt = OPPO Sans(Latin)；zh = OPPO Sans SC(CJK)；ar = Barlow。雅黑只随 Windows 预装 → **靠「字体可用性」天然分流，不加 media query**（按屏宽切会把窄窗口桌面误判成手机）：Windows 桌面=雅黑（零 webfont）/ iOS+macOS=苹方 / 安卓+Linux=OPPO Sans。🔒 已裁定勿再提：**不自托管雅黑**（拉丁子集仅 ~12KB/档，卡点是方正授权不是体积）。雅黑无 500/600/800 档。Astro 表达式属性必须 `href={lp('...')}`。
 - **行尾**：写入一律 `newline=''`；`\r\r\n` → Tailwind v4 报错 → 整页 500。**改前先量 CRLF 数、别假设**。
 - dev：`node node_modules/astro/bin/astro.mjs dev --root D:/download/CHITEK --port 4399`（首次 ready 可能 5 分钟+）。`src/data/*.js` 会热加载，`is:inline` 脚本/样式不重跑 → 拿不准就重启。**HTTP 会撒谎**（dev 已死时 urllib 返 502）→ 以「无 LISTEN」判死；绕代理 `ProxyHandler({})`；无 `--host` 只绑 `[::1]`。
 - 多会话并行：动前查 `_dev_*.log` mtime 与端口，**别杀别人的 4321**，自己起 4399/4412；外部改动触发 Vite 全量重载 → 循环 reload → 进程退出。
@@ -71,4 +71,5 @@
 - **体积构成（10-27 两轮清理后 public 120MB）**：`assets/spin` 88MB（68%，13 套 ×162 帧）｜`assets/pdf` 21MB｜`assets/images` 10MB｜`assets/fonts` 2MB。判「能不能删」只认 `_audit_assets.py` / `_audit_images_strict.py`（词边界匹配），**别用 `grep 主名`**（`about-industry` 是 `about-industry-manufacturing` 的前缀）。spin 必须按**目录级**判断，逐文件看全是「未引用」的假象。
 - **PDF 去重（10-27）**：三份 user-manual-en.pdf md5 相同，只留 `high-protection-series-user-manual-en.pdf`，另两个名字 301 过去。⚠️ 301 必须写在 `netlify.toml` 的 `/assets/*` → 200 透传规则**之前**，否则被遮蔽成 404。⚠️ `ip65-sic-fanless-ahf-datasheet.pdf` 与 `sic-fanless-ahf-datasheet.pdf` 字节相同但属不同机型，**疑似放错文件，待用户核对**。
 - 首页 hero 两套 `<picture>` + 高度公式 + `.hero-title ~ p` 坑 → **§19-C**。画册源 = `E:\video\html2doc\templates\datasheet-{en,zh}-catalog.html`（别手改 public 拷贝）；同步必须带 `public/assets/pdf/images/`（8 张 dims 图）。
-- 待修：sitemap 4 条语言 404；3 个 PDF 手册 MD5 相同（删会 404）。
+- **sitemap 按 host 拆 5 份（10-28 已修）**：`node _gen_sitemap.mjs` 输出 `public/sitemap.xml`(zh 56) + `public/{en,es,pt,ar}/sitemap.xml`(80/56/14/56)，每份**只含自己 host**（Google/Bing 规定一份 sitemap 只能声明单 host，混 host 会被判「URL 不被允许」而整批忽略）。子域经 netlify `[/](https://)en.chitek-inno.com/*` force 规则自然命中 `/{lang}/sitemap.xml`。同目录配 `robots.txt`（各域 Sitemap 行指向自己）+ `BingSiteAuth.xml` 副本（不再依赖 netlify 那 8 条硬编码转发）。回归 `node _check_sitemap_split.mjs`（5 份 host 唯一 + dev 200 + robots 同源），期望全 PASS；全量 262 条逐条验用 `node _check_sitemap_urls.mjs`。Bing 五域同账户可共用同一 GUID（官方说法），GUID 未变。
+- 待修：3 个 PDF 手册 MD5 相同（删会 404）。

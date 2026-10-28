@@ -424,9 +424,39 @@
    两者最终都是 font-family: var(--font-barlow-condensed)，改变量即可一次全拦住，
    英文站不会再渲染出任何窄体字。 */
 html[lang="en"] {
-  /* 2026-10-09：英文站正文字体换成 OPPO Sans；Barlow 保留为后备字体。
-     仅 en 生效，zh/es/ar/pt 仍走 @theme 里的 Barlow。 */
-  --font-barlow: "OPPO Sans", "Barlow", sans-serif;
+  /* 2026-10-27 用户裁定（**勿再提、勿加媒体查询**）：
+       · 电脑 = 微软雅黑
+       · 手机端 = 保持原样，不折腾（不自托管雅黑、不换兜底字体）
+
+     为什么不需要用 media query 去「切设备」：判据不是屏宽，而是
+     **这台设备到底有没有雅黑**。雅黑只随 Windows 预装，iOS / Android /
+     macOS / Linux 都没有 —— 同一条字体栈在手机上自然落到后面的兜底字体，
+     行为天然正确。
+     ⚠️ 不要改成 `@media (max-width: …)` 去切：那会把「窄窗口的桌面浏览器」
+        误判成手机，反而错。
+
+     ── 渲染矩阵（按字体可用性，非屏宽） ──
+     · Windows 桌面 → Microsoft YaHei（命中系统字体，零 webfont 下载）
+     · iPhone / iPad → PingFang SC（iOS 原生；不是本次改的，是 iOS 自带优先）
+     · Android / Linux → OPPO Sans（自托管，= 换字体之前的观感）
+     · macOS 桌面 → PingFang SC
+       ⚠️ Mac 上永远看不到雅黑（系统没有）。要在 Mac 上也是雅黑只能自托管，
+          而那需要方正 web 授权 —— 见下。
+
+     ── 为什么不自托管雅黑：卡在授权，不在体积 ──
+     实测从系统 msyh.ttc 裁「拉丁 + 标点」子集：Light / Regular / Bold
+     ≈ 10.9 / 12.8 / 12.5 KB（woff2），三档共 ~36KB —— 比现在 OPPO Sans
+     五档 84KB 还小，纯技术上完全可上。但雅黑版权归方正，微软只买到
+     「随 Windows 预装 + 屏幕显示」；把字体文件放自己服务器用 @font-face
+     下发给访客 = 复制 + 网络传播，属侵权（企业官网是维权重灾区）。
+     结论：只能用系统字体栈调名，不能下发字体文件。授权到位再议。
+
+     ── 已知代价（换字体必然，不是 bug） ──
+     1) 雅黑只有 Light / Regular / Bold 三档 → 500/600 落 400/700、800 落 700：
+        h1(800) 比原先轻一点、600 小标题比原先粗一点，字重层级变「平」。
+     2) 雅黑拉丁字面比 OPPO Sans 宽、字高更高，长标题可能多折一行；
+        `tracking-` / `leading-` 数值未动。 */
+  --font-barlow: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "OPPO Sans", "Barlow", sans-serif;
   --font-barlow-condensed: var(--font-barlow, "Barlow", sans-serif);
 }
 
@@ -435,7 +465,7 @@ html[lang="en"] .font-barlow-condensed {
 }
 
 /* ④ 中文站正文字体换成 OPPO Sans SC（含中文字形）；Latin 由上面的 OPPO Sans 覆盖。
-   仅 zh 生效：en 维持 OPPO Sans Latin，es/ar/pt 维持 Barlow。
+   仅 zh 生效：en 走微软雅黑（见上），es/ar/pt 维持 Barlow。
    zh 页面 <html lang="zh"> 已由各中文页 BaseLayout lang="zh" 正确输出（已核对 index/about/products/news 等）。 */
 html[lang="zh"] {
   --font-barlow: "OPPO Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "OPPO Sans", "Barlow", sans-serif;

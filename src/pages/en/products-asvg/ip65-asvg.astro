@@ -136,16 +136,16 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
           </div>
 
           <!-- Configurator: SKU selector card (header + part-number chip / labelled chips / summary bar) -->
-          <div class="mt-[16px] sm:mt-[clamp(20px,2vw,32px)] rounded-2xl border border-border-light bg-white overflow-hidden">
-            <div class="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 pt-4 sm:pt-5 pb-1">
+          <div class="mt-[16px] sm:mt-[clamp(14px,1.4vw,22px)] rounded-2xl border border-border-light bg-white overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 pt-4 sm:pt-3.5 pb-1">
               <p class="m-0 text-[13px] sm:text-[14px] font-bold tracking-[0.08em] text-[#333333]">Configure your sku</p>
             </div>
-            <p class="m-0 px-4 sm:px-5 pb-3 sm:pb-4 text-[12px] sm:text-[14px] leading-tight sm:leading-snug text-[#626469] line-clamp-2 sm:line-clamp-none">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
+            <p class="m-0 px-4 sm:px-5 pb-3 sm:pb-2.5 text-[12px] sm:text-[14px] leading-tight sm:leading-snug text-[#626469] line-clamp-2 sm:line-clamp-none">Pick voltage, protection rate, capacity, wiring and installation &mdash; the selector fills in the matching part number.</p>
 
-            <div class="px-4 sm:px-5 pb-4 sm:pb-5 space-y-2.5 sm:space-y-4">
+            <div class="px-4 sm:px-5 pb-4 space-y-2.5 sm:space-y-3">
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-3">
                 <div>
-                  <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-2">Rated voltage</p>
+                  <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-1.5">Rated voltage</p>
                   <div class="flex flex-wrap gap-1.5 sm:gap-2">
                     <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="v" data-val="208V" /> 208V</label>
 
@@ -155,7 +155,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                   </div>
                 </div>
                 <div>
-                  <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-2">Protection rate</p>
+                  <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-1.5">Protection rate</p>
                   <div class="flex flex-wrap gap-1.5 sm:gap-2">
                     <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="IP65" /> IP65</label>
                     <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="p" data-val="other" /> other</label>
@@ -163,7 +163,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
                 </div>
               </div>
               <div>
-                <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-2">Power capacity</p>
+                <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-1.5">Power capacity</p>
                 <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="100A" /> 100A</label>
                   <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="a" data-val="150A" /> 150A</label>
@@ -173,13 +173,13 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-3">
                   <div>
-                    <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-2">Wiring</p>
+                    <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-1.5">Wiring</p>
                     <div class="flex flex-wrap gap-1.5 sm:gap-2">
                       <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P3W" /> 3P3W</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="c" data-val="3P4W" /> 3P4W</label>
                     </div>
                   </div>
                   <div>
-                    <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-2">Installation</p>
+                    <p class="text-[12px] sm:text-[14px] font-semibold tracking-[0.06em] sm:tracking-[0.08em] text-[#626469] mb-1 sm:mb-1.5">Installation</p>
                     <div class="flex flex-wrap gap-1.5 sm:gap-2">
                       <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Wall" /> Wall</label>                <label class="inline-flex items-center rounded-md border border-border-light bg-white px-2.5 py-1.5 text-[12px] sm:px-3.5 sm:py-2.5 sm:text-[14px] font-medium text-[#626469] cursor-pointer transition-colors hover:border-[#ea511e] has-[:checked]:border-[#ea511e] has-[:checked]:bg-[#ea511e] has-[:checked]:text-white"><input type="checkbox" class="sr-only" data-group="i" data-val="Rack" /> Rack</label>
                     </div>
@@ -190,9 +190,9 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
             </div>
 
             <!-- Summary bar: live SKU line + price + WhatsApp CTA (no email form; the CTA opens WhatsApp with the selected SKU pre-filled) -->
-            <div class="border-t border-border-light bg-white px-4 sm:px-5 py-2.5 sm:py-3.5">
+            <div class="border-t border-border-light bg-white px-4 sm:px-5 py-2.5">
               <div class="flex flex-wrap items-center gap-3">
-                <p data-summary-view class="m-0 flex-1 min-w-0 sm:min-w-[280px] text-[12px] sm:text-[14px] leading-snug text-[#626469]">{skuDefLine}</p>
+                <p data-summary-view class="m-0 flex-1 min-w-0 sm:w-full sm:flex-none text-[12px] sm:text-[14px] lg:text-[clamp(11px,0.88vw,14px)] leading-snug text-[#626469]">{skuDefLine}</p>
                 <div class="flex flex-wrap items-stretch gap-2 sm:ml-auto">
                   <p data-summary-price class="m-0 flex items-center font-bold text-[18px] lg:text-[24px] leading-none text-[#333333] whitespace-nowrap">{skuDefPrice}</p>
                   <a data-wa-link href="https://wa.me/8618818994346" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#ea511e] hover:bg-[#ea511e] text-white font-semibold rounded-lg px-4 py-2.5 text-[13px] lg:px-5 lg:text-[14px] transition-colors whitespace-nowrap cursor-pointer no-underline">Inquire now &rarr;</a>
@@ -471,7 +471,7 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
   <!-- 07 FAQ --><div data-secdivider class="h-2 w-full bg-[#e5e7eb]" aria-hidden="true"></div>
   <section id="faq" class="bg-white pt-[clamp(28px,3vw,48px)] pb-[clamp(40px,4vw,72px)] scroll-mt-[120px]">
     <div class="max-w-none px-9 lg:pl-[110px] lg:pr-[180px] grid grid-cols-1 xl:grid-cols-[max-content_minmax(0,1fr)] gap-x-[calc(clamp(24px,4vw,64px)_+_15px)] items-start">
-      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left">FAQs</h2>
+      <h2 class="text-[28px] font-bold leading-[40px] text-[#333333] mb-8 font-barlow-condensed text-left xl:max-w-[22rem]">FAQs</h2>
       <div class="space-y-4 min-w-0">
         <details class="bg-white rounded-2xl border border-border-light p-5" open>
           <summary class="cursor-pointer font-semibold text-text-dark text-[clamp(15px,1.35vw,22px)]">Q1: What is an advanced static var generator (ASVG)?</summary>

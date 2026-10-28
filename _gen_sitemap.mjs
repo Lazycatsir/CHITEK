@@ -1,11 +1,11 @@
-// 一条命令重建 sitemap：扫描 src/pages → 展开动态路由 → 写 public/sitemap.xml
+// 一条命令重建 sitemap：扫描 src/pages → 展开动态路由 → 每语言各写一份
+//   输出：public/sitemap.xml（zh）+ public/{en,es,pt,ar}/sitemap.xml
 //   用法：node _gen_sitemap.mjs
 //   校验（需 dev server 在 4399）：node _check_sitemap_urls.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = 'src/pages';
-const OUT = 'public/sitemap.xml';
 const LANGS = ['en', 'es', 'ar', 'pt'];
 const HOST = { zh: 'https://chitek-inno.com' };
 LANGS.forEach(l => HOST[l] = `https://${l}.chitek-inno.com`);
@@ -72,22 +72,59 @@ items.sort((a, b) => (ORDER[a.lang] - ORDER[b.lang]) || a.devPath.localeCompare(
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
-const lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'];
-for (const it of items) {
-  lines.push('  <url>');
-  lines.push(`    <loc>${esc(it.liveUrl)}</loc>`);
-  if (it.mtime) lines.push(`    <lastmod>${it.mtime}</lastmod>`);
-  lines.push('  </url>');
+
+// 每个 host 一份 sitemap —— Google/Bing 规定一份 sitemap 只能声明同一 host 的 URL。
+// 子域目录（public/en/…）经 netlify.toml 的 force 规则映射：en.chitek-inno.com/sitemap.xml → /en/sitemap.xml
+const OUT_BY_LANG = {
+  zh: 'public/sitemap.xml',
+  en: 'public/en/sitemap.xml',
+  es: 'public/es/sitemap.xml',
+  pt: 'public/pt/sitemap.xml',
+  ar: 'public/ar/sitemap.xml',
+};
+// 各 host 的 robots.txt（子域 /robots.txt 会被 force 成 /<lang>/robots.txt）
+const ROBOTS_BY_LANG = { en: 'public/en/robots.txt', es: 'public/es/robots.txt', pt: 'public/pt/robots.txt', ar: 'public/ar/robots.txt' };
+
+function buildXml(list) {
+  const lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'];
+  for (const it of list) {
+    lines.push('  <url>');
+    lines.push(`    <loc>${esc(it.liveUrl)}</loc>`);
+    if (it.mtime) lines.push(`    <lastmod>${it.mtime}</lastmod>`);
+    lines.push('  </url>');
+  }
+  lines.push('</urlset>', '');
+  return lines.join('\n');
 }
-lines.push('</urlset>', '');
-const xml = lines.join('\n');
-fs.writeFileSync(OUT, xml, 'utf8');
+
+const report = {};
+for (const lang of ['zh', ...LANGS]) {
+  const list = items.filter(i => i.lang === lang);
+  const out = OUT_BY_LANG[lang];
+  if (!list.length) { console.log('跳过（无 URL）', lang); continue; }
+  const hosts = [...new Set(list.map(i => new URL(i.liveUrl).host))];
+  if (hosts.length !== 1) {
+    console.error(`❌ ${lang} 混入了多个 host: ${hosts.join(', ')} —— 拒绝写出`);
+    process.exitCode = 1;
+    continue;
+  }
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const xml = buildXml(list);
+  fs.writeFileSync(out, xml, 'utf8');
+  report[lang] = { host: hosts[0], file: out, urls: list.length, kb: +(Buffer.byteLength(xml) / 1024).toFixed(1) };
+
+  const rb = ROBOTS_BY_LANG[lang];
+  if (rb) {
+    fs.mkdirSync(path.dirname(rb), { recursive: true });
+    fs.writeFileSync(rb, `User-agent: *\nAllow: /\n\nSitemap: ${HOST[lang]}/sitemap.xml\n`, 'utf8');
+  }
+}
+
 fs.writeFileSync('_sitemap_urls.json', JSON.stringify(items, null, 1), 'utf8');
 
-const byHost = {};
-items.forEach(i => { const h = new URL(i.liveUrl).host; byHost[h] = (byHost[h] || 0) + 1; });
-console.log('写入', OUT);
-console.log('URL 条数:', items.length, '| 大小', (Buffer.byteLength(xml) / 1024).toFixed(1), 'KB');
-console.log('按域名:', byHost);
+console.log(`\n共 ${items.length} 条 URL，拆成 ${Object.keys(report).length} 份（每份单 host）：`);
+for (const [lang, r] of Object.entries(report)) {
+  console.log(`  ${lang.padEnd(3)} ${String(r.urls).padStart(4)} 条  ${String(r.kb).padStart(6)} KB  ${r.file}  →  https://${r.host}/sitemap.xml`);
+}
 const dup = new Set(items.map(i => i.liveUrl)).size !== items.length;
 console.log('重复:', dup ? '有 (BAD)' : '无', '| 最长 URL', Math.max(...items.map(i => i.liveUrl.length)), '字符');
