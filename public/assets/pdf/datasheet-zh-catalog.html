@@ -745,13 +745,18 @@
     grid-template-columns:377.4px 1fr;
     align-items:start;
     margin-top:44px;
+    
+    border-top:1.5px solid var(--brand);
+    padding-top:13.5px;
+    
+    margin-bottom:11.4px;
   }
    [data-cat="ultraslim"] .featlist{ list-style:none; }
    [data-cat="ultraslim"] .featlist li{
     position:relative;
     font-family:var(--font-cn);
     font-size:13.5px; line-height:1.6; color:var(--ink-2);
-    padding-left:13.5px;                
+    padding-left:17px;                
     margin-bottom:1.5px;
   }
    [data-cat="ultraslim"] .featlist li:last-child{ margin-bottom:0; }
@@ -793,8 +798,10 @@
     top:var(--ph-top); bottom:0; left:0; right:0;
     width:100%; height:calc(100% - var(--ph-top));
     object-fit:contain;
+    padding-left:139.5px; padding-right:139.5px;
     mix-blend-mode:multiply;
   }
+  [data-cat="ultraslim"] .panel-hs .pphoto img{ padding-left:0; padding-right:0; }
    [data-cat="ultraslim"] .pphoto .ph{ font-size:11px; color:#9a9a9a; letter-spacing:.1em; }
 
   
@@ -822,6 +829,35 @@
   }
   
    [data-cat="ultraslim"] .pspace{ flex:103 1 0; }
+
+
+  
+   [data-cat="ultraslim"] .panel-hs{
+    margin-top:24px;
+    border-top:1.5px solid var(--brand);
+   }
+   [data-cat="ultraslim"] .panel-hs .prow{
+    flex:0 0 auto;
+    display:grid;
+    grid-template-columns:1fr 250px;
+    gap:22px;
+    align-items:center;
+    padding:16px 26px 0;
+   }
+   
+   [data-cat="ultraslim"] .panel-hs .feats{
+    display:block;
+    margin-top:0;
+    margin-bottom:0;
+    border-top:0;
+    padding-top:0;
+   }
+   [data-cat="ultraslim"] .panel-hs .feats .featlist + .featlist{ margin-top:1.5px; }
+   [data-cat="ultraslim"] .panel-hs .pphoto{ height:150px; --ph-top:0px; }
+   [data-cat="ultraslim"] .panel-hs .rackhead{ margin-top:24px; }
+   [data-cat="ultraslim"] .panel-hs .rackdraw{ flex:1 1 0; }
+   [data-cat="ultraslim"] .panel-hs .pspace{ flex:0 0 auto; height:18px; }
+
 
   
    [data-cat="ultraslim"] .sptitle{ margin-bottom:12px; }
@@ -866,9 +902,10 @@
     letter-spacing:.02em;
   }
   
+  
    [data-cat="ultraslim"] table.spec td.k{
     font-family:var(--font-cn); color:var(--ink);
-    border-right:1px solid #e9a88a;
+    border-right:1.5px solid var(--brand);
   }
   
    [data-cat="ultraslim"] table.spec td.v{ text-align:center; }
@@ -876,22 +913,27 @@
   
    [data-cat="ultraslim"] table.spec tr.split3 td.k{
     text-align:left; font-family:var(--font-cn);
-    border-right:1px solid #e9a88a;
+    border-right:1.5px solid var(--brand);
   }
    [data-cat="ultraslim"] table.spec tr.split3 td.vcell{
     padding:0; border-right:none; text-align:initial;
   }
    [data-cat="ultraslim"] table.sub3{
     width:100%; border-collapse:collapse; table-layout:fixed;
+    height:100%;   
   }
    [data-cat="ultraslim"] table.sub3 td{
     text-align:center; font-family:var(--font-en);
     padding:3.0px 6px; border-bottom:none;       
     font-size:10.6px; color:var(--ink-2);
   }
+  
    [data-cat="ultraslim"] table.sub3 td.d{
+    border-left:none;
+    border-right:none;
+  }
+   [data-cat="ultraslim"] table.sub3 td.d + td{
     border-left:1px dotted #c9c9c9;
-    border-right:1px dotted #c9c9c9;
   }
 
   
@@ -1754,27 +1796,28 @@
       <!-- ② 副标题 -->
       <div class="psub">APF/SVG分布式/符合国网JP柜2023标准</div>
 
-      <!-- ③ 卖点列表：左列 / 右列各一个 <ul>，需要更多卖点就往两列继续追加 <li> -->
-      <div class="feats">
-        <ul class="featlist">
+            <!-- ④ 浅灰面板：首行「4 条卖点 | 实拍图」→「机架式」尺寸图 →「热插拔式」尺寸图 -->
+      <div class="panel panel-hs">
+
+        <div class="prow">
+          <div class="feats">
+          <ul class="featlist">
           <li>按键屏（4.3 寸触摸屏）设计，操控更便捷、友好</li>
           <li>内部最少线缆设计，最优风道规划，散热更好；</li>
-        </ul>
-        <ul class="featlist">
+          </ul>
+          <ul class="featlist">
           <li>工作环境温度最高 55℃；</li>
           <li>采用 PWM 调速风扇，智能 AI 算法，轻载设备效率更高，同时延长风扇使用寿命；</li>
-        </ul>
-      </div>
+          </ul>
+          </div>
 
-      <!-- ④ 一整块浅灰面板：实拍图 →「机架式」→ 尺寸图 -->
-      <div class="panel">
-
-        <div class="pphoto">
+          <div class="pphoto">
           <img src="images/products-ahf-distributed-rackmount.webp"
-               alt="APF/SVG DISTRIBUTED MODEL — rack-mounted unit">
+          alt="APF/SVG DISTRIBUTED MODEL — rack-mounted unit">
+          </div>
         </div>
 
-        <div class="rackhead">
+                <div class="rackhead">
           <span class="bar"></span>
           <span class="txt">机架式</span>
         </div>
@@ -1782,6 +1825,16 @@
         <div class="rackdraw">
           <img src="images/products-ahf-distributed-dims.webp"
                alt="APF/SVG DISTRIBUTED MODEL — rack-mount outline drawing">
+        </div>
+
+        <div class="rackhead">
+          <span class="bar"></span>
+          <span class="txt">热插拔式</span>
+        </div>
+
+        <div class="rackdraw rackdraw-2">
+          <img src="images/products-ahf-distributed-hotswap-dims.webp"
+               alt="APF/SVG DISTRIBUTED MODEL — hot-swap outline drawing">
         </div>
 
         <div class="pspace"></div>
@@ -1848,7 +1901,6 @@
           <!-- 机械特性 -->
           <tr class="grp"><td colspan="2">机械特性</td></tr>
           <tr><td class="k">安装方式</td><td class="v">机架式/壁挂式/热插拔式</td></tr>
-          <tr><td class="k">机箱高度</td><td class="v">2U</td></tr>
           <tr><td class="k">颜色</td><td class="v">工业灰色 (RAL7035)，可按要求定制</td></tr>
           <tr><td class="k">CT 接线方式</td><td class="v">支持源侧 / 负载侧</td></tr>
 
@@ -1957,10 +2009,15 @@
           <tr class="split3"><td class="k">净重</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
               </tr></table>
             </td></tr>
-          <tr><td class="k">宽×深×高 (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">宽×深×高 (mm)</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d" colspan="4">500x550x130</td><td>500x550x175</td>
+              </tr></table>
+            </td></tr>
 
           <!-- 系统参数 -->
           <tr class="grp"><td colspan="2">系统参数</td></tr>
@@ -2100,13 +2157,13 @@
           <tr class="split3"><td class="k">净重</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
               </tr></table>
             </td></tr>
           <tr class="split3"><td class="k">宽×深×高 (mm)</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">500x550x130</td><td>500x550x175</td>
+                <td class="d" colspan="4">500x550x130</td><td>500x550x175</td>
               </tr></table>
             </td></tr>
 
@@ -2246,10 +2303,15 @@
           <tr class="split3"><td class="k">净重</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
               </tr></table>
             </td></tr>
-          <tr><td class="k">宽×深×高 (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">宽×深×高 (mm)</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d" colspan="4">500x550x130</td><td>500x550x175</td>
+              </tr></table>
+            </td></tr>
 
           <!-- 系统参数 -->
           <tr class="grp"><td colspan="2">系统参数</td></tr>
@@ -2387,10 +2449,15 @@
           <tr class="split3"><td class="k">净重</td>
             <td class="vcell" colspan="1">
               <table class="sub3"><tr>
-                <td class="d">19kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
+                <td class="d">19kg</td><td class="d">24kg</td><td class="d">24kg</td><td class="d">29kg</td><td>34kg</td>
               </tr></table>
             </td></tr>
-          <tr><td class="k">宽×深×高 (mm)</td><td class="v">500x550x130</td></tr>
+          <tr class="split3"><td class="k">宽×深×高 (mm)</td>
+            <td class="vcell" colspan="1">
+              <table class="sub3"><tr>
+                <td class="d" colspan="4">500x550x130</td><td>500x550x175</td>
+              </tr></table>
+            </td></tr>
 
           <!-- 系统参数 -->
           <tr class="grp"><td colspan="2">系统参数</td></tr>

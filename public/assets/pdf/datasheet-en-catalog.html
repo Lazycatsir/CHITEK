@@ -685,7 +685,7 @@
     position:relative;
     font-family:var(--font-cn);
     font-size:13.5px; line-height:1.6; color:var(--ink-2);
-    padding-left:13.5px;                
+    padding-left:17px;                
     margin-bottom:1.5px;
   }
   [data-cat="ultraslim"] .featlist li:last-child{ margin-bottom:0; }
@@ -727,8 +727,10 @@
     top:var(--ph-top); bottom:0; left:0; right:0;
     width:100%; height:calc(100% - var(--ph-top));
     object-fit:contain;
+    padding-left:139.5px; padding-right:139.5px;
     mix-blend-mode:multiply;
   }
+  [data-cat="ultraslim"] .panel-hs .pphoto img{ padding-left:0; padding-right:0; }
   [data-cat="ultraslim"] .pphoto .ph{ font-size:11px; color:#9a9a9a; letter-spacing:.1em; }
 
   
@@ -780,6 +782,7 @@
     font-size:9.2px; line-height:1.32;   
     table-layout:fixed;
   }
+   [data-cat="ultraslim"] .specs > table.spec{ height:100%; }  
   
   
   [data-cat="ultraslim"] table.spec col.k{ width:26.0%; }
@@ -803,9 +806,10 @@
   }
   
   
+  
   [data-cat="ultraslim"] table.spec td.k{
     font-family:var(--font-cn); color:var(--ink); font-weight:600;
-    border-right:1px solid #e9a88a;
+    border-right:1.5px solid var(--brand);
   }
   
   [data-cat="ultraslim"] table.spec td.v{ text-align:center; }
@@ -813,21 +817,26 @@
   
   [data-cat="ultraslim"] table.spec tr.split3 td.k{
     text-align:left; font-family:var(--font-cn);
-    border-right:1px solid #e9a88a;
+    border-right:1.5px solid var(--brand);
   }
   [data-cat="ultraslim"] table.spec tr.split3 td.vcell{
     padding:0; border-right:none; text-align:initial;
   }
   [data-cat="ultraslim"] table.sub3{
     width:100%; border-collapse:collapse; table-layout:fixed;
+    height:100%;   
   }
   [data-cat="ultraslim"] table.sub3 td{
     text-align:center; font-family:var(--font-en);
     padding:4.0px 6px; border-bottom:none;       
     font-size:9.2px; color:var(--ink-2);
-  }  [data-cat="ultraslim"] table.sub3 td.d{
+  }  
+  [data-cat="ultraslim"] table.sub3 td.d{
+    border-left:none;
+    border-right:none;
+  }
+  [data-cat="ultraslim"] table.sub3 td.d + td{
     border-left:1px dotted #c9c9c9;
-    border-right:1px dotted #c9c9c9;
   }
 
   
@@ -1527,11 +1536,11 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Independent buttons for simpler operation</li>
+          <li>Minimal cabling, optimized airflow, up to 55℃</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>PWM fan with AI, longer service life</li>
         </ul>
       </div>
 
@@ -1655,11 +1664,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>4.3-inch touch screen, easy and friendly operation</li>
+          <li>Minimal cabling, optimized airflow, better cooling</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>Operating temperature up to 55℃</li>
+          <li>PWM fan with AI, longer service life</li>
         </ul>
       </div>
 
@@ -1743,7 +1753,6 @@
           <!-- Mechanical Properties -->
           <tr class="grp"><td colspan="2">Mechanical Properties</td></tr>
           <tr><td class="k">Mounting Options</td><td class="v">Rack-mounted / Wall-mounted / Hot-swappable</td></tr>
-          <tr><td class="k">Chassis Height</td><td class="v">2U</td></tr>
           <tr><td class="k">Color</td><td class="v">Industrial gray (RAL7035), custom colors available on request</td></tr>
           <tr><td class="k">CT Connection Mode</td><td class="v">Source side / Load side supported</td></tr>
 
@@ -1783,11 +1792,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Salt- and dust-proof for harsh environments</li>
+          <li>Anti-miswiring design, less on-site work</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>Built-in 4G/WiFi module (optional)</li>
+          <li>Same size, strong cooling, low noise</li>
         </ul>
       </div>
 
@@ -1920,11 +1930,14 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>No output derating below 45℃</li>
+          <li>Efficiency up to 99%</li>
+          <li>Salt-spray test report</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>Anti-miswiring design, less on-site work</li>
+          <li>Power/telecom standard test reports</li>
+          <li>CQC and CE certified</li>
         </ul>
       </div>
 
@@ -2057,11 +2070,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Salt- and dust-proof for harsh environments</li>
+          <li>Anti-miswiring design, less on-site work</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>Built-in 4G/WiFi module (optional)</li>
+          <li>Full-size design, good cooling, low noise</li>
         </ul>
       </div>
 
@@ -2194,11 +2208,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Salt- and dust-proof for harsh environments</li>
+          <li>Anti-miswiring design, less on-site work</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>Built-in 4G/WiFi module (optional)</li>
+          <li>Full-size design, good cooling, low noise</li>
         </ul>
       </div>
 
@@ -2331,11 +2346,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Ultra-high efficiency up to 98%</li>
+          <li>Compact body, 175 mm height across series</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>High-pollution, heavy-dust resistant</li>
+          <li>Anti-miswiring design, less on-site work</li>
         </ul>
       </div>
 
@@ -2468,11 +2484,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Natural convection cooling, low noise</li>
+          <li>SiC devices, efficiency up to 99%</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>IP65: water, salt and dust resistant</li>
+          <li>Built-in 4G/WiFi module (optional)</li>
         </ul>
       </div>
 
@@ -2600,11 +2617,12 @@
       <!-- 卖点：两列并排、直接落白底（原图此处没有灰卡片） -->
       <div class="feats">
         <ul class="featlist">
-          <li>Independent button design for simpler operation;</li>
-          <li>Minimal internal cabling and optimized airflow for better heat dissipation, operating temperature up to&nbsp;55℃;</li>
+          <li>Natural convection cooling, low noise</li>
+          <li>SiC devices, efficiency up to 99%</li>
         </ul>
         <ul class="featlist">
-          <li>PWM speed-controlled fan with intelligent AI algorithm, higher efficiency at light load while extending fan service life;</li>
+          <li>IP65: water, salt and dust resistant</li>
+          <li>Built-in 4G/WiFi module (optional)</li>
         </ul>
       </div>
 
