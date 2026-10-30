@@ -45,6 +45,8 @@ news_i18n_data*.py
 !/_gen_sitemap.mjs
 !/_check_sitemap_urls.mjs
 !/_check_sitemap_coverage.js
+# 首页 hero 第 4 帧图片切片工具（可重跑，产出 index-hero-newlaunch*.webp）
+!/_gen_hero_newlaunch.js
 # 本地临时对比目录 / Python 缓存 / 空错误日志
 /_spin_compare/
 __pycache__/

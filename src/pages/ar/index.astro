@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { arNewsCards } from '../../data/arNewsCards.js';
 
 const meta = {
   title: 'CHITEK — مصنع AHF و SVG منخفض الجهد | جودة الطاقة',
@@ -8,6 +9,10 @@ const meta = {
 // 本地开发/预览用 /en 前缀；线上（子域名承载语言）保持根相对
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '/ar' + p : p;
+
+// 2026-10-30 用户要求：Solutions 之下同步英文版的 News 区块 → 取本站新闻列表前 3 条（最新），
+// 不硬编码，新闻数据更新后首页自动跟随（各语 NewsCards 已按日期倒序）。
+const latestNews = arNewsCards.slice(0, 3);
 
 // Featured products：8 张 AHF 系列卡。⚠️ 2026-09-24 用户要求首页单独改名（去掉 "Active Harmonic Filter"、以系列后缀收尾）→ **名称已与 /en/products 列表页不一致**，图 / 链接仍一致。2026-10-08 后缀由 AHF 改为 AHF/SVG。每面 5 张（≥1024px）；第一面固定为 208V / 690V-800V / SiC / Ultra-Slim / IP65 SiC-Fanless。
 // 2026-10-12：8 张卡全部加电流规格后缀 spec，渲染时用 .fp-spec 与主名隔开一个 tab 的间距（样式见页面 <style>）。
@@ -406,9 +411,10 @@ const featuredProducts = [
 
     // 可反复触发入场：进视口加 .visible，出视口移除；滚动回来重新播放
     // 作用对象：Product Series 左右两栏 + Solution Insights 标题与三张卡片
-    const revealEls = document.querySelectorAll('.conv-left, .conv-right, .insight-title, .insight-card, .ps-card');
+    const revealEls = document.querySelectorAll('.conv-left, .conv-right, .insight-title, .insight-card, .news-title, .news-card, .ps-card');
     if (revealEls.length) {
       const insightCards = Array.from(document.querySelectorAll('.insight-card'));
+      const newsCards = Array.from(document.querySelectorAll('.news-card'));
       const psCards = Array.from(document.querySelectorAll('.ps-card'));
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -417,6 +423,9 @@ const featuredProducts = [
             if (el.classList.contains('insight-card')) {
               const i = insightCards.indexOf(el);
               setTimeout(() => el.classList.add('visible'), i * 120);
+            } else if (el.classList.contains('news-card')) {
+              const i = newsCards.indexOf(el);
+              setTimeout(() => el.classList.add('visible'), i * 110);
             } else if (el.classList.contains('ps-card')) {
               const i = psCards.indexOf(el);
               setTimeout(() => el.classList.add('visible'), i * 90);
@@ -637,6 +646,17 @@ const featuredProducts = [
     .insight-card { opacity: 0; transform: translateY(64px); }
     .insight-card.visible { opacity: 1; transform: translateY(0); }
 
+    /* Latest News（2026-10-30 同步自英文版）：标题同 Solution Insights 的左侧滑入；三张卡片自下而上错峰 */
+    @media (min-width: 1024px) {
+      .news-title { transform: translateX(-64px); }
+    }
+    .news-title { transition-delay: 80ms; }
+    .news-title.visible { transform: translateX(0); }
+    .news-card { opacity: 0; transform: translateY(48px); transition: opacity .55s ease, transform .55s ease, box-shadow .3s ease; }
+    .news-card.visible { opacity: 1; transform: translateY(0); }
+    .news-card.visible:hover { transform: translateY(-6px); }
+
+
     /* Hero 字号 = 唯一来源（2026-09-30 用户要求「标题大小统一、小描述增大」）
        - 标题：删掉原 @media (max-height:940px) 放大到 4vw 的跳档规则 ——
          它让同一页在 900px 高时标题 57.6px、1000px 高时 48.96px，看起来「不统一」。
@@ -670,6 +690,7 @@ const featuredProducts = [
     @media (prefers-reduced-motion: reduce) {
       .conv-left, .conv-right,
       .insight-title, .insight-card,
+      .news-title, .news-card,
       .ps-card { transform: none !important; transition: none !important; opacity: 1 !important; }
     }
   </style>
@@ -737,6 +758,41 @@ const featuredProducts = [
             </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS（2026-10-30 同步自英文版首页） -->
+  <section class="px-[clamp(24px,8vw,160px)] py-[clamp(48px,6vw,88px)] bg-bg-page" id="news">
+    <div class="text-center mb-[clamp(24px,3vw,48px)] fade-up news-title">
+      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.02em] text-text-dark">أحدث الأخبار</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
+      {latestNews.map((n) => (
+        <a href={lp(n.href)} class="group news-card flex flex-col no-underline bg-white rounded-2xl overflow-hidden border border-border-light hover:shadow-2xl">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
+            <img src={n.img} alt={n.alt} width="1200" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="p-[clamp(16px,2vw,28px)] flex flex-col flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-[11px] font-semibold tracking-[0.08em] uppercase text-brand-orange">{n.category}</span>
+              <span class="text-[11px] tracking-[0.04em] text-text-muted">{n.date}</span>
+            </div>
+            <h3 class="font-barlow-condensed text-[clamp(17px,1.35vw,22px)] font-bold leading-[1.35] text-text-dark transition-colors duration-200 group-hover:text-brand-orange">{n.title}</h3>
+            <p class="mt-3 text-[clamp(12px,0.95vw,15px)] leading-[1.7] text-text-mid line-clamp-3">{n.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-[clamp(28px,3vw,48px)] flex justify-center">
+      <a href={lp('/news/')} class="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.08em] uppercase no-underline text-text-dark border border-text-dark/25 rounded-full px-7 py-3 transition-colors duration-200 hover:bg-brand-orange hover:border-brand-orange hover:text-white group/all">
+        عرض جميع الأخبار
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 transition-transform duration-200 group-hover/all:translate-x-1">
+          <line x1="7" y1="17" x2="17" y2="7"/>
+          <polyline points="7 7 17 7 17 17"/>
+        </svg>
+      </a>
     </div>
   </section>
 
