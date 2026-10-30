@@ -40,18 +40,20 @@
 | 360° 查看器 | 两套构图 + gallery 两形态；8 stem ×（AHF/SVG/ASVG）= 24 页一致 | §15–§17 | `_check_spin_two_sets.js`、`_check_svg_360photo.js`、`_check_svg_360parity.js` |
 | 营销选型器 | `public/pq-selector/`（10-26 起**手工维护**，生成器有 `--force` 守卫） | §13-D §19-C | `_check_pq_machines.js` |
 | Contact / Solutions | Contact `Send Message` = WhatsApp（必须 `<a data-wa-link>`）；Solutions 5 语 hub + 6 子页 | §5 | — |
-| 性能 / 资产 / 字体子集 | 10-26 八项优化；`public` 约 120MB（spin 88MB） | §16.3 §19-C §21 | `_audit_assets.py`、`_audit_images_strict.py` |
+| 性能 / 资产 / 字体子集 | 10-26 八项 + **10-30 二轮**（响应式变体接线：新闻卡 srcset、solution 卡/`about-bg` 去 xl 原图档、`index-products-bg-1440w`、360 预热整圈→±4 帧+交互触达）；`public` 约 120MB（spin 88MB） | §16.3 §19-C §21、逐日 10-30 | `_perf_audit_now.js`、`_check_spin_drag.js`、`_audit_assets.py` |
 | sitemap 5 份 | `node _gen_sitemap.mjs`：zh 56 / en 80 / es 56 / pt 14 / ar 56，**每份只含自己 host** | §21 | `_check_sitemap_split.mjs` |
 | 印刷画册 | 源 `E:\video\html2doc\templates\datasheet-{en,zh}-catalog.html`（别手改 public 拷贝） | §21、逐日 10-29 | `_check_prule.js`、`_check_specalign_final.js` |
 
 ## 高频硬钉子（踩过就疼，别问为什么）
 - ASVG 价格 = AHF 同档 **−20**；SVG = kvar 价表（400V/480V 两套）；`sic-ultra-svg` = `anti-pollution-svg` ×2。改完必跑 `_gen_sku_ledger.py` 重建三本台账。
-- 改中文文案后**必须重跑 `_font_subset.py`**；`OPPOSansSC-<w>-sub.woff2` 的 `-sub` 名不可去掉（`/assets/*` immutable 一年）。
+- 改中文文案后**必须重跑 `_font_subset.py`**；`OPPOSansSC-<w>-sub.woff2` 的 `-sub` 名不可去掉（`/assets/*` immutable 一年）。**中文实际只用两支字体文件**：400 档声明 `400 500`、700 档声明 `600 700`（500/600 文件已移入 backups，别再引入）。
 - 占位图 `index-product-ahf.webp` ~90 处引用，**绝不覆盖/改名**；产品图 1200×1200 白底 WEBP q82。
 - 判「能不能删」只认 `_audit_assets.py` / `_audit_images_strict.py`（词边界匹配），**别用 `grep 主名`**；spin 必须按**目录级**判断。
 - 301 必须写在 `netlify.toml` 的 `/assets/*` → 200 透传规则**之前**，否则被遮蔽成 404。
 - 360 改首帧 = 4 处（两处 `img src`、`var u,v`、`shown`）**+ 裁框按新 hero 重算**；预裁剪构图必须同时 `max-width:591.36px; margin-inline:auto`。
 - 换素材四查（`img width/height`、`max-width`、残留 `transform:scale()`、缩略图指向）+ 各套 export 的 v 轴方向不一致 → DETAIL §17。
+- ⚠️ **测性能别直接测 `dist`**：同一项目可能同时有别的会话在跑 `astro build`，建站会清空 dist → 会测出「图片全 1KB」的假数据（判据：`dist/assets` 里只剩 spin/spin-thumbs）。正确姿势 = 建完 `robocopy /MIR dist _perf_dist` 出快照，再对快照起 4478 端口测（`PERF_BASE=` 指过去）。
+- 页面返回「4 个文本节点 + 字体栈 Times New Roman」= 那页其实是 404（python 静态服务器的错误页），别当成样式丢了。
 
 ## 待裁决 / 待办（别自己拍板）
 Footer h4 跳级（P0-2）｜邮箱 + 公司地址｜两个站点图标 mark（`logo-head.svg` vs favicon 几何 C）｜站内两套尺寸矛盾（矩阵 specData vs 详情页）｜`en/solutions.astro` 仍 `alternates={false}`｜`ip65-svg` / `ip65-sic-fanless-svg` 价格仍照抄 AHF｜`ip65-sic-fanless-ahf-datasheet.pdf` 与 `sic-fanless-ahf-datasheet.pdf` 字节相同疑放错文件｜证书 01 EUTEST 02.07 过期待换｜3 个 PDF 手册 MD5 相同（已 301，删会 404）。
