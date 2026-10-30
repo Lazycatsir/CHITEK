@@ -1296,19 +1296,32 @@ const lp = (p: string) => isLocal ? '/en' + p : p;
         }
       });
 
-      // Warm the starting turntable ring while the browser is idle so the very
-      // first drag is smooth (18 frames).
+      // Warm only the neighbours of the starting frame while the browser is idle:
+      // enough for the first short drag, without pulling all 18 frames (~414KB)
+      // for visitors who never touch the turntable. The rest of the ring is
+      // fetched the moment the visitor shows intent (hover / press / key / touch).
       var idle = window.requestIdleCallback || function (f) { setTimeout(f, 900); };
+      function warmOne(iu) {
+        var key = v + '_' + iu;
+        if (warmed[key]) return;
+        warmed[key] = 1;
+        (new Image()).src = file(v, iu);
+      }
       idle(function () {
-        for (var i = 0; i < U; i++) {
-          if (i === u) continue;
-          var key = v + '_' + i;
-          if (warmed[key]) continue;
-          warmed[key] = 1;
-          var im = new Image();
-          im.src = file(v, i);
-        }
+        for (var d = 1; d <= 4; d++) { warmOne(mod(u + d, U)); warmOne(mod(u - d, U)); }
       });
+      var ringKicked = false;
+      function kickRing() {
+        if (ringKicked) return;
+        ringKicked = true;
+        idle(function () { for (var i = 0; i < U; i++) { if (i !== u) warmOne(i); } });
+      }
+      viewer.addEventListener('pointerdown', kickRing, { once: true });
+      viewer.addEventListener('touchstart', kickRing, { once: true, passive: true });
+      viewer.addEventListener('focusin', kickRing, { once: true });
+      if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+        viewer.addEventListener('pointerenter', kickRing, { once: true });
+      }
     })();
   </script>
 
