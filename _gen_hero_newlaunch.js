@@ -19,18 +19,21 @@ const RATIO = 6.6;
 
 (async () => {
   const base = await sharp(SRC).extract(CROP).toBuffer();          // 2172x560
-  const W = Math.round(CROP.height * RATIO);                       // 3472
-  const pad = Math.round((W - CROP.width) / 2);                    // 650
+  const W = Math.round(CROP.height * RATIO);                       // 3696
+  const pad = Math.round((W - CROP.width) / 2);                    // 762
 
-  // 两侧铺底：整张拉宽到目标画布 → 模糊 → 压暗（摄影棚背景的延续感）
-  const bg = await sharp(base)
+  // 2026-10-30 用户要求：画布右侧「不够」的地方直接用纯黑，不要模糊铺底（模糊会把机器影子糊成一团）。
+  // 做法：底 = 纯黑；只在左侧（文字那一侧、被 scrim 压暗）铺一条模糊延续；右侧照片之外全黑。
+  const feather = Math.round(CROP.width * 0.04);
+  const leftStripW = Math.min(W, pad + feather + 8);
+  const leftBlur = await sharp(base)
     .resize({ width: W, height: CROP.height, fit: 'fill' })
     .blur(24)
     .modulate({ brightness: 0.58, saturation: 0.85 })
+    .extract({ left: 0, top: 0, width: leftStripW, height: CROP.height })
     .toBuffer();
 
-  // 清晰主体左右羽化 4%，与模糊底无缝衔接
-  const feather = Math.round(CROP.width * 0.04);
+  // 清晰主体左右羽化 4%（羽化后由黑底/模糊底接住，无硬边）
   const maskSvg = `<svg width="${CROP.width}" height="${CROP.height}" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
@@ -42,7 +45,15 @@ const RATIO = 6.6;
   const mask = await sharp(Buffer.from(maskSvg)).png().toBuffer();
   const fg = await sharp(base).ensureAlpha().composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
 
-  const master = await sharp(bg).composite([{ input: fg, left: pad, top: 0 }]).toBuffer();
+  const master = await sharp({
+    create: { width: W, height: CROP.height, channels: 3, background: { r: 0, g: 0, b: 0 } },
+  })
+    .composite([
+      { input: leftBlur, left: 0, top: 0 },
+      { input: fg, left: pad, top: 0 },
+    ])
+    .png()
+    .toBuffer();
 
   for (const t of [{ file: 'index-hero-newlaunch.webp' }, { file: 'index-hero-newlaunch-2400w.webp', width: 2400 }]) {
     let p = sharp(master);

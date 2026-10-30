@@ -37,6 +37,17 @@ const featuredProducts = [
         <source media="(min-width:1024px)" srcset="/assets/images/index-hero-lineup-wide-1440w.webp 1440w, /assets/images/index-hero-lineup-wide.webp 3924w" sizes="100vw" />
         <img src="/assets/images/index-hero-lineup.webp" srcset="/assets/images/index-hero-lineup-480w.webp 480w, /assets/images/index-hero-lineup-960w.webp 960w, /assets/images/index-hero-lineup-1440w.webp 1440w, /assets/images/index-hero-lineup.webp 2172w" sizes="100vw" alt="最全产品系列——AHF、SVG 与 ASVG，208V 至 800V，IP20 至 IP65" width="2172" height="654" class="hero-slide hero-slide-active absolute inset-0 w-full h-full object-cover object-[center_35%] max-lg:object-[center_25%] max-md:object-[center_15%]" fetchpriority="high" />
       </picture>
+
+      <!-- 第 4 帧专属背景（2026-10-30 与英文站同步）：第 1~3 帧继续共用上面那张首图，
+           只有第 4 帧换成新图。独立一层、默认 opacity:0，切到第 4 页才加 .hero-slide-active 淡入。
+           桌面件 6.6:1（两侧同图模糊铺底）→ 纵向零裁切；lazy + low 优先级，不抢 LCP。 -->
+      <div class="hero-slide absolute inset-0" data-hero-bg="1" aria-hidden="true">
+        <picture class="block w-full h-full">
+          <source media="(min-width:1024px)" srcset="/assets/images/index-hero-newlaunch-2400w.webp 2400w, /assets/images/index-hero-newlaunch.webp 3696w" sizes="160vw" />
+          <img src="/assets/images/index-hero-newlaunch-m.webp" srcset="/assets/images/index-hero-newlaunch-m-480w.webp 480w, /assets/images/index-hero-newlaunch-m.webp 780w" sizes="100vw" alt="CHITEK 有源滤波器双机——自然风冷与 IP65 电能质量模块，15kvar/25A 与 35kvar/50A" width="3696" height="560" loading="lazy" decoding="async" fetchpriority="low" class="w-full h-full object-cover object-center" />
+        </picture>
+        <div class="hero-scrim"></div>
+      </div>
     </div>
 
     <!-- 文字面板 0：产品主题（第 1 页，首屏） -->
@@ -73,11 +84,27 @@ const featuredProducts = [
       </p>
     </div>
 
+    <!-- 文字面板 3：新品发布（第 4 页，2026-10-30 新增；唯一换背景图的一帧）
+         data-hero-bg="1" → 告诉轮播脚本这一帧要显示 data-hero-bg="1" 的那层背景
+         桌面：标题「A | B」一行 + C 一行；副标题「规格A | 规格B」一行
+         <768：分隔细线隐藏，各退回独立两行（窄屏放不下） -->
+    <div class="hero-text absolute inset-0 z-10 flex flex-col justify-center px-[clamp(24px,8vw,160px)]" data-hero-bg="1">
+      <p class="hero-title font-barlow-condensed font-bold leading-[1.06] text-white mb-2.5">
+        新品发布<span class="hero-bar hidden md:inline-block" aria-hidden="true"></span><br class="md:hidden" />自然风冷<br />
+        与 IP65 电能质量模块
+      </p>
+      <div class="w-14 h-[3px] bg-brand-orange mt-1 mb-4" aria-hidden="true"></div>
+      <p class="font-normal text-white/85 leading-[1.55] max-w-[620px]">
+        15Kvar、25A 自然风冷<span class="hero-bar hidden md:inline-block" aria-hidden="true"></span><br class="md:hidden" />35Kvar、50A IP65 防护等级
+      </p>
+    </div>
+
     <!-- HERO 轮播指示点 -->
     <div class="hero-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
       <button type="button" class="hero-dot hero-dot-active" data-slide="0" aria-label="显示第 1 张——电能质量"></button>
       <button type="button" class="hero-dot" data-slide="1" aria-label="显示第 2 张——简易安装与接线"></button>
       <button type="button" class="hero-dot" data-slide="2" aria-label="显示第 3 张——自主研发与制造"></button>
+      <button type="button" class="hero-dot" data-slide="3" aria-label="显示第 4 张——新品发布：自然风冷与 IP65"></button>
     </div>
   </section>
 
@@ -356,6 +383,8 @@ const featuredProducts = [
     // HERO 轮播（2026-10-26 用户裁定：首图固定，只轮文字）
     const heroTexts = Array.from(document.querySelectorAll('.hero-text'));
     const heroDots = Array.from(document.querySelectorAll('.hero-dot'));
+    // 背景层：hero-slide[0] = 常驻首图（data-hero-bg 缺省 = 0），其余层用 data-hero-bg 指定归属帧
+    const heroBgs = Array.from(document.querySelectorAll('.hero-carousel .hero-slide'));
     if (heroTexts.length > 1) {
       let heroIdx = 0;
       let heroTimer = null;
@@ -367,6 +396,8 @@ const featuredProducts = [
         heroIdx = (i + heroTexts.length) % heroTexts.length;
         if (heroTexts[heroIdx]) heroTexts[heroIdx].classList.add('hero-text-active');
         if (heroDots[heroIdx]) heroDots[heroIdx].classList.add('hero-dot-active');
+        const want = Number(heroTexts[heroIdx]?.dataset.heroBg || 0);
+        heroBgs.forEach((bg, bi) => bg.classList.toggle('hero-slide-active', bi === want));
       };
       const heroStart = () => { heroTimer = setInterval(() => heroShow(heroIdx + 1), 5000); };
       const heroStop = () => { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } };
@@ -576,6 +607,19 @@ const featuredProducts = [
     .hero-slide.hero-slide-active {
       opacity: 1;
     }
+    /* 第 4 帧专用压暗层（2026-10-30 与英文站同步）：新图机身是亮白，白字直接压上去读不清。
+       只压文字所在的一侧，另一侧保持原色。RTL 语言镜像渐变。 */
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(90deg, rgba(4,10,20,0.88) 0%, rgba(4,10,20,0.72) 35%, rgba(4,10,20,0.46) 60%, rgba(4,10,20,0.12) 78%, rgba(4,10,20,0) 88%);
+    }
+    @media (max-width: 767px) {
+      .hero-scrim {
+        background: linear-gradient(90deg, rgba(4,10,20,0.88) 0%, rgba(4,10,20,0.70) 55%, rgba(4,10,20,0.38) 100%);
+      }
+    }
     .hero-text {
       opacity: 0;
       pointer-events: none;
@@ -643,7 +687,17 @@ const featuredProducts = [
 
     /* Hero 字号 = 唯一来源（标题统一 clamp(30px,3.4vw,50px)；描述 clamp(16px,1.3vw,19px)） */
     .hero-text .hero-title {
-      font-size: clamp(30px, 3.4vw, 50px);
+      font-size: clamp(26px, 3.05vw, 44px);
+    }
+    /* 2026-10-30 竖线分隔符：用元素画的细线替代文本「|」（随字体变化、粗细不可控、基线偏低） */
+    .hero-bar {
+      width: 1.5px;
+      height: 0.82em;
+      margin-inline: 0.45em;
+      background: rgba(255, 255, 255, 0.45);
+      vertical-align: middle;
+      transform: translateY(-0.11em);
+      border-radius: 1px;
     }
     .hero-text .hero-title ~ p {
       font-size: clamp(16px, 1.3vw, 19px);
@@ -653,13 +707,13 @@ const featuredProducts = [
        标题 22px、描述 13px、左右内边距 20px、橙色分隔线上下收紧，三帧一致。 */
     @media (max-width: 767px) {
       #hero-section .hero-text { padding-left: 20px; padding-right: 20px; }
-      .hero-text .hero-title { font-size: 22px; }
+      .hero-text .hero-title { font-size: 20px; }
       .hero-text .hero-title ~ p { font-size: 13px; }
       #hero-section .hero-text > div[aria-hidden="true"] { margin-top: 2px; margin-bottom: 10px; }
     }
     @media (min-width: 1024px) and (max-height: 820px) {
       .hero-text .hero-title {
-        font-size: clamp(28px, 3vw, 46px);
+        font-size: clamp(25px, 2.75vw, 41px);
       }
       .hero-text .hero-title ~ p {
         font-size: 17px;
