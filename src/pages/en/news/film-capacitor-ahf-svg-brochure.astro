@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FlyerSpread from '../../../components/flyer/FlyerSpread.astro';
+import spread from '../../../components/flyer/film-capacitor.html?raw';
+
+const article = {
+  title: "Metallized Film Capacitor for AHF & SVG — Product Brochure",
+  category: "Product Update",
+  date: "2026-11-10",
+  dateDisplay: "Nov 10, 2026",
+  author: "CHITEK INNOPOWER",
+  description: "CHITEK two-page product brochure for AHF and SVG built with metallized film capacitors: product view, module construction, key specifications and contact details.",
+  cardImage: "/assets/images/news/flyer-film-capacitor.webp",
+  keywords: "metallized film capacitor, AHF, SVG, DC-link capacitor, active harmonic filter, static var generator, power quality, CHITEK brochure"
+};
+
+const ogImage = 'https://en.chitek-inno.com/assets/images/news/flyer-film-capacitor-960w.webp';
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage={ogImage}
+  alternates={false}
+>
+  <script type="application/ld+json" slot="head">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Metallized Film Capacitor for AHF & SVG — Product Brochure",
+    "description": "CHITEK two-page product brochure for AHF and SVG built with metallized film capacitors: product view, module construction, key specifications and contact details.",
+    "image": "https://en.chitek-inno.com/assets/images/news/flyer-film-capacitor-960w.webp",
+    "author": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://en.chitek-inno.com/assets/images/logo.webp"
+        }
+    },
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "keywords": "metallized film capacitor, AHF, SVG, DC-link capacitor, active harmonic filter, static var generator, power quality, CHITEK brochure"
+}
+  </script>
+
+  <h1 class="sr-only">{article.title}</h1>
+  <section class="mt-[72px] bg-[#f4f4f4]">
+    <div class="px-4 md:px-6 py-6 md:py-10">
+      <FlyerSpread spread={spread} />
+    </div>
+  </section>
+</BaseLayout>

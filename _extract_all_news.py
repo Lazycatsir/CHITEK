@@ -162,9 +162,12 @@ for lang, rel in LANGS:
                 % (p.as_posix(), "" if desc else "（也没找到，卡片摘要会是空白！）")
             )
 
+        # 视觉型新闻（双页宣传册等）可在 article 里直接给 cardImage（卡片图 base 名）；
+        # 未指定时沿用「正文第一张 news/blog 图 → 兜底图」的既有口径。
+        card_image = field(blk, "cardImage")
         m = IMG_RE.search(s)
-        img = m.group(1) if m else fallback_img(p.stem)
-        if not m:
+        img = card_image or (m.group(1) if m else fallback_img(p.stem))
+        if not m and not card_image:
             warnings.append("%s: 正文无 news/blog 配图 → 使用兜底图 %s" % (p.as_posix(), img))
 
         items.append({

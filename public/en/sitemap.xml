@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://en.chitek-inno.com/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/about/</loc>
@@ -105,12 +105,24 @@
     <lastmod>2026-10-15</lastmod>
   </url>
   <url>
+    <loc>https://en.chitek-inno.com/news/film-capacitor-ahf-svg-brochure/</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
     <loc>https://en.chitek-inno.com/news/fpga-control-chitek-ahf-design/</loc>
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/news/ieee-519-harmonic-distortion-limits/</loc>
     <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://en.chitek-inno.com/news/ip65-low-noise-sic-ahf-svg-brochure/</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://en.chitek-inno.com/news/mmlc-svg-solution-brochure/</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/news/page_2/</loc>
@@ -122,6 +134,10 @@
   </url>
   <url>
     <loc>https://en.chitek-inno.com/news/page_4/</loc>
+    <lastmod>2026-09-18</lastmod>
+  </url>
+  <url>
+    <loc>https://en.chitek-inno.com/news/page_5/</loc>
     <lastmod>2026-09-18</lastmod>
   </url>
   <url>
@@ -186,111 +202,111 @@
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/anti-pollution-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/anti-pollution-hv-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/distributed-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/ip65-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/ip65-sic-fanless-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/sic-fanless-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/sic-ultra-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-asvg/ultra-slim-asvg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/anti-pollution-hv-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/anti-pollution-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/distributed-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/ip65-sic-fanless-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/ip65-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/sic-fanless-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/sic-ultra-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products-svg/ultra-slim-svg/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/anti-pollution-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/anti-pollution-hv-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/distributed-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/ip65-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/ip65-sic-fanless-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/sic-fanless-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/sic-ultra-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/products/ultra-slim-ahf/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://en.chitek-inno.com/services/</loc>

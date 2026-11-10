@@ -1,0 +1,53 @@
+---
+interface Props { spread: string; }
+const { spread } = Astro.props;
+---
+<!-- 桌面：两页左右并成一张跨页；手机：一上一下。纯 CSS，无运行时脚本。 -->
+<div class="flyer-spread">
+  <div class="flyer-deck" set:html={spread}></div>
+</div>
+
+<style is:global>
+  /* --u = 1mm 对应的屏幕长度。420 = 2 x 210mm（跨页）；210 = 单页。
+     减去的常数 = 外层左右 padding + 滚动条余量，保证任何视口都不横向溢出。 */
+  .flyer-spread {
+    --u: calc((100vw - 64px) / 420);
+    width: 100%;
+  }
+  @media (max-width: 767px) {
+    .flyer-spread { --u: calc((100vw - 40px) / 210); }
+  }
+
+  .flyer-deck {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 10px 34px rgba(17, 24, 39, .14);
+  }
+  .flyer-deck .page {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 auto;
+    width: calc(210 * var(--u));
+    height: calc(285 * var(--u));
+    background: #fff;
+  }
+  .flyer-deck .el { position: absolute; margin: 0; box-sizing: border-box; }
+  .flyer-deck .el div { white-space: pre-wrap; }
+  .flyer-deck table.el td div { white-space: normal; }
+  .flyer-deck img { max-width: none; }
+
+  @media (max-width: 767px) {
+    .flyer-deck {
+      flex-direction: column;
+      gap: 12px;
+      background: transparent;
+      box-shadow: none;
+    }
+    .flyer-deck .page { box-shadow: 0 4px 18px rgba(17, 24, 39, .12); }
+  }
+</style>

@@ -10,6 +10,7 @@ const meta = {
 // 本地开发/预览用语言前缀；线上（子域名承载语言）保持根相对
 const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(Astro.url.host);
 const lp = (p: string) => isLocal ? '' + p : p;
+// 2026-11-10 同步英文首页：各区块大标题等比缩小约 12%；hero H1 / 统计数字 / 卡片小标题不在本次范围。
 
 // 2026-10-30 用户要求：Solutions 之下同步英文版的 News 区块 → 取本站新闻列表前 3 条（最新），
 // 不硬编码，新闻数据更新后首页自动跟随（各语 NewsCards 已按日期倒序）。
@@ -111,7 +112,7 @@ const featuredProducts = [
   <!-- FEATURED PRODUCTS -->
   <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(36px,4.5vw,72px)]">
     <div class="w-[clamp(320px,90vw,1800px)]">
-      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(20px,2vw,48px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
+      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(18px,1.75vw,42px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
         客户优选
       </h2>
 
@@ -156,7 +157,7 @@ const featuredProducts = [
     <div class="relative z-10 flex flex-col md:flex-row w-[clamp(320px,90vw,1800px)] mx-auto max-md:mx-3 mb-[clamp(8px,1.5vw,32px)] bg-white/[0.03] border border-white/15 shadow-2xl opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
       <!-- 左侧 About CHITEK 区域 -->
       <div class="flex-1 px-[clamp(12px,2vw,56px)] py-[clamp(16px,3vw,72px)] flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-        <h2 class="font-barlow-condensed text-[45px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h2>
+        <h2 class="font-barlow-condensed text-[40px] font-bold leading-[1.2] mb-[clamp(12px,2vw,32px)] uppercase tracking-[0.02em] text-white">关于 <span class="text-brand-orange">CHITEK</span></h2>
         <div class="w-10 h-[3px] bg-brand-orange mb-[clamp(12px,2vw,32px)]"></div>
         <p class="text-[clamp(13px,0.9vw,16px)] leading-[1.8] text-white/75 mb-[clamp(16px,2.5vw,40px)]">
           深圳市启点新能源科技有限公司成立于 2019 年，总部位于深圳，是一家专注于电力电子产品研发、制造、服务的高新技术企业。致力于打造节能、绿色的未来。
@@ -245,7 +246,7 @@ const featuredProducts = [
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-[url('/assets/images/index-products-bg-480w.webp')] md:bg-[url('/assets/images/index-products-bg-960w.webp')] xl:bg-[url('/assets/images/index-products-bg-1440w.webp')] bg-cover bg-center bg-no-repeat relative flex flex-col justify-center py-12" id="products">
     <div class="relative z-10">
       <div class="text-center mb-[clamp(16px,3vw,48px)] opacity-0 translate-y-6 transition-all duration-[600ms] ease fade-up">
-        <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">产品系列</h2>
+        <h2 class="font-barlow-condensed text-[clamp(32px,3.5vw,42px)] font-bold uppercase tracking-[0.01em] leading-[1.1] mb-[clamp(4px,2vw,32px)]">产品系列</h2>
         <div class="flex justify-center gap-1 mt-[clamp(8px,2vw,32px)] relative border-b border-border-light max-w-[740px] mx-auto overflow-x-auto max-md:justify-start">
           <div class="tab active text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="ahf">有源电力滤波器</div>
           <div class="tab text-[14px] font-medium text-text-muted px-5 py-2 cursor-pointer relative border-b-2 border-transparent mb-[-1px] transition-colors duration-200 hover:text-brand-orange whitespace-nowrap shrink-0" data-product="svg">静止无功发生器</div>
@@ -726,12 +727,41 @@ const featuredProducts = [
       .news-title, .news-card,
       .ps-card { transform: none !important; transition: none !important; opacity: 1 !important; }
     }
+
+    /* 2026-11-10 同步英文首页：桌面端 Solution Insights 的橙色标题（文字 + 左竖线）和小字描述、
+       Latest News 的小字描述，默认不显示，鼠标移到卡片上才淡入；手机端（<768px）始终常显。
+       常显的理由：① SEO 以移动版为收录基准 ② 触摸设备没有 hover。
+       :focus-within 让键盘 Tab 到卡片链接时也能看到；保留原有占位，hover 不跳版。 */
+    .insight-heading, .insight-desc, .news-desc {
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    @media (min-width: 768px) {
+      .insight-heading, .insight-desc, .news-desc { opacity: 0; transform: translateY(6px); }
+      .insight-card:hover .insight-heading,
+      .insight-card:focus-within .insight-heading,
+      .insight-card:hover .insight-desc,
+      .insight-card:focus-within .insight-desc,
+      .news-card:hover .news-desc,
+      .news-card:focus-within .news-desc { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* 2026-11-10 用户要求：桌面端 Solution Insights 卡片与 Latest News 卡片之间的
+       间距缩到原来的 1/3（1440 实测 384px → 约 128px）。
+       原间距 = #solutions 尾部空白 247px（min-h-[calc(100vh-72px)] 撑出）
+              + #news 上内边距 43px + Latest News 标题 50px + 标题下留白 43px。
+       只在 >=768px 生效：#solutions min-height 归 0、下内边距收到 15px，
+       #news 上内边距收到 20px；标题与标题下留白保持不动，手机端完全不变。 */
+    @media (min-width: 768px) {
+      #solutions { min-height: 0; padding-bottom: 15px; }
+      #news { padding-top: 20px; }
+    }
   </style>
 
   <!-- SOLUTIONS -->
   <section class="min-h-[calc(100vh-72px)] px-[clamp(24px,8vw,160px)] bg-white flex flex-col py-12" id="solutions">
     <div class="text-center mb-[clamp(8px,1.5vw,24px)] fade-up insight-title">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">解决方案概览</h2>
+      <h2 class="font-barlow-condensed text-[clamp(32px,3.5vw,42px)] font-bold uppercase tracking-[0.02em] mb-[clamp(4px,2vw,32px)]">解决方案概览</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
@@ -741,8 +771,8 @@ const featuredProducts = [
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">LED 照明谐波与中性线过载——广州某购物中心</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">电流畸变 49% &rarr; 2.75% &middot; 中性线电流 365.76 A &rarr; 25.19 A。一台 2,500 kVA 商场变压器负载 90%，含 LED 照明与 LED 视频墙。配置 2 &times; 200 A AHF。</p>
+            <h3 class="insight-heading text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">LED 照明谐波与中性线过载——广州某购物中心</h3>
+            <p class="insight-desc text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">电流畸变 49% &rarr; 2.75% &middot; 中性线电流 365.76 A &rarr; 25.19 A。一台 2,500 kVA 商场变压器负载 90%，含 LED 照明与 LED 视频墙。配置 2 &times; 200 A AHF。</p>
           </div>
           <a href={lp('/solutions#commercial')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               查看谐波治理案例
@@ -760,8 +790,8 @@ const featuredProducts = [
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">数据中心馈线 UPS 谐波——广州某 IDC</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">谐波电流 204.96 A &rarr; 19.18 A &middot; 畸变率 26.94% &rarr; 3.12%（负载 814 A）。某 IDC 机房 TR1 馈线；内置 2 &times; 200 A + 100 A 有源滤波器。</p>
+            <h3 class="insight-heading text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">数据中心馈线 UPS 谐波——广州某 IDC</h3>
+            <p class="insight-desc text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">谐波电流 204.96 A &rarr; 19.18 A &middot; 畸变率 26.94% &rarr; 3.12%（负载 814 A）。某 IDC 机房 TR1 馈线；内置 2 &times; 200 A + 100 A 有源滤波器。</p>
           </div>
           <a href={lp('/solutions#datacenter')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               查看数据中心案例
@@ -779,8 +809,8 @@ const featuredProducts = [
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50 transition-[background] duration-300 group-hover:from-black/10 group-hover:to-black/60"></div>
         <div class="absolute inset-0 p-[clamp(16px,3vw,48px)] flex flex-col justify-end z-10">
           <div>
-            <h3 class="text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">变频器与压缩机馈线改造——广东某电子制造商</h3>
-            <p class="text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">VFD、压缩机与水泵馈线电流畸变 20.06% &rarr; 2.58%。运行电流 800&ndash;1,000 A，无功补偿 780 kvar；配置 2 &times; 200 A + 150 A AHF。</p>
+            <h3 class="insight-heading text-[clamp(16px,1.4vw,22px)] font-bold leading-[1.3] mb-3 text-brand-orange capitalize border-l-[3px] border-brand-orange pl-4">变频器与压缩机馈线改造——广东某电子制造商</h3>
+            <p class="insight-desc text-[clamp(11px,1vw,16px)] text-white/90 leading-[1.7]">VFD、压缩机与水泵馈线电流畸变 20.06% &rarr; 2.58%。运行电流 800&ndash;1,000 A，无功补偿 780 kvar；配置 2 &times; 200 A + 150 A AHF。</p>
           </div>
           <a href={lp('/solutions#industry')} class="mt-5 text-[12px] font-semibold tracking-[0.08em] uppercase text-white no-underline inline-flex items-center gap-2 hover:text-brand-orange transition-colors duration-200 group/link">
               查看工业改造案例
@@ -795,9 +825,9 @@ const featuredProducts = [
   </section>
 
   <!-- LATEST NEWS（2026-10-30 同步自英文版首页） -->
-  <section class="px-[clamp(24px,8vw,160px)] py-[clamp(48px,6vw,88px)] bg-bg-page" id="news">
+  <section class="px-[clamp(24px,8vw,160px)] py-[clamp(28px,3vw,48px)] bg-white" id="news">
     <div class="text-center mb-[clamp(24px,3vw,48px)] fade-up news-title">
-      <h2 class="font-barlow-condensed text-[clamp(36px,4vw,48px)] font-bold uppercase tracking-[0.02em] text-text-dark">最新新闻</h2>
+      <h2 class="font-barlow-condensed text-[clamp(32px,3.5vw,42px)] font-bold uppercase tracking-[0.02em] text-text-dark">最新新闻</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0 gap-x-[clamp(16px,3vw,48px)] w-full max-w-[1320px] mx-auto">
@@ -812,7 +842,7 @@ const featuredProducts = [
               <span class="text-[11px] tracking-[0.04em] text-text-muted">{n.date}</span>
             </div>
             <h3 class="font-barlow-condensed text-[clamp(17px,1.35vw,22px)] font-bold leading-[1.35] text-text-dark transition-colors duration-200 group-hover:text-brand-orange">{n.title}</h3>
-            <p class="mt-3 text-[clamp(12px,0.95vw,15px)] leading-[1.7] text-text-mid line-clamp-3">{n.desc}</p>
+            <p class="news-desc mt-3 text-[clamp(12px,0.95vw,15px)] leading-[1.7] text-text-mid line-clamp-3">{n.desc}</p>
           </div>
         </a>
       ))}

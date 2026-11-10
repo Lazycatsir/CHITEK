@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FlyerSpread from '../../../components/flyer/FlyerSpread.astro';
+import spread from '../../../components/flyer/ip65-low-noise.html?raw';
+
+const article = {
+  title: "IP65 Low-Noise SiC AHF / SVG — Product Brochure",
+  category: "Product Update",
+  date: "2026-10-31",
+  dateDisplay: "Oct 31, 2026",
+  author: "CHITEK INNOPOWER",
+  description: "CHITEK two-page product brochure for the IP65 low-noise SiC AHF / SVG: enclosure, wall installation, construction details and model overview.",
+  cardImage: "/assets/images/news/flyer-ip65-low-noise.webp",
+  keywords: "IP65 AHF, low noise SVG, SiC AHF, wall mounted, active harmonic filter, static var generator, CHITEK brochure"
+};
+
+const ogImage = 'https://en.chitek-inno.com/assets/images/news/flyer-ip65-low-noise-960w.webp';
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage={ogImage}
+  alternates={false}
+>
+  <script type="application/ld+json" slot="head">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IP65 Low-Noise SiC AHF / SVG — Product Brochure",
+    "description": "CHITEK two-page product brochure for the IP65 low-noise SiC AHF / SVG: enclosure, wall installation, construction details and model overview.",
+    "image": "https://en.chitek-inno.com/assets/images/news/flyer-ip65-low-noise-960w.webp",
+    "author": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://en.chitek-inno.com/assets/images/logo.webp"
+        }
+    },
+    "datePublished": "2026-10-31",
+    "dateModified": "2026-10-31",
+    "keywords": "IP65 AHF, low noise SVG, SiC AHF, wall mounted, active harmonic filter, static var generator, CHITEK brochure"
+}
+  </script>
+
+  <h1 class="sr-only">{article.title}</h1>
+  <section class="mt-[72px] bg-[#f4f4f4]">
+    <div class="px-4 md:px-6 py-6 md:py-10">
+      <FlyerSpread spread={spread} />
+    </div>
+  </section>
+</BaseLayout>

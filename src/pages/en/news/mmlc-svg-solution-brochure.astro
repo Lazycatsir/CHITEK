@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FlyerSpread from '../../../components/flyer/FlyerSpread.astro';
+import spread from '../../../components/flyer/mmlc-solution.html?raw';
+
+const article = {
+  title: "MV-Side Metering & LV-Side Compensation SVG Solution — Brochure",
+  category: "Product Update",
+  date: "2026-11-05",
+  dateDisplay: "Nov 05, 2026",
+  author: "CHITEK INNOPOWER",
+  description: "CHITEK two-page solution brochure for MV-side metering with LV-side SVG compensation: system schemes, cabinet configuration, monitoring and wiring diagrams.",
+  cardImage: "/assets/images/news/flyer-mmlc-solution.webp",
+  keywords: "MV metering, LV compensation, SVG solution, static var generator, reactive power compensation, cabinet, CHITEK brochure"
+};
+
+const ogImage = 'https://en.chitek-inno.com/assets/images/news/flyer-mmlc-solution-960w.webp';
+---
+<BaseLayout
+  title={`${article.title} | CHITEK INNOPOWER`}
+  description={article.description}
+  lang="en"
+  ogType="article"
+  ogTitle={article.title}
+  ogDescription={article.description}
+  ogImage={ogImage}
+  alternates={false}
+>
+  <script type="application/ld+json" slot="head">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "MV-Side Metering & LV-Side Compensation SVG Solution — Brochure",
+    "description": "CHITEK two-page solution brochure for MV-side metering with LV-side SVG compensation: system schemes, cabinet configuration, monitoring and wiring diagrams.",
+    "image": "https://en.chitek-inno.com/assets/images/news/flyer-mmlc-solution-960w.webp",
+    "author": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "CHITEK INNOPOWER",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://en.chitek-inno.com/assets/images/logo.webp"
+        }
+    },
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-05",
+    "keywords": "MV metering, LV compensation, SVG solution, static var generator, reactive power compensation, cabinet, CHITEK brochure"
+}
+  </script>
+
+  <h1 class="sr-only">{article.title}</h1>
+  <section class="mt-[72px] bg-[#f4f4f4]">
+    <div class="px-4 md:px-6 py-6 md:py-10">
+      <FlyerSpread spread={spread} />
+    </div>
+  </section>
+</BaseLayout>
