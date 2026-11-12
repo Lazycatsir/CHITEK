@@ -109,10 +109,11 @@ const featuredProducts = [
     </div>
   </section>
 
-  <!-- FEATURED PRODUCTS -->
-  <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(36px,4.5vw,72px)]">
+  <!-- FEATURED PRODUCTS
+       2026-11-12 同步英文首页 Customer Favorites 收高：pb / h2 mb / fp-nav mt / fp-stage 四处，口径同 en/index.astro。 -->
+  <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(24px,2.5vw,40px)]">
     <div class="w-[clamp(320px,90vw,1800px)]">
-      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(18px,1.75vw,42px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
+      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(18px,1.75vw,42px)] font-bold leading-[1.2] text-text-dark mb-[clamp(12px,1.3vw,20px)]">
         客户优选
       </h2>
 
@@ -133,7 +134,7 @@ const featuredProducts = [
       </div>
 
       <!-- 翻页控制 + 全部产品 -->
-      <div class="fp-nav mt-[clamp(16px,2vw,32px)]">
+      <div class="fp-nav mt-[clamp(12px,1.5vw,24px)]">
         <div class="fp-nav-arrows">
           <button type="button" class="fp-arrow" data-fp-prev aria-label="上一组产品">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
@@ -505,7 +506,7 @@ const featuredProducts = [
     .fp-stage {
       background: #ffffff;
       border: 1px solid var(--color-border-light);
-      height: clamp(160px, 17vw, 236px);
+      height: clamp(150px, 14vw, 200px);
       display: flex;
       align-items: center;
       justify-content: center;

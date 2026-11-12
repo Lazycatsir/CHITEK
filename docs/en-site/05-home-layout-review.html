@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英文首页布局排版整改方案（Hero 与 Customer Favorites 之后）</title>
+<style>
+  body { margin:0; padding:40px 24px 80px; background:#fff; color:#16181d; font:15px/1.75 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif; }
+  main { max-width:940px; margin:0 auto; }
+  h1 { font-size:25px; line-height:1.4; margin:0 0 6px; font-weight:700; }
+  h2 { font-size:19px; margin:44px 0 14px; padding-bottom:7px; border-bottom:1px solid #d8dbe0; font-weight:700; }
+  h3 { font-size:15px; margin:26px 0 6px; font-weight:700; }
+  p { margin:8px 0; }
+  .meta { color:#6b7280; font-size:13px; margin-bottom:26px; }
+  .lead { background:#f6f7f8; border-left:3px solid #9aa0a6; padding:12px 16px; margin:18px 0; }
+  table { border-collapse:collapse; width:100%; margin:14px 0 20px; font-size:13.5px; }
+  th, td { border:1px solid #dfe1e4; padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:#f6f7f8; font-weight:600; }
+  code { font-family:Consolas,Monaco,monospace; font-size:12.5px; background:#f4f5f6; padding:1px 4px; }
+  ul, ol { margin:8px 0 8px 0; padding-left:22px; }
+  li { margin:5px 0; }
+  .row { margin:0 0 22px; }
+  .row p { margin:4px 0; }
+  .k { display:inline-block; min-width:44px; color:#6b7280; font-size:13px; }
+  .tag { font-weight:700; }
+  .note { font-size:13px; color:#6b7280; }
+  hr { border:0; border-top:1px solid #e5e7eb; margin:34px 0 0; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>英文首页布局排版整改方案</h1>
+<p class="meta">2026-11-12 ｜ 对象：<code>src/pages/en/index.astro</code> ｜ 范围：Hero 与 Customer Favorites 之后的 4 个区块 ｜ 性质：评估与建议，本轮未改动任何代码</p>
+
+<h2>一、范围与现状基线</h2>
+
+<p>按页面源码顺序：Hero（排除）→ Customer Favorites / <code>#featured-products</code>（排除）→ <strong>ABOUT</strong> → <strong>Product Series</strong> → <strong>Solution Insights</strong> → <strong>Latest News</strong>。本次只评后 4 段。Footer 由 <code>BaseLayout.astro</code> 全站共用，不纳入首页整改。</p>
+
+<p class="note">下表数值为 1440px 视口下按源码 <code>clamp()</code> 直接推算，非浏览器实测；用于说明「不对齐」的量级，落地前请以 dev 实测为准。</p>
+
+<table>
+<tr><th>区块</th><th>背景</th><th>内容宽度 / 左边界</th><th>高度策略</th><th>桌面默认可见的信息</th></tr>
+<tr><td>ABOUT <code>#about</code></td><td>深蓝底 + 背景图 30% + 70% 压暗</td><td><code>w-[clamp(320px,90vw,1800px)]</code> = 1296px，居中 → 左边界 <strong>72px</strong></td><td><code>min-h-[calc(100vh-72px)]</code> = 828px，内容约 650px</td><td>全部可见</td></tr>
+<tr><td>Product Series <code>#products</code></td><td>浅色产品背景图</td><td><code>px-[clamp(24px,8vw,160px)]</code> = 115.2px → 内容宽 1209.6px，<strong>左边界 115.2px</strong></td><td>同上 828px</td><td>6 张特性卡默认 <code>opacity:0</code>，需 JS 淡入</td></tr>
+<tr><td>Solution Insights <code>#solutions</code></td><td>白</td><td>115.2px + <code>max-w-[1320px]</code>（实际 1209.6px）</td><td><code>min-height</code> 已被 11-10 的 CSS 覆盖为 0，下内边距 15px</td><td>只有背景图 + 「Read the … case」链接；橙色案例标题与描述需 hover</td></tr>
+<tr><td>Latest News <code>#news</code></td><td>白（11-10 改为与上方同色）</td><td>115.2px + <code>max-w-[1320px]</code></td><td>内容高，上内边距 20px</td><td>分类 / 日期 / 标题可见；摘要需 hover</td></tr>
+</table>
+
+<div class="lead">
+<strong>结论：</strong>这 4 段的问题不是「某处不好看」，而是三件底层的事没定下来 —— <strong>内容宽度没有统一</strong>（同一页出现 72px 与 115.2px 两套左边界）、<strong>区块边界没有建立</strong>（白底连片 + 间距压到 112px + 满屏撑高混用）、<strong>桌面端把卡片的核心信息藏了</strong>（案例标题与摘要默认不可见）。建议先做 P0 这四条四两拨千斤的修正，P1 一次性回归，视觉风格类的 P2 往后排。
+</div>
+
+<h2>二、P0 —— 先做：可见性与可信度，不动结构</h2>
+
+<div class="row">
+<h3>P0-1　恢复 Solution Insights 卡片的可读性</h3>
+<p><span class="k">现状</span>11-10 起，桌面 ≥768px 下 <code>.insight-heading</code>（橙色案例标题）与 <code>.insight-desc</code> 默认 <code>opacity:0</code>，仅 hover / focus-within 淡入。结果是三张大图 + 三个「Read the … case」链接，用户不知道每张图是哪个案例。</p>
+<p><span class="k">问题</span>卡片的「身份信息」被当成装饰藏掉了。hover 只能承载补充说明，不能承载「这是什么」——尤其鼠标还没移上去时，三张卡互相无法区分（视觉层级倒置：次要的链接比主标题更显眼）。另外触控虽已做常显，但桌面触屏 / 笔电触控板用户仍会踩到。</p>
+<p><span class="k">建议</span>折中方案，二选一由你裁决：<strong>A</strong> 标题常显、描述保留 hover（信息层级回来了，干净度基本保留，改动最小）；<strong>B</strong> 标题与描述都常显，把描述压到 2 行 <code>line-clamp-2</code> 控制卡片高度。不建议维持现状。</p>
+<p><span class="k">验收</span>1440 视口、不触发任何 hover 时，3 张卡的案例标题 computed <code>opacity = 1</code>；390 视口仍全部常显；卡片高度在 hover 前后不变（不跳版）。</p>
+</div>
+
+<div class="row">
+<h3>P0-2　「Play Video」名实不符</h3>
+<p><span class="k">现状</span>ABOUT 区唯一的主按钮是橙色实心 + 播放三角图标，文案 <code>Play Video</code>，但 <code>href</code> 指向 <code>/about</code>，点进去是普通关于页，没有视频。</p>
+<p><span class="k">问题</span>图标和文案是在给一个承诺（点开会播放），实际行为是跳转——这叫 affordance 失真，B2B 站点上很伤信任感。而且它占据了整段最重的视觉权重，却不是转化动作。</p>
+<p><span class="k">建议</span>要么把文案改成 <code>About CHITEK</code> / <code>Our Story</code> 并把三角换成右箭头；要么真接一个视频弹层（需你确认有无成片）。前者零成本，建议先做。</p>
+<p><span class="k">验收</span>按钮文案与落地页一致，无播放语义的图标；控制台无死链。</p>
+</div>
+
+<div class="row">
+<h3>P0-3　卡片内容默认可见（渐进增强）</h3>
+<p><span class="k">现状</span><code>.fade-up</code>、<code>.ps-card</code>、<code>.insight-card</code>、<code>.news-card</code> 默认都是 <code>opacity:0</code> / 位移，靠 JS 的 IntersectionObserver 加 <code>.visible</code> 才显现。</p>
+<p><span class="k">问题</span>JS 一旦没跑起来（脚本报错、被拦截、爬虫渲染、弱网下脚本超时），这 4 段会大面积空白。文字虽在 DOM 里，但视觉呈现是空的。站里已经按「SSR + 渐进增强验两层」的口径做过验证，这一层目前是反过来的。</p>
+<p><span class="k">建议</span>把「隐藏」收敛到一个开关：由 BaseLayout 在 <code>&lt;html&gt;</code> 上挂 <code>js</code> class，CSS 写成 <code>.js .ps-card { opacity:0 }</code>。没有 JS 时内容全部常态可见，动画只是增强。</p>
+<p><span class="k">验收</span>禁用 JavaScript 加载 <code>/en/</code>，ABOUT 大框、Product Series 标题与 6 卡、3 张案例卡、3 张新闻卡全部 <code>opacity = 1</code> 且位置正常。</p>
+</div>
+
+<div class="row">
+<h3>P0-4　补一个主转化入口</h3>
+<p><span class="k">现状</span>这 4 段里的可点元素全是「导航型」：All Products / Series → / Read the case / View all news。整页从 ABOUT 滚到 NEWS 结束，没有一处 <code>Get a Quote</code> / <code>Contact Sales</code> / <code>Download Catalog</code>，然后直接进 Footer。</p>
+<p><span class="k">问题</span>B2B 首页的收尾缺「下一步做什么」。用户看完案例和数据后意向最高，却没有承接动作，转化全靠用户自己去 Nav 找 Contact。</p>
+<p><span class="k">建议</span>在 <code>#news</code> 之后、Footer 之前加一条轻量 CTA 条（一句话价值主张 + 一个主按钮 + 一个次按钮），高度控制在 160px 内，不新增大区块。<strong>属新增区块，需你裁决是否加。</strong></p>
+<p><span class="k">验收</span>1440 / 390 两视口下 CTA 条可见、主按钮可点、无横向溢出。</p>
+</div>
+
+<h2>三、P1 —— 结构性整改，建议一次性做完再回归</h2>
+
+<div class="row">
+<h3>P1-1　统一内容宽度（栅格对齐）</h3>
+<p><span class="k">现状</span>ABOUT 用 <code>w-[clamp(320px,90vw,1800px)] mx-auto</code> → 1440 下左边界 72px；其余三段用 <code>px-[clamp(24px,8vw,160px)]</code>（+ <code>max-w-[1320px]</code>）→ 左边界 115.2px。<strong>滚动时内容左右边缘错开 43.2px</strong>，深色区到浅色区的切换会明显「晃一下」。</p>
+<p><span class="k">问题</span>同一页出现两套容器系统；而且 ABOUT 的 1296px 容器比父级可用宽度（1209.6px）还宽 86px，靠 <code>body { overflow-x-hidden }</code> 兜住——这也是阿语 RTL 下既有 1486/1440 横向溢出的来源之一。</p>
+<p><span class="k">建议</span>四段统一到一套：<code>px-[clamp(24px,8vw,160px)]</code> + 内层 <code>max-w-[1320px] mx-auto w-full</code>。ABOUT 去掉 <code>90vw</code> 容器。</p>
+<p><span class="k">验收</span>1440 下四段内容左边界相同（±1px）；390 下无横向溢出；5 语首页 + 阿语 RTL 一并回归（既有溢出单列跟踪，不算本次引入）。</p>
+</div>
+
+<div class="row">
+<h3>P1-2　取消「按屏幕高度撑满」，改成按内容定高</h3>
+<p><span class="k">现状</span><code>#about</code> 与 <code>#products</code> 都用 <code>min-h-[calc(100vh-72px)]</code>；而 11-10 已把 <code>#solutions</code> 的 min-height 覆盖成 0、<code>#news</code> 上内边距压到 20px。结果是前两段「满屏」、后两段「贴内容」，节奏在页面中间突然变档。</p>
+<p><span class="k">问题</span>区块高度跟屏幕高度绑定而不是跟内容绑定：900 高屏留白约 180px，1080 高屏留白会更大，不同设备看到的疏密完全不同。而且 <code>min-h</code> 写在 class 上、又被 style 里的 ID 选择器覆盖，维护时容易误判。</p>
+<p><span class="k">建议</span>四段统一改成内容高度 + 固定上下内边距（建议 <code>py-[clamp(64px,7vw,112px)]</code>），删掉两处 <code>min-h-[calc(...)]</code> 与 11-10 的 <code>#solutions{min-height:0}</code> 补丁。深浅节奏靠背景交替建立，不靠空白硬撑。</p>
+<p><span class="k">验收</span>1440×900 与 1440×1080 两档下，每段上下留白数值一致；四段总高度变化在预期内；无跳动。</p>
+</div>
+
+<div class="row">
+<h3>P1-3　Product Series 的 tab 状态只切了一半</h3>
+<p><span class="k">现状</span>点击 <code>Active Harmonic Filter / Static Var Generator</code> 两个 tab，JS 只切换左侧介绍文字和右侧产品图；<strong>中间 6 张特性卡完全不变</strong>，且文案含 AHF 专属口径（<code>efficiency up to 98.5–99.2%</code> 等）。另外 tab 是 <code>&lt;div class="tab"&gt;</code>，无 <code>role="tab"</code> / <code>aria-selected</code> / 键盘焦点。</p>
+<p><span class="k">问题</span>控件承诺了「换一个产品」，但只兑现了三分之一，用户会误把 AHF 参数当成 SVG 参数（状态一致性问题）。<code>&lt;div&gt;</code> 当按钮也违反站内「功能控件一律 <code>&lt;button type="button"&gt;</code>」的硬规则，键盘用户根本切不了。</p>
+<p><span class="k">建议</span>二选一：<strong>A</strong> 6 张卡跟着 tab 一起切（数据化，改动较大）；<strong>B</strong> 把中间网格明确改叫「共通技术底座 / Platform Capabilities」，去掉产品特指措辞，让它与 tab 解耦（改动小，推荐）。无论哪种，tab 都换成 <code>&lt;button type="button" role="tab" aria-selected&gt;</code> 并支持左右方向键。</p>
+<p><span class="k">验收</span>切到 SVG 后中间网格无 AHF 专属数值（选 B）；Tab 键可聚焦两个 tab、Enter/方向键可切换；SSR 输出里两个 tab 都存在。</p>
+</div>
+
+<div class="row">
+<h3>P1-4　给 Solutions 与 News 之间建立分组边界</h3>
+<p><span class="k">现状</span>11-10 之后两段同为白底，间距压到约 112px（原 368px 的 1/3）；上面是 3 张满幅图片卡（<code>rounded-2xl</code>），下面是 3 张白底细边框卡（<code>rounded-2xl</code>）。</p>
+<p><span class="k">问题</span>同底色 + 近间距 + 同样三列，按接近原则会被读成「一个 6 卡网格」，但两组卡形态又不一样，于是显得杂乱——这是分组失效而不是间距不够。另：白底上的白卡只靠 1px 细边框分层，层次很弱（11-10 已提示过）。</p>
+<p><span class="k">建议</span>不改 11-10 定的紧凑间距，改用两招建立边界：① 给 <code>#news</code> 一句居中的分组引导语（如 <code>From the blog</code> 之类），把两个 H2 的层级关系讲清楚；② 新闻卡底色改极浅灰 <code>#fafafa</code> 或加一条 1px 顶分隔线。<strong>「白底同色」是 11-10 刚定的口径，是否允许浅灰分隔需你裁决。</strong></p>
+<p><span class="k">验收</span>1440 下两段视觉上可明确区分为两组；卡片层次可辨；间距仍约 112px（不回退）。</p>
+</div>
+
+<h2>四、P2 —— 设计系统收敛，可排到后面</h2>
+
+<div class="row">
+<h3>P2-1　圆角语言统一</h3>
+<p><span class="k">现状</span>同一页并存三套：<code>rounded-[2px]</code>（箭头按钮 / All Products）、<code>rounded-2xl</code> = 16px（案例卡 / 新闻卡）、<code>rounded-full</code>（View all news）。</p>
+<p><span class="k">建议</span>定一档主圆角（工业设备类建议 4px，克制、偏硬朗；若要柔和则统一 12px），按钮类单独一档并 token 化。不要靠胶囊按钮来做「主次区分」，用色彩和尺寸区分。</p>
+</div>
+
+<div class="row">
+<h3>P2-2　字号阶梯按「用途」定义，不急着拉平数值</h3>
+<p><span class="k">现状</span>11-10 等比降 12% 后，H2 是 25.2 / 40 / 42 三档（Customer Favorites / ABOUT / 三个居中标题），正文散布 10～16px 多档 <code>clamp</code>。</p>
+<p><span class="k">建议</span>先定义三档的用途（区块大标题 / 深色区内嵌标题 / 卡片组标题），把「为什么不一样」写进规范；再决定是否统一数值。<strong>11-10 明确「保持各自相对大小、没强行拉平」，属你刚定的口径，这里只登记问题，不擅自改。</strong></p>
+</div>
+
+<div class="row">
+<h3>P2-3　ABOUT 的证据信息去重、补口径</h3>
+<p><span class="k">现状</span>深色区里先是一组 2×2 四宫格（60% / 自主设计 / 产品多样 / 品质保障），下面又是一排 4 个统计数字（2019 / 2700+ / 30+ / 20+），两组「四列证据」连着出现；<code>30+ Intellectual Properties</code> 与四宫格里的「More than 30 Intellectual Properties」重复；<code>60%</code> 没有说明是什么的 60%。</p>
+<p><span class="k">建议</span>四宫格改成纯「能力标签」（去掉数字），硬数字只留在统计条；<code>60%</code> 补完整口径（如 <code>60% of staff in R&amp;D</code>）或删掉。B2B 采购看数字会追问来源，悬空数字不如不写。</p>
+</div>
+
+<div class="row">
+<h3>P2-4　动效收敛为一套</h3>
+<p><span class="k">现状</span>4 套入场动画并存（<code>fade-up</code> 上移、左右 <code>conv-left/right</code> 各 64px、标题从左 64px、卡片 36/48/64px 三档错峰），且进出视口会反复重播。</p>
+<p><span class="k">建议</span>统一成一套：仅 <code>opacity</code> + 8px 上移、只首次进入触发、同组错峰 ≤80ms。<code>prefers-reduced-motion</code> 已处理，保留。滚回来重播对阅读是干扰，不是惊喜。</p>
+</div>
+
+<h2>五、依赖关系</h2>
+<ul>
+<li><strong>P1-1 与 P1-2 必须一起改</strong>：容器和区块高度都影响整页垂直节奏，分两次做会各回归一遍；改完统一跑一次 5 语回归。</li>
+<li><strong>P0-1 / P1-4 卡在口径裁决上</strong>：都是 11-10 刚定的口径，先定再动。</li>
+<li><strong>P0-4 是新增区块</strong>：需先定「加不加」，加的话排在 P1 之后，避免 CTA 条跟着容器改动再挪一次。</li>
+<li><strong>P2 四项彼此独立</strong>，也不依赖 P0/P1，可任意排期。</li>
+</ul>
+
+<h2>六、验收清单（只测 1440 与 390 两个视口）</h2>
+<ol>
+<li>四段内容左边界数值相同（±1px）。</li>
+<li>Solutions 与 News 视觉上能明确区分成两组，间距仍约 112px。</li>
+<li>桌面不 hover 时，3 张案例卡的标题可见；hover 前后卡片高度不变。</li>
+<li>禁用 JS 后，ABOUT 大框 / Product Series 6 卡 / 3 张案例卡 / 3 张新闻卡全部可见。</li>
+<li>切到 SVG tab 后，中间网格无 AHF 专属参数（或已明确标为共通能力）。</li>
+<li>Tab 键能聚焦并切换两个 tab；按钮有 <code>type="button"</code>。</li>
+<li>1440 / 390 无横向溢出；5 语 H1、H2 与统计数字字号不变（不回退 11-10 口径）。</li>
+<li>阿语 RTL 既有 <code>scrollWidth 1486 / 1440</code> 溢出单列跟踪，不算本次回归项。</li>
+</ol>
+
+<h2>七、待你裁决（不自己拍板）</h2>
+<ol>
+<li>P0-1：案例标题是否改回桌面常显（A 只放标题 / B 标题+描述都常显 / 维持现状）。</li>
+<li>P1-4：News 白底是否允许改极浅灰，或只加分隔线 + 引导语。</li>
+<li>P0-4：是否在 News 后新增一条主转化 CTA 条。</li>
+<li>P1-3：中间 6 卡跟 tab 一起切（A），还是改成「共通技术底座」与 tab 解耦（B，推荐）。</li>
+<li>P2-2：H2 三档字号是否统一（11-10 已定「保持相对大小」）。</li>
+<li>范围外单列：Footer 三个栏目名仍是 <code>&lt;h4&gt;</code> 造成 H2→H4 跳级（P0-2 待裁决项），属全站组件，不在本次首页整改内。</li>
+</ol>
+
+<hr>
+<p class="note">本轮只做只读评估与方案输出，没有修改 <code>src/pages/en/index.astro</code> 或任何其它源码文件，也没有重建 dist、没有提交 Git。所有数值以 1440px 视口按源码 <code>clamp()</code> 推算，落地前请用 dev 实测复核。</p>
+
+</main>
+</body>
+</html>

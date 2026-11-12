@@ -113,10 +113,11 @@ const featuredProducts = [
   <!-- FEATURED PRODUCTS
        2026-09-28 间距调整（用户要求变紧凑）：
        原来 h2 用 `relative` + 负 top 硬拽出 padding → 上间距恒等于 32px、下间距被 padding 放大（1440 下 61px）。
-       改为直接用 pt / mb 控制：pt = 标题离上边沿，mb = 标题到卡片的间距，两边独立可调。 -->
-  <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(36px,4.5vw,72px)]">
+       改为直接用 pt / mb 控制：pt = 标题离上边沿，mb = 标题到卡片的间距，两边独立可调。
+       2026-11-12 同步英文首页 Customer Favorites 收高：pb / h2 mb / fp-nav mt / fp-stage 四处，口径同 en/index.astro。 -->
+  <section id="featured-products" class="bg-bg-page px-[clamp(24px,8vw,160px)] pt-[clamp(12px,1.1vw,16px)] pb-[clamp(24px,2.5vw,40px)]">
     <div class="w-[clamp(320px,90vw,1800px)]">
-      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(18px,1.75vw,42px)] font-bold leading-[1.2] text-text-dark mb-[clamp(14px,1.6vw,24px)]">
+      <h2 class="relative ml-[calc(40px_-_clamp(24px,8vw,160px))] font-barlow-condensed text-[clamp(18px,1.75vw,42px)] font-bold leading-[1.2] text-text-dark mb-[clamp(12px,1.3vw,20px)]">
         Favoritos de los Clientes
       </h2>
 
@@ -139,7 +140,7 @@ const featuredProducts = [
       <!-- 翻页控制 + 全部产品（2026-09-30：All Products 移到「右箭头」右侧；左右箭头仍保持居中不动）
            ≥768px：grid 三列 1fr/auto/1fr，箭头落中列（严格居中），All Products 放第三列左对齐 → 紧贴右箭头右侧。
            <768px：回落成上下两行居中，避免窄屏被挤出容器。 -->
-      <div class="fp-nav mt-[clamp(16px,2vw,32px)]">
+      <div class="fp-nav mt-[clamp(12px,1.5vw,24px)]">
         <div class="fp-nav-arrows">
           <button type="button" class="fp-arrow" data-fp-prev aria-label="Previous products">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
@@ -507,7 +508,7 @@ const featuredProducts = [
     .fp-stage {
       background: #ffffff;
       border: 1px solid var(--color-border-light);
-      height: clamp(160px, 17vw, 236px);
+      height: clamp(150px, 14vw, 200px);
       display: flex;
       align-items: center;
       justify-content: center;
